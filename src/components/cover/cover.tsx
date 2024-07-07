@@ -1,21 +1,20 @@
 import {Col, Container, Image, Row} from "react-bootstrap";
-import classes from "./under-construction.module.scss";
+import classes from "./cover.module.scss";
 
-export const UnderConstruction = (props: UnderConstructionProps) => {
+export const Cover = (props: CoverProps) => {
     return (
-        <Container fluid={true}>
+        <Container fluid={true} className={classes.Cover}>
             <Row className="d-flex align-items-center justify-content-center">
                 <Col className="d-flex align-items-center justify-content-center">
-                    <Image className={classes.UnderConstructionImage} fluid={true}
-                           src={props.image}
-                           alt={props.description}/>
+                    <Image fluid={true} src={props.image} alt={props.description}/>
+                    <h1 className={classes.CoverText}>Under Construction</h1>
                 </Col>
             </Row>
         </Container>
     )
 }
 
-class UnderConstructionProps {
+class CoverProps {
     image: string;
     description: string;
 

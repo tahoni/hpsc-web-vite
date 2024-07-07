@@ -1,4 +1,12 @@
+@forward "styles-colors";
+@forward "styles-fonts";
+@forward "styles-icons";
+@import "styles-theme";
+
 html, body {
-  margin: 0;
-  padding: 0;
+  font-family: $body-font-family;
+  color: $text-color;
+  background-color: $background-color;
+  //margin: 0;
+  //padding: 0;
 }
