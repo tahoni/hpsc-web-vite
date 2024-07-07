@@ -1,5 +1,5 @@
 import {Col, Container, Image, Row} from "react-bootstrap";
-import underConstructionImage from './under-construction.png';
+import ladyShooterOnIpscRangeImage from '../../assets/images/lady-shooter-on-ipsc-range.png';
 import classes from "./under-construction.module.scss";
 
 export const UnderConstruction = () => {
@@ -8,7 +8,7 @@ export const UnderConstruction = () => {
             <Row className="d-flex align-items-center justify-content-center">
                 <Col className="d-flex align-items-center justify-content-center">
                     <Image className={classes.UnderConstructionImage} fluid={true}
-                           src={underConstructionImage}
+                           src={ladyShooterOnIpscRangeImage}
                            alt="Lady shooter on IPSC range"/>
                 </Col>
             </Row>
