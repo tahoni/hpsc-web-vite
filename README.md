@@ -21,7 +21,7 @@ This project stores the source code for the
 Hartebeespoort Practical Shooting Club (HPSC) website (https://hpsc.co.za).\
 It is a React project bootstrapped using Vite with the TypeScript React template.
 It is written in TypeScript and uses Bootstrap and React Bootstrap
-as the UI framework.
+as the UI framework. It uses React Router for page routing.
 
 ## Repository
 The repository for this project is located at 
@@ -46,7 +46,9 @@ A high-level structure of the project.
     │   │   └───logos
     │   └───stylesheets
     ├───components
-    └───pages
+    ├───layout
+    ├───pages
+    └───routes
 ```
 
 ## Technology
@@ -87,6 +89,10 @@ A list of the technology used to develop and/or run the project.
 - React Bootstrap 2
 
   [![React Bootstrap Badge](https://img.shields.io/badge/React_Bootstrap-7952B3?logo=bootstrap&logoColor=white)](https://react-bootstrap.github.io/)
+
+- React Router 6
+
+  [![React Router Badge](https://img.shields.io/badge/React_Router-CB3837?logo=react&logoColor=white)](https://reactrouter.com/en/main)
 
 ## Instructions
 Instructions on how to build, run and/or publish the project.
