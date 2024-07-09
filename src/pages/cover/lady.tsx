@@ -4,10 +4,11 @@ import ladyShooterOnIpscRangeImage from "../../assets/images/lady-shooter-on-ips
 
 export const CoverLady = () => {
     return (
-        <article>
+        <article id="cover">
             <Container fluid>
                 <Cover image={ladyShooterOnIpscRangeImage}
-                       description={'Lady shooter on IPSC range'}/>
+                       description="Lady shooter on IPSC range"
+                       text="Under Construction"/>
             </Container>
         </article>
     )

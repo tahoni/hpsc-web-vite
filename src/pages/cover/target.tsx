@@ -4,10 +4,11 @@ import ipscTargetWithBulletHoles from "../../assets/images/ipsc-target-with-bull
 
 export const CoverTarget = () => {
     return (
-        <article>
+        <article id="cover">
             <Container fluid>
                 <Cover image={ipscTargetWithBulletHoles}
-                       description={'IPSC target with bullet holes'}/>
+                       description="IPSC target with bullet holes"
+                       text="Under Construction"/>
             </Container>
         </article>
     )

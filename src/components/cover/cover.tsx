@@ -7,7 +7,7 @@ export const Cover = (props: CoverProps) => {
             <Row className="d-flex align-items-center justify-content-center">
                 <Col className="d-flex align-items-center justify-content-center">
                     <Image fluid src={props.image} alt={props.description}/>
-                    <h1 className={classes.CoverText}>Under Construction</h1>
+                    <h1 className={classes.CoverText}>{props.text}</h1>
                 </Col>
             </Row>
         </Container>
@@ -17,9 +17,11 @@ export const Cover = (props: CoverProps) => {
 class CoverProps {
     image: string;
     description: string;
+    text: string;
 
-    constructor(image: string, description: string) {
+    constructor(image: string, description: string, text: string) {
         this.image = image;
         this.description = description;
+        this.text = text;
     }
 }

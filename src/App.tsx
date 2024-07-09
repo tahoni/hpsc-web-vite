@@ -1,10 +1,9 @@
-import './App.scss'
-import {Home} from "./pages/home.tsx";
-import "./App.scss";
 import {Route, Routes} from "react-router";
+import {CoverRoutes} from "./routes/cover.tsx";
 import {Layout} from "./layout/layout.tsx";
 import {Breakpoints} from "./layout/breakpoints/breakpoints.tsx";
-import {CoverRoutes} from "./routes/cover.tsx";
+import {Home} from "./pages/home.tsx";
+import './App.scss'
 
 function App() {
   return (

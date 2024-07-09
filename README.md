@@ -95,10 +95,32 @@ A list of the technology used to develop and/or run the project.
   [![React Router Badge](https://img.shields.io/badge/React_Router-CB3837?logo=react&logoColor=white)](https://reactrouter.com/en/main)
 
 ## Instructions
-Instructions on how to build, run and/or publish the project.
+In the project directory, you can run:
+
+#### `npm run dev`
+Runs the app in the development mode.\
+The page will reload if you make edits.
+
+#### `npm run build`
+Builds the app for production to the `dist` folder.\
+Your app is ready to be deployed!
+
+#### `npm run preview`
+Previews the app in the `dist` folder locally.\
+It's an easy way to check if the production build looks OK in your local environment.
 
 ## Screenshots
-Screenshots, including the home page, if any, that are relevant to this project.
+_Home:_
+
+![Home](documentation/screenshots/home.png)
+
+_Cover #1:_
+
+![Under construction #1](documentation/screenshots/cover-lady.png)
+
+_Cover #2:_
+
+![Under construction #2](documentation/screenshots/cover-target.png)
 
 ## License
 This project is licensed under the terms of the _MIT license_.
