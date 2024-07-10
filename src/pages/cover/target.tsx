@@ -1,14 +1,13 @@
 import {Container} from "react-bootstrap";
-import {Cover} from "../../components/cover/cover.tsx";
-import ipscTargetWithBulletHoles from "../../assets/images/ipsc-target-with-bullet-holes.png";
+import {Images} from "../../utils/images.ts";
+import {UnderConstruction} from "../../components/under-construction/under-construction.tsx";
 
 export const CoverTarget = () => {
     return (
-        <article id="cover">
+        <article id="under-construction">
             <Container fluid>
-                <Cover image={ipscTargetWithBulletHoles}
-                       description="IPSC target with bullet holes"
-                       text="Under Construction"/>
+                <UnderConstruction source={Images.underCoverTargetImage.source}
+                       description={Images.underCoverTargetImage.description}/>
             </Container>
         </article>
     )

@@ -1,5 +1,5 @@
-@import 'styles-colors.scss';
-@import 'styles-fonts.scss';
+@import 'styles-colors';
+@import 'styles-fonts';
 
 /* Font Families */
 $body-font-family: $noto-sans-family;
@@ -14,6 +14,7 @@ $header-font: $noto-sans-display;
 $background-color: aliceblue;
 $cover-overlay-color: white;
 $cover-text-color: $butterscotch-20;
-$text-color: black;
+$cover-icon-color: $butterscotch-20;
+$text-color: $butterscotch-20;
 
 /* Gradients */
