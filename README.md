@@ -47,8 +47,9 @@ A high-level structure of the project.
     │   └───stylesheets
     ├───components
     ├───layout
+    ├───model
     ├───pages
-    └───routes
+    └───utils
 ```
 
 ## Technology
@@ -110,17 +111,13 @@ Previews the app in the `dist` folder locally.\
 It's an easy way to check if the production build looks OK in your local environment.
 
 ## Screenshots
-_Home:_
+_Home Carousel Slide #1:_
 
-![Home](documentation/screenshots/home.png)
+![Home Slide#1](documentation/screenshots/home1.png)
 
-_Cover #1:_
+_Home Carousel Slide #2:_
 
-![Under construction #1](documentation/screenshots/cover-lady.png)
-
-_Cover #2:_
-
-![Under construction #2](documentation/screenshots/cover-target.png)
+![Home Slide #2](documentation/screenshots/home2.png)
 
 ## License
 This project is licensed under the terms of the _MIT license_.
