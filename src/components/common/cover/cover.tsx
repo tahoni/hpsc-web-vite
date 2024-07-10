@@ -14,14 +14,8 @@ export const Cover = (props: CoverProps) => {
     )
 }
 
-class CoverProps {
+interface CoverProps {
     image: string;
     description: string;
     text: string;
-
-    constructor(image: string, description: string, text: string) {
-        this.image = image;
-        this.description = description;
-        this.text = text;
-    }
 }

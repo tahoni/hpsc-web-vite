@@ -3,17 +3,18 @@
 
 /* Font Families */
 $body-font-family: $noto-sans-family;
-$header-font-family: $noto-sans-display-family;
+$heading-font-family: $noto-sans-display-family;
 $code-font-family: $noto-code-family;
 
 /* Fonts */
 $body-font: $noto-sans;
-$header-font: $noto-sans-display;
+$heading-font: $noto-sans-display;
 
 /* Colours */
 $background-color: aliceblue;
 $cover-overlay-color: white;
-$cover-text-color: $butterscotch-20;
 $text-color: $butterscotch-20;
+$cover-text-color: $text-color;
+$heading-color: $text-color;
 
 /* Gradients */

@@ -1,6 +1,6 @@
 import {Container} from "react-bootstrap";
-import {Outlet} from "react-router";
 import classes from "./layout.module.scss";
+import {Outlet} from "react-router";
 
 export const Layout = () => {
     return (

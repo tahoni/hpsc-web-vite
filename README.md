@@ -46,10 +46,10 @@ A high-level structure of the project.
     │   │   └───logos
     │   └───stylesheets
     ├───components
+    │   └───common
     ├───layout
     ├───model
-    ├───pages
-    └───utils
+    └───pages
 ```
 
 ## Technology

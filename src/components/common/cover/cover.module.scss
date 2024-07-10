@@ -1,7 +1,7 @@
-@import "bootstrap/scss/_functions";
-@import "bootstrap/scss/_variables";
-@import "bootstrap/scss/_mixins";
-@import "../../assets/stylesheets/styles";
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../assets/stylesheets/styles";
 
 .cover {
   position: relative;
@@ -31,7 +31,7 @@
 }
 
 .coverText {
-  font-family: $header-font-family;
+  font-family: $heading-font-family;
   color: $cover-text-color;
   position: absolute;
   top: 50%;

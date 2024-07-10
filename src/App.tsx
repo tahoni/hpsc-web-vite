@@ -1,7 +1,7 @@
 import {Route, Routes} from "react-router";
-import {Layout} from "./layout/layout.tsx";
 import {Breakpoints} from "./layout/breakpoints/breakpoints.tsx";
-import {Home} from "./pages/home.tsx";
+import {Layout} from "./layout/layout.tsx";
+import {UnderConstructionPage} from "./pages/under-construction-page.tsx";
 import './App.scss'
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
       <div id="app" className="app">
           <Routes>
               <Route element={<Layout/>}>
-                  <Route path="/" element={<Home/>}/>
-                  <Route path="*" element={<Home/>}/>
+                  <Route path="/" element={<UnderConstructionPage/>}/>
+                  <Route path="*" element={<UnderConstructionPage/>}/>
               </Route>
           </Routes>
           <Breakpoints/>

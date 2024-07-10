@@ -3,6 +3,7 @@
 @forward "styles-icons";
 @import "styles-theme";
 
+/* General */
 html, body {
   font-family: $body-font-family;
   color: $text-color;
@@ -10,4 +11,10 @@ html, body {
   width: 100%;
   height: 97%;
   padding: 0;
+}
+
+/* Headings */
+h1 {
+  font-family: $heading-font-family;
+  color: $heading-color;
 }

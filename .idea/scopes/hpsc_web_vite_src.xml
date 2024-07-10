@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="hpsc-web-vite src" pattern="file:src//*" />
+</component>
