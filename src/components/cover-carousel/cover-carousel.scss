@@ -1,0 +1,15 @@
+@import "../../assets/stylesheets/styles-theme";
+
+#slider-container {
+  width: 100%;
+  height: 100%;
+}
+
+.slick-slider, .slick-list {
+  width: 100%;
+  height: 100%;
+}
+
+button.slick-arrow::before {
+  color: $cover-text-color;
+}

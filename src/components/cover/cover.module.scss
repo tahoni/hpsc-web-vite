@@ -3,12 +3,12 @@
 @import "bootstrap/scss/_mixins";
 @import "../../assets/stylesheets/styles";
 
-.Cover {
+.cover {
   position: relative;
-  width: 100%;
+  height: 100%;
 }
 
-.Cover::before {
+.cover::before {
   background-color: $cover-overlay-color;
   opacity: 0.2;
   content: "";
@@ -20,29 +20,33 @@
   display: block;
 }
 
-.Cover h1 {
+.cover img {
+  max-height: 100%;
+}
+
+.cover h1 {
   font-size: 2em;
   font-weight: bolder;
   text-align: center;
 }
 
-.CoverText {
+.coverText {
   font-family: $header-font-family;
   color: $cover-text-color;
   position: absolute;
-  top: 35%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -35%);
+  transform: translate(-50%, -50%);
 }
 
 @include media-breakpoint-up(sm) {
-  .Cover h1 {
+  .cover h1 {
     font-size: 3rem;
   }
 }
 
 @include media-breakpoint-up(md) {
-  .Cover h1 {
+  .cover h1 {
     font-size: 4rem;
   }
 }
