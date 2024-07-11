@@ -111,13 +111,13 @@ Previews the app in the `dist` folder locally.\
 It's an easy way to check if the production build looks OK in your local environment.
 
 ## Screenshots
-_Home Carousel Slide #1:_
+_Under Construction Carousel Slide #1:_
 
-![Home Slide#1](documentation/screenshots/home1.png)
+![Under Construction Slide#1](documentation/screenshots/under-construction-1.png)
 
-_Home Carousel Slide #2:_
+_Under Construction Carousel Slide #2:_
 
-![Home Slide #2](documentation/screenshots/home2.png)
+![Under Construction Slide #2](documentation/screenshots/under-constructor-2.png)
 
 ## License
 This project is licensed under the terms of the _MIT license_.
