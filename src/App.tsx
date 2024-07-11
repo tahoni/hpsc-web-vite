@@ -1,10 +1,11 @@
+import {ReactElement} from "react";
 import {Route, Routes} from "react-router";
 import {Breakpoints} from "./layout/breakpoints/breakpoints.tsx";
 import {Layout} from "./layout/layout.tsx";
 import {UnderConstructionPage} from "./pages/under-construction-page.tsx";
 import './App.scss'
 
-function App() {
+function App(): ReactElement {
   return (
       <div id="app" className="app">
           <Routes>
@@ -18,4 +19,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

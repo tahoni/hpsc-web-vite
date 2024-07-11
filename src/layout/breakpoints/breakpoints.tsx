@@ -1,6 +1,7 @@
+import {ReactElement} from "react";
 import classes from "./breakpoints.module.scss";
 
-export const Breakpoints = () => {
+export const Breakpoints = (): ReactElement => {
     return (
 /*
         // Solution by Natwar Singh in reply to the following question on Stack Overflow:

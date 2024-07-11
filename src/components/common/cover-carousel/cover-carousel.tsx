@@ -1,13 +1,15 @@
+import {ReactElement} from "react";
 import {Container} from "react-bootstrap";
 import Slider, {Settings} from "react-slick";
 import {ImageSourceDescription} from "../../../model/ImageSourceDescription.ts";
 import {Cover} from "../cover/cover.tsx";
 import "./cover-carousel.scss";
 
-export const CoverCarousel = (props: CoverCarouselProps) => {
+export const CoverCarousel = (props: CoverCarouselProps): ReactElement => {
     const settings: Settings = {
         accessibility: true,
         dots: true,
+        arrows: true,
         pauseOnHover: true,
         pauseOnDotsHover: true,
         infinite: true,
@@ -17,6 +19,7 @@ export const CoverCarousel = (props: CoverCarouselProps) => {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
+
     return (
         <Container fluid id="slider-container">
             <Slider {...settings}>
