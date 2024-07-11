@@ -113,7 +113,7 @@ It's an easy way to check if the production build looks OK in your local environ
 ## Screenshots
 _Under Construction Carousel Slide #1:_
 
-![Under Construction Slide#1](documentation/screenshots/under-construction-1.png)
+![Under Construction Slide #1](documentation/screenshots/under-construction-1.png)
 
 _Under Construction Carousel Slide #2:_
 
