@@ -1,6 +1,6 @@
 import {ReactElement} from "react";
 import {ImageSourceDescription} from "@tahoni/tahoni-lib-react/dist";
-import {UnderConstructionImages} from "./under-construction-images.ts";
+import {UnderConstructionImages} from "./UnderConstructionImages.ts";
 import {CoverCarousel} from "@tahoni/tahoni-lib-react/dist";
 
 export const UnderConstructionCarousel = (): ReactElement => {

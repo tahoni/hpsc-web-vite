@@ -1,17 +1,16 @@
 /* Font Families */
-$body-font-family: var(--body-font-family);
-$heading-font-family: var(--heading-font-family);
-$code-font-family: var(--code-font-family);
+$text-font-family: var(--text-font-family);
+$heading-text-font-family: var(--heading-text-font-family);
+$code-text-font-family: var(--code-text-font-family);
 
 /* Fonts */
-$body-font: var(--body-font);
-$heading-font: var(--heading-font);
+$text-font: var(--text-font);
+$heading-text-font: var(--heading-text-font);
 
 /* Colours */
 $background-color: var(--background-color);
 $text-color: var(--text-color);
-$cover-text-color: var(--cover-text-cover);
-$heading-text-color: var(--heading-text-cover);
+$heading-text-color: var(--heading-text-color);
 
 /* Gradients */
 $cover-gradient: var(--cover-gradient);

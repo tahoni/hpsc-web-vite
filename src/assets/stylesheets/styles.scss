@@ -6,13 +6,13 @@
 
 /* General */
 html, body {
-  font-family: $body-font-family;
+  font-family: $text-font-family;
   color: $text-color;
   background-color: $background-color;
 }
 
 /* Headings */
 h1 {
-  font-family: $heading-font-family;
+  font-family: $heading-text-font-family;
   color: $heading-text-color;
 }
