@@ -1,4 +1,4 @@
-import {ImageSourceDescription} from "../../model/ImageSourceDescription.ts";
+import {ImageSourceDescription} from "@tahoni/tahoni-lib-react/dist";
 import ladyShooterOnIpscRangeImage from './images/lady-shooter-on-ipsc-range.png';
 import ipscTargetWithBulletHoles from './images/ipsc-target-with-bullet-holes.png';
 

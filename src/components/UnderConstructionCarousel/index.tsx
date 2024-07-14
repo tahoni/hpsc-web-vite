@@ -1,7 +1,7 @@
 import {ReactElement} from "react";
-import {ImageSourceDescription} from "../../model/ImageSourceDescription.ts";
+import {ImageSourceDescription} from "@tahoni/tahoni-lib-react/dist";
 import {UnderConstructionImages} from "./under-construction-images.ts";
-import {CoverCarousel} from "../common/cover-carousel/cover-carousel.tsx";
+import {CoverCarousel} from "@tahoni/tahoni-lib-react/dist";
 
 export const UnderConstructionCarousel = (): ReactElement => {
     const underConstructionText: string = 'Under Construction';
@@ -15,6 +15,7 @@ export const UnderConstructionCarousel = (): ReactElement => {
     ];
 
     return (
-        <CoverCarousel slides={underConstructionSlides}/>
+        <CoverCarousel slides={underConstructionSlides}
+                       infinite={true} autoPlay={true}/>
     )
 }

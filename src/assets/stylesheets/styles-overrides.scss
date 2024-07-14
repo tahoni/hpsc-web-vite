@@ -1,0 +1,23 @@
+:root {
+  /* Font Families */
+  --body-font-family: var(--noto-sans-family);
+  --heading-font-family: var(--noto-sans-display-family);
+  --code-font-family: var(--noto-code-family);
+
+  /* Colours */
+  --background-color: aliceblue;
+  --text-color: var(--butterscotch-20);
+  --heading-text-color: var(--text-color);
+  --cover-text-color: var(--text-color);
+
+  /* Gradients */
+  --cover-gradient: white;
+
+  /* TahoniLib */
+  --tl-heading-font-family: var(--heading-font-family);
+  --tl-heading-text-color: var(--heading-text-color);
+  --tl-cover-text-color: var(--cover-text-color);
+  --tl-cover-gradient: var(--cover-gradient);
+
+  /* Bootstrap */
+}
