@@ -6,10 +6,10 @@ import {CoverCarousel} from "@tahoni/tahoni-lib-react/dist";
 export const UnderConstructionCarousel = (): ReactElement => {
     const underConstructionText: string = 'Under Construction';
     const underConstructionSlides: ImageSourceDescription[] = [
-        {source: UnderConstructionImages.underConstructionLadyImage.source,
+        {image: UnderConstructionImages.underConstructionLadyImage.image,
             description: UnderConstructionImages.underConstructionLadyImage.description,
             text: underConstructionText},
-        {source: UnderConstructionImages.underConstructionTargetImage.source,
+        {image: UnderConstructionImages.underConstructionTargetImage.image,
             description: UnderConstructionImages.underConstructionTargetImage.description,
             text: underConstructionText},
     ];

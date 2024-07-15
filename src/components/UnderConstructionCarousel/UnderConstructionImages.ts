@@ -4,9 +4,9 @@ import ipscTargetWithBulletHoles from './images/ipsc-target-with-bullet-holes.pn
 
 export class UnderConstructionImages {
     static underConstructionLadyImage: ImageSourceDescription =
-        {source: ladyShooterOnIpscRangeImage,
+        {image: ladyShooterOnIpscRangeImage,
             description: 'Lady shooter on IPSC range'};
     static underConstructionTargetImage: ImageSourceDescription =
-        {source: ipscTargetWithBulletHoles,
+        {image: ipscTargetWithBulletHoles,
             description: 'IPSC target with bullet holes'};
 }
