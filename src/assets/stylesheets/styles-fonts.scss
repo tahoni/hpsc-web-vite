@@ -1,15 +1,17 @@
 /* Noto - https://fonts.google.com/noto/fonts */
 
-/* Fonts */
-$noto-sans: 'Noto Sans';
-$noto-sans-display: 'Noto Sans Display';
-$noto-serif: 'Noto Serif';
-$noto-serif-display: 'Noto Serif Display';
-$noto-sans-code: 'Noto Sans Mono';
+:root {
+  /* Fonts */
+  --noto-sans-font: 'Noto Sans';
+  --noto-sans-display-font: 'Noto Sans Display';
+  --noto-serif-font: 'Noto Serif';
+  --noto-serif-display-font: 'Noto Serif Display';
+  --noto-sans-code-font: 'Noto Sans Mono';
 
-/* Font Families */
-$noto-sans-family: $noto-sans, Arial, Helvetica, sans-serif;
-$noto-sans-display-family: $noto-sans-display, Arial, Helvetica, sans-serif;
-$noto-serif-family: $noto-serif, 'Times New Roman', Times, serif;
-$noto-serif-display-family: $noto-serif-display, 'Times New Roman', Times, serif;
-$noto-code-family: $noto-sans-code, 'Courier New', Courier, monospace;
+  /* Font Families */
+  --noto-sans-font-family: var(--noto-sans-font), Arial, Helvetica, sans-serif;
+  --noto-sans-display-font-family: var(--noto-sans-display-font), Arial, Helvetica, sans-serif;
+  --noto-serif-font-family: var(--noto-serif-font), 'Times New Roman', Times, serif;
+  --noto-serif-display-font-family: var(--noto-serif-display-font), 'Times New Roman', Times, serif;
+  --noto-code-font-family: var(--noto-sans-code-font), 'Courier New', Courier, monospace;
+}

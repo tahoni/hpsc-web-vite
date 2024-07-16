@@ -292,9 +292,8 @@ hs_err_pid*
 
 
 ## CUSTOM
-**/.npmrc
 .env.local
-run/
+.run/
 build/
 target/
 .idea/material_theme_project_new.xml

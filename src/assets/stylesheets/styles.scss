@@ -1,20 +1,18 @@
-@forward "styles-colors";
-@forward "styles-fonts";
-@forward "styles-icons";
+@import "styles-colors";
+@import "styles-fonts";
+@import "styles-icons";
+@import "styles-overrides";
 @import "styles-theme";
 
 /* General */
 html, body {
-  font-family: $body-font-family;
+  font-family: $text-font-family;
   color: $text-color;
   background-color: $background-color;
-  width: 100%;
-  height: 97%;
-  padding: 0;
 }
 
 /* Headings */
 h1 {
-  font-family: $heading-font-family;
-  color: $heading-color;
+  font-family: $heading-text-font-family;
+  color: $heading-text-color;
 }
