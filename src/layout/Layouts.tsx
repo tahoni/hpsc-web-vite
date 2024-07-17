@@ -1,11 +1,11 @@
 import {ReactElement} from "react";
 import {Outlet} from "react-router";
 import {Container} from "react-bootstrap";
-import styles from "./styles.module.scss";
+import classes from "./Layouts.module.scss";
 
 export const Layout = (): ReactElement => {
     return (
-        <Container fluid className={styles.layout}>
+        <Container fluid className={classes.layout}>
             <main>
                 <Outlet/>
             </main>
