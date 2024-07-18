@@ -292,7 +292,7 @@ hs_err_pid*
 
 
 ## CUSTOM
-.env.local
+.env.*
 .run/
 build/
 target/
