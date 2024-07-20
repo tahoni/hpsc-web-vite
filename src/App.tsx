@@ -7,7 +7,7 @@ import './App.scss'
 
 function App(): ReactElement {
   return (
-      <div id="app" className="app">
+      <>
           <Routes>
               <Route element={<Layout/>}>
                   <Route path="/" element={<UnderConstructionPage/>}/>
@@ -15,7 +15,7 @@ function App(): ReactElement {
               </Route>
           </Routes>
           <Breakpoints/>
-      </div>
+      </>
   )
 }
 
