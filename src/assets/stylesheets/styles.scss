@@ -11,8 +11,18 @@ html, body {
   background-color: $background-color;
 }
 
+body {
+  background-image: url("assets/images/background.png");
+  background-size: contain;
+}
+
 /* Headings */
 h1 {
   font-family: $heading-text-font-family;
   color: $heading-text-color;
+}
+
+/* Images */
+img {
+  opacity: 1 !important;
 }
