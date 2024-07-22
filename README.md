@@ -14,7 +14,7 @@
 
 ## Description
 This project stores the source code for the 
-Hartebeespoort Practical Shooting Club(HPSC) website (https://hpsc.co.za).
+Hartebeespoort Practical Shooting Club (HPSC) website (https://hpsc.co.za).
 
 ## Summary
 This project stores the source code for the 
