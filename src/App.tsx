@@ -1,6 +1,6 @@
 import {ReactElement} from "react";
 import {Route, Routes} from "react-router";
-import {Breakpoints} from "./layout/breakpoints";
+import {Breakpoints} from "./layout/Breakpoints";
 import {Layout} from "./layout";
 import {UnderConstructionPage} from "./pages/UnderConstruction";
 import './App.scss'

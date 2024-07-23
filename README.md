@@ -40,16 +40,23 @@ A high-level structure of the project.
 │   ├───manual
 │   └───screenshots
 ├───public
+│   └───assets
+│           ├───icons
+│           └───logos
 └───src
     ├───assets
     │   ├───images
-    │   │   └───logos
     │   └───stylesheets
+    ├───common
     ├───components
     │   └───common
+    ├───helpers
     ├───layout
-    ├───model
-    └───pages
+    │   ├───Body
+    │   ├───Footer
+    │   └───Header
+    ├───pages
+    └───services
 ```
 
 ## Technology
@@ -111,13 +118,13 @@ Previews the app in the `dist` folder locally.\
 It's an easy way to check if the production build looks OK in your local environment.
 
 ## Screenshots
-_Under Construction Carousel Slide #1:_
+_Under Construction Slide #1:_
 
 ![Under Construction Slide #1](documentation/screenshots/under-construction-1.png)
 
-_Under Construction Carousel Slide #2:_
+_Under Construction Slide #2:_
 
-![Under Construction Slide #2](documentation/screenshots/under-constructor-2.png)
+![Under Construction Slide #2](documentation/screenshots/under-construction-2.png)
 
 ## License
 This project is licensed under the terms of the _MIT license_.
