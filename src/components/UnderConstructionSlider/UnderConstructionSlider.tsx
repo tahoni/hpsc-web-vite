@@ -1,6 +1,7 @@
 import {ReactElement} from "react";
 import {CoverSlider, ImageWithSourceAndDescription} from "@tahoni/tahoni-lib-react";
 import {UnderConstructionImages} from "./UnderConstructionImages.ts";
+import "./UnderConstructionSlider.scss";
 
 export const UnderConstructionSlider = (): ReactElement => {
     const underConstructionText: string = 'Under Construction';
@@ -15,6 +16,6 @@ export const UnderConstructionSlider = (): ReactElement => {
 
     return (
         <CoverSlider slides={underConstructionSlides}
-                     infinite={true} autoPlay={true}/>
+                     infinite={true} autoPlay={false}/>
     )
 }

@@ -16,14 +16,12 @@ body {
 }
 
 /* Standard */
+main {
+  height: 100%;
+}
 
 /* Headings */
 h1 {
   font-family: $heading-text-font-family;
   color: $heading-text-color;
-}
-
-/* Images */
-img {
-  opacity: 1 !important;
 }
