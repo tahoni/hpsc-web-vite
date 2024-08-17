@@ -81,7 +81,7 @@ A list of the technology used to develop and/or run the project.
   [![npm Badge](https://img.shields.io/badge/npm-CB3837?logo=npm)](https://www.npmjs.com/)
 
 **_Frameworks:_**
-- Vite 4
+- Vite 5
 
   [![Vite Badge](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 
