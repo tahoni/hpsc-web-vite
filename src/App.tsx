@@ -2,7 +2,7 @@ import {ReactElement} from "react";
 import {Route, Routes} from "react-router";
 import {Breakpoints} from "./layout/Breakpoints";
 import {Layout} from "./layout";
-import {UnderConstructionPage} from "./pages/UnderConstructionPage";
+import {HomePage} from "./pages/HomePage";
 import './App.scss'
 
 function App(): ReactElement {
@@ -10,8 +10,8 @@ function App(): ReactElement {
       <>
           <Routes>
               <Route element={<Layout/>}>
-                  <Route path="/" element={<UnderConstructionPage/>}/>
-                  <Route path="*" element={<UnderConstructionPage/>}/>
+                  <Route path="/" element={<HomePage/>}/>
+                  <Route path="*" element={<HomePage/>}/>
               </Route>
           </Routes>
           <Breakpoints/>

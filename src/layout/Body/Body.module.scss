@@ -1,0 +1,16 @@
+.body {
+  //display: flex;
+  //flex: 1 1 auto;
+  height: 100%;
+}
+
+.body .row, .body .col {
+  display: flex;
+  flex: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.body .row {
+  height: 100%;
+}
