@@ -11,13 +11,6 @@ html, body {
   background-color: $background-color;
 }
 
-body {
-  background-image: url("/assets/images/background.png");
-  background-repeat: repeat;
-  background-attachment: scroll;
-  background-size: contain;
-}
-
 /* Standard */
 main {
   height: 100%;
