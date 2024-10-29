@@ -14,11 +14,11 @@
 
 ## Description
 This project stores the source code for the 
-Hartebeespoort Practical Shooting Club (HPSC) website (https://hpsc.co.za).
+Hartebeespoortdam Practical Shooting Club (HPSC) website (https://hpsc.co.za).
 
 ## Summary
 This project stores the source code for the 
-Hartebeespoort Practical Shooting Club (HPSC) website (https://hpsc.co.za).\
+Hartebeespoortdam Practical Shooting Club (HPSC) website (https://hpsc.co.za).\
 It is a React project bootstrapped using Vite with the TypeScript React template.
 It is written in TypeScript and uses Bootstrap and React Bootstrap
 as the UI framework. It uses React Router for page routing.
