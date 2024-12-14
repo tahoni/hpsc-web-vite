@@ -7,10 +7,10 @@ import {HeaderContent} from "./HeaderContent.tsx";
 
 export const Header = (): ReactElement => {
     return (
-        <Container fluid className={classes.main}>
+        <Container fluid className={classes.this}>
             <Row>
                 <Col>
-                    <Image src={HPSCLogo} alt="HPSC logo" height={128} width={128} className={classes.hpscLogo}/>
+                    <Image src={HPSCLogo} alt="HPSC logo" className={classes.hpscLogo}/>
                     <HeaderContent title="Hartbeespoortdam Practical Shooting Club"/>
                     <Image src={NGPSALogo} alt="NGPSA logo" height={128} width={128} className={classes.ngpsaLogo}/>
                 </Col>
