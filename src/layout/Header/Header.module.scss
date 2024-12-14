@@ -1,8 +1,18 @@
+@import "bootstrap/scss/bootstrap-grid";
+
 .this {
-  height: calc(128px + 2rem);
-  padding: 1rem 0.5rem;
+  height: 10rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 0;
   align-content: center;
   justify-content: center;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 
 .content {
@@ -14,24 +24,56 @@
 }
 
 .text {
+  width: 100%;
   text-align: center;
   vertical-align: middle;
 }
 
 .logo, .hpscLogo, .ngpsaLogo {
   width: auto;
-  height: 128px;
-  padding: 0;
-  margin: 0;
+  height: 8em;
+  padding-left: 0 !important;
   display: inline-block;
-  position: absolute;
   top: 1rem;
 }
 
 .hpscLogo {
-  left: calc((var(--bs-gutter-x) * 0.5)*2);
+  float: left;
 }
 
 .ngpsaLogo {
-  right: calc((var(--bs-gutter-x) * 0.5)*2);
+  float: right;
 }
+
+/*
+@include media-breakpoint-up(md) {
+  .content {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+*/
+
+/*
+@include media-breakpoint-up(lg) {
+  .content {
+    padding-left: 7.5rem;
+    padding-right: 7.5rem;
+  }
+}
+*/
+
+/*
+@include media-breakpoint-down(md) {
+  .ngpsaLogo {
+    display: none;
+  }
+}
+*/
+
+/*
+@include media-breakpoint-down(md) {
+  .hpscLogo {
+    left: calc(50% - 4rem);
+  }
+}*/

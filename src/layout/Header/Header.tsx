@@ -9,10 +9,14 @@ export const Header = (): ReactElement => {
     return (
         <Container fluid className={classes.this}>
             <Row>
-                <Col>
+                <Col xs={6} sm={1} className={classes.logo}>
                     <Image src={HPSCLogo} alt="HPSC logo" className={classes.hpscLogo}/>
+                </Col>
+                <Col xs={{span: 12, order: 'last'}} sm={10} className={classes.inner}>
                     <HeaderContent title="Hartbeespoortdam Practical Shooting Club"/>
-                    <Image src={NGPSALogo} alt="NGPSA logo" height={128} width={128} className={classes.ngpsaLogo}/>
+                </Col>
+                <Col xs={6} sm={{span: 1, order: 'last'}} className={classes.logo}>
+                    <Image src={NGPSALogo} alt="NGPSA logo" className={classes.ngpsaLogo}/>
                 </Col>
             </Row>
         </Container>
