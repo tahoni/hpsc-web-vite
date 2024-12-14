@@ -1,0 +1,18 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: center;
+}
+
+.header {
+  flex: initial;
+}
+
+.footer {
+  flex: initial;
+}
+
+.body {
+  flex: auto;
+}
