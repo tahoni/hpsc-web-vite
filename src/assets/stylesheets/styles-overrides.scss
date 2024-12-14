@@ -1,34 +1,16 @@
-:root {
-  /* Font Families */
-  --text-font-family: var(--noto-sans-font-family);
-  --heading-text-font-family: var(--noto-sans-display-font-family);
-  --code-text-font-family: var(--noto-code-font-family);
-
-  /* Fonts */
-  --text-font: var(--noto-sans-font);
-  --heading-text-font: var(--noto-sans-display-font);
-
-  /* Colours */
-  --background-color: aliceblue;
-  --text-color: var(--butterscotch-20);
-  --heading-text-color: var(--text-color);
-  --cover-text-color: var(--text-color);
-
-  /* Gradients */
-  --cover-gradient: white;
-}
+@import "styles-theme";
 
 /* TahoniLib */
 :root {
   --tl-cover-gradient: none;
-  --tl-cover-slider-nav-font-family: var(--heading-text-font-family);
-  --tl-cover-slider-nav-color: var(--heading-text-color);
-  --tl-cover-text-color: var(--cover-text-color);
+  --tl-cover-slider-nav-font-family: $heading-text-font-family;
+  --tl-cover-slider-nav-color: $heading-text-color;
+  --tl-cover-text-color: $cover-text-color;
 }
 
 /* Bootstrap */
 :root {
-  --bs-font-sans-serif: var(--text-font-family);
-  --bs-font-monospace: var(--code-text-font-family);
-  --bs-body-bg: var(--background-color);
+  --bs-font-sans-serif: $text-font-family;
+  --bs-font-monospace: $code-text-font-family;
+  --bs-body-bg: $background-color;
 }

@@ -1,3 +1,37 @@
-.header {
+.main {
+  height: calc(128px + 2rem);
+  padding: 1rem 0.5rem;
+  align-content: center;
+  justify-content: center;
+}
+
+.content {
   display: flex;
+  flex-direction: row;
+  flex: auto;
+  align-content: center;
+  justify-content: center;
+}
+
+.text {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.logo, .hpscLogo, .ngpsaLogo {
+  width: auto;
+  height: 128px;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  position: absolute;
+  top: 1rem;
+}
+
+.hpscLogo {
+  left: calc((var(--bs-gutter-x) * 0.5)*2);
+}
+
+.ngpsaLogo {
+  right: calc((var(--bs-gutter-x) * 0.5)*2);
 }
