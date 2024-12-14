@@ -1,16 +1,15 @@
 import {ReactElement} from "react";
 import {Outlet} from "react-router";
 import {Col, Container, Row} from "react-bootstrap";
-import classes from "./Body.module.scss";
 
 export const Body = (): ReactElement => {
     return (
-        <Container fluid className={classes.body}>
-            <Row>
+        <Container>
+            <Row className="align-content-center justify-content-center">
                 <Col>
+                    <Outlet/>
                 </Col>
             </Row>
-            <Outlet/>
         </Container>
     )
 }

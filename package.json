@@ -3,7 +3,7 @@
   "author": "Leoni Lubbinge <tahoni@gmail.com>",
   "description": "HPSC website",
   "private": true,
-  "version": "3.0.0",
+  "version": "3.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,6 +17,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@mdx-js/rollup": "^3.1.0",
     "@tahoni/tahoni-lib-react": "^3.0.4",
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
@@ -38,7 +41,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.7",
+    "eslint-plugin-react-refresh": "^0.4.14",
     "sass": "^1.77.8",
     "typescript": "^5.2.2",
     "vite": "^5.4.6"

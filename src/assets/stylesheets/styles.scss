@@ -1,8 +1,6 @@
-@import "styles-colors";
-@import "styles-fonts";
 @import "styles-icons";
-@import "styles-overrides";
 @import "styles-theme";
+@import "styles-overrides";
 
 /* General */
 html, body {
@@ -11,17 +9,13 @@ html, body {
   background-color: $background-color;
 }
 
-body {
-  background-image: url("/assets/images/background.png");
-}
-
 /* Standard */
-main {
-  height: 100%;
+footer {
+  background-color: $footer-background-color;
 }
 
 /* Headings */
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-family: $heading-text-font-family;
   color: $heading-text-color;
 }
