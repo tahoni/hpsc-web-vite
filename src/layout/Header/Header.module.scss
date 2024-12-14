@@ -1,7 +1,7 @@
 @import "bootstrap/scss/bootstrap-grid";
 
 .this {
-  height: 10rem;
+  min-height: 10rem;
   padding-left: 1rem;
   padding-right: 1rem;
   margin-left: 0;
@@ -44,36 +44,3 @@
 .ngpsaLogo {
   float: right;
 }
-
-/*
-@include media-breakpoint-up(md) {
-  .content {
-    padding-left: 5rem;
-    padding-right: 5rem;
-  }
-}
-*/
-
-/*
-@include media-breakpoint-up(lg) {
-  .content {
-    padding-left: 7.5rem;
-    padding-right: 7.5rem;
-  }
-}
-*/
-
-/*
-@include media-breakpoint-down(md) {
-  .ngpsaLogo {
-    display: none;
-  }
-}
-*/
-
-/*
-@include media-breakpoint-down(md) {
-  .hpscLogo {
-    left: calc(50% - 4rem);
-  }
-}*/
