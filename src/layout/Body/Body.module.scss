@@ -1,4 +1,13 @@
+@import "bootstrap/scss/bootstrap-grid";
+
 .this {
-  max-width: calc(100% - 256px);
+  width: 100%;
   margin: auto;
+  justify-self: center;
+}
+
+@include media-breakpoint-up(lg) {
+  .this {
+    max-width: calc(100% - 16rem);
+  }
 }
