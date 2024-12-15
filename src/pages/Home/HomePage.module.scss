@@ -1,0 +1,7 @@
+@import "bootstrap/scss/bootstrap-grid";
+
+@include media-breakpoint-up(lg) {
+  .inner {
+    max-width: calc(100% - 16rem);
+  }
+}

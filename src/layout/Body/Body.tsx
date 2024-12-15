@@ -5,8 +5,8 @@ import classes from "./Body.module.scss";
 
 export const Body = (): ReactElement => {
     return (
-        <Container>
-            <Row className={classes.this}>
+        <Container fluid className={classes.Body}>
+            <Row className={classes.BodyInner}>
                 <Col>
                     <Outlet/>
                 </Col>

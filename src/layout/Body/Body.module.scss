@@ -1,12 +1,9 @@
-@import "bootstrap/scss/bootstrap-grid";
-
-.this {
-  margin: auto;
-  justify-self: center;
+.Body {
+  height: 100%;
+  justify-items: center;
 }
 
-@include media-breakpoint-up(lg) {
-  .this {
-    max-width: calc(100% - 16rem);
-  }
+.BodyInner {
+  height: 100%;
+  margin: auto;
 }
