@@ -37,26 +37,27 @@ An overview of the project can be found at
 A high-level structure of the project.
 ```text
 ├───documentation
-│   ├───manual
 │   └───screenshots
 ├───public
-│   └───assets
-│           ├───icons
-│           └───logos
 └───src
     ├───assets
+    │   ├───fonts
+    │   │   ├───glyphs
+    │   │   └───license
     │   ├───images
+    │   │   ├───icons
+    │   │   ├───ids
+    │   │   └───logos
     │   └───stylesheets
-    ├───common
     ├───components
-    │   └───common
-    ├───helpers
+    ├───constants
     ├───layout
     │   ├───Body
+    │   ├───Breakpoints
     │   ├───Footer
     │   └───Header
-    ├───pages
-    └───services
+    ├───model
+    └───pages
 ```
 
 ## Technology
@@ -106,28 +107,24 @@ A list of the technology used to develop and/or run the project.
 In the project directory, you can run:
 
 #### `npm run dev`
-Runs the app in the development mode.\
+This runs the app in the development mode.\
 The page will reload if you make edits.
 
 #### `npm run build`
-Builds the app for production to the `dist` folder.\
+This builds the app for production to the `dist` folder.\
 Your app is ready to be deployed!
 
 #### `npm run preview`
-Previews the app in the `dist` folder locally.\
+This previews the app in the `dist` folder locally.\
 It's an easy way to check if the production build looks OK in your local environment.
 
 ## Screenshots
-_Under Construction Slide #1:_
+_Home Page_:
 
 ![Under Construction Slide #1](documentation/screenshots/under-construction-1.png)
 
-_Under Construction Slide #2:_
-
-![Under Construction Slide #2](documentation/screenshots/under-construction-2.png)
-
 ## License
-This project is licensed under the terms of the _MIT license_.
+Copyright © 2024 Leoni Lubbinge. All Rights Reserved.
 
 ## Author
 **Leoni Lubbinge**
