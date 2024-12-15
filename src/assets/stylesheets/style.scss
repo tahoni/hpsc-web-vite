@@ -1,15 +1,14 @@
-@import "styles-icons";
-@import "styles-theme";
-@import "styles-overrides";
+@import "style-icons";
+@import "style-theme";
+@import "style-overrides";
 
 /* General */
 html, body {
   font-family: $text-font-family;
   color: $text-color;
   background: $background-gradient fixed no-repeat;
+  box-sizing: border-box;
 }
-
-/* Standard */
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
