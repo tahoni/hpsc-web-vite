@@ -6,13 +6,10 @@
 html, body {
   font-family: $text-font-family;
   color: $text-color;
-  background-color: $background-color;
+  background: $background-gradient fixed no-repeat;
 }
 
 /* Standard */
-footer {
-  background-color: $footer-background-color;
-}
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {

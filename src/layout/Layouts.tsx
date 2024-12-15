@@ -7,18 +7,16 @@ import classes from "./Layout.module.scss";
 
 export const Layout = (): ReactElement => {
     return (
-        <Container fluid>
-            <div className={classes.main}>
-                <header className={classes.header}>
-                    <Header/>
-                </header>
-                <main className={classes.body}>
-                    <Body/>
-                </main>
-                <footer className={classes.footer}>
-                    <Footer/>
-                </footer>
-            </div>
+        <Container fluid className={classes.this}>
+            <header className={classes.header}>
+                <Header/>
+            </header>
+            <main className={classes.body}>
+                <Body/>
+            </main>
+            <footer className={classes.footer}>
+                <Footer/>
+            </footer>
         </Container>
     )
 }
