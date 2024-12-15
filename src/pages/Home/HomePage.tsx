@@ -1,21 +1,19 @@
 import {ReactElement} from "react";
 import {Col, Container, Row} from "react-bootstrap";
-import {ImageWithSourceAndDescription} from "@tahoni/tahoni-lib-react";
 import {ImageSidebar} from "../../components";
-import leftShooter
-    from "../../assets/images/pictures/shooter-left-transparent.png";
-import rightShooter
-    from "../../assets/images/pictures/shooter-right-transparent.png";
+import {ImageWithSourceAndDescription} from "@tahoni/tahoni-lib-react";
+import leftShooter from "/assets/images/pictures/shooter-left-transparent.png";
+import rightShooter from "/assets/images/pictures/shooter-right-transparent.png";
 import classes from "./HomePage.module.scss";
 
 export const HomePage = (): ReactElement => {
     return (
-        <Container fluid className={classes.HomePage}>
-            <Row className={classes.HomePageInner}>
-                <Col sm={2}>
+        <div className={classes.HomePage}>
+            <div className={classes.HomePageInner}>
+                <div className={classes.HomePageSidebar}>
                     <ImageSidebar source={new ImageWithSourceAndDescription(leftShooter, "")}/>
-                </Col>
-                <Col className={classes.HomePageCenter}>
+                </div>
+                <div className={classes.HomePageCenter}>
                     <Container>
                         <Row>
                             <Col>
@@ -68,11 +66,11 @@ export const HomePage = (): ReactElement => {
                             </Col>
                         </Row>
                     </Container>
-                </Col>
-                <Col sm={2}>
+                </div>
+                <div className={classes.HomePageSidebar}>
                     <ImageSidebar source={new ImageWithSourceAndDescription(rightShooter, "")}/>
-                </Col>
-            </Row>
-        </Container>
+                </div>
+            </div>
+        </div>
     )
 }
