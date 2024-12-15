@@ -2,9 +2,8 @@
 
 .this {
   min-height: 10rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-left: 0;
+  margin: auto;
+  box-sizing: border-box !important;
   align-content: center;
   justify-content: center;
 }
@@ -24,17 +23,19 @@
 }
 
 .text {
-  width: 100%;
+  flex: auto;
+  //width: 100%;
   text-align: center;
   vertical-align: middle;
+}
+
+.logo {
+  flex: initial;
 }
 
 .logo, .hpscLogo, .ngpsaLogo {
   width: auto;
   height: 8em;
-  padding-left: 0 !important;
-  display: inline-block;
-  top: 1rem;
 }
 
 .hpscLogo {
