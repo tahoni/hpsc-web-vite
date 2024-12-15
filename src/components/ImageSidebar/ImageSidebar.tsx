@@ -12,7 +12,7 @@ export const ImageSidebar = (props: SidebarProps): ReactElement => {
         <Container fluid className={classes.Sidebar}>
             <Row className={classes.SidebarInner}>
                 <Col className={classes.SidebarImage}>
-                    <Image src={props.source.image} alt={props.source.description} height={"auto"}/>
+                    <Image src={props.source.image} alt={props.source.description}/>
                 </Col>
             </Row>
         </Container>
