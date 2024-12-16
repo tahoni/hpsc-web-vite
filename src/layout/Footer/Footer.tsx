@@ -4,8 +4,8 @@ import classes from "./Footer.module.scss"
 
 export const Footer = (): ReactElement => {
     return (
-        <Container fluid className={classes.this}>
-            <Row>
+        <Container fluid className={classes.Footer}>
+            <Row className={classes.FooterInner}>
                 <Col>
                 </Col>
             </Row>

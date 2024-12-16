@@ -1,0 +1,32 @@
+@import "bootstrap/scss/bootstrap-grid";
+
+.Sidebar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.SidebarInner {
+  position: sticky;
+  top: 20%;
+}
+
+.SidebarImage {
+  width: 100%;
+  height: auto;
+}
+
+.SidebarImage img {
+  width: 100%;
+  height: auto;
+}
+
+@include media-breakpoint-down(lg) {
+  .Sidebar {
+    display: none;
+  }
+
+  .SidebarInner {
+    display: none;
+  }
+}

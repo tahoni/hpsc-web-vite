@@ -1,5 +1,5 @@
-@import "styles-fonts";
-@import "styles-colors";
+@import "style-font";
+@import "style-colors";
 
 /* Font Families */
 $text-font-family: $noto-sans-font-family;
@@ -14,5 +14,6 @@ $heading-text-font: $noto-sans-display-font;
 $background-gradient: $blue-gradient-top;
 $background-color: $blue-lightest;
 $footer-background-color: $blue-lighter;
-$text-color: $butterscotch-20;
+$cover-text-color: $butterscotch-dark;
+$text-color: $butterscotch-dark;
 $heading-text-color: $text-color;

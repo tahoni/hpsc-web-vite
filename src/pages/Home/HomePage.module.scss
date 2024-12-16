@@ -1,0 +1,33 @@
+@import "bootstrap/scss/bootstrap-grid";
+
+.HomePage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.HomePageSidebar {
+  max-width: 15%;
+  flex: initial;
+}
+
+.HomePageInner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: auto;
+  justify-content: center;
+}
+
+@include media-breakpoint-up(lg) {
+  .HomePageCenter {
+    max-width: calc(100% - 16rem);
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .HomePageCenter {
+    max-width: calc(100% - 20rem);
+  }
+}

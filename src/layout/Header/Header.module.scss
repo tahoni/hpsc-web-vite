@@ -1,21 +1,18 @@
 @import "bootstrap/scss/bootstrap-grid";
 
-.this {
-  min-height: 10rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-left: 0;
+.Header {
+  margin: auto auto 1rem auto;
   align-content: center;
   justify-content: center;
 }
 
-.inner {
+.HeaderInner, .HeaderCenter {
   display: flex;
   align-items: center;
   justify-items: center;
 }
 
-.content {
+.HeaderContent {
   display: flex;
   flex-direction: row;
   flex: auto;
@@ -23,24 +20,25 @@
   justify-content: center;
 }
 
-.text {
-  width: 100%;
+.HeaderText {
+  flex: auto;
   text-align: center;
   vertical-align: middle;
 }
 
-.logo, .hpscLogo, .ngpsaLogo {
-  width: auto;
-  height: 8em;
-  padding-left: 0 !important;
-  display: inline-block;
-  top: 1rem;
+.HeaderLogo {
+  flex: initial;
 }
 
-.hpscLogo {
+.HeaderLogo, .HPSCLogo, .NGPSALogo {
+  width: auto;
+  height: 8em;
+}
+
+.HPSCLogo {
   float: left;
 }
 
-.ngpsaLogo {
+.NGPSALogo {
   float: right;
 }
