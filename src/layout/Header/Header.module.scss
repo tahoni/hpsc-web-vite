@@ -1,11 +1,18 @@
-.main {
-  height: calc(128px + 2rem);
-  padding: 1rem 0.5rem;
+@import "bootstrap/scss/bootstrap-grid";
+
+.Header {
+  margin: auto auto 1rem auto;
   align-content: center;
   justify-content: center;
 }
 
-.content {
+.HeaderInner, .HeaderCenter {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.HeaderContent {
   display: flex;
   flex-direction: row;
   flex: auto;
@@ -13,25 +20,25 @@
   justify-content: center;
 }
 
-.text {
+.HeaderText {
+  flex: auto;
   text-align: center;
   vertical-align: middle;
 }
 
-.logo, .hpscLogo, .ngpsaLogo {
+.HeaderLogo {
+  flex: initial;
+}
+
+.HeaderLogo, .HPSCLogo, .NGPSALogo {
   width: auto;
-  height: 128px;
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  position: absolute;
-  top: 1rem;
+  height: 8em;
 }
 
-.hpscLogo {
-  left: calc((var(--bs-gutter-x) * 0.5)*2);
+.HPSCLogo {
+  float: left;
 }
 
-.ngpsaLogo {
-  right: calc((var(--bs-gutter-x) * 0.5)*2);
+.NGPSALogo {
+  float: right;
 }

@@ -1,8 +1,8 @@
-.main {
+.Layout {
+  height: 100%;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-content: stretch;
-  justify-content: center;
 }
 
 .header {

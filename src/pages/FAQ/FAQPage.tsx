@@ -1,6 +1,6 @@
 import {ReactElement} from "react";
 
-export const FaqPage = (): ReactElement => {
+export const FAQPage = (): ReactElement => {
     return (
         <>
 {/*

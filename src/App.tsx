@@ -13,7 +13,7 @@ function App(): ReactElement {
                     <Route path="/" element={<HomePage/>}/>
                     <Route path="/home" element={<HomePage/>}/>
                     {/*<Route path="/contacts" element={<Contacts/>}/>*/}
-                    {/*<Route path="/faq" element={<Faq/>}/>*/}
+                    {/*<Route path="/faq" element={<FAQ/>}/>*/}
                     {/*<Route path="/how_to_join" element={<HowToJoinPage/>}/>*/}
                     {/*<Route path="/venues" element={<Venues/>}/>*/}
                     <Route path="*" element={<HomePage/>}/>

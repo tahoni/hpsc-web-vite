@@ -7,8 +7,8 @@ interface HeaderContentProps {
 
 export const HeaderContent = (props: HeaderContentProps): ReactElement => {
     return (
-        <div className={classes.content}>
-            <span className={classes.text}>
+        <div className={classes.HeaderContent}>
+            <span className={classes.HeaderText}>
                 <h1>{props.title}</h1>
             </span>
         </div>

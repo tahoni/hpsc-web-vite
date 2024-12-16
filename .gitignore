@@ -17,7 +17,6 @@
 .idea/**/dataSources.ids
 .idea/**/dataSources.local.xml
 .idea/**/sqlDataSources.xml
-.idea/**/jpa-buddy.xml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
@@ -291,8 +290,12 @@ dist
 hs_err_pid*
 
 
-## CUSTOM
-.env.*
+## TAHONI
 .run/
 build/
+dist/
 target/
+.env.*
+.idea/material_theme_project_new.xml
+.idea/**/jpa-buddy.xml
+.idea/**/jpa.xml
