@@ -1,7 +1,7 @@
 import {ReactElement} from "react";
 import {Route, Routes} from "react-router";
 import {Breakpoints, Layout} from "./layout";
-import {AboutUsPage, HomePage} from "./pages";
+import {AboutPage, HomePage} from "./pages";
 import {ImageWithSourceAndDescription} from "@tahoni/tahoni-lib-react";
 import leftShooter from "/assets/images/pictures/shooter-left-transparent.png";
 import rightShooter from "/assets/images/pictures/shooter-right-transparent.png";
@@ -21,7 +21,7 @@ function App(): ReactElement {
                 />}>
                     <Route path="/" element={<HomePage/>}/>
                     <Route path="/home" element={<HomePage/>}/>
-                    <Route path="/about" element={<AboutUsPage/>}/>
+                    <Route path="/about" element={<AboutPage/>}/>
                     <Route path="*" element={<HomePage/>}/>
                 </Route>
             </Routes>
