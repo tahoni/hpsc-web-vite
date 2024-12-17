@@ -1,5 +1,4 @@
-import {Page} from "./Page.tsx";
 import {AboutContent, HomeContent} from "../content";
 
-export const HomePage = () => (<Page child={<HomeContent/>}/>);
-export const AboutUsPage = () => (<Page child={<AboutContent/>}/>);
+export const HomePage = () => (<HomeContent/>);
+export const AboutPage = () => (<AboutContent/>);
