@@ -19,7 +19,7 @@ export const Header = (): ReactElement => {
                     <HeaderContent title="Hartbeespoortdam Practical Shooting Club"/>
                 </Col>
                 <Col xs={{span: 6}} md={{span: 2, order: 'last'}} className={classes.HPSCLogo}>
-                    <a href="https://ngpsa.co.za/">
+                    <a href="https://ngpsa.co.za/" target="_blank">
                         <Image src={NGPSALogo} alt="NGPSA logo" className={classes.NGPSALogo}/>
                     </a>
                 </Col>
