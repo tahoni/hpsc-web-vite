@@ -15,3 +15,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $heading-text-font-family;
   color: $heading-text-color;
 }
+
+/* Hyperlink */
+a:link, a:hover, a:visited:hover, a:visited:hover, a:active:hover {
+  color: $anchor-text-color;
+}
+
+a:visited, a:focus, a:active {
+  color: $anchor-text-highlight-color;
+}
