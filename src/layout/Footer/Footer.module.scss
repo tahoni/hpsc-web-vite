@@ -1,11 +1,29 @@
+$footerMapWidth: 25%;
+$footerMapHeight: 8rem;
+
+:export {
+  footerMapWidth: $footerMapWidth;
+  footerMapHeight: $footerMapHeight;
+}
+
 .Footer {
+  width: 100%;
+  height: calc($footerMapHeight + 2rem);
+  padding: 0 1rem;
   margin: auto auto auto 1rem;
   align-content: center;
   justify-content: center;
 }
 
 .FooterInner {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-items: center;
+}
+
+.FooterMap {
+  width: $footerMapWidth;
+  height: $footerMapHeight;
 }

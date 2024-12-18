@@ -3,15 +3,18 @@ import {Route, Routes} from "react-router";
 import {Breakpoints, Layout} from "./layout";
 import {AboutPage, HomePage} from "./pages";
 import {ImageWithSourceAndDescription} from "@tahoni/tahoni-lib-react";
-import leftShooter from "/assets/images/pictures/shooter-left-transparent.png";
-import rightShooter from "/assets/images/pictures/shooter-right-transparent.png";
+import {
+    imageConstants,
+    LEFT_SHOOTER,
+    RIGHT_SHOOTER
+} from "./constants/ImageConstants.ts";
 import './App.scss'
 
 function App(): ReactElement {
-    const leftSidebarImage: ImageWithSourceAndDescription =
-        new ImageWithSourceAndDescription(leftShooter, "");
-    const rightSidebarImage: ImageWithSourceAndDescription =
-        new ImageWithSourceAndDescription(rightShooter, "");
+    const leftSidebarImage: ImageWithSourceAndDescription | undefined =
+        imageConstants.get(LEFT_SHOOTER);
+    const rightSidebarImage: ImageWithSourceAndDescription | undefined =
+        imageConstants.get(RIGHT_SHOOTER);
 
     return (
         <>

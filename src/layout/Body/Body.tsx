@@ -11,7 +11,7 @@ export const Body = (props: BodyProps): ReactElement => {
             <div className={classes.BodyInner}>
                 <div className={classes.BodySidebar}>
                     {props.leftSideImage ?
-                        <ImageSidebar source={props.leftSideImage}/>
+                        <ImageSidebar source={"leftSideImage"}/>
                         :
                         <></>
                     }
@@ -27,7 +27,7 @@ export const Body = (props: BodyProps): ReactElement => {
                 </div>
                 <div className={classes.BodySidebar}>
                     {props.rightSideImage ?
-                        <ImageSidebar source={props.rightSideImage}/>
+                        <ImageSidebar source={"rightSideImage"}/>
                         :
                         <></>
                     }

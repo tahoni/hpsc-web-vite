@@ -20,6 +20,7 @@
     "@mdx-js/react": "^3.1.0",
     "@mdx-js/rollup": "^3.1.0",
     "@react-google-maps/api": "^2.20.3",
+    "@react-google-maps/marker-clusterer": "^2.20.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@tahoni/tahoni-lib-react": "^3.0.4",
     "bootstrap": "^5.3.3",

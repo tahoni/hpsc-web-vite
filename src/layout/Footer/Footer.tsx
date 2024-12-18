@@ -6,9 +6,10 @@ import classes from "./Footer.module.scss"
 export const Footer = (): ReactElement => {
     return (
         <Container fluid className={classes.Footer}>
-            <Row className={classes.FooterInner}>
-                <Col>
-                    <ShootingRangeMap/>
+            <Row>
+                <Col xs={{span: 12}} md={{span: 8, offset: 1}} className={classes.FooterMap}>
+                    <ShootingRangeMap mapStyle={{width: classes['footerMapWidth'],
+                        height: classes['footerMapHeight']}}/>
                 </Col>
             </Row>
         </Container>
