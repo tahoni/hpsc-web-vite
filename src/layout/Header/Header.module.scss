@@ -31,15 +31,15 @@
   flex: initial;
 }
 
-.HeaderLogo, .HPSCLogo, .NGPSALogo {
+.HeaderLogo, .LeftLogo, .RightLogo {
   width: auto;
   height: 8em;
 }
 
-.HPSCLogo {
+.LeftLogo {
   float: left;
 }
 
-.NGPSALogo {
+.RightLogo {
   float: right;
 }

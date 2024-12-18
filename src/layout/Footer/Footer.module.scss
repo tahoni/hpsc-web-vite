@@ -13,8 +13,33 @@
   //justify-items: center;
 }
 
+.FooterCenter {
+
+}
+
 .FooterMap {
   width: 25%;
   height: 80%;
   padding: 0 !important;
+}
+
+.FooterContacts {
+
+}
+
+.FooterLogo {
+  flex: initial;
+}
+
+.FooterLogo, .LeftLogo, .RightLogo {
+  width: auto;
+  height: 8em;
+}
+
+.LeftLogo {
+  float: left;
+}
+
+.RightLogo {
+  float: right;
 }
