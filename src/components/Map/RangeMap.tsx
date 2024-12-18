@@ -1,5 +1,5 @@
 import React, {CSSProperties, ReactElement, useRef} from "react";
-import {GoogleMap, useJsApiLoader} from "@react-google-maps/api";
+import {GoogleMap, Marker, useJsApiLoader} from "@react-google-maps/api";
 import {RangeMapLatLngType, RangeType} from "../../model/RangeTypes.tsx";
 import {
     googleMapApiKey,
@@ -33,7 +33,24 @@ export const RangeMap = React.memo(
                     mapContainerStyle={{...props.mapStyle, font: 'Noto Sans'}}
                     center={props.center}
                     zoom={props.zoom ? props.zoom : googleMapDefaultZoom}
-                />
+                    clickableIcons={true}
+                >
+                    {((props.pins) && (props.pins.length > 0)) ?
+                        props.pins.map((pin, i) => {
+                            if ((pin) && (pin.latLng) && (pin.name)) {
+                                return (
+                                    <Marker key={i} position={pin.latLng}/>
+                                )
+                            } else {
+                                return (
+                                    <></>
+                                )
+                            }
+                        })
+                    :
+                        <></>
+                    }
+                </GoogleMap>
             :
                 <></>
             }

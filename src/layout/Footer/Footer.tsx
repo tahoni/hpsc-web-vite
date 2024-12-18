@@ -2,7 +2,7 @@ import {ReactElement} from "react";
 import {Col, Container, Row} from "react-bootstrap";
 import {RangeMap} from "../../components";
 import {mapHeight, mapWidth} from "../../constants/MapConstants.ts";
-import {EUFEES_RANGE, rangeMapPins} from "../../constants/content/Venues.ts";
+import {EUFEES_RANGE, rangeMapPins} from "../../constants/content/Ranges.ts";
 import classes from "./Footer.module.scss"
 import {RangeType} from "../../model/RangeTypes.tsx";
 
