@@ -1,21 +1,24 @@
 import {ReactElement, useRef} from "react";
 import {GoogleMap, useJsApiLoader} from "@react-google-maps/api";
 import {ShootingRangeLocation} from "./ShootingRangeLocation.tsx";
+import {
+    DEFAULT_ZOOM,
+    GOOGLE_MAP_API_KEY,
+} from "../../constants/MapConstants.ts";
+import {
+    EUFEES_RANGE,
+    shootingRanges
+} from "../../constants/content/Venues.ts";
 
 const containerStyle = {
   width: '50%',
   height: '100%'
 };
 
-const center = {
-  lat: -25.785894221414374,
-  lng: 28.172921002448536
-};
-
 export const ShootingRangeMap = (): ReactElement => {
     const {isLoaded} = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyDzipCOOttI97zheBOmsdIJGQx4HR1plsU"
+        googleMapsApiKey: GOOGLE_MAP_API_KEY,
     });
 
     const googleMapRef = useRef<GoogleMap>(null);
@@ -26,8 +29,8 @@ export const ShootingRangeMap = (): ReactElement => {
                 <GoogleMap
                     ref={googleMapRef}
                     mapContainerStyle={containerStyle}
-                    center={center}
-                    zoom={15}
+                    center={shootingRanges.get(EUFEES_RANGE)}
+                    zoom={DEFAULT_ZOOM}
                     clickableIcons={true}
                 >
                     <ShootingRangeLocation/>
