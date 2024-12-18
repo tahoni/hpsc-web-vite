@@ -6,6 +6,7 @@ import {
     GOOGLE_MAP_API_KEY,
 } from "../../constants/MapConstants.ts";
 import {EUFEES_RANGE, shootingRanges} from "../../constants/content/Venues.ts";
+import classes from "./ShootingRangeMap.module.scss";
 
 interface ShootingRangeMapProps {
     mapStyle: CSSProperties;
@@ -17,16 +18,18 @@ export const ShootingRangeMap = React.memo(
     const googleMapRef = useRef<GoogleMap>(null);
 
     return (
-    <LoadScript googleMapsApiKey={GOOGLE_MAP_API_KEY}>
-                <GoogleMap
-                    ref={googleMapRef}
-                    mapContainerStyle={{...props.mapStyle, font: 'Noto Sans'}}
-                    center={shootingRanges.get(EUFEES_RANGE)}
-                    zoom={DEFAULT_ZOOM}
-                    clickableIcons={true}
-                >
-                    <ShootingRangeLocation/>
-                </GoogleMap>
-    </LoadScript>
+        <div className={classes.ShootingRangeMap}>
+            <LoadScript googleMapsApiKey={GOOGLE_MAP_API_KEY}>
+                        <GoogleMap
+                            ref={googleMapRef}
+                            mapContainerStyle={{...props.mapStyle, font: 'Noto Sans'}}
+                            center={shootingRanges.get(EUFEES_RANGE)}
+                            zoom={DEFAULT_ZOOM}
+                            clickableIcons={true}
+                        >
+                            <ShootingRangeLocation/>
+                        </GoogleMap>
+            </LoadScript>
+        </div>
     )
 });

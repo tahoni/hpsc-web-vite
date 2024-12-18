@@ -7,9 +7,12 @@ export const Footer = (): ReactElement => {
     return (
         <Container fluid className={classes.Footer}>
             <Row>
-                <Col xs={{span: 12}} md={{span: 8, offset: 1}} className={classes.FooterMap}>
-                    <ShootingRangeMap mapStyle={{width: classes['footerMapWidth'],
-                        height: classes['footerMapHeight']}}/>
+                <Col xs={{span: 12}} md={{span: 8, offset: 2}} className={classes.FooterMap}>
+                    <Row>
+                        <Col className={classes.FooterMap}>
+                            <ShootingRangeMap mapStyle={{width: "25%", height: "9rem"}}/>
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
         </Container>
