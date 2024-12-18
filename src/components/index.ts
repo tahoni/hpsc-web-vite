@@ -1,2 +1,2 @@
 export {ImageSidebar} from "./Sidebar";
-export {ShootingRangeMap, ShootingRangeLocation} from "./Map";
+export {RangeMap} from "./Map";

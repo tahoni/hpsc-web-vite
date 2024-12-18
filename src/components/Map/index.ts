@@ -1,2 +1,1 @@
-export {ShootingRangeMap} from "./ShootingRangeMap.tsx";
-export {ShootingRangeLocation} from "./ShootingRangeLocation.tsx";
+export {RangeMap} from "./RangeMap.tsx";
