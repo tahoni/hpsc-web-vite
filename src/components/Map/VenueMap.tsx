@@ -1,4 +1,9 @@
-import React, {CSSProperties, ReactElement, useRef} from "react";
+import React, {
+    CSSProperties,
+    PropsWithChildren,
+    ReactElement,
+    useRef
+} from "react";
 import {GoogleMap, useJsApiLoader} from "@react-google-maps/api";
 import {VenueMapLatLngType} from "../../model/VenueTypes.tsx";
 import {textFontName} from "../../constants/AppConstants.ts";
@@ -12,14 +17,13 @@ export interface VenueMapProps {
     mapStyle: CSSProperties;
     center?: VenueMapLatLngType;
     zoom?: number;
-    child?: ReactElement;
 }
 
 export const VenueMap = React.memo(
-    (props: VenueMapProps): ReactElement => {
+    (props: PropsWithChildren<VenueMapProps>): ReactElement => {
 
     const {isLoaded} = useJsApiLoader({
-        id: 'google-simple-map-script',
+        id: 'google-map-script',
         googleMapsApiKey: googleMapApiKey,
         preventGoogleFontsLoading: true,
     })
@@ -35,8 +39,9 @@ export const VenueMap = React.memo(
                     center={props.center}
                     zoom={props.zoom ? props.zoom : googleMapDefaultZoom}
                     clickableIcons={true}
-                    children={[props.child]}
-                />
+                >
+                    {props.children}
+                </GoogleMap>
             :
                 <></>
             }
