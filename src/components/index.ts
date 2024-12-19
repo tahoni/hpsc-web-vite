@@ -1,2 +1,2 @@
 export {ImageSidebar} from "./Sidebar";
-export {RangeMap} from "./Map";
+export {SimpleVenueMap, ClusteredVenueMap} from "./Map";

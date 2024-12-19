@@ -1,12 +1,13 @@
-import {ReactElement} from "react";
+import React, {ReactElement} from "react";
 import {Container} from "react-bootstrap";
 import {Header} from "./Header";
 import {Footer} from "./Footer";
 import {Body} from "./Body";
-import classes from "./Layout.module.scss";
 import {LayoutProps} from "./LayoutProps.ts";
+import classes from "./Layout.module.scss";
 
-export const Layout = (props: LayoutProps): ReactElement => {
+export const Layout = React.memo(
+    (props: LayoutProps): ReactElement => {
     return (
         <Container fluid className={classes.Layout}>
             <header className={classes.header}>
@@ -20,4 +21,4 @@ export const Layout = (props: LayoutProps): ReactElement => {
             </footer>
         </Container>
     )
-}
+})

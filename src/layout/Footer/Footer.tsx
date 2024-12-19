@@ -1,7 +1,7 @@
-import {ReactElement} from "react";
+import React, {ReactElement} from "react";
 import {Col, Container, Image, Row} from "react-bootstrap";
-import {RangeType} from "../../model/RangeTypes.tsx";
-import {RangeMap} from "../../components";
+import {VenueType} from "../../model/VenueTypes.tsx";
+import {SimpleVenueMap} from "../../components";
 import {mapHeight, mapWidth} from "../../constants/MapConstants.ts";
 import {EUFEES_RANGE, rangeMapPins} from "../../constants/content/Ranges.ts";
 import {ngpsaLogo, sapsaLogo} from "../../constants/AppConstants.ts";
@@ -9,9 +9,10 @@ import NGPSALogo from "../../assets/images/logos/ngpsa-logo.png";
 import SAPSALogo from "../../assets/images/logos/sapsa-logo.png";
 import classes from "./Footer.module.scss"
 
-export const Footer = (): ReactElement => {
+export const Footer = React.memo(
+    (): ReactElement => {
     const footerMapRange: string = EUFEES_RANGE;
-    const footerMapPins: RangeType[] = [
+    const footerMapPins: VenueType[] = [
         rangeMapPins.get(footerMapRange),
     ]
 
@@ -28,10 +29,10 @@ export const Footer = (): ReactElement => {
                         <Col className={classes.FooterCenter}>
                             <Row>
                                 <Col className={classes.FooterMap}>
-                                    <RangeMap
+                                    <SimpleVenueMap
                                         mapStyle={{width: mapWidth, height: mapHeight}}
                                         center={rangeMapPins.get(footerMapRange)?.latLng}
-                                        pins={footerMapPins}
+                                        venues={footerMapPins}
                                     />
                                 </Col>
                             </Row>
@@ -51,4 +52,4 @@ export const Footer = (): ReactElement => {
             </Row>
         </Container>
     )
-}
+})

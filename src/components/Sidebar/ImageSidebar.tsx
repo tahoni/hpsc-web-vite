@@ -1,4 +1,4 @@
-import {ReactElement} from "react";
+import React, {ReactElement} from "react";
 import {Col, Container, Image, Row} from "react-bootstrap";
 import {ImageWithSourceAndDescription} from "@tahoni/tahoni-lib-react";
 import classes from "./ImageSidebar.module.scss";
@@ -7,7 +7,8 @@ interface SidebarProps {
     source: ImageWithSourceAndDescription;
 }
 
-export const ImageSidebar = (props: SidebarProps): ReactElement => {
+export const ImageSidebar = React.memo(
+    (props: SidebarProps): ReactElement => {
     return (
         <Container fluid className={classes.Sidebar}>
             <Row className={classes.SidebarInner}>
@@ -17,4 +18,4 @@ export const ImageSidebar = (props: SidebarProps): ReactElement => {
             </Row>
         </Container>
     )
-}
+})

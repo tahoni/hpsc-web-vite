@@ -1,11 +1,12 @@
-import {ReactElement} from "react";
+import React, {ReactElement} from "react";
 import classes from "./Header.module.scss";
 
 interface HeaderContentProps {
     title: string;
 }
 
-export const HeaderContent = (props: HeaderContentProps): ReactElement => {
+export const HeaderContent = React.memo(
+    (props: HeaderContentProps): ReactElement => {
     return (
         <div className={classes.HeaderContent}>
             <span className={classes.HeaderText}>
@@ -13,4 +14,4 @@ export const HeaderContent = (props: HeaderContentProps): ReactElement => {
             </span>
         </div>
     )
-}
+})

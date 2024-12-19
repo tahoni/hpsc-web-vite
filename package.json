@@ -24,6 +24,7 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@tahoni/tahoni-lib-react": "^3.0.4",
     "bootstrap": "^5.3.3",
+    "js-md5": "^0.8.3",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",
