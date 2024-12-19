@@ -1,13 +1,11 @@
 import React, {ReactElement} from "react";
 import {VenueMap, VenueMapProps} from "./VenueMap.tsx";
-import {
-    ClusteredVenuePins,
-    ClusteredVenuePinsProps
-} from "./ClusteredVenuePins.tsx";
+import {ClusteredVenuePins} from "./ClusteredVenuePins.tsx";
 import classes from "./VenueMap.module.scss";
+import {VenueType} from "../../model/VenueTypes.ts";
 
 interface ClusteredVenueMapProps extends VenueMapProps {
-    venues: ClusteredVenuePinsProps;
+    venues: VenueType[];
 }
 
 export const ClusteredVenueMap = React.memo(
@@ -16,7 +14,7 @@ export const ClusteredVenueMap = React.memo(
         return (
             <div className={classes.ClusteredVenuesMap}>
                 <VenueMap {...props}>
-                    <ClusteredVenuePins {...props.venues}/>
+                    <ClusteredVenuePins venues={props.venues}/>
                 </VenueMap>
             </div>
         )
