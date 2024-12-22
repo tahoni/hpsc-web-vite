@@ -5,14 +5,31 @@
   flex-direction: column;
 }
 
-.header {
+.Header {
   flex: initial;
 }
 
-.footer {
+.Footer {
   flex: initial;
 }
 
-.body {
+.Body {
   flex: auto;
+}
+
+.LogoContainer {
+  flex: initial;
+}
+
+.Logo, .LeftLogo, .RightLogo {
+  width: auto;
+  height: 8em;
+}
+
+.LeftLogo {
+  float: left;
+}
+
+.RightLogo {
+  float: right;
 }

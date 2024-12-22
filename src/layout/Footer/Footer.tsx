@@ -7,6 +7,7 @@ import {EUFEES_RANGE, rangeMapPins} from "../../constants/content/Ranges.ts";
 import {ngpsaLogo, sapsaLogo} from "../../constants/AppConstants.ts";
 import NGPSALogo from "../../assets/images/logos/ngpsa-logo.png";
 import SAPSALogo from "../../assets/images/logos/sapsa-logo.png";
+import layoutClasses from "../Layout.module.scss";
 import classes from "./Footer.module.scss"
 
 export const Footer = React.memo(
@@ -19,34 +20,28 @@ export const Footer = React.memo(
     return (
         <Container fluid className={classes.Footer}>
             <Row>
-                <Col xs={{span: 6}} md={{span: 2}} className={classes.HeaderLogo}>
+                <Col xs={{span: 6}} md={{span: 2}} className={layoutClasses.LogoContainer}>
                     <a href={ngpsaLogo} target="_blank">
-                        <Image src={NGPSALogo} alt="NGPSA logo" className={classes.LeftLogo}/>
+                        <Image src={NGPSALogo} alt="NGPSA logo" className={`${layoutClasses.Logo} ${layoutClasses.LeftLogo}}`}/>
                     </a>
                 </Col>
-                <Col xs={{span: 12}} md={{span: 8}} className={classes.FooterMap}>
-                    <Row>
-                        <Col className={classes.FooterCenter}>
-                            <Row>
-                                <Col className={classes.FooterMap}>
-                                    <SimpleVenueMap
-                                        mapStyle={{width: mapWidth, height: mapHeight}}
-                                        center={rangeMapPins.get(footerMapRange)?.latLng}
-                                        venues={footerMapPins}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col className={classes.FooterContacts}>
+                <Col xs={{span: 12}} md={{span: 8}} className={classes.FooterCenter}>
+                        <Row className={classes.FooterContent}>
+                            <Col className={classes.FooterMap}>
+                                <SimpleVenueMap
+                                    mapStyle={{width: mapWidth, height: mapHeight}}
+                                    center={rangeMapPins.get(footerMapRange)?.latLng}
+                                    venues={footerMapPins}
+                                />
+                            </Col>
+                            <Col className={classes.FooterText}>
 
-                                </Col>
-                            </Row>
-                        </Col>
-                    </Row>
+                            </Col>
+                        </Row>
                 </Col>
-                <Col xs={{span: 6}} md={{span: 2}} className={classes.FooterLogo}>
+                <Col xs={{span: 6}} md={{span: 2}} className={layoutClasses.LogoContainer}>
                     <a href={sapsaLogo} target="_blank">
-                        <Image src={SAPSALogo} alt="SAPSA logo" className={classes.RightLogo}/>
+                        <Image src={SAPSALogo} alt="SAPSA logo" className={`${layoutClasses.Logo} ${layoutClasses.RightLogo}`}/>
                     </a>
                 </Col>
             </Row>

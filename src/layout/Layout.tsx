@@ -10,13 +10,13 @@ export const Layout = React.memo(
     (props: LayoutProps): ReactElement => {
     return (
         <Container fluid className={classes.Layout}>
-            <header className={classes.header}>
+            <header className={classes.Header}>
                 <Header/>
             </header>
-            <main className={classes.body}>
+            <main className={classes.Body}>
                 <Body {...props}/>
             </main>
-            <footer className={classes.footer}>
+            <footer className={classes.Footer}>
                 <Footer/>
             </footer>
         </Container>

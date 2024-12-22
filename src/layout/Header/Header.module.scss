@@ -26,20 +26,3 @@
   text-align: center;
   vertical-align: middle;
 }
-
-.HeaderLogo {
-  flex: initial;
-}
-
-.HeaderLogo, .LeftLogo, .RightLogo {
-  width: auto;
-  height: 8em;
-}
-
-.LeftLogo {
-  float: left;
-}
-
-.RightLogo {
-  float: right;
-}
