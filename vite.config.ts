@@ -11,7 +11,12 @@ export default defineConfig({
   build: {
     modulePreload: {
       polyfill: false,
-      resolveDependencies: () => [],
-    }
+      resolveDependencies: (filename, deps, context) => {
+        if ((filename.indexOf('.js') !== -1) || (filename.indexOf('.ts') !== -1)) {
+          return deps.filter(dep => dep.indexOf('@') === 0 && dep.indexOf('tahoni') !== 1);
+        }
+        return deps;
+      }
+    },
   },
 })
