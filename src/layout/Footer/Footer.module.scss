@@ -1,3 +1,5 @@
+@import "../../assets/stylesheets/style-theme";
+
 .Footer {
   padding: 0.75em;
   margin: 0.75em;
@@ -30,4 +32,13 @@
   flex: auto;
   text-align: center;
   vertical-align: middle;
+}
+
+a:link .FooterInner, a:hover .FooterInner, a:visited:hover .FooterInner,
+a:focus:hover .FooterInner, a:active:hover, .FooterInner {
+  color: $anchor-text-highlight-color;
+}
+
+a:visited .FooterInner, a:focus .FooterInner, a:active .FooterInner {
+  color: $anchor-text-color;
 }
