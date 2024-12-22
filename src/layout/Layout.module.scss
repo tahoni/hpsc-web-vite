@@ -1,18 +1,36 @@
 .Layout {
   height: 100%;
-  padding: 1rem;
+  padding: 0 !important;
   display: flex;
   flex-direction: column;
 }
 
-.header {
+.Header {
   flex: initial;
 }
 
-.footer {
+.Footer {
   flex: initial;
 }
 
-.body {
+.Body {
   flex: auto;
+}
+
+.LogoContainer {
+  flex: initial;
+  align-content: center;
+}
+
+.Logo, .LeftLogo, .RightLogo {
+  width: auto;
+  height: 8em;
+}
+
+.LeftLogo {
+  float: left;
+}
+
+.RightLogo {
+  float: right;
 }

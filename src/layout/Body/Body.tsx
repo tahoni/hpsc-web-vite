@@ -1,11 +1,12 @@
-import {ReactElement} from "react";
+import React, {ReactElement} from "react";
 import {Col, Container, Row} from "react-bootstrap";
 import {Content} from "../Content/Content.tsx";
 import {ImageSidebar} from "../../components";
 import {BodyProps} from "../LayoutProps.ts";
 import classes from "./Body.module.scss";
 
-export const Body = (props: BodyProps): ReactElement => {
+export const Body = React.memo(
+    (props: BodyProps): ReactElement => {
     return (
         <div className={classes.Body}>
             <div className={classes.BodyInner}>
@@ -35,4 +36,4 @@ export const Body = (props: BodyProps): ReactElement => {
             </div>
         </div>
     )
-}
+})

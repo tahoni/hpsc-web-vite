@@ -1,11 +1,44 @@
+@import "../../assets/stylesheets/style-theme";
+
 .Footer {
-  margin: auto auto auto 1rem;
+  padding: 0.75em;
+  margin: 0.75em;
   align-content: center;
   justify-content: center;
 }
 
-.FooterInner {
+.FooterInner, .FooterCenter {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-items: center;
+}
+
+.FooterContent {
+  display: flex;
+  flex-direction: row;
+  flex: auto;
+  align-content: center;
+  justify-content: center;
+}
+
+.FooterMap {
+  width: 25%;
+  height: 80%;
+  padding: 0 !important;
+}
+
+.FooterText {
+  flex: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
+a:link .FooterInner, a:hover .FooterInner, a:visited:hover .FooterInner,
+a:focus:hover .FooterInner, a:active:hover, .FooterInner {
+  color: $anchor-text-highlight-color;
+}
+
+a:visited .FooterInner, a:focus .FooterInner, a:active .FooterInner {
+  color: $anchor-text-color;
 }
