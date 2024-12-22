@@ -9,9 +9,9 @@ export const HeaderContent = React.memo(
     (props: HeaderContentProps): ReactElement => {
     return (
         <div className={classes.HeaderContent}>
-            <span className={classes.HeaderText}>
+            <div className={classes.HeaderText}>
                 <h1>{props.title}</h1>
-            </span>
+            </div>
         </div>
     )
 })
