@@ -295,7 +295,7 @@ hs_err_pid*
 build/
 dist/
 target/
-.env.*
-.idea/material_theme_project_new.xml
+.idea/*_theme_*.xml
 .idea/**/jpa-buddy.xml
 .idea/**/jpa.xml
+.idea/runConfigurations/

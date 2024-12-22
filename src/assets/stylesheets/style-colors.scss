@@ -8,21 +8,19 @@ $black: #000000ff;
 $yellow: #f4f421ff;
 
 /* Secondary Colours */
-$butterscotch-dark: #513615;
-$blue-lightest: hsl(240, 35%, 95%);
-$blue-lighter: hsl(240, 100%, 95%);
-$blue-medium: #3936fc;
-$blue-darker: #0804fb;
-$yellow-lighter: #fdfdce;
-$yellow-light: #f9f985;
+$butterscotch-dark: #130c07;
+$butterscotch-medium: #513615;
+$blue-lighter: #e6e6ff;
+$blue-light: #9c9bfd;
+$yellow-dark: #181802;
 
 /* Gradients */
-$blue-gradient-top: linear-gradient(0deg, $blue-medium, $blue-lighter);
-$blue-gradient-right: linear-gradient(90deg, $blue-medium, $blue-lighter);
-$blue-gradient-bottom: linear-gradient(180deg, $blue-medium, $blue-lighter);
-$blue-gradient-left: linear-gradient(270deg, $blue-medium, $blue-lighter);
-$blue-gradient-top-right: linear-gradient(45deg, $blue-medium, $blue-lighter);
-$blue-gradient-bottom-right: linear-gradient(135deg, $blue-medium, $blue-lighter);
-$blue-gradient-top-left: linear-gradient(225deg, $blue-medium, $blue-lighter);
-$blue-gradient-bottom-left: linear-gradient(315deg, $blue-medium, $blue-lighter);
-$blue-gradient-radial: radial-gradient($blue-medium, $blue-lighter);
+$blue-gradient-top: linear-gradient(0deg, $blue-light, $blue-lighter);
+$blue-gradient-right: linear-gradient(90deg, $blue-light, $blue-lighter);
+$blue-gradient-bottom: linear-gradient(180deg, $blue-light, $blue-lighter);
+$blue-gradient-left: linear-gradient(270deg, $blue-light, $blue-lighter);
+$blue-gradient-top-right: linear-gradient(45deg, $blue-light, $blue-lighter);
+$blue-gradient-bottom-right: linear-gradient(135deg, $blue-light, $blue-lighter);
+$blue-gradient-top-left: linear-gradient(225deg, $blue-light, $blue-lighter);
+$blue-gradient-bottom-left: linear-gradient(315deg, $blue-light, $blue-lighter);
+$blue-gradient-radial: radial-gradient($blue-light, $blue-lighter);
