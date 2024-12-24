@@ -1,6 +1,6 @@
 import React, {ReactElement} from "react";
-import classes from "./Header.module.scss";
 import {Col, Row} from "react-bootstrap";
+import classes from "./Header.module.scss";
 
 interface HeaderContentProps {
     title: string;
