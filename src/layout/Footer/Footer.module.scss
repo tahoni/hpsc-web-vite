@@ -2,7 +2,7 @@
 @import "../../assets/stylesheets/style-theme";
 
 $map-width: 100%;
-$map-height: 10em;
+$map-height: 12em;
 
 :export {
   maxWidth: $map-width;
@@ -17,7 +17,6 @@ $map-height: 10em;
 }
 
 .FooterInner, .FooterCenter {
-  width: 100%;
   padding: 0;
   margin: 0;
   display: flex;
@@ -33,7 +32,7 @@ $map-height: 10em;
 }
 
 .FooterInner {
-    padding: 0.75em 0;
+    padding: 0.75rem 0;
 }
 
 .FooterContent {
@@ -46,13 +45,11 @@ $map-height: 10em;
 }
 
 .FooterMap {
-  height: $map-height;
   padding: 0;
   margin: 0;
 }
 
 .FooterDetails {
-  height: $map-height;
   font-style: italic;
   display: flex;
   flex-direction: column;
@@ -70,10 +67,7 @@ $map-height: 10em;
 
 .WebsiteInfo p {
   margin-bottom: 0;
-}
-
-.Copyright {
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 @include media-breakpoint-down(md) {
@@ -86,6 +80,22 @@ $map-height: 10em;
   }
 
   .FooterCenter {
-    padding-top: 0.75em;
+    padding-top: 0.75rem;
+  }
+
+  .FooterMap {
+    padding-bottom: 0.75rem;
+  }
+
+  .FooterDetails {
+    padding-top: 0.75rem;
+  }
+
+  .ContactInfo {
+    padding-bottom: 0.75rem;
+  }
+
+  .WebsiteInfo {
+   padding-top: 0.75rem;
   }
 }

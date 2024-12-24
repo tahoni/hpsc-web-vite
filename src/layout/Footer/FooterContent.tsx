@@ -34,15 +34,23 @@ export const FooterContent = React.memo(
                                 E-mail:
                             </Col>
                             <Col>
-                                <a href="mailto:chairman@hpsc.co.za">chairman@hpsc.co.za</a>
+                                <a href="mailto:admin@hpsc.co.za" target="_blank">admin@hpsc.co.za</a>
                             </Col>
                         </Row>
                         <Row>
-                        <Col>
-                                E-mail:
+                            <Col>
+                                Facebook:
                             </Col>
                             <Col>
-                                <a href="mailto:admin@hpsc.co.za">admin@hpsc.co.za</a>
+                                <a href="https://www.facebook.com/profile.php?id=100063707311881" target="_blank">HPSC Page</a>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                Facebook:
+                            </Col>
+                            <Col>
+                                <a href="https://www.facebook.com/groups/933580883991020" target="_blank">HPSC Group</a>
                             </Col>
                         </Row>
                     </div>
@@ -51,7 +59,7 @@ export const FooterContent = React.memo(
                         <Row>
                             <Col>
                                 <p>For any website queries please contact <a
-                                    href="mailto:webmaster@hpsc.co.za">webmaster@hpsc.co.za</a>.
+                                    href="mailto:webmaster@hpsc.co.za" target="_blank">webmaster@hpsc.co.za</a>.
                                 </p>
                                 <p className={classes.Copyright}>
                                     Copyright © 2024 Hartbeespoortdam Practical Shooting Club.<br/>
