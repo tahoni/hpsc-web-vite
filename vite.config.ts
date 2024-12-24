@@ -11,12 +11,21 @@ export default defineConfig({
   build: {
     modulePreload: {
       polyfill: false,
-      resolveDependencies: (filename, deps, context) => {
-        if ((filename.indexOf('.js') !== -1) || (filename.indexOf('.ts') !== -1)) {
-          return deps.filter(dep => dep.indexOf('@') === 0 && dep.indexOf('tahoni') !== 1);
+      resolveDependencies: (filename, deps) => {
+        // Exclude all .js and .ts files
+        if (filename.endsWith('.js') || filename.endsWith('.ts')) {
+          return [];
         }
+        // For all other file types, return the original dependencies
         return deps;
       }
-    }
-  }
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          tahoniLib: ['@tahoni/tahoni-lib-react']
+        }
+      },
+    },
+  },
 })
