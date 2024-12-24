@@ -1,6 +1,6 @@
 export const clubName: string = 'Hartbeespoortdam Practical Shooting Club';
 export const clubAbbreviation: string = 'HPSC';
-export const clubShootingRange: string = 'Pretoria Military Practical Shooting Club';
+export const clubShootingRange: string = 'Pretoria Defense Practical Shooting Club';
 
 export const chairmanEmail: string = 'chairman@hpsc.co.za'
 export const viceChairmanEmail: string = 'vc-chairman@hpsc.co.za';
