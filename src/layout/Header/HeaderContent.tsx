@@ -1,5 +1,6 @@
 import React, {ReactElement} from "react";
 import classes from "./Header.module.scss";
+import {Col, Row} from "react-bootstrap";
 
 interface HeaderContentProps {
     title: string;
@@ -8,10 +9,10 @@ interface HeaderContentProps {
 export const HeaderContent = React.memo(
     (props: HeaderContentProps): ReactElement => {
     return (
-        <div className={classes.HeaderContent}>
-            <div className={classes.HeaderText}>
+        <Row className={classes.HeaderContent}>
+            <Col className={classes.HeaderText}>
                 <h1>{props.title}</h1>
-            </div>
-        </div>
+            </Col>
+        </Row>
     )
 })
