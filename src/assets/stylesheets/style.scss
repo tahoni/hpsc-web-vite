@@ -8,7 +8,6 @@ html, body {
   font-family: $text-font-family;
   color: $text-color;
   background: $background-color fixed no-repeat;
-  box-sizing: border-box;
 }
 
 /* Headings */
@@ -18,10 +17,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Hyperlink */
-a:link, a:hover, a:visited:hover, a:focus:hover, a:active:hover {
+a:link, a:visited:hover, a:focus:hover, a:active:hover {
   color: $anchor-text-color;
 }
 
-a:visited, a:focus, a:active {
+a:hover, a:visited, a:focus, a:active {
   color: $anchor-text-highlight-color;
 }
