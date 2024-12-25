@@ -10,18 +10,14 @@
 - [Screenshots](#screenshots)
 - [License](#license)
 - [Author](#author)
-- [Support](#support)
 
 ## Description
-This project stores the source code for the 
-Hartbeespoortdam Practical Shooting Club (HPSC) website (https://hpsc.co.za).
+This repository contains the source code for the Hartbeespoortdam Practical Shooting Club (HPSC) website.
 
 ## Summary
-This project stores the source code for the 
-Hartbeespoortdam Practical Shooting Club (HPSC) website (https://hpsc.co.za).\
-It is a React project bootstrapped using Vite with the TypeScript React template.
-It is written in TypeScript and uses Bootstrap and React Bootstrap
-as the UI framework. It uses React Router for page routing.
+The [HPSC website](https://hpsc.co.za) uses modern web technologies 
+to provide an informative and user-friendly platform for members and visitors. 
+The primary technologies used in this project include TypeScript, SCSS, and MDX.
 
 ## Repository
 The repository for this project is located at 
@@ -39,6 +35,9 @@ A high-level structure of the project.
 ├───documentation
 │   └───screenshots
 ├───public
+│   └───assets
+│       └───images
+│           └───pictures
 └───src
     ├───assets
     │   ├───fonts
@@ -51,17 +50,29 @@ A high-level structure of the project.
     │   └───stylesheets
     ├───components
     ├───constants
+    ├───content
+    │   └───markdown
     ├───layout
     │   ├───Body
     │   ├───Breakpoints
+    │   ├───Content
     │   ├───Footer
     │   └───Header
     ├───model
-    └───pages
+    ├───pages
+    └───utils
 ```
 
 ## Technology
-A list of the technology used to develop and/or run the project.
+### Overview
+
+[//]: # (TODO: improve this section)
+This is a React project bootstrapped using Vite with the TypeScript React template.
+It is written in TypeScript and uses both JSX and MDX components.
+Bootstrap and React Bootstrap are used for the UI/UX. 
+React Router is used for page routing.
+
+### Technology stack
 
 **_Languages:_**
 - TypeScript 5
@@ -77,7 +88,7 @@ A list of the technology used to develop and/or run the project.
   [![CSS Badge](https://img.shields.io/badge/CSS-1572B6?logo=css3)](https://www.w3.org/)
 
 **_Build Tools:_**
-- npm
+- npm 10
 
   [![npm Badge](https://img.shields.io/badge/npm-CB3837?logo=npm)](https://www.npmjs.com/)
 
@@ -104,10 +115,17 @@ A list of the technology used to develop and/or run the project.
   [![React Router Badge](https://img.shields.io/badge/React_Router-CB3837?logo=react&logoColor=white)](https://reactrouter.com/en/main)
 
 ## Instructions
-In the project directory, you can run:
+The following commands are available in this project 
+to set up the development environment 
+and build the production environment.
+
+#### `npm install`
+This installs the dependencies.
+
+[//]: # (TODO: detail about npm key)
 
 #### `npm run dev`
-This runs the app in the development mode.\
+This runs the app in development mode.\
 The page will reload if you make edits.
 
 #### `npm run build`
@@ -115,16 +133,17 @@ This builds the app for production to the `dist` folder.\
 Your app is ready to be deployed!
 
 #### `npm run preview`
-This previews the app in the `dist` folder locally.\
-It's an easy way to check if the production build looks OK in your local environment.
+This previews the app locally in the `dist` folder.\
+Use this to check if the production build looks OK in your local environment.
 
 ## Screenshots
-_Home Page_:
+_History Page_:
 
-![Under Construction Slide #1](documentation/screenshots/under-construction-1.png)
+![History Page](documentation/screenshots/HistoryPage.png)
 
 ## License
-Copyright © 2024 Leoni Lubbinge. All Rights Reserved.
+Copyright © 2024 Hartbeespoortdam Practical Shooting Club.\
+All Rights Reserved.
 
 ## Author
 **Leoni Lubbinge**
@@ -134,8 +153,3 @@ Copyright © 2024 Leoni Lubbinge. All Rights Reserved.
 - [![Gmail Email Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail&labelColor=%23023e8aff&color=%230077b6ff)](mailto:tahoni@gmail.com)
 - [![GitHub Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=github&labelColor=%23023e8aff&color=%230077b6ff)](https://github.com/tahoni)
 - [![LinkedIn Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=linkedin&labelColor=%23023e8aff&color=%230077b6ff)](https://www.linkedin.com/in/leoni-lubbinge-06066b16/)
-
-## Support
-Contributions, suggestions, bug reports and feature requests are welcome!
-
-Give a ⭐️ if you like this project!
