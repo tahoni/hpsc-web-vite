@@ -64,17 +64,22 @@ A high-level structure of the project.
 ```
 
 ## Technology
+
 ### Overview
 
-[//]: # (TODO: improve this section)
 This is a React project bootstrapped using Vite with the TypeScript React template.
+
 It is written in TypeScript and uses both JSX and MDX components.
+
 Bootstrap and React Bootstrap are used for the UI/UX. 
+Styling is done by SCSS stylesheets.
+
 React Router is used for page routing.
 
 ### Technology stack
 
-**_Languages:_**
+#### Languages:
+
 - TypeScript 5
 
   [![TypeScript Badge](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -87,12 +92,14 @@ React Router is used for page routing.
 
   [![CSS Badge](https://img.shields.io/badge/CSS-1572B6?logo=css3)](https://www.w3.org/)
 
-**_Build Tools:_**
+#### Build Tools:
+
 - npm 10
 
   [![npm Badge](https://img.shields.io/badge/npm-CB3837?logo=npm)](https://www.npmjs.com/)
 
-**_Frameworks:_**
+#### Frameworks:
+
 - Vite 5
 
   [![Vite Badge](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -101,7 +108,8 @@ React Router is used for page routing.
 
   [![React Badge](https://img.shields.io/badge/React-CB3837?logo=react)](https://react.dev/)
 
-**_Libraries:_**
+#### Libraries:
+
 - Bootstrap 5
 
   [![Bootstrap Badge](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
@@ -122,34 +130,51 @@ and build the production environment.
 #### `npm install`
 This installs the dependencies.
 
-[//]: # (TODO: detail about npm key)
+#### Environment variables
+The npm key to @tahoni on GitHub needs 
+to be set in the ````GITHUB_TOKEN```` environment variable, 
+to load the ````tahoni-lib-react```` npm package.
+
+The Google Maps API key from Google Cloud Services needs
+to be set in the ````GOOGLE_API_KEY```` environment variable, 
+otherwise, the map will not be available.
 
 #### `npm run dev`
-This runs the app in development mode.\
+This runs the app in development mode.
+
 The page will reload if you make edits.
 
 #### `npm run build`
-This builds the app for production to the `dist` folder.\
+This builds the app for production to the `dist` folder.
+
 Your app is ready to be deployed!
 
 #### `npm run preview`
-This previews the app locally in the `dist` folder.\
+This previews the app locally in the `dist` folder.
+
 Use this to check if the production build looks OK in your local environment.
 
 ## Screenshots
 _History Page_:
 
-![History Page](documentation/screenshots/HistoryPage.png)
+![History Page](./documentation/screenshots/HistoryPage.png)
 
 ## License
-Copyright © 2024 Hartbeespoortdam Practical Shooting Club.\
+Copyright © 2024 Hartbeespoortdam Practical Shooting Club.
+
 All Rights Reserved.
 
 ## Author
 **Leoni Lubbinge**
+
 - [![Website Badge](https://img.shields.io/badge/https%3A%2F%2Ftahoni.info-blue?color=%230077b6ff)](https://www.tahoni.info)
+
 - [![Email Badge](https://img.shields.io/badge/leonil%40tahoni.info-blue?color=%230077b6ff)](mailto:leonil@tahoni.info)
+
 - [![Outlook Email Badge](https://img.shields.io/badge/tahoni%40outlook.com-blue?color=%230077b6ff)](mailto:tahoni@outlook.com)
+
 - [![Gmail Email Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail&labelColor=%23023e8aff&color=%230077b6ff)](mailto:tahoni@gmail.com)
+
 - [![GitHub Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=github&labelColor=%23023e8aff&color=%230077b6ff)](https://github.com/tahoni)
+
 - [![LinkedIn Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=linkedin&labelColor=%23023e8aff&color=%230077b6ff)](https://www.linkedin.com/in/leoni-lubbinge-06066b16/)
