@@ -1,7 +1,7 @@
 # HPSC website
 
 ## Release Notes
-Notable changes to this project in the latest release [version 3.2.5](#version-325).
+Notable changes to this project in the latest release [version 3.2.5](#version-325---2024-12-25).
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -11,8 +11,8 @@ Make the About page the homepage.
 
 ##### Changed
 - Move all common static content to global constants.
-- Use these constants in the:
-  - header. 
-  - footer.
-  - about page.
+- Use these constants in:
+  - the header. 
+  - the footer.
+  - the About page.
 - Make the About page the homepage.

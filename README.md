@@ -1,6 +1,6 @@
 # HPSC website
 
-## Table of contents
+## Table of Contents
 - [Description](#description)
 - [Summary](#summary)
 - [Repository](#repository)
@@ -76,7 +76,7 @@ Styling is done by SCSS stylesheets.
 
 React Router is used for page routing.
 
-### Technology stack
+### Technology Stack
 
 #### Languages:
 
@@ -130,7 +130,7 @@ and build the production environment.
 #### `npm install`
 This installs the dependencies.
 
-#### Environment variables
+#### Environment Variables
 The npm key to @tahoni on GitHub needs 
 to be set in the ````GITHUB_TOKEN```` environment variable, 
 to load the ````tahoni-lib-react```` npm package.
