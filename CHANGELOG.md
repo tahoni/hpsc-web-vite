@@ -21,8 +21,8 @@ Improve the documentation.
 - Add a change log.
 
 #### Changed
-- Bring the Readme file up to date.
-- Bring the Licence file up to date.
+- Bring the readme file up to date.
+- Bring the licence file up to date.
 
 
 ### [Version 3.2.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.5) - 2024-12-25
