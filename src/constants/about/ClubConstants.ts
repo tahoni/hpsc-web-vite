@@ -6,6 +6,7 @@ export const chairmanEmail: string = 'chairman@hpsc.co.za'
 export const viceChairmanEmail: string = 'vc-chairman@hpsc.co.za';
 export const treasurerEmail: string = 'treasurer@hpsc.co.za'
 export const adminEmail: string = 'admin@hpsc.co.za';
+export const enquiriesEmail: string = 'enquiries@hpsc.co.za'
 export const webmasterEmail: string = 'webmaster@hpsc.co.za';
 
 export const contactEmail: string = adminEmail;
