@@ -16,7 +16,7 @@ This repository contains the source code for the Hartbeespoortdam Practical Shoo
 
 ## Summary
 The [HPSC website](https://hpsc.co.za) uses modern web technologies 
-to provide an informative and user-friendly platform for members and visitors. 
+to provide an informative and user-friendly platform for members and visitors.<br/> 
 The primary technologies used in this project include TypeScript, SCSS, and MDX.
 
 ## Repository
@@ -71,7 +71,7 @@ This is a React project bootstrapped using Vite with the TypeScript React templa
 
 It is written in TypeScript and uses both JSX and MDX components.
 
-Bootstrap and React Bootstrap are used for the UI/UX. 
+Bootstrap and React Bootstrap are used for the UI/UX.<br/>
 Styling is done by SCSS stylesheets.
 
 React Router is used for page routing.
@@ -140,41 +140,31 @@ to be set in the ````GOOGLE_API_KEY```` environment variable,
 otherwise, the map will not be available.
 
 #### `npm run dev`
-This runs the app in development mode.
-
+This runs the app in development mode.<br/>
 The page will reload if you make edits.
 
 #### `npm run build`
-This builds the app for production to the `dist` folder.
-
+This builds the app for production to the `dist` folder.<br/>
 Your app is ready to be deployed!
 
 #### `npm run preview`
-This previews the app locally in the `dist` folder.
-
+This previews the app locally in the `dist` folder.<br/>
 Use this to check if the production build looks OK in your local environment.
 
 ## Screenshots
-_History Page_:
+### History Page
 
 ![History Page](./documentation/screenshots/HistoryPage.png)
 
 ## License
-Copyright © 2024 Hartbeespoortdam Practical Shooting Club.
-
+Copyright © 2024 Hartbeespoortdam Practical Shooting Club.<br/>
 All Rights Reserved.
 
 ## Author
 **Leoni Lubbinge**
 
 - [![Website Badge](https://img.shields.io/badge/https%3A%2F%2Ftahoni.info-blue?color=%230077b6ff)](https://www.tahoni.info)
-
 - [![Email Badge](https://img.shields.io/badge/leonil%40tahoni.info-blue?color=%230077b6ff)](mailto:leonil@tahoni.info)
-
-- [![Outlook Email Badge](https://img.shields.io/badge/tahoni%40outlook.com-blue?color=%230077b6ff)](mailto:tahoni@outlook.com)
-
-- [![Gmail Email Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail&labelColor=%23023e8aff&color=%230077b6ff)](mailto:tahoni@gmail.com)
-
+- [![Outlook Email Badge](https://img.shields.io/badge/tahoni%40outlook.com-blue?color=%230077b6ff)](mailto:tahoni@outlook.com)- [![Gmail Email Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail&labelColor=%23023e8aff&color=%230077b6ff)](mailto:tahoni@gmail.com)
 - [![GitHub Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=github&labelColor=%23023e8aff&color=%230077b6ff)](https://github.com/tahoni)
-
 - [![LinkedIn Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=linkedin&labelColor=%23023e8aff&color=%230077b6ff)](https://www.linkedin.com/in/leoni-lubbinge-06066b16/)
