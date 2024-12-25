@@ -2,9 +2,16 @@ import {ReactElement} from "react";
 import {Col, Container, Image, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {HeaderContent} from "./HeaderContent.tsx";
-import {ngpsaWebsite} from "../../constants/AppConstants.ts";
-import HPSCLogo from "../../assets/images/logos/hpsc-logo.png";
-import NGPSALogo from "../../assets/images/logos/ngpsa-logo.png"
+import {
+    clubAbbreviation,
+    clubName
+} from "../../constants/about/ClubConstants.ts";
+import {
+    provincialAssociationAbbreviation,
+    provincialAssociationWebsite
+} from "../../constants/about/AssociationConstants.ts";
+import ClubLogo from "../../assets/images/logos/hpsc-logo.png";
+import ProvincialAssociationLogo from "../../assets/images/logos/ngpsa-logo.png"
 import layoutClasses from "../Layout.module.scss";
 import classes from "./Header.module.scss";
 
@@ -14,15 +21,15 @@ export const Header = (): ReactElement => {
             <Row className={classes.HeaderInner}>
                 <Col xs={{span: 6}} md={{span: 2}} className={layoutClasses.LogoContainer}>
                     <Link to="/">
-                        <Image src={HPSCLogo} alt="HPSC logo" className={`${layoutClasses.Logo} ${layoutClasses.LeftLogo}`}/>
+                        <Image src={ClubLogo} alt={clubAbbreviation + ' logo'} className={`${layoutClasses.Logo} ${layoutClasses.LeftLogo}`}/>
                     </Link>
                 </Col>
                 <Col xs={{span: 12, order: 'last'}} md={{span: 8}} className={classes.HeaderCenter}>
-                    <HeaderContent title="Hartbeespoortdam Practical Shooting Club"/>
+                    <HeaderContent title={clubName}/>
                 </Col>
                 <Col xs={{span: 6}} md={{span: 2, order: 'last'}} className={layoutClasses.LogoContainer}>
-                    <a href={ngpsaWebsite} target="_blank">
-                        <Image src={NGPSALogo} alt="NGPSA logo" className={`${layoutClasses.Logo} ${layoutClasses.RightLogo}`}/>
+                    <a href={provincialAssociationWebsite} target="_blank">
+                        <Image src={ProvincialAssociationLogo} alt={provincialAssociationAbbreviation + ' logo'} className={`${layoutClasses.Logo} ${layoutClasses.RightLogo}`}/>
                     </a>
                 </Col>
             </Row>

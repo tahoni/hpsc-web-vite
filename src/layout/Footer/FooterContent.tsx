@@ -3,6 +3,12 @@ import {Col, Row} from "react-bootstrap";
 import {SimpleVenueMap} from "../../components";
 import {VenueType} from "../../model/VenueTypes.ts";
 import {EUFEES_RANGE, rangeMapPins} from "../../constants/content/Ranges.ts";
+import {copyrightYear} from "../../constants/AppConstants.ts";
+import {
+    clubName,
+    contactEmail, facebookGroup, facebookPage,
+    websiteContactEmail
+} from "../../constants/about/ClubConstants.ts";
 import classes from "./Footer.module.scss"
 
 export const FooterContent = React.memo(
@@ -34,7 +40,7 @@ export const FooterContent = React.memo(
                                 E-mail:
                             </Col>
                             <Col>
-                                <a href="mailto:admin@hpsc.co.za" target="_blank">admin@hpsc.co.za</a>
+                                <a href={'mailto:' + contactEmail} target="_blank">{contactEmail}</a>
                             </Col>
                         </Row>
                         <Row>
@@ -42,7 +48,7 @@ export const FooterContent = React.memo(
                                 Facebook:
                             </Col>
                             <Col>
-                                <a href="https://www.facebook.com/profile.php?id=100063707311881" target="_blank">HPSC Page</a>
+                                <a href={facebookPage} target="_blank">HPSC Page</a>
                             </Col>
                         </Row>
                         <Row>
@@ -50,7 +56,7 @@ export const FooterContent = React.memo(
                                 Facebook:
                             </Col>
                             <Col>
-                                <a href="https://www.facebook.com/groups/933580883991020" target="_blank">HPSC Group</a>
+                                <a href={facebookGroup} target="_blank">HPSC Group</a>
                             </Col>
                         </Row>
                     </div>
@@ -59,10 +65,10 @@ export const FooterContent = React.memo(
                         <Row>
                             <Col>
                                 <p>For any website queries please contact <a
-                                    href="mailto:webmaster@hpsc.co.za" target="_blank">webmaster@hpsc.co.za</a>.
+                                    href={'mailto:' + websiteContactEmail} target="_blank">{websiteContactEmail}</a>.
                                 </p>
-                                <p className={classes.Copyright}>
-                                    Copyright © 2024 Hartbeespoortdam Practical Shooting Club.<br/>
+                                <p>
+                                    Copyright © {copyrightYear} {clubName}.<br/>
                                     All rights reserved.
                                 </p>
                             </Col>
