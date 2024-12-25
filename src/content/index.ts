@@ -1,1 +1,1 @@
-export {HomeContent, AboutContent} from "./markdown";
+export {HistoryContent} from "./markdown";
