@@ -57,11 +57,11 @@ Added more keywords for SEO purposes.<br />
 - Improved the responsiveness of the website.
 - Added more keywords for SEO on the base page.
 
-### Bug Fixes
+#### Bug Fixes
 - Fixed the hover colour of the hyperlinks.
 
 #### General Code Improvements
-- Moved the styling of the icon image to the CSS layout component.
+- The styling of the icon image was moved to the CSS layout component.
 - Removed styling and JavaScript from the website preamble.
 - Decreased the maximum size of the generated chunks by chunking the tahoni React library in its own chunk.
 
@@ -150,16 +150,64 @@ Read all page content from Markdown components.<br />
 - Added support for MDX with new dependencies from `@mdx-js`.
 
 
-### [Version 3.1.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.1) - 2024-12-15
+### [Version 3.1.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.4) - 2024-12-16
+Optimized the images.<br />
+
+#### Enhancements and Updated
+- Optimized all images.
+
+
+### [Version 3.1.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.3) - 2024-12-16
+Made the sidebars sticky.<br />
 
 #### Enhancements and Updates
-- Aligned the body content between the logos in the header.
+- Styled the sidebar component to make them sticky.
+
+
+### [Version 3.1.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.2) - 2024-12-16
+Made the logos in the header hyperlinks.<br />
+Created the sidebar component and added it to the homepage.<br />
+
+#### Enhancements and Updates
+- A Markdown file containing the About Us content was added.
+- Made the NGPSA logo a hyperlink to the NGPSA website.
+- Changed the HPSC logo redirects to the homepage.
+- Added the sidebar component and added it directly to the homepage.
+- Added the semi-transparent sidebar images of two shooters.
+- Added content to the homepage.
+
+#### General Code Improvements
+- Renamed the global stylesheets to `style-` from `styles-` to conform to standard practice.
+- Added a `styles-icon.scss` stylesheet.
+- Removed unused components.
+- Removed unused images.
+
+#### Licence and Documentation
+- Changed the licence to "All rights reserved".
+- Added the homepage to the readme file.
+
+#### Dependencies
+- Removed unused dependencies.
+
+
+### [Version 3.1.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.1) - 2024-12-15
+Added a gradient background.<br />
+Made the header responsive.<br />
+
+#### Enhancements and Updates
+- A gradient background was added to the layout.
+- Aligned the heading with the logos.
+- Made the header responsive.
+- Aligned the body content between the logos.
+
+#### Dependencies
+- Removed the unused Slick Carousel library.
 
 
 ### [Version 3.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.0) - 2024-12-14
 Created an SVG favicon.<br />
-Added a gradient background.<br />
-Completed the header by adding logos and a heading.<br />
+Added the HPSC and SAPSA logos to the header.<br />
+Added content to the homepage.<br />
 
 #### Enhancements and Updates
 - Added pages from the old website without making any changes.
@@ -170,9 +218,9 @@ Completed the header by adding logos and a heading.<br />
 - Replaced outdated images and icons in the `public/assets` directory with up-to-date ones.
 - Deleted unused images from the `public/assets` directory
 - A layout skeleton with a header, footer and body was created.
-- A gradient background was added to the layout.
 - A header with the HPSC and NGPSA logos was added.
 - A new homepage was created to replace the under-construction page.
+- Populated the homepage content.
 
 #### General Code Improvements
 - Replaced CSS variables with SCSS variables.
@@ -259,10 +307,3 @@ Created a homepage with an under-construction carousel.<br />
 - Added Font Awesome libraries.
 - Added Bootstrap and React Bootstrap libraries.
 - Added the tahoni React library.
-
-
-### [Version 3.1.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.4) - 2024-12-16
-
-### [Version 3.1.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.3) - 2024-12-16
-
-### [Version 3.1.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.2) - 2024-12-16
