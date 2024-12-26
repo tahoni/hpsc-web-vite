@@ -1,5 +1,4 @@
-import Home from "./pages/Home.mdx";
-import About from "./pages/About.mdx";
+import History from "./pages/History.mdx";
 import {
     clubAbbreviation,
     clubName,
@@ -17,9 +16,8 @@ import {
     provincialAssociationWebsite
 } from "../../constants/about/AssociationConstants.ts";
 
-export const HomeContent = () => (<Home/>);
-export const AboutContent = () =>
-    (<About
+export const HistoryContent = () =>
+    (<History
         clubName={clubName} clubAbbreviation={clubAbbreviation} clubShootingRage={clubShootingRange}
         internationalAssociationWebsite={internationalAssociationWebsite} internationalAssociationName={internationalAssociationName} internationalAssociationAbbreviation={internationalAssociationAbbreviation}
         nationalAssociationWebsite={nationalAssociationWebsite} nationalAssociationName={nationalAssociationName} nationalAssociationAbbreviation={nationalAssociationAbbreviation}

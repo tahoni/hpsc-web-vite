@@ -28,12 +28,12 @@
 
 @include media-breakpoint-up(lg) {
   .BodyCenter {
-    max-width: calc(100% - 16rem);
+    width: calc(100% - 16rem);
   }
 }
 
 @include media-breakpoint-up(xl) {
   .BodyCenter {
-    max-width: calc(100% - 20rem);
+    width: calc(100% - 20rem);
   }
 }
