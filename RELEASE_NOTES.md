@@ -5,7 +5,7 @@
 Improved the documentation.<br />
 
 #### Licence and Documentation
-- Bring the readme file up to date.
-- Bring the licence file up to date.
+- Brought the readme file up to date.
+- Brought the licence file up to date.
 - Added release notes.
 - Added a change log.
