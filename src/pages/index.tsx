@@ -1,4 +1,4 @@
-import {HistoryContent} from "../content";
+import {AboutContent} from "../content";
 
-export const HomePage = () => (<HistoryContent />);
-export const HistoryPage = () => (<HistoryContent />);
+export const HomePage = () => (<AboutContent />);
+export const AboutPage = () => (<AboutContent />);
