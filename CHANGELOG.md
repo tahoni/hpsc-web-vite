@@ -2,6 +2,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.2.6](#version-326---2024-12-26)
 - [Version 3.2.5](#version-325---2024-12-25)
 - [Version 3.2.4](#version-324---2024-12-24)
 - [Version 3.2.3](#version-323---2024-12-22)
@@ -21,7 +22,7 @@
 - [Version 3.0.0](#version-300---2024-08-18)
 
 
-### Unreleased
+### [Version 3.2.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.6) - 2024-12-26
 Improved the documentation.<br />
 
 #### Licence and Documentation
