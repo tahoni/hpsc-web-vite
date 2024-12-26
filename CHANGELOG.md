@@ -26,8 +26,8 @@
 Improved the documentation.<br />
 
 #### Licence and Documentation
-- Bring the readme file up to date.
-- Bring the licence file up to date.
+- Brought the readme file up to date.
+- Brought the licence file up to date.
 - Added release notes.
 - Added a change log.
 
@@ -292,7 +292,7 @@ Created a homepage with an under-construction carousel.<br />
 - Use the tahoni React library for data structures. 
 
 #### Licence and Documentation
-- Added a readme file with a detailed project description, structure, technology stack, instructions, screenshots, licence, author, and support information.
+- Created a readme file with a detailed project description, structure, technology stack, instructions, screenshots, licence, author, and support information.
 - Added a licence file.
 
 #### General Technical Changes
