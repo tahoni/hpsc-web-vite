@@ -1,1 +1,2 @@
-Copyright © 2024 Leoni Lubbinge. All Rights Reserved.
+Copyright © 2024 Hartbeespoortdam Practical Shooting Club.<br/>
+All Rights Reserved.
