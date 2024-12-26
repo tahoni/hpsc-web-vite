@@ -22,7 +22,7 @@
 
 
 ### Unreleased
-Improved the documentation.<br/>
+Improved the documentation.<br />
 
 #### Licence and Documentation
 - Bring the readme file up to date.
@@ -32,7 +32,7 @@ Improved the documentation.<br/>
 
 
 ### [Version 3.2.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.5) - 2024-12-25
-Moved all common static content to global constants.<br/>
+Moved all common static content to global constants.<br />
 
 #### General Code Improvements
 - Moved all common static content to global constants.
@@ -43,11 +43,11 @@ Moved all common static content to global constants.<br/>
 
 
 ### [Version 3.2.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.4) - 2024-12-24
-Made the About page the homepage.<br/>
-Finished the website layout by completing the footer.<br/>
-Completed the footer by adding contact details and copyright.<br/>
-Improved the responsiveness of the website.<br/>
-Added more keywords for SEO purposes.<br/>
+Made the About page the homepage.<br />
+Finished the website layout by completing the footer.<br />
+Completed the footer by adding contact details and copyright.<br />
+Improved the responsiveness of the website.<br />
+Added more keywords for SEO purposes.<br />
 
 #### Enhancements and Updates
 - Made the About page the homepage.
@@ -70,8 +70,8 @@ Added more keywords for SEO purposes.<br/>
 
 
 ### [Version 3.2.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.3) - 2024-12-22
-Added the SAPSA and IPSC logos to the footer.<br/>
-Completed the map to the shooting range in the footer.<br/>
+Added the SAPSA and IPSC logos to the footer.<br />
+Completed the map to the shooting range in the footer.<br />
 
 #### Enhancements and Updates
 - A working map of the club shooting range was added to the footer.
@@ -98,16 +98,16 @@ Completed the map to the shooting range in the footer.<br/>
 
 
 ### [Version 3.2.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.2) - 2024-12-18
-Allowed React to handle page routing.<br/>
+Allowed React to handle page routing.<br />
 
 #### General Technical Changes
 - Added a `.htaccess` file to allow React to handle the page routing.
 
 
 ### [Version 3.2.1](https://github.com/tahoni/hpsc-web-vite/releases/edit/version-3.2.1) - 2024-12-17
-Added an About page with the club's history.<br/>
-Added hyperlinks to the About component.<br/>
-A map of the shooting range was added in the footer.<br/>
+Added an About page with the club's history.<br />
+Added hyperlinks to the About component.<br />
+A map of the shooting range was added in the footer.<br />
 
 #### Enhancements and Updates
 - A range map component was added to the footer.
@@ -128,7 +128,7 @@ A map of the shooting range was added in the footer.<br/>
 
 
 ### [Version 3.2.0](https://github.com/tahoni/hpsc-web-vite/releases/edit/version-3.2.0) - 2024-12-17
-Read all page content from Markdown components.<br/>
+Read all page content from Markdown components.<br />
 
 #### Enhancements and Updates
 - Added React MDX Markdown components.
@@ -150,10 +150,16 @@ Read all page content from Markdown components.<br/>
 - Added support for MDX with new dependencies from `@mdx-js`.
 
 
+### [Version 3.1.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.1) - 2024-12-15
+
+#### Enhancements and Updates
+- Aligned the body content between the logos in the header.
+
+
 ### [Version 3.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.0) - 2024-12-14
-Created an SVG favicon.
-Added a gradient background.
-Completed the header by adding logos and a heading.
+Created an SVG favicon.<br />
+Added a gradient background.<br />
+Completed the header by adding logos and a heading.<br />
 
 #### Enhancements and Updates
 - Added pages from the old website without making any changes.
@@ -179,21 +185,21 @@ Completed the header by adding logos and a heading.
 
 
 ### [Version 3.0.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.5) - 2024-12-06
-Fixed the spelling of the "_Hartbeespoortdam Practical Shooting Club_" properly.
+Fixed the spelling of the "_Hartbeespoortdam Practical Shooting Club_" properly.<br />
 
 #### Enhancements and Updates
 - Corrected the name of the club everywhere.
 
 
 ### [Version 3.0.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.4) - 2024-11-02
-Changed the website's title to "_Hartebeespoortdam Practical Shooting Club_".
+Changed the website's title to "_Hartebeespoortdam Practical Shooting Club_".<br />
 
 #### Enhancements and Updates
 - Changed the title of the index page to the club's name.
 
 
 ### [Version 3.0.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.3) - 2024-10-29
-Fixed the spelling of the "_Hartebeespoortdam Practical Shooting Club_".
+Fixed the spelling of the "_Hartebeespoortdam Practical Shooting Club_".<br />
 
 #### Bug Fixes
 - Fixed the spelling of the club everywhere
@@ -203,14 +209,14 @@ Fixed the spelling of the "_Hartebeespoortdam Practical Shooting Club_".
 
 
 ### [Version 3.0.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.2) - 2024-08-27
-Removed the background image to improve the look and feel.
+Removed the background image to improve the look and feel.<br />
 
 #### Enhancements and Updates
 - Removed the background image.
 
 
 ### [Version 3.0.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.1) - 2024-08-27
-Tried to improve the styling of the background.
+Tried to improve the styling of the background.<br />
 
 #### Enhancements and Updates
 - A header and a body were added to the layout component.
@@ -224,7 +230,7 @@ Tried to improve the styling of the background.
 
 
 ### [Version 3.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.0) - 2024-08-18
-Created a homepage with an under-construction carousel.
+Created a homepage with an under-construction carousel.<br />
 
 #### Enhancements and Updates
 - Scaffolded the initial React application using Vite.
@@ -253,3 +259,10 @@ Created a homepage with an under-construction carousel.
 - Added Font Awesome libraries.
 - Added Bootstrap and React Bootstrap libraries.
 - Added the tahoni React library.
+
+
+### [Version 3.1.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.4) - 2024-12-16
+
+### [Version 3.1.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.3) - 2024-12-16
+
+### [Version 3.1.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.2) - 2024-12-16
