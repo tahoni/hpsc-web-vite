@@ -1,4 +1,5 @@
-import {AboutContent} from "../content";
+import { AboutUsContent, ContactUsContent } from "../content";
 
-export const HomePage = () => (<AboutContent />);
-export const AboutPage = () => (<AboutContent />);
+export const HomePage = () => <AboutUsContent />;
+export const AboutUsPage = () => <AboutUsContent />;
+export const ContactUsPage = () => <ContactUsContent />;

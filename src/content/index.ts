@@ -1,1 +1,6 @@
-export {AboutContent} from "./markdown";
+export {
+  AboutUsContent,
+  ContactUsContent,
+  HomeContent,
+  NewsContent,
+} from "./markdown";

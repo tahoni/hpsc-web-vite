@@ -1,9 +1,9 @@
-import {ReactElement} from "react";
+import { ReactElement } from "react";
 
 export const HowToJoinPage = (): ReactElement => {
-    return (
-        <>
-{/*
+  return (
+    <>
+      {/*
             <p className="MsoNormal"><span className="GramE"><b><u><span
                 lang="EN-US"
                 style="font-size: 10.0pt; mso-ansi-language: EN-US">                      How to join HPSC.</span></u></b></span><b><u><span
@@ -133,6 +133,6 @@ export const HowToJoinPage = (): ReactElement => {
             <p><span lang="EN-GB" style="font-size: 10.0pt">Members must request their Dedicated Status                      letters from their Club Chairperson, who will then forward the club points to the                      Provincial Chairperson, who in turn will then forward final points to the SAPSA                      Office. The member must have acquired six (6) points to qualify for a Dedicated                      Status letter and these six points must be acquired during the current membership                      year. Previous shoots attended as a non-member do not count towards the yearly six                      points that are required.                      <o:p></o:p>                  </span>
             </p>
 */}
-        </>
-    )
-}
+    </>
+  );
+};

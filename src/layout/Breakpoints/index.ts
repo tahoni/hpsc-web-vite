@@ -1,1 +1,1 @@
-export {Breakpoints} from "./Breakpoints.tsx";
+export { Breakpoints } from "./Breakpoints.tsx";

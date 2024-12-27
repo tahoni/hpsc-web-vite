@@ -1,1 +1,1 @@
-export {ImageSidebar} from "./ImageSidebar.tsx";
+export { ImageSidebar } from "./ImageSidebar.tsx";

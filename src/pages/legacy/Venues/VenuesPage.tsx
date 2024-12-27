@@ -1,9 +1,9 @@
-import {ReactElement} from "react";
+import { ReactElement } from "react";
 
 export const VenuesPage = (): ReactElement => {
-    return (
-        <>
-{/*
+  return (
+    <>
+      {/*
             <ul>
     <li>
         <p>Eeufees</p>
@@ -73,6 +73,6 @@ export const VenuesPage = (): ReactElement => {
     </li>
 </ul>
 */}
-        </>
-    )
-}
+    </>
+  );
+};

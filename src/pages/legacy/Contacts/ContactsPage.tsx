@@ -1,9 +1,9 @@
-import {ReactElement} from "react";
+import { ReactElement } from "react";
 
 export const ContactsPage = (): ReactElement => {
-    return (
-        <>
-{/*
+  return (
+    <>
+      {/*
             For any enquiries: <br/> Please contact one of the following numbers
             :<br/> <br/> Chairman - Jan Kleynhans - 083 318 8320<br/>
             <br/> Secretary - Albert van Herk - 082 452 8241<br/> (<a
@@ -17,6 +17,6 @@ export const ContactsPage = (): ReactElement => {
                                style="color:#0000FF;text-align:left">View Larger
                 Map</a></small></div>
 */}
-        </>
-    )
-}
+    </>
+  );
+};

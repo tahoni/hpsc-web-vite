@@ -1,9 +1,9 @@
-import {ReactElement} from "react";
+import { ReactElement } from "react";
 
 export const FAQPage = (): ReactElement => {
-    return (
-        <>
-{/*
+  return (
+    <>
+      {/*
         <ul>
             <li>
                 <p>How do I get Dedicated Sports Status?</p>
@@ -166,6 +166,6 @@ export const FAQPage = (): ReactElement => {
     </li>
 </ul>
 */}
-</>
-    )
-}
+    </>
+  );
+};
