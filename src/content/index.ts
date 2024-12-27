@@ -1,6 +1,7 @@
 export {
+  HistoryContent,
   AboutUsContent,
   ContactUsContent,
-  HomeContent,
   NewsContent,
+  HomeContent,
 } from "./markdown";

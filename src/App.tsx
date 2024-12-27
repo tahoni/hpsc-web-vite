@@ -1,7 +1,13 @@
 import { ReactElement } from "react";
 import { Route, Routes } from "react-router";
 import { Breakpoints, Layout } from "./layout";
-import { AboutUsPage, ContactUsPage, HomePage } from "./pages";
+import {
+  AboutUsPage,
+  ContactUsPage,
+  HistoryPage,
+  HomePage,
+  NewsPage,
+} from "./pages";
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import {
   imageConstants,
@@ -29,9 +35,10 @@ function App(): ReactElement {
         >
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
-          <Route path="/news" element={<HomePage />} />
-          <Route path="/contact" element={<ContactUsPage />} />
-          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/contact-us" element={<ContactUsPage />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/history" element={<HistoryPage />} />
           <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>

@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { VenueMap, VenueMapProps } from "./VenueMap.tsx";
 import { ClusteredVenuePins } from "./ClusteredVenuePins.tsx";
-import { VenueType } from "../../model/VenueTypes.ts";
+import { VenueType } from "../../model/Venue.ts";
 import classes from "./VenueMap.module.scss";
 
 interface ClusteredVenueMapProps extends VenueMapProps {

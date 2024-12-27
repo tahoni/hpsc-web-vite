@@ -1,7 +1,7 @@
 import React, { CSSProperties, ReactElement } from "react";
 import { Col, Row } from "react-bootstrap";
 import { SimpleVenueMap } from "../../components";
-import { VenueType } from "../../model/VenueTypes.ts";
+import { VenueType } from "../../model/Venue.ts";
 import { EUFEES_RANGE, rangeMapPins } from "../../constants/content/Ranges.ts";
 import { copyrightYear } from "../../constants/AppConstants.ts";
 import {

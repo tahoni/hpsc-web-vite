@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from "react";
 import { VenuePin } from "./VenuePin.tsx";
-import { Venue, VenueType } from "../../model/VenueTypes.tsx";
+import { Venue, VenueType } from "../../model/Venue.ts";
 import { generateMapVenueKey } from "../../utils/MapUtils.ts";
 
 export interface VenuePinsProps {

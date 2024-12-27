@@ -1,4 +1,4 @@
-import { Venue } from "../../model/VenueTypes.tsx";
+import { Venue } from "../../model/Venue.ts";
 import { clubShootingRange } from "../about/ClubConstants.ts";
 
 export const EUFEES_RANGE: string = "Eufees";

@@ -5,7 +5,7 @@ import React, {
   useRef,
 } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { VenueMapLatLngType } from "../../model/VenueTypes.tsx";
+import { VenueMapLatLngType } from "../../model/Venue.ts";
 import { textFontName } from "../../constants/AppConstants.ts";
 import {
   googleMapApiKey,

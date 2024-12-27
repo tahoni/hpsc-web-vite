@@ -1,4 +1,5 @@
 ## TAHONI
+*.md
 build/
 coverage/
 src/pages/legacy

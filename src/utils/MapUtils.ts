@@ -1,4 +1,4 @@
-import { Venue } from "../model/VenueTypes.tsx";
+import { Venue } from "../model/Venue.ts";
 import { md5 } from "js-md5";
 
 export const generateMapVenueKey = (venue?: Venue): string => {

@@ -1,11 +1,15 @@
+import History from "./pages/History.mdx";
 import AboutUs from "./pages/AboutUs.mdx";
 import ContactUs from "./pages/ContactUs.mdx";
-import Home from "./pages/Home.mdx";
 import News from "./pages/News.mdx";
+import Home from "./pages/Home.mdx";
 import {
+  adminEmail,
+  chairmanEmail,
   clubAbbreviation,
   clubName,
   clubShootingRange,
+  enquiriesEmail,
 } from "../../constants/about/ClubConstants.ts";
 import {
   internationalAssociationAbbreviation,
@@ -20,9 +24,9 @@ import {
 } from "../../constants/about/AssociationConstants.ts";
 import React from "react";
 
-export const AboutUsContent = React.memo(() => {
+export const HistoryContent = React.memo(() => {
   return (
-    <AboutUs
+    <History
       clubName={clubName}
       clubAbbreviation={clubAbbreviation}
       clubShootingRage={clubShootingRange}
@@ -41,8 +45,14 @@ export const AboutUsContent = React.memo(() => {
   );
 });
 
-export const HomeContent = React.memo(() => {
-  return <Home />;
+export const AboutUsContent = React.memo(() => {
+  return (
+    <AboutUs
+      enquiriesEmail={enquiriesEmail}
+      chairmanEmail={chairmanEmail}
+      adminEmail={adminEmail}
+    />
+  );
 });
 
 export const ContactUsContent = React.memo(() => {
@@ -51,4 +61,8 @@ export const ContactUsContent = React.memo(() => {
 
 export const NewsContent = React.memo(() => {
   return <News />;
+});
+
+export const HomeContent = React.memo(() => {
+  return <Home />;
 });
