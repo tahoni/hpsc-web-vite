@@ -3,7 +3,7 @@
   "author": "Leoni Lubbinge <tahoni@gmail.com>",
   "description": "HPSC website",
   "private": true,
-  "version": "3.2.6",
+  "version": "3.2.7",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -42,8 +42,10 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "prettier": "^3.4.2",
     "sass": "^1.77.8",
     "typescript": "^5.2.2",
-    "vite": "^5.4.6"
+    "vite": "^5.4.6",
+    "vitest": "^2.1.8"
   }
 }

@@ -22,7 +22,7 @@
 - [Version 3.0.0](#version-300---2024-08-18)
 
 
-### [Version 3.2.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.6) - 2024-12-26
+### [Version 3.2.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.6) - _2024-12-26_
 Improved the documentation.<br />
 
 #### Licence and Documentation
@@ -31,8 +31,11 @@ Improved the documentation.<br />
 - Added release notes.
 - Added a change log.
 
+#### Changes by
+@tahoni
 
-### [Version 3.2.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.5) - 2024-12-25
+
+### [Version 3.2.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.5) - _2024-12-25_
 Moved all common static content to global constants.<br />
 
 #### General Code Improvements
@@ -42,8 +45,11 @@ Moved all common static content to global constants.<br />
   - the footer.
   - the About page.
 
+#### Changes by
+@tahoni
 
-### [Version 3.2.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.4) - 2024-12-24
+
+### [Version 3.2.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.4) - _2024-12-24_
 Made the About page the homepage.<br />
 Finished the website layout by completing the footer.<br />
 Completed the footer by adding contact details and copyright.<br />
@@ -69,8 +75,11 @@ Added more keywords for SEO purposes.<br />
 #### Dependencies
 - Updated the Vite React libraries.
 
+#### Changes by
+@tahoni
 
-### [Version 3.2.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.3) - 2024-12-22
+
+### [Version 3.2.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.3) - _2024-12-22_
 Added the SAPSA and IPSC logos to the footer.<br />
 Completed the map to the shooting range in the footer.<br />
 
@@ -97,15 +106,21 @@ Completed the map to the shooting range in the footer.<br />
 #### Security
 - Removed the Google Maps API key included in the last commit.
 
+#### Changes by
+@tahoni
 
-### [Version 3.2.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.2) - 2024-12-18
+
+### [Version 3.2.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.2) - _2024-12-18_
 Allowed React to handle page routing.<br />
 
 #### General Technical Changes
 - Added a `.htaccess` file to allow React to handle the page routing.
 
+#### Changes by
+@tahoni
 
-### [Version 3.2.1](https://github.com/tahoni/hpsc-web-vite/releases/edit/version-3.2.1) - 2024-12-17
+
+### [Version 3.2.1](https://github.com/tahoni/hpsc-web-vite/releases/edit/version-3.2.1) - _2024-12-17_
 Added an About page with the club's history.<br />
 Added hyperlinks to the About component.<br />
 A map of the shooting range was added in the footer.<br />
@@ -127,8 +142,11 @@ A map of the shooting range was added in the footer.<br />
 #### Dependencies
 - Added the React Google Maps library
 
+#### Changes by
+@tahoni
 
-### [Version 3.2.0](https://github.com/tahoni/hpsc-web-vite/releases/edit/version-3.2.0) - 2024-12-17
+
+### [Version 3.2.0](https://github.com/tahoni/hpsc-web-vite/releases/edit/version-3.2.0) - _2024-12-17_
 Read all page content from Markdown components.<br />
 
 #### Enhancements and Updates
@@ -150,22 +168,32 @@ Read all page content from Markdown components.<br />
 #### Dependencies
 - Added support for MDX with new dependencies from `@mdx-js`.
 
+#### Changes by
+@tahoni
 
-### [Version 3.1.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.4) - 2024-12-16
+
+### [Version 3.1.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.4) - _2024-12-16_
 Optimized the images.<br />
 
 #### Enhancements and Updated
 - Optimized all images.
 
+#### Changes by
+@tahoni
 
-### [Version 3.1.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.3) - 2024-12-16
+
+### [Version 3.1.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.3) - _2024-12-16_
 Made the sidebars sticky.<br />
 
 #### Enhancements and Updates
 - Styled the sidebar component to make them sticky.
 
+#### Changes by
+@tahoni
+@ImgBotApp
 
-### [Version 3.1.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.2) - 2024-12-16
+
+### [Version 3.1.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.2) - _2024-12-16_
 Made the logos in the header hyperlinks.<br />
 Created the sidebar component and added it to the homepage.<br />
 
@@ -190,8 +218,12 @@ Created the sidebar component and added it to the homepage.<br />
 #### Dependencies
 - Removed unused dependencies.
 
+#### Changes by
+@tahoni
+@ImgBotApp
 
-### [Version 3.1.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.1) - 2024-12-15
+
+### [Version 3.1.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.1) - _2024-12-15_
 Added a gradient background.<br />
 Made the header responsive.<br />
 
@@ -204,8 +236,11 @@ Made the header responsive.<br />
 #### Dependencies
 - Removed the unused Slick Carousel library.
 
+#### Changes by
+@tahoni
 
-### [Version 3.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.0) - 2024-12-14
+
+### [Version 3.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.0) - _2024-12-14_
 Created an SVG favicon.<br />
 Added the HPSC and SAPSA logos to the header.<br />
 Added content to the homepage.<br />
@@ -232,22 +267,35 @@ Added content to the homepage.<br />
 #### Dependencies
 - Upgraded several dependencies to their latest versions.
 
+#### Changes by
+@tahoni
+@ImgBotApp
 
-### [Version 3.0.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.5) - 2024-12-06
+
+### [Version 3.0.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.5) - _2024-12-06_
 Fixed the spelling of the "_Hartbeespoortdam Practical Shooting Club_" properly.<br />
 
 #### Enhancements and Updates
 - Corrected the name of the club everywhere.
 
+#### Changes by
+@tahoni
+@ImgBotApp
 
-### [Version 3.0.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.4) - 2024-11-02
+
+### [Version 3.0.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.4) - _2024-11-02_
 Changed the website's title to "_Hartebeespoortdam Practical Shooting Club_".<br />
 
 #### Enhancements and Updates
 - Changed the title of the index page to the club's name.
 
+#### Changes by
+@tahoni
+@dependabot
+@ImgBotApp
 
-### [Version 3.0.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.3) - 2024-10-29
+
+### [Version 3.0.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.3) - _2024-10-29_
 Fixed the spelling of the "_Hartebeespoortdam Practical Shooting Club_".<br />
 
 #### Bug Fixes
@@ -256,15 +304,25 @@ Fixed the spelling of the "_Hartebeespoortdam Practical Shooting Club_".<br />
 #### Dependencies
 - Bumped the Vite library to get rid of vulnerabilities.
 
+#### Changes by
+@tahoni
+@dependabot
+@ImgBotApp
 
-### [Version 3.0.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.2) - 2024-08-27
+
+### [Version 3.0.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.2) - _2024-08-27_
 Removed the background image to improve the look and feel.<br />
 
 #### Enhancements and Updates
 - Removed the background image.
 
+#### Changes by
+@tahoni
+@dependabot
+@ImgBotApp
 
-### [Version 3.0.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.1) - 2024-08-27
+
+### [Version 3.0.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.1) - _2024-08-27_
 Tried to improve the styling of the background.<br />
 
 #### Enhancements and Updates
@@ -277,8 +335,12 @@ Tried to improve the styling of the background.<br />
 - Updated the Vite libraries.
 - Updated the Slick Carousel library.
 
+#### Changes by
+@tahoni
+@dependabot
 
-### [Version 3.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.0) - 2024-08-18
+
+### [Version 3.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.0) - _2024-08-18_
 Created a homepage with an under-construction carousel.<br />
 
 #### Enhancements and Updates
@@ -308,3 +370,7 @@ Created a homepage with an under-construction carousel.<br />
 - Added Font Awesome libraries.
 - Added Bootstrap and React Bootstrap libraries.
 - Added the tahoni React library.
+
+#### Changes by
+@tahoni
+@dependabot
