@@ -6,10 +6,10 @@ import { EUFEES_RANGE, rangeMapPins } from "../../constants/content/Ranges.ts";
 import { copyrightYear } from "../../constants/AppConstants.ts";
 import {
   clubName,
-  contactEmail,
+  enquiriesEmail,
   facebookGroup,
   facebookPage,
-  websiteContactEmail,
+  webmasterEmail,
 } from "../../constants/about/ClubConstants.ts";
 import classes from "./Footer.module.scss";
 
@@ -36,8 +36,8 @@ export const FooterContent = React.memo((): ReactElement => {
           <Row>
             <Col>E-mail:</Col>
             <Col>
-              <a href={"mailto:" + contactEmail} target="_blank">
-                {contactEmail}
+              <a href={"mailto:" + enquiriesEmail} target="_blank">
+                {enquiriesEmail}
               </a>
             </Col>
           </Row>
@@ -64,8 +64,8 @@ export const FooterContent = React.memo((): ReactElement => {
             <Col>
               <p>
                 For any website queries please contact{" "}
-                <a href={"mailto:" + websiteContactEmail} target="_blank">
-                  {websiteContactEmail}
+                <a href={"mailto:" + webmasterEmail} target="_blank">
+                  {webmasterEmail}
                 </a>
                 .
               </p>

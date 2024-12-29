@@ -1,5 +1,5 @@
 ## TAHONI
-*.md
+**/*.md
 build/
 coverage/
 src/pages/legacy

@@ -36,8 +36,8 @@ function App(): ReactElement {
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/news" element={<NewsPage />} />
-          <Route path="/contact-us" element={<ContactUsPage />} />
-          <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/contact_us" element={<ContactUsPage />} />
+          <Route path="/about_us" element={<AboutUsPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="*" element={<HomePage />} />
         </Route>
