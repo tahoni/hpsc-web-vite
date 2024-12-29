@@ -1,13 +1,5 @@
-import {
-  AboutUsContent,
-  ContactUsContent,
-  HistoryContent,
-  HomeContent,
-  NewsContent,
-} from "../content";
-
-export const HomePage = () => <HomeContent />;
-export const NewsPage = () => <NewsContent />;
-export const ContactUsPage = () => <ContactUsContent />;
-export const AboutUsPage = () => <AboutUsContent />;
-export const HistoryPage = () => <HistoryContent />;
+export { HomePage } from "./Home";
+export { NewsPage } from "./News";
+export { ContactUsPage } from "./ContactUs";
+export { AboutUsPage } from "./AboutUs";
+export { HistoryPage } from "./Hostory";

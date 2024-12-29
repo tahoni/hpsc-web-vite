@@ -24,3 +24,22 @@ a:link, a:visited:hover, a:focus:hover, a:active:hover {
 a:hover, a:visited, a:focus, a:active {
   color: $anchor-text-highlight-color;
 }
+
+/* Inputs */
+/*
+.form-description {
+  font-size: 0.5rem;
+}
+*/
+
+/*
+.form-control {
+  border-color: $required-border-color
+}
+*/
+
+/*
+.form-control:required {
+  border-left: $required-border-color solid thick;
+}
+*/

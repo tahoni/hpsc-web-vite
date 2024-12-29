@@ -1,13 +1,6 @@
 import { ReactElement } from "react";
 import { Route, Routes } from "react-router";
 import { Breakpoints, Layout } from "./layout";
-import {
-  AboutUsPage,
-  ContactUsPage,
-  HistoryPage,
-  HomePage,
-  NewsPage,
-} from "./pages";
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import {
   imageConstants,
@@ -15,6 +8,13 @@ import {
   RIGHT_SHOOTER,
 } from "./constants/ImageConstants.ts";
 import "./App.scss";
+import {
+  AboutUsPage,
+  ContactUsPage,
+  HistoryPage,
+  HomePage,
+  NewsPage,
+} from "./pages";
 
 function App(): ReactElement {
   const leftSidebarImage: ImageWithSourceAndDescription | undefined =
