@@ -1,45 +1,15 @@
 @import "style-icons";
 @import "style-theme";
-@import "style-overrides";
+//@import "style-overrides";
+@import "style-custom";
 @import "style-variables";
 
 /* General */
 html, body {
-  font-family: $text-font-family;
-  color: $text-color;
-  background: $background-color fixed no-repeat;
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: $heading-text-font-family;
-  color: $heading-text-color;
-}
-
-/* Hyperlink */
-a:link, a:visited:hover, a:focus:hover, a:active:hover {
-  color: $anchor-text-color;
-}
-
-a:hover, a:visited, a:focus, a:active {
-  color: $anchor-text-highlight-color;
+  background: $background-gradient fixed no-repeat;
 }
 
 /* Inputs */
-/*
-.form-description {
-  font-size: 0.5rem;
-}
-*/
-
-/*
-.form-control {
-  border-color: $required-border-color
-}
-*/
-
-/*
 .form-control:required {
-  border-left: $required-border-color solid thick;
+  border-left-width: thick;
 }
-*/

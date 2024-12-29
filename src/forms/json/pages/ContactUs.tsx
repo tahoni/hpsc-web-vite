@@ -5,6 +5,7 @@ import {
   contactUsJsonSchema,
   contactUsUiSchema,
 } from "../schema/ContactUsSchema.ts";
+import "./ContactUs.scss";
 
 export const ContactUs = (): ReactElement => {
   return (

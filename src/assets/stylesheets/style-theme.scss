@@ -1,22 +1,10 @@
 @import "style-font";
 @import "style-colors";
 
-/* Font Families */
-$text-font-family: $noto-sans-font-family;
-$heading-text-font-family: $noto-sans-display-font-family;
-$code-text-font-family: $noto-code-font-family;
-
 /* Fonts */
 $text-font: $noto-sans-font;
-$heading-text-font: $noto-sans-display-font;
 
 /* Colours */
-$background-color: $blue-gradient-top;
+$background-gradient: $blue-gradient-top;
 $cover-text-color: $butterscotch-dark;
-$text-color: $butterscotch-dark;
-$heading-text-color: $butterscotch-dark;
-$anchor-text-color: $butterscotch-medium;
-$anchor-text-highlight-color: $yellow-darkest;
-$border-color: $yellow;
-$required-border-color: $yellow;
 $error-background-color: $yellow-lightest;

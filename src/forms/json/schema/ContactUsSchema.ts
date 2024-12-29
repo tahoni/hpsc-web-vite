@@ -7,21 +7,18 @@ export const contactUsJsonSchema: RJSFSchema = {
     name: {
       type: "string",
       title: "Name",
-      description: "The name of the sender",
       minLength: 3,
       maxLength: 100,
     },
     email: {
       type: "string",
       title: "E-mail address",
-      description: "The e-mail of the sender",
       minLength: 5,
       maxLength: 100,
     },
     subject: {
       type: "string",
       title: "Subject",
-      description: "The subject of the e-mail",
       enum: ["General", "Suggestions", "Complaints", "Website"],
       default: "General",
       minLength: 5,
@@ -30,7 +27,6 @@ export const contactUsJsonSchema: RJSFSchema = {
     content: {
       type: "string",
       title: "Message",
-      description: "The e-mail content",
       minLength: 5,
       maxLength: 1000,
     },
@@ -42,7 +38,7 @@ export const contactUsUiSchema: UiSchema = {
   "ui:classNames": "ContactUs",
   name: {
     "ui:autofocus": true,
-    "ui:autocomplete": "full-name",
+    "ui:autocomplete": "given-name",
   },
   email: {
     "ui:autocomplete": "email",
