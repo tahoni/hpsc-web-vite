@@ -9,22 +9,10 @@ html, body {
 }
 
 /* Forms */
-.form-control:required, .custom-select:required {
+.form-control:required {
   border-left-width: thick;
 }
 
-.custom-select:focus, .custom-select:required:focus {
-  border-color: $input-focus-border-color;
-}
-
-.field-error .list-group-item {
-  background-color: transparent;
-}
-
-.field-error textarea.form-control {
-  border-color: $danger;
-}
-
-.field-error input, .field-error select, .field-error textarea {
-  background-color: $danger-bg-subtle;
+.btn-info {
+  @extend .btn-primary;
 }
