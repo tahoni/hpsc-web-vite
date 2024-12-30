@@ -1,1 +1,1 @@
-export { ContactUsForm } from "./json";
+export { ContactUs } from "./ContactUs";

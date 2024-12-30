@@ -1,12 +1,12 @@
 import React, { ReactElement } from "react";
 import { Col, Row } from "react-bootstrap";
-import { ContactUsContent } from "../../content";
+import { VenuesContent } from "../../content";
 
-export const ContactUsPage = React.memo((): ReactElement => {
+export const VenuesPage = React.memo((): ReactElement => {
   return (
     <Row>
       <Col>
-        <ContactUsContent />
+        <VenuesContent />
       </Col>
     </Row>
   );

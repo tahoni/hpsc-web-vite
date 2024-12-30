@@ -1,10 +1,7 @@
 import { ReactElement } from "react";
 import Form from "@rjsf/core";
 import validator from "@rjsf/validator-ajv8";
-import {
-  contactUsJsonSchema,
-  contactUsUiSchema,
-} from "../schema/ContactUsSchema.ts";
+import { contactUsJsonSchema, contactUsUiSchema } from "./ContactUsSchema.ts";
 import "./ContactUs.scss";
 
 export const ContactUs = (): ReactElement => {
