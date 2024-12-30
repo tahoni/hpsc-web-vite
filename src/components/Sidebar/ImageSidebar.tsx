@@ -9,9 +9,9 @@ interface SidebarProps {
 
 export const ImageSidebar = React.memo((props: SidebarProps): ReactElement => {
   return (
-    <Container fluid className={classes.Sidebar}>
-      <Row className={classes.SidebarInner}>
-        <Col className={classes.SidebarImage}>
+    <Container fluid className={classes.sidebar}>
+      <Row className={classes.sidebarInner}>
+        <Col className={classes.sidebarImage}>
           <Image src={props.source?.image} alt={props.source?.description} />
         </Col>
       </Row>

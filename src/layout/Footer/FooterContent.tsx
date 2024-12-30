@@ -23,16 +23,16 @@ export const FooterContent = React.memo((): ReactElement => {
   const footerMapPins: VenueType[] = [rangeMapPins.get(footerMapRange)];
 
   return (
-    <Row className={classes.FooterContent}>
-      <Col xs={{ span: 12 }} md={{ span: 6 }} className={classes.FooterMap}>
+    <Row className={classes.footerContent}>
+      <Col xs={{ span: 12 }} md={{ span: 6 }} className={classes.footerMap}>
         <SimpleVenueMap
           mapStyle={mapStyle}
           center={rangeMapPins.get(footerMapRange)?.latLng}
           venues={footerMapPins}
         />
       </Col>
-      <Col className={classes.FooterDetails}>
-        <div className={classes.ContactInfo}>
+      <Col className={classes.footerDetails}>
+        <div className={classes.contactInfo}>
           <Row>
             <Col>E-mail:</Col>
             <Col>
@@ -59,7 +59,7 @@ export const FooterContent = React.memo((): ReactElement => {
           </Row>
         </div>
 
-        <div className={classes.WebsiteInfo}>
+        <div className={classes.websiteInfo}>
           <Row>
             <Col>
               <p>

@@ -1,13 +1,13 @@
 @import "bootstrap/scss/bootstrap-grid";
 
-.Header {
+.header {
   padding: 0.75rem;
   margin: 0.75rem;
   align-content: center;
   justify-content: center;
 }
 
-.HeaderInner, .HeaderCenter {
+.headerInner, .headerCenter {
   display: flex;
   align-content: center;
   align-items: center;
@@ -15,11 +15,11 @@
   justify-items: center;
 }
 
-.HeaderInner {
+.headerInner {
   padding: 0 0 0.7rem 0;
 }
 
-.HeaderContent {
+.headerContent {
   display: flex;
   flex-direction: row;
   flex: auto;
@@ -27,22 +27,22 @@
   justify-content: center;
 }
 
-.HeaderText {
+.headerText {
   flex: auto;
   text-align: center;
   vertical-align: middle;
 }
 
 @include media-breakpoint-down(md) {
-  .Header {
+  .header {
     margin: 0;
   }
 
-  .HeaderInner {
+  .headerInner {
     padding-bottom: 0;
   }
 
-  .HeaderCenter {
+  .headerCenter {
     padding-top: 0.75rem;
   }
 }

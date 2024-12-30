@@ -8,15 +8,15 @@ import classes from "./Body.module.scss";
 export const Body = React.memo((props: BodyProps): ReactElement => {
   return (
     <div className={classes.Body}>
-      <div className={classes.BodyInner}>
-        <div className={classes.BodySidebar}>
+      <div className={classes.bodyInner}>
+        <div className={classes.bodySidebar}>
           {props.leftSideImage ? (
             <ImageSidebar source={props.leftSideImage} />
           ) : (
             <></>
           )}
         </div>
-        <div className={classes.BodyCenter}>
+        <div className={classes.bodyCenter}>
           <Container>
             <Row>
               <Col>
@@ -25,7 +25,7 @@ export const Body = React.memo((props: BodyProps): ReactElement => {
             </Row>
           </Container>
         </div>
-        <div className={classes.BodySidebar}>
+        <div className={classes.bodySidebar}>
           {props.rightSideImage ? (
             <ImageSidebar source={props.rightSideImage} />
           ) : (

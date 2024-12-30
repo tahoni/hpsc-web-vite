@@ -15,37 +15,37 @@ import classes from "./Footer.module.scss";
 export const Footer = React.memo((): ReactElement => {
   return (
     <Container fluid className={classes.Footer}>
-      <Row className={classes.FooterInner}>
+      <Row className={classes.footerInner}>
         <Col
           xs={{ span: 6 }}
           md={{ span: 2 }}
-          className={layoutClasses.LogoContainer}
+          className={layoutClasses.logoContainer}
         >
           <a href={nationalAssociationWebsite} target="_blank">
             <Image
               src={nationalAssociationLogo}
               alt={nationalAssociationAbbreviation + " logo"}
-              className={`${layoutClasses.Logo} ${layoutClasses.LeftLogo}}`}
+              className={`${layoutClasses.logo} ${layoutClasses.leftLogo}}`}
             />
           </a>
         </Col>
         <Col
           xs={{ span: 12, order: "last" }}
           md={{ span: 8 }}
-          className={classes.FooterCenter}
+          className={classes.footerCenter}
         >
           <FooterContent />
         </Col>
         <Col
           xs={{ span: 6 }}
           md={{ span: 2, order: "last" }}
-          className={layoutClasses.LogoContainer}
+          className={layoutClasses.logoContainer}
         >
           <a href={internationalAssociationWebsite} target="_blank">
             <Image
               src={internationalAssociationLogo}
               alt={internationalAssociationAbbreviation + " logo"}
-              className={`${layoutClasses.Logo} ${layoutClasses.RightLogo}`}
+              className={`${layoutClasses.logo} ${layoutClasses.rightLogo}`}
             />
           </a>
         </Col>

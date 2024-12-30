@@ -5,8 +5,8 @@ import classes from "./Content.module.scss";
 
 export const Content = React.memo((): ReactElement => {
   return (
-    <Container fluid className={classes.Content}>
-      <Row className={classes.ContentInner}>
+    <Container fluid className={classes.content}>
+      <Row className={classes.contentInner}>
         <Col>
           <Outlet />
         </Col>

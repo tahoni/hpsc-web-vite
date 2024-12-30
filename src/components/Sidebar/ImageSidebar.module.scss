@@ -1,31 +1,31 @@
 @import "bootstrap/scss/bootstrap-grid";
 
-.Sidebar {
+.sidebar {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-.SidebarInner {
+.sidebarInner {
   position: sticky;
   top: 20%;
 }
 
-.SidebarImage {
+.sidebarImage {
   height: auto;
 }
 
-.SidebarImage img {
+.sidebarImage img {
   width: 100%;
   height: auto;
 }
 
 @include media-breakpoint-down(lg) {
-  .Sidebar {
+  .sidebar {
     display: none;
   }
 
-  .SidebarInner {
+  .sidebarInner {
     display: none;
   }
 }

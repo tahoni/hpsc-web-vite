@@ -7,7 +7,6 @@ import {
   LEFT_SHOOTER,
   RIGHT_SHOOTER,
 } from "./constants/ImageConstants.ts";
-import "./App.scss";
 import {
   AboutUsPage,
   ContactUsPage,
@@ -17,6 +16,7 @@ import {
   NewsPage,
   VenuesPage,
 } from "./pages";
+import "./App.scss";
 
 function App(): ReactElement {
   const leftSidebarImage: ImageWithSourceAndDescription | undefined =

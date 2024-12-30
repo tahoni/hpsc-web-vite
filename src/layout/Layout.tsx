@@ -8,14 +8,14 @@ import classes from "./Layout.module.scss";
 
 export const Layout = React.memo((props: LayoutProps): ReactElement => {
   return (
-    <Container fluid className={classes.Layout}>
-      <header className={classes.Header}>
-        <Header />
+    <Container fluid className={classes.layout}>
+      <header className={classes.header}>
+        <Header {...props} />
       </header>
-      <main className={classes.Body}>
+      <main className={classes.body}>
         <Body {...props} />
       </main>
-      <footer className={classes.Footer}>
+      <footer className={classes.footer}>
         <Footer />
       </footer>
     </Container>
