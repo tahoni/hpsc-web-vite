@@ -1,6 +1,5 @@
 @import "style-icons";
 @import "style-theme";
-//@import "style-overrides";
 @import "style-custom";
 @import "style-variables";
 
@@ -12,4 +11,8 @@ html, body {
 /* Forms */
 .form-control:required, .custom-select:required {
   border-left-width: thick;
+}
+
+.custom-select:focus, .custom-select:required:focus {
+  border-color: $input-focus-border-color;
 }

@@ -1,10 +1,13 @@
-@import "style-font";
+@import "style-custom";
 @import "style-colors";
 
 /* Fonts */
-$text-font: $noto-sans-font;
+$text-font: $body-color;
+$heading-text-font-family: $headings-font-family;
 
 /* Colours */
 $background-gradient: $blue-gradient-top;
 $cover-text-color: $club-butterscotch-dark;
-$error-background-color: $club-yellow-lightest;
+$heading-text-color: $headings-color;
+$btn-primary-background-color: $club-primary-blue;
+$bbn-primary-hover-color: $club-blue-light;
