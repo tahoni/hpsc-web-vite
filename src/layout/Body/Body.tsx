@@ -7,7 +7,7 @@ import classes from "./Body.module.scss";
 
 export const Body = React.memo((props: BodyProps): ReactElement => {
   return (
-    <div className={classes.Body}>
+    <div className={classes.body}>
       <div className={classes.bodyInner}>
         <div className={classes.bodySidebar}>
           {props.leftSideImage ? (

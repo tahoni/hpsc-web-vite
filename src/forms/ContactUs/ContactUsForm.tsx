@@ -1,9 +1,9 @@
 import { ReactElement } from "react";
-import Form from "@rjsf/bootstrap-4";
+import Form from "@rjsf/core";
 import validator from "@rjsf/validator-ajv8";
+import { RJSFValidationError } from "@rjsf/utils";
 import { contactUsJsonSchema, contactUsUiSchema } from "./ContactUsSchema.ts";
 import "./ContactUs.scss";
-import { RJSFValidationError } from "@rjsf/utils";
 
 export const ContactUsForm = (): ReactElement => {
   const transformErrors = (

@@ -21,7 +21,7 @@ interface HeaderProps {
 
 export const Header = (props: HeaderProps): ReactElement => {
   return (
-    <Container fluid className={classes.Header}>
+    <Container fluid className={classes.header}>
       <Row className={classes.headerInner}>
         <Col
           xs={{ span: 6 }}

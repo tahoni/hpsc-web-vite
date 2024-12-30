@@ -14,7 +14,7 @@ import classes from "./Footer.module.scss";
 
 export const Footer = React.memo((): ReactElement => {
   return (
-    <Container fluid className={classes.Footer}>
+    <Container fluid className={classes.footer}>
       <Row className={classes.footerInner}>
         <Col
           xs={{ span: 6 }}
