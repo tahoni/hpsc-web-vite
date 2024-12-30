@@ -17,28 +17,38 @@ import {
 } from "../../constants/about/AssociationConstants.ts";
 import { Col, Row } from "react-bootstrap";
 import { HistoryContent } from "../../content";
+import { PageTitle } from "../../components/Title/PageTitle.tsx";
 
 export const HistoryPage = React.memo(() => {
   return (
-    <Row>
-      <Col>
-        <HistoryContent
-          clubName={clubName}
-          clubAbbreviation={clubAbbreviation}
-          clubShootingRage={clubShootingRange}
-          internationalAssociationWebsite={internationalAssociationWebsite}
-          internationalAssociationName={internationalAssociationName}
-          internationalAssociationAbbreviation={
-            internationalAssociationAbbreviation
-          }
-          nationalAssociationWebsite={nationalAssociationWebsite}
-          nationalAssociationName={nationalAssociationName}
-          nationalAssociationAbbreviation={nationalAssociationAbbreviation}
-          provincialAssociationWebsite={provincialAssociationWebsite}
-          provincialAssociationName={provincialAssociationName}
-          provincialAssociationAbbreviation={provincialAssociationAbbreviation}
-        />
-      </Col>
-    </Row>
+    <>
+      <Row>
+        <Col>
+          <PageTitle title="History" />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <HistoryContent
+            clubName={clubName}
+            clubAbbreviation={clubAbbreviation}
+            clubShootingRage={clubShootingRange}
+            internationalAssociationWebsite={internationalAssociationWebsite}
+            internationalAssociationName={internationalAssociationName}
+            internationalAssociationAbbreviation={
+              internationalAssociationAbbreviation
+            }
+            nationalAssociationWebsite={nationalAssociationWebsite}
+            nationalAssociationName={nationalAssociationName}
+            nationalAssociationAbbreviation={nationalAssociationAbbreviation}
+            provincialAssociationWebsite={provincialAssociationWebsite}
+            provincialAssociationName={provincialAssociationName}
+            provincialAssociationAbbreviation={
+              provincialAssociationAbbreviation
+            }
+          />
+        </Col>
+      </Row>
+    </>
   );
 });

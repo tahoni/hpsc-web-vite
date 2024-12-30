@@ -1,7 +1,6 @@
 import { RJSFSchema, UiSchema } from "@rjsf/utils";
 
 export const contactUsJsonSchema: RJSFSchema = {
-  title: "Contact Us",
   type: "object",
   properties: {
     name: {
@@ -35,7 +34,7 @@ export const contactUsJsonSchema: RJSFSchema = {
 };
 
 export const contactUsUiSchema: UiSchema = {
-  "ui:classNames": "ContactUs",
+  "ui:classNames": "contactUs",
   name: {
     "ui:autofocus": true,
     "ui:autocomplete": "given-name",

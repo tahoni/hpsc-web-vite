@@ -5,26 +5,34 @@ import {
   chairmanEmail,
   enquiriesEmail,
 } from "../../constants/about/ClubConstants.ts";
+import { PageTitle } from "../../components/Title/PageTitle.tsx";
 
 export const AboutUsPage = React.memo(() => {
   return (
-    <Row>
-      <Col>
-        <p>
-          Enquiries:
-          <a href={"mailto:" + enquiriesEmail} target="_blank">
-            {enquiriesEmail}
-          </a>
-          Chairman:
-          <a href={"mailto:" + chairmanEmail} target="_blank">
-            Jan Kleynhans
-          </a>
-          Secretary:
-          <a href={"mailto:" + adminEmail} target="_blank">
-            Albert van Herk
-          </a>
-        </p>
-      </Col>
-    </Row>
+    <>
+      <Row>
+        <Col>
+          <PageTitle title="About Us" />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <p>
+            Enquiries:
+            <a href={"mailto:" + enquiriesEmail} target="_blank">
+              {enquiriesEmail}
+            </a>
+            Chairman:
+            <a href={"mailto:" + chairmanEmail} target="_blank">
+              Jan Kleynhans
+            </a>
+            Secretary:
+            <a href={"mailto:" + adminEmail} target="_blank">
+              Albert van Herk
+            </a>
+          </p>
+        </Col>
+      </Row>
+    </>
   );
 });

@@ -16,3 +16,15 @@ html, body {
 .custom-select:focus, .custom-select:required:focus {
   border-color: $input-focus-border-color;
 }
+
+.field-error .list-group-item {
+  background-color: transparent;
+}
+
+.field-error textarea.form-control {
+  border-color: $danger;
+}
+
+.field-error input, .field-error select, .field-error textarea {
+  background-color: $danger-bg-subtle;
+}
