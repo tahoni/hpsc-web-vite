@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
-import Form from "@rjsf/core";
+import Form from "@rjsf/bootstrap-4";
 import validator from "@rjsf/validator-ajv8";
 import { contactUsJsonSchema, contactUsUiSchema } from "./ContactUsSchema.ts";
 import "./ContactUs.scss";
 
-export const ContactUs = (): ReactElement => {
+export const ContactUsForm = (): ReactElement => {
   return (
     <>
       <Form

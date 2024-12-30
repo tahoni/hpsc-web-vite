@@ -3,7 +3,6 @@ import Home from "./pages/Home.mdx";
 import News from "./pages/News.mdx";
 import Events from "./pages/Events.mdx";
 import Venues from "./pages/Venues.mdx";
-import ContactUs from "./pages/ContactUs.mdx";
 import History from "./pages/History.mdx";
 import { HistoryProps } from "./model/HistoryProps.ts";
 
@@ -21,10 +20,6 @@ export const EventsContent = (): ReactElement => {
 
 export const VenuesContent = (): ReactElement => {
   return <Venues />;
-};
-
-export const ContactUsContent = (): ReactElement => {
-  return <ContactUs />;
 };
 
 export const HistoryContent = (props: HistoryProps): ReactElement => {

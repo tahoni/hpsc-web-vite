@@ -1,0 +1,5 @@
+@import "bootstrap/scss/bootstrap";
+
+.custom-select {
+  @extend .form-select;
+}

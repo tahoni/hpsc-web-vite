@@ -2,13 +2,12 @@
 @import "./style-colors";
 
 /* Font Families */
-$font-family-base: $noto-sans-font-family;
-$font-family-code: $noto-code-font-family;
+$font-family-sans-serif: $noto-sans-font-family;
+$font-family-monospace: $noto-code-font-family;
 $headings-font-family: $noto-sans-display-font-family;
 
 /* Colours */
 $body-color: $club-butterscotch-dark;
-$body-bg: $club-blue-lighter;
 $link-color: $club-butterscotch-medium;
 $link-hover-color: $club-yellow-darkest;
-$border-color: $internation-gold;
+$border-color: $club-primary-yellow;

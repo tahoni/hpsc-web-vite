@@ -9,7 +9,7 @@ html, body {
   background: $background-gradient fixed no-repeat;
 }
 
-/* Inputs */
-.form-control:required {
+/* Forms */
+.form-control:required, .custom-select:required {
   border-left-width: thick;
 }
