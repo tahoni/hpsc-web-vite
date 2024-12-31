@@ -1,4 +1,4 @@
-import { FormEvent, ReactElement, useRef, useState } from "react";
+import { ReactElement, useRef, useState } from "react";
 import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
@@ -118,21 +118,14 @@ export const ContactUsForm = (): ReactElement => {
     return errors;
   };
 
-  const onSubmit = (
-    data: IChangeEvent<any, StrictRJSFSchema>,
-    event: FormEvent<SubmitEvent>,
-  ): void => {
-    console.log("onSubmit");
-    // Handle form submission
-    console.log("Form submitted:", event);
-    console.log("Form submission", data);
-
-    // Sanitize the form data and send it to the server
+  const onSubmit = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
+    // Sanitise the form data
     const name: string | undefined = sanitizeValue(data.formData.name);
     const email: string | undefined = sanitizeValue(data.formData.email);
     const subject: string | undefined = sanitizeValue(data.formData.subject);
     const content: string | undefined = sanitizeValue(data.formData.content);
 
+    // Populate the form with the sanitised data
     const contactUsData: ContactUsFormData = {
       name,
       email,
@@ -141,14 +134,17 @@ export const ContactUsForm = (): ReactElement => {
     };
     setFormData(contactUsData);
 
+    // Validate the form
     const valid: boolean | undefined =
       formRef?.current?.validateFormWithFormData(contactUsData);
 
+    // If the form isn't valid, submit it to display the error messages
     if (!valid) {
       formRef?.current?.submit();
       return;
     }
 
+    // If the form is valid, send the e-mail
     const success: boolean = sendEmail(
       new EmailMessage(
         contactUsData.name ?? "",
@@ -158,16 +154,17 @@ export const ContactUsForm = (): ReactElement => {
       ),
     );
 
+    // Display a success or error message based on the result of the e-mail send operation
     if (success) {
       Swal.fire({
         text: "E-mail sent successfully",
         icon: "success",
-      });
+      }).then(() => {});
     } else {
       Swal.fire({
         text: "Failed to send e-mail",
         icon: "error",
-      });
+      }).then(() => {});
     }
   };
 
