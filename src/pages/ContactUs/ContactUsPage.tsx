@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { Col, Row } from "react-bootstrap";
-import { ContactUsForm } from "../../forms";
 import { PageTitle } from "../../components/Title/PageTitle.tsx";
+import { ContactUsForm } from "../../forms";
 
 export const ContactUsPage = React.memo((): ReactElement => {
   return (

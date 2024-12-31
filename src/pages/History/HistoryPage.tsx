@@ -1,4 +1,7 @@
 import React from "react";
+import { Col, Row } from "react-bootstrap";
+import { PageTitle } from "../../components/Title/PageTitle.tsx";
+import { HistoryContent } from "../../content";
 import {
   clubAbbreviation,
   clubName,
@@ -15,9 +18,6 @@ import {
   provincialAssociationName,
   provincialAssociationWebsite,
 } from "../../constants/about/AssociationConstants.ts";
-import { Col, Row } from "react-bootstrap";
-import { HistoryContent } from "../../content";
-import { PageTitle } from "../../components/Title/PageTitle.tsx";
 
 export const HistoryPage = React.memo(() => {
   return (

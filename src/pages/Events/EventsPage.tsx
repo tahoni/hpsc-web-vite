@@ -1,13 +1,21 @@
 import React, { ReactElement } from "react";
-import { EventsContent } from "../../content";
 import { Col, Row } from "react-bootstrap";
+import { PageTitle } from "../../components/Title/PageTitle.tsx";
+import { EventsContent } from "../../content";
 
 export const EventsPage = React.memo((): ReactElement => {
   return (
-    <Row>
-      <Col>
-        <EventsContent />
-      </Col>
-    </Row>
+    <>
+      <Row>
+        <Col>
+          <PageTitle title="Matches" />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <EventsContent />
+        </Col>
+      </Row>
+    </>
   );
 });

@@ -1,11 +1,11 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import { PageTitle } from "../../components/Title/PageTitle.tsx";
 import {
   adminEmail,
   chairmanEmail,
   enquiriesEmail,
 } from "../../constants/about/ClubConstants.ts";
-import { PageTitle } from "../../components/Title/PageTitle.tsx";
 
 export const AboutUsPage = React.memo(() => {
   return (
