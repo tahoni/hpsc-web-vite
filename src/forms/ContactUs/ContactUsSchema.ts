@@ -37,7 +37,7 @@ export const contactUsJsonSchema: RJSFSchema = {
       type: "boolean",
     },
   },
-  required: ["name", "email", "subject", "content", "captcha"],
+  required: ["name", "email", "subject", "content"],
 };
 
 export const contactUsUiSchema: UiSchema = {

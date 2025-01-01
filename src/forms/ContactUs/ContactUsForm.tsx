@@ -43,11 +43,6 @@ export const ContactUsForm = (): ReactElement => {
             case ".content":
               error.stack = "Your message is required";
               break;
-            case "captcha":
-            case ".captcha":
-              error.message = "Please solve the CAPTCHA to continue";
-              error.stack = "Please solve the CAPTCHA to continue";
-              break;
             default:
               error.stack = "This field is required";
               break;
@@ -127,6 +122,18 @@ export const ContactUsForm = (): ReactElement => {
     return errors;
   };
 
+  const validateCaptcha = (
+    formData: ContactUsFormData | undefined,
+    errors: any,
+  ): any => {
+    if (formData !== undefined) {
+      if (formData.captcha === undefined || !formData.captcha) {
+        errors.captcha.addError("Please solve the CAPTCHA to continue");
+      }
+    }
+    return errors;
+  };
+
   const handleChange = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
     setFormData(data.formData);
   };
@@ -137,6 +144,7 @@ export const ContactUsForm = (): ReactElement => {
     const email: string | undefined = sanitizeValue(data.formData.email);
     const subject: string | undefined = sanitizeValue(data.formData.subject);
     const content: string | undefined = sanitizeValue(data.formData.content);
+    const captcha: boolean | undefined = data.formData.captcha;
 
     // Populate the form with the sanitised data
     const contactUsData: ContactUsFormData = {
@@ -144,6 +152,7 @@ export const ContactUsForm = (): ReactElement => {
       email,
       subject,
       content,
+      captcha,
     };
     setFormData(contactUsData);
 
@@ -172,7 +181,9 @@ export const ContactUsForm = (): ReactElement => {
       Swal.fire({
         text: "E-mail sent successfully",
         icon: "success",
-      }).then(() => {});
+      }).then(() => {
+        setFormData(null);
+      });
     } else {
       Swal.fire({
         text: "Failed to send e-mail",
@@ -190,6 +201,7 @@ export const ContactUsForm = (): ReactElement => {
       uiSchema={contactUsUiSchema}
       fields={contactUsJsonFields}
       validator={validator}
+      customValidate={validateCaptcha}
       transformErrors={transformErrors}
       showErrorList={false}
       noHtml5Validate={true}
