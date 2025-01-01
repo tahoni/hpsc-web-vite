@@ -1,4 +1,7 @@
 import { RJSFSchema, UiSchema } from "@rjsf/utils";
+import { ReCaptcha } from "../../components/Captcha/ReCaptcha.tsx";
+
+export const contactUsJsonFields = { reCaptcha: ReCaptcha };
 
 export const contactUsJsonSchema: RJSFSchema = {
   type: "object",
@@ -30,6 +33,9 @@ export const contactUsJsonSchema: RJSFSchema = {
       minLength: 5,
       maxLength: 1000,
     },
+    reCaptcha: {
+      type: "object",
+    },
   },
   required: ["name", "email", "subject", "content"],
 };
@@ -51,5 +57,8 @@ export const contactUsUiSchema: UiSchema = {
     "ui:options": {
       rows: 5,
     },
+  },
+  reCaptcha: {
+    "ui:field": "reCaptcha",
   },
 };

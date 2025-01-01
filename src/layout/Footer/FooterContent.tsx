@@ -1,8 +1,5 @@
 import React, { CSSProperties, ReactElement } from "react";
 import { Col, Row } from "react-bootstrap";
-import { SimpleVenueMap } from "../../components";
-import { VenueType } from "../../model/Venue.ts";
-import { EUFEES_RANGE, rangeMapPins } from "../../constants/content/Ranges.ts";
 import { copyrightYear } from "../../constants/AppConstants.ts";
 import {
   clubName,
@@ -12,6 +9,9 @@ import {
   webmasterEmail,
 } from "../../constants/about/ClubConstants.ts";
 import classes from "./Footer.module.scss";
+import { EUFEES_RANGE, rangeMapPins } from "../../constants/content/Ranges.ts";
+import { VenueType } from "../../model/Venue.ts";
+import { SimpleVenueMap } from "../../components";
 
 export const FooterContent = React.memo((): ReactElement => {
   const mapStyle: CSSProperties = {

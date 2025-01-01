@@ -3,11 +3,15 @@ import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
-import { contactUsJsonSchema, contactUsUiSchema } from "./ContactUsSchema.ts";
-import { EmailMessage } from "../../model/EmailMessage.ts";
-import { ContactUsFormData } from "../../model/ContactUsFormData.ts";
 import { sanitizeValue } from "../../utils/HtmlUtils.ts";
 import { sendEmail } from "../../services/EmailService.ts";
+import { EmailMessage } from "../../model/EmailMessage.ts";
+import { ContactUsFormData } from "../../model/ContactUsFormData.ts";
+import {
+  contactUsJsonFields,
+  contactUsJsonSchema,
+  contactUsUiSchema,
+} from "./ContactUsSchema.ts";
 import "./ContactUs.scss";
 
 export const ContactUsForm = (): ReactElement => {
@@ -174,6 +178,7 @@ export const ContactUsForm = (): ReactElement => {
       formData={formData}
       schema={contactUsJsonSchema}
       uiSchema={contactUsUiSchema}
+      fields={contactUsJsonFields}
       validator={validator}
       transformErrors={transformErrors}
       showErrorList={false}
