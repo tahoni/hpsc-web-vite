@@ -175,6 +175,7 @@ export const ContactUsForm = (): ReactElement => {
   return (
     <Form
       ref={formRef}
+      idPrefix={"contact-us"}
       formData={formData}
       schema={contactUsJsonSchema}
       uiSchema={contactUsUiSchema}
