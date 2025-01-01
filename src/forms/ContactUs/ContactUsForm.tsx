@@ -122,7 +122,11 @@ export const ContactUsForm = (): ReactElement => {
     return errors;
   };
 
-  const onSubmit = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
+  const handleChange = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
+    setFormData(data.formData);
+  };
+
+  const handleSubmit = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
     // Sanitise the form data
     const name: string | undefined = sanitizeValue(data.formData.name);
     const email: string | undefined = sanitizeValue(data.formData.email);
@@ -185,8 +189,8 @@ export const ContactUsForm = (): ReactElement => {
       showErrorList={false}
       noHtml5Validate={true}
       focusOnFirstError={true}
-      onChange={(e) => setFormData(e.formData)}
-      onSubmit={onSubmit}
+      onChange={handleChange}
+      onSubmit={handleSubmit}
     />
   );
 };
