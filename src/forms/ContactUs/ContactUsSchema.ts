@@ -1,7 +1,7 @@
 import { RJSFSchema, UiSchema } from "@rjsf/utils";
-import { ReCaptcha } from "../../components/Captcha/ReCaptcha.tsx";
+import { SimpleCaptcha } from "../../components/Captcha/SimpleCaptcha.tsx";
 
-export const contactUsJsonFields = { reCaptcha: ReCaptcha };
+export const contactUsJsonFields = { simpleCaptcha: SimpleCaptcha };
 
 export const contactUsJsonSchema: RJSFSchema = {
   type: "object",
@@ -33,11 +33,11 @@ export const contactUsJsonSchema: RJSFSchema = {
       minLength: 5,
       maxLength: 1000,
     },
-    reCaptcha: {
+    captcha: {
       type: "object",
     },
   },
-  required: ["name", "email", "subject", "content"],
+  required: ["name", "email", "subject", "content", "captcha"],
 };
 
 export const contactUsUiSchema: UiSchema = {
@@ -58,7 +58,7 @@ export const contactUsUiSchema: UiSchema = {
       rows: 5,
     },
   },
-  reCaptcha: {
-    "ui:field": "reCaptcha",
+  captcha: {
+    "ui:field": "simpleCaptcha",
   },
 };

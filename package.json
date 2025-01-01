@@ -31,7 +31,7 @@
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.7",
     "react-dom": "^18.3.1",
-    "react-google-recaptcha": "^3.1.0",
+    "react-recaptcha-x": "^1.1.16",
     "react-router": "^6.24.1",
     "react-router-dom": "^6.24.1",
     "sanitize-html": "^2.14.0",
@@ -42,7 +42,6 @@
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@types/react-google-recaptcha": "^2.1.9",
     "@types/sanitize-html": "^2.13.0",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
