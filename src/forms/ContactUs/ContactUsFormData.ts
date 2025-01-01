@@ -3,5 +3,5 @@ export interface ContactUsFormData {
   email?: string;
   subject?: string;
   content?: string;
-  captcha?: string;
+  captcha?: boolean;
 }

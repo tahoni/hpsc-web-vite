@@ -11,12 +11,7 @@ export const SimpleCaptcha = (props: SimpleCaptchaProps): ReactElement => {
   ): void => {
     let value: string = "";
     if (typeof token === "string") {
-      console.log("this is the token", token);
       value = token;
-    } else if (typeof token === "boolean" && !token) {
-      console.log("token has expired, user must check the checkbox again");
-    } else {
-      console.log("error. please check your network connection");
     }
 
     if (props.onChange !== undefined) {

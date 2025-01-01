@@ -34,7 +34,7 @@ export const contactUsJsonSchema: RJSFSchema = {
       maxLength: 1000,
     },
     captcha: {
-      type: "string",
+      type: "boolean",
     },
   },
   required: ["name", "email", "subject", "content", "captcha"],

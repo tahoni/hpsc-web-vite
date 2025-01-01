@@ -3,5 +3,9 @@ import { FieldProps } from "@rjsf/utils";
 import { SimpleCaptcha } from "./SimpleCaptcha.tsx";
 
 export const CaptchaField = (props: FieldProps): ReactElement => {
-  return <SimpleCaptcha onChange={props.onChange} />;
+  const handleChange = (token?: string) => {
+    props.onChange(token !== undefined && token !== "");
+  };
+
+  return <SimpleCaptcha onChange={handleChange} />;
 };

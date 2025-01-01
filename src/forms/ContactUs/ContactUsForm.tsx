@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { sanitizeValue } from "../../utils/HtmlUtils.ts";
 import { sendEmail } from "../../services/EmailService.ts";
 import { EmailMessage } from "../../model/EmailMessage.ts";
-import { ContactUsFormData } from "../../model/ContactUsFormData.ts";
+import { ContactUsFormData } from "./ContactUsFormData.ts";
 import {
   contactUsJsonFields,
   contactUsJsonSchema,
@@ -23,7 +23,6 @@ export const ContactUsForm = (): ReactElement => {
     errors: RJSFValidationError[],
   ): RJSFValidationError[] => {
     errors.map((error: RJSFValidationError) => {
-      console.log(error.name);
       switch (error.name) {
         case "required": {
           error.message = "Required";
@@ -46,7 +45,7 @@ export const ContactUsForm = (): ReactElement => {
               break;
             case "captcha":
             case ".captcha":
-              error.message = "CAPTCHA is required";
+              error.message = "Please solve the CAPTCHA to continue";
               error.stack = "Please solve the CAPTCHA to continue";
               break;
             default:
