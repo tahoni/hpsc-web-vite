@@ -34,10 +34,10 @@ export const contactUsJsonSchema: RJSFSchema = {
       maxLength: 1000,
     },
     captcha: {
-      type: "object",
+      type: "string",
     },
   },
-  required: ["name", "email", "subject", "content"],
+  required: ["name", "email", "subject", "content", "captcha"],
 };
 
 export const contactUsUiSchema: UiSchema = {

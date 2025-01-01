@@ -1,6 +1,11 @@
 import { ReactElement, useRef, useState } from "react";
 import Form, { IChangeEvent } from "@rjsf/core";
-import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
+import {
+  FormValidation,
+  RJSFValidationError,
+  StrictRJSFSchema,
+  UiSchema,
+} from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
 import { sanitizeValue } from "../../utils/HtmlUtils.ts";
@@ -122,7 +127,19 @@ export const ContactUsForm = (): ReactElement => {
     return errors;
   };
 
+  const validateCaptcha = (
+    formData: ContactUsFormData | undefined,
+    errors: FormValidation<any>,
+    uiSchema?: UiSchema,
+  ): FormValidation<any> => {
+    console.log("formData", formData);
+    console.log("errors", errors);
+    console.log("uiSchema", uiSchema);
+    return errors;
+  };
+
   const handleChange = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
+    console.log("formData", data.formData);
     setFormData(data.formData);
   };
 
@@ -185,6 +202,7 @@ export const ContactUsForm = (): ReactElement => {
       uiSchema={contactUsUiSchema}
       fields={contactUsJsonFields}
       validator={validator}
+      customValidate={validateCaptcha}
       transformErrors={transformErrors}
       showErrorList={false}
       noHtml5Validate={true}
