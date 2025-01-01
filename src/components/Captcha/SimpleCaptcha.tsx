@@ -1,32 +1,30 @@
 import { ReactElement } from "react";
-import {
-  EReCaptchaV2Size,
-  EReCaptchaV2Theme,
-  ReCaptchaV2,
-  TReCaptchaV2Callback,
-} from "react-recaptcha-x";
+import { ReCaptchaV2, TReCaptchaV2Callback } from "react-recaptcha-x";
 
-export const SimpleCaptcha = (): ReactElement => {
+interface SimpleCaptchaProps {
+  onChange?: (token?: string) => void;
+}
+
+export const SimpleCaptcha = (props: SimpleCaptchaProps): ReactElement => {
   const v2Callback: TReCaptchaV2Callback = (
     token: string | false | Error,
   ): void => {
+    let value: string = "";
     if (typeof token === "string") {
       console.log("this is the token", token);
+      value = token;
     } else if (typeof token === "boolean" && !token) {
       console.log("token has expired, user must check the checkbox again");
     } else {
       console.log("error. please check your network connection");
     }
+
+    if (props.onChange !== undefined) {
+      props.onChange(value);
+    }
   };
 
   return (
-    <ReCaptchaV2
-      callback={v2Callback}
-      theme={EReCaptchaV2Theme.Light}
-      size={EReCaptchaV2Size.Normal}
-      id="my-id"
-      data-test-id="my-test-id"
-      tabindex={0}
-    />
+    <ReCaptchaV2 className="simpleCaptcha" callback={v2Callback} tabindex={0} />
   );
 };

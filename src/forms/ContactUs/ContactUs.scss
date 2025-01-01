@@ -1,6 +1,10 @@
 @import "bootstrap/scss/bootstrap";
 @import "../../assets/stylesheets/style-theme";
 
+form.rjsf .text-danger {
+  border: none;
+}
+
 form.rjsf .form-group {
   margin: 0.75rem 0;
 }
@@ -13,8 +17,8 @@ form.rjsf .form-group .control-label {
   margin: 0.75rem 0;
 }
 
-form.rjsf .text-danger {
-  border: none;
+form.rjsf .field-error .simpleCaptcha {
+  margin: 0.75rem 0;
 }
 
 form.rjsf .field-error .list-group-item {

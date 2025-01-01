@@ -1,7 +1,7 @@
 import { RJSFSchema, UiSchema } from "@rjsf/utils";
-import { SimpleCaptcha } from "../../components/Captcha/SimpleCaptcha.tsx";
+import { CaptchaField } from "../../components/Captcha/CaptchaField.tsx";
 
-export const contactUsJsonFields = { simpleCaptcha: SimpleCaptcha };
+export const contactUsJsonFields = { captchaField: CaptchaField };
 
 export const contactUsJsonSchema: RJSFSchema = {
   type: "object",
@@ -59,6 +59,6 @@ export const contactUsUiSchema: UiSchema = {
     },
   },
   captcha: {
-    "ui:field": "simpleCaptcha",
+    "ui:field": "captchaField",
   },
 };
