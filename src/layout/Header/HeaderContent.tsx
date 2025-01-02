@@ -1,18 +1,21 @@
-import React, {ReactElement} from "react";
-import {Col, Row} from "react-bootstrap";
+import React, { ReactElement } from "react";
+import { Col, Row } from "react-bootstrap";
 import classes from "./Header.module.scss";
 
 interface HeaderContentProps {
-    title: string;
+  title: string;
+  pageTitle?: string;
 }
 
 export const HeaderContent = React.memo(
-    (props: HeaderContentProps): ReactElement => {
+  (props: HeaderContentProps): ReactElement => {
     return (
-        <Row className={classes.HeaderContent}>
-            <Col className={classes.HeaderText}>
-                <h1>{props.title}</h1>
-            </Col>
-        </Row>
-    )
-})
+      <Row className={classes.headerContent}>
+        <Col className={classes.headerText}>
+          <h1>{props.title}</h1>
+          <h2>{props.pageTitle}</h2>
+        </Col>
+      </Row>
+    );
+  },
+);

@@ -1,19 +1,13 @@
-@import "style-font";
+@import "style-custom";
 @import "style-colors";
 
-/* Font Families */
-$text-font-family: $noto-sans-font-family;
-$heading-text-font-family: $noto-sans-display-font-family;
-$code-text-font-family: $noto-code-font-family;
-
 /* Fonts */
-$text-font: $noto-sans-font;
-$heading-text-font: $noto-sans-display-font;
+$text-font: $body-color;
+$heading-text-font-family: $headings-font-family;
 
 /* Colours */
-$background-color: $blue-gradient-top;
-$cover-text-color: $butterscotch-dark;
-$text-color: $butterscotch-dark;
-$heading-text-color: $butterscotch-dark;
-$anchor-text-color: $butterscotch-medium;
-$anchor-text-highlight-color: $yellow-dark;
+$background-gradient: $blue-gradient-top;
+$cover-text-color: $club-butterscotch-dark;
+$heading-text-color: $headings-color;
+$btn-primary-background-color: $club-primary-blue;
+$btn-primary-hover-color: $club-blue-light;

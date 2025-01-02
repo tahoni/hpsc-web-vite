@@ -1,3 +1,1 @@
-import { VenuesPage } from "./VenuesPage";
-
-export {VenuesPage};
+export { VenuesPage } from "./VenuesPage.tsx";

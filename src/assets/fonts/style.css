@@ -1,57 +1,66 @@
 @font-face {
-  font-family: 'icomoon';
-  src:  url('glyphs/icomoon.eot?8axayx');
-  src:  url('glyphs/icomoon.eot?8axayx#iefix') format('embedded-opentype'),
+    font-family: 'icomoon';
+    src: url('glyphs/icomoon.eot?8axayx');
+    src: url('glyphs/icomoon.eot?8axayx#iefix') format('embedded-opentype'),
     url('glyphs/icomoon.ttf?8axayx') format('truetype'),
     url('glyphs/icomoon.woff?8axayx') format('woff'),
     url('glyphs/icomoon.svg?8axayx#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change glyphs */
-  font-family: 'icomoon', emoji !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+    /* use !important to prevent issues with browser extensions that change glyphs */
+    font-family: 'icomoon', emoji !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-bullet-1:before {
-  content: "\e909";
+    content: "\e909";
 }
+
 .icon-bullet:before {
-  content: "\e900";
+    content: "\e900";
 }
+
 .icon-gun-1:before {
-  content: "\e901";
+    content: "\e901";
 }
+
 .icon-gun:before {
-  content: "\e902";
+    content: "\e902";
 }
+
 .icon-shotgun:before {
-  content: "\e903";
+    content: "\e903";
 }
+
 .icon-assault-rifle:before {
-  content: "\e904";
+    content: "\e904";
 }
+
 .icon-pistol:before {
-  content: "\e905";
+    content: "\e905";
 }
+
 .icon-assault-rifle-1:before {
-  content: "\e906";
+    content: "\e906";
 }
+
 .icon-shotgun-1:before {
-  content: "\e907";
+    content: "\e907";
 }
+
 .icon-pistol-1:before {
-  content: "\e908";
+    content: "\e908";
 }

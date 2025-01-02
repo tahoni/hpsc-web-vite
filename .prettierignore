@@ -1,0 +1,6 @@
+## TAHONI
+**/*.md
+**/*.mdx
+build/
+coverage/
+src/pages/legacy
