@@ -9,14 +9,14 @@ $map-height: 12em;
   mapHeight: $map-height;
 }
 
-.Footer {
+.footer {
   padding: 0.75rem;
   margin: 0.75rem;
   align-content: center;
   justify-content: center;
 }
 
-.FooterInner, .FooterCenter {
+.footerInner, .footerCenter {
   padding: 0;
   margin: 0;
   display: flex;
@@ -26,16 +26,16 @@ $map-height: 12em;
   justify-items: center;
 }
 
-.FooterCenter {
+.footerCenter {
   margin-left: auto;
   margin-right: auto;
 }
 
-.FooterInner {
-    padding: 0.75rem 0;
+.footerInner {
+  padding: 0.75rem 0;
 }
 
-.FooterContent {
+.footerContent {
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -44,12 +44,12 @@ $map-height: 12em;
   justify-content: center;
 }
 
-.FooterMap {
+.footerMap {
   padding: 0;
   margin: 0;
 }
 
-.FooterDetails {
+.footerDetails {
   font-style: italic;
   display: flex;
   flex-direction: column;
@@ -61,41 +61,41 @@ $map-height: 12em;
   vertical-align: middle;
 }
 
-.ContactInfo {
+.contactInfo {
   font-weight: 400;
 }
 
-.WebsiteInfo p {
+.websiteInfo p {
   margin-bottom: 0;
   font-size: 0.9em;
 }
 
 @include media-breakpoint-down(md) {
-  .Footer {
+  .footer {
     margin: 0;
   }
 
-  .FooterInner {
+  .footerInner {
     padding-top: 0;
   }
 
-  .FooterCenter {
+  .footerCenter {
     padding-top: 0.75rem;
   }
 
-  .FooterMap {
+  .footerMap {
     padding-bottom: 0.75rem;
   }
 
-  .FooterDetails {
+  .footerDetails {
     padding-top: 0.75rem;
   }
 
-  .ContactInfo {
+  .contactInfo {
     padding-bottom: 0.75rem;
   }
 
-  .WebsiteInfo {
-   padding-top: 0.75rem;
+  .websiteInfo {
+    padding-top: 0.75rem;
   }
 }

@@ -1,42 +1,42 @@
-.Layout {
+.layout {
   height: 100%;
   padding: 0 !important;
   display: flex;
   flex-direction: column;
 }
 
-.Header {
+.header {
   flex: initial;
 }
 
-.Footer {
+.footer {
   flex: initial;
 }
 
-.Body {
+.body {
   flex: auto;
 }
 
-.LogoContainer {
+.logoContainer {
   flex: initial;
   align-content: center;
   padding: 0.75rem;
 }
 
-.Logo, .LeftLogo, .RightLogo {
+.logo, .leftLogo, .rightLogo {
   width: auto;
   height: 8em;
 }
 
-.LeftLogo {
+.leftLogo {
   float: left;
 }
 
-.RightLogo {
+.rightLogo {
   float: right;
 }
 
-.Logo img {
+.logo img {
   width: 100%;
   height: auto;
 }

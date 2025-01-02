@@ -1,26 +1,21 @@
 @import "style-icons";
 @import "style-theme";
-@import "style-overrides";
+@import "style-custom";
 @import "style-variables";
 
 /* General */
 html, body {
-  font-family: $text-font-family;
-  color: $text-color;
-  background: $background-color fixed no-repeat;
+  background: $background-gradient fixed no-repeat;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: $heading-text-font-family;
-  color: $heading-text-color;
+/* Forms */
+.form-control:required {
+  border-left-width: thick;
 }
 
-/* Hyperlink */
-a:link, a:visited:hover, a:focus:hover, a:active:hover {
-  color: $anchor-text-color;
-}
-
-a:hover, a:visited, a:focus, a:active {
-  color: $anchor-text-highlight-color;
+.btn-info {
+  @extend .btn-primary;
 }

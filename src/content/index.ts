@@ -1,1 +1,0 @@
-export {HistoryContent} from "./markdown";
