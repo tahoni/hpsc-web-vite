@@ -6,8 +6,8 @@ import { VenueType } from "../../model/Venue.ts";
 import {
   adminEmail,
   chairmanEmail,
-  clubShootingRange,
-  clubShootingRangeVenue,
+  clubShootingRangeDescription,
+  clubShootingRangeName,
   enquiriesEmail,
 } from "../../constants/about/ClubConstants.ts";
 import { EUFEES_RANGE, rangeMapPins } from "../../constants/content/Ranges.ts";
@@ -57,7 +57,7 @@ export const AboutUsPage = React.memo(() => {
       <Row>&nbsp;</Row>
       <Row>
         <Col>
-          {clubShootingRangeVenue} of the {clubShootingRange}
+          {clubShootingRangeName} of the {clubShootingRangeDescription}
         </Col>
       </Row>
       <Row>&nbsp;</Row>
@@ -66,9 +66,9 @@ export const AboutUsPage = React.memo(() => {
         <Col>
           <SimpleVenueMap
             mapStyle={mapStyle}
-            mapMode={"satellite"}
-            center={rangeMapPins.get(footerMapRange)?.latLng}
-            zoom={100}
+            mapTypeId={google.maps.MapTypeId.SATELLITE}
+            zoom={16}
+            center={rangeMapPins.get(footerMapRange)?.center}
             venues={footerMapPins}
           />
         </Col>

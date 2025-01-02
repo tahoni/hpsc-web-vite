@@ -17,7 +17,7 @@ export interface VenueMapProps {
   mapStyle: CSSProperties;
   center?: VenueMapLatLngType;
   zoom?: number;
-  mapMode?: string;
+  mapTypeId?: google.maps.MapTypeId;
 }
 
 export const VenueMap = React.memo(
@@ -39,7 +39,7 @@ export const VenueMap = React.memo(
             center={props.center}
             zoom={props.zoom ? props.zoom : googleMapDefaultZoom}
             clickableIcons={true}
-            mapTypeId={props.mapMode}
+            mapTypeId={props.mapTypeId}
           >
             {props.children}
           </GoogleMap>
