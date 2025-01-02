@@ -1,7 +1,7 @@
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
-import leftShooter from "/assets/images/pictures/shooter-left-transparent.png";
-import rightShooter from "/assets/images/pictures/shooter-right-transparent.png";
-import targetWithBulletHoles from "/assets/images/pictures/ipsc-target-with-bullet-holes.png";
+import leftShooter from "/assets/images/layout/shooter-left-transparent.png";
+import rightShooter from "/assets/images/layout/shooter-right-transparent.png";
+import targetWithBulletHoles from "/assets/images/content/ipsc-target-with-bullet-holes.png";
 
 export const LEFT_SHOOTER = "leftShooter";
 export const RIGHT_SHOOTER = "rightShooter";

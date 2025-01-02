@@ -66,7 +66,7 @@ export const AboutUsPage = React.memo(() => {
         <Col>
           <SimpleVenueMap
             mapStyle={mapStyle}
-            mapTypeId={google.maps.MapTypeId.SATELLITE}
+            mapMode={"satellite"}
             zoom={16}
             center={rangeMapPins.get(footerMapRange)?.center}
             venues={footerMapPins}
