@@ -3,6 +3,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.3.1](#version-331---_2025-01-02_)
 - [Version 3.3.0](#version-330---_2025-01-02_)
 - [Version 3.2.6](#version-326---_2024-12-26_)
 - [Version 3.2.5](#version-325---_2024-12-25_)
@@ -22,6 +23,20 @@
 - [Version 3.0.2](#version-302---_2024-08-27_)
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
+
+### [Version 3.3.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.1) - _2025-01-02_
+Created an About Us page.<br/>
+
+#### Enhancements and Updates
+- A mode property was added to the map component.   
+- A centre property was added to the map component.
+- Created an About Us page with contact details and a satellite map of the shooting range.
+
+#### Dependencies
+- Added the Google Maps info window library from `@react-google-maps`.
+
+#### Changes by
+@tahoni
 
 ### [Version 3.3.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.0) - _2025-01-02_
 Created a Contact Us page.<br/>
