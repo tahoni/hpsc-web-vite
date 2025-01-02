@@ -3,6 +3,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.3.0](#version-330---_2025-01-02_)
 - [Version 3.2.6](#version-326---_2024-12-26_)
 - [Version 3.2.5](#version-325---_2024-12-25_)
 - [Version 3.2.4](#version-324---_2024-12-24_)
@@ -21,6 +22,36 @@
 - [Version 3.0.2](#version-302---_2024-08-27_)
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
+
+### [Version 3.3.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.0) - _2025-01-02_
+Created a Contact Us page.<br/>
+
+#### Enhancements and Updates
+- Created a page title component.
+- Created a CAPTCHA component for Google reCAPTCHA.
+- Created a CAPTCHA field for the JSON schema form using the above component.
+- Validated the CAPTCHA field with a custom validator function.
+- A JSON schema with validations for the Contact Us page was created.
+- Added the CAPTCHA field to the JSON schema.
+- Created a Contact Us page using this JSON schema with a CAPTCHA puzzle.
+- A message is displayed when the request is successfully sent.
+- The back-end is not working yet.
+
+#### General Code Improvements
+- Overrode some of the Bootstrap SASS variables and simplified the custom styles.
+- Change all CSS classes to camel case.
+
+#### General Technical Changes
+- Format the source code using the Prettier formatter.
+
+#### Dependencies
+- Added the JSON schema form dependencies from `@rjsf`.
+- Added the Google reCAPTCHA dependency from `react-recaptcha-x`.
+- Added the SweetAlert2 dependency.
+- Added the Prettier dependency to format the source code.
+
+#### Changes by
+@tahoni
 
 ### [Version 3.2.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.6) - _2024-12-26_
 Improved the documentation.<br />
@@ -103,8 +134,7 @@ Completed the map to the shooting range in the footer.<br />
 - Added CSS variables.
 
 #### Dependencies
-- Added the Google Maps clustered marker library.
-- Added an MD5 library.
+- Added the Google Maps clustered marker library from `@react-google-maps`.
 
 #### Security
 - Removed the Google Maps API key included in the last commit.
@@ -142,7 +172,7 @@ A map of the shooting range was added in the footer.<br />
   Netlify.
 
 #### Dependencies
-- Added the React Google Maps library
+- Added the React Google Maps library from `@react-google-maps`.
 
 #### Changes by
 @tahoni
