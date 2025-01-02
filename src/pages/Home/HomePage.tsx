@@ -4,7 +4,7 @@ import { HistoryContent } from "../../content";
 import {
   clubAbbreviation,
   clubName,
-  clubShootingRange,
+  clubShootingRangeDescription,
 } from "../../constants/about/ClubConstants.ts";
 import {
   internationalAssociationAbbreviation,
@@ -25,7 +25,7 @@ export const HomePage = React.memo(() => {
         <HistoryContent
           clubName={clubName}
           clubAbbreviation={clubAbbreviation}
-          clubShootingRage={clubShootingRange}
+          clubShootingRage={clubShootingRangeDescription}
           internationalAssociationWebsite={internationalAssociationWebsite}
           internationalAssociationName={internationalAssociationName}
           internationalAssociationAbbreviation={

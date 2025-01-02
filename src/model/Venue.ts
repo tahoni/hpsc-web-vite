@@ -5,4 +5,5 @@ export interface Venue {
   name: string;
   label?: string;
   latLng: VenueMapLatLngType;
+  center?: VenueMapLatLngType;
 }

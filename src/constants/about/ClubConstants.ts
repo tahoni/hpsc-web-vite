@@ -1,13 +1,13 @@
 export const clubName: string = "Hartbeespoortdam Practical Shooting Club";
 export const clubAbbreviation: string = "HPSC";
-export const clubShootingRange: string =
+export const clubShootingRangeName: string = "Eeufees Range";
+export const clubShootingRangeDescription: string =
   "Pretoria Defense Practical Shooting Club";
 
 export const chairmanEmail: string = "chairman@hpsc.co.za";
 export const viceChairmanEmail: string = "v.chairman@hpsc.co.za";
 export const treasurerEmail: string = "treasurer@hpsc.co.za";
 export const adminEmail: string = "admin@hpsc.co.za";
-export const contactUsEmail: string = "contact@hpsc.co.za";
 export const enquiriesEmail: string = "enquiries@hpsc.co.za";
 export const webmasterEmail: string = "webmaster@hpsc.co.za";
 

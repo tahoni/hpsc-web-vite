@@ -3,7 +3,7 @@
   "author": "Leoni Lubbinge <tahoni@gmail.com>",
   "description": "HPSC website",
   "private": true,
-  "version": "3.3.0",
+  "version": "3.3.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -20,6 +20,7 @@
     "@mdx-js/react": "^3.1.0",
     "@mdx-js/rollup": "^3.1.0",
     "@react-google-maps/api": "^2.20.3",
+    "@react-google-maps/infobox": "^2.20.0",
     "@react-google-maps/marker-clusterer": "^2.20.0",
     "@rjsf/core": "^5.23.2",
     "@rjsf/utils": "^5.23.2",
