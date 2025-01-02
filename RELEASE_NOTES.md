@@ -12,6 +12,7 @@ Created a Contact Us page.<br/>
 - A JSON schema with validations for the Contact Us page was created.
 - Added the CAPTCHA field to the JSON schema.
 - Created a Contact Us page using this JSON schema with a CAPTCHA puzzle.
+- Sanitized all input before submitting it to the service.
 - A message is displayed when the request is successfully sent.
 - The back-end is not working yet.
 
@@ -25,6 +26,7 @@ Created a Contact Us page.<br/>
 #### Dependencies
 - Added the JSON schema form dependencies from `@rjsf`.
 - Added the Google reCAPTCHA dependency from `react-recaptcha-x`.
+- Added the `sanitize-html` dependency.
 - Added the SweetAlert2 dependency.
 - Added the Prettier dependency to format the source code.
 
