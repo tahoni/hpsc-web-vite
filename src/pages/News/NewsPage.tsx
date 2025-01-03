@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { PageTitle } from "../../components/Title/PageTitle.tsx";
-import { NewsContent } from "../../content";
+import { PageTitle } from "../../components";
+import { NewsContent } from "../../content/pages";
 
 export const NewsPage = React.memo(() => {
   return (

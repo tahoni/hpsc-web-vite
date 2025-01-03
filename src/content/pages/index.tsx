@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
-import Home from "./pages/Home.mdx";
-import News from "./pages/News.mdx";
-import Events from "./pages/Events.mdx";
-import Venues from "./pages/Venues.mdx";
-import History from "./pages/History.mdx";
-import { HistoryProps } from "./model/HistoryProps.ts";
+import Home from "./Home.mdx";
+import News from "./News.mdx";
+import Events from "./Events.mdx";
+import Venues from "./Venues.mdx";
+import History from "./History.mdx";
+import { HistoryProps } from "../../model/content/pages/HistoryProps.ts";
 
 export const HomeContent = (): ReactElement => {
   return <Home />;
