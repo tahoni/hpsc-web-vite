@@ -4,7 +4,7 @@ import News from "./pages/News.mdx";
 import Events from "./pages/Events.mdx";
 import Venues from "./pages/Venues.mdx";
 import History from "./pages/History.mdx";
-import { HistoryProps } from "./model/HistoryProps.ts";
+import { HistoryProps } from "../model/content/pages/HistoryProps.ts";
 
 export const HomeContent = (): ReactElement => {
   return <Home />;

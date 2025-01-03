@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { PageTitle } from "../../components/Title/PageTitle.tsx";
+import { PageTitle } from "../../components";
 import { HistoryContent } from "../../content";
 import {
   clubAbbreviation,

@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { Col, Image, Row } from "react-bootstrap";
-import { PageTitle } from "../../components/Title/PageTitle.tsx";
+import { PageTitle } from "../../components";
 import {
   internationalAssociationAbbreviation,
   internationalAssociationName,
@@ -17,7 +17,7 @@ import {
 } from "../../constants/about/AssociationConstants.ts";
 import classes from "./LinksPage.module.scss";
 
-export const LinksPage = (): ReactElement => {
+export const LinksPage = React.memo((): ReactElement => {
   return (
     <>
       <Row>
@@ -61,4 +61,4 @@ export const LinksPage = (): ReactElement => {
       </Row>
     </>
   );
-};
+});
