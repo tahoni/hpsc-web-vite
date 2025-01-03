@@ -15,11 +15,7 @@ import {
 import layoutClasses from "../Layout.module.scss";
 import classes from "./Header.module.scss";
 
-interface HeaderProps {
-  pageTitle?: string;
-}
-
-export const Header = (props: HeaderProps): ReactElement => {
+export const Header = (): ReactElement => {
   return (
     <Container fluid className={classes.header}>
       <Row className={classes.headerInner}>
@@ -41,7 +37,7 @@ export const Header = (props: HeaderProps): ReactElement => {
           md={{ span: 8 }}
           className={classes.headerCenter}
         >
-          <HeaderContent title={clubName} pageTitle={props.pageTitle} />
+          <HeaderContent title={clubName} />
         </Col>
         <Col
           xs={{ span: 6 }}
