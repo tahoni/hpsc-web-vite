@@ -19,8 +19,3 @@ export const facebookGroup: string = facebookUrl + "groups/933580883991020";
 
 // Logos
 export const clubLogo: string = "/assets/images/logos/hpsc-logo.png";
-export const clubSmallLogo: string = "/assets/images/logos/hpsc-logo-small.png";
-export const clubMonochromeLogo: string =
-  "/assets/images/logos/hpsc-logo-bw.png";
-export const clubSmallMonochromeLogo: string =
-  "/assets/images/logos/hpsc-logo-small-bw.png";

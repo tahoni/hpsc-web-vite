@@ -3,16 +3,16 @@ import { Col, Image, Row } from "react-bootstrap";
 import { PageTitle } from "../../components";
 import {
   internationalAssociationAbbreviation,
+  internationalAssociationLogo,
   internationalAssociationName,
-  internationalAssociationSmallLogo,
   internationalAssociationWebsite,
   nationalAssociationAbbreviation,
+  nationalAssociationLogo,
   nationalAssociationName,
-  nationalAssociationSmallLogo,
   nationalAssociationWebsite,
   provincialAssociationAbbreviation,
+  provincialAssociationLogo,
   provincialAssociationName,
-  provincialAssociationSmallLogo,
   provincialAssociationWebsite,
 } from "../../constants/about/AssociationConstants.ts";
 import classes from "./LinksPage.module.scss";
@@ -29,8 +29,9 @@ export const LinksPage = React.memo((): ReactElement => {
         <Col>
           <a href={provincialAssociationWebsite} target={"_blank"}>
             <Image
-              src={provincialAssociationSmallLogo}
+              src={provincialAssociationLogo}
               alt={provincialAssociationName + " logo"}
+              height={60}
             />
             {provincialAssociationName} ({provincialAssociationAbbreviation})
           </a>
@@ -40,8 +41,9 @@ export const LinksPage = React.memo((): ReactElement => {
         <Col>
           <a href={nationalAssociationWebsite} target={"_blank"}>
             <Image
-              src={nationalAssociationSmallLogo}
+              src={nationalAssociationLogo}
               alt={nationalAssociationName + " logo"}
+              height={60}
             />
             {nationalAssociationName} ({nationalAssociationAbbreviation})
           </a>
@@ -51,8 +53,9 @@ export const LinksPage = React.memo((): ReactElement => {
         <Col>
           <a href={internationalAssociationWebsite} target={"_blank"}>
             <Image
-              src={internationalAssociationSmallLogo}
+              src={internationalAssociationLogo}
               alt={internationalAssociationName + " logo"}
+              height={60}
             />
             {internationalAssociationName} (
             {internationalAssociationAbbreviation})
