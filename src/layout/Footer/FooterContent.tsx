@@ -3,7 +3,10 @@ import { Col, Row } from "react-bootstrap";
 import { VenueType } from "../../model/Venue.ts";
 import { SimpleVenueMap } from "../../components";
 import { copyrightYear } from "../../constants/AppConstants.ts";
-import { EUFEES_RANGE, rangeMapPins } from "../../constants/content/Ranges.ts";
+import {
+  EUFEES_SHOOTING_RANGE,
+  shootingRangeMapPins,
+} from "../../constants/content/ShootingRanges.ts";
 import {
   clubName,
   enquiriesEmail,
@@ -19,15 +22,15 @@ export const FooterContent = React.memo((): ReactElement => {
     height: classes.mapHeight,
   };
 
-  const footerMapRange: string = EUFEES_RANGE;
-  const footerMapPins: VenueType[] = [rangeMapPins.get(footerMapRange)];
+  const footerMapRange: string = EUFEES_SHOOTING_RANGE;
+  const footerMapPins: VenueType[] = [shootingRangeMapPins.get(footerMapRange)];
 
   return (
     <Row className={classes.footerContent}>
       <Col xs={{ span: 12 }} md={{ span: 6 }} className={classes.footerMap}>
         <SimpleVenueMap
           mapStyle={mapStyle}
-          center={rangeMapPins.get(footerMapRange)?.latLng}
+          center={shootingRangeMapPins.get(footerMapRange)?.latLng}
           venues={footerMapPins}
         />
       </Col>

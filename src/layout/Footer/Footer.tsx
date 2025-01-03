@@ -3,12 +3,12 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import { FooterContent } from "./FooterContent.tsx";
 import {
   internationalAssociationAbbreviation,
+  internationalAssociationLogo,
   internationalAssociationWebsite,
   nationalAssociationAbbreviation,
+  nationalAssociationLogo,
   nationalAssociationWebsite,
 } from "../../constants/about/AssociationConstants.ts";
-import nationalAssociationLogo from "../../assets/images/logos/sapsa-logo.png";
-import internationalAssociationLogo from "../../assets/images/logos/ipsc-logo.png";
 import layoutClasses from "../Layout.module.scss";
 import classes from "./Footer.module.scss";
 
