@@ -7,7 +7,7 @@ export const Breakpoints = React.memo((): ReactElement => {
       {import.meta.env.VITE_SHOW_BREAKPOINTS == "true" ? (
         <TahoniBreakpoints />
       ) : (
-        ""
+        <></>
       )}
     </>
   );

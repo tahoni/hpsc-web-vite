@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Content } from "../Content/Content.tsx";
 import { ImageSidebar } from "../../components";
 import { BodyProps } from "../LayoutProps.ts";
@@ -18,11 +18,7 @@ export const Body = React.memo((props: BodyProps): ReactElement => {
         </div>
         <div className={classes.bodyCenter}>
           <Container>
-            <Row>
-              <Col>
-                <Content />
-              </Col>
-            </Row>
+            <Content />
           </Container>
         </div>
         <div className={classes.bodySidebar}>
