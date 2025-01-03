@@ -10,7 +10,10 @@ import {
   clubShootingRangeName,
   enquiriesEmail,
 } from "../../constants/about/ClubConstants.ts";
-import { EUFEES_RANGE, rangeMapPins } from "../../constants/content/Ranges.ts";
+import {
+  EUFEES_SHOOTING_RANGE,
+  shootingRangeMapPins,
+} from "../../constants/content/ShootingRanges.ts";
 import classes from "./AboutUsPage.module.scss";
 
 export const AboutUsPage = React.memo(() => {
@@ -19,8 +22,8 @@ export const AboutUsPage = React.memo(() => {
     height: classes.mapHeight,
   };
 
-  const footerMapRange: string = EUFEES_RANGE;
-  const footerMapPins: VenueType[] = [rangeMapPins.get(footerMapRange)];
+  const footerMapRange: string = EUFEES_SHOOTING_RANGE;
+  const footerMapPins: VenueType[] = [shootingRangeMapPins.get(footerMapRange)];
 
   return (
     <>
@@ -68,7 +71,7 @@ export const AboutUsPage = React.memo(() => {
             mapStyle={mapStyle}
             mapMode={"satellite"}
             zoom={16}
-            center={rangeMapPins.get(footerMapRange)?.center}
+            center={shootingRangeMapPins.get(footerMapRange)?.center}
             venues={footerMapPins}
           />
         </Col>

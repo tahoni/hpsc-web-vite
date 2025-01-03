@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import { HeaderContent } from "./HeaderContent.tsx";
 import {
   clubAbbreviation,
+  clubLogo,
   clubName,
 } from "../../constants/about/ClubConstants.ts";
 import {
   provincialAssociationAbbreviation,
+  provincialAssociationLogo,
   provincialAssociationWebsite,
 } from "../../constants/about/AssociationConstants.ts";
-import ClubLogo from "../../assets/images/logos/hpsc-logo.png";
-import ProvincialAssociationLogo from "../../assets/images/logos/ngpsa-logo.png";
 import layoutClasses from "../Layout.module.scss";
 import classes from "./Header.module.scss";
 
@@ -30,7 +30,7 @@ export const Header = (props: HeaderProps): ReactElement => {
         >
           <Link to="/">
             <Image
-              src={ClubLogo}
+              src={clubLogo}
               alt={clubAbbreviation + " logo"}
               className={`${layoutClasses.logo} ${layoutClasses.leftLogo}`}
             />
@@ -50,7 +50,7 @@ export const Header = (props: HeaderProps): ReactElement => {
         >
           <a href={provincialAssociationWebsite} target="_blank">
             <Image
-              src={ProvincialAssociationLogo}
+              src={provincialAssociationLogo}
               alt={provincialAssociationAbbreviation + " logo"}
               className={`${layoutClasses.logo} ${layoutClasses.rightLogo}`}
             />
