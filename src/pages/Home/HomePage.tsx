@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { HistoryContent } from "../../content";
+import { HistoryContent } from "../../content/pages";
 import {
   clubAbbreviation,
   clubName,

@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { Col, Row } from "react-bootstrap";
 import { PageTitle } from "../../components";
-import { VenuesContent } from "../../content";
+import { VenuesContent } from "../../content/pages";
 
 export const VenuesPage = React.memo((): ReactElement => {
   return (
