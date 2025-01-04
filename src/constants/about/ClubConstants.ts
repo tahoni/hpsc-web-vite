@@ -11,6 +11,10 @@ export const adminEmail: string = "admin@hpsc.co.za";
 export const enquiriesEmail: string = "enquiries@hpsc.co.za";
 export const webmasterEmail: string = "webmaster@hpsc.co.za";
 
+// People
+export const chairmanName: string = "Jan Kleynhans";
+export const secretaryName: string = "Albert van Herk";
+
 // Social media
 export const facebookUrl: string = "https://www.facebook.com/";
 export const facebookPage: string =
