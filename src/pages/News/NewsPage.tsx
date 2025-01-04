@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { PageTitle } from "../../components";
-import { NewsContent } from "../../content/pages";
 
 export const NewsPage = React.memo(() => {
   return (
@@ -9,11 +8,6 @@ export const NewsPage = React.memo(() => {
       <Row>
         <Col>
           <PageTitle title="News" />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <NewsContent />
         </Col>
       </Row>
     </>
