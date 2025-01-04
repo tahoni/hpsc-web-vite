@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import { ReCaptchaV2, TReCaptchaV2Callback } from "react-recaptcha-x";
+import classes from "./Captcha.module.scss";
 
 interface SimpleCaptchaProps {
   onChange?: (token?: string) => void;
@@ -22,7 +23,7 @@ export const SimpleCaptcha = React.memo(
 
     return (
       <ReCaptchaV2
-        className="simpleCaptcha"
+        className={classes.simpleCaptcha}
         callback={v2Callback}
         tabindex={0}
       />

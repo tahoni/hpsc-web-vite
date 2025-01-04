@@ -1,21 +1,7 @@
 import React, { ReactElement } from "react";
-import { Col, Image, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { PageTitle } from "../../components";
-import {
-  internationalAssociationAbbreviation,
-  internationalAssociationLogo,
-  internationalAssociationName,
-  internationalAssociationWebsite,
-  nationalAssociationAbbreviation,
-  nationalAssociationLogo,
-  nationalAssociationName,
-  nationalAssociationWebsite,
-  provincialAssociationAbbreviation,
-  provincialAssociationLogo,
-  provincialAssociationName,
-  provincialAssociationWebsite,
-} from "../../constants/about/AssociationConstants.ts";
-import classes from "./LinksPage.module.scss";
+import { LinksContent } from "../../content/pages";
 
 export const LinksPage = React.memo((): ReactElement => {
   return (
@@ -25,41 +11,9 @@ export const LinksPage = React.memo((): ReactElement => {
           <PageTitle title="Links" />
         </Col>
       </Row>
-      <Row className={classes.logoHyperlink}>
+      <Row>
         <Col>
-          <a href={provincialAssociationWebsite} target={"_blank"}>
-            <Image
-              src={provincialAssociationLogo}
-              alt={provincialAssociationName + " logo"}
-              height={60}
-            />
-            {provincialAssociationName} ({provincialAssociationAbbreviation})
-          </a>
-        </Col>
-      </Row>
-      <Row className={classes.logoHyperlink}>
-        <Col>
-          <a href={nationalAssociationWebsite} target={"_blank"}>
-            <Image
-              src={nationalAssociationLogo}
-              alt={nationalAssociationName + " logo"}
-              height={60}
-            />
-            {nationalAssociationName} ({nationalAssociationAbbreviation})
-          </a>
-        </Col>
-      </Row>
-      <Row className={classes.logoHyperlink}>
-        <Col>
-          <a href={internationalAssociationWebsite} target={"_blank"}>
-            <Image
-              src={internationalAssociationLogo}
-              alt={internationalAssociationName + " logo"}
-              height={60}
-            />
-            {internationalAssociationName} (
-            {internationalAssociationAbbreviation})
-          </a>
+          <LinksContent />
         </Col>
       </Row>
     </>
