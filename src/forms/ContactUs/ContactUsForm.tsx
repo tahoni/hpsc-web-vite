@@ -1,4 +1,4 @@
-import { ReactElement, useRef, useState } from "react";
+import React, { ReactElement, useRef, useState } from "react";
 import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
@@ -14,7 +14,7 @@ import {
 } from "./ContactUsSchema.ts";
 import "./ContactUs.scss";
 
-export const ContactUsForm = (): ReactElement => {
+export const ContactUsForm = React.memo((): ReactElement => {
   const [formData, setFormData] = useState<ContactUsFormData | null>(null);
 
   const formRef = useRef<Form>(null);
@@ -210,4 +210,4 @@ export const ContactUsForm = (): ReactElement => {
       onSubmit={handleSubmit}
     />
   );
-};
+});

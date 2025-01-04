@@ -11,6 +11,10 @@ export const adminEmail: string = "admin@hpsc.co.za";
 export const enquiriesEmail: string = "enquiries@hpsc.co.za";
 export const webmasterEmail: string = "webmaster@hpsc.co.za";
 
+// People
+export const chairmanName: string = "Jan Kleynhans";
+export const secretaryName: string = "Albert van Herk";
+
 // Social media
 export const facebookUrl: string = "https://www.facebook.com/";
 export const facebookPage: string =
@@ -19,8 +23,3 @@ export const facebookGroup: string = facebookUrl + "groups/933580883991020";
 
 // Logos
 export const clubLogo: string = "/assets/images/logos/hpsc-logo.png";
-export const clubSmallLogo: string = "/assets/images/logos/hpsc-logo-small.png";
-export const clubMonochromeLogo: string =
-  "/assets/images/logos/hpsc-logo-bw.png";
-export const clubSmallMonochromeLogo: string =
-  "/assets/images/logos/hpsc-logo-small-bw.png";

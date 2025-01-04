@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import { Col, Image, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { PageTitle } from "../../components";
-import { clubShirtsImage } from "../../constants/images/ClubImageConstants.ts";
+import { memberContent } from "../../content/posts";
 
 export const MembersPage = React.memo((): ReactElement => {
   return (
@@ -13,14 +13,9 @@ export const MembersPage = React.memo((): ReactElement => {
       </Row>
       <Row>
         <Col>
-          <h3>Club Shirts</h3>
-          <br />
-          <Image
-            src={clubShirtsImage.image}
-            alt={clubShirtsImage.description}
-            fluid
-            width={640}
-          />
+          {memberContent.map((MemberContentComponent, index) => {
+            return <MemberContentComponent key={index} />;
+          })}
         </Col>
       </Row>
     </>

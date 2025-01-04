@@ -165,6 +165,7 @@ All Rights Reserved.
 
 - [![Website Badge](https://img.shields.io/badge/https%3A%2F%2Ftahoni.info-blue?color=%230077b6ff)](https://www.tahoni.info)
 - [![Email Badge](https://img.shields.io/badge/leonil%40tahoni.info-blue?color=%230077b6ff)](mailto:leonil@tahoni.info)
-- [![Outlook Email Badge](https://img.shields.io/badge/tahoni%40outlook.com-blue?color=%230077b6ff)](mailto:tahoni@outlook.com)- [![Gmail Email Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail&labelColor=%23023e8aff&color=%230077b6ff)](mailto:tahoni@gmail.com)
+- [![Outlook Email Badge](https://img.shields.io/badge/tahoni%40outlook.com-blue?color=%230077b6ff)](mailto:tahoni@outlook.com)
+- [![Gmail Email Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail&labelColor=%23023e8aff&color=%230077b6ff)](mailto:tahoni@gmail.com)
 - [![GitHub Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=github&labelColor=%23023e8aff&color=%230077b6ff)](https://github.com/tahoni)
 - [![LinkedIn Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=linkedin&labelColor=%23023e8aff&color=%230077b6ff)](https://www.linkedin.com/in/leoni-lubbinge-06066b16/)

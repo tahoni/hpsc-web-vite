@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HeaderContent } from "./HeaderContent.tsx";
@@ -15,7 +15,7 @@ import {
 import layoutClasses from "../Layout.module.scss";
 import classes from "./Header.module.scss";
 
-export const Header = (): ReactElement => {
+export const Header = React.memo((): ReactElement => {
   return (
     <Container fluid className={classes.header}>
       <Row className={classes.headerInner}>
@@ -55,4 +55,4 @@ export const Header = (): ReactElement => {
       </Row>
     </Container>
   );
-};
+});
