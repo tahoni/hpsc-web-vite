@@ -11,6 +11,6 @@ export default defineConfig({
         /* jsxImportSource: …, otherOptions… */
       }),
     },
-    react({ include: /\.(jsx|js|mdx|md|tsx|ts)$/ }),
+    react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
   ],
 });

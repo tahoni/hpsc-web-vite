@@ -46,8 +46,7 @@ function App(): ReactElement {
           {/*<Route path="/contact" element={<ContactUsPage />} />*/}
           <Route path="/about_us" element={<AboutUsPage />} />
           <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/page_not_found" element={<PageNotFound />} />
-          <Route path="*" element={<Navigate to="/page_not_found" />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
       <Breakpoints />
