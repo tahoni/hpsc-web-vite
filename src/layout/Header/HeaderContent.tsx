@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./Header.module.scss";
+import { HeaderMenu } from "./HeaderMenu.tsx";
 
 interface HeaderContentProps {
   title: string;
@@ -17,6 +18,7 @@ export const HeaderContent = React.memo(
         </Row>
         <Row className={classes.headerItem}>
           <Col>
+            <HeaderMenu />
           </Col>
         </Row>
       </Container>
