@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { Navigate, Route, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import { Breakpoints, Layout } from "./layout";
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import {
@@ -25,7 +25,6 @@ function App(): ReactElement {
 
   return (
     <>
-      {/*<ReCaptchaProvider siteKeyV2={reCaptchaV2SiteKey} langCode="en">*/}
       <Routes>
         <Route
           element={
@@ -51,7 +50,6 @@ function App(): ReactElement {
           <Route path="*" element={<Navigate to="/page_not_found" />} />
         </Route>
       </Routes>
-      {/*</ReCaptchaProvider>*/}
       <Breakpoints />
     </>
   );

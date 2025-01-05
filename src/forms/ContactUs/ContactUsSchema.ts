@@ -1,7 +1,6 @@
 import { RJSFSchema, UiSchema } from "@rjsf/utils";
-import { CaptchaField } from "../../components/Captcha/CaptchaField.tsx";
 
-export const contactUsJsonFields = { captchaField: CaptchaField };
+export const contactUsJsonFields = {}; // { captchaField: CaptchaField };
 
 export const contactUsJsonSchema: RJSFSchema = {
   type: "object",
@@ -33,9 +32,9 @@ export const contactUsJsonSchema: RJSFSchema = {
       minLength: 5,
       maxLength: 1000,
     },
-    captcha: {
-      type: "boolean",
-    },
+    // captcha: {
+    //   type: "boolean",
+    // },
   },
   required: ["name", "email", "subject", "content"],
 };
@@ -58,7 +57,7 @@ export const contactUsUiSchema: UiSchema = {
       rows: 5,
     },
   },
-  captcha: {
-    "ui:field": "captchaField",
-  },
+  // captcha: {
+  //   "ui:field": "captchaField",
+  // },
 };
