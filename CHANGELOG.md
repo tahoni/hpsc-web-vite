@@ -3,6 +3,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.3.4](#version-334---_2025-01-05_)
 - [Version 3.3.3](#version-333---_2025-01-05_)
 - [Version 3.3.2](#version-332---_2025-01-04_)
 - [Version 3.3.1](#version-331---_2025-01-02_)
@@ -26,11 +27,29 @@
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
+### [Version 3.3.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.4) - _2025-01-05_
+Added a dropdown menu.<br/>
+Added a page not found page.<br/>
+
+#### Enhancements and Updates
+- Added a hamburger menu styled using theme colours.
+- Added a page not found page.
+- Redirected any unknown to that page.
+
+#### General Code Improvements
+- Moved the `icomoon` webfonts to a separate directory under the `fonts` directory.
+
+#### Changes by
+@tahoni
+
 ### [Version 3.3.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.3) - _2025-01-05_
 Removed the CAPTCHA library as it was injecting suspicious code into the HTML.
 
 #### Dependencies
 - Removed the `react-recaptcha-x` dependency.
+
+#### Changes by
+@tahoni
 
 ### [Version 3.3.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.2) - _2025-01-04_
 Created a Links page.<br/>

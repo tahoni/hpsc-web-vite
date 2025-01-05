@@ -1,8 +1,17 @@
 # HPSC website
 ## Release Notes
 
-### [Version 3.3.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.3) - _2025-01-05_
-Removed the CAPTCHA library as it was injecting suspicious code into the HTML.
+### [Version 3.3.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.4) - _2025-01-05_
+Added a dropdown menu.<br/>
+Added a page not found page.<br/>
 
-#### Dependencies
-- Removed the `react-recaptcha-x` dependency.
+#### Enhancements and Updates
+- Added a hamburger menu styled using theme colours.
+- Added a page not found page.
+- Redirected any unknown to that page.
+
+#### General Code Improvements
+- Moved the `icomoon` webfonts to a separate directory under the `fonts` directory.
+
+#### Changes by
+@tahoni

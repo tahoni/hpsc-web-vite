@@ -26,60 +26,62 @@ export const FooterContent = React.memo((): ReactElement => {
   const footerMapPins: VenueType[] = [shootingRangeMapPins.get(footerMapRange)];
 
   return (
-    <Row className={classes.footerContent}>
-      <Col xs={{ span: 12 }} md={{ span: 6 }} className={classes.footerMap}>
-        <SimpleVenueMap
-          mapStyle={mapStyle}
-          center={shootingRangeMapPins.get(footerMapRange)?.latLng}
-          venues={footerMapPins}
-        />
-      </Col>
-      <Col className={classes.footerDetails}>
-        <div className={classes.contactInfo}>
-          <Row>
-            <Col>E-mail:</Col>
-            <Col>
-              <a href={"mailto:" + enquiriesEmail} target="_blank">
-                {enquiriesEmail}
-              </a>
-            </Col>
-          </Row>
-          <Row>
-            <Col>Facebook:</Col>
-            <Col>
-              <a href={facebookPage} target="_blank">
-                HPSC Page
-              </a>
-            </Col>
-          </Row>
-          <Row>
-            <Col>Facebook:</Col>
-            <Col>
-              <a href={facebookGroup} target="_blank">
-                HPSC Group
-              </a>
-            </Col>
-          </Row>
-        </div>
-
-        <div className={classes.websiteInfo}>
-          <Row>
-            <Col>
-              <p>
-                For any website queries please contact{" "}
-                <a href={"mailto:" + webmasterEmail} target="_blank">
-                  {webmasterEmail}
+    <>
+      <Row className={classes.footerContent}>
+        <Col xs={{ span: 12 }} md={{ span: 6 }} className={classes.footerMap}>
+          <SimpleVenueMap
+            mapStyle={mapStyle}
+            center={shootingRangeMapPins.get(footerMapRange)?.latLng}
+            venues={footerMapPins}
+          />
+        </Col>
+        <Col className={classes.footerDetails}>
+          <div className={classes.contactInfo}>
+            <Row>
+              <Col>E-mail:</Col>
+              <Col>
+                <a href={"mailto:" + enquiriesEmail} target="_blank">
+                  {enquiriesEmail}
                 </a>
-                .
-              </p>
-              <p>
-                Copyright © {copyrightYear} {clubName}.<br />
-                All rights reserved.
-              </p>
-            </Col>
-          </Row>
-        </div>
-      </Col>
-    </Row>
+              </Col>
+            </Row>
+            <Row>
+              <Col>Facebook:</Col>
+              <Col>
+                <a href={facebookPage} target="_blank">
+                  HPSC Page
+                </a>
+              </Col>
+            </Row>
+            <Row>
+              <Col>Facebook:</Col>
+              <Col>
+                <a href={facebookGroup} target="_blank">
+                  HPSC Group
+                </a>
+              </Col>
+            </Row>
+          </div>
+
+          <div className={classes.websiteInfo}>
+            <Row>
+              <Col>
+                <p>
+                  For any website queries please contact
+                  <a href={"mailto:" + webmasterEmail} target="_blank">
+                    {webmasterEmail}
+                  </a>
+                  .
+                </p>
+                <p>
+                  Copyright © {copyrightYear} {clubName}.<br />
+                  All rights reserved.
+                </p>
+              </Col>
+            </Row>
+          </div>
+        </Col>
+      </Row>
+    </>
   );
 });

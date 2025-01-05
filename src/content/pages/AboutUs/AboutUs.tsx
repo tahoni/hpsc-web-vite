@@ -1,5 +1,5 @@
 import React, { CSSProperties, ReactElement } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { SimpleVenueMap } from "../../../components";
 import { VenueType } from "../../../model/Venue.ts";
 import {
@@ -30,50 +30,50 @@ const AboutUs = React.memo((): ReactElement => {
 
   return (
     <>
-      <Row>
-        <Col>Enquiries</Col>
-        <Col>
-          <a href={"mailto:" + enquiriesEmail} target="_blank">
-            {enquiriesEmail}
-          </a>
-        </Col>
-      </Row>
-      <Row>
-        <Col>Chairman</Col>
-        <Col>
-          <a href={"mailto:" + chairmanEmail} target="_blank">
-            {chairmanName}
-          </a>
-        </Col>
-      </Row>
-      <Row>
-        <Col>Secretary</Col>
-        <Col>
-          <a href={"mailto:" + adminEmail} target="_blank">
-            {secretaryName}
-          </a>
-        </Col>
-      </Row>
-      <Row>&nbsp;</Row>
-      <Row>&nbsp;</Row>
-      <Row>
-        <Col>
-          {clubShootingRangeName} of the {clubShootingRangeDescription}
-        </Col>
-      </Row>
-      <Row>&nbsp;</Row>
-      <Row>&nbsp;</Row>
-      <Row>
-        <Col>
-          <SimpleVenueMap
-            mapStyle={mapStyle}
-            mapMode={"satellite"}
-            zoom={16}
-            center={eufeesShootingRange?.center}
-            venues={shootingRangePins}
-          />
-        </Col>
-      </Row>
+      <Container className={classes.aboutUsItem}>
+        <Row>
+          <Col>Enquiries</Col>
+          <Col>
+            <a href={"mailto:" + enquiriesEmail} target="_blank">
+              {enquiriesEmail}
+            </a>
+          </Col>
+        </Row>
+        <Row>
+          <Col>Chairman</Col>
+          <Col>
+            <a href={"mailto:" + chairmanEmail} target="_blank">
+              {chairmanName}
+            </a>
+          </Col>
+        </Row>
+        <Row>
+          <Col>Secretary</Col>
+          <Col>
+            <a href={"mailto:" + adminEmail} target="_blank">
+              {secretaryName}
+            </a>
+          </Col>
+        </Row>
+      </Container>
+      <Container className={classes.aboutUsItem}>
+        <Row className={classes.aboutUsItem}>
+          <Col>
+            {clubShootingRangeName} of the {clubShootingRangeDescription}
+          </Col>
+        </Row>
+        <Row className={classes.aboutUsItem}>
+          <Col>
+            <SimpleVenueMap
+              mapStyle={mapStyle}
+              mapMode="satellite"
+              zoom={16}
+              center={eufeesShootingRange?.center}
+              venues={shootingRangePins}
+            />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 });

@@ -10,21 +10,27 @@
 .headerInner, .headerCenter {
   display: flex;
   align-content: center;
-  align-items: center;
   justify-content: center;
-  justify-items: center;
 }
 
 .headerInner {
   padding: 0 0 0.7rem 0;
 }
 
-.headerContent {
+.headerContent, .headerItem {
   display: flex;
-  flex-direction: row;
-  flex: auto;
   align-content: center;
+  align-items: center;
   justify-content: center;
+}
+
+.headerContent {
+  flex-direction: column;
+  flex: auto;
+}
+
+.headerItem {
+  padding: 0.75rem;
 }
 
 .headerText {

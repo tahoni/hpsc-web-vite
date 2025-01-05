@@ -21,7 +21,7 @@ const Links = React.memo((): ReactElement => {
     <>
       <Row className={classes.logoHyperlink}>
         <Col>
-          <a href={provincialAssociationWebsite} target={"_blank"}>
+          <a href={provincialAssociationWebsite} target="_blank">
             <Image
               src={provincialAssociationLogo}
               alt={provincialAssociationName + " logo"}
@@ -33,7 +33,7 @@ const Links = React.memo((): ReactElement => {
       </Row>
       <Row className={classes.logoHyperlink}>
         <Col>
-          <a href={nationalAssociationWebsite} target={"_blank"}>
+          <a href={nationalAssociationWebsite} target="_blank">
             <Image
               src={nationalAssociationLogo}
               alt={nationalAssociationName + " logo"}
@@ -45,7 +45,7 @@ const Links = React.memo((): ReactElement => {
       </Row>
       <Row className={classes.logoHyperlink}>
         <Col>
-          <a href={internationalAssociationWebsite} target={"_blank"}>
+          <a href={internationalAssociationWebsite} target="_blank">
             <Image
               src={internationalAssociationLogo}
               alt={internationalAssociationName + " logo"}

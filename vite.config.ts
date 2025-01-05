@@ -11,17 +11,6 @@ export default defineConfig({
         /* jsxImportSource: …, otherOptions… */
       }),
     },
-    react({ include: /\.(jsx|js|mdx|md|tsx|ts)$/ }),
+    react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
   ],
-  build: {
-    modulePreload: false,
-    cssCodeSplit: false,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          tahoniLib: ["@tahoni/tahoni-lib-react"],
-        },
-      },
-    },
-  },
 });
