@@ -3,6 +3,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.3.3](#version-333---_2025-01-05_)
 - [Version 3.3.2](#version-332---_2025-01-04_)
 - [Version 3.3.1](#version-331---_2025-01-02_)
 - [Version 3.3.0](#version-330---_2025-01-02_)
@@ -24,6 +25,12 @@
 - [Version 3.0.2](#version-302---_2024-08-27_)
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
+
+### [Version 3.3.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.3) - _2025-01-05_
+Removed the CAPTCHA library as it was injecting suspicious code into the HTML.
+
+#### Dependencies
+- Removed the `react-recaptcha-x` dependency.
 
 ### [Version 3.3.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.2) - _2025-01-04_
 Created a Links page.<br/>
@@ -47,7 +54,7 @@ Created a Members page.<br/>
 - Added `index.ts` or `index.tsx` files for all components, including content.
 
 #### Dependencies
-- Removed the `js-md5`` dependency.
+- Removed the `js-md5` dependency.
 
 #### Changes by
 @tahoni
