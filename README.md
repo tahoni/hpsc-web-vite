@@ -37,29 +37,28 @@ A high-level structure of the project.
 ├───public
 │   └───assets
 │       └───images
-│           └───pictures
+│           └───logos
 └───src
     ├───assets
     │   ├───fonts
-    │   │   ├───glyphs
-    │   │   └───license
     │   ├───images
     │   │   ├───icons
-    │   │   ├───ids
-    │   │   └───logos
+    │   │   └───ids
     │   └───stylesheets
     ├───components
     ├───constants
     ├───content
-    │   └───markdown
+    │   ├───pages
+    │   └───posts
+    ├───forms
     ├───layout
     │   ├───Body
-    │   ├───Breakpoints
     │   ├───Content
     │   ├───Footer
     │   └───Header
     ├───model
     ├───pages
+    ├───services
     └───utils
 ```
 
