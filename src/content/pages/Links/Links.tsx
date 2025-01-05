@@ -27,7 +27,9 @@ const Links = React.memo((): ReactElement => {
               alt={provincialAssociationName + " logo"}
               height={60}
             />
-            {provincialAssociationName} ({provincialAssociationAbbreviation})
+            <span className={classes.linkDescription}>
+              {provincialAssociationName} ({provincialAssociationAbbreviation})
+            </span>
           </a>
         </Col>
       </Row>
@@ -39,7 +41,9 @@ const Links = React.memo((): ReactElement => {
               alt={nationalAssociationName + " logo"}
               height={60}
             />
-            {nationalAssociationName} ({nationalAssociationAbbreviation})
+            <span className={classes.linkDescription}>
+              {nationalAssociationName} ({nationalAssociationAbbreviation})
+            </span>
           </a>
         </Col>
       </Row>
@@ -51,8 +55,10 @@ const Links = React.memo((): ReactElement => {
               alt={internationalAssociationName + " logo"}
               height={60}
             />
-            {internationalAssociationName} (
-            {internationalAssociationAbbreviation})
+            <span className={classes.linkDescription}>
+              {internationalAssociationName} (
+              {internationalAssociationAbbreviation})
+            </span>
           </a>
         </Col>
       </Row>
