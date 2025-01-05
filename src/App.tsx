@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import { Breakpoints, Layout } from "./layout";
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import {
@@ -46,7 +46,8 @@ function App(): ReactElement {
           {/*<Route path="/contact" element={<ContactUsPage />} />*/}
           <Route path="/about_us" element={<AboutUsPage />} />
           <Route path="/about" element={<AboutUsPage />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path="/page_not_found" element={<PageNotFound />} />
+          <Route path="*" element={<Navigate to="/page_not_found" />} />
         </Route>
       </Routes>
       <Breakpoints />
