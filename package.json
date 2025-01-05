@@ -3,7 +3,7 @@
   "author": "Leoni Lubbinge <tahoni@gmail.com>",
   "description": "HPSC website",
   "private": true,
-  "version": "3.3.2",
+  "version": "3.3.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -31,7 +31,6 @@
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.7",
     "react-dom": "^18.3.1",
-    "react-recaptcha-x": "^1.1.16",
     "react-router": "^6.24.1",
     "react-router-dom": "^6.24.1",
     "sanitize-html": "^2.14.0",
