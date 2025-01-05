@@ -33,7 +33,7 @@ Improved accessibility.
 
 #### Enhancements and Updates
 - Removed the section elements causing paragraphs-in-paragraph errors.
-- Display all content in two lines where the screen is too small to display it together.
+- Displayed all content in two lines where the screen is too small to display it together.
 
 #### Changes by
 @tahoni
