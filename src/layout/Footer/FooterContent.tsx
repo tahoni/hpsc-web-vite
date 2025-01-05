@@ -67,7 +67,7 @@ export const FooterContent = React.memo((): ReactElement => {
             <Row>
               <Col>
                 <p>
-                  For any website queries please contact{" "}
+                  For any website queries please contact
                   <a href={"mailto:" + webmasterEmail} target="_blank">
                     {webmasterEmail}
                   </a>

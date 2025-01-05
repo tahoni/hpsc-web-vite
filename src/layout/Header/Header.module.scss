@@ -39,8 +39,8 @@
   vertical-align: middle;
 }
 
-.headerMenu {
-
+.headerMenuItem a, .headerMenuItem a:visited, .headerMenuItem a:hover, .headerMenuItem a:active {
+  text-decoration: none;
 }
 
 @include media-breakpoint-down(md) {

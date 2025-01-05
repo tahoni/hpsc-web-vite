@@ -66,7 +66,7 @@ const AboutUs = React.memo((): ReactElement => {
           <Col>
             <SimpleVenueMap
               mapStyle={mapStyle}
-              mapMode={"satellite"}
+              mapMode="satellite"
               zoom={16}
               center={eufeesShootingRange?.center}
               venues={shootingRangePins}

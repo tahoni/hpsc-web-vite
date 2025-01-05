@@ -15,13 +15,25 @@ export default defineConfig({
   ],
   build: {
     modulePreload: false,
-    cssCodeSplit: false,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          tahoniLib: ["@tahoni/tahoni-lib-react"],
+    /*
+        cssCodeSplit: true,
+        rollupOptions: {
+          output: {
+            manualChunks(id) {
+              if (id.includes("node_modules")) {
+                const modulePath = id.split("node_modules/")[1];
+                const topLevelFolder = modulePath.split("/")[0];
+                if (topLevelFolder !== ".pnpm") {
+                  return topLevelFolder;
+                }
+                const scopedPackageName = modulePath.split("/")[1];
+                return scopedPackageName.split("@")[
+                  scopedPackageName.startsWith("@") ? 1 : 0
+                ];
+              }
+            },
+          },
         },
-      },
-    },
+    */
   },
 });
