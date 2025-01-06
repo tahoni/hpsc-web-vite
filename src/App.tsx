@@ -3,10 +3,9 @@ import { Navigate, Route, Routes } from "react-router";
 import { Breakpoints, Layout } from "./layout";
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import {
-  imageConstants,
-  LEFT_SHOOTER,
-  RIGHT_SHOOTER,
-} from "./constants/ImageConstants.ts";
+  leftShooter,
+  rightShooter,
+} from "./constants/images/LayoutImageConstants.ts";
 import {
   AboutUsPage,
   HistoryPage,
@@ -18,10 +17,8 @@ import {
 import "./App.scss";
 
 function App(): ReactElement {
-  const leftSidebarImage: ImageWithSourceAndDescription | undefined =
-    imageConstants.get(LEFT_SHOOTER);
-  const rightSidebarImage: ImageWithSourceAndDescription | undefined =
-    imageConstants.get(RIGHT_SHOOTER);
+  const leftSidebarImage: ImageWithSourceAndDescription = leftShooter;
+  const rightSidebarImage: ImageWithSourceAndDescription = rightShooter;
 
   return (
     <>
