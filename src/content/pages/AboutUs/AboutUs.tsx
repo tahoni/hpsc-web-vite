@@ -32,24 +32,30 @@ const AboutUs = React.memo((): ReactElement => {
     <>
       <Container className={classes.aboutUsItem}>
         <Row>
-          <Col>Enquiries</Col>
-          <Col>
+          <Col sm={12} md={6}>
+            Enquiries
+          </Col>
+          <Col sm={12} md={6}>
             <a href={"mailto:" + enquiriesEmail} target="_blank">
               {enquiriesEmail}
             </a>
           </Col>
         </Row>
         <Row>
-          <Col>Chairman</Col>
-          <Col>
+          <Col sm={12} md={6}>
+            Chairman
+          </Col>
+          <Col sm={12} md={6}>
             <a href={"mailto:" + chairmanEmail} target="_blank">
               {chairmanName}
             </a>
           </Col>
         </Row>
         <Row>
-          <Col>Secretary</Col>
-          <Col>
+          <Col sm={12} md={6}>
+            Secretary
+          </Col>
+          <Col sm={12} md={6}>
             <a href={"mailto:" + adminEmail} target="_blank">
               {secretaryName}
             </a>
