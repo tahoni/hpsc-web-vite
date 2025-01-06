@@ -1,17 +1,12 @@
 # HPSC website
 ## Release Notes
 
-### [Version 3.3.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.4) - _2025-01-05_
-Added a dropdown menu.<br/>
-Added a page not found page.<br/>
+### [Version 3.3.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.5) - _2025-01-06_
+Improved accessibility.
 
 #### Enhancements and Updates
-- Added a hamburger menu styled using theme colours.
-- Added a page not found page.
-- Redirected any unknown to that page.
-
-#### General Code Improvements
-- Moved the `icomoon` webfonts to a separate directory under the `fonts` directory.
+- Removed the section elements causing paragraphs-in-paragraph errors.
+- Displayed all content in two lines where the screen is too small to display it together.
 
 #### Changes by
 @tahoni

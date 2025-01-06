@@ -3,6 +3,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.3.5](#version-335---_2025-01-06_)
 - [Version 3.3.4](#version-334---_2025-01-05_)
 - [Version 3.3.3](#version-333---_2025-01-05_)
 - [Version 3.3.2](#version-332---_2025-01-04_)
@@ -27,6 +28,16 @@
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
+### [Version 3.3.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.5) - _2025-01-06_
+Improved accessibility.
+
+#### Enhancements and Updates
+- Removed the section elements causing paragraphs-in-paragraph errors.
+- Displayed all content in two lines where the screen is too small to display it together.
+
+#### Changes by
+@tahoni
+
 ### [Version 3.3.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.4) - _2025-01-05_
 Added a dropdown menu.<br/>
 Added a page not found page.<br/>
@@ -34,7 +45,7 @@ Added a page not found page.<br/>
 #### Enhancements and Updates
 - Added a hamburger menu styled using theme colours.
 - Added a page not found page.
-- Redirected any unknown to that page.
+- Redirected any unknown pages to that page.
 
 #### General Code Improvements
 - Moved the `icomoon` webfonts to a separate directory under the `fonts` directory.

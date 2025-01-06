@@ -9,6 +9,7 @@ export const HeaderMenu = React.memo((): ReactElement => {
     <>
       <Dropdown as={NavItem}>
         <Dropdown.Toggle as={NavLink}>
+          <span className="visually-hidden">Menu</span>
           <FontAwesomeIcon icon={menuIcon} />
         </Dropdown.Toggle>
         <Dropdown.Menu>
