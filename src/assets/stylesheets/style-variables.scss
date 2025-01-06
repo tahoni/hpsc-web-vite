@@ -1,7 +1,7 @@
-@import "style-theme";
+@use "style-theme";
 
 :export {
-  text-font: $text-font;
+  text-font: style-theme.$text-font;
 }
 
 /* TahoniLib */

@@ -35,6 +35,11 @@ export const HeaderMenu = React.memo((): ReactElement => {
           </Dropdown.Item>
           <Dropdown.Item>
             <Row>
+              <Link to="/contact_us">Contact Us</Link>
+            </Row>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <Row>
               <Link to="/about_us">About Us</Link>
             </Row>
           </Dropdown.Item>
