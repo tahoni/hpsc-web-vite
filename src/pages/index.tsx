@@ -5,5 +5,6 @@ export { EventsPage } from "./Events";
 export { VenuesPage } from "./Venues";
 export { LinksPage } from "./Links";
 export { HistoryPage } from "./History";
+export { ContactUsPage } from "./ContactUs";
 export { AboutUsPage } from "./AboutUs";
 export { PageNotFound } from "./NotFound";
