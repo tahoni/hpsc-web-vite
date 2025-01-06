@@ -1,0 +1,52 @@
+@import "bootstrap/scss/bootstrap";
+@import "../../assets/stylesheets/style-theme";
+
+form.rjsf .text-danger {
+  border: none;
+}
+
+form.rjsf .form-group {
+  margin: 0.75rem 0;
+}
+
+form.rjsf .form-group .form-control, form.rjsf .btn {
+  margin-bottom: 0.75rem;
+}
+
+form.rjsf .form-group .control-label {
+  margin: 0.75rem 0;
+}
+
+form.rjsf .field-error .list-group-item {
+  background-color: transparent;
+  border: none;
+}
+
+form.rjsf .field-error .error-detail {
+  font-size: 0.9rem;
+}
+
+form.rjsf .field-error input, form.rjsf .field-error select, form.rjsf .field-error textarea,
+form.rjsf .field-error input:focus, form.rjsf .field-error select:focus, form.rjsf .field-error textarea:focus {
+  border-color: $danger;
+  background-color: $danger-bg-subtle;
+}
+
+form.rjsf .field-error input:focus, form.rjsf .field-error select:focus, form.rjsf .field-error textarea:focus {
+  box-shadow: 0 0 0 0.25rem rgba($danger, $focus-ring-opacity);
+}
+
+form.rjsf .field-error input, form.rjsf .field-error select, form.rjsf .field-error textarea,
+form.rjsf .field-error input:focus, form.rjsf .field-error select:focus, form.rjsf .field-error textarea:focus {
+  border-color: $danger;
+  background-color: $danger-bg-subtle;
+}
+
+form.rjsf .btn-info, form.rjsf .btn-info:hover, form.rjsf .btn-info:focus, .btn-info:active,
+form.rjsf .btn-info:active, form.rjsf .btn-info:hover:active, form.rjsf .btn-info:focus:active, form.rjsf .btn-info:active {
+  color: white;
+}
+
+form.rjsf .btn-info:active, form.rjsf .btn-info:hover:active {
+  background-color: $btn-primary-hover-color;
+}
