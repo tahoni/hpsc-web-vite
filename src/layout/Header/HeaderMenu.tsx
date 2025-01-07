@@ -5,9 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { menuIcon } from "../../constants/IconConstants";
 
 export const HeaderMenu = React.memo((): ReactElement => {
-  const handleSelect = (eventKey: string | null) =>
-    alert(`selected ${eventKey}`);
-
   return (
     <>
       <NavDropdown

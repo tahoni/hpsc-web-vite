@@ -23,6 +23,7 @@ export const SimpleCaptcha = React.memo(
           className={classes.simpleCaptcha}
           sitekey={reCaptchaV2SiteKey}
           onChange={onChange}
+          hl="en"
         />
       </>
     );
