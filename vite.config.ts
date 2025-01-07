@@ -13,4 +13,13 @@ export default defineConfig({
     },
     react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
   ],
+  build: {
+    target: "ESNext",
+    minify: true,
+    sourcemap: false,
+    modulePreload: {
+      polyfill: false,
+      resolveDependencies: () => [],
+    },
+  },
 });

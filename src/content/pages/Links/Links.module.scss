@@ -1,4 +1,4 @@
-@import "bootstrap/scss/bootstrap-grid";
+@use "bootstrap/scss/bootstrap-grid";
 
 .logoHyperlink {
   margin: 0.75rem;
@@ -10,7 +10,7 @@
   height: 60px;
 }
 
-@include media-breakpoint-down(md) {
+@include bootstrap-grid.media-breakpoint-down(md) {
   .linkDescription {
     display: block;
   }
