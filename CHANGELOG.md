@@ -1,5 +1,4 @@
 # HPSC website
-
 ## Change Log
 
 ### Table of Contents
@@ -28,6 +27,7 @@
 - [Version 3.0.2](#version-302---_2024-08-27_)
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
+
 
 ### [Version 3.3.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.6) - _2025-01-07_
 Implemented the reCAPTCHA component with a safe library.<br/>

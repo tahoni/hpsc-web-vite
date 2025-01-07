@@ -46,18 +46,24 @@ A high-level structure of the project.
     │   │   └───ids
     │   └───stylesheets
     ├───components
+    │   ├───NotFound
+    │   └───Title
     ├───constants
     ├───content
     │   ├───pages
+    │   │   └───Home
     │   └───posts
     ├───forms
     ├───layout
     │   ├───Body
+    │   ├───Breakpoints
     │   ├───Content
     │   ├───Footer
     │   └───Header
     ├───model
     ├───pages
+    │   ├───Home
+    │   └───NotFound
     ├───services
     └───utils
 ```
