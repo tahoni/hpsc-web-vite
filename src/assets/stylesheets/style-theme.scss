@@ -1,15 +1,15 @@
-@import "style-custom";
-@import "style-colors";
+@use "style-custom";
+@use "style-colors";
 
 /* Fonts */
-$text-font: $body-color;
-$heading-text-font-family: $headings-font-family;
+$text-font: style-custom.$body-color;
+$heading-text-font-family: style-custom.$headings-font-family;
 
 /* Colours */
-$background-gradient: $blue-gradient-top;
-$cover-text-color: $club-butterscotch-dark;
-$heading-text-color: $headings-color;
-$btn-primary-background-color: $club-primary-blue;
-$btn-primary-hover-color: $club-blue-light;
-$menu-background-color: $club-blue-lighter;
-$menu-hover-color: $club-blue-light;
+$background-gradient: style-colors.$blue-gradient-top;
+$cover-text-color: style-colors.$club-butterscotch-dark;
+$heading-text-color: style-custom.$headings-color;
+$btn-primary-background-color: style-colors.$club-primary-blue;
+$btn-primary-hover-color: style-colors.$club-blue-light;
+$menu-background-color: style-colors.$club-blue-lighter;
+$menu-hover-color: style-colors.$club-blue-light;

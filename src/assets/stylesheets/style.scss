@@ -1,11 +1,11 @@
-@import "style-icons";
-@import "style-theme";
-@import "style-custom";
-@import "style-variables";
+@use "style-icons";
+@use "style-theme";
+@use "style-custom";
+@use "style-variables";
 
 /* General */
 html, body {
-  background: $background-gradient fixed no-repeat;
+  background: style-theme.$background-gradient fixed no-repeat;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
@@ -23,11 +23,11 @@ html, body {
 
 /* Menus */
 .dropdown-menu {
-  background-color: $menu-background-color;
+  background-color: style-theme.$menu-background-color;
 }
 
 a.dropdown-item:hover {
-  background-color: $menu-hover-color;
+  background-color: style-theme.$menu-hover-color;
 }
 
 .dropdown-item a, .dropdown-item a:visited, .dropdown-item a:hover, .dropdown-item a:active {

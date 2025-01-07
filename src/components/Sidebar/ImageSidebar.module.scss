@@ -1,4 +1,4 @@
-@import "bootstrap/scss/bootstrap-grid";
+@use "bootstrap/scss/bootstrap-grid";
 
 .sidebar {
   width: 100%;
@@ -20,7 +20,7 @@
   height: auto;
 }
 
-@include media-breakpoint-down(lg) {
+@include bootstrap-grid.media-breakpoint-down(lg) {
   .sidebar {
     display: none;
   }
