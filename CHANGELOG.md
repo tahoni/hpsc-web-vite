@@ -41,7 +41,7 @@ Improved accessibility.<br/>
 - Modified the menu items causing nested hyperlinks.
 
 #### General Technical Changes
-- Changed the @import directive in the SCSS pages to @use where possible.
+- Changed the `@import` directive in the SCSS pages to `@use` where possible.
 - The elements in the head of the HTML page were re-ordered.
 
 #### Dependencies
