@@ -1,2 +1,2 @@
-Copyright © 2024 Hartbeespoortdam Practical Shooting Club.<br/>
+Copyright © 2025 Hartbeespoortdam Practical Shooting Club.<br/>
 All Rights Reserved.
