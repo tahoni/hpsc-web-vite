@@ -32,28 +32,48 @@ An overview of the project can be found at
 ## Structure
 A high-level structure of the project.
 ```text
+├───.github
+│   └───workflows
 ├───documentation
 │   └───screenshots
 ├───public
 │   └───assets
 │       └───images
+│           ├───club
+│           ├───content
+│           ├───events
+│           ├───layout
 │           └───logos
 └───src
     ├───assets
     │   ├───fonts
+    │   │   └───icomoon
+    │   │       ├───glyphs
+    │   │       └───license
     │   ├───images
     │   │   ├───icons
     │   │   └───ids
     │   └───stylesheets
     ├───components
+    │   ├───Captcha
+    │   ├───Map
     │   ├───NotFound
+    │   ├───Sidebar
     │   └───Title
     ├───constants
+    │   ├───about
+    │   ├───content
+    │   └───images
     ├───content
     │   ├───pages
-    │   │   └───Home
+    │   │   ├───AboutUs
+    │   │   ├───History
+    │   │   ├───Home
+    │   │   └───Links
     │   └───posts
+    │       └───Members
     ├───forms
+    │   └───ContactUs
     ├───layout
     │   ├───Body
     │   ├───Breakpoints
@@ -62,8 +82,16 @@ A high-level structure of the project.
     │   └───Header
     ├───model
     ├───pages
+    │   ├───AboutUs
+    │   ├───ContactUs
+    │   ├───Events
+    │   ├───History
     │   ├───Home
-    │   └───NotFound
+    │   ├───Links
+    │   ├───Members
+    │   ├───News
+    │   ├───NotFound
+    │   └───Venues
     ├───services
     └───utils
 ```
