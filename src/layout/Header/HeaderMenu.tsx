@@ -27,9 +27,11 @@ export const HeaderMenu = React.memo((): ReactElement => {
         <NavDropdown.Item as={Link} to="/history">
           History
         </NavDropdown.Item>
+        {/*
         <NavDropdown.Item as={Link} to="/contact_us">
           Contact Us
         </NavDropdown.Item>
+*/}
         <NavDropdown.Item as={Link} to="/about_us">
           About Us
         </NavDropdown.Item>

@@ -103,7 +103,7 @@ React Router is used for page routing.
 
   [![Vite Badge](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 
-- React 18
+- React 19
 
   [![React Badge](https://img.shields.io/badge/React-CB3837?logo=react)](https://react.dev/)
 
