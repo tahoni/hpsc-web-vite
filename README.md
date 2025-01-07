@@ -172,7 +172,9 @@ The Google Maps API key from Google Cloud Services needs
 to be set in the ````GOOGLE_API_KEY```` environment variable, 
 otherwise, the map will not be available.
 
-[//]: # (TODO: Add reCAPTCHA key)
+The Google reCAPTCHA site key from Google Cloud Services needs
+to be set in the ````RECAPTCHA_V2_SITE_KEY```` environment variable, 
+otherwise, the CAPTCHA will break.
 
 #### `npm run dev`
 This runs the app in development mode.<br/>
