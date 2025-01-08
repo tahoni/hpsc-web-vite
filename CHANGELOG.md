@@ -2,6 +2,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.3.7](#version-337---_2025-01-08_)
 - [Version 3.3.6](#version-336---_2025-01-07_)
 - [Version 3.3.5](#version-335---_2025-01-06_)
 - [Version 3.3.4](#version-334---_2025-01-05_)
@@ -28,6 +29,26 @@
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
+
+### [Version 3.3.7](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.7) - _2025-01-08_
+Improved the documentation.<br/>
+Synced with the hpsc-template-react project.<br/>
+
+#### Enhancements and Updates
+- Improved the naming of the web font glyphs.
+
+#### General Code Improvements
+- Added some more options to the `tsconfig.json` files.
+
+#### Licence and Documentation
+- Improved the directory structure in the readme file.
+- Documented the Google reCAPTCHA site key environment variable in the readme.
+
+#### General Technical Changes
+- Removed .xcf files from the Webfont directory.
+
+#### Changes by
+@tahoni
 
 ### [Version 3.3.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.6) - _2025-01-07_
 Implemented the reCAPTCHA component with a safe library.<br/>
@@ -73,7 +94,7 @@ Added a page not found page.<br/>
 - Redirected any unknown pages to that page.
 
 #### General Code Improvements
-- Moved the `icomoon` webfonts to a separate directory under the `fonts` directory.
+- Moved the `icomoon` web fonts to a separate directory under the `fonts` directory.
 
 #### Changes by
 @tahoni
@@ -92,7 +113,7 @@ Created a Links page.<br/>
 Created a Members page.<br/>
 
 #### Enhancements and Updates
-- Created a Links page with links to NGPSA, SAPSA, and IPSC.
+- Created a Links page with hyperlinks to the NGPSA, SAPSA, and IPSC websites.
 - Created a Member page with a photo of the club shirts.
 - Modified the key of the map pin component.
 - Moved the logo files to the public directory.
