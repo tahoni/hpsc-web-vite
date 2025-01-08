@@ -1,24 +1,22 @@
 # HPSC website
 ## Release Notes
 
-### [Version 3.3.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.6) - _2025-01-07_
-Implemented the reCAPTCHA component with a safe library.<br/>
-Improved accessibility.<br/>
+### [Version 3.3.7](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.7) - _2025-01-08_
+Improved the documentation.<br/>
+Synced with the hpsc-template-react project.<br/>
 
 #### Enhancements and Updates
-- Implemented the reCAPTCHA component using the `ReCAPTCHA` class.
-- Gave the CAPTCHA component a valid language attribute.
+- Improved the naming of the web font glyphs.
 
-#### Bug Fixes
-- Modified the menu items causing nested hyperlinks.
+#### General Code Improvements
+- Added some more options to the `tsconfig.json` files.
+
+#### Licence and Documentation
+- Improved the directory structure in the readme file.
+- Documented the Google reCAPTCHA site key environment variable in the readme.
 
 #### General Technical Changes
-- Changed the `@import` directive in the SCSS pages to `@use` where possible.
-- The elements in the head of the HTML page were re-ordered.
-
-#### Dependencies
-- Upgraded to React 19.
-- Added the `react-google-recaptcha` dependency.
+- Removed .xcf files from the Webfont directory.
 
 #### Changes by
 @tahoni

@@ -1,3 +1,3 @@
-export const copyrightYear: number = 2024;
+export const copyrightYear: number = 2025;
 
 export const textFontName = "Noto Sans";

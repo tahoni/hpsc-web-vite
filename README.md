@@ -32,32 +32,66 @@ An overview of the project can be found at
 ## Structure
 A high-level structure of the project.
 ```text
+├───.github
+│   └───workflows
 ├───documentation
 │   └───screenshots
 ├───public
 │   └───assets
 │       └───images
+│           ├───club
+│           ├───content
+│           ├───events
+│           ├───layout
 │           └───logos
 └───src
     ├───assets
     │   ├───fonts
+    │   │   └───icomoon
+    │   │       ├───glyphs
+    │   │       └───license
     │   ├───images
     │   │   ├───icons
     │   │   └───ids
     │   └───stylesheets
     ├───components
+    │   ├───Captcha
+    │   ├───Map
+    │   ├───NotFound
+    │   ├───Sidebar
+    │   └───Title
     ├───constants
+    │   ├───about
+    │   ├───content
+    │   └───images
     ├───content
     │   ├───pages
+    │   │   ├───AboutUs
+    │   │   ├───History
+    │   │   ├───Home
+    │   │   └───Links
     │   └───posts
+    │       └───Members
     ├───forms
+    │   └───ContactUs
     ├───layout
     │   ├───Body
+    │   ├───Breakpoints
     │   ├───Content
     │   ├───Footer
     │   └───Header
     ├───model
     ├───pages
+    │   ├───AboutUs
+    │   ├───ContactUs
+    │   ├───Events
+    │   ├───History
+    │   ├───Home
+    │   ├───Links
+    │   ├───Members
+    │   ├───News
+    │   ├───NotFound
+    │   └───Venues
     ├───services
     └───utils
 ```
@@ -138,6 +172,10 @@ The Google Maps API key from Google Cloud Services needs
 to be set in the ````GOOGLE_API_KEY```` environment variable, 
 otherwise, the map will not be available.
 
+The Google reCAPTCHA site key from Google Cloud Services needs
+to be set in the ````RECAPTCHA_V2_SITE_KEY```` environment variable, 
+otherwise, the CAPTCHA will break.
+
 #### `npm run dev`
 This runs the app in development mode.<br/>
 The page will reload if you make edits.
@@ -156,15 +194,17 @@ Use this to check if the production build looks OK in your local environment.
 ![History Page](./documentation/screenshots/HistoryPage.png)
 
 ## License
-Copyright © 2024 Hartbeespoortdam Practical Shooting Club.<br/>
+Copyright © 2025 Hartbeespoortdam Practical Shooting Club.<br/>
 All Rights Reserved.
 
 ## Author
 **Leoni Lubbinge**
 
-- [![Website Badge](https://img.shields.io/badge/https%3A%2F%2Ftahoni.info-blue?color=%230077b6ff)](https://www.tahoni.info)
-- [![Email Badge](https://img.shields.io/badge/leonil%40tahoni.info-blue?color=%230077b6ff)](mailto:leonil@tahoni.info)
-- [![Outlook Email Badge](https://img.shields.io/badge/tahoni%40outlook.com-blue?color=%230077b6ff)](mailto:tahoni@outlook.com)
-- [![Gmail Email Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail&labelColor=%23023e8aff&color=%230077b6ff)](mailto:tahoni@gmail.com)
-- [![GitHub Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=github&labelColor=%23023e8aff&color=%230077b6ff)](https://github.com/tahoni)
-- [![LinkedIn Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=linkedin&labelColor=%23023e8aff&color=%230077b6ff)](https://www.linkedin.com/in/leoni-lubbinge-06066b16/)
+- [![Website Badge](https://custom-icon-badges.demolab.com/badge/https%3A%2F%2Ftahoni.info-blue?logo=file-code)](https://www.tahoni.info)
+- [![Email Badge](https://custom-icon-badges.demolab.com/badge/leonil%40tahoni.info-blue?logo=mail)](mailto:leonil@tahoni.info)
+
+
+- [![Outlook Email Badge](https://custom-icon-badges.demolab.com/badge/tahoni%40outlook.com-blue.svg?logo=mail)](mailto:tahoni@outlook.com)
+- [![Gmail Email Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail)](mailto:tahoni@gmail.com)
+- [![GitHub Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=github)](https://github.com/tahoni)
+- [![LinkedIn Badge](https://custom-icon-badges.demolab.com/badge/Leoni_Lubbinge-blue.svg?logoSource=feather&logo=linkedin)](https://www.linkedin.com/in/leoni-lubbinge-06066b16/)
