@@ -33,7 +33,7 @@ function App(): ReactElement {
           }
         >
           <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/members" element={<MembersPage />} />
           {/*<Route path="/news" element={<NewsPage />} />*/}
           {/*<Route path="/matches" element={<EventsPage />} />*/}
