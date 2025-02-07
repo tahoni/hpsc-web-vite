@@ -6,6 +6,7 @@ Mitigated a critical vitest vulnerability.
 
 #### Dependencies
 - Updated the `vitest` dependency.
+- Updated the `tahoni-lib` dependency from `@tahoni`.
 
 #### Changes by
 @tahoni
