@@ -2,6 +2,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.3.8](#version-338---_2025-02-07_)
 - [Version 3.3.7](#version-337---_2025-01-08_)
 - [Version 3.3.6](#version-336---_2025-01-07_)
 - [Version 3.3.5](#version-335---_2025-01-06_)
@@ -29,6 +30,16 @@
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
+
+### [Version 3.3.8](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.8) - _2025-02-07_
+Mitigated a critical vitest vulnerability.
+
+#### Dependencies
+- Updated the `vitest` dependency.
+- Updated the `tahoni-lib` dependency from `@tahoni`.
+
+#### Changes by
+@tahoni
 
 ### [Version 3.3.7](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.7) - _2025-01-08_
 Improved the documentation.<br/>
