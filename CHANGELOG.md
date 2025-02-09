@@ -42,7 +42,7 @@ Removed the Contact Us menu option for now.<br/>
 - Updated the `favicon` images and web manifest.
 
 #### Dependencies
-- Updated the`vitest` dependency to version 3 to mitigate a critical security vulnerability.
+- Updated the `vitest` dependency to version 3 to mitigate a critical security vulnerability.
 - Updated the `vite` dependency. 
 - Updated the Font Awesome `@fortawesome` dependencies.
 
