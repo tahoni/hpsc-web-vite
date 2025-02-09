@@ -1,25 +1,28 @@
 import React, { CSSProperties, ReactElement } from "react";
 import { Col, Row } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";
 import { VenueType } from "../../model/Venue.ts";
 import { SimpleVenueMap } from "../../components";
 import { copyrightYear } from "../../constants/AppConstants.ts";
 import {
   EUFEES_SHOOTING_RANGE,
-  shootingRangeMapPins,
+  shootingRangeMapPins
 } from "../../constants/content/ShootingRanges.ts";
 import {
   clubName,
   enquiriesEmail,
   facebookGroup,
   facebookPage,
-  webmasterEmail,
+  webmasterEmail
 } from "../../constants/about/ClubConstants.ts";
 import classes from "./Footer.module.scss";
 
 export const FooterContent = React.memo((): ReactElement => {
   const mapStyle: CSSProperties = {
     width: classes.mapWidth,
-    height: classes.mapHeight,
+    height: classes.mapHeight
   };
 
   const footerMapRange: string = EUFEES_SHOOTING_RANGE;
@@ -38,7 +41,8 @@ export const FooterContent = React.memo((): ReactElement => {
         <Col className={classes.footerDetails}>
           <div className={classes.contactInfo}>
             <Row>
-              <Col>E-mail:</Col>
+              <Col><FontAwesomeIcon icon={faEnvelope}
+                                    className="google-icon" /> E-mail:</Col>
               <Col>
                 <a href={"mailto:" + enquiriesEmail} target="_blank">
                   {enquiriesEmail}
@@ -46,7 +50,8 @@ export const FooterContent = React.memo((): ReactElement => {
               </Col>
             </Row>
             <Row>
-              <Col>Facebook:</Col>
+              <Col><FontAwesomeIcon icon={faFacebook}
+                                    className="facebook-icon" /> Facebook:</Col>
               <Col>
                 <a href={facebookPage} target="_blank">
                   HPSC Page
@@ -54,7 +59,8 @@ export const FooterContent = React.memo((): ReactElement => {
               </Col>
             </Row>
             <Row>
-              <Col>Facebook:</Col>
+              <Col><FontAwesomeIcon icon={faFacebook}
+                                    className="facebook-icon" /> Facebook:</Col>
               <Col>
                 <a href={facebookGroup} target="_blank">
                   HPSC Group
@@ -67,7 +73,7 @@ export const FooterContent = React.memo((): ReactElement => {
             <Row>
               <Col>
                 <p>
-                  For any website queries please contact
+                  For any website queries please contact&nbsp;
                   <a href={"mailto:" + webmasterEmail} target="_blank">
                     {webmasterEmail}
                   </a>
