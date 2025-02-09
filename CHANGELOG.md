@@ -41,6 +41,9 @@ Removed the Contact Us menu option for now.<br/>
 #### General Code Improvements
 - Updated the `favicon` images and web manifest.
 
+#### General Technical Changes
+- A setting was removed from `vite.config.ts` to roll back the changes to build the project with smaller chunks.
+
 #### Dependencies
 - Updated the `vitest` dependency to version 3 to mitigate a critical security vulnerability.
 - Updated the `vite` dependency. 
