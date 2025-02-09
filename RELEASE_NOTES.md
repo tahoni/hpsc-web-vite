@@ -1,22 +1,20 @@
 # HPSC website
 ## Release Notes
 
-### [Version 3.3.7](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.7) - _2025-01-08_
-Improved the documentation.<br/>
-Synced with the hpsc-template-react project.<br/>
+### [Version 3.3.8](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.8) - _2025-02-09_
+Mitigated a critical severity security vulnerability.<br/>
+Removed the Contact Us menu option for now.<br/>
 
 #### Enhancements and Updates
-- Improved the naming of the web font glyphs.
+- Removed the Contact Us menu option.
 
 #### General Code Improvements
-- Added some more options to the `tsconfig.json` files.
+- Updated the `favicon` images and web manifest.
 
-#### Licence and Documentation
-- Improved the directory structure in the readme file.
-- Documented the Google reCAPTCHA site key environment variable in the readme.
-
-#### General Technical Changes
-- Removed .xcf files from the Webfont directory.
+#### Dependencies
+- Updated the`vitest` dependency to version 3 to mitigate a critical security vulnerability.
+- Updated the `vite` dependency. 
+- Updated the Font Awesome `@fortawesome` dependencies.
 
 #### Changes by
 @tahoni

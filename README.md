@@ -133,7 +133,7 @@ React Router is used for page routing.
 
 #### Frameworks:
 
-- Vite 5
+- Vite 6
 
   [![Vite Badge](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 

@@ -8,7 +8,6 @@ import {
 } from "./constants/images/LayoutImageConstants.ts";
 import {
   AboutUsPage,
-  ContactUsPage,
   HistoryPage,
   HomePage,
   LinksPage,
@@ -33,15 +32,15 @@ function App(): ReactElement {
           }
         >
           <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/members" element={<MembersPage />} />
           {/*<Route path="/news" element={<NewsPage />} />*/}
           {/*<Route path="/matches" element={<EventsPage />} />*/}
           {/*<Route path="/ranges" element={<VenuesPage />} />*/}
           <Route path="/links" element={<LinksPage />} />
           <Route path="/history" element={<HistoryPage />} />
-          <Route path="/contact_us" element={<ContactUsPage />} />
-          <Route path="/contact" element={<ContactUsPage />} />
+          {/*<Route path="/contact_us" element={<ContactUsPage />} />*/}
+          {/*<Route path="/contact" element={<ContactUsPage />} />*/}
           <Route path="/about_us" element={<AboutUsPage />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/page_not_found" element={<PageNotFound />} />
