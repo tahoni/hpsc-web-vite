@@ -2,6 +2,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.3.9](#version-339---_2025--_)
 - [Version 3.3.8](#version-338---_2025-02-09_)
 - [Version 3.3.7](#version-337---_2025-01-08_)
 - [Version 3.3.6](#version-336---_2025-01-07_)
@@ -31,6 +32,21 @@
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
 
+### [Version 3.3.9](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.9) - _2025-??-??_
+Mitigated a moderate severity security vulnerability.<br/>
+
+#### General Code Improvements
+- Include `index.css` from `tahoni-lib-react`, not `styles.css`.
+
+#### Dependencies
+- Updated the `esbuild` dependency to mitigate a moderate security vulnerability.
+- Updated the `@tahoni/tahoni-lib-react` dependency.
+- Updated all other outdated dependencies.
+
+#### Changes by
+@dependabot
+@tahoni
+
 ### [Version 3.3.8](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.8) - _2025-02-09_
 Mitigated a critical severity security vulnerability.<br/>
 Removed the Contact Us menu option for now.<br/>
@@ -41,12 +57,16 @@ Removed the Contact Us menu option for now.<br/>
 #### General Code Improvements
 - Updated the `favicon` images and web manifest.
 
+#### General Technical Changes
+- A setting was removed from `vite.config.ts` to roll back the changes to build the project with smaller chunks.
+
 #### Dependencies
-- Updated the`vitest` dependency to version 3 to mitigate a critical security vulnerability.
-- Updated the `vite` dependency. 
+- Updated the `vitest` dependency to version 3 to mitigate a critical security vulnerability.
+- Updated the `vite` dependency to version 6 to mitigate a moderate security vulnerability.
 - Updated the Font Awesome `@fortawesome` dependencies.
 
 #### Changes by
+@dependabot
 @tahoni
 
 ### [Version 3.3.7](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.7) - _2025-01-08_
