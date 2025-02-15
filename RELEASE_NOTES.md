@@ -1,20 +1,17 @@
 # HPSC website
 ## Release Notes
 
-### [Version 3.3.8](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.8) - _2025-02-09_
-Mitigated a critical severity security vulnerability.<br/>
-Removed the Contact Us menu option for now.<br/>
-
-#### Enhancements and Updates
-- Removed the Contact Us menu option.
+### [Version 3.3.9](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.9) - _2025-02-15_
+Mitigated a moderate severity security vulnerability.<br/>
 
 #### General Code Improvements
-- Updated the `favicon` images and web manifest.
+- Include `index.css` from `tahoni-lib-react`, not `styles.css`.
 
 #### Dependencies
-- Updated the `vitest` dependency to version 3 to mitigate a critical security vulnerability.
-- Updated the `vite` dependency. 
-- Updated the Font Awesome `@fortawesome` dependencies.
+- Updated the `esbuild` dependency to mitigate a moderate security vulnerability.
+- Updated the `@tahoni/tahoni-lib-react` dependency.
+- Updated all other outdated dependencies.
 
 #### Changes by
+@dependabot
 @tahoni
