@@ -2,7 +2,7 @@
 ## Change Log
 
 ### Table of Contents
-- [Version 3.3.9](#version-339---_2025--_)
+- [Version 3.3.9](#version-339---_2025-02-15_)
 - [Version 3.3.8](#version-338---_2025-02-09_)
 - [Version 3.3.7](#version-337---_2025-01-08_)
 - [Version 3.3.6](#version-336---_2025-01-07_)
@@ -32,7 +32,7 @@
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
 
-### [Version 3.3.9](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.9) - _2025-??-??_
+### [Version 3.3.9](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.9) - _2025-02-15_
 Mitigated a moderate severity security vulnerability.<br/>
 
 #### General Code Improvements
