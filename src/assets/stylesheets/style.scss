@@ -1,7 +1,7 @@
-@use "style-icons";
 @use "style-theme";
 @use "style-custom";
 @use "style-variables";
+@import "style-icons";
 
 /* General */
 html, body {
@@ -32,4 +32,13 @@ a.dropdown-item:hover {
 
 .dropdown-item a, .dropdown-item a:visited, .dropdown-item a:hover, .dropdown-item a:active {
   text-decoration: none;
+}
+
+/* Icons */
+.facebook-icon {
+  color: $facebook-blue;
+}
+
+.google-icon {
+  color: $google-blue;
 }
