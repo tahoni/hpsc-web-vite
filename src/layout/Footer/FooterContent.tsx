@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";
 import { VenueType } from "../../model/Venue.ts";
-import { SimpleVenueMap } from "../../components";
+import SimpleVenueMap from "../../components/Map/SimpleVenueMap.tsx";
 import { copyrightYear } from "../../constants/AppConstants.ts";
 import {
   EUFEES_SHOOTING_RANGE,
