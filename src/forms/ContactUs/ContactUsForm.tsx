@@ -20,6 +20,7 @@ import {
   contactUsJsonSchema,
   contactUsUiSchema
 } from "./ContactUsSchema.ts";
+import { Loader } from "@tahoni/tahoni-lib-react";
 
 const Form = React.lazy(() => import("@rjsf/core"));
 
@@ -140,8 +141,8 @@ const ContactUsForm = React.memo((): ReactElement => {
 
   const validateCaptcha: ContactUsValidatorTemplate = (
     formData: ContactUsFormData | undefined,
-    errors: FormValidation<any>
-  ): FormValidation<any> => {
+    errors: FormValidation
+  ): FormValidation => {
     if (formData !== undefined) {
       if (formData.captcha === undefined || !formData.captcha) {
         // errors.captcha.addError("Please solve the CAPTCHA to continue");
@@ -210,7 +211,7 @@ const ContactUsForm = React.memo((): ReactElement => {
   };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader isLoading={true} key={"contactUsForm"} />}>
       <ContactUsFormTemplate
         ref={formRef}
         formData={formData}
