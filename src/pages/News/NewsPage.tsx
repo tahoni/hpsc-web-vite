@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { PageTitle } from "../../components";
+import PageTitle from "../../components/Title/PageTitle.tsx";
 
-export const NewsPage = React.memo(() => {
+const NewsPage = React.memo(() => {
   return (
     <>
       <Row>
@@ -13,3 +13,5 @@ export const NewsPage = React.memo(() => {
     </>
   );
 });
+
+export default NewsPage;

@@ -1,8 +1,8 @@
 import React, { ReactElement } from "react";
 import { Col, Row } from "react-bootstrap";
-import { PageTitle } from "../../components";
+import PageTitle from "../../components/Title/PageTitle.tsx";
 
-export const VenuesPage = React.memo((): ReactElement => {
+const VenuesPage = React.memo((): ReactElement => {
   return (
     <>
       <Row>
@@ -13,3 +13,5 @@ export const VenuesPage = React.memo((): ReactElement => {
     </>
   );
 });
+
+export default VenuesPage;

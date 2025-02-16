@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Col, Row } from "react-bootstrap";
-import { PageTitle } from "../../components";
-import { HistoryContent } from "../../content/pages";
+import PageTitle from "../../components/Title/PageTitle.tsx";
 
-export const HistoryPage = React.memo(() => {
+const HistoryContent = React.lazy(() => import("../../content/pages/History/HistoryContent.tsx"));
+
+const HistoryPage = React.memo(() => {
   return (
     <>
       <Row>
@@ -11,11 +12,15 @@ export const HistoryPage = React.memo(() => {
           <PageTitle title="History" />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <HistoryContent />
-        </Col>
-      </Row>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Row>
+          <Col>
+            <HistoryContent />
+          </Col>
+        </Row>
+      </Suspense>
     </>
   );
 });
+
+export default HistoryPage;

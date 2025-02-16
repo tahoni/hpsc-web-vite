@@ -1,9 +1,10 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, Suspense } from "react";
 import { Col, Row } from "react-bootstrap";
-import { PageTitle } from "../../components";
-import { memberContent } from "../../content/posts";
+import PageTitle from "../../components/Title/PageTitle.tsx";
 
-export const MembersPage = React.memo((): ReactElement => {
+const MemberContent = React.lazy(() => import("../../content/posts/Members/Members.tsx"));
+
+const MembersPage = React.memo((): ReactElement => {
   return (
     <>
       <Row>
@@ -11,13 +12,15 @@ export const MembersPage = React.memo((): ReactElement => {
           <PageTitle title="Members" />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          {memberContent.map((MemberContentComponent, index) => {
-            return <MemberContentComponent key={index} />;
-          })}
-        </Col>
-      </Row>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Row>
+          <Col>
+            <MemberContent />
+          </Col>
+        </Row>
+      </Suspense>
     </>
   );
 });
+
+export default MembersPage;

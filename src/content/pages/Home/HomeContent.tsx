@@ -1,6 +1,8 @@
 import React, { ReactElement } from "react";
 import Home from "./Home.mdx";
 
-export const HomeContent = React.memo((): ReactElement => {
+const HomeContent = React.memo((): ReactElement => {
   return <Home />;
 });
+
+export default HomeContent;

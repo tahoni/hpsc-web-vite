@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactElement } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { SimpleVenueMap } from "../../../components";
+import SimpleVenueMap from "../../../components/Map/SimpleVenueMap.tsx";
 import { VenueType } from "../../../model/Venue.ts";
 import {
   adminEmail,
@@ -9,22 +9,22 @@ import {
   clubShootingRangeDescription,
   clubShootingRangeName,
   enquiriesEmail,
-  secretaryName,
+  secretaryName
 } from "../../../constants/about/ClubConstants.ts";
 import {
   EUFEES_SHOOTING_RANGE,
-  shootingRangeMapPins,
+  shootingRangeMapPins
 } from "../../../constants/content/ShootingRanges.ts";
 import classes from "./AboutUs.module.scss";
 
-const AboutUs = React.memo((): ReactElement => {
+const AboutUsContent = React.memo((): ReactElement => {
   const mapStyle: CSSProperties = {
     width: classes.mapWidth,
-    height: classes.mapHeight,
+    height: classes.mapHeight
   };
 
   const eufeesShootingRange: VenueType = shootingRangeMapPins.get(
-    EUFEES_SHOOTING_RANGE,
+    EUFEES_SHOOTING_RANGE
   );
   const shootingRangePins: VenueType[] = [eufeesShootingRange];
 
@@ -84,4 +84,4 @@ const AboutUs = React.memo((): ReactElement => {
   );
 });
 
-export default AboutUs;
+export default AboutUsContent;

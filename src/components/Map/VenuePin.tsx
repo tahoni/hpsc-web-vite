@@ -6,10 +6,12 @@ export interface VenuePinProps {
   venue: VenueType;
 }
 
-export const VenuePin = React.memo((props: VenuePinProps): ReactElement => {
+const VenuePin = React.memo((props: VenuePinProps): ReactElement => {
   if (!props.venue || !props.venue.latLng) {
     return <></>;
   }
 
   return <Marker position={props.venue.latLng} label={props.venue.label} />;
 });
+
+export default VenuePin;

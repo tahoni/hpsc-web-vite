@@ -1,8 +1,9 @@
 import React, { ReactElement } from "react";
 import { Col, Row } from "react-bootstrap";
-import { NotFound, PageTitle } from "../../components";
+import NotFound from "../../components/NotFound/NotFound.tsx";
+import PageTitle from "../../components/Title/PageTitle.tsx";
 
-export const PageNotFound = React.memo((): ReactElement => {
+const PageNotFound = React.memo((): ReactElement => {
   return (
     <>
       <Row>
@@ -18,3 +19,5 @@ export const PageNotFound = React.memo((): ReactElement => {
     </>
   );
 });
+
+export default PageNotFound;

@@ -1,27 +1,31 @@
-import { ReactElement } from "react";
+import React, { ReactElement, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router";
 import { Breakpoints, Layout } from "./layout";
+import HomePage from "./pages/Home/HomePage.tsx";
+import PageNotFound from "./pages/NotFound/PageNotFound.tsx";
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import {
   leftShooter,
-  rightShooter,
+  rightShooter
 } from "./constants/images/LayoutImageConstants.ts";
-import {
-  AboutUsPage,
-  HistoryPage,
-  HomePage,
-  LinksPage,
-  MembersPage,
-  PageNotFound,
-} from "./pages";
 import "./App.scss";
+
+const MembersPage = React.lazy(() => import("./pages/Members/MembersPage.tsx"));
+// const NewsPage = React.lazy(() => import("./pages/News/NewsPage.tsx"));
+// const EventsPage = React.lazy(() => import("./pages/Events/EventsPage.tsx"));
+// const VenuesPage = React.lazy(() => import("./pages/Venues/VenuesPage.tsx"));
+const LinksPage = React.lazy(() => import("./pages/Links/LinksPage.tsx"));
+const HistoryPage = React.lazy(() => import("./pages/History/HistoryPage.tsx"));
+const ContactUsPage = React.lazy(() => import("./pages/ContactUs/ContactUsPage.tsx"));
+const AboutUsPage = React.lazy(() => import("./pages/AboutUs/AboutUsPage.tsx"));
 
 function App(): ReactElement {
   const leftSidebarImage: ImageWithSourceAndDescription = leftShooter;
   const rightSidebarImage: ImageWithSourceAndDescription = rightShooter;
 
+  // TODO: loading indicator
   return (
-    <>
+    <Suspense>
       <Routes>
         <Route
           element={
@@ -39,8 +43,8 @@ function App(): ReactElement {
           {/*<Route path="/ranges" element={<VenuesPage />} />*/}
           <Route path="/links" element={<LinksPage />} />
           <Route path="/history" element={<HistoryPage />} />
-          {/*<Route path="/contact_us" element={<ContactUsPage />} />*/}
-          {/*<Route path="/contact" element={<ContactUsPage />} />*/}
+          <Route path="/contact_us" element={<ContactUsPage />} />
+          <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/about_us" element={<AboutUsPage />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/page_not_found" element={<PageNotFound />} />
@@ -48,7 +52,7 @@ function App(): ReactElement {
         </Route>
       </Routes>
       <Breakpoints />
-    </>
+    </Suspense>
   );
 }
 

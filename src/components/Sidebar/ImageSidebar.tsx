@@ -7,7 +7,7 @@ interface SidebarProps {
   source: ImageWithSourceAndDescription;
 }
 
-export const ImageSidebar = React.memo((props: SidebarProps): ReactElement => {
+const ImageSidebar = React.memo((props: SidebarProps): ReactElement => {
   return (
     <Container fluid className={classes.sidebar}>
       <Row className={classes.sidebarInner}>
@@ -18,3 +18,5 @@ export const ImageSidebar = React.memo((props: SidebarProps): ReactElement => {
     </Container>
   );
 });
+
+export default ImageSidebar;

@@ -1,9 +1,10 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, Suspense } from "react";
 import { Col, Row } from "react-bootstrap";
-import { PageTitle } from "../../components";
-import { ContactUsForm } from "../../forms";
+import PageTitle from "../../components/Title/PageTitle.tsx";
 
-export const ContactUsPage = React.memo((): ReactElement => {
+const ContactUsForm = React.lazy(() => import("../../forms/ContactUs/ContactUsForm.tsx"));
+
+const ContactUsPage = React.memo((): ReactElement => {
   return (
     <>
       <Row>
@@ -11,11 +12,15 @@ export const ContactUsPage = React.memo((): ReactElement => {
           <PageTitle title="Contact Us" />
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <ContactUsForm />
-        </Col>
-      </Row>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Row>
+          <Col>
+            <ContactUsForm />
+          </Col>
+        </Row>
+      </Suspense>
     </>
   );
 });
+
+export default ContactUsPage;

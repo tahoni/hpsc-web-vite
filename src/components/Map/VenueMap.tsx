@@ -2,14 +2,14 @@ import React, {
   CSSProperties,
   PropsWithChildren,
   ReactElement,
-  useRef,
+  useRef
 } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { VenueMapLatLngType } from "../../model/Venue.ts";
 import { textFontName } from "../../constants/AppConstants.ts";
 import {
   googleMapApiKey,
-  googleMapDefaultZoom,
+  googleMapDefaultZoom
 } from "../../constants/MapConstants.ts";
 import classes from "./VenueMap.module.scss";
 
@@ -20,12 +20,12 @@ export interface VenueMapProps {
   mapMode?: string;
 }
 
-export const VenueMap = React.memo(
+const VenueMap = React.memo(
   (props: PropsWithChildren<VenueMapProps>): ReactElement => {
     const { isLoaded } = useJsApiLoader({
       id: "google-map-script",
       googleMapsApiKey: googleMapApiKey,
-      preventGoogleFontsLoading: true,
+      preventGoogleFontsLoading: true
     });
 
     const googleMapRef = useRef<GoogleMap>(null);
@@ -48,5 +48,7 @@ export const VenueMap = React.memo(
         )}
       </div>
     );
-  },
+  }
 );
+
+export default VenueMap;

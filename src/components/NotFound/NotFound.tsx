@@ -9,7 +9,7 @@ interface PageNotFoundProps {
   returnToMessage?: string;
 }
 
-export const NotFound = React.memo((props: PageNotFoundProps): ReactElement => {
+const NotFound = React.memo((props: PageNotFoundProps): ReactElement => {
   return (
     <>
       <Row className={classes.pageNotFoundItem}>
@@ -29,3 +29,5 @@ export const NotFound = React.memo((props: PageNotFoundProps): ReactElement => {
     </>
   );
 });
+
+export default NotFound;
