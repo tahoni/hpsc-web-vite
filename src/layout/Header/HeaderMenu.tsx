@@ -3,6 +3,8 @@ import { NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { menuIcon } from "../../constants/IconConstants";
+import { PageMapping } from "../../model/PageMapping.ts";
+import { menuItems } from "../../helpers/MenuHelpers.tsx";
 
 export const HeaderMenu = React.memo((): ReactElement => {
   return (
@@ -15,26 +17,10 @@ export const HeaderMenu = React.memo((): ReactElement => {
           </>
         }
       >
-        <NavDropdown.Item as={Link} to="/">
-          Home
-        </NavDropdown.Item>
-        <NavDropdown.Item as={Link} to="/members">
-          Members
-        </NavDropdown.Item>
-        <NavDropdown.Item as={Link} to="/links">
-          Links
-        </NavDropdown.Item>
-        <NavDropdown.Item as={Link} to="/history">
-          History
-        </NavDropdown.Item>
-        {/*
-        <NavDropdown.Item as={Link} to="/contact_us">
-          Contact Us
-        </NavDropdown.Item>
-*/}
-        <NavDropdown.Item as={Link} to="/about_us">
-          About Us
-        </NavDropdown.Item>
+        {menuItems.map((item: PageMapping, index: number) => (
+          <NavDropdown.Item as={Link} to={item.path}
+                            key={"menu_" + index}>{item.name}</NavDropdown.Item>
+        ))}
       </NavDropdown>
     </>
   );
