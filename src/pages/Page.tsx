@@ -3,8 +3,6 @@ import { Col, Row } from "react-bootstrap";
 import PageTitle from "../components/Title/PageTitle.tsx";
 import { Loader } from "@tahoni/tahoni-lib-react";
 
-import("../App.scss");
-
 interface PageProps {
   title: string;
   keyValue: string;
