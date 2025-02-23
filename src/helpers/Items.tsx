@@ -13,7 +13,7 @@ const AboutUsPage = React.lazy(() => import("../pages/AboutUs/AboutUsPage.tsx"))
 export const Home: PageMapping = {
   name: "Home",
   path: "/",
-  element: <HomePage />
+  element: <Page key={"homePage"} title={""}><HomePage /></Page>
 };
 export const NotFound: PageMapping = {
   name: "Not Found",

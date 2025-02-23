@@ -1,8 +1,6 @@
-/* Social Media Colours */
-$facebook-blue: #1877f2;
-$google-blue: #4285f4;
+@import "./style-colors";
 
-/* Social Media Icons */
+/* Social media icons */
 .facebook-icon {
   color: $facebook-blue;
 }

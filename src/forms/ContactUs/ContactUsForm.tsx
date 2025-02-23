@@ -12,7 +12,7 @@ import {
   contactUsJsonSchema,
   contactUsUiSchema
 } from "./ContactUsSchema.ts";
-import "./ContactUs.scss";
+import classes from "./ContactUs.module.scss";
 
 const ContactUsForm = React.memo((): ReactElement => {
   const [formData, setFormData] = useState<ContactUsFormData | undefined>();
@@ -194,20 +194,20 @@ const ContactUsForm = React.memo((): ReactElement => {
   };
 
   return (
-    <Form
-      ref={formRef}
-      formData={formData}
-      schema={contactUsJsonSchema}
-      uiSchema={contactUsUiSchema}
-      fields={contactUsJsonFields}
-      validator={validator}
-      customValidate={validateCaptcha}
-      transformErrors={transformErrors}
-      showErrorList={false}
-      noHtml5Validate={true}
-      focusOnFirstError={true}
-      onChange={handleChange}
-      onSubmit={handleSubmit}
+    <Form className={classes.ContactUsForm}
+          ref={formRef}
+          formData={formData}
+          schema={contactUsJsonSchema}
+          uiSchema={contactUsUiSchema}
+          fields={contactUsJsonFields}
+          validator={validator}
+          customValidate={validateCaptcha}
+          transformErrors={transformErrors}
+          showErrorList={false}
+          noHtml5Validate={true}
+          focusOnFirstError={true}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
     />
   );
 });

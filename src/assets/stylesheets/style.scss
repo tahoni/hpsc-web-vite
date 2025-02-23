@@ -2,6 +2,7 @@
 @import "./style-theme";
 @import "./style-custom";
 @import "./style-variables";
+@import "./styles-classes";
 
 /* General */
 html, body {
@@ -11,46 +12,12 @@ html, body {
   font-variation-settings: "wdth" 100;
 }
 
-/*
-!* Form controls *!
-.form-group-default {
-  margin: 0.75rem 0;
-}
-
-.form-control-default {
-  border-color: $border-color;
-}
-
-.form-control-default:focus {
-  box-shadow: 0 0 0 0.25rem rgba($danger, $focus-ring-opacity);
-}
-
-.form-control-required {
-  @extend .form-control-required;
-}
-
-.form-control-error {
-  @extend .form-control-error;
-  background-color: $danger-bg-subtle;
-  border-color: $danger;
-}
-
-.form-control-error:focus {
-  box-shadow: 0 0 0 0.25rem rgba($danger, $focus-ring-opacity);
-}
-
-.form-control-button-info, .form-control-button-info:hover {
-  @extend .btn-primary;
-  background-color: $btn-primary-background-color;
-  margin-bottom: 0.75rem;
-}
-
-!* Inputs *!
+/* Form controls */
 .form-group {
   @extend .form-group-default;
 }
 
-.form-control, .control-label {
+.form-control {
   @extend .form-control-default;
 }
 
@@ -58,15 +25,14 @@ html, body {
   @extend .form-control-required;
 }
 
-.form-control .field-error {
+.form-group.field-error .form-control {
   @extend .form-control-error;
 }
-*/
 
 /* Buttons */
 .btn-info {
-  //@extend .form-control-button-info;
   @extend .btn-info;
+  @extend .form-control-button-info;
 }
 
 /* Menus */
