@@ -1,40 +1,23 @@
-import React, { ReactElement, Suspense, useRef, useState } from "react";
-import { FormProps, IChangeEvent } from "@rjsf/core";
-import {
-  CustomValidator,
-  FormValidation,
-  GenericObjectType,
-  RJSFSchema,
-  RJSFValidationError,
-  StrictRJSFSchema
-} from "@rjsf/utils";
+import React, { ReactElement, useRef, useState } from "react";
+import Form, { IChangeEvent } from "@rjsf/core";
+import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
 import { sanitizeValue } from "../../utils/HtmlUtils.ts";
 import { sendEmail } from "../../services/EmailService.ts";
 import { EmailMessage } from "../../model/EmailMessage.ts";
 import { ContactUsFormData } from "./ContactUsFormData.ts";
-import "./ContactUs.scss";
 import {
   contactUsJsonFields,
   contactUsJsonSchema,
   contactUsUiSchema
 } from "./ContactUsSchema.ts";
-import { Loader } from "@tahoni/tahoni-lib-react";
-
-const Form = React.lazy(() => import("@rjsf/core"));
-
-type ContactUsValidatorTemplate = CustomValidator<any, RJSFSchema, GenericObjectType>;
-const ContactUsFormTemplate = (props: FormProps<any, RJSFSchema, GenericObjectType>) => {
-  return (
-    <Form {...props} />
-  );
-};
+import "./ContactUs.scss";
 
 const ContactUsForm = React.memo((): ReactElement => {
-  const [formData, setFormData] = useState<ContactUsFormData>();
+  const [formData, setFormData] = useState<ContactUsFormData | undefined>();
 
-  const formRef = useRef(null);
+  const formRef = useRef<Form>(null);
 
   const transformErrors = (
     errors: RJSFValidationError[]
@@ -139,13 +122,13 @@ const ContactUsForm = React.memo((): ReactElement => {
     return errors;
   };
 
-  const validateCaptcha: ContactUsValidatorTemplate = (
+  const validateCaptcha = (
     formData: ContactUsFormData | undefined,
-    errors: FormValidation
-  ): FormValidation => {
+    errors: any
+  ): any => {
     if (formData !== undefined) {
       if (formData.captcha === undefined || !formData.captcha) {
-        // errors.captcha.addError("Please solve the CAPTCHA to continue");
+        errors.captcha.addError("Please solve the CAPTCHA to continue");
       }
     }
     return errors;
@@ -174,14 +157,14 @@ const ContactUsForm = React.memo((): ReactElement => {
     setFormData(contactUsData);
 
     // Validate the form
-    // const valid: boolean | undefined =
-    // formRef?.current?.validateFormWithFormData(contactUsData);
+    const valid: boolean | undefined =
+      formRef?.current?.validateFormWithFormData(contactUsData);
 
     // If the form isn't valid, submit it to display the error messages
-    // if (!valid) {
-    // formRef?.current?.submit();
-    // return;
-    // }
+    if (!valid) {
+      formRef?.current?.submit();
+      return;
+    }
 
     // If the form is valid, send the e-mail
     const success: boolean = sendEmail(
@@ -211,23 +194,21 @@ const ContactUsForm = React.memo((): ReactElement => {
   };
 
   return (
-    <Suspense fallback={<Loader isLoading={true} key={"contactUsForm"} />}>
-      <ContactUsFormTemplate
-        ref={formRef}
-        formData={formData}
-        schema={contactUsJsonSchema}
-        uiSchema={contactUsUiSchema}
-        fields={contactUsJsonFields}
-        validator={validator}
-        customValidate={validateCaptcha}
-        transformErrors={transformErrors}
-        showErrorList={false}
-        noHtml5Validate={true}
-        focusOnFirstError={true}
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-      />
-    </Suspense>
+    <Form
+      ref={formRef}
+      formData={formData}
+      schema={contactUsJsonSchema}
+      uiSchema={contactUsUiSchema}
+      fields={contactUsJsonFields}
+      validator={validator}
+      customValidate={validateCaptcha}
+      transformErrors={transformErrors}
+      showErrorList={false}
+      noHtml5Validate={true}
+      focusOnFirstError={true}
+      onChange={handleChange}
+      onSubmit={handleSubmit}
+    />
   );
 });
 

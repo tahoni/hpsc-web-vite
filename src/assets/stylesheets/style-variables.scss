@@ -1,5 +1,4 @@
-@import "style-colors";
-@import "style-theme";
+@import "./style-theme";
 
 :export {
   text-font: $text-font;
@@ -15,7 +14,7 @@
 
 /* Bootstrap */
 :root {
-  .btn-primary, .btn-info, .form-control {
+  .btn-primary, .btn-info {
     --bs-btn-bg: #0a07fbff; /* $club-primary-blue */
     --bs-btn-hover-bg: #0603c9; /* $club-blue-dark */
     --bs-btn-border-color: #9c9bfd; /* $focus-ring-color = $club-blue-light */

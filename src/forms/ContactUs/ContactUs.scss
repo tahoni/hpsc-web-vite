@@ -1,15 +1,15 @@
 @import "bootstrap/scss/bootstrap";
 @import "../../assets/stylesheets/style-theme";
 
-form.rjsf .text-danger {
+form.rjsf.text-danger {
   border: none;
 }
 
-form.rjsf .form-group {
+form.rjsf.form-group {
   margin: 0.75rem 0;
 }
 
-form.rjsf .form-group .form-control, form.rjsf .btn {
+form.rjsf.form-group .form-control, form.rjsf.btn {
   margin-bottom: 0.75rem;
 }
 

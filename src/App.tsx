@@ -1,6 +1,7 @@
 import { ReactElement, Suspense } from "react";
 import { Route, Routes } from "react-router";
 import { Breakpoints, Layout } from "./layout";
+import { routes } from "./helpers/RouteHelpers.tsx";
 import {
   ImageWithSourceAndDescription,
   Loader
@@ -9,9 +10,8 @@ import {
   leftShooter,
   rightShooter
 } from "./constants/images/LayoutImageConstants.ts";
-import "./App.scss";
-import { routes } from "./helpers/RouteHelpers.tsx";
 import { PageAlias } from "./model/PageAlias.ts";
+import "./App.scss";
 
 function App(): ReactElement {
   const leftSidebarImage: ImageWithSourceAndDescription = leftShooter;

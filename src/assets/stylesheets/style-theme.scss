@@ -1,5 +1,5 @@
-@import "style-colors";
-@import "style-custom";
+@import "./style-custom";
+@import "./style-colors";
 
 /* Fonts */
 $text-font: $body-color;
