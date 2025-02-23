@@ -1,15 +1,9 @@
 import React, { ReactElement } from "react";
-import { Col, Row } from "react-bootstrap";
-import PageTitle from "../../components/Title/PageTitle.tsx";
 
 const VenuesPage = React.memo((): ReactElement => {
+  // TODO: Shooting Ranges
   return (
     <>
-      <Row>
-        <Col>
-          <PageTitle title="Shooting Ranges" />
-        </Col>
-      </Row>
     </>
   );
 });

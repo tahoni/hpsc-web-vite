@@ -1,15 +1,9 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
-import PageTitle from "../../components/Title/PageTitle.tsx";
 
 const NewsPage = React.memo(() => {
+  // TODO: News
   return (
     <>
-      <Row>
-        <Col>
-          <PageTitle title="News" />
-        </Col>
-      </Row>
     </>
   );
 });
