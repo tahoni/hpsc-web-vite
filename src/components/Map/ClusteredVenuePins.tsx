@@ -1,10 +1,12 @@
 import React, { ReactElement } from "react";
-import { MarkerClusterer } from "@react-google-maps/api";
-import { VenuePins, VenuePinsProps } from "./VenuePins.tsx";
+import VenuePins, { VenuePinsProps } from "./VenuePins.tsx";
 
-export interface ClusteredVenuePinsProps extends VenuePinsProps {}
+export interface ClusteredVenuePinsProps extends VenuePinsProps {
+}
 
-export const ClusteredVenuePins = React.memo(
+const MarkerClusterer = React.lazy(() => import("./MarkerClusterer"));
+
+const ClusteredVenuePins = React.memo(
   (props: ClusteredVenuePinsProps): ReactElement => {
     if (!props.venues || props.venues.length === 0) {
       return <></>;
@@ -15,5 +17,7 @@ export const ClusteredVenuePins = React.memo(
         {() => <VenuePins {...props} />}
       </MarkerClusterer>
     );
-  },
+  }
 );
+
+export default ClusteredVenuePins;

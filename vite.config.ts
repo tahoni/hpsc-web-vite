@@ -9,9 +9,9 @@ export default defineConfig({
       enforce: "pre",
       ...mdx({
         /* jsxImportSource: …, otherOptions… */
-      }),
+      })
     },
-    react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
+    react({ include: /\.(jsx|js|mdx|tsx|ts)$/ })
   ],
   build: {
     target: "ESNext",
@@ -19,7 +19,16 @@ export default defineConfig({
     sourcemap: false,
     modulePreload: {
       polyfill: false,
-      resolveDependencies: () => [],
+      resolveDependencies: () => []
     },
-  },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react": ["react", "react/jsx-runtime", "react-dom", "react-dom/client"],
+          "react-router": ["react-router", "react-router-dom"],
+          "fortawesome": ["@fortawesome/fontawesome-svg-core", "@fortawesome/free-solid-svg-icons", "@fortawesome/free-regular-svg-icons", "@fortawesome/free-brands-svg-icons", "@fortawesome/react-fontawesome"]
+        }
+      }
+    }
+  }
 });

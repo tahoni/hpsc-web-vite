@@ -5,7 +5,7 @@ interface PageTitleProps {
   title: string;
 }
 
-export const PageTitle = React.memo((props: PageTitleProps): ReactElement => {
+const PageTitle = React.memo((props: PageTitleProps): ReactElement => {
   return (
     <div className={classes.pageTitle}>
       <h2>{props.title}</h2>
@@ -13,3 +13,5 @@ export const PageTitle = React.memo((props: PageTitleProps): ReactElement => {
     </div>
   );
 });
+
+export default PageTitle;

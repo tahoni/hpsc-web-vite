@@ -12,11 +12,11 @@ import {
   provincialAssociationAbbreviation,
   provincialAssociationLogo,
   provincialAssociationName,
-  provincialAssociationWebsite,
+  provincialAssociationWebsite
 } from "../../../constants/about/AssociationConstants.ts";
 import classes from "./Links.module.scss";
 
-const Links = React.memo((): ReactElement => {
+const LinksContent = React.memo((): ReactElement => {
   return (
     <>
       <Row className={classes.logoHyperlink}>
@@ -66,4 +66,4 @@ const Links = React.memo((): ReactElement => {
   );
 });
 
-export default Links;
+export default LinksContent;

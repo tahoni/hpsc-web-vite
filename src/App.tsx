@@ -1,19 +1,16 @@
-import { ReactElement } from "react";
-import { Navigate, Route, Routes } from "react-router";
+import { ReactElement, Suspense } from "react";
+import { Route, Routes } from "react-router";
 import { Breakpoints, Layout } from "./layout";
-import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
+import { routes } from "./helpers/RouteHelpers.tsx";
+import {
+  ImageWithSourceAndDescription,
+  Loader
+} from "@tahoni/tahoni-lib-react";
 import {
   leftShooter,
-  rightShooter,
+  rightShooter
 } from "./constants/images/LayoutImageConstants.ts";
-import {
-  AboutUsPage,
-  HistoryPage,
-  HomePage,
-  LinksPage,
-  MembersPage,
-  PageNotFound,
-} from "./pages";
+import { PageAlias } from "./model/PageAlias.ts";
 import "./App.scss";
 
 function App(): ReactElement {
@@ -21,7 +18,7 @@ function App(): ReactElement {
   const rightSidebarImage: ImageWithSourceAndDescription = rightShooter;
 
   return (
-    <>
+    <Suspense fallback={<Loader isLoading={true} key={"app"} />}>
       <Routes>
         <Route
           element={
@@ -31,24 +28,15 @@ function App(): ReactElement {
             />
           }
         >
-          <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="/members" element={<MembersPage />} />
-          {/*<Route path="/news" element={<NewsPage />} />*/}
-          {/*<Route path="/matches" element={<EventsPage />} />*/}
-          {/*<Route path="/ranges" element={<VenuesPage />} />*/}
-          <Route path="/links" element={<LinksPage />} />
-          <Route path="/history" element={<HistoryPage />} />
-          {/*<Route path="/contact_us" element={<ContactUsPage />} />*/}
-          {/*<Route path="/contact" element={<ContactUsPage />} />*/}
-          <Route path="/about_us" element={<AboutUsPage />} />
-          <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/page_not_found" element={<PageNotFound />} />
-          <Route path="*" element={<Navigate to="/page_not_found" />} />
+          {routes.map((route: PageAlias, index) => (
+            <Route path={route.path ? route.path : route.mapping.path}
+                   key={"page_" + index}
+                   element={route.element ? route.element : route.mapping.element} />
+          ))}
         </Route>
       </Routes>
       <Breakpoints />
-    </>
+    </Suspense>
   );
 }
 

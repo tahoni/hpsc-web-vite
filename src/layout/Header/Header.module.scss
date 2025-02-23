@@ -1,4 +1,4 @@
-@use "bootstrap/scss/bootstrap-grid";
+@import "bootstrap/scss/bootstrap-grid";
 
 .header {
   padding: 0.75rem;
@@ -39,7 +39,7 @@
   vertical-align: middle;
 }
 
-@include bootstrap-grid.media-breakpoint-down(md) {
+@include media-breakpoint-down(md) {
   .header {
     margin: 0;
   }

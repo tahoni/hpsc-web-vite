@@ -15,6 +15,7 @@ $club-blue-light: #9c9bfd;
 $club-blue-dark: #0603c9;
 $club-yellow-lightest: #fefee7;
 $club-yellow-darkest: #181802;
+$club-blue-light-rgb: 156, 155, 253;
 
 /* International Primary Colours */
 $international-black: #31261d;
@@ -34,3 +35,7 @@ $blue-gradient-bottom-right: linear-gradient(135deg, $club-blue-light, $club-blu
 $blue-gradient-top-left: linear-gradient(225deg, $club-blue-light, $club-blue-lighter);
 $blue-gradient-bottom-left: linear-gradient(315deg, $club-blue-light, $club-blue-lighter);
 $blue-gradient-radial: radial-gradient($club-blue-light, $club-blue-lighter);
+
+/* Social Media Colours */
+$facebook-blue: #1877f2;
+$google-blue: #4285f4;

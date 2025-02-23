@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from "react";
-import { VenuePin } from "./VenuePin.tsx";
+import VenuePin from "./VenuePin.tsx";
 import { Venue, VenueType } from "../../model/Venue.ts";
 import { generateMapVenueKey } from "../../utils/MapUtils.ts";
 
@@ -7,13 +7,13 @@ export interface VenuePinsProps {
   venues: VenueType[];
 }
 
-export const VenuePins = React.memo((props: VenuePinsProps): ReactElement => {
+const VenuePins = React.memo((props: VenuePinsProps): ReactElement => {
   if (!props.venues || props.venues.length == 0) {
     return <></>;
   }
 
   const [venues] = useState<Venue[]>(
-    props.venues.filter((venue) => venue).map((venue) => venue as Venue),
+    props.venues.filter((venue) => venue).map((venue) => venue as Venue)
   );
 
   return (
@@ -24,3 +24,5 @@ export const VenuePins = React.memo((props: VenuePinsProps): ReactElement => {
     </>
   );
 });
+
+export default VenuePins;

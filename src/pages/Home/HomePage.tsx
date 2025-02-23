@@ -1,13 +1,12 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
-import { HistoryContent } from "../../content/pages";
+import HistoryContent from "../../content/pages/History/HistoryContent.tsx";
 
-export const HomePage = React.memo(() => {
+const HomePage = React.memo(() => {
   return (
-    <Row>
-      <Col>
-        <HistoryContent />
-      </Col>
-    </Row>
+    <>
+      <HistoryContent />
+    </>
   );
 });
+
+export default HomePage;

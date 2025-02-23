@@ -10,17 +10,16 @@ import { ContactUsFormData } from "./ContactUsFormData.ts";
 import {
   contactUsJsonFields,
   contactUsJsonSchema,
-  contactUsUiSchema,
+  contactUsUiSchema
 } from "./ContactUsSchema.ts";
-import "./ContactUs.scss";
 
-export const ContactUsForm = React.memo((): ReactElement => {
+const ContactUsForm = React.memo((): ReactElement => {
   const [formData, setFormData] = useState<ContactUsFormData | undefined>();
 
   const formRef = useRef<Form>(null);
 
   const transformErrors = (
-    errors: RJSFValidationError[],
+    errors: RJSFValidationError[]
   ): RJSFValidationError[] => {
     errors.map((error: RJSFValidationError) => {
       switch (error.name) {
@@ -124,7 +123,7 @@ export const ContactUsForm = React.memo((): ReactElement => {
 
   const validateCaptcha = (
     formData: ContactUsFormData | undefined,
-    errors: any,
+    errors: any
   ): any => {
     if (formData !== undefined) {
       if (formData.captcha === undefined || !formData.captcha) {
@@ -152,7 +151,7 @@ export const ContactUsForm = React.memo((): ReactElement => {
       email,
       subject,
       content,
-      captcha,
+      captcha
     };
     setFormData(contactUsData);
 
@@ -172,23 +171,24 @@ export const ContactUsForm = React.memo((): ReactElement => {
         contactUsData.name ?? "",
         contactUsData.email ?? "",
         contactUsData.subject ?? "",
-        contactUsData.content ?? "",
-      ),
+        contactUsData.content ?? ""
+      )
     );
 
     // Display a success or error message based on the result of the e-mail send operation
     if (success) {
       Swal.fire({
         text: "E-mail sent successfully",
-        icon: "success",
+        icon: "success"
       }).then(() => {
         setFormData(undefined);
       });
     } else {
       Swal.fire({
         text: "Failed to send e-mail",
-        icon: "error",
-      }).then(() => {});
+        icon: "error"
+      }).then(() => {
+      });
     }
   };
 
@@ -210,3 +210,5 @@ export const ContactUsForm = React.memo((): ReactElement => {
     />
   );
 });
+
+export default ContactUsForm;
