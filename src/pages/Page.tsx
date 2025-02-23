@@ -7,7 +7,7 @@ import("../App.scss");
 
 interface PageProps {
   title: string;
-  key: string;
+  keyValue: string;
 }
 
 const Page = React.memo((props: PropsWithChildren<PageProps>): ReactElement => {
@@ -22,7 +22,7 @@ const Page = React.memo((props: PropsWithChildren<PageProps>): ReactElement => {
         :
         <></>
       }
-      <Suspense fallback={<Loader isLoading={true} key={props.key} />}>
+      <Suspense fallback={<Loader isLoading={true} key={props.keyValue} />}>
         <Row>
           <Col>
             {props.children}

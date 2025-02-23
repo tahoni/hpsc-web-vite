@@ -13,37 +13,41 @@ const AboutUsPage = React.lazy(() => import("../pages/AboutUs/AboutUsPage.tsx"))
 export const Home: PageMapping = {
   name: "Home",
   path: "/",
-  element: <Page key={"homePage"} title={""}><HomePage /></Page>
+  element: <Page keyValue={"homePage"} title={""}><HomePage /></Page>
 };
 export const NotFound: PageMapping = {
   name: "Not Found",
   path: "*",
-  element: <Page key={"notFoundPage"} title={"Not Fond"}><PageNotFound /></Page>
+  element: <Page keyValue={"notFoundPage"}
+                 title={"Not Fond"}><PageNotFound /></Page>
 };
 
 export const Members: PageMapping = {
   name: "Members",
   path: "/members",
-  element: <Page key={"membersPage"} title={"Members"}><MembersPage /></Page>
+  element: <Page keyValue={"membersPage"}
+                 title={"Members"}><MembersPage /></Page>
 };
 export const Links: PageMapping = {
   name: "Links",
   path: "/links",
-  element: <Page key={"linksPage"} title={"Links"}><LinksPage /></Page>
+  element: <Page keyValue={"linksPage"} title={"Links"}><LinksPage /></Page>
 };
 export const History: PageMapping = {
   name: "History",
   path: "/history",
-  element: <Page key={"historyPage"} title={"History"}><HistoryPage /></Page>
+  element: <Page keyValue={"historyPage"}
+                 title={"History"}><HistoryPage /></Page>
 };
 export const AboutUs: PageMapping = {
   name: "About Us",
   path: "/about",
-  element: <Page key={"aboutUsPage"} title={"About Us"}><AboutUsPage /></Page>
+  element: <Page keyValue={"aboutUsPage"}
+                 title={"About Us"}><AboutUsPage /></Page>
 };
 export const ContactUs: PageMapping = {
   name: "Contact Us",
   path: "/contact",
-  element: <Page key={"contactUsPage"}
+  element: <Page keyValue={"contactUsPage"}
                  title={"Contact Us"}><ContactUsPage /></Page>
 };
