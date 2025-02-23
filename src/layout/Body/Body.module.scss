@@ -1,4 +1,4 @@
-@use "bootstrap/scss/bootstrap-grid";
+@import "bootstrap/scss/bootstrap-grid";
 
 .body {
   width: 100%;
@@ -19,20 +19,20 @@
   justify-content: center;
 }
 
-@include bootstrap-grid.media-breakpoint-down(md) {
+@include media-breakpoint-down(md) {
   .body {
     padding: 0;
     margin: 0;
   }
 }
 
-@include bootstrap-grid.media-breakpoint-up(lg) {
+@include media-breakpoint-up(lg) {
   .bodyCenter {
     width: calc(100% - 16rem);
   }
 }
 
-@include bootstrap-grid.media-breakpoint-up(xl) {
+@include media-breakpoint-up(xl) {
   .bodyCenter {
     width: calc(100% - 20rem);
   }

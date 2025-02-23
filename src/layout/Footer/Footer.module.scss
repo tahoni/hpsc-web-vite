@@ -1,4 +1,4 @@
-@use "bootstrap/scss/bootstrap-grid";
+@import "bootstrap/scss/bootstrap-grid";
 
 $map-width: 100%;
 $map-height: 12rem;
@@ -69,7 +69,7 @@ $map-height: 12rem;
   font-size: 0.9em;
 }
 
-@include bootstrap-grid.media-breakpoint-down(md) {
+@include media-breakpoint-down(md) {
   .footer {
     margin: 0;
   }
