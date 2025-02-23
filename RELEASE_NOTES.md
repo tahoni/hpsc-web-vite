@@ -15,6 +15,7 @@ Fixed the form styling.<br/>
 #### General Code Improvements
 - Components are exported by default instead of by name in preparation for lazy loading.
 - Built the menu and routes dynamically from a single source.
+- Renamed all stylesheets starting with `style-` to start with `styles-`.
 
 #### Changes by
 @tahoni
