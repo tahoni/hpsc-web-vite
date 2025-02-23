@@ -2,6 +2,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.4.0](#version-340---_2025-02-25_)
 - [Version 3.3.9](#version-339---_2025-02-15_)
 - [Version 3.3.8](#version-338---_2025-02-09_)
 - [Version 3.3.7](#version-337---_2025-01-08_)
@@ -31,6 +32,24 @@
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
+
+### [Version 3.4.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.0) - _2025-02-25_
+Added lazy loading of pages.<br/>
+Fixed the form styling.<br/>
+
+#### Enhancements and Updates
+- Created a page component for the common elements of all pages.
+- Added lazy loading of pages in the page component.
+- Added a `styles-classes.scss` stylesheet to create generic form control styles.
+- Added these styles to the `style.scss` stylesheet to style all forms consistently.
+- Added a variable to change the colour of the loader.
+
+#### General Code Improvements
+- Components are exported by default instead of by name in preparation for lazy loading.
+- Built the menu and routes dynamically from a single source.
+
+#### Changes by
+@tahoni
 
 ### [Version 3.3.9](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.9) - _2025-02-15_
 Added icons to the contact details in the footer.<br/>
