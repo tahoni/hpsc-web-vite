@@ -12,7 +12,6 @@ export const HeaderMenu = React.memo((): ReactElement => {
       <NavDropdown
         title={
           <>
-            <span className="visually-hidden">Menu</span>
             <FontAwesomeIcon icon={menuIcon} />
           </>
         }

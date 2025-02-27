@@ -1,7 +1,6 @@
-import React, { ReactElement, Suspense } from "react";
+import React, { ReactElement } from "react";
 import { reCaptchaV2SiteKey } from "../../constants/CaptchaConstants.ts";
 import classes from "./Captcha.module.scss";
-import { Loader } from "@tahoni/tahoni-lib-react";
 
 interface SimpleCaptchaProps {
   onChange?: (token?: string) => void;
@@ -20,14 +19,12 @@ export const SimpleCaptcha = React.memo(
     };
 
     return (
-      <Suspense fallback={<Loader isLoading={true} key="simpleCaptcha" />}>
-        <ReCAPTCHA
-          className={classes.simpleCaptcha}
-          sitekey={reCaptchaV2SiteKey}
-          onChange={onChange}
-          hl="en"
-        />
-      </Suspense>
+      <ReCAPTCHA
+        className={classes.simpleCaptcha}
+        sitekey={reCaptchaV2SiteKey}
+        onChange={onChange}
+        hl="en"
+      />
     );
   }
 );

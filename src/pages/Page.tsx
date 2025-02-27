@@ -1,7 +1,6 @@
-import React, { PropsWithChildren, ReactElement, Suspense } from "react";
+import React, { PropsWithChildren, ReactElement } from "react";
 import { Col, Row } from "react-bootstrap";
 import PageTitle from "../components/Title/PageTitle.tsx";
-import { Loader } from "@tahoni/tahoni-lib-react";
 
 interface PageProps {
   title: string;
@@ -20,13 +19,11 @@ const Page = React.memo((props: PropsWithChildren<PageProps>): ReactElement => {
         :
         <></>
       }
-      <Suspense fallback={<Loader isLoading={true} />} key={props.keyValue}>
-        <Row>
-          <Col>
-            {props.children}
-          </Col>
-        </Row>
-      </Suspense>
+      <Row>
+        <Col>
+          {props.children}
+        </Col>
+      </Row>
     </>
   );
 });

@@ -2,18 +2,16 @@ import React, {
   CSSProperties,
   PropsWithChildren,
   ReactElement,
-  Suspense,
-  useRef,
+  useRef
 } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { VenueMapLatLngType } from "../../model/Venue.ts";
 import { textFontName } from "../../constants/AppConstants.ts";
 import {
   googleMapApiKey,
-  googleMapDefaultZoom,
+  googleMapDefaultZoom
 } from "../../constants/MapConstants.ts";
 import classes from "./VenueMap.module.scss";
-import { Loader } from "@tahoni/tahoni-lib-react";
 
 export interface VenueMapProps {
   mapStyle: CSSProperties;
@@ -29,32 +27,30 @@ const VenueMap = React.memo(
     const { isLoaded } = useJsApiLoader({
       id: "google-map-script",
       googleMapsApiKey: googleMapApiKey,
-      preventGoogleFontsLoading: true,
+      preventGoogleFontsLoading: true
     });
 
     const googleMapRef = useRef(null);
 
     return (
-      <Suspense fallback={<Loader isLoading={true} key={"venueMap"} />}>
-        <div className={classes.VenueMap}>
-          {isLoaded ? (
-            <GoogleMap
-              ref={googleMapRef}
-              mapContainerStyle={{ ...props.mapStyle, font: textFontName }}
-              center={props.center}
-              zoom={props.zoom ?? googleMapDefaultZoom}
-              clickableIcons={true}
-              mapTypeId={props.mapMode}
-            >
-              {props.children}
-            </GoogleMap>
-          ) : (
-            <></>
-          )}
-        </div>
-      </Suspense>
+      <div className={classes.VenueMap}>
+        {isLoaded ? (
+          <GoogleMap
+            ref={googleMapRef}
+            mapContainerStyle={{ ...props.mapStyle, font: textFontName }}
+            center={props.center}
+            zoom={props.zoom ?? googleMapDefaultZoom}
+            clickableIcons={true}
+            mapTypeId={props.mapMode}
+          >
+            {props.children}
+          </GoogleMap>
+        ) : (
+          <></>
+        )}
+      </div>
     );
-  },
+  }
 );
 
 export default VenueMap;
