@@ -1,6 +1,5 @@
 import React, { ReactElement } from "react";
-
-const MembersContent = React.lazy(() => import("../../content/posts/Members/MembersContent.tsx"));
+import MembersContent from "../../content/posts/Members/MembersContent.tsx";
 
 const MembersPage = React.memo((): ReactElement => {
   return (

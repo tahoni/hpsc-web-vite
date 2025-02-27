@@ -1,11 +1,11 @@
 import React, { ReactElement } from "react";
-
-const ContactUsForm = React.lazy(() => import("../../forms/ContactUs/ContactUsForm.tsx"));
+import ContactUsContent
+  from "../../content/pages/ContactUs/ContactUsContent.tsx";
 
 const ContactUsPage = React.memo((): ReactElement => {
   return (
     <>
-      <ContactUsForm />
+      <ContactUsContent />
     </>
   );
 });

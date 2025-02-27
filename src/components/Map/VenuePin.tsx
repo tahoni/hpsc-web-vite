@@ -1,11 +1,10 @@
 import React, { ReactElement } from "react";
 import { VenueType } from "../../model/Venue.ts";
+import { Marker } from "@react-google-maps/api";
 
 export interface VenuePinProps {
   venue: VenueType;
 }
-
-const Marker = React.lazy(() => import("./DefaultMarker.tsx"));
 
 const VenuePin = React.memo((props: VenuePinProps): ReactElement => {
   if (!props.venue || !props.venue.latLng) {

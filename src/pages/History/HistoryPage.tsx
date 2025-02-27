@@ -1,6 +1,5 @@
 import React from "react";
-
-const HistoryContent = React.lazy(() => import("../../content/pages/History/HistoryContent.tsx"));
+import HistoryContent from "../../content/pages/History/HistoryContent.tsx";
 
 const HistoryPage = React.memo(() => {
   return (

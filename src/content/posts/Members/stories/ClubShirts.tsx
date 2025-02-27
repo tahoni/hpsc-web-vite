@@ -1,8 +1,6 @@
 import React, { ReactElement } from "react";
 import { Image } from "react-bootstrap";
-import {
-  clubShirtsImage
-} from "../../../../constants/images/ClubImageConstants.ts";
+import { clubShirtsImage } from "./Clubshirts/ClubshirtConstants.ts";
 
 const ClubShirts = React.memo((): ReactElement => {
   return (
