@@ -1,7 +1,7 @@
 @import "bootstrap/scss/bootstrap-grid";
 
 $map-width: 100%;
-$map-height: 12rem;
+$map-height: 12em;
 
 :export {
   maxWidth: $map-width;
@@ -9,8 +9,8 @@ $map-height: 12rem;
 }
 
 .footer {
-  padding: 0.75rem;
-  margin: 0.75rem;
+  padding: 0.75em;
+  margin: 0.75em;
   align-content: center;
   justify-content: center;
 }
@@ -31,7 +31,7 @@ $map-height: 12rem;
 }
 
 .footerInner {
-  padding: 0.75rem 0;
+  padding: 0.75em 0;
 }
 
 .footerContent {
@@ -66,7 +66,7 @@ $map-height: 12rem;
 
 .websiteInfo p {
   margin-bottom: 0;
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
 
 @include media-breakpoint-down(md) {
@@ -79,22 +79,22 @@ $map-height: 12rem;
   }
 
   .footerCenter {
-    padding-top: 0.75rem;
+    padding-top: 0.75em;
   }
 
   .footerMap {
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.75em;
   }
 
   .footerDetails {
-    padding-top: 0.75rem;
+    padding-top: 0.75em;
   }
 
   .contactInfo {
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.75em;
   }
 
   .websiteInfo {
-    padding-top: 0.75rem;
+    padding-top: 0.75em;
   }
 }
