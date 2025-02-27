@@ -1,5 +1,5 @@
+import ClubShirts from "./stories/Clubshirts/ClubShirts.tsx";
 import React, { MemoExoticComponent, ReactElement } from "react";
-import ClubShirts from "./stories/ClubShirts.tsx";
 
 const MembersContent = React.memo((): ReactElement => {
   const Contents: MemoExoticComponent<() => ReactElement>[] = [ClubShirts];

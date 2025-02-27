@@ -1,13 +1,15 @@
+import React from "react";
 import { PageMapping } from "../model/PageMapping.ts";
 import HomePage from "../pages/Home/HomePage.tsx";
 import PageNotFound from "../pages/NotFound/PageNotFound.tsx";
 import Page from "../pages/Page.tsx";
 import VenuesPage from "../pages/Venues/VenuesPage.tsx";
-import MembersPage from "../pages/Members/MembersPage.tsx";
-import LinksPage from "../pages/Links/LinksPage.tsx";
-import HistoryPage from "../pages/History/HistoryPage.tsx";
-import AboutUsPage from "../pages/AboutUs/AboutUsPage.tsx";
-import ContactUsPage from "../pages/ContactUs/ContactUsPage.tsx";
+
+const MembersPage = React.lazy(() => import("../pages/Members/MembersPage.tsx"));
+const LinksPage = React.lazy(() => import("../pages/Links/LinksPage.tsx"));
+const HistoryPage = React.lazy(() => import("../pages/History/HistoryPage.tsx"));
+const ContactUsPage = React.lazy(() => import("../pages/ContactUs/ContactUsPage.tsx"));
+const AboutUsPage = React.lazy(() => import("../pages/AboutUs/AboutUsPage.tsx"));
 
 export const Home: PageMapping = {
   name: "Home",

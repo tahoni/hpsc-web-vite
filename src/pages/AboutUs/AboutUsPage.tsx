@@ -1,5 +1,6 @@
 import React from "react";
-import AboutUsContent from "../../content/pages/AboutUs/AboutUsContent.tsx";
+
+const AboutUsContent = React.lazy(() => import("../../content/pages/AboutUs/AboutUsContent.tsx"));
 
 const AboutUsPage = React.memo(() => {
   return (

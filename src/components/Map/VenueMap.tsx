@@ -3,14 +3,14 @@ import React, {
   PropsWithChildren,
   ReactElement,
   Suspense,
-  useRef
+  useRef,
 } from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { useJsApiLoader } from "@react-google-maps/api";
 import { VenueMapLatLngType } from "../../model/Venue.ts";
 import { textFontName } from "../../constants/AppConstants.ts";
 import {
   googleMapApiKey,
-  googleMapDefaultZoom
+  googleMapDefaultZoom,
 } from "../../constants/MapConstants.ts";
 import classes from "./VenueMap.module.scss";
 import { Loader } from "@tahoni/tahoni-lib-react";
@@ -22,12 +22,14 @@ export interface VenueMapProps {
   mapMode?: string;
 }
 
+const GoogleMap = React.lazy(() => import("./DefaultGoogleMap.tsx"));
+
 const VenueMap = React.memo(
   (props: PropsWithChildren<VenueMapProps>): ReactElement => {
     const { isLoaded } = useJsApiLoader({
       id: "google-map-script",
       googleMapsApiKey: googleMapApiKey,
-      preventGoogleFontsLoading: true
+      preventGoogleFontsLoading: true,
     });
 
     const googleMapRef = useRef(null);
@@ -52,7 +54,7 @@ const VenueMap = React.memo(
         </div>
       </Suspense>
     );
-  }
+  },
 );
 
 export default VenueMap;

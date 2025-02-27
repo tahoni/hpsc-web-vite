@@ -20,6 +20,15 @@ export default defineConfig({
     modulePreload: {
       polyfill: false,
       resolveDependencies: () => []
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react": ["react", "react/jsx-runtime", "react-dom", "react-dom/client"],
+          "react-router": ["react-router", "react-router-dom"],
+          "fortawesome": ["@fortawesome/fontawesome-svg-core", "@fortawesome/free-solid-svg-icons", "@fortawesome/free-regular-svg-icons", "@fortawesome/free-brands-svg-icons", "@fortawesome/react-fontawesome"]
+        }
+      }
     }
   }
 });
