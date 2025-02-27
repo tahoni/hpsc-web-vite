@@ -168,10 +168,10 @@ const ContactUsForm = React.memo((): ReactElement => {
     // If the form is valid, send the e-mail
     const success: boolean = sendEmail(
       new EmailMessage(
-        contactUsData.name ?? "",
-        contactUsData.email ?? "",
-        contactUsData.subject ?? "",
-        contactUsData.content ?? ""
+        contactUsData.name,
+        contactUsData.email,
+        contactUsData.subject,
+        contactUsData.content
       )
     );
 

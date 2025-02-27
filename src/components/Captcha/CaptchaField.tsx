@@ -8,7 +8,7 @@ const CaptchaField = React.memo(
       props.onChange(token !== undefined && token !== "");
     };
 
-    return <SimpleCaptcha onChange={handleChange} />;
+    return <SimpleCaptcha handleChange={handleChange} />;
   }
 );
 

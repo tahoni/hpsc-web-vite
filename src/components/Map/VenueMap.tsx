@@ -4,7 +4,7 @@ import React, {
   ReactElement,
   useRef
 } from "react";
-import { useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { VenueMapLatLngType } from "../../model/Venue.ts";
 import { textFontName } from "../../constants/AppConstants.ts";
 import {
@@ -19,8 +19,6 @@ export interface VenueMapProps {
   zoom?: number;
   mapMode?: string;
 }
-
-const GoogleMap = React.lazy(() => import("./DefaultGoogleMap.tsx"));
 
 const VenueMap = React.memo(
   (props: PropsWithChildren<VenueMapProps>): ReactElement => {
