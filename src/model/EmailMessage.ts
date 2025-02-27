@@ -1,16 +1,13 @@
-import { sanitizeValue } from "../utils/HtmlUtils.ts";
+import { EmailContent } from "./EmailContent.ts";
 
-export class EmailMessage {
-  name: string;
-  email: string;
-  subject: string;
-  content: string;
-
-  constructor(name: string, email: string, subject: string, content: string) {
-    this.name = (sanitizeValue(name) ?? "").trim();
-    this.email = (sanitizeValue(email) ?? "").trim();
-    this.subject = (sanitizeValue(subject) ?? "").trim();
-    this.content = (sanitizeValue(content) ?? "").trim();
+export class EmailMessage extends EmailContent {
+  constructor(
+    name?: string,
+    email?: string,
+    subject?: string,
+    content?: string,
+  ) {
+    super(name, email, subject, content);
   }
 
   isValid(): boolean {

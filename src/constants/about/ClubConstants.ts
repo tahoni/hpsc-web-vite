@@ -3,13 +3,16 @@ export const clubName: string = "Hartbeespoortdam Practical Shooting Club";
 export const clubAbbreviation: string = "HPSC";
 export const clubShootingRangeName: string = "Eeufees Range";
 export const clubShootingRangeDescription: string =
-  "Pretoria Defense Practical Shooting Club";
+  "Pretoria Military Practical Shooting Club";
 
 // E-mails
 export const chairmanEmail: string = "chairman@hpsc.co.za";
 export const adminEmail: string = "admin@hpsc.co.za";
 export const enquiriesEmail: string = "enquiries@hpsc.co.za";
+export const contactUsEmail: string = "contact.us@hpsc.co.za";
 export const webmasterEmail: string = "webmaster@hpsc.co.za";
+export const contactEmail: string =
+  import.meta.env.VITE_CONTACT_US_EMAIL ?? contactUsEmail;
 
 // People
 export const chairmanName: string = "Jan Kleynhans";

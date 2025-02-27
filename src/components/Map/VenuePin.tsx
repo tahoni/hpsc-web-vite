@@ -12,7 +12,7 @@ const VenuePin = React.memo((props: VenuePinProps): ReactElement => {
     return <></>;
   }
 
-  return <Marker position={props.venue.latLng} label={props.venue.label} />;
+  return <Marker position={props.venue.latLng} label={props.venue.name} />;
 });
 
 export default VenuePin;

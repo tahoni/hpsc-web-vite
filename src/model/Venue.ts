@@ -2,8 +2,12 @@ export type VenueMapLatLngType = google.maps.LatLng | google.maps.LatLngLiteral;
 export type VenueType = Venue | undefined;
 
 export interface Venue {
-  name: string;
-  label?: string;
+  club: string;
+  name?: string;
+  website?: string;
+  address?: string;
+  city: string;
+  plusCode?: string;
   latLng: VenueMapLatLngType;
   center?: VenueMapLatLngType;
 }

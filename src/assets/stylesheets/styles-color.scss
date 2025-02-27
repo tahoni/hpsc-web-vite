@@ -1,6 +1,11 @@
 /* Coolors Exported Palette - https://coolors.co/ca9148-0a07fb-f5f4f4-000000-f4f421 */
 
 /* Club Primary Colours */
+:root {
+  --club-primary-blue: #0a07fbff;
+  --club-primary-yellow: #f4f421ff;
+}
+
 $club-primary-butterscotch: #ca9148ff;
 $club-primary-blue: #0a07fbff;
 $club-primary-white-smoke: #f5f4f4ff;
@@ -8,6 +13,11 @@ $club-primary-black: #000000ff;
 $club-primary-yellow: #f4f421ff;
 
 /* Club Shaded Colours */
+:root {
+  --club-blue-light: #9c9bfd;
+  --club-blue-dark: #0603c9;
+}
+
 $club-butterscotch-dark: #130c07;
 $club-butterscotch-medium: #513615;
 $club-blue-lighter: #e6e6ff;

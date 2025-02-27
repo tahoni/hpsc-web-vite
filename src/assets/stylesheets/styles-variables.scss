@@ -6,15 +6,15 @@
 
 /* TahoniLib */
 :root {
-  --tl-loader-color: #f4f421ff; /* $club-primary-yellow */
+  --tl-loader-color: var(--club-primary-yellow);
 }
 
 /* Bootstrap */
 :root {
   .btn-primary, .btn-info {
-    --bs-btn-bg: #0a07fbff; /* $club-primary-blue */
-    --bs-btn-hover-bg: #0603c9; /* $club-blue-dark */
-    --bs-btn-border-color: #9c9bfd; /* $focus-ring-color = $club-blue-light */
-    --bs-btn-focus-shadow-rgb: 156, 155, 253; /* $focus-ring-color = $club-blue-light */
+    --bs-btn-bg: var(--club-primary-blue);
+    --bs-btn-hover-bg: var(--club-blue-dark);
+    --bs-btn-border-color: var(--focus-ring-color);
+    --bs-btn-focus-shadow-rgb: var(--focus-ring-color);
   }
 }

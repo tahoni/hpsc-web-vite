@@ -7,9 +7,9 @@ import { VenueType } from "../../model/Venue.ts";
 import SimpleVenueMap from "../../components/Map/SimpleVenueMap.tsx";
 import { copyrightYear } from "../../constants/AppConstants.ts";
 import {
-  EUFEES_SHOOTING_RANGE,
-  shootingRangeMapPins
-} from "../../constants/content/ShootingRanges.ts";
+  ShootingRanges,
+  shootingRangeVenues
+} from "../../content/posts/Venues/VenueConstants.ts";
 import {
   clubName,
   enquiriesEmail,
@@ -25,18 +25,21 @@ export const FooterContent = React.memo((): ReactElement => {
     height: classes.mapHeight
   };
 
-  const footerMapRange: string = EUFEES_SHOOTING_RANGE;
-  const footerMapPins: VenueType[] = [shootingRangeMapPins.get(footerMapRange)];
+  const footerMapRange: string = ShootingRanges.EUFEES;
+  const footerMapPins: VenueType[] = [shootingRangeVenues.get(footerMapRange)];
 
   return (
     <>
       <Row className={classes.footerContent}>
         <Col xs={{ span: 12 }} md={{ span: 6 }} className={classes.footerMap}>
-          <SimpleVenueMap
-            mapStyle={mapStyle}
-            center={shootingRangeMapPins.get(footerMapRange)?.latLng}
-            venues={footerMapPins}
-          />
+          {(footerMapPins) && (footerMapPins.length > 0) && (footerMapPins[0]) ?
+            <SimpleVenueMap
+              mapStyle={mapStyle}
+              center={footerMapPins[0].center ?? footerMapPins[0].latLng}
+              venues={footerMapPins}
+            />
+            :
+            <></>}
         </Col>
         <Col className={classes.footerDetails}>
           <div className={classes.contactInfo}>
