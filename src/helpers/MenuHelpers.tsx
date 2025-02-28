@@ -6,9 +6,15 @@ import {
   Home,
   Links,
   Members,
-  Venues
+  Venues,
 } from "./Items.tsx";
 
 export const menuItems: PageMapping[] = [
-  Home, Members, Links, Venues, History, ContactUs, AboutUs
+  Home,
+  Members,
+  Links,
+  Venues,
+  History,
+  AboutUs,
+  ContactUs,
 ];

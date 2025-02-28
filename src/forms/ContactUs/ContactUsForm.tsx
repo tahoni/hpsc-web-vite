@@ -10,16 +10,19 @@ import { ContactUsFormData } from "./ContactUsFormData.ts";
 import {
   contactUsJsonFields,
   contactUsJsonSchema,
-  contactUsUiSchema
+  contactUsUiSchema,
 } from "./ContactUsSchema.ts";
+import { renderToStaticMarkup } from "react-dom/server";
+import ContactUsEmailTemplate from "../../templates/ContactUs/ContactUsEmailTemplate.tsx";
 
 const ContactUsForm = React.memo((): ReactElement => {
+  const [seed, setSeed] = useState<number>(Math.random());
   const [formData, setFormData] = useState<ContactUsFormData | undefined>();
 
   const formRef = useRef<Form>(null);
 
   const transformErrors = (
-    errors: RJSFValidationError[]
+    errors: RJSFValidationError[],
   ): RJSFValidationError[] => {
     errors.map((error: RJSFValidationError) => {
       switch (error.name) {
@@ -123,7 +126,7 @@ const ContactUsForm = React.memo((): ReactElement => {
 
   const validateCaptcha = (
     formData: ContactUsFormData | undefined,
-    errors: any
+    errors: any,
   ): any => {
     if (formData !== undefined) {
       if (formData.captcha === undefined || !formData.captcha) {
@@ -138,6 +141,10 @@ const ContactUsForm = React.memo((): ReactElement => {
   };
 
   const handleSubmit = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
+    if (!formRef.current) {
+      return;
+    }
+
     // Sanitise the form data
     const name: string | undefined = sanitizeValue(data.formData.name);
     const email: string | undefined = sanitizeValue(data.formData.email);
@@ -151,7 +158,7 @@ const ContactUsForm = React.memo((): ReactElement => {
       email,
       subject,
       content,
-      captcha
+      captcha,
     };
     setFormData(contactUsData);
 
@@ -161,34 +168,43 @@ const ContactUsForm = React.memo((): ReactElement => {
 
     // If the form isn't valid, submit it to display the error messages
     if (!valid) {
-      formRef?.current?.submit();
+      // formRef.current.renderErrors(formRef.current.getRegistry());
+      formRef.current.submit();
       return;
     }
 
-    // If the form is valid, send the e-mail
-    const success: boolean = sendEmail(
-      new EmailMessage(
-        contactUsData.name,
-        contactUsData.email,
-        contactUsData.subject,
-        contactUsData.content
-      )
+    const emailMessage: EmailMessage = new EmailMessage(
+      contactUsData.name,
+      contactUsData.email,
+      contactUsData.subject,
+      contactUsData.content,
     );
+
+    // If the form is valid, generate and send the e-mail
+    let success: boolean = false;
+    if (emailMessage.isValid()) {
+      // Generate the e-mail
+      const emailHtml: string = renderToStaticMarkup(
+        <ContactUsEmailTemplate {...emailMessage} />,
+      );
+
+      // Send the e-mail
+      success = sendEmail(emailHtml);
+    }
 
     // Display a success or error message based on the result of the e-mail send operation
     if (success) {
       Swal.fire({
         text: "E-mail sent successfully",
-        icon: "success"
+        icon: "success",
       }).then(() => {
         setFormData(undefined);
       });
     } else {
       Swal.fire({
         text: "Failed to send e-mail",
-        icon: "error"
-      }).then(() => {
-      });
+        icon: "error",
+      }).then(() => {});
     }
   };
 
