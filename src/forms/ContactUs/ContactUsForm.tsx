@@ -10,10 +10,11 @@ import { ContactUsFormData } from "./ContactUsFormData.ts";
 import {
   contactUsJsonFields,
   contactUsJsonSchema,
+  contactUsJsonWidgets,
   contactUsUiSchema,
 } from "./ContactUsSchema.ts";
 import ContactUsEmailTemplate from "../../templates/ContactUs/ContactUsEmailTemplate.tsx";
-import TrimmedBaseInputTemplate from "../../components/Widgets/TrimmedBaseInputTemplate.tsx";
+import TrimmedBaseInputTemplate from "../../components/Text/TrimmedBaseInputTemplate.tsx";
 
 const ContactUsForm = React.memo((): ReactElement => {
   const [formData, setFormData] = useState<ContactUsFormData | undefined>();
@@ -123,7 +124,7 @@ const ContactUsForm = React.memo((): ReactElement => {
     return errors;
   };
 
-  const validateCaptcha = (
+  const validateFields = (
     formData: ContactUsFormData | undefined,
     errors: any,
   ): any => {
@@ -137,25 +138,11 @@ const ContactUsForm = React.memo((): ReactElement => {
 
   const handleSubmit = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
     if (!formRef.current) {
-      console.log("data", data);
       return;
     }
 
     // Populate the form with the sanitised data
     const contactUsData: ContactUsFormData = data.formData;
-    console.log("contactUsData", contactUsData);
-    // formRef.current.forceUpdate();
-
-    // Validate the form
-    // const valid: boolean | undefined = formRef.current.validateForm();
-    // formRef.current.forceUpdate();
-
-    // If the form isn't valid, submit it to display the error messages
-    // if (!valid) {
-    //   formRef.current.renderErrors(formRef.current.getRegistry());
-    //   // formRef.current.submit();
-    //   return;
-    // }
 
     const emailMessage: EmailMessage = new EmailMessage(
       contactUsData.name,
@@ -199,9 +186,10 @@ const ContactUsForm = React.memo((): ReactElement => {
       schema={contactUsJsonSchema}
       uiSchema={contactUsUiSchema}
       fields={contactUsJsonFields}
+      widgets={contactUsJsonWidgets}
       validator={validator}
       templates={{ BaseInputTemplate: TrimmedBaseInputTemplate }}
-      customValidate={validateCaptcha}
+      customValidate={validateFields}
       transformErrors={transformErrors}
       showErrorList={false}
       noHtml5Validate={true}

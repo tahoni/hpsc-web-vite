@@ -19,11 +19,8 @@ const TrimmedBaseInputTemplate = (props: BaseInputTemplateProps) => {
   };
 
   const handleBlur = (id: string, value: string): void => {
-    console.log("value", value);
     const sanitizedValue: string = sanitizeValue(value);
-    console.log("value", sanitizedValue);
     const trimmedValue: string = sanitizedValue.trim();
-    console.log("value", trimmedValue);
     if (trimmedValue !== value) {
       handleChange(trimmedValue, undefined, id);
     }
