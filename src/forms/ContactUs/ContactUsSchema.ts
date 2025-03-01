@@ -17,6 +17,8 @@ export const contactUsJsonSchema: RJSFSchema = {
       title: "E-mail address",
       minLength: 5,
       maxLength: 100,
+      // TODO: fix pattern
+      pattern: "^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",
     },
     subject: {
       type: "string",

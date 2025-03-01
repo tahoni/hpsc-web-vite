@@ -135,32 +135,14 @@ const ContactUsForm = React.memo((): ReactElement => {
     return errors;
   };
 
-  const handleChange = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
-    setFormData(data.formData);
-  };
-
   const handleSubmit = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
     if (!formRef.current) {
       console.log("data", data);
       return;
     }
 
-    // Sanitise the form data
-    const name: string | undefined = data.formData.name;
-    const email: string | undefined = data.formData.email;
-    const subject: string | undefined = data.formData.subject;
-    const content: string | undefined = data.formData.content;
-    const captcha: boolean | undefined = data.formData.captcha;
-
     // Populate the form with the sanitised data
-    const contactUsData: ContactUsFormData = {
-      name: name,
-      email: email,
-      subject: subject,
-      content: content,
-      captcha: captcha,
-    };
-    // setFormData(contactUsData);
+    const contactUsData: ContactUsFormData = data.formData;
     console.log("contactUsData", contactUsData);
     // formRef.current.forceUpdate();
 
@@ -224,7 +206,6 @@ const ContactUsForm = React.memo((): ReactElement => {
       showErrorList={false}
       noHtml5Validate={true}
       focusOnFirstError={true}
-      onChange={handleChange}
       onSubmit={handleSubmit}
     />
   );

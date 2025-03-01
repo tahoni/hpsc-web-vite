@@ -1,41 +1,42 @@
-import { JSX } from "react";
 import { BaseInputTemplateProps, ErrorSchema } from "@rjsf/utils";
 import { getDefaultRegistry } from "@rjsf/core";
-import { clearValue, sanitizeValue } from "../../utils/HtmlUtils.ts";
+import { sanitizeValue } from "../../utils/HtmlUtils.ts";
 
-const {
-  templates: { BaseInputTemplate },
-} = getDefaultRegistry(); // To get templates from core
-
-const TrimmedBaseInputTemplate = (
-  props: BaseInputTemplateProps,
-): JSX.Element => {
-  const { options, onChange, onBlur } = props;
+const TrimmedBaseInputTemplate = (props: BaseInputTemplateProps) => {
+  const { onChange, onBlur } = props;
 
   const handleChange = (
     value: string,
     es?: ErrorSchema | undefined,
     id?: string,
   ): void => {
-    let trimmedValue: string = value ?? options.emptyValue;
+    let trimmedValue: string = value;
     if (value) {
-      trimmedValue = clearValue(value.trimStart(), options.emptyValue);
+      trimmedValue = value.trimStart();
     }
-    
-    onChange(clearValue(trimmedValue, options.emptyValue), es, id);
+
+    onChange(trimmedValue, es, id);
   };
 
-  const handleBlur = (id: string, value: any): void => {
-    const sanitizedValue = sanitizeValue(value);
-    if (sanitizedValue !== value) {
-      console.log("Here");
-      onChange(sanitizedValue, undefined, id);
+  const handleBlur = (id: string, value: string): void => {
+    console.log("value", value);
+    const sanitizedValue: string = sanitizeValue(value);
+    console.log("value", sanitizedValue);
+    const trimmedValue: string = sanitizedValue.trim();
+    console.log("value", trimmedValue);
+    if (trimmedValue !== value) {
+      handleChange(trimmedValue, undefined, id);
     }
-    onBlur(id, sanitizedValue);
+    onBlur(id, trimmedValue);
   };
 
+  const OldBaseInputTemplate = getDefaultRegistry().templates.BaseInputTemplate;
   return (
-    <BaseInputTemplate {...props} onChange={handleChange} onBlur={handleBlur} />
+    <OldBaseInputTemplate
+      {...props}
+      onChange={handleChange}
+      onBlur={handleBlur}
+    />
   );
 };
 
