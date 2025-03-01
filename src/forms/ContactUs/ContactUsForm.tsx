@@ -1,4 +1,4 @@
-import { ReactElement, useRef, useState } from "react";
+import React, { ReactElement, useRef, useState } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
@@ -13,9 +13,9 @@ import {
   contactUsUiSchema,
 } from "./ContactUsSchema.ts";
 import ContactUsEmailTemplate from "../../templates/ContactUs/ContactUsEmailTemplate.tsx";
+import TrimmedBaseInputTemplate from "../../components/Widgets/TrimmedBaseInputTemplate.tsx";
 
 const ContactUsForm = React.memo((): ReactElement => {
-  const [seed, setSeed] = useState<number>(Math.random());
   const [formData, setFormData] = useState<ContactUsFormData | undefined>();
 
   const formRef = useRef<Form>(null);
@@ -218,6 +218,7 @@ const ContactUsForm = React.memo((): ReactElement => {
       uiSchema={contactUsUiSchema}
       fields={contactUsJsonFields}
       validator={validator}
+      templates={{ BaseInputTemplate: TrimmedBaseInputTemplate }}
       customValidate={validateCaptcha}
       transformErrors={transformErrors}
       showErrorList={false}
