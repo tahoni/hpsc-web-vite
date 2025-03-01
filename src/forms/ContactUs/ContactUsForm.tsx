@@ -1,9 +1,9 @@
-import React, { ReactElement, useRef, useState } from "react";
+import { ReactElement, useRef, useState } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
-import { sanitizeValue } from "../../utils/HtmlUtils.ts";
 import { sendEmail } from "../../services/EmailService.ts";
 import { EmailMessage } from "../../model/EmailMessage.ts";
 import { ContactUsFormData } from "./ContactUsFormData.ts";
@@ -12,7 +12,6 @@ import {
   contactUsJsonSchema,
   contactUsUiSchema,
 } from "./ContactUsSchema.ts";
-import { renderToStaticMarkup } from "react-dom/server";
 import ContactUsEmailTemplate from "../../templates/ContactUs/ContactUsEmailTemplate.tsx";
 
 const ContactUsForm = React.memo((): ReactElement => {
@@ -142,36 +141,39 @@ const ContactUsForm = React.memo((): ReactElement => {
 
   const handleSubmit = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
     if (!formRef.current) {
+      console.log("data", data);
       return;
     }
 
     // Sanitise the form data
-    const name: string | undefined = sanitizeValue(data.formData.name);
-    const email: string | undefined = sanitizeValue(data.formData.email);
-    const subject: string | undefined = sanitizeValue(data.formData.subject);
-    const content: string | undefined = sanitizeValue(data.formData.content);
+    const name: string | undefined = data.formData.name;
+    const email: string | undefined = data.formData.email;
+    const subject: string | undefined = data.formData.subject;
+    const content: string | undefined = data.formData.content;
     const captcha: boolean | undefined = data.formData.captcha;
 
     // Populate the form with the sanitised data
     const contactUsData: ContactUsFormData = {
-      name,
-      email,
-      subject,
-      content,
-      captcha,
+      name: name,
+      email: email,
+      subject: subject,
+      content: content,
+      captcha: captcha,
     };
-    setFormData(contactUsData);
+    // setFormData(contactUsData);
+    console.log("contactUsData", contactUsData);
+    // formRef.current.forceUpdate();
 
     // Validate the form
-    const valid: boolean | undefined =
-      formRef?.current?.validateFormWithFormData(contactUsData);
+    // const valid: boolean | undefined = formRef.current.validateForm();
+    // formRef.current.forceUpdate();
 
     // If the form isn't valid, submit it to display the error messages
-    if (!valid) {
-      // formRef.current.renderErrors(formRef.current.getRegistry());
-      formRef.current.submit();
-      return;
-    }
+    // if (!valid) {
+    //   formRef.current.renderErrors(formRef.current.getRegistry());
+    //   // formRef.current.submit();
+    //   return;
+    // }
 
     const emailMessage: EmailMessage = new EmailMessage(
       contactUsData.name,

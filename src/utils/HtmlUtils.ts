@@ -7,3 +7,7 @@ export const sanitizeValue = (value?: string): string => {
   });
   return sanitizedValue.trim() ?? "";
 };
+
+export const clearValue = (value: string, clearValue?: any): string => {
+  return value && value.length ? value : clearValue;
+};
