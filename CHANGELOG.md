@@ -38,7 +38,7 @@ Added lazy loading of pages.<br/>
 Fixed the form styling.<br/>
 
 #### Enhancements and Updates
-- Created a page component for the common elements of all pages.
+- A page component was created for the common elements of all pages.
 - Added lazy loading of pages in the page component.
 - Added a `styles-classes.scss` stylesheet to create generic form control styles.
 - Added these styles to the `style.scss` stylesheet to style all forms consistently.
@@ -178,11 +178,11 @@ Created a Members page.<br/>
 - Created a Links page with hyperlinks to the NGPSA, SAPSA, and IPSC websites.
 - Created a Member page with a photo of the club shirts.
 - Modified the key of the map pin component.
-- Moved the logo files to the public directory.
+- The logo files were moved to the public directory.
 - Store the names of the logo files as constants.
 - Removed all low-resolution logo files.
 - Removed all links to uncompleted pages from the website.
-- Moved all page contents to the content directory.
+- All the page contents were moved to the content directory.
 - Don't add content to the page; add content components instead.
 - Populate the member's page with an array of components.
 
@@ -198,12 +198,12 @@ Created a Members page.<br/>
 @tahoni
 
 ### [Version 3.3.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.1) - _2025-01-02_
-Created an About Us page.<br/>
+Created About Us page.<br/>
 
 #### Enhancements and Updates
 - A mode property was added to the map component.   
 - A centre property was added to the map component.
-- Created an About Us page with contact details and a satellite map of the shooting range.
+- An About Us page was created with contact details and a satellite map of the shooting range.
 
 #### Dependencies
 - Added the Google Maps info window library from `@react-google-maps`.
@@ -212,17 +212,17 @@ Created an About Us page.<br/>
 @tahoni
 
 ### [Version 3.3.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.0) - _2025-01-02_
-Created a Contact Us page.<br/>
+Created Contact Us page.<br/>
 
 #### Enhancements and Updates
-- Created a page title component.
+- A page title component was created.
 - Created a CAPTCHA component for Google reCAPTCHA.
-- Created a CAPTCHA field for the JSON schema form using the above component.
+- A CAPTCHA field was created for the JSON schema form using the above component.
 - Validated the CAPTCHA field with a custom validator function.
 - A JSON schema with validations for the Contact Us page was created.
-- Added the CAPTCHA field to the JSON schema.
-- Created a Contact Us page using this JSON schema with a CAPTCHA puzzle.
-- Sanitized all input before submitting it to the service.
+- The CAPTCHA field was added to the JSON schema.
+- A Contact Us page was created using this JSON schema with a CAPTCHA puzzle.
+- Sanitized all inputs before submitting them to the service.
 - A message is displayed when the request is successfully sent.
 - The back-end is not working yet.
 
@@ -247,8 +247,8 @@ Created a Contact Us page.<br/>
 Improved the documentation.<br />
 
 #### Licence and Documentation
-- Brought the readme file up to date.
-- Brought the licence file up to date.
+- The readme file was brought up to date.
+- The licence file waa brought up to date.
 - Added release notes.
 - Added a change log.
 
@@ -420,7 +420,7 @@ Created the sidebar component and added it to the homepage.<br />
 #### Enhancements and Updates
 - A Markdown file containing the About Us content was added.
 - Made the NGPSA logo a hyperlink to the NGPSA website.
-- Changed the HPSC logo redirects to the homepage.
+- The HPSC logo was changed to redirect to the homepage.
 - Added the sidebar component and added it directly to the homepage.
 - Added the semi-transparent sidebar images of two shooters.
 - Added content to the homepage.
@@ -434,7 +434,7 @@ Created the sidebar component and added it to the homepage.<br />
 
 #### Licence and Documentation
 - Changed the licence to "All rights reserved".
-- Added the homepage to the readme file.
+- The homepage was added to the readme file.
 
 #### Dependencies
 - Removed unused dependencies.
@@ -569,7 +569,7 @@ Created a homepage with an under-construction carousel.<br />
 - Use the tahoni React library for data structures.
 
 #### Licence and Documentation
-- Created a readme file with a detailed project description, structure,
+- A readme file was created with a detailed project description, structure,
   technology stack, instructions, screenshots, licence, author, and support
   information.
 - Added a licence file.

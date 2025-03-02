@@ -1,4 +1,6 @@
 // Name, description and abbreviation
+import { logoAkt } from "../AppConstants.ts";
+
 export const clubName: string = "Hartbeespoortdam Practical Shooting Club";
 export const clubAbbreviation: string = "HPSC";
 export const clubShootingRangeName: string = "Eeufees Range";
@@ -27,4 +29,4 @@ export const facebookGroup: string = facebookUrl + "groups/933580883991020";
 export const clubLogoFilename: string = "hpsc-logo.png";
 export const clubLogoPath: string = "/assets/images/logos";
 export const clubLogo: string = clubLogoPath + "/" + clubLogoFilename;
-export const clubLogoAlt: string = clubName + " Logo";
+export const clubLogoAlt: string = clubName + " " + logoAkt;
