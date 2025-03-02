@@ -1,12 +1,12 @@
 import { RJSFSchema, UiSchema } from "@rjsf/utils";
 import CaptchaField from "../../components/Captcha/CaptchaField";
-import TrimmedTextareaWidget from "../../components/Text/TrimmedTextareaWidget.tsx";
+import SanitizedTextareaWidget from "../../components/Text/SanitizedTextareaWidget.tsx";
 
 export const contactUsJsonFields = {
   captchaField: CaptchaField,
 };
 export const contactUsJsonWidgets = {
-  trimmedTextareaWidget: TrimmedTextareaWidget,
+  sanitizedTextareaWidget: SanitizedTextareaWidget,
 };
 
 export const contactUsJsonSchema: RJSFSchema = {
@@ -60,7 +60,7 @@ export const contactUsUiSchema: UiSchema = {
     },
   },
   content: {
-    "ui:widget": "trimmedTextareaWidget",
+    "ui:widget": "sanitizedTextareaWidget",
     "ui:options": {
       rows: 5,
     },

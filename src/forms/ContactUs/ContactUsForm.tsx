@@ -14,7 +14,7 @@ import {
   contactUsUiSchema,
 } from "./ContactUsSchema.ts";
 import ContactUsEmailTemplate from "../../templates/ContactUs/ContactUsEmailTemplate.tsx";
-import TrimmedBaseInputTemplate from "../../components/Text/TrimmedBaseInputTemplate.tsx";
+import SanitizedBaseInputTemplate from "../../components/Text/SanitizedBaseInputTemplate.tsx";
 
 const ContactUsForm = React.memo((): ReactElement => {
   const [formData, setFormData] = useState<ContactUsFormData | undefined>();
@@ -188,7 +188,7 @@ const ContactUsForm = React.memo((): ReactElement => {
       fields={contactUsJsonFields}
       widgets={contactUsJsonWidgets}
       validator={validator}
-      templates={{ BaseInputTemplate: TrimmedBaseInputTemplate }}
+      templates={{ BaseInputTemplate: SanitizedBaseInputTemplate }}
       customValidate={validateFields}
       transformErrors={transformErrors}
       showErrorList={false}
