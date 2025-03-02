@@ -1,9 +1,11 @@
 import { ReactElement } from "react";
-import { EmailContent } from "../../model/EmailContent.ts";
+import { EmailMessage } from "../../model/EmailMessage.ts";
 import { Heading, Html, Img, Section } from "@react-email/components";
 import { baseUrl } from "../../constants/AppConstants.ts";
 
-class ContactUsEmailTemplateProps extends EmailContent {}
+interface ContactUsEmailTemplateProps {
+  emailMessage: EmailMessage;
+}
 
 const ContactUsEmailTemplate = (
   props: ContactUsEmailTemplateProps,
@@ -49,9 +51,9 @@ const ContactUsEmailTemplate = (
           Sender
         </Heading>
         <Heading as={"h3"}>Name</Heading>
-        {props.name}
+        {props.emailMessage.name}
         <Heading as={"h3"}>E-mail address</Heading>
-        {props.email}
+        {props.emailMessage.email}
       </Section>
       <br />
       <br />
@@ -68,9 +70,9 @@ const ContactUsEmailTemplate = (
           Message
         </Heading>
         <Heading as={"h3"}>Subject</Heading>
-        {props.subject}
+        {props.emailMessage.subject}
         <Heading as={"h3"}>Content</Heading>
-        {props.content}
+        {props.emailMessage.content}
       </Section>
       <br />
       <br />

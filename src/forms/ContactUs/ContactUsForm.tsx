@@ -4,17 +4,18 @@ import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
-import { sendEmail } from "../../services/EmailService.ts";
+import { Email } from "../../model/Email.ts";
 import { EmailMessage } from "../../model/EmailMessage.ts";
 import { ContactUsFormData } from "./ContactUsFormData.ts";
+import { sendEmail } from "../../services/EmailService.ts";
 import {
   contactUsJsonFields,
   contactUsJsonSchema,
   contactUsJsonWidgets,
   contactUsUiSchema,
 } from "./ContactUsSchema.ts";
-import ContactUsEmailTemplate from "../../templates/ContactUs/ContactUsEmailTemplate.tsx";
 import SanitizedBaseInputTemplate from "../../components/Text/SanitizedBaseInputTemplate.tsx";
+import ContactUsEmailTemplate from "../../templates/ContactUs/ContactUsEmailTemplate.tsx";
 
 const ContactUsForm = React.memo((): ReactElement => {
   const [formData, setFormData] = useState<ContactUsFormData | undefined>();
@@ -144,23 +145,29 @@ const ContactUsForm = React.memo((): ReactElement => {
     // Populate the form with the sanitised data
     const contactUsData: ContactUsFormData = data.formData;
 
-    const emailMessage: EmailMessage = new EmailMessage(
-      contactUsData.name,
-      contactUsData.email,
-      contactUsData.subject,
-      contactUsData.content,
-    );
+    const emailMessage: EmailMessage = new EmailMessage(contactUsData);
 
     // If the form is valid, generate and send the e-mail
     let success: boolean = false;
+    console.log("valid", emailMessage.isValid());
+
     if (emailMessage.isValid()) {
       // Generate the e-mail
-      const emailHtml: string = renderToStaticMarkup(
-        <ContactUsEmailTemplate {...emailMessage} />,
+      const htmlMessage: string = renderToStaticMarkup(
+        <ContactUsEmailTemplate emailMessage={emailMessage} />,
       );
+      console.log("htmlMessage", htmlMessage);
 
       // Send the e-mail
-      success = sendEmail(emailHtml);
+      const email: Email = new Email({
+        name: emailMessage.name,
+        subject: emailMessage.subject,
+        email: emailMessage.email,
+        content: emailMessage.content,
+        message: htmlMessage,
+      });
+      console.log("email", email);
+      success = sendEmail(email);
     }
 
     // Display a success or error message based on the result of the e-mail send operation

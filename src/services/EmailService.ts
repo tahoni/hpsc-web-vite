@@ -1,4 +1,6 @@
-export const sendEmail = (email: string): boolean => {
+import { Email } from "../model/Email.ts";
+
+export const sendEmail = (email: Email): boolean => {
   console.log("email", email);
-  return true;
+  return email.isValid();
 };
