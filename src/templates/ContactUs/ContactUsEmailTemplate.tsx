@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
-import { EmailMessage } from "../../model/EmailMessage.ts";
+import { EmailContent } from "../../model/EmailContent.ts";
 import { Heading, Html, Img, Section } from "@react-email/components";
-import { baseUrl } from "../../constants/AppConstants.ts";
+import { clubLogoAlt } from "../../constants/about/ClubConstants.ts";
 
 interface ContactUsEmailTemplateProps {
-  emailMessage: EmailMessage;
+  emailMessage: EmailContent;
 }
 
 const ContactUsEmailTemplate = (
@@ -21,8 +21,8 @@ const ContactUsEmailTemplate = (
     >
       <Section>
         <Img
-          src={baseUrl + "/assets/images/logos/hpsc-logo.png"}
-          alt={"HPSC Logo"}
+          src={"cid:club_logo"}
+          alt={clubLogoAlt}
           height="100px"
           width="100px"
         />

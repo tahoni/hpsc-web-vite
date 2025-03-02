@@ -6,7 +6,7 @@ Added lazy loading of pages.<br/>
 Fixed the form styling.<br/>
 
 #### Enhancements and Updates
-- Created a page component for the common elements of all pages.
+- A page component was created for the common elements of all pages.
 - Added lazy loading of pages in the page component.
 - Added a `styles-classes.scss` stylesheet to create generic form control styles.
 - Added these styles to the `style.scss` stylesheet to style all forms consistently.

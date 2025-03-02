@@ -4,10 +4,10 @@ import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
-import { Email } from "../../model/Email.ts";
 import { EmailMessage } from "../../model/EmailMessage.ts";
+import { EmailContent } from "../../model/EmailContent.ts";
 import { ContactUsFormData } from "./ContactUsFormData.ts";
-import { sendEmail } from "../../services/EmailService.ts";
+import { EmailService } from "../../services/EmailService.ts";
 import {
   contactUsJsonFields,
   contactUsJsonSchema,
@@ -16,8 +16,14 @@ import {
 } from "./ContactUsSchema.ts";
 import SanitizedBaseInputTemplate from "../../components/Text/SanitizedBaseInputTemplate.tsx";
 import ContactUsEmailTemplate from "../../templates/ContactUs/ContactUsEmailTemplate.tsx";
+import {
+  clubLogoFilename,
+  clubLogoPath,
+} from "../../constants/about/ClubConstants.ts";
 
 const ContactUsForm = React.memo((): ReactElement => {
+  const emailService = new EmailService();
+
   const formRef = useRef<Form>(null);
 
   const transformErrors = (
@@ -135,7 +141,9 @@ const ContactUsForm = React.memo((): ReactElement => {
     return errors;
   };
 
-  const handleSubmit = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
+  const handleSubmit = async (
+    data: IChangeEvent<any, StrictRJSFSchema>,
+  ): Promise<void> => {
     if (!formRef.current) {
       return;
     }
@@ -143,26 +151,38 @@ const ContactUsForm = React.memo((): ReactElement => {
     // Populate the form with the sanitised data
     const contactUsData: ContactUsFormData = data.formData;
 
-    const emailMessage: EmailMessage = new EmailMessage(contactUsData);
+    const emailContent: EmailContent = new EmailContent(contactUsData);
 
     // If the form is valid, generate and send the e-mail
     let success: boolean = false;
 
-    if (emailMessage.isValid()) {
+    if (emailContent.isValid()) {
       // Generate the e-mail
       const htmlMessage: string = renderToStaticMarkup(
-        <ContactUsEmailTemplate emailMessage={emailMessage} />,
+        <ContactUsEmailTemplate emailMessage={emailContent} />,
       );
 
-      // Send the e-mail
-      const email: Email = new Email({
-        name: emailMessage.name,
-        subject: emailMessage.subject,
-        email: emailMessage.email,
-        content: emailMessage.content,
+      // Create the e-mail
+      const emailMessage: EmailMessage = new EmailMessage({
+        name: emailContent.name,
+        subject: emailContent.subject,
+        email: emailContent.email,
+        content: emailContent.content,
         message: htmlMessage,
       });
-      success = sendEmail(email);
+      emailMessage.attachments = [
+        {
+          filename: clubLogoFilename,
+          path: clubLogoPath,
+          cid: "club_logo",
+        },
+      ];
+
+      // Send the e-nail
+      success = await emailService.sendEmail(emailMessage).then(
+        (value: boolean): boolean => value,
+        (): boolean => false,
+      );
     }
 
     // Display a success or error message based on the result of the e-mail send operation

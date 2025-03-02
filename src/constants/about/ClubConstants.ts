@@ -9,10 +9,9 @@ export const clubShootingRangeDescription: string =
 export const chairmanEmail: string = "chairman@hpsc.co.za";
 export const adminEmail: string = "admin@hpsc.co.za";
 export const enquiriesEmail: string = "enquiries@hpsc.co.za";
-export const contactUsEmail: string = "contact.us@hpsc.co.za";
+export const contactUsEmail: string = "contact-us@hpsc.co.za";
 export const webmasterEmail: string = "webmaster@hpsc.co.za";
-export const contactEmail: string =
-  import.meta.env.VITE_CONTACT_US_EMAIL ?? contactUsEmail;
+export const noReplyEmail: string = "no-reply@hpsc.co.za";
 
 // People
 export const chairmanName: string = "Jan Kleynhans";
@@ -25,4 +24,7 @@ export const facebookPage: string =
 export const facebookGroup: string = facebookUrl + "groups/933580883991020";
 
 // Logos
-export const clubLogo: string = "/assets/images/logos/hpsc-logo.png";
+export const clubLogoFilename: string = "hpsc-logo.png";
+export const clubLogoPath: string = "/assets/images/logos";
+export const clubLogo: string = clubLogoPath + "/" + clubLogoFilename;
+export const clubLogoAlt: string = clubName + " Logo";

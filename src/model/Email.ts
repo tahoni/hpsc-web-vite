@@ -1,29 +1,85 @@
-import { EmailMessage } from "./EmailMessage.ts";
-import { sanitizeValue } from "../utils/HtmlUtils.ts";
+import { EmailAttachment } from "./EmailAttachment.ts";
 
-export class Email extends EmailMessage {
+export class Email {
+  private _from: string;
+  private _to: string;
+  private _cc?: string[];
+  private _subject: string;
   private _message: string;
+  private _messageType: string;
+  private _attachments: EmailAttachment[];
 
   constructor(email: {
-    name?: string;
-    email?: string;
+    from: string;
+    to: string;
+    cc?: string[];
     subject?: string;
-    content?: string;
     message?: string;
+    messageType?: string;
+    attachments?: EmailAttachment[];
   }) {
-    super({ ...email });
-    this._message = (email.message ?? "").trim();
+    this._from = email.from;
+    this._to = email.to;
+    this._cc = email.cc;
+    this._subject = email.subject ?? "";
+    this._message = email.message ?? "";
+    this._messageType = email.messageType ?? "html";
+    this._attachments = email.attachments ?? [];
   }
 
-  override isValid(): boolean {
-    return super.isValid() ? this._message !== "" : false;
+  get from(): string {
+    return this._from;
   }
 
-  get message(): string | undefined {
+  set from(value: string) {
+    this._from = value;
+  }
+
+  get to(): string {
+    return this._to;
+  }
+
+  set to(value: string) {
+    this._to = value;
+  }
+
+  get cc(): string[] | undefined {
+    return this._cc;
+  }
+
+  set cc(value: string[]) {
+    this._cc = value;
+  }
+
+  get subject(): string {
+    return this._subject;
+  }
+
+  set subject(value: string) {
+    this._subject = value;
+  }
+
+  get message(): string {
     return this._message;
   }
 
   set message(value: string) {
-    this._message = sanitizeValue(value).trim();
+    this._message = value;
+  }
+
+  get messageType(): string {
+    return this._messageType;
+  }
+
+  set messageType(value: string) {
+    this._messageType = value;
+  }
+
+  get attachments(): EmailAttachment[] {
+    return this._attachments;
+  }
+
+  set attachments(value: EmailAttachment[]) {
+    this._attachments = value;
   }
 }

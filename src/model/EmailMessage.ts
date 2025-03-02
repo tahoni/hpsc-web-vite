@@ -1,62 +1,39 @@
+import { EmailContent } from "./EmailContent.ts";
 import { sanitizeValue } from "../utils/HtmlUtils.ts";
 
-export class EmailMessage {
-  private _name: string;
-  private _email: string;
-  private _subject: string;
-  private _content: string;
+export class EmailMessage extends EmailContent {
+  private _message: string;
+  private _attachments: any[];
 
-  constructor(message: {
+  constructor(email: {
     name?: string;
     email?: string;
     subject?: string;
     content?: string;
+    message?: string;
   }) {
-    this._name = sanitizeValue(message.name ?? "").trim();
-    this._email = sanitizeValue(message.email ?? "").trim();
-    this._subject = sanitizeValue(message.subject ?? "").trim();
-    this._content = sanitizeValue(message.content ?? "").trim();
+    super({ ...email });
+    this._message = (email.message ?? "").trim();
+    this._attachments = [];
   }
 
-  isValid(): boolean {
-    console.log("emailMessage", this);
-    return (
-      this._name !== "" &&
-      this._email !== "" &&
-      this._subject !== "" &&
-      this._content !== ""
-    );
+  override isValid(): boolean {
+    return super.isValid() ? this._message !== "" : false;
   }
 
-  get name(): string {
-    return this._name;
+  get message(): string | undefined {
+    return this._message;
   }
 
-  set name(value: string) {
-    this._name = sanitizeValue(value).trim();
+  set message(value: string) {
+    this._message = sanitizeValue(value).trim();
   }
 
-  get email(): string {
-    return this._email;
+  get attachments(): any[] {
+    return this._attachments;
   }
 
-  set email(value: string) {
-    this._email = sanitizeValue(value).trim();
-  }
-
-  get subject(): string {
-    return this._subject;
-  }
-
-  set subject(value: string) {
-    this._subject = sanitizeValue(value).trim();
-  }
-
-  get content(): string {
-    return this._content;
-  }
-
-  set content(value: string) {
-    this._content = sanitizeValue(value).trim();
+  set attachments(value: any[]) {
+    this._attachments = value;
   }
 }
