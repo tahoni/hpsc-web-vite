@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef, useState } from "react";
+import React, { ReactElement, useRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
@@ -18,8 +18,6 @@ import SanitizedBaseInputTemplate from "../../components/Text/SanitizedBaseInput
 import ContactUsEmailTemplate from "../../templates/ContactUs/ContactUsEmailTemplate.tsx";
 
 const ContactUsForm = React.memo((): ReactElement => {
-  const [formData, setFormData] = useState<ContactUsFormData | undefined>();
-
   const formRef = useRef<Form>(null);
 
   const transformErrors = (
@@ -149,14 +147,12 @@ const ContactUsForm = React.memo((): ReactElement => {
 
     // If the form is valid, generate and send the e-mail
     let success: boolean = false;
-    console.log("valid", emailMessage.isValid());
 
     if (emailMessage.isValid()) {
       // Generate the e-mail
       const htmlMessage: string = renderToStaticMarkup(
         <ContactUsEmailTemplate emailMessage={emailMessage} />,
       );
-      console.log("htmlMessage", htmlMessage);
 
       // Send the e-mail
       const email: Email = new Email({
@@ -166,7 +162,6 @@ const ContactUsForm = React.memo((): ReactElement => {
         content: emailMessage.content,
         message: htmlMessage,
       });
-      console.log("email", email);
       success = sendEmail(email);
     }
 
@@ -176,7 +171,7 @@ const ContactUsForm = React.memo((): ReactElement => {
         text: "E-mail sent successfully",
         icon: "success",
       }).then(() => {
-        setFormData(undefined);
+        formRef.current?.reset();
       });
     } else {
       Swal.fire({
@@ -189,7 +184,6 @@ const ContactUsForm = React.memo((): ReactElement => {
   return (
     <Form
       ref={formRef}
-      formData={formData}
       schema={contactUsJsonSchema}
       uiSchema={contactUsUiSchema}
       fields={contactUsJsonFields}
