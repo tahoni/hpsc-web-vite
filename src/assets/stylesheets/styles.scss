@@ -12,6 +12,13 @@ html, body {
   font-variation-settings: "wdth" 100;
 }
 
+/* Body */
+#root .container-fluid {
+  width: 100%;
+  max-width: 1366px;
+  padding: 0;
+}
+
 /* Form controls */
 .form-group {
   @extend .form-group-default;

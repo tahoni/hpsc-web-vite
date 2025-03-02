@@ -1,20 +1,12 @@
 import { PageMapping } from "../model/PageMapping.ts";
-import {
-  AboutUs,
-  ContactUs,
-  History,
-  Home,
-  Links,
-  Members,
-  Venues,
-} from "./Items.tsx";
+import { AboutUs, History, Home, Links, Members } from "./Aliases.tsx";
 
 export const menuItems: PageMapping[] = [
   Home,
   Members,
   Links,
-  Venues,
+  // Venues,
   History,
   AboutUs,
-  ContactUs,
+  // ContactUs,
 ];

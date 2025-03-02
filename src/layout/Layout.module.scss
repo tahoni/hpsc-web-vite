@@ -1,9 +1,4 @@
-@import "../assets/stylesheets/styles-theme";
-
 .layout {
-  width: 100%;
-  max-width: $layout-max-width;
-  padding: 0 !important;
   display: flex;
   flex-direction: column;
 }
