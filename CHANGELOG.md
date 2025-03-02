@@ -2,6 +2,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.4.1](#version-341---_2025-03-02_)
 - [Version 3.4.0](#version-340---_2025-02-25_)
 - [Version 3.3.9](#version-339---_2025-02-15_)
 - [Version 3.3.8](#version-338---_2025-02-09_)
@@ -33,6 +34,25 @@
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
 
+### [Version 3.4.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.0) - _2025-03-02_
+Added a maximum width to the web content.<br/>
+Finished the Contact Us page.<br/>
+Created an e-mail to send on the submission of the Contact Us form,<br/>
+
+#### Enhancements and Updates
+- Limit the width of the web content in the global stylesheet.
+- Clean all user inputs when an element loses focus or a form is submitted.`
+- Created an e-mail to send with the Contact Us message.
+
+#### General Technical Changes
+- Split the code into sensible bundles.
+
+#### Dependencies
+- A dependency was added to help split bundles by displaying the bundles' composition after each build.
+
+#### Changes by
+@tahoni
+
 ### [Version 3.4.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.0) - _2025-02-25_
 Added lazy loading of pages.<br/>
 Fixed the form styling.<br/>
@@ -42,7 +62,7 @@ Fixed the form styling.<br/>
 - Added lazy loading of pages in the page component.
 - Added a `styles-classes.scss` stylesheet to create generic form control styles.
 - Added these styles to the `style.scss` stylesheet to style all forms consistently.
-- Added a variable to change the colour of the loader.
+- A variable to change the colour of the loader was added.
 
 #### General Code Improvements
 - Components are exported by default instead of by name in preparation for lazy loading.
@@ -212,17 +232,17 @@ Created About Us page.<br/>
 @tahoni
 
 ### [Version 3.3.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.0) - _2025-01-02_
-Created Contact Us page.<br/>
+A Contact Us page was created.<br/>
 
 #### Enhancements and Updates
 - A page title component was created.
 - Created a CAPTCHA component for Google reCAPTCHA.
-- A CAPTCHA field was created for the JSON schema form using the above component.
+- A CAPTCHA field was created for the JSON schema form using the Google ReCAPTCHA component.
 - Validated the CAPTCHA field with a custom validator function.
 - A JSON schema with validations for the Contact Us page was created.
 - The CAPTCHA field was added to the JSON schema.
 - A Contact Us page was created using this JSON schema with a CAPTCHA puzzle.
-- Sanitized all inputs before submitting them to the service.
+- When submitting to the service, all user inputs are cleaned.
 - A message is displayed when the request is successfully sent.
 - The back-end is not working yet.
 
@@ -248,7 +268,7 @@ Improved the documentation.<br />
 
 #### Licence and Documentation
 - The readme file was brought up to date.
-- The licence file waa brought up to date.
+- The licence file was brought up to date.
 - Added release notes.
 - Added a change log.
 
@@ -313,8 +333,7 @@ Completed the map to the shooting range in the footer.<br />
 - Created map components with simple and clustered markers using the standard
   Google Maps components.
 - Improved the text and background contrast, including the background gradient.
-- Add the image of the IPSC target with bullet holes to the `public\assets`
-  directory.
+- Added the image of the IPSC target with bullet holes to the `public/assets` directory.
 
 #### General Code Improvements
 - Wrapped all components in a React memo.
