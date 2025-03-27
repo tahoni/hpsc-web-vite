@@ -36,15 +36,23 @@
 
 
 ### [Version 3.4.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.2) - _2025-03-29_
+Added sections and articles to the pages.<br/>
+
+#### Enhancements and Updates
+- Added a section element to all pages to group related content.
+- Added article elements for all independent content.
+
+#### Dependencies
+- Mitigated vulnerable dependencies.
+
 #### Changes by
 @dependabot
 @tahoni
 
-
 ### [Version 3.4.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.1) - _2025-03-02_
 Added a maximum width to the web content.<br/>
 Finished the Contact Us page.<br/>
-Created an e-mail to send on the submission of the Contact Us form,<br/>
+Created an e-mail to send on the submission of the Contact Us form.<br/>
 
 #### Enhancements and Updates
 - Limit the width of the web content in the global stylesheet.
