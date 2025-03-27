@@ -2,7 +2,7 @@
 ## Change Log
 
 ### Table of Contents
-- [Version 3.4.2](#version-342---_2025-03-27_)
+- [Version 3.4.2](#version-342---_2025-03-28_)
 - [Version 3.4.1](#version-341---_2025-03-02_)
 - [Version 3.4.0](#version-340---_2025-02-25_)
 - [Version 3.3.9](#version-339---_2025-02-15_)
@@ -35,7 +35,7 @@
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
 
-### [Version 3.4.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.2) - _2025-03-29_
+### [Version 3.4.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.2) - _2025-03-28_
 Added sections and articles to the pages.<br/>
 
 #### Enhancements and Updates
