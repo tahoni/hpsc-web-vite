@@ -4,7 +4,7 @@ import ClubShirts from "./stories/ClubShirts.tsx";
 const MembersContent = React.memo((): ReactElement => {
   const Contents: MemoExoticComponent<() => ReactElement>[] = [ClubShirts];
   return (
-    <article>
+    <>
       {Contents.map(
         (Content: MemoExoticComponent<() => ReactElement>, index: number) => (
           <article>
@@ -12,7 +12,7 @@ const MembersContent = React.memo((): ReactElement => {
           </article>
         ),
       )}
-    </article>
+    </>
   );
 });
 

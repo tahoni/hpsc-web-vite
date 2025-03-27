@@ -16,12 +16,12 @@ const VenuesContent = React.memo((): ReactElement => {
   });
 
   return (
-    <article>
+    <>
       <article></article>
       <article>
         <ClusteredVenueMap venues={venues} mapStyle={mapStyle} />
       </article>
-    </article>
+    </>
   );
 });
 export default VenuesContent;
