@@ -1,13 +1,14 @@
 @import "bootstrap/scss/bootstrap-grid";
 
 .logoHyperlink {
-  margin: 0.75rem;
+  margin: 0.75em;
 }
 
 .logoHyperlink img {
-  margin: 0.75rem;
+  margin: 0.75em;
   width: auto;
-  height: 60px;
+  height: 3.78em;
+  max-height: 60px;
 }
 
 @include media-breakpoint-down(md) {

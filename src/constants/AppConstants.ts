@@ -1,3 +1,5 @@
 export const copyrightYear: number = 2025;
 
-export const textFontName = "Noto Sans";
+export const textFontName: string = "Noto Sans";
+
+export const logoAkt = "Logo";

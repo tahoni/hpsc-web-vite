@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
+import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,9 +10,10 @@ export default defineConfig({
       enforce: "pre",
       ...mdx({
         /* jsxImportSource: …, otherOptions… */
-      })
+      }),
     },
-    react({ include: /\.(jsx|js|mdx|tsx|ts)$/ })
+    visualizer({ open: true, filename: "target/bundle-visualization.html" }),
+    react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
   ],
   build: {
     target: "ESNext",
@@ -19,16 +21,31 @@ export default defineConfig({
     sourcemap: false,
     modulePreload: {
       polyfill: false,
-      resolveDependencies: () => []
+      resolveDependencies: () => [],
     },
     rollupOptions: {
+      treeshake: true,
       output: {
-        manualChunks: {
-          "react": ["react", "react/jsx-runtime", "react-dom", "react-dom/client"],
-          "react-router": ["react-router", "react-router-dom"],
-          "fortawesome": ["@fortawesome/fontawesome-svg-core", "@fortawesome/free-solid-svg-icons", "@fortawesome/free-regular-svg-icons", "@fortawesome/free-brands-svg-icons", "@fortawesome/react-fontawesome"]
-        }
-      }
-    }
-  }
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            const modulePath = id.split("node_modules/")[1];
+            const topLevelFolder = modulePath.split("/")[0];
+            switch (topLevelFolder) {
+              case "@fortawesome":
+                return "fortawesome";
+              case "@mdx-js":
+                return "mdx-js";
+              case "@rjsf":
+                return "rjsf";
+              case "@fullcalendar":
+                return "fullcalendar";
+              case "@react-google-maps":
+              case "react-google-recaptcha":
+                return "react-google";
+            }
+          }
+        },
+      },
+    },
+  },
 });

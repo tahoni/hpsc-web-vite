@@ -1,15 +1,19 @@
 // Name, description and abbreviation
+import { logoAkt } from "../AppConstants.ts";
+
 export const clubName: string = "Hartbeespoortdam Practical Shooting Club";
 export const clubAbbreviation: string = "HPSC";
 export const clubShootingRangeName: string = "Eeufees Range";
 export const clubShootingRangeDescription: string =
-  "Pretoria Defense Practical Shooting Club";
+  "Pretoria Military Practical Shooting Club";
 
 // E-mails
 export const chairmanEmail: string = "chairman@hpsc.co.za";
 export const adminEmail: string = "admin@hpsc.co.za";
 export const enquiriesEmail: string = "enquiries@hpsc.co.za";
+export const contactUsEmail: string = "contact-us@hpsc.co.za";
 export const webmasterEmail: string = "webmaster@hpsc.co.za";
+export const noReplyEmail: string = "no-reply@hpsc.co.za";
 
 // People
 export const chairmanName: string = "Jan Kleynhans";
@@ -22,4 +26,7 @@ export const facebookPage: string =
 export const facebookGroup: string = facebookUrl + "groups/933580883991020";
 
 // Logos
-export const clubLogo: string = "/assets/images/logos/hpsc-logo.png";
+export const clubLogoFilename: string = "hpsc-logo.png";
+export const clubLogoPath: string = "/assets/images/logos";
+export const clubLogo: string = clubLogoPath + "/" + clubLogoFilename;
+export const clubLogoAlt: string = clubName + " " + logoAkt;

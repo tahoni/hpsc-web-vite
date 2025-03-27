@@ -1,25 +1,33 @@
-import React, { ReactElement, useRef, useState } from "react";
+import React, { ReactElement, useRef } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
-import { sanitizeValue } from "../../utils/HtmlUtils.ts";
-import { sendEmail } from "../../services/EmailService.ts";
 import { EmailMessage } from "../../model/EmailMessage.ts";
+import { EmailContent } from "../../model/EmailContent.ts";
 import { ContactUsFormData } from "./ContactUsFormData.ts";
+import { EmailService } from "../../services/EmailService.ts";
 import {
   contactUsJsonFields,
   contactUsJsonSchema,
-  contactUsUiSchema
+  contactUsJsonWidgets,
+  contactUsUiSchema,
 } from "./ContactUsSchema.ts";
+import SanitizedBaseInputTemplate from "../../components/Text/SanitizedBaseInputTemplate.tsx";
+import ContactUsEmailTemplate from "../../templates/ContactUs/ContactUsEmailTemplate.tsx";
+import {
+  clubLogoFilename,
+  clubLogoPath,
+} from "../../constants/about/ClubConstants.ts";
 
 const ContactUsForm = React.memo((): ReactElement => {
-  const [formData, setFormData] = useState<ContactUsFormData | undefined>();
+  const emailService = new EmailService();
 
   const formRef = useRef<Form>(null);
 
   const transformErrors = (
-    errors: RJSFValidationError[]
+    errors: RJSFValidationError[],
   ): RJSFValidationError[] => {
     errors.map((error: RJSFValidationError) => {
       switch (error.name) {
@@ -121,9 +129,9 @@ const ContactUsForm = React.memo((): ReactElement => {
     return errors;
   };
 
-  const validateCaptcha = (
+  const validateFields = (
     formData: ContactUsFormData | undefined,
-    errors: any
+    errors: any,
   ): any => {
     if (formData !== undefined) {
       if (formData.captcha === undefined || !formData.captcha) {
@@ -133,79 +141,80 @@ const ContactUsForm = React.memo((): ReactElement => {
     return errors;
   };
 
-  const handleChange = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
-    setFormData(data.formData);
-  };
-
-  const handleSubmit = (data: IChangeEvent<any, StrictRJSFSchema>): void => {
-    // Sanitise the form data
-    const name: string | undefined = sanitizeValue(data.formData.name);
-    const email: string | undefined = sanitizeValue(data.formData.email);
-    const subject: string | undefined = sanitizeValue(data.formData.subject);
-    const content: string | undefined = sanitizeValue(data.formData.content);
-    const captcha: boolean | undefined = data.formData.captcha;
-
-    // Populate the form with the sanitised data
-    const contactUsData: ContactUsFormData = {
-      name,
-      email,
-      subject,
-      content,
-      captcha
-    };
-    setFormData(contactUsData);
-
-    // Validate the form
-    const valid: boolean | undefined =
-      formRef?.current?.validateFormWithFormData(contactUsData);
-
-    // If the form isn't valid, submit it to display the error messages
-    if (!valid) {
-      formRef?.current?.submit();
+  const handleSubmit = async (
+    data: IChangeEvent<any, StrictRJSFSchema>,
+  ): Promise<void> => {
+    if (!formRef.current) {
       return;
     }
 
-    // If the form is valid, send the e-mail
-    const success: boolean = sendEmail(
-      new EmailMessage(
-        contactUsData.name ?? "",
-        contactUsData.email ?? "",
-        contactUsData.subject ?? "",
-        contactUsData.content ?? ""
-      )
-    );
+    // Populate the form with the sanitised data
+    const contactUsData: ContactUsFormData = data.formData;
+
+    const emailContent: EmailContent = new EmailContent(contactUsData);
+
+    // If the form is valid, generate and send the e-mail
+    let success: boolean = false;
+
+    if (emailContent.isValid()) {
+      // Generate the e-mail
+      const htmlMessage: string = renderToStaticMarkup(
+        <ContactUsEmailTemplate emailMessage={emailContent} />,
+      );
+
+      // Create the e-mail
+      const emailMessage: EmailMessage = new EmailMessage({
+        name: emailContent.name,
+        subject: emailContent.subject,
+        email: emailContent.email,
+        content: emailContent.content,
+        message: htmlMessage,
+      });
+      emailMessage.attachments = [
+        {
+          filename: clubLogoFilename,
+          path: clubLogoPath,
+          cid: "club_logo",
+        },
+      ];
+
+      // Send the e-nail
+      success = await emailService.sendEmail(emailMessage).then(
+        (value: boolean): boolean => value,
+        (): boolean => false,
+      );
+    }
 
     // Display a success or error message based on the result of the e-mail send operation
     if (success) {
       Swal.fire({
         text: "E-mail sent successfully",
-        icon: "success"
+        icon: "success",
       }).then(() => {
-        setFormData(undefined);
+        formRef.current?.reset();
       });
     } else {
       Swal.fire({
         text: "Failed to send e-mail",
-        icon: "error"
-      }).then(() => {
-      });
+        icon: "error",
+      }).then(() => {});
     }
   };
 
   return (
     <Form
       ref={formRef}
-      formData={formData}
       schema={contactUsJsonSchema}
       uiSchema={contactUsUiSchema}
       fields={contactUsJsonFields}
+      widgets={contactUsJsonWidgets}
       validator={validator}
-      customValidate={validateCaptcha}
+      templates={{ BaseInputTemplate: SanitizedBaseInputTemplate }}
+      customValidate={validateFields}
       transformErrors={transformErrors}
       showErrorList={false}
       noHtml5Validate={true}
       focusOnFirstError={true}
-      onChange={handleChange}
       onSubmit={handleSubmit}
     />
   );

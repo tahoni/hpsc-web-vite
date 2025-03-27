@@ -3,6 +3,7 @@ import { PageMapping } from "../model/PageMapping.ts";
 import HomePage from "../pages/Home/HomePage.tsx";
 import PageNotFound from "../pages/NotFound/PageNotFound.tsx";
 import Page from "../pages/Page.tsx";
+import VenuesPage from "../pages/Venues/VenuesPage.tsx";
 
 const MembersPage = React.lazy(() => import("../pages/Members/MembersPage.tsx"));
 const LinksPage = React.lazy(() => import("../pages/Links/LinksPage.tsx"));
@@ -50,4 +51,11 @@ export const ContactUs: PageMapping = {
   path: "/contact",
   element: <Page keyValue={"contactUsPage"}
                  title={"Contact Us"}><ContactUsPage /></Page>
+};
+
+export const Venues: PageMapping = {
+  name: "Shooting Ranges",
+  path: "/venues",
+  element: <Page keyValue={"venuesPage"}
+                 title={"Shooting Ranges"}><VenuesPage /></Page>
 };

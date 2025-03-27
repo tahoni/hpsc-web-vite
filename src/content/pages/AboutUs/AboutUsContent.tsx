@@ -9,27 +9,27 @@ import {
   clubShootingRangeDescription,
   clubShootingRangeName,
   enquiriesEmail,
-  secretaryName
+  secretaryName,
 } from "../../../constants/about/ClubConstants.ts";
 import {
-  EUFEES_SHOOTING_RANGE,
-  shootingRangeMapPins
-} from "../../../constants/content/ShootingRanges.ts";
+  ShootingRanges,
+  shootingRangeVenues,
+} from "../../posts/Venues/VenueConstants.ts";
 import classes from "./AboutUs.module.scss";
 
 const AboutUsContent = React.memo((): ReactElement => {
   const mapStyle: CSSProperties = {
     width: classes.mapWidth,
-    height: classes.mapHeight
+    height: classes.mapHeight,
   };
 
-  const eufeesShootingRange: VenueType = shootingRangeMapPins.get(
-    EUFEES_SHOOTING_RANGE
+  const eufeesShootingRange: VenueType = shootingRangeVenues.get(
+    ShootingRanges.EUFEES,
   );
   const shootingRangePins: VenueType[] = [eufeesShootingRange];
 
   return (
-    <>
+    <article>
       <Container className={classes.aboutUsItem}>
         <Row>
           <Col sm={12} md={6}>
@@ -70,17 +70,23 @@ const AboutUsContent = React.memo((): ReactElement => {
         </Row>
         <Row className={classes.aboutUsItem}>
           <Col>
-            <SimpleVenueMap
-              mapStyle={mapStyle}
-              mapMode="satellite"
-              zoom={16}
-              center={eufeesShootingRange?.center}
-              venues={shootingRangePins}
-            />
+            {eufeesShootingRange ? (
+              <SimpleVenueMap
+                mapStyle={mapStyle}
+                mapMode="satellite"
+                zoom={16}
+                center={
+                  eufeesShootingRange?.center ?? eufeesShootingRange.latLng
+                }
+                venues={shootingRangePins}
+              />
+            ) : (
+              <></>
+            )}
           </Col>
         </Row>
       </Container>
-    </>
+    </article>
   );
 });
 

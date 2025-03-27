@@ -9,7 +9,7 @@ $noto-sans-code-font: 'Noto Sans Mono';
 
 /* Font Families */
 $noto-sans-font-family: $noto-sans-font, Arial, Helvetica, sans-serif;
-$noto-sans-display-font-family: $noto-sans-display-font, Arial, Helvetica, sans-serif;
+$noto-sans-display-font-family: $noto-sans-display-font, $noto-sans-font, Arial, Helvetica, sans-serif;
 $noto-serif-font-family: $noto-serif-font, 'Times New Roman', Times, serif;
 $noto-serif-display-font-family: $noto-serif-display-font, 'Times New Roman', Times, serif;
 $noto-code-font-family: $noto-sans-code-font, 'Courier New', Courier, monospace;

@@ -3,8 +3,8 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HeaderContent } from "./HeaderContent.tsx";
 import {
-  clubAbbreviation,
   clubLogo,
+  clubLogoAlt,
   clubName,
 } from "../../constants/about/ClubConstants.ts";
 import {
@@ -27,7 +27,7 @@ export const Header = React.memo((): ReactElement => {
           <Link to="/">
             <Image
               src={clubLogo}
-              alt={clubAbbreviation + " logo"}
+              alt={clubLogoAlt}
               className={`${layoutClasses.logo} ${layoutClasses.leftLogo}`}
             />
           </Link>

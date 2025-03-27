@@ -1,4 +1,6 @@
 // Names and descriptions
+import { logoAkt } from "../AppConstants.ts";
+
 export const provincialAssociationName: string =
   "Northern Gauteng Practical Shooting Association";
 export const nationalAssociationName: string =
@@ -21,3 +23,11 @@ export const provincialAssociationLogo = "/assets/images/logos/ngpsa-logo.png";
 export const nationalAssociationLogo = "/assets/images/logos/sapsa-logo.png";
 export const internationalAssociationLogo =
   "/assets/images/logos/ipsc-logo.png";
+
+// Alternative text
+export const provincialAssociationLogoAlt =
+  provincialAssociationName + " " + logoAkt;
+export const nationalAssociationLogoAlt =
+  nationalAssociationName + " " + logoAkt;
+export const internationalAssociationLogoAlt =
+  internationalAssociationName + " " + logoAkt;

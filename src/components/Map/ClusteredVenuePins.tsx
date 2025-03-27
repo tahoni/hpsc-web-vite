@@ -1,10 +1,9 @@
 import React, { ReactElement } from "react";
+import { MarkerClusterer } from "@react-google-maps/api";
 import VenuePins, { VenuePinsProps } from "./VenuePins.tsx";
 
 export interface ClusteredVenuePinsProps extends VenuePinsProps {
 }
-
-const MarkerClusterer = React.lazy(() => import("./MarkerClusterer"));
 
 const ClusteredVenuePins = React.memo(
   (props: ClusteredVenuePinsProps): ReactElement => {

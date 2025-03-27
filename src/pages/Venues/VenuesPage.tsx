@@ -1,9 +1,10 @@
 import React, { ReactElement } from "react";
+import VenuesContent from "../../content/posts/Venues/VenuesContent.tsx";
 
 const VenuesPage = React.memo((): ReactElement => {
-  // TODO: Shooting Ranges
   return (
     <>
+      <VenuesContent />
     </>
   );
 });

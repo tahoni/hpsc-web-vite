@@ -3,28 +3,31 @@ import { Col, Image, Row } from "react-bootstrap";
 import {
   internationalAssociationAbbreviation,
   internationalAssociationLogo,
+  internationalAssociationLogoAlt,
   internationalAssociationName,
   internationalAssociationWebsite,
   nationalAssociationAbbreviation,
   nationalAssociationLogo,
+  nationalAssociationLogoAlt,
   nationalAssociationName,
   nationalAssociationWebsite,
   provincialAssociationAbbreviation,
   provincialAssociationLogo,
+  provincialAssociationLogoAlt,
   provincialAssociationName,
-  provincialAssociationWebsite
+  provincialAssociationWebsite,
 } from "../../../constants/about/AssociationConstants.ts";
 import classes from "./Links.module.scss";
 
 const LinksContent = React.memo((): ReactElement => {
   return (
-    <>
+    <article>
       <Row className={classes.logoHyperlink}>
         <Col>
           <a href={provincialAssociationWebsite} target="_blank">
             <Image
               src={provincialAssociationLogo}
-              alt={provincialAssociationName + " logo"}
+              alt={provincialAssociationLogoAlt}
               height={60}
             />
             <span className={classes.linkDescription}>
@@ -38,7 +41,7 @@ const LinksContent = React.memo((): ReactElement => {
           <a href={nationalAssociationWebsite} target="_blank">
             <Image
               src={nationalAssociationLogo}
-              alt={nationalAssociationName + " logo"}
+              alt={nationalAssociationLogoAlt}
               height={60}
             />
             <span className={classes.linkDescription}>
@@ -52,7 +55,7 @@ const LinksContent = React.memo((): ReactElement => {
           <a href={internationalAssociationWebsite} target="_blank">
             <Image
               src={internationalAssociationLogo}
-              alt={internationalAssociationName + " logo"}
+              alt={internationalAssociationLogoAlt}
               height={60}
             />
             <span className={classes.linkDescription}>
@@ -62,7 +65,7 @@ const LinksContent = React.memo((): ReactElement => {
           </a>
         </Col>
       </Row>
-    </>
+    </article>
   );
 });
 

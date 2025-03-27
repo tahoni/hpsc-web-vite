@@ -4,11 +4,11 @@ import { Breakpoints, Layout } from "./layout";
 import { routes } from "./helpers/RouteHelpers.tsx";
 import {
   ImageWithSourceAndDescription,
-  Loader
+  Loader,
 } from "@tahoni/tahoni-lib-react";
 import {
   leftShooter,
-  rightShooter
+  rightShooter,
 } from "./constants/images/LayoutImageConstants.ts";
 import { PageAlias } from "./model/PageAlias.ts";
 import "./App.scss";
@@ -29,9 +29,11 @@ function App(): ReactElement {
           }
         >
           {routes.map((route: PageAlias, index) => (
-            <Route path={route.path ? route.path : route.mapping.path}
-                   key={"page_" + index}
-                   element={route.element ? route.element : route.mapping.element} />
+            <Route
+              path={route.path ?? route.mapping.path}
+              key={"page_" + index}
+              element={route.element ?? route.mapping.element}
+            />
           ))}
         </Route>
       </Routes>

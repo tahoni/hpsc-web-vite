@@ -13,7 +13,7 @@
 }
 
 .bodyInner {
-  padding: 0.75rem;
+  padding: 0.75em;
   display: flex;
   flex: auto;
   justify-content: center;
@@ -28,12 +28,12 @@
 
 @include media-breakpoint-up(lg) {
   .bodyCenter {
-    width: calc(100% - 16rem);
+    width: calc(100% - 16em);
   }
 }
 
 @include media-breakpoint-up(xl) {
   .bodyCenter {
-    width: calc(100% - 20rem);
+    width: calc(100% - 20em);
   }
 }
