@@ -11,7 +11,7 @@ interface PageNotFoundProps {
 
 const NotFound = React.memo((props: PageNotFoundProps): ReactElement => {
   return (
-    <>
+    <article>
       <Row className={classes.pageNotFoundItem}>
         <Col>
           <p>Sorry, {props.message}.</p>
@@ -24,7 +24,7 @@ const NotFound = React.memo((props: PageNotFoundProps): ReactElement => {
           </NavLink>
         </Col>
       </Row>
-    </>
+    </article>
   );
 });
 

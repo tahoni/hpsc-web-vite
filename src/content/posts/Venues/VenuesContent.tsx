@@ -7,17 +7,21 @@ import classes from "../../pages/AboutUs/AboutUs.module.scss";
 const VenuesContent = React.memo((): ReactElement => {
   const mapStyle: CSSProperties = {
     width: classes.mapWidth,
-    height: classes.mapHeight
+    height: classes.mapHeight,
   };
 
   const venues: Venue[] = [];
   shootingRangeVenues.forEach((value) => {
     venues.push(value);
   });
+
   return (
-    <>
-      <ClusteredVenueMap venues={venues} mapStyle={mapStyle} />
-    </>
+    <article>
+      <article></article>
+      <article>
+        <ClusteredVenueMap venues={venues} mapStyle={mapStyle} />
+      </article>
+    </article>
   );
 });
 export default VenuesContent;

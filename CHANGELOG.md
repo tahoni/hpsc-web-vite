@@ -2,6 +2,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.4.2](#version-342---_2025-03-28_)
 - [Version 3.4.1](#version-341---_2025-03-02_)
 - [Version 3.4.0](#version-340---_2025-02-25_)
 - [Version 3.3.9](#version-339---_2025-02-15_)
@@ -34,14 +35,28 @@
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
 
-### [Version 3.4.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.0) - _2025-03-02_
+### [Version 3.4.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.2) - _2025-03-28_
+Added sections and articles to the pages.<br/>
+
+#### Enhancements and Updates
+- Added a section element to all pages to group related content.
+- Added article elements for all independent content.
+
+#### Dependencies
+- Mitigated vulnerable dependencies.
+
+#### Changes by
+@dependabot
+@tahoni
+
+### [Version 3.4.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.1) - _2025-03-02_
 Added a maximum width to the web content.<br/>
 Finished the Contact Us page.<br/>
-Created an e-mail to send on the submission of the Contact Us form,<br/>
+Created an e-mail to send on the submission of the Contact Us form.<br/>
 
 #### Enhancements and Updates
 - Limit the width of the web content in the global stylesheet.
-- Clean all user inputs when an element loses focus or a form is submitted.`
+- Clean all user inputs when an element loses focus or a form is submitted.
 - Created an e-mail to send with the Contact Us message.
 
 #### General Technical Changes

@@ -10,24 +10,22 @@ interface PageProps {
 
 const Page = React.memo((props: PropsWithChildren<PageProps>): ReactElement => {
   return (
-    <>
-      {props.title ?
+    <section>
+      {props.title ? (
         <Row>
           <Col>
             <PageTitle title={props.title} />
           </Col>
         </Row>
-        :
+      ) : (
         <></>
-      }
+      )}
       <Suspense fallback={<Loader isLoading={true} />} key={props.keyValue}>
         <Row>
-          <Col>
-            {props.children}
-          </Col>
+          <Col>{props.children}</Col>
         </Row>
       </Suspense>
-    </>
+    </section>
   );
 });
 
