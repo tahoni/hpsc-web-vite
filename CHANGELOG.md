@@ -41,7 +41,7 @@ Created an e-mail to send on the submission of the Contact Us form,<br/>
 
 #### Enhancements and Updates
 - Limit the width of the web content in the global stylesheet.
-- Clean all user inputs when an element loses focus or a form is submitted.`
+- Clean all user inputs when an element loses focus or a form is submitted.
 - Created an e-mail to send with the Contact Us message.
 
 #### General Technical Changes

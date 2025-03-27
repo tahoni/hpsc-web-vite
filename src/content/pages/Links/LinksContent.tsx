@@ -21,7 +21,7 @@ import classes from "./Links.module.scss";
 
 const LinksContent = React.memo((): ReactElement => {
   return (
-    <>
+    <article>
       <Row className={classes.logoHyperlink}>
         <Col>
           <a href={provincialAssociationWebsite} target="_blank">
@@ -65,7 +65,7 @@ const LinksContent = React.memo((): ReactElement => {
           </a>
         </Col>
       </Row>
-    </>
+    </article>
   );
 });
 
