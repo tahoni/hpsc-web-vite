@@ -2,6 +2,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.4.2](#version-342---_2025-xx-xx_)
 - [Version 3.4.1](#version-341---_2025-03-28_)
 - [Version 3.4.0](#version-340---_2025-02-25_)
 - [Version 3.3.9](#version-339---_2025-02-15_)
@@ -34,11 +35,15 @@
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
 
+### [Version 3.4.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.2) - _2025-xx-xx_
+#### Changes by
+@tahoni
+
 ### [Version 3.4.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.1) - _2025-03-28_
 Added a maximum width to the web content.<br/>
 Added sections and articles to the pages.<br/>
 Finished the Contact Us page.<br/>
-I created an e-mail to send upon submission of the Contact Us form.<br/>
+An e-mail is sent upon submission of the Contact Us form.<br/>
 
 #### Enhancements and Updates
 - Limit the width of the web content in the global stylesheet.
