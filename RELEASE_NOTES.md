@@ -5,7 +5,7 @@
 Added a maximum width to the web content.<br/>
 Added sections and articles to the pages.<br/>
 Finished the Contact Us page.<br/>
-Created an e-mail to send on the submission of the Contact Us form.<br/>
+I created an e-mail to send upon submission of the Contact Us form.<br/>
 
 #### Enhancements and Updates
 - Limit the width of the web content in the global stylesheet.
