@@ -44,9 +44,10 @@ export default defineConfig({
                 return "rjsf";
               case "@fullcalendar":
                 return "fullcalendar";
-              case "@react-google-maps":
               case "react-google-recaptcha":
                 return "react-google";
+              case "@vis.gl":
+                return "vis.gl";
             }
           }
         },

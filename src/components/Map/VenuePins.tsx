@@ -13,7 +13,7 @@ const VenuePins = React.memo((props: VenuePinsProps): ReactElement => {
   }
 
   const [venues] = useState<Venue[]>(
-    props.venues.filter((venue) => venue).map((venue) => venue as Venue)
+    props.venues.filter((venue) => venue).map((venue) => venue as Venue),
   );
 
   return (

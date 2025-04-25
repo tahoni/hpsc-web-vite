@@ -12,7 +12,7 @@
       "problemMatcher": [],
       "options": {
         "env": {
-          "NPM_TOKEN": "${env:NPM_TOKEN_READ}"
+          "NPM_TOKEN": "${NPM_TOKEN_READ}"
         },
         "detail": "Installs project dependencies using npm"
       }
@@ -28,8 +28,8 @@
       "problemMatcher": [],
       "options": {
         "env": {
-          "GOOGLE_API_KEY": "${env:GOOGLE_API_KEY_DEV}",
-          "RECAPTCHA_V2_SITE_KEY": "${env:RECAPTCHA_V2_SITE_KEY_DEV}"
+          "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY_DEV}",
+          "RECAPTCHA_V2_SITE_KEY": "${RECAPTCHA_V2_SITE_KEY_DEV}"
         }
       },
       "detail": "Runs the Vite development server"
@@ -44,8 +44,8 @@
       },
       "options": {
         "env": {
-          "GOOGLE_API_KEY": "${env:GOOGLE_API_KEY_LIVE}",
-          "RECAPTCHA_V2_SITE_KEY": "${env:RECAPTCHA_V2_SITE_KEY_LIVE}"
+          "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY_LIVE}",
+          "RECAPTCHA_V2_SITE_KEY": "${RECAPTCHA_V2_SITE_KEY_LIVE}"
         }
       },
       "problemMatcher": [],
