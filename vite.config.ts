@@ -3,15 +3,6 @@ import react from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
 import { visualizer } from "rollup-plugin-visualizer";
 
-let serverConfig = {};
-if (process.env.NODE_ENV === "development") {
-  serverConfig = {
-    host: "hpsc.local",
-    port: 5173,
-    strictPort: true,
-  };
-}
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -24,7 +15,6 @@ export default defineConfig({
     visualizer({ open: true, filename: "target/bundle-visualization.html" }),
     react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
   ],
-  server: serverConfig,
   build: {
     target: "ESNext",
     minify: true,
