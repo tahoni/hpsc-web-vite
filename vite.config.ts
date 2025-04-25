@@ -15,6 +15,11 @@ export default defineConfig({
     visualizer({ open: true, filename: "target/bundle-visualization.html" }),
     react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
   ],
+  server: {
+    host: "hpsc.local",
+    port: 5173,
+    strictPort: true,
+  },
   build: {
     target: "ESNext",
     minify: true,
