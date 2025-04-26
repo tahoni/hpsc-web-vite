@@ -8,21 +8,22 @@ import SimpleVenueMap from "../../components/Map/SimpleVenueMap.tsx";
 import { copyrightYear } from "../../constants/AppConstants.ts";
 import {
   ShootingRanges,
-  shootingRangeVenues
+  shootingRangeVenues,
 } from "../../content/posts/Venues/VenueConstants.ts";
 import {
   clubName,
   enquiriesEmail,
   facebookGroup,
   facebookPage,
-  webmasterEmail
+  webmasterEmail,
 } from "../../constants/about/ClubConstants.ts";
+import layoutClasses from "../Layout.module.scss";
 import classes from "./Footer.module.scss";
 
 export const FooterContent = React.memo((): ReactElement => {
   const mapStyle: CSSProperties = {
     width: classes.mapWidth,
-    height: classes.mapHeight
+    height: classes.mapHeight,
   };
 
   const footerMapRange: string = ShootingRanges.EUFEES;
@@ -30,22 +31,25 @@ export const FooterContent = React.memo((): ReactElement => {
 
   return (
     <>
-      <Row className={classes.footerContent}>
+      <Row className={layoutClasses.footerContent}>
         <Col xs={{ span: 12 }} md={{ span: 6 }} className={classes.footerMap}>
-          {(footerMapPins) && (footerMapPins.length > 0) && (footerMapPins[0]) ?
+          {footerMapPins && footerMapPins.length > 0 && footerMapPins[0] ? (
             <SimpleVenueMap
               mapStyle={mapStyle}
               center={footerMapPins[0].center ?? footerMapPins[0].latLng}
               venues={footerMapPins}
             />
-            :
-            <></>}
+          ) : (
+            <></>
+          )}
         </Col>
         <Col className={classes.footerDetails}>
           <div className={classes.contactInfo}>
             <Row>
-              <Col><FontAwesomeIcon icon={faEnvelope}
-                                    className="google-icon" /> E-mail:</Col>
+              <Col>
+                <FontAwesomeIcon icon={faEnvelope} className="google-icon" />{" "}
+                E-mail:
+              </Col>
               <Col>
                 <a href={"mailto:" + enquiriesEmail} target="_blank">
                   {enquiriesEmail}
@@ -53,8 +57,10 @@ export const FooterContent = React.memo((): ReactElement => {
               </Col>
             </Row>
             <Row>
-              <Col><FontAwesomeIcon icon={faFacebook}
-                                    className="facebook-icon" /> Facebook:</Col>
+              <Col>
+                <FontAwesomeIcon icon={faFacebook} className="facebook-icon" />{" "}
+                Facebook:
+              </Col>
               <Col>
                 <a href={facebookPage} target="_blank">
                   HPSC Page
@@ -62,8 +68,10 @@ export const FooterContent = React.memo((): ReactElement => {
               </Col>
             </Row>
             <Row>
-              <Col><FontAwesomeIcon icon={faFacebook}
-                                    className="facebook-icon" /> Facebook:</Col>
+              <Col>
+                <FontAwesomeIcon icon={faFacebook} className="facebook-icon" />{" "}
+                Facebook:
+              </Col>
               <Col>
                 <a href={facebookGroup} target="_blank">
                   HPSC Group

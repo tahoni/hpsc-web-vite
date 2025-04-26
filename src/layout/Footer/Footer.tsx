@@ -10,12 +10,11 @@ import {
   nationalAssociationWebsite,
 } from "../../constants/about/AssociationConstants.ts";
 import layoutClasses from "../Layout.module.scss";
-import classes from "./Footer.module.scss";
 
 export const Footer = React.memo((): ReactElement => {
   return (
-    <Container fluid className={classes.footer}>
-      <Row className={classes.footerInner}>
+    <Container fluid className={layoutClasses.footer}>
+      <Row className={layoutClasses.footerInner}>
         <Col
           xs={{ span: 6 }}
           md={{ span: 2 }}
@@ -32,7 +31,7 @@ export const Footer = React.memo((): ReactElement => {
         <Col
           xs={{ span: 12, order: "last" }}
           md={{ span: 8 }}
-          className={classes.footerCenter}
+          className={layoutClasses.footerCenter}
         >
           <FooterContent />
         </Col>

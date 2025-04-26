@@ -1,3 +1,6 @@
+@import "bootstrap/scss/bootstrap-grid";
+
+// Layout
 .layout {
   display: flex;
   flex-direction: column;
@@ -15,13 +18,17 @@
   flex: auto;
 }
 
+// Logos
 .logoContainer {
   flex: initial;
   align-content: center;
   padding: 0.75em;
 }
 
-.logo, .leftLogo, .rightLogo {
+.logo,
+.leftLogo,
+.rightLogo {
+  margin: 0.75em;
   width: auto;
   height: 8em;
 }
@@ -37,4 +44,108 @@
 .logo img {
   width: 100%;
   height: auto;
+}
+
+// Header and Footer
+.header,
+.footer {
+  align-content: center;
+  justify-content: center;
+}
+
+.headerInner,
+.headerCenter,
+.footerInner,
+.footerCenter {
+  display: flex;
+  // align-content: center;
+  // justify-content: center;
+}
+
+.headerInner,
+.headerCenter {
+  justify-content: center;
+}
+
+.headerCenter {
+  flex-direction: column;
+}
+
+.footerCenter {
+  flex-direction: row;
+}
+
+.headerInner,
+.footerInner {
+  padding: 0 0 0.7rem 0;
+}
+
+.headerContent,
+.headerItem,
+.footerContent,
+.footerItem {
+  display: flex;
+  align-content: center;
+  // align-items: center;
+  justify-content: center;
+}
+
+.headerContent,
+.footerContent {
+  flex: auto;
+}
+
+.headerContent,
+.headerItem {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerContent {
+  flex-direction: column;
+}
+
+.footerContent {
+  height: 100%;
+  flex: auto;
+  flex-direction: row;
+}
+
+// .footerContent {
+//   height: 100%;
+//   display: flex;
+//   flex-direction: row;
+//   flex: auto;
+//   align-content: center;
+//   justify-content: center;
+// }
+
+.headerItem,
+.footerItem {
+  padding: 0.75rem;
+}
+
+@include media-breakpoint-down(md) {
+  .header,
+  .footer {
+    margin: 0;
+  }
+
+  .headerInner {
+    padding-bottom: 0;
+  }
+
+  .footerInner {
+    padding-top: 0;
+  }
+
+  .headerCenter {
+    padding-bottom: 0.75em;
+  }
+
+  .footerContent {
+    padding-top: 0.75em;
+  }
 }
