@@ -1,15 +1,12 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
-
-  # Allow specific routes
-  RewriteRule ^home$ /index.html [L]
-  RewriteRule ^members$ /index.html [L]
-  RewriteRule ^links$ /index.html [L]
-  RewriteRule ^history$ /index.html [L]
-  RewriteRule ^about$ /index.html [L]
-  RewriteRule ^about_us$ /index.html [L]
-
-  # Return 404 for all other routes
-  RewriteRule .* - [R=404,L]
+  RewriteBase / 
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_URI} "^$" [OR]
+  RewriteCond %{REQUEST_URI} "(home)" [OR]
+  RewriteCond %{REQUEST_URI} "(members)" [OR]
+  RewriteCond %{REQUEST_URI} "(links)" [OR]
+  RewriteCond %{REQUEST_URI} "(history)" [OR]
+  RewriteCond %{REQUEST_URI} "((about)|(about_us))"
+  RewriteRule . /index.html [L]
 </IfModule>
