@@ -1,26 +1,22 @@
 # HPSC website
 ## Release Notes
 
-### [Version 3.4.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.1) - _2025-03-28_
-Added a maximum width to the web content.<br/>
-Added sections and articles to the pages.<br/>
-Finished the Contact Us page.<br/>
-An e-mail is sent upon submission of the Contact Us form.<br/>
+### [Version 3.5.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.0) - _2025-04-26_
+Used a better library for Google Maps.<br/>
+Return HTTP status 404 for pages not found.<br/>
 
 #### Enhancements and Updates
-- Limit the width of the web content in the global stylesheet.
-- Added a section element to all pages to group related content.
-- Added article elements for all independent content.
-- Clean all user inputs when an element loses focus or a form is submitted.
-- Created an e-mail to send with the Contact Us message.
+- Removed the Not Found component.
+- Removed the Page Not Found page.
 
 #### General Technical Changes
-- Split the code into sensible bundles.
+- Changed the `.htaccess` file to only allow known routes and return 404 for all other routes.
 
 #### Dependencies
-- A dependency was added to help split bundles by displaying the bundles' composition after each build.
+- Removed the Google Maps dependencies from `@react-google-maps`.
+- Added the Google Maps library from `@vis.gl/react-google-map`.
 - Mitigated vulnerable dependencies.
 
 #### Changes by
-@dependabot
 @tahoni
+@dependabot
