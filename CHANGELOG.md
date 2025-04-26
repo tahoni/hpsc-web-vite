@@ -43,8 +43,13 @@ Return HTTP status 404 for pages not found.<br/>
 - Removed the Not Found component.
 - Removed the Page Not Found page.
 
-#### General Technical Changes
+#### General Code Improvements
 - Changed the `.htaccess` file to only allow known routes and return 404 for all other routes.
+
+#### General Technical Changes
+- Removed the IntelliJ config files.
+- Added the Visual Studio Code files.
+- Created environment variables for sensitive configs for all environments.
 
 #### Dependencies
 - Removed the Google Maps dependencies from `@react-google-maps`.
