@@ -1,9 +1,15 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+
+  # Allow specific routes
+  RewriteRule ^home$ /index.html [L]
+  RewriteRule ^members$ /index.html [L]
+  RewriteRule ^links$ /index.html [L]
+  RewriteRule ^history$ /index.html [L]
+  RewriteRule ^about$ /index.html [L]
+  RewriteRule ^about_us$ /index.html [L]
+
+  # Return 404 for all other routes
+  RewriteRule .* - [R=404,L]
 </IfModule>

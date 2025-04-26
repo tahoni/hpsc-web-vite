@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Marker } from "@react-google-maps/api";
+import { AdvancedMarker } from "@vis.gl/react-google-maps";
 import { VenueType } from "../../model/Venue.ts";
 
 export interface VenuePinProps {
@@ -11,7 +11,15 @@ const VenuePin = React.memo((props: VenuePinProps): ReactElement => {
     return <></>;
   }
 
-  return <Marker position={props.venue.latLng} label={props.venue.name} />;
+  return (
+    <AdvancedMarker
+      position={{
+        lat: props.venue.latLng.lat ?? 0,
+        lng: props.venue.latLng.lng ?? 0,
+      }}
+      title={props.venue.name}
+    />
+  );
 });
 
 export default VenuePin;

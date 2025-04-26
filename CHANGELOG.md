@@ -2,6 +2,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.5.0](#version-350---_2025-04-26_)
 - [Version 3.4.1](#version-341---_2025-03-28_)
 - [Version 3.4.0](#version-340---_2025-02-25_)
 - [Version 3.3.9](#version-339---_2025-02-15_)
@@ -34,11 +35,36 @@
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
 
+### [Version 3.5.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.0) - _2025-04-26_
+Used a better library for Google Maps.<br/>
+Return HTTP status 404 for pages not found.<br/>
+
+#### Enhancements and Updates
+- Removed the Not Found component.
+- Removed the Page Not Found page.
+
+#### General Code Improvements
+- Changed the `.htaccess` file to only allow known routes and return 404 for all other routes.
+
+#### General Technical Changes
+- Removed the IntelliJ config files.
+- Added the Visual Studio Code files.
+- Created environment variables for sensitive configs for all environments.
+
+#### Dependencies
+- Removed the Google Maps dependencies from `@react-google-maps`.
+- Added the Google Maps library from `@vis.gl/react-google-map`.
+- Mitigated vulnerable dependencies.
+
+#### Changes by
+@tahoni
+@dependabot
+
 ### [Version 3.4.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.1) - _2025-03-28_
 Added a maximum width to the web content.<br/>
 Added sections and articles to the pages.<br/>
 Finished the Contact Us page.<br/>
-I created an e-mail to send upon submission of the Contact Us form.<br/>
+An e-mail is sent upon submission of the Contact Us form.<br/>
 
 #### Enhancements and Updates
 - Limit the width of the web content in the global stylesheet.

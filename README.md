@@ -169,7 +169,7 @@ to be set in the ````GITHUB_TOKEN```` environment variable,
 to load the ````tahoni-lib-react```` npm package.
 
 The Google Maps API key from Google Cloud Services needs
-to be set in the ````GOOGLE_API_KEY```` environment variable, 
+to be set in the ````GOOGLE_MAPS_API_KEY```` environment variable, 
 otherwise, the map will not be available.
 
 The Google reCAPTCHA site key from Google Cloud Services needs

@@ -1,4 +1,4 @@
-export type VenueMapLatLngType = google.maps.LatLng | google.maps.LatLngLiteral;
+export type VenueMapLatLngType = { lat: number; lng: number };
 export type VenueType = Venue | undefined;
 
 export interface Venue {
