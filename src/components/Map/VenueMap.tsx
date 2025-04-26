@@ -1,16 +1,12 @@
-import React, {
-  CSSProperties,
-  PropsWithChildren,
-  ReactElement,
-  useRef
-} from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import React, { CSSProperties, PropsWithChildren, ReactElement } from "react";
 import { VenueMapLatLngType } from "../../model/Venue.ts";
-import { textFontName } from "../../constants/AppConstants.ts";
+import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import {
   googleMapApiKey,
-  googleMapDefaultZoom
+  googleMapDefaultTypeId,
+  googleMapDefaultZoom,
 } from "../../constants/MapConstants.ts";
+import { generateMapKey } from "../../utils/MapUtils.ts";
 import classes from "./VenueMap.module.scss";
 
 export interface VenueMapProps {
@@ -22,33 +18,25 @@ export interface VenueMapProps {
 
 const VenueMap = React.memo(
   (props: PropsWithChildren<VenueMapProps>): ReactElement => {
-    const { isLoaded } = useJsApiLoader({
-      id: "google-map-script",
-      googleMapsApiKey: googleMapApiKey,
-      preventGoogleFontsLoading: true
-    });
-
-    const googleMapRef = useRef(null);
-
     return (
       <div className={classes.VenueMap}>
-        {isLoaded ? (
-          <GoogleMap
-            ref={googleMapRef}
-            mapContainerStyle={{ ...props.mapStyle, font: textFontName }}
-            center={props.center}
-            zoom={props.zoom ?? googleMapDefaultZoom}
-            clickableIcons={true}
-            mapTypeId={props.mapMode}
+        <APIProvider apiKey={googleMapApiKey}>
+          <Map
+            mapId={generateMapKey(props.center)}
+            style={props.mapStyle}
+            mapTypeId={props.mapMode?.toLowerCase() ?? googleMapDefaultTypeId}
+            defaultCenter={{
+              lat: props.center?.lat ?? 0,
+              lng: props.center?.lng ?? 0,
+            }}
+            defaultZoom={props.zoom ?? googleMapDefaultZoom}
           >
             {props.children}
-          </GoogleMap>
-        ) : (
-          <></>
-        )}
+          </Map>
+        </APIProvider>
       </div>
     );
-  }
+  },
 );
 
 export default VenueMap;
