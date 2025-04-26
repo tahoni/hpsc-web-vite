@@ -5,6 +5,7 @@ import { AboutUs, History, Home, Links, Members } from "./Aliases.tsx";
 export const routes: PageAlias[] = [
   { mapping: Home },
   { path: "/home", mapping: Home, element: <Navigate to={"/"} /> },
+  { path: "/index.html", mapping: Home, element: <Navigate to={"/"} /> },
 
   { mapping: Members },
   { mapping: Links },
