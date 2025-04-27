@@ -32,7 +32,7 @@ export const FooterContent = React.memo((): ReactElement => {
   return (
     <>
       <Row className={layoutClasses.footerContent}>
-        <Col xs={{ span: 12 }} md={{ span: 6 }} className={classes.footerMap}>
+        <Col className={classes.footerMap}>
           {footerMapPins && footerMapPins.length > 0 && footerMapPins[0] ? (
             <SimpleVenueMap
               mapStyle={mapStyle}
