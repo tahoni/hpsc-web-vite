@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Image } from "react-bootstrap";
 import { FooterContent } from "./FooterContent.tsx";
 import {
   internationalAssociationAbbreviation,

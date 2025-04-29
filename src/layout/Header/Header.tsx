@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HeaderContent } from "./HeaderContent.tsx";
 import {

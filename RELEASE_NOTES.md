@@ -1,11 +1,12 @@
 # HPSC website
 ## Release Notes
 
-### [Version 3.5.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.1) - _2025-04-26_
-Actually return HTTP status 404 for pages not found.<br/>
+### [Version 3.5.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.2) - _2025-04-29_
+Fix the overlapping elements in the header and footer.<br/>
 
-#### General Code Improvements
-- Changed the `.htaccess` file to only allow known routes, other routes will automatically return a 404 HTTP status.
+#### Enhancements and Updates
+- Updated the JSX code to prevent the elements in the header and footer overlapping.
+- Updated the CSS stylesheets to prevent the elements in the header and footer overlapping.
 
 #### Changes by
 @tahoni
