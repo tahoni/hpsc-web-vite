@@ -35,7 +35,7 @@ $map-height: 12em;
   font-size: 0.9em;
 }
 
-@include media-breakpoint-down(lg) {
+@include media-breakpoint-down(md) {
   .footerMap {
     margin-bottom: 0.75em;
   }

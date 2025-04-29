@@ -18,7 +18,6 @@
 
 // Logos
 .logoContainer {
-  width: fit-content;
   align-content: center;
   padding: 0.75em;
 }
@@ -47,8 +46,6 @@
 // Header and Footer
 .header,
 .footer {
-  width: 100%;
-  flex-wrap: wrap;
   align-content: center;
   justify-content: center;
 }
@@ -65,6 +62,8 @@
 .footerInner,
 .footerCenter {
   padding: 0.75em;
+  display: flex;
+  flex-wrap: wrap;
   align-content: center;
   align-items: center;
   justify-content: center;
@@ -94,6 +93,7 @@
 .headerCenter,
 .footerCenter {
   flex: auto;
+  order: 2;
 }
 
 .headerInner,
@@ -138,25 +138,40 @@
   padding: 0.75rem;
 }
 
+.headerSidebar:first-child,
+.footerSidebar:first-child {
+  order: 1;
+}
+
+.headerSidebar:last-child,
+.footerSidebar:last-child {
+  order: 3;
+}
+
+.headerCenter,
+.footerCenter {
+  order: 2;
+}
+
 @include media-breakpoint-down(md) {
-  .header,
-  .footer {
-    margin: 0;
+  .headerSidebar:first-child,
+  .headerSidebar:first-child {
+    width: 50%;
+    flex: none !important;
+    order: 1;
   }
 
-  .headerInner {
-    padding-bottom: 0;
+  .headerSidebar:last-child,
+  .footerSidebar:last-child {
+    width: 50%;
+    flex: none !important;
+    order: 2;
   }
 
-  .footerInner {
-    padding-top: 0;
-  }
-
-  .headerCenter {
-    padding-bottom: 0.75em;
-  }
-
-  .footerContent {
-    padding-top: 0.75em;
+  .headerCenter,
+  .footerCenter {
+    order: 3;
+    width: 100%;
+    flex: none !important;
   }
 }
