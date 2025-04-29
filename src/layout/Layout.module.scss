@@ -8,6 +8,7 @@
 
 .header,
 .footer {
+  flex-wrap: wrap;
   flex: initial;
 }
 
@@ -17,6 +18,7 @@
 
 // Logos
 .logoContainer {
+  width: fit-content;
   align-content: center;
   padding: 0.75em;
 }
@@ -25,7 +27,7 @@
 .leftLogo,
 .rightLogo {
   margin: 0.75em;
-  width: auto;
+  width: fit-content;
   height: 8em;
 }
 
@@ -45,14 +47,16 @@
 // Header and Footer
 .header,
 .footer {
+  width: 100%;
+  flex-wrap: wrap;
   align-content: center;
   justify-content: center;
 }
 
 .headerSidebar,
 .footerSidebar {
-  width: 100%;
-  max-width: 15%;
+  width: fit-content;
+  display: flex !important;
   flex: initial;
 }
 
@@ -73,11 +77,11 @@
 }
 
 .headerInner {
-  padding-top: 0;
+  margin-top: 0.75em;
 }
 
 .footerInner {
-  padding-bottom: 0;
+  margin-bottom: 0.75em;
 }
 
 .headerInner,
@@ -85,6 +89,10 @@
 .footerInner,
 .footerCenter {
   display: flex;
+}
+
+.headerCenter,
+.footerCenter {
   flex: auto;
 }
 

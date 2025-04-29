@@ -46,7 +46,7 @@ export const FooterContent = React.memo((): ReactElement => {
         <Col className={classes.footerDetails}>
           <div className={classes.contactInfo}>
             <Row>
-              <Col>
+              <Col xs={12} md={6} lg={12} xl={6}>
                 <FontAwesomeIcon icon={faEnvelope} className="google-icon" />{" "}
                 E-mail:
               </Col>
@@ -57,7 +57,7 @@ export const FooterContent = React.memo((): ReactElement => {
               </Col>
             </Row>
             <Row>
-              <Col>
+              <Col xs={12} md={6} lg={12} xl={6}>
                 <FontAwesomeIcon icon={faFacebook} className="facebook-icon" />{" "}
                 Facebook:
               </Col>
@@ -68,7 +68,7 @@ export const FooterContent = React.memo((): ReactElement => {
               </Col>
             </Row>
             <Row>
-              <Col>
+              <Col xs={12} md={6} lg={12} xl={6}>
                 <FontAwesomeIcon icon={faFacebook} className="facebook-icon" />{" "}
                 Facebook:
               </Col>

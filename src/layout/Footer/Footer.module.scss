@@ -9,11 +9,11 @@ $map-height: 12em;
 }
 
 .footerMap {
-  padding: 0;
-  margin: 0;
+  margin: 0em 0.75em;
 }
 
 .footerDetails {
+  margin: 0 0.75em;
   font-style: italic;
   display: flex;
   flex-direction: column;
@@ -26,6 +26,7 @@ $map-height: 12em;
 }
 
 .contactInfo {
+  margin-bottom: 0.75em !important;
   font-weight: 400;
 }
 
@@ -34,20 +35,16 @@ $map-height: 12em;
   font-size: 0.9em;
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(lg) {
   .footerMap {
-    padding-bottom: 0.75em;
+    margin-bottom: 0.75em;
   }
 
   .footerDetails {
-    padding-top: 0.75em;
-  }
-
-  .contactInfo {
-    padding-bottom: 0.75em;
+    margin-top: 0.75em !important;
   }
 
   .websiteInfo {
-    padding-top: 0.75em;
+    margin-top: 0.75em !important;
   }
 }
