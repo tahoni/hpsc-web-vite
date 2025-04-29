@@ -7,6 +7,7 @@ export interface Venue {
   website?: string;
   address?: string;
   city: string;
+  province?: string;
   plusCode?: string;
   latLng: VenueMapLatLngType;
   center?: VenueMapLatLngType;
