@@ -2,6 +2,7 @@
 ## Change Log
 
 ### Table of Contents
+- [Version 3.5.2](#version-352---_2025-04-30_)
 - [Version 3.5.1](#version-351---_2025-04-26_)
 - [Version 3.5.0](#version-350---_2025-04-26_)
 - [Version 3.4.1](#version-341---_2025-03-28_)
@@ -36,8 +37,18 @@
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
 
+### [Version 3.5.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.2) - _2025-04-30_
+Fixed the overlapping elements in the header and footer.<br/>
+
+#### Enhancements and Updates
+- Updated the JSX code to prevent the elements in the header and footer overlapping.
+- Updated the CSS stylesheets to prevent the elements in the header and footer overlapping.
+
+#### Changes by
+@tahoni
+
 ### [Version 3.5.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.1) - _2025-04-26_
-Actually return HTTP status 404 for pages not found.<br/>
+Really return HTTP status 404 for pages not found.<br/>
 
 #### General Code Improvements
 - Changed the `.htaccess` file to only allow known routes, other routes will automatically return a 404 HTTP status.
