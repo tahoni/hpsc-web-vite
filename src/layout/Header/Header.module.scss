@@ -1,54 +1,7 @@
 @import "bootstrap/scss/bootstrap-grid";
 
-.header {
-  padding: 0.75em;
-  margin: 0.75em;
-  align-content: center;
-  justify-content: center;
-}
-
-.headerInner, .headerCenter {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-
-.headerInner {
-  padding: 0 0 0.7em 0;
-}
-
-.headerContent, .headerItem {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.headerContent {
-  flex-direction: column;
-  flex: auto;
-}
-
-.headerItem {
-  padding: 0.75em;
-}
-
 .headerText {
   flex: auto;
   text-align: center;
   vertical-align: middle;
-}
-
-@include media-breakpoint-down(md) {
-  .header {
-    margin: 0;
-  }
-
-  .headerInner {
-    padding-bottom: 0;
-  }
-
-  .headerCenter {
-    padding-top: 0.75em;
-  }
 }

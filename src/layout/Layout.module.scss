@@ -1,13 +1,14 @@
+@import "bootstrap/scss/bootstrap-grid";
+
+// Layout
 .layout {
   display: flex;
   flex-direction: column;
 }
 
-.header {
-  flex: initial;
-}
-
+.header,
 .footer {
+  flex-wrap: wrap;
   flex: initial;
 }
 
@@ -15,14 +16,17 @@
   flex: auto;
 }
 
+// Logos
 .logoContainer {
-  flex: initial;
   align-content: center;
   padding: 0.75em;
 }
 
-.logo, .leftLogo, .rightLogo {
-  width: auto;
+.logo,
+.leftLogo,
+.rightLogo {
+  margin: 0.75em;
+  width: fit-content;
   height: 8em;
 }
 
@@ -35,6 +39,139 @@
 }
 
 .logo img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
+}
+
+// Header and Footer
+.header,
+.footer {
+  align-content: center;
+  justify-content: center;
+}
+
+.headerSidebar,
+.footerSidebar {
+  width: fit-content;
+  display: flex !important;
+  flex: initial;
+}
+
+.headerInner,
+.headerCenter,
+.footerInner,
+.footerCenter {
+  padding: 0.75em;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerInner,
+.footerInner {
+  padding: 0.75em;
+  flex: auto;
+}
+
+.headerInner {
+  margin-top: 0.75em;
+}
+
+.footerInner {
+  margin-bottom: 0.75em;
+}
+
+.headerInner,
+.headerCenter,
+.footerInner,
+.footerCenter {
+  display: flex;
+}
+
+.headerCenter,
+.footerCenter {
+  flex: auto;
+  order: 2;
+}
+
+.headerInner,
+.headerCenter {
+  justify-content: center;
+}
+
+.headerCenter {
+  flex-direction: column;
+}
+
+.footerCenter {
+  flex-direction: row;
+}
+
+.headerContent {
+  padding: 0.75em;
+  align-items: center;
+}
+
+.headerContent,
+.headerItem {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.headerContent,
+.footerContent {
+  flex: auto;
+}
+
+.headerContent {
+  flex-direction: column;
+}
+
+.footerContent {
+  flex-direction: row;
+}
+
+.headerItem {
+  padding: 0.75rem;
+}
+
+.headerSidebar:first-child,
+.footerSidebar:first-child {
+  order: 1;
+}
+
+.headerSidebar:last-child,
+.footerSidebar:last-child {
+  order: 3;
+}
+
+.headerCenter,
+.footerCenter {
+  order: 2;
+}
+
+@include media-breakpoint-down(md) {
+  .headerSidebar:first-child,
+  .headerSidebar:first-child {
+    width: 50%;
+    flex: none !important;
+    order: 1;
+  }
+
+  .headerSidebar:last-child,
+  .footerSidebar:last-child {
+    width: 50%;
+    flex: none !important;
+    order: 2;
+  }
+
+  .headerCenter,
+  .footerCenter {
+    order: 3;
+    width: 100%;
+    flex: none !important;
+  }
 }

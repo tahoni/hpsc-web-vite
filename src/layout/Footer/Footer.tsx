@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Image } from "react-bootstrap";
 import { FooterContent } from "./FooterContent.tsx";
 import {
   internationalAssociationAbbreviation,
@@ -10,46 +10,37 @@ import {
   nationalAssociationWebsite,
 } from "../../constants/about/AssociationConstants.ts";
 import layoutClasses from "../Layout.module.scss";
-import classes from "./Footer.module.scss";
 
 export const Footer = React.memo((): ReactElement => {
   return (
-    <Container fluid className={classes.footer}>
-      <Row className={classes.footerInner}>
-        <Col
-          xs={{ span: 6 }}
-          md={{ span: 2 }}
-          className={layoutClasses.logoContainer}
-        >
-          <a href={nationalAssociationWebsite} target="_blank">
-            <Image
-              src={nationalAssociationLogo}
-              alt={nationalAssociationAbbreviation + " logo"}
-              className={`${layoutClasses.logo} ${layoutClasses.leftLogo}}`}
-            />
-          </a>
-        </Col>
-        <Col
-          xs={{ span: 12, order: "last" }}
-          md={{ span: 8 }}
-          className={classes.footerCenter}
-        >
+    <Container fluid className={layoutClasses.footer}>
+      <div className={layoutClasses.footerInner}>
+        <div className={layoutClasses.footerSidebar}>
+          <Col className={layoutClasses.logoContainer}>
+            <a href={nationalAssociationWebsite} target="_blank">
+              <Image
+                src={nationalAssociationLogo}
+                alt={nationalAssociationAbbreviation + " logo"}
+                className={`${layoutClasses.logo} ${layoutClasses.leftLogo}}`}
+              />
+            </a>
+          </Col>
+        </div>
+        <Col className={layoutClasses.footerCenter}>
           <FooterContent />
         </Col>
-        <Col
-          xs={{ span: 6 }}
-          md={{ span: 2, order: "last" }}
-          className={layoutClasses.logoContainer}
-        >
-          <a href={internationalAssociationWebsite} target="_blank">
-            <Image
-              src={internationalAssociationLogo}
-              alt={internationalAssociationAbbreviation + " logo"}
-              className={`${layoutClasses.logo} ${layoutClasses.rightLogo}`}
-            />
-          </a>
-        </Col>
-      </Row>
+        <div className={layoutClasses.footerSidebar}>
+          <Col className={layoutClasses.logoContainer}>
+            <a href={internationalAssociationWebsite} target="_blank">
+              <Image
+                src={internationalAssociationLogo}
+                alt={internationalAssociationAbbreviation + " logo"}
+                className={`${layoutClasses.logo} ${layoutClasses.rightLogo}`}
+              />
+            </a>
+          </Col>
+        </div>
+      </div>
     </Container>
   );
 });
