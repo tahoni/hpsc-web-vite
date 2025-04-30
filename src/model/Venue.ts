@@ -41,79 +41,79 @@ export class Venue {
     return this._club;
   }
 
-  set club(club: string) {
-    this._club = club;
+  set club(value: string) {
+    this._club = value;
   }
 
   get name(): string | undefined {
     return this._name;
   }
 
-  set name(name: string) {
-    this._name = name;
+  set name(value: string) {
+    this._name = value;
   }
 
   get website(): string | undefined {
     return this._website;
   }
 
-  set website(website: string) {
-    this._website = website;
+  set website(value: string) {
+    this._website = value;
   }
 
   get address(): string | undefined {
     return this._address;
   }
 
-  set address(address: string) {
-    this._address = address;
+  set address(value: string) {
+    this._address = value;
   }
 
   get city(): string {
     return this._city;
   }
 
-  set city(city: string) {
-    this._city = city;
+  set city(value: string) {
+    this._city = value;
   }
 
   get province(): string | undefined {
     return this._province;
   }
 
-  set province(province: string) {
-    this._province = province;
+  set province(value: string) {
+    this._province = value;
   }
 
   get country(): string | undefined {
     return this._country;
   }
 
-  set country(country: string) {
-    this._country = country;
+  set country(value: string) {
+    this._country = value;
   }
 
   get plusCode(): string | undefined {
     return this._plusCode;
   }
 
-  set plusCode(plusCode: string) {
-    this._plusCode = plusCode;
+  set plusCode(value: string) {
+    this._plusCode = value;
   }
 
   get latLng(): VenueMapLatLngType {
     return this._latLng;
   }
 
-  set latLng(latLng: VenueMapLatLngType) {
-    this._latLng = latLng;
+  set latLng(value: VenueMapLatLngType) {
+    this._latLng = value;
   }
 
   get center(): VenueMapLatLngType | undefined {
     return this._center;
   }
 
-  set center(center: VenueMapLatLngType) {
-    this._center = center;
+  set center(value: VenueMapLatLngType) {
+    this._center = value;
   }
 }
