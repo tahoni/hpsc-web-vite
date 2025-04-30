@@ -3,15 +3,17 @@ import { VenueType } from "./Venue";
 import { nonBreakingHyphens } from "../utils/HtmlUtils";
 import { shootingRangeVenues } from "../content/posts/Venues/VenueConstants";
 
-export class Event {
+export class VenueEvent {
   // Core
   private _description: string;
+  private _type: string;
+  private _year: number;
 
   // Location
   private _town: string | undefined;
-  private _city: string | undefined;
+  private _city: string;
   private _province: string | undefined;
-  private _country: string | undefined;
+  private _country: string;
   private _location: string;
 
   // Websites
@@ -39,11 +41,13 @@ export class Event {
 
   constructor(event: {
     description: string;
+    type: string;
+    year: number;
     town: string;
     city?: string;
     province?: string;
     country?: string;
-    location: string;
+    location?: string;
     link: string;
     longDates: string;
     isoStartDate?: string;
@@ -60,12 +64,15 @@ export class Event {
   }) {
     // Core
     this._description = event.description;
+    this._type = event.type;
+    this._year = event.year;
 
     // Location
     this._town = event.town;
-    this._city = event.city;
+    this._city = event.city ?? "";
     this._province = event.province;
-    this._location = event.location;
+    this._country = event.country ?? "";
+    this._location = event.location ?? this._city + ", " + this._country;
 
     // Website
     this._link = event.link;
@@ -105,6 +112,18 @@ export class Event {
   public set description(value: string) {
     this._description = value;
   }
+  public get type(): string {
+    return this._type;
+  }
+  public set type(value: string) {
+    this._type = value;
+  }
+  public get year(): number {
+    return this._year;
+  }
+  public set year(value: number) {
+    this._year = value;
+  }
 
   // Location
   public get town(): string | undefined {
@@ -113,11 +132,11 @@ export class Event {
   public set town(value: string | undefined) {
     this._town = value;
   }
-  public get city(): string | undefined {
+  public get city(): string {
     return this._city;
   }
   public set city(value: string | undefined) {
-    this._city = value;
+    this._city = value ?? "";
   }
   public get province(): string | undefined {
     return this._province;
@@ -125,17 +144,17 @@ export class Event {
   public set province(value: string | undefined) {
     this._province = value;
   }
-  public get country(): string | undefined {
+  public get country(): string {
     return this._country;
   }
   public set country(value: string | undefined) {
-    this._country = value;
+    this._country = value ?? "";
   }
   public get location(): string {
     return this._location;
   }
-  public set location(value: string) {
-    this._location = value;
+  public set location(value: string | undefined) {
+    this._location = value ?? this._city + ", " + this._country;
   }
 
   // Websites
@@ -156,20 +175,32 @@ export class Event {
   public get isoStartDate(): string {
     return this._isoStartDate;
   }
-  public set isoStartDate(value: string) {
-    this._isoStartDate = value;
+  public set isoStartDate(value: string | undefined) {
+    this._isoStartDate = value ? nonBreakingHyphens(value) : "";
+    this._isoDates =
+      nonBreakingHyphens(this._isoStartDate) +
+      " - " +
+      nonBreakingHyphens(this._isoEndDate);
   }
   public get isoEndDate(): string {
     return this._isoEndDate;
   }
-  public set isoEndDate(value: string) {
-    this._isoEndDate = value;
+  public set isoEndDate(value: string | undefined) {
+    this._isoEndDate = value ? nonBreakingHyphens(value) : "";
+    this._isoDates =
+      nonBreakingHyphens(this._isoStartDate) +
+      " - " +
+      nonBreakingHyphens(this._isoEndDate);
   }
   public get isoDates(): string {
     return this._isoDates;
   }
-  public set isoDates(value: string) {
-    this._isoDates = value;
+  public set isoDates(value: string | undefined) {
+    this._isoDates = value
+      ? nonBreakingHyphens(this._isoStartDate) +
+        " - " +
+        nonBreakingHyphens(this._isoEndDate)
+      : "";
   }
 
   // Images
@@ -193,10 +224,10 @@ export class Event {
   public set shootingRangeKey(value: string) {
     this._shootingRangeKey = value;
   }
-  public get shootingRange(): VenueType {
+  public get shootingRange(): VenueType | undefined {
     return this._shootingRange;
   }
-  public set shootingRange(value: VenueType) {
+  public set shootingRange(value: VenueType | undefined) {
     this._shootingRange = value;
   }
   public get shootingRangeName(): string | undefined {

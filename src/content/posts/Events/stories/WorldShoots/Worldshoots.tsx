@@ -1,8 +1,25 @@
 import React, { ReactElement } from "react";
-import WorldShoot2025Content from "./2025/WorldShoot2025Content";
+import WorldShootContent from "./WorldShootContent";
+import {
+  worldShootComponents,
+  worldShootEventYears,
+} from "./WorldShootConstants";
 
 const WorldShootsContent = React.memo((): ReactElement => {
-  return <WorldShoot2025Content />;
+  return (
+    <section>
+      {worldShootEventYears.map((year: number, index: number) => {
+        return (
+          <WorldShootContent
+            year={year}
+            key={"worldShoot_" + "_" + year + "_" + index}
+          >
+            {worldShootComponents.get(year)}
+          </WorldShootContent>
+        );
+      })}
+    </section>
+  );
 });
 
 export default WorldShootsContent;

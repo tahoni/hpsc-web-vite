@@ -1,17 +1,12 @@
 import {
-  worldShoot2025Description,
-  worldShoot2025ISODates,
-  worldShoot2025Link,
-  worldShoot2025Location,
-  worldShoot2025RangeName,
-  worldShoot2025RangeLink,
-  worldShoot2025Town,
-  worldShoot2025Province
+  worldShoot2025Event,
 } from "./WorldShoot2025Constants";
 
 <>
-South Africa is hosting the <a href={worldShoot2025Link} target="_blank">{worldShoot2025Description} XX</a> at the <a href={worldShoot2025RangeLink} target="_blank">{worldShoot2025RangeName}</a> in {worldShoot2025Town} 
-located in the {worldShoot2025Location} municipality of the {worldShoot2025Province} province. 
-This event will take place from {worldShoot2025ISODates}.
+South Africa is hosting the <a href={worldShoot2025Event.link} target="_blank">{worldShoot2025Event.description} XX</a> 
+at the <a href={worldShoot2025Event.shootingRangeLink} target="_blank">{worldShoot2025Event.shootingRangeName}</a> 
+in {worldShoot2025Event.town} located in the {worldShoot2025Event.location} municipality 
+of the {worldShoot2025Event.province} province. 
+This event will take place from {worldShoot2025Event.isoDates}.
 <br/>
 </>

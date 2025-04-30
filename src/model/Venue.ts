@@ -49,7 +49,7 @@ export class Venue {
     return this._name;
   }
 
-  set name(value: string) {
+  set name(value: string | undefined) {
     this._name = value;
   }
 
@@ -57,7 +57,7 @@ export class Venue {
     return this._website;
   }
 
-  set website(value: string) {
+  set website(value: string | undefined) {
     this._website = value;
   }
 
@@ -81,7 +81,7 @@ export class Venue {
     return this._province;
   }
 
-  set province(value: string) {
+  set province(value: string | undefined) {
     this._province = value;
   }
 
@@ -89,7 +89,7 @@ export class Venue {
     return this._country;
   }
 
-  set country(value: string) {
+  set country(value: string | undefined) {
     this._country = value;
   }
 
@@ -97,7 +97,7 @@ export class Venue {
     return this._plusCode;
   }
 
-  set plusCode(value: string) {
+  set plusCode(value: string | undefined) {
     this._plusCode = value;
   }
 
@@ -113,7 +113,7 @@ export class Venue {
     return this._center;
   }
 
-  set center(value: VenueMapLatLngType) {
+  set center(value: VenueMapLatLngType | undefined) {
     this._center = value;
   }
 }

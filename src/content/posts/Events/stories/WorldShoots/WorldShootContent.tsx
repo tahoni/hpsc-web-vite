@@ -1,0 +1,76 @@
+import React, { CSSProperties, PropsWithChildren, ReactElement } from "react";
+import { Image } from "react-bootstrap";
+import SimpleVenueMap from "../../../../../components/Map/SimpleVenueMap";
+import { VenueType } from "../../../../../model/Venue";
+import { VenueEvent } from "../../../../../model/VenueEvent";
+import { worldShootEvents } from "./WorldShootConstants";
+import classes from "./WorldShoot.module.scss";
+
+interface WorldShootContentProps {
+  year: number;
+}
+
+const WorldShootContent = React.memo(
+  (props: PropsWithChildren<WorldShootContentProps>): ReactElement => {
+    const worldShootEvent: VenueEvent | undefined = worldShootEvents.get(
+      props.year,
+    );
+    if (worldShootEvent === undefined) {
+      return <></>;
+    }
+
+    const mapStyle: CSSProperties = {
+      width: classes.mapWidth,
+      height: classes.mapHeight,
+    };
+
+    const worldShootRangePins: VenueType[] = [worldShootEvent.shootingRange];
+
+    return (
+      <article className={classes.worldShoot}>
+        <h3>{worldShootEvent.description}</h3>
+        <h4>
+          {worldShootEvent.longDates}
+          <br />
+          {worldShootEvent.location}
+        </h4>
+        <h5>{worldShootEvent.shootingRangeName}</h5>
+        <br />
+        {worldShootEvent.images.length > 0 && worldShootEvent.images[0] ? (
+          <a href={worldShootEvent.link} target="_blank">
+            <Image
+              src={worldShootEvent.images[0].image}
+              alt={worldShootEvent.images[0].description}
+              fluid
+              width={worldShootEvent.imageWidth}
+            />
+          </a>
+        ) : (
+          <></>
+        )}
+
+        <div className={classes.worldShootSummary}>{props.children}</div>
+
+        <h6>
+          {worldShootEvent.shootingRangeName} at{" "}
+          {worldShootEvent.shootingRange?.city} in{" "}
+          {worldShootEvent.shootingRange?.province}
+        </h6>
+        <div className={classes.worldShootRangeMap}>
+          <SimpleVenueMap
+            mapStyle={mapStyle}
+            mapMode={worldShootEvent.mapMode}
+            zoom={worldShootEvent.mapZoom}
+            center={
+              worldShootEvent.shootingRange?.center ??
+              worldShootEvent.shootingRange?.latLng
+            }
+            venues={worldShootRangePins}
+          />
+        </div>
+      </article>
+    );
+  },
+);
+
+export default WorldShootContent;
