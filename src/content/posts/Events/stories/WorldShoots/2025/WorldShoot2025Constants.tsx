@@ -1,6 +1,9 @@
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
-import { ShootingRanges, shootingRangeVenues } from "../Venues/VenueConstants";
-import { VenueType } from "../../../model/Venue";
+import {
+  ShootingRanges,
+  shootingRangeVenues,
+} from "../../../../Venues/VenueConstants";
+import { VenueType } from "../../../../../../model/Venue";
 
 // 2025 IPSC HANDGUN WORLD SHOOT
 // Summary
@@ -29,7 +32,7 @@ export const worldShoot2025RangeLink: string | undefined =
 
 // Images
 export const worldShoot2025ImageFile: string =
-  "/assets/images/content/events/2025-HWS-Logo-Circular.png";
+  "/assets/images/events/WordlShoot_2025_xx_Handgun_SouthAfrica_Logo.jpg";
 export const worldShoot2025Image: ImageWithSourceAndDescription =
   new ImageWithSourceAndDescription({
     image: worldShoot2025ImageFile,

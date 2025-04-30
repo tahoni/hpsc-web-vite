@@ -23,7 +23,7 @@ export const shootingRangeVenues: Map<string, Venue> = new Map([
     },
   ],
   [
-    ShootingRanges.MAGNUM.toString(),
+    ShootingRanges.MAGNUM,
     {
       club: "Magnum United Shooting Club",
       name: "Magnum United Shooting Range",
@@ -36,7 +36,7 @@ export const shootingRangeVenues: Map<string, Venue> = new Map([
     },
   ],
   [
-    ShootingRanges.VEKTOR.toString(),
+    ShootingRanges.VEKTOR,
     {
       club: "Vektor Shooting Club",
       name: "Vektor Shooting Range",
@@ -49,7 +49,7 @@ export const shootingRangeVenues: Map<string, Venue> = new Map([
     },
   ],
   [
-    ShootingRanges.FRONTIER.toString(),
+    ShootingRanges.FRONTIER,
     {
       club: "Frontier Shooting Range",
       name: "Frontier Shooting Range",

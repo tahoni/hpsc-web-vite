@@ -4,7 +4,7 @@ import { clubShirts2024Image } from "../MemberConstants";
 
 const ClubShirts = React.memo((): ReactElement => {
   return (
-    <>
+    <article>
       <h3>Club Shirts</h3>
       <br />
       <Image
@@ -12,9 +12,8 @@ const ClubShirts = React.memo((): ReactElement => {
         alt={clubShirts2024Image.description}
         fluid
         width={640}
-        rel="noreferrer"
       />
-    </>
+    </article>
   );
 });
 

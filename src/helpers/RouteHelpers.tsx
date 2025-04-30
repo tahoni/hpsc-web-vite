@@ -16,6 +16,6 @@ export const routes: PageAlias[] = [
   { mapping: AboutUs },
   { path: "/about_us", mapping: AboutUs },
 
-  // { mapping: Venues },
   { mapping: Events },
+  // { mapping: Venues },
 ];

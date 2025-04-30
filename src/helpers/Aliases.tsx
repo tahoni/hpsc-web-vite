@@ -1,9 +1,7 @@
 import React from "react";
 import { PageMapping } from "../model/PageMapping.ts";
-import HomePage from "../pages/Home/HomePage.tsx";
 import Page from "../pages/Page.tsx";
-import VenuesPage from "../pages/Venues/VenuesPage.tsx";
-import EventsPage from "../pages/Events/EventsPage.tsx";
+import HomePage from "../pages/Home/HomePage.tsx";
 
 const MembersPage = React.lazy(
   () => import("../pages/Members/MembersPage.tsx"),
@@ -18,6 +16,8 @@ const ContactUsPage = React.lazy(
 const AboutUsPage = React.lazy(
   () => import("../pages/AboutUs/AboutUsPage.tsx"),
 );
+const EventsPage = React.lazy(() => import("../pages/Events/EventsPage.tsx"));
+const VenuesPage = React.lazy(() => import("../pages/Venues/VenuesPage.tsx"));
 
 export const Home: PageMapping = {
   name: "Home",

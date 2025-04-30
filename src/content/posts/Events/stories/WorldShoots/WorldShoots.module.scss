@@ -1,0 +1,7 @@
+$map-width: 100%;
+$map-height: 15em;
+
+:export {
+  maxWidth: $map-width;
+  mapHeight: $map-height;
+}

@@ -1,18 +1,18 @@
 import React, { MemoExoticComponent, ReactElement } from "react";
-import WorldShoots from "./stories/Worldshoots.tsx";
+import WorldShootsContent from "./stories/WorldShoots/Worldshoots.tsx";
 
 const EventsContent = React.memo((): ReactElement => {
-  const Contents: MemoExoticComponent<() => ReactElement>[] = [WorldShoots];
+  const Contents: MemoExoticComponent<() => ReactElement>[] = [
+    WorldShootsContent,
+  ];
   return (
-    <>
+    <section>
       {Contents.map(
         (Content: MemoExoticComponent<() => ReactElement>, index: number) => (
-          <article>
-            <Content key={"events_" + index} />
-          </article>
+          <Content key={"events_" + index} />
         ),
       )}
-    </>
+    </section>
   );
 });
 

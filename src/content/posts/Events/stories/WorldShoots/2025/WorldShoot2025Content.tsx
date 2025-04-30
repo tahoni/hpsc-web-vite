@@ -1,0 +1,61 @@
+import React, { CSSProperties, ReactElement } from "react";
+import { Image } from "react-bootstrap";
+import SimpleVenueMap from "../../../../../../components/Map/SimpleVenueMap";
+import { VenueType } from "../../../../../../model/Venue";
+import {
+  worldShoot2025,
+  worldShoot2025LongDates,
+  worldShoot2025Link,
+  worldShoot2025Location,
+  worldShoot2025RangeName,
+  worldShoot2025Range,
+} from "../../../EventsConstants";
+import { worldShoot2025Image } from "../../../EventsConstants";
+import WorldShoot2025 from "./WorldShoot2025.mdx";
+import classes from "../WorldShoots.module.scss";
+
+const WorldShoot2025Content = React.memo((): ReactElement => {
+  const mapStyle: CSSProperties = {
+    width: classes.mapWidth,
+    height: classes.mapHeight,
+  };
+
+  const worldShoot2025RangePins: VenueType[] = [worldShoot2025Range];
+
+  return (
+    <article>
+      <h3>{worldShoot2025}</h3>
+      <h4>
+        {worldShoot2025LongDates}
+        <br />
+        {worldShoot2025Location}
+      </h4>
+      <h5>{worldShoot2025RangeName}</h5>
+      <br />
+      <a href={worldShoot2025Link} target="_blank">
+        <Image
+          src={worldShoot2025Image.image}
+          alt={worldShoot2025Image.description}
+          fluid
+          width={250}
+        />
+      </a>
+
+      <WorldShoot2025 />
+
+      <h6>
+        {worldShoot2025Range?.name} at {worldShoot2025Range?.city} in{" "}
+        {worldShoot2025Range?.province}
+      </h6>
+      <SimpleVenueMap
+        mapStyle={mapStyle}
+        mapMode="satellite"
+        zoom={17}
+        center={worldShoot2025Range?.center ?? worldShoot2025Range?.latLng}
+        venues={worldShoot2025RangePins}
+      />
+    </article>
+  );
+});
+
+export default WorldShoot2025Content;
