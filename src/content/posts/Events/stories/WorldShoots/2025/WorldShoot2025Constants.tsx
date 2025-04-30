@@ -27,7 +27,7 @@ export const worldShoot2025ImageFile: string =
 export const worldShoot2025Image: ImageWithSourceAndDescription =
   new ImageWithSourceAndDescription({
     image: worldShoot2025ImageFile,
-    description: worldShoot2025Description,
+    description: worldShoot2025Description + " logo",
   });
 
 // Shooting range

@@ -17,8 +17,9 @@ export const HeaderMenu = React.memo((): ReactElement => {
         }
       >
         {menuItems.map((item: PageMapping, index: number) => (
-          <NavDropdown.Item as={Link} to={item.path}
-                            key={"menu_" + index}>{item.name}</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to={item.path} key={"menu_" + index}>
+            {item.name}
+          </NavDropdown.Item>
         ))}
       </NavDropdown>
     </>

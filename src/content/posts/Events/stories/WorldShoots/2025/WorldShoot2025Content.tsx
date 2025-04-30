@@ -16,7 +16,7 @@ import {
   worldShoot2025MapZoom,
 } from "./WorldShoot2025Constants";
 import WorldShoot2025 from "./WorldShoot2025.mdx";
-import classes from "../WorldShoots.module.scss";
+import classes from "./WorldShoot2025.module.scss";
 
 const WorldShoot2025Content = React.memo((): ReactElement => {
   const mapStyle: CSSProperties = {
@@ -27,7 +27,7 @@ const WorldShoot2025Content = React.memo((): ReactElement => {
   const worldShoot2025RangePins: VenueType[] = [worldShoot2025Range];
 
   return (
-    <article>
+    <article className={classes.worldShoot2025}>
       <h3>{worldShoot2025Description}</h3>
       <h4>
         {worldShoot2025LongDates}
@@ -45,7 +45,7 @@ const WorldShoot2025Content = React.memo((): ReactElement => {
         />
       </a>
 
-      <div className="worldShoot2025Summary">
+      <div className={classes.worldShoot2025Summary}>
         <WorldShoot2025 />
       </div>
 
@@ -53,7 +53,7 @@ const WorldShoot2025Content = React.memo((): ReactElement => {
         {worldShoot2025Range?.name} at {worldShoot2025Range?.city} in{" "}
         {worldShoot2025Range?.province}
       </h6>
-      <div className="worldShoot2025RangeMap">
+      <div className={classes.worldShootRangeMap}>
         <SimpleVenueMap
           mapStyle={mapStyle}
           mapMode={worldShoot2025MapMode}

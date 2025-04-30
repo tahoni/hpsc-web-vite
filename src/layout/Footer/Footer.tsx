@@ -9,33 +9,33 @@ import {
   nationalAssociationLogo,
   nationalAssociationWebsite,
 } from "../../constants/about/AssociationConstants.ts";
-import layoutClasses from "../Layout.module.scss";
+import classes from "./Footer.module.scss";
 
 export const Footer = React.memo((): ReactElement => {
   return (
-    <Container fluid className={layoutClasses.footer}>
-      <div className={layoutClasses.footerInner}>
-        <div className={layoutClasses.footerSidebar}>
-          <Col className={layoutClasses.logoContainer}>
+    <Container fluid className={classes.footer}>
+      <div className={classes.footerInner}>
+        <div className={classes.footerSidebar}>
+          <Col className={classes.logoContainer}>
             <a href={nationalAssociationWebsite} target="_blank">
               <Image
                 src={nationalAssociationLogo}
                 alt={nationalAssociationAbbreviation + " logo"}
-                className={`${layoutClasses.logo} ${layoutClasses.leftLogo}}`}
+                className={`${classes.logo} ${classes.leftLogo}}`}
               />
             </a>
           </Col>
         </div>
-        <Col className={layoutClasses.footerCenter}>
+        <Col className={classes.footerCenter}>
           <FooterContent />
         </Col>
-        <div className={layoutClasses.footerSidebar}>
-          <Col className={layoutClasses.logoContainer}>
+        <div className={classes.footerSidebar}>
+          <Col className={classes.logoContainer}>
             <a href={internationalAssociationWebsite} target="_blank">
               <Image
                 src={internationalAssociationLogo}
                 alt={internationalAssociationAbbreviation + " logo"}
-                className={`${layoutClasses.logo} ${layoutClasses.rightLogo}`}
+                className={`${classes.logo} ${classes.rightLogo}`}
               />
             </a>
           </Col>

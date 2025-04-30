@@ -14,7 +14,6 @@ import {
   webmasterEmail,
 } from "../../constants/about/ClubConstants.ts";
 import { clubShootingRangeVenue } from "../../constants/about/ClubConstants.ts";
-import layoutClasses from "../Layout.module.scss";
 import classes from "./Footer.module.scss";
 
 export const FooterContent = React.memo((): ReactElement => {
@@ -27,7 +26,7 @@ export const FooterContent = React.memo((): ReactElement => {
 
   return (
     <>
-      <Row className={layoutClasses.footerContent}>
+      <Row className={classes.footerContent}>
         <Col className={classes.footerMap}>
           {footerMapPins && footerMapPins.length > 0 && footerMapPins[0] ? (
             <SimpleVenueMap
