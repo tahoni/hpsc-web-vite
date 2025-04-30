@@ -9,6 +9,7 @@ import {
   worldShoot2025Location,
   worldShoot2025RangeName,
   worldShoot2025Range,
+  worldShoot2025ImageWidth,
 } from "./WorldShoot2025Constants";
 import {
   worldShoot2025Image,
@@ -41,11 +42,11 @@ const WorldShoot2025Content = React.memo((): ReactElement => {
           src={worldShoot2025Image.image}
           alt={worldShoot2025Image.description}
           fluid
-          width={250}
+          width={worldShoot2025ImageWidth}
         />
       </a>
 
-      <div className={classes.worldShoot2025Summary}>
+      <div className={classes.worldShootSummary}>
         <WorldShoot2025 />
       </div>
 

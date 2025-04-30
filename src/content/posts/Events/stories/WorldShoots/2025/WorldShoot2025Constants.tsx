@@ -1,4 +1,5 @@
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
+import { nonBreakingHyphens } from "../../../../../../utils/HtmlUtils";
 import { VenueType } from "../../../../../../model/Venue";
 import {
   ShootingRanges,
@@ -19,7 +20,12 @@ export const worldShoot2025Link: string = "https://2025hws.worldShoot.org/";
 
 // Dates
 export const worldShoot2025LongDates: string = "September 11-28, 2025";
-export const worldShoot2025ISODates: string = "2025-09-11- 2025-09-28";
+export const worldShoot2025ISOBeginDate: string = "2025-09-11";
+export const worldShoot2025ISOEndDate: string = "2025-09-28";
+export const worldShoot2025ISODates: string =
+  nonBreakingHyphens(worldShoot2025ISOBeginDate) +
+  " - " +
+  nonBreakingHyphens(worldShoot2025ISOEndDate);
 
 // Images
 export const worldShoot2025ImageFile: string =
@@ -29,6 +35,7 @@ export const worldShoot2025Image: ImageWithSourceAndDescription =
     image: worldShoot2025ImageFile,
     description: worldShoot2025Description + " logo",
   });
+export const worldShoot2025ImageWidth: number = 250;
 
 // Shooting range
 export const worldShoot2025ShootingRangeKey: string = ShootingRanges.FRONTIER;
