@@ -7,16 +7,13 @@ import { VenueType } from "../../model/Venue.ts";
 import SimpleVenueMap from "../../components/Map/SimpleVenueMap.tsx";
 import { copyrightYear } from "../../constants/AppConstants.ts";
 import {
-  ShootingRanges,
-  shootingRangeVenues,
-} from "../../content/posts/Venues/VenueConstants.ts";
-import {
   clubName,
   enquiriesEmail,
   facebookGroup,
   facebookPage,
   webmasterEmail,
 } from "../../constants/about/ClubConstants.ts";
+import { clubShootingRangeVenue } from "../../constants/about/ClubConstants.ts";
 import layoutClasses from "../Layout.module.scss";
 import classes from "./Footer.module.scss";
 
@@ -26,8 +23,7 @@ export const FooterContent = React.memo((): ReactElement => {
     height: classes.mapHeight,
   };
 
-  const footerMapRange: string = ShootingRanges.EUFEES;
-  const footerMapPins: VenueType[] = [shootingRangeVenues.get(footerMapRange)];
+  const footerMapPins: VenueType[] = [clubShootingRangeVenue];
 
   return (
     <>

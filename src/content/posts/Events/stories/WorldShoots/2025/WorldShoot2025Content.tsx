@@ -3,14 +3,18 @@ import { Image } from "react-bootstrap";
 import SimpleVenueMap from "../../../../../../components/Map/SimpleVenueMap";
 import { VenueType } from "../../../../../../model/Venue";
 import {
-  worldShoot2025,
+  worldShoot2025Description,
   worldShoot2025LongDates,
   worldShoot2025Link,
   worldShoot2025Location,
   worldShoot2025RangeName,
   worldShoot2025Range,
-} from "../../../EventsConstants";
-import { worldShoot2025Image } from "../../../EventsConstants";
+} from "./WorldShoot2025Constants";
+import {
+  worldShoot2025Image,
+  worldShoot2025MapMode,
+  worldShoot2025MapZoom,
+} from "./WorldShoot2025Constants";
 import WorldShoot2025 from "./WorldShoot2025.mdx";
 import classes from "../WorldShoots.module.scss";
 
@@ -24,7 +28,7 @@ const WorldShoot2025Content = React.memo((): ReactElement => {
 
   return (
     <article>
-      <h3>{worldShoot2025}</h3>
+      <h3>{worldShoot2025Description}</h3>
       <h4>
         {worldShoot2025LongDates}
         <br />
@@ -41,19 +45,23 @@ const WorldShoot2025Content = React.memo((): ReactElement => {
         />
       </a>
 
-      <WorldShoot2025 />
+      <div className="worldShoot2025Summary">
+        <WorldShoot2025 />
+      </div>
 
       <h6>
         {worldShoot2025Range?.name} at {worldShoot2025Range?.city} in{" "}
         {worldShoot2025Range?.province}
       </h6>
-      <SimpleVenueMap
-        mapStyle={mapStyle}
-        mapMode="satellite"
-        zoom={17}
-        center={worldShoot2025Range?.center ?? worldShoot2025Range?.latLng}
-        venues={worldShoot2025RangePins}
-      />
+      <div className="worldShoot2025RangeMap">
+        <SimpleVenueMap
+          mapStyle={mapStyle}
+          mapMode={worldShoot2025MapMode}
+          zoom={worldShoot2025MapZoom}
+          center={worldShoot2025Range?.center ?? worldShoot2025Range?.latLng}
+          venues={worldShoot2025RangePins}
+        />
+      </div>
     </article>
   );
 });

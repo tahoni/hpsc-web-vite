@@ -12,9 +12,10 @@ import {
   secretaryName,
 } from "../../../constants/about/ClubConstants.ts";
 import {
-  ShootingRanges,
-  shootingRangeVenues,
-} from "../../posts/Venues/VenueConstants.ts";
+  aboutUsMapMode,
+  aboutUsMapZoom,
+  eufeesShootingRange,
+} from "./AboutUsConstants.ts";
 import classes from "./AboutUs.module.scss";
 
 const AboutUsContent = React.memo((): ReactElement => {
@@ -23,9 +24,6 @@ const AboutUsContent = React.memo((): ReactElement => {
     height: classes.mapHeight,
   };
 
-  const eufeesShootingRange: VenueType = shootingRangeVenues.get(
-    ShootingRanges.EUFEES,
-  );
   const shootingRangePins: VenueType[] = [eufeesShootingRange];
 
   return (
@@ -73,8 +71,8 @@ const AboutUsContent = React.memo((): ReactElement => {
             {eufeesShootingRange ? (
               <SimpleVenueMap
                 mapStyle={mapStyle}
-                mapMode="satellite"
-                zoom={16}
+                mapMode={aboutUsMapMode}
+                zoom={aboutUsMapZoom}
                 center={
                   eufeesShootingRange?.center ?? eufeesShootingRange.latLng
                 }

@@ -1,5 +1,4 @@
 import { Venue } from "../../../model/Venue.ts";
-import { clubShootingRangeDescription } from "../../../constants/about/ClubConstants.ts";
 
 export enum ShootingRanges {
   EUFEES = "EUFEES",
@@ -12,7 +11,8 @@ export const shootingRangeVenues: Map<string, Venue> = new Map([
   [
     ShootingRanges.EUFEES,
     {
-      club: clubShootingRangeDescription,
+      club: "Pretoria Military Practical Shooting Club",
+      name: "Eeufees Range",
       website: "https://www.pmpsc.co.za/",
       address: "Eeufees Rd, Thaba Tshwane, Pretoria, 0027",
       city: "Pretoria",

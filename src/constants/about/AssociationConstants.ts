@@ -1,6 +1,7 @@
 // Names and descriptions
 import { logoAkt } from "../AppConstants.ts";
 
+// Summary
 export const provincialAssociationName: string =
   "Northern Gauteng Practical Shooting Association";
 export const nationalAssociationName: string =

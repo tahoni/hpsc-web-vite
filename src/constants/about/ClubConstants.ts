@@ -1,11 +1,23 @@
 // Name, description and abbreviation
+import {
+  ShootingRanges,
+  shootingRangeVenues,
+} from "../../content/posts/Venues/VenueConstants.ts";
+import { VenueType } from "../../model/Venue.ts";
 import { logoAkt } from "../AppConstants.ts";
 
+// Summary
 export const clubName: string = "Hartbeespoortdam Practical Shooting Club";
 export const clubAbbreviation: string = "HPSC";
-export const clubShootingRangeName: string = "Eeufees Range";
-export const clubShootingRangeDescription: string =
-  "Pretoria Military Practical Shooting Club";
+
+// Shooting range
+export const clubShootingRangeKey: string = ShootingRanges.EUFEES;
+export const clubShootingRangeVenue: VenueType =
+  shootingRangeVenues.get(clubShootingRangeKey);
+export const clubShootingRangeName: string | undefined =
+  clubShootingRangeVenue?.name;
+export const clubShootingRangeDescription: string | undefined =
+  clubShootingRangeVenue?.club;
 
 // E-mails
 export const chairmanEmail: string = "chairman@hpsc.co.za";
