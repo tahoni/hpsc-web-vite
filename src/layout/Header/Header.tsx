@@ -12,33 +12,33 @@ import {
   provincialAssociationLogo,
   provincialAssociationWebsite,
 } from "../../constants/about/AssociationConstants.ts";
-import layoutClasses from "../Layout.module.scss";
+import classes from "./Header.module.scss";
 
 export const Header = React.memo((): ReactElement => {
   return (
-    <Container fluid className={layoutClasses.header}>
-      <div className={layoutClasses.headerInner}>
-        <div className={layoutClasses.headerSidebar}>
-          <Col className={layoutClasses.logoContainer}>
+    <Container fluid className={classes.header}>
+      <div className={classes.headerInner}>
+        <div className={classes.headerSidebar}>
+          <Col className={classes.logoContainer}>
             <Link to="/">
               <Image
                 src={clubLogo}
                 alt={clubLogoAlt}
-                className={`${layoutClasses.logo} ${layoutClasses.leftLogo}`}
+                className={`${classes.logo} ${classes.leftLogo}`}
               />
             </Link>
           </Col>
         </div>
-        <Col className={layoutClasses.headerCenter}>
+        <Col className={classes.headerCenter}>
           <HeaderContent title={clubName} />
         </Col>
-        <div className={layoutClasses.headerSidebar}>
-          <Col className={layoutClasses.logoContainer}>
+        <div className={classes.headerSidebar}>
+          <Col className={classes.logoContainer}>
             <a href={provincialAssociationWebsite} target="_blank">
               <Image
                 src={provincialAssociationLogo}
                 alt={provincialAssociationAbbreviation + " logo"}
-                className={`${layoutClasses.logo} ${layoutClasses.rightLogo}`}
+                className={`${classes.logo} ${classes.rightLogo}`}
               />
             </a>
           </Col>

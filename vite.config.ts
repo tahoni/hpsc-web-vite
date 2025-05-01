@@ -20,7 +20,7 @@ export default defineConfig({
     minify: true,
     sourcemap: false,
     modulePreload: {
-      polyfill: false,
+      polyfill: true,
       resolveDependencies: () => [],
     },
     rollupOptions: {

@@ -1,10 +1,10 @@
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 
-export const clubShirtsImageFile: string =
+export const clubShirts2024ImageFile: string =
   "/assets/images/club/Bosninja_ HPSC_Club_shirts.png";
 
-export const clubShirtsImage: ImageWithSourceAndDescription =
+export const clubShirts2024Image: ImageWithSourceAndDescription =
   new ImageWithSourceAndDescription({
-    image: clubShirtsImageFile,
+    image: clubShirts2024ImageFile,
     description: "HPSC club shirt",
   });

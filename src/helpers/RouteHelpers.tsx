@@ -1,6 +1,6 @@
 import { Navigate } from "react-router";
 import { PageAlias } from "../model/PageAlias.ts";
-import { AboutUs, History, Home, Links, Members } from "./Aliases.tsx";
+import { AboutUs, History, Home, Links, Members, Events } from "./Aliases.tsx";
 
 export const routes: PageAlias[] = [
   { mapping: Home },
@@ -16,5 +16,6 @@ export const routes: PageAlias[] = [
   { mapping: AboutUs },
   { path: "/about_us", mapping: AboutUs },
 
+  { mapping: Events },
   // { mapping: Venues },
 ];

@@ -1,0 +1,23 @@
+$map-width: 100%;
+$map-height: 15em;
+
+:export {
+  maxWidth: $map-width;
+  mapHeight: $map-height;
+}
+
+.worldShootSummary {
+  margin-top: 0.75em;
+}
+
+.worldShootRangeMap {
+  margin: 0.75em 0;
+}
+
+.worldShoot img {
+  margin-bottom: 0.75em;
+}
+
+.worldShoot h6 {
+  margin-bottom: 1.55em;
+}
