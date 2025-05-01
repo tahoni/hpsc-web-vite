@@ -1,6 +1,4 @@
 ## TAHONI
-**/*.md
-**/*.mdx
+# **/*.md
+# **/*.mdx
 .htaccess
-build/
-coverage/

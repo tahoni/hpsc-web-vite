@@ -1,41 +1,67 @@
 # HPSC website
+
 ## Change Log
 
 ### Table of Contents
-- [Version 3.5.2](#version-352---_2025-04-30_)
-- [Version 3.5.1](#version-351---_2025-04-26_)
-- [Version 3.5.0](#version-350---_2025-04-26_)
-- [Version 3.4.1](#version-341---_2025-03-28_)
-- [Version 3.4.0](#version-340---_2025-02-25_)
-- [Version 3.3.9](#version-339---_2025-02-15_)
-- [Version 3.3.8](#version-338---_2025-02-09_)
-- [Version 3.3.7](#version-337---_2025-01-08_)
-- [Version 3.3.6](#version-336---_2025-01-07_)
-- [Version 3.3.5](#version-335---_2025-01-06_)
-- [Version 3.3.4](#version-334---_2025-01-05_)
-- [Version 3.3.3](#version-333---_2025-01-05_)
-- [Version 3.3.2](#version-332---_2025-01-04_)
-- [Version 3.3.1](#version-331---_2025-01-02_)
-- [Version 3.3.0](#version-330---_2025-01-02_)
-- [Version 3.2.6](#version-326---_2024-12-26_)
-- [Version 3.2.5](#version-325---_2024-12-25_)
-- [Version 3.2.4](#version-324---_2024-12-24_)
-- [Version 3.2.3](#version-323---_2024-12-22_)
-- [Version 3.2.2](#version-322---_2024-12-18_)
-- [Version 3.2.1](#version-321---_2024-12-17_)
-- [Version 3.2.0](#version-320---_2024-12-17_)
-- [Version 3.1.4](#version-314---_2024-12-16_)
-- [Version 3.1.3](#version-313---_2024-12-16_)
-- [Version 3.1.2](#version-312---_2024-12-16_)
-- [Version 3.1.1](#version-311---_2024-12-15_)
-- [Version 3.1.0](#version-310---_2024-12-14_)
-- [Version 3.0.5](#version-305---_2024-12-06_)
-- [Version 3.0.4](#version-304---_2024-11-02_)
-- [Version 3.0.3](#version-303---_2024-10-29_)
-- [Version 3.0.2](#version-302---_2024-08-27_)
-- [Version 3.0.1](#version-301---_2024-08-27_)
-- [Version 3.0.0](#version-300---_2024-08-18_)
 
+- [Version 3.5.2](#version-352---2025-04-30)
+- [Version 3.5.1](#version-351---2025-04-26)
+- [Version 3.5.0](#version-350---2025-04-26)
+- [Version 3.4.1](#version-341---2025-03-28)
+- [Version 3.4.0](#version-340---2025-02-25)
+- [Version 3.3.9](#version-339---2025-02-15)
+- [Version 3.3.8](#version-338---2025-02-09)
+- [Version 3.3.7](#version-337---2025-01-08)
+- [Version 3.3.6](#version-336---2025-01-07)
+- [Version 3.3.5](#version-335---2025-01-06)
+- [Version 3.3.4](#version-334---2025-01-05)
+- [Version 3.3.3](#version-333---2025-01-05)
+- [Version 3.3.2](#version-332---2025-01-04)
+- [Version 3.3.1](#version-331---2025-01-02)
+- [Version 3.3.0](#version-330---2025-01-02)
+- [Version 3.2.6](#version-326---2024-12-26)
+- [Version 3.2.5](#version-325---2024-12-25)
+- [Version 3.2.4](#version-324---2024-12-24)
+- [Version 3.2.3](#version-323---2024-12-22)
+- [Version 3.2.2](#version-322---2024-12-18)
+- [Version 3.2.1](#version-321---2024-12-17)
+- [Version 3.2.0](#version-320---2024-12-17)
+- [Version 3.1.4](#version-314---2024-12-16)
+- [Version 3.1.3](#version-313---2024-12-16)
+- [Version 3.1.2](#version-312---2024-12-16)
+- [Version 3.1.1](#version-311---2024-12-15)
+- [Version 3.1.0](#version-310---2024-12-14)
+- [Version 3.0.5](#version-305---2024-12-06)
+- [Version 3.0.4](#version-304---2024-11-02)
+- [Version 3.0.3](#version-303---2024-10-29)
+- [Version 3.0.2](#version-302---2024-08-27)
+- [Version 3.0.1](#version-301---2024-08-27)
+- [Version 3.0.0](#version-300---2024-08-18)
+
+### [Version 3.6.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.0) - _2025-05-01_
+
+Created the Events page.
+Added a new post for the "World Shoot" event on this page.
+
+#### Enhancements and Updates
+
+- Created an Events page.
+- Created a Venue Event class to handle all Event properties.
+- Created a World Shoot component.
+
+#### General Code Improvements
+
+- Fixed an accessibility issue with the dropdown menu.
+
+#### Dependencies
+
+- Bumped `vite` from version 6.3.3 to 6.3.4 to include the latest updates
+    and bug fixes.
+
+#### Changes by
+
+@tahoni
+@dependabot
 
 ### [Version 3.5.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.2) - _2025-04-30_
 Fixed the overlapping elements in the header and footer.<br/>
