@@ -27,7 +27,7 @@ export const FooterContent = React.memo((): ReactElement => {
   return (
     <>
       <Row className={classes.footerContent}>
-        <Col className={classes.footerMap}>
+        <Col xs={12} lg={6} className={classes.footerMap}>
           {footerMapPins && footerMapPins.length > 0 && footerMapPins[0] ? (
             <SimpleVenueMap
               mapStyle={mapStyle}
@@ -41,7 +41,7 @@ export const FooterContent = React.memo((): ReactElement => {
         <Col className={classes.footerDetails}>
           <div className={classes.contactInfo}>
             <Row>
-              <Col xs={12} md={6} lg={12} xl={6}>
+              <Col>
                 <FontAwesomeIcon icon={faEnvelope} className="google-icon" />{" "}
                 E-mail:
               </Col>
@@ -52,7 +52,7 @@ export const FooterContent = React.memo((): ReactElement => {
               </Col>
             </Row>
             <Row>
-              <Col xs={12} md={6} lg={12} xl={6}>
+              <Col>
                 <FontAwesomeIcon icon={faFacebook} className="facebook-icon" />{" "}
                 Facebook:
               </Col>
@@ -63,7 +63,7 @@ export const FooterContent = React.memo((): ReactElement => {
               </Col>
             </Row>
             <Row>
-              <Col xs={12} md={6} lg={12} xl={6}>
+              <Col>
                 <FontAwesomeIcon icon={faFacebook} className="facebook-icon" />{" "}
                 Facebook:
               </Col>
