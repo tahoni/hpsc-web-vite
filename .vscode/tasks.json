@@ -63,6 +63,17 @@
       "detail": "Previews the built project using Vite"
     },
     {
+      "label": "Preview Build On Host",
+      "type": "npm",
+      "script": "host",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "detail": "Previews the built project using Vite on a spceific exposed host"
+    },
+    {
       "label": "Run Tests",
       "type": "npm",
       "script": "test",
