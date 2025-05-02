@@ -4,6 +4,8 @@
 
 ### Table of Contents
 
+- [Version 3.6.1](#version-361---2025-05-02)
+- [Version 3.6.0](#version-300---2024-08-18)
 - [Version 3.5.2](#version-352---2025-04-30)
 - [Version 3.5.1](#version-351---2025-04-26)
 - [Version 3.5.0](#version-350---2025-04-26)
@@ -37,6 +39,20 @@
 - [Version 3.0.2](#version-302---2024-08-27)
 - [Version 3.0.1](#version-301---2024-08-27)
 - [Version 3.0.0](#version-300---2024-08-18)
+
+### [Version 3.6.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.1) - _2025-05-02_
+
+Don't display a 404 error for the Events page.
+Display the World Shoot 2025 logo on the Events page.
+
+#### General Technical Changes
+
+- Modified the `htaccess` file to allow the Events and Venues pages.
+- Modified the `htaccess` file to not rewrite image paths.
+
+#### Changes by
+
+@tahoni
 
 ### [Version 3.6.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.0) - _2025-05-01_
 
