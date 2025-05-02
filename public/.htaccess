@@ -1,6 +1,7 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase / 
+  RewriteRule (.+\.(jpg|jpeg|png|gif|bmp|ico))$ - [L]
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_URI} "^$" [OR]
   RewriteCond %{REQUEST_URI} "(home)" [OR]
