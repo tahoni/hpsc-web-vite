@@ -1,12 +1,16 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase / 
+  RewriteRule (.+\.(jpg|jpeg|png|gif|bmp|ico))$ - [L]
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_URI} "^$" [OR]
   RewriteCond %{REQUEST_URI} "(home)" [OR]
   RewriteCond %{REQUEST_URI} "(members)" [OR]
   RewriteCond %{REQUEST_URI} "(links)" [OR]
   RewriteCond %{REQUEST_URI} "(history)" [OR]
+  RewriteCond %{REQUEST_URI} "(events)" [OR]
+  RewriteCond %{REQUEST_URI} "(venues)" [OR]
+  RewriteCond %{REQUEST_URI} "((contact)|(contact_us))" [OR]
   RewriteCond %{REQUEST_URI} "((about)|(about_us))"
   RewriteRule . /index.html [L]
 </IfModule>

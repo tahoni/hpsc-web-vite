@@ -138,6 +138,9 @@
   padding: 0.75rem;
 }
 
+// Logo and heading alignment
+// The two logos surround the heading
+// With everything on one line
 .headerSidebar:first-child,
 .footerSidebar:first-child {
   order: 1;
@@ -155,23 +158,50 @@
 
 @include media-breakpoint-down(md) {
   .headerSidebar:first-child,
-  .headerSidebar:first-child {
+  .footerSidebar:first-child {
     width: 50%;
     flex: none !important;
-    order: 1;
   }
 
   .headerSidebar:last-child,
   .footerSidebar:last-child {
     width: 50%;
     flex: none !important;
-    order: 2;
   }
 
   .headerCenter,
   .footerCenter {
-    order: 3;
     width: 100%;
     flex: none !important;
+  }
+
+  // Logo and heading alignment
+  // The two logos come before the heading
+  // With the heading on it's own line
+  .headerSidebar:first-child {
+    order: 1;
+  }
+
+  .headerSidebar:last-child {
+    order: 2;
+  }
+
+  .headerCenter {
+    order: 3;
+  }
+
+  // Logo and heading alignment
+  // The two logos come after the heading
+  // With the heaidng on it's own line
+  .footerSidebar:first-child {
+    order: 2;
+  }
+
+  .footerSidebar:last-child {
+    order: 3;
+  }
+
+  .footerCenter {
+    order: 1;
   }
 }
