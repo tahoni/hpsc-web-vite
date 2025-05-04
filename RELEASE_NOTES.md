@@ -2,15 +2,14 @@
 
 ## Release Notes
 
-### Version 3.6.1 - _2025-05-02_
+### Version 3.6.2 - _2025-05-04_
 
-Don't display a 404 error for the Events page.
-Display the World Shoot 2025 logo on the Events page.
+Fixed the redirect of pages on the website.
 
 #### General Technical Changes
 
-- Modified the `htaccess` file to allow the Events and Venues pages.
-- Modified the `htaccess` file to not rewrite image paths.
+- Modified the `.htacess` file to redirect HTTP requests to HTTPS.
+- Modified the `.htaccess` file to correctly redirect only full valid path names.
 
 #### Changes by
 
