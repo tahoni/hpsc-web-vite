@@ -4,6 +4,7 @@
 
 ### Table of Contents
 
+- [Version 3.6.3](#version-363---2025-05-14)
 - [Version 3.6.2](#version-362---2025-05-04)
 - [Version 3.6.1](#version-361---2025-05-02)
 - [Version 3.6.0](#version-300---2024-08-18)
@@ -40,6 +41,20 @@
 - [Version 3.0.2](#version-302---2024-08-27)
 - [Version 3.0.1](#version-301---2024-08-27)
 - [Version 3.0.0](#version-300---2024-08-18)
+
+### [Version 3.6.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.3) - _2025-05-14_
+
+Redirected all URLs, without valid subdomains, to the `www` root domain.
+
+#### General Technical Changes
+
+- Modified the `.htaccess` file to correct all the current erroneous regular expressions.
+- Modified the `.htacess` file to redirect hosts not starting with a `www`, `api`
+    or `members` subdomain to the `www` root domain.
+
+#### Changes by
+
+@tahoni
 
 ### [Version 3.6.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.2) - _2025-05-04_
 
@@ -86,7 +101,7 @@ Added a new post for the "World Shoot" event on this page.
 #### Dependencies
 
 - Bumped `vite` from version 6.3.3 to 6.3.4 to include the latest updates
-      and bug fixes.
+        and bug fixes.
 
 #### Changes by
 
@@ -113,7 +128,7 @@ Really return HTTP status 404 for pages not found.
 #### General Code Improvements
 
 - Changed the `.htaccess` file to only allow known routes, other routes will
-      automatically return a 404 HTTP status.
+        automatically returns a 404 HTTP status.
 
 #### Changes by
 
@@ -132,7 +147,7 @@ Return HTTP status 404 for pages not found.
 #### General Code Improvements
 
 - Changed the `.htaccess` file to only allow known routes and return 404
-      for all other routes.
+        for all other routes.
 
 #### General Technical Changes
 
@@ -173,7 +188,7 @@ An e-mail is sent upon submission of the Contact Us form.
 #### Dependencies
 
 - A dependency was added to help split bundles by displaying the
-      bundles' composition after each build.
+        bundles' composition after each build.
 - Mitigated vulnerable dependencies.
 
 #### Changes by
@@ -243,7 +258,7 @@ Removed the Contact Us menu option for now.
 #### General Technical Changes
 
 - A setting was removed from `vite.config.ts` to roll back the changes to
-      build the project with smaller chunks.
+        build the project with smaller chunks.
 
 #### Dependencies
 
@@ -317,7 +332,7 @@ Improved accessibility.
 #### Enhancements and Updates
 
 - Displayed all content in two lines where the screen is too small to
-      display it together.
+        display it together.
 
 #### Bug Fixes
 
@@ -399,7 +414,7 @@ Created About Us page.
 - A mode property was added to the map component.
 - A centre property was added to the map component.
 - An About Us page was created with contact details and a satellite map
-      of the shooting range.
+        of the shooting range.
 
 #### Dependencies
 
@@ -418,7 +433,7 @@ A Contact Us page was created.
 - A page title component was created.
 - Created a CAPTCHA component for Google reCAPTCHA.
 - A CAPTCHA field was created for the JSON schema form using the
-      Google ReCAPTCHA component.
+        Google ReCAPTCHA component.
 - Validated the CAPTCHA field with a custom validator function.
 - A JSON schema with validations for the Contact Us page was created.
 - The CAPTCHA field was added to the JSON schema.
@@ -429,7 +444,7 @@ A Contact Us page was created.
 
 #### General Code Improvements
 
-- Overrode some of the Bootstrap SASS variables and simplified the custom styles.
+- Overrode some Bootstrap SASS variables and simplified the custom styles.
 - Change all CSS classes to camel case.
 
 #### General Technical Changes
@@ -471,9 +486,9 @@ Moved all common static content to global constants.)
 
 - Moved all common static content to global constants.
 - Used these constants in:
-      - the header.
-      - the footer.
-      - the About page.
+        - the header.
+        - the footer.
+        - the About page.
 
 #### Changes by
 
@@ -491,10 +506,10 @@ Added more keywords for SEO purposes.)
 
 - Made the About Us page the homepage.
 - Added contact details in the footer, including an e-mail and links to
-      Facebook.
+        Facebook.
 - Added copyright in the footer.
 - Changed the styling of the footer to include the new content and make it more
-      responsive.
+        responsive.
 - Improved the responsiveness of the website.
 - Added more keywords for SEO on the base page.
 
@@ -507,7 +522,7 @@ Added more keywords for SEO purposes.)
 - The styling of the icon image was moved to the CSS layout component.
 - Removed styling and JavaScript from the website preamble.
 - Decreased the maximum size of the generated chunks by chunking the tahoni
-      React library in its own chunk.
+        React library in its own chunk.
 
 #### Dependencies
 
@@ -528,9 +543,9 @@ Completed the map to the shooting range in the footer.)
 - Changed the styling of the footer to include the map component.
 - Ordered the footer content to make it responsive.
 - Removed uncompleted shooting range map components and replaced them with the
-      new generic map components.
+        new generic map components.
 - Created map components with simple and clustered markers using the standard
-      Google Maps components.
+        Google Maps components.
 - Improved the text and background contrast, including the background gradient.
 - Added the image of the IPSC target with bullet holes to the `public/assets` directory.
 
@@ -588,7 +603,7 @@ A map of the shooting range was added in the footer.)
 #### General Technical Changes
 
 - Created a `_redirects` file to allow React to handle the page routing in
-      Netlify.
+        Netlify.
 
 #### Dependencies
 
@@ -607,9 +622,9 @@ Read all page content from Markdown components.)
 - Added React MDX Markdown components.
 - Read all page content from the Markdown components.
 - Removed the home page with HTML content and replaced it with content from an
-      MDX component.
+        MDX component.
 - Removed all simple Markdown files and replaced them with MDX Markdown
-      components.
+        components.
 - Added an About page.
 - Added a page component.
 - A content component was added to the body component.
@@ -673,7 +688,7 @@ Created the sidebar component and added it to the homepage.)
 #### General Code Improvements
 
 - Renamed the global stylesheets to `style-` from `styles-` to conform to
-      standard practice.
+        standard practice.
 - Added a `styles-icon.scss` stylesheet.
 - Removed unused components.
 - Removed unused images.
@@ -726,9 +741,9 @@ Added content to the homepage.)
 - Replaced the ICO favicon with an SVG one.
 - Added new icon fonts to the `public/assets` directory.
 - Replaced outdated images and icons in the `public/assets` directory with
-      up-to-date ones.
+        up-to-date ones.
 - Deleted unused images from the `public/assets` directory
-- A layout skeleton with a header, footer and body was created.
+- A layout skeleton with a header, footer, and body was created.
 - A header with the HPSC and NGPSA logos was added.
 - A new homepage was created to replace the under-construction page.
 - Populated the homepage content.
@@ -849,8 +864,8 @@ Created a homepage with an under-construction carousel.
 #### Licence and Documentation
 
 - A README file was created with a detailed project description, structure,
-      technology stack, instructions, screenshots, licence, author, and support
-      information.
+        technology stack, instructions, screenshots, licence, author, and support
+        information.
 - Added a licence file.
 
 #### General Technical Changes
@@ -860,9 +875,9 @@ Created a homepage with an under-construction carousel.
 - Added `.env.local` and `.env.production` files.
 - Added `.npmrc` configuration for GitHub NPM registry.
 - Created GitHub Actions workflow for CodeQL analysis (
-      `.github/workflows/codeql.yml`).
+        `.github/workflows/codeql.yml`).
 - Created a `_redirects` file to allow React to handle the page routing in
-      Netlify.
+        Netlify.
 
 #### Dependencies
 
