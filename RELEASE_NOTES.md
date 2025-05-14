@@ -2,14 +2,15 @@
 
 ## Release Notes
 
-### Version 3.6.2 - _2025-05-04_
+### Version 3.6.3 - _2025-05-14_
 
-Fixed the redirect of pages on the website.
+Redirected all URLs, without valid subdomains, to the `www` root domain.
 
 #### General Technical Changes
 
-- Modified the `.htacess` file to redirect HTTP requests to HTTPS.
-- Modified the `.htaccess` file to correctly redirect only full valid path names.
+- Modified the `.htaccess` file to correct all the current erroneous regular expressions.
+- Modified the `.htacess` file to redirect hosts not starting with a `www`, `api`
+    or `members` subdomain to the `www` root domain.
 
 #### Changes by
 
