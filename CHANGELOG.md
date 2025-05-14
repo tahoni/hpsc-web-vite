@@ -4,6 +4,7 @@
 
 ### Table of Contents
 
+- [Version 3.6.4](#version-364---2025-05-14)
 - [Version 3.6.3](#version-363---2025-05-14)
 - [Version 3.6.2](#version-362---2025-05-04)
 - [Version 3.6.1](#version-361---2025-05-02)
@@ -41,6 +42,20 @@
 - [Version 3.0.2](#version-302---2024-08-27)
 - [Version 3.0.1](#version-301---2024-08-27)
 - [Version 3.0.0](#version-300---2024-08-18)
+
+### [Version 3.6.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.4) - _2025-05-14_
+
+Removed the redirect to the `www` root domain, since it is always redirected
+without it by the web server.
+
+#### General Technical Changes
+
+- Modified the `.htaccess` file to correct all the current erroneous regular expressions.
+- Modified the `.htacess` file to remove the redirect to the `www` root domain.
+
+#### Changes by
+
+@tahoni
 
 ### [Version 3.6.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.3) - _2025-05-14_
 
