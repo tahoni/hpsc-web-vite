@@ -18,3 +18,11 @@ RewriteCond %{REQUEST_URI} ^\/(venues)\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/((contact)|(contact_us))\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/((about)|(about_us))\/?$
 RewriteRule . index.html
+
+RewriteCond %{HTTP_HOST} ^(www|api|members).*
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/index.html [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^(?!www).*
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/index.html [L,R=301]
