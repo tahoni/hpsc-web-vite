@@ -2,15 +2,15 @@
 
 ## Release Notes
 
-### Version 3.6.4 - _2025-05-14_
+### Version 3.6.5 - _2025-05-15_
 
-Removed the redirect to the `www` root domain, since it is always redirected
-without it by the web server.
+Changed the canonical URL to just the domain name, since it is served like that
+by the web server.
 
-#### General Technical Changes
+#### Enhancements and Updates
 
-- Modified the `.htaccess` file to correct all the current erroneous regular expressions.
-- Modified the `.htacess` file to remove the redirect to the `www` root domain.
+- Updated the canonical URL in `index.html` to just [https://hpsc.co.za](https://hpsc.co.za),
+  without the `www` prefix.
 
 #### Changes by
 

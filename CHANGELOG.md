@@ -4,6 +4,7 @@
 
 ### Table of Contents
 
+- [Version 3.6.5](#version-365---2025-05-15)
 - [Version 3.6.4](#version-364---2025-05-14)
 - [Version 3.6.3](#version-363---2025-05-14)
 - [Version 3.6.2](#version-362---2025-05-04)
@@ -43,6 +44,20 @@
 - [Version 3.0.1](#version-301---2024-08-27)
 - [Version 3.0.0](#version-300---2024-08-18)
 
+### [Version 3.6.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.5) - _2025-05-15_
+
+Changed the canonical URL to just the domain name, since it is served like that
+by the web server.
+
+#### Enhancements and Updates
+
+- Updated the canonical URL in `index.html` to just [https://hpsc.co.za](https://hpsc.co.za),
+  without the `www` prefix.
+
+#### Changes by
+
+@tahoni
+
 ### [Version 3.6.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.4) - _2025-05-14_
 
 Removed the redirect to the `www` root domain, since it is always redirected
@@ -65,7 +80,7 @@ Redirected all URLs, without valid subdomains, to the `www` root domain.
 
 - Modified the `.htaccess` file to correct all the current erroneous regular expressions.
 - Modified the `.htacess` file to redirect hosts not starting with a `www`, `api`
-    or `members` subdomain to the `www` root domain.
+  or `members` subdomain to the `www` root domain.
 
 #### Changes by
 
@@ -116,7 +131,7 @@ Added a new post for the "World Shoot" event on this page.
 #### Dependencies
 
 - Bumped `vite` from version 6.3.3 to 6.3.4 to include the latest updates
-        and bug fixes.
+  and bug fixes.
 
 #### Changes by
 
@@ -143,7 +158,7 @@ Really return HTTP status 404 for pages not found.
 #### General Code Improvements
 
 - Changed the `.htaccess` file to only allow known routes, other routes will
-        automatically returns a 404 HTTP status.
+  automatically returns a 404 HTTP status.
 
 #### Changes by
 
@@ -162,7 +177,7 @@ Return HTTP status 404 for pages not found.
 #### General Code Improvements
 
 - Changed the `.htaccess` file to only allow known routes and return 404
-        for all other routes.
+  for all other routes.
 
 #### General Technical Changes
 
@@ -203,7 +218,7 @@ An e-mail is sent upon submission of the Contact Us form.
 #### Dependencies
 
 - A dependency was added to help split bundles by displaying the
-        bundles' composition after each build.
+  bundles' composition after each build.
 - Mitigated vulnerable dependencies.
 
 #### Changes by
@@ -273,7 +288,7 @@ Removed the Contact Us menu option for now.
 #### General Technical Changes
 
 - A setting was removed from `vite.config.ts` to roll back the changes to
-        build the project with smaller chunks.
+  build the project with smaller chunks.
 
 #### Dependencies
 
@@ -324,7 +339,7 @@ Improved accessibility.
 
 #### Bug Fixes
 
-- Modified the menu items causing nested hyperlinks.
+- Modified the menu items that are causing nested hyperlinks.
 
 #### General Technical Changes
 
@@ -347,7 +362,7 @@ Improved accessibility.
 #### Enhancements and Updates
 
 - Displayed all content in two lines where the screen is too small to
-        display it together.
+  display it together.
 
 #### Bug Fixes
 
@@ -391,7 +406,7 @@ Removed the CAPTCHA library as it was injecting suspicious code into the HTML.
 ### [Version 3.3.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.2) - _2025-01-04_
 
 Created a Links page.
-Created a Members page.
+Created a Member page.
 
 #### Enhancements and Updates
 
@@ -429,7 +444,7 @@ Created About Us page.
 - A mode property was added to the map component.
 - A centre property was added to the map component.
 - An About Us page was created with contact details and a satellite map
-        of the shooting range.
+  of the shooting range.
 
 #### Dependencies
 
@@ -448,7 +463,7 @@ A Contact Us page was created.
 - A page title component was created.
 - Created a CAPTCHA component for Google reCAPTCHA.
 - A CAPTCHA field was created for the JSON schema form using the
-        Google ReCAPTCHA component.
+  Google ReCAPTCHA component.
 - Validated the CAPTCHA field with a custom validator function.
 - A JSON schema with validations for the Contact Us page was created.
 - The CAPTCHA field was added to the JSON schema.
@@ -480,7 +495,7 @@ A Contact Us page was created.
 
 ### [Version 3.2.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.6) - _2024-12-26_
 
-Improved the documentation.)
+Improved the documentation.
 
 #### Licence and Documentation
 
@@ -495,15 +510,15 @@ Improved the documentation.)
 
 ### [Version 3.2.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.5) - _2024-12-25_
 
-Moved all common static content to global constants.)
+Moved all common static content to global constants.
 
 #### General Code Improvements
 
 - Moved all common static content to global constants.
 - Used these constants in:
-        - the header.
-        - the footer.
-        - the About page.
+  - the header.
+  - the footer.
+  - the About page.
 
 #### Changes by
 
@@ -511,20 +526,20 @@ Moved all common static content to global constants.)
 
 ### [Version 3.2.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.4) - _2024-12-24_
 
-Made the About Us page the homepage.)
-Finished the website layout by completing the footer.)
-Completed the footer by adding contact details and copyright.)
-Improved the responsiveness of the website.)
-Added more keywords for SEO purposes.)
+Made the About Us page the homepage.
+Finished the website layout by completing the footer.
+Completed the footer by adding contact details and copyright.
+Improved the responsiveness of the website.
+Added more keywords for SEO purposes.
 
 #### Enhancements and Updates
 
 - Made the About Us page the homepage.
 - Added contact details in the footer, including an e-mail and links to
-        Facebook.
+  Facebook.
 - Added copyright in the footer.
 - Changed the styling of the footer to include the new content and make it more
-        responsive.
+  responsive.
 - Improved the responsiveness of the website.
 - Added more keywords for SEO on the base page.
 
@@ -537,7 +552,7 @@ Added more keywords for SEO purposes.)
 - The styling of the icon image was moved to the CSS layout component.
 - Removed styling and JavaScript from the website preamble.
 - Decreased the maximum size of the generated chunks by chunking the tahoni
-        React library in its own chunk.
+  React library on its own.
 
 #### Dependencies
 
@@ -549,8 +564,8 @@ Added more keywords for SEO purposes.)
 
 ### [Version 3.2.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.3) - _2024-12-22_
 
-Added the SAPSA and IPSC logos to the footer.)
-Completed the map to the shooting range in the footer.)
+Added the SAPSA and IPSC logos to the footer.
+Completed the map to the shooting range in the footer.
 
 #### Enhancements and Updates
 
@@ -558,9 +573,9 @@ Completed the map to the shooting range in the footer.)
 - Changed the styling of the footer to include the map component.
 - Ordered the footer content to make it responsive.
 - Removed uncompleted shooting range map components and replaced them with the
-        new generic map components.
+  new generic map components.
 - Created map components with simple and clustered markers using the standard
-        Google Maps components.
+  Google Maps components.
 - Improved the text and background contrast, including the background gradient.
 - Added the image of the IPSC target with bullet holes to the `public/assets` directory.
 
@@ -586,7 +601,7 @@ Completed the map to the shooting range in the footer.)
 
 ### [Version 3.2.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.2) - _2024-12-18_
 
-Allowed React to handle page routing.)
+Allowed React to handle page routing.
 
 #### General Technical Changes
 
@@ -598,9 +613,9 @@ Allowed React to handle page routing.)
 
 ### [Version 3.2.1](https://github.com/tahoni/hpsc-web-vite/releases/edit/version-3.2.1) - _2024-12-17_
 
-Added an About page with the club's history.)
-Added hyperlinks to the About component.)
-A map of the shooting range was added in the footer.)
+Added an About page with the club's history.
+Added hyperlinks to the About component.
+A map of the shooting range was added in the footer.
 
 #### Enhancements and Updates
 
@@ -618,7 +633,7 @@ A map of the shooting range was added in the footer.)
 #### General Technical Changes
 
 - Created a `_redirects` file to allow React to handle the page routing in
-        Netlify.
+  Netlify.
 
 #### Dependencies
 
@@ -630,16 +645,16 @@ A map of the shooting range was added in the footer.)
 
 ### [Version 3.2.0](https://github.com/tahoni/hpsc-web-vite/releases/edit/version-3.2.0) - _2024-12-17_
 
-Read all page content from Markdown components.)
+Read all page content from Markdown components.
 
 #### Enhancements and Updates
 
 - Added React MDX Markdown components.
 - Read all page content from the Markdown components.
 - Removed the home page with HTML content and replaced it with content from an
-        MDX component.
+  MDX component.
 - Removed all simple Markdown files and replaced them with MDX Markdown
-        components.
+  components.
 - Added an About page.
 - Added a page component.
 - A content component was added to the body component.
@@ -663,7 +678,7 @@ Read all page content from Markdown components.)
 
 ### [Version 3.1.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.4) - _2024-12-16_
 
-Optimised the images.)
+Optimised the images.
 
 #### Enhancements and Updated
 
@@ -675,7 +690,7 @@ Optimised the images.)
 
 ### [Version 3.1.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.3) - _2024-12-16_
 
-Made the sidebars sticky.)
+Made the sidebars sticky.
 
 #### Enhancements and Updates
 
@@ -688,8 +703,8 @@ Made the sidebars sticky.)
 
 ### [Version 3.1.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.2) - _2024-12-16_
 
-Made the logos in the header hyperlinks.)
-Created the sidebar component and added it to the homepage.)
+Made the logos in the header hyperlinks.
+Created the sidebar component and added it to the homepage.
 
 #### Enhancements and Updates
 
@@ -703,7 +718,7 @@ Created the sidebar component and added it to the homepage.)
 #### General Code Improvements
 
 - Renamed the global stylesheets to `style-` from `styles-` to conform to
-        standard practice.
+  standard practice.
 - Added a `styles-icon.scss` stylesheet.
 - Removed unused components.
 - Removed unused images.
@@ -724,8 +739,8 @@ Created the sidebar component and added it to the homepage.)
 
 ### [Version 3.1.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.1) - _2024-12-15_
 
-Added a gradient background.)
-Made the header responsive.)
+Added a gradient background.
+Made the header responsive.
 
 #### Enhancements and Updates
 
@@ -744,9 +759,9 @@ Made the header responsive.)
 
 ### [Version 3.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.0) - _2024-12-14_
 
-Created an SVG favicon.)
-Added the HPSC and SAPSA logos to the header.)
-Added content to the homepage.)
+Created an SVG favicon.
+Added the HPSC and SAPSA logos to the header.
+Added content to the homepage.
 
 #### Enhancements and Updates
 
@@ -756,7 +771,7 @@ Added content to the homepage.)
 - Replaced the ICO favicon with an SVG one.
 - Added new icon fonts to the `public/assets` directory.
 - Replaced outdated images and icons in the `public/assets` directory with
-        up-to-date ones.
+  up-to-date ones.
 - Deleted unused images from the `public/assets` directory
 - A layout skeleton with a header, footer, and body was created.
 - A header with the HPSC and NGPSA logos was added.
@@ -783,7 +798,7 @@ Added content to the homepage.)
 ### [Version 3.0.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.5) - _2024-12-06_
 
 Fixed the spelling of the "_Hartbeespoortdam Practical Shooting Club_"
-properly.)
+properly.
 
 #### Enhancements and Updates
 
@@ -796,7 +811,7 @@ properly.)
 
 ### [Version 3.0.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.4) - _2024-11-02_
 
-Changed the website's title to "_Hartebeespoortdam Practical Shooting Club_".)
+Changed the website's title to "_Hartebeespoortdam Practical Shooting Club_".
 
 #### Enhancements and Updates
 
@@ -810,7 +825,7 @@ Changed the website's title to "_Hartebeespoortdam Practical Shooting Club_".)
 
 ### [Version 3.0.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.3) - _2024-10-29_
 
-Fixed the spelling of the "_Hartebeespoortdam Practical Shooting Club_".)
+Fixed the spelling of the "_Hartebeespoortdam Practical Shooting Club_".
 
 #### Bug Fixes
 
@@ -828,7 +843,7 @@ Fixed the spelling of the "_Hartebeespoortdam Practical Shooting Club_".)
 
 ### [Version 3.0.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.2) - _2024-08-27_
 
-Removed the background image to improve the look and feel.)
+Removed the background image to improve the look and feel.
 
 #### Enhancements and Updates
 
@@ -842,7 +857,7 @@ Removed the background image to improve the look and feel.)
 
 ### [Version 3.0.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.1) - _2024-08-27_
 
-Tried to improve the styling of the background.)
+Tried to improve the styling of the background.
 
 #### Enhancements and Updates
 
@@ -879,8 +894,8 @@ Created a homepage with an under-construction carousel.
 #### Licence and Documentation
 
 - A README file was created with a detailed project description, structure,
-        technology stack, instructions, screenshots, licence, author, and support
-        information.
+  technology stack, instructions, screenshots, licence, author, and support
+  information.
 - Added a licence file.
 
 #### General Technical Changes
@@ -889,10 +904,10 @@ Created a homepage with an under-construction carousel.
 - Modified `tsconfig.app.json` to add more linting rules.
 - Added `.env.local` and `.env.production` files.
 - Added `.npmrc` configuration for GitHub NPM registry.
-- Created GitHub Actions workflow for CodeQL analysis (
-        `.github/workflows/codeql.yml`).
+- Created GitHub Actions workflow for CodeQL analysis
+  (`.github/workflows/codeql.yml`).
 - Created a `_redirects` file to allow React to handle the page routing in
-        Netlify.
+  Netlify.
 
 #### Dependencies
 
