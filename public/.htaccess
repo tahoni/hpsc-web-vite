@@ -6,7 +6,7 @@ RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI}
 
 RewriteRule (.+\.(jpg|jpeg|png|gif|bmp|ico))$ - [L]
-RewriteRule index\.html$ - [L,R=301]
+RewriteRule index\.html$ - [L]
 
 RewriteCond %{REQUEST_URI} ^/$ [OR]
 RewriteCond %{REQUEST_URI} ^\/(home)\/?$ [OR]
@@ -17,4 +17,4 @@ RewriteCond %{REQUEST_URI} ^\/(events)\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/(venues)\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/((contact)|(contact_us))\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/((about)|(about_us))\/?$
-RewriteRule . index.html [L,R=301]
+RewriteRule . index.html [L]
