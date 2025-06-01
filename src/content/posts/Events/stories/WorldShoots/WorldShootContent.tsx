@@ -5,6 +5,7 @@ import { VenueType } from "../../../../../model/Venue";
 import { VenueEvent } from "../../../../../model/VenueEvent";
 import { worldShootEvents } from "./WorldShootConstants";
 import classes from "./WorldShoot.module.scss";
+import { YouTubeVideo } from "../../../../../components/Video/YouTubeVideo";
 
 interface WorldShootContentProps {
   year: number;
@@ -69,6 +70,11 @@ const WorldShootContent = React.memo(
           {worldShootEvent.shootingRange?.city} in{" "}
           {worldShootEvent.shootingRange?.province}
         </h6>
+
+        <div className={classes.worldShootRangeVideo}>
+          <YouTubeVideo url="https://www.youtube.com/embed/COcWeS1XP-M?si=ax7D5KhwA4alKLaJ" />
+        </div>
+
         <div className={classes.worldShootRangeMap}>
           <SimpleVenueMap
             mapStyle={mapStyle}

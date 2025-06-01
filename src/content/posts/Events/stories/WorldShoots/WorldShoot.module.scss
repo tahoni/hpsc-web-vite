@@ -1,5 +1,7 @@
 $map-width: 100%;
 $map-height: 15em;
+$video-width: 36em;
+$video-height: 20em;
 
 :export {
   maxWidth: $map-width;
@@ -10,9 +12,16 @@ $map-height: 15em;
   margin-top: 0.75em;
 }
 
-.worldShootRangeMap {
+.worldShootRangeMap,
+.worldShootRangeVideo {
   margin: 0.75em 0;
-  padding: 0.75em auto;
+  padding: 0.75em 0;
+}
+
+.worldShootRangeVideo {
+  max-width: $video-width;
+  height: $video-height;
+  max-height: $video-height;
 }
 
 .worldShoot img {
