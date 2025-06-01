@@ -6,13 +6,13 @@ const EventsContent = React.memo((): ReactElement => {
     WorldShootsContent,
   ];
   return (
-    <section>
+    <>
       {Contents.map(
         (Content: MemoExoticComponent<() => ReactElement>, index: number) => (
           <Content key={"events_" + index} />
         ),
       )}
-    </section>
+    </>
   );
 });
 

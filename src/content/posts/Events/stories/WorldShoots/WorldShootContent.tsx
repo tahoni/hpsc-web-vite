@@ -51,6 +51,19 @@ const WorldShootContent = React.memo(
 
         <div className={classes.worldShootSummary}>{props.children}</div>
 
+        <h6>Apparel</h6>
+        <div className={classes.worldShootSummary}>
+          <p>
+            <a
+              href="https://www.bosninja.co.za/product-category/ipsc-handgun-world-shoot-2025/"
+              target="_blank"
+            >
+              {worldShootEvent.description} Apparel @ BosNinja
+            </a>
+          </p>
+        </div>
+        <br />
+
         <h6>
           {worldShootEvent.shootingRangeName} at{" "}
           {worldShootEvent.shootingRange?.city} in{" "}

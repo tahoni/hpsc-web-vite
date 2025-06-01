@@ -32,3 +32,6 @@ export const worldShoot2025Event: VenueEvent = new VenueEvent({
   mapMode: "satellite",
   mapZoom: 17,
 });
+
+export const worldShoot2025ApparelLink: string =
+  "https://www.bosninja.co.za/product-category/ipsc-handgun-world-shoot-2025/";
