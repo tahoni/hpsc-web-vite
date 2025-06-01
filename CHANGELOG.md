@@ -4,6 +4,7 @@
 
 ### Table of Contents
 
+- [Version 3.6.7](#version-367---2025-06-01)
 - [Version 3.6.6](#version-366---2025-06-01)
 - [Version 3.6.5](#version-365---2025-05-15)
 - [Version 3.6.4](#version-364---2025-05-14)
@@ -45,7 +46,24 @@
 - [Version 3.0.1](#version-301---2024-08-27)
 - [Version 3.0.0](#version-300---2024-08-18)
 
-### [Version 3.6.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.5) - _2025-06-01_
+### [Version 3.6.7](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.7) - _2025-06-01_
+Added a link to the World Shoot 2025 apparel at Bosninja.
+Added an architecture README document.
+
+#### Enhancements and Updates
+
+- Added a link to the Bosninja IPSC Handgun World Shoot 2025 apparel for the 2025 World Shoot Handgun post.
+- Added the link to the Bosninja webpage to the constants.
+
+#### Licence and Documentation
+
+- Added an `ARCHITCTURE.md` file and copied the content of the `README.md` file there.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.6.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.6) - _2025-06-01_
 
 Created a sitemap of the website.
 
