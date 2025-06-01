@@ -10,6 +10,7 @@ import {
   coreHomeRoute,
   coreLinksRoute,
   coreMembersRoute,
+  coreEventsRoute,
 } from "./BaseRoutes.ts";
 
 const MembersPage = React.lazy(
@@ -80,7 +81,7 @@ export const contactUs: PageMapping = {
 };
 
 export const events: PageMapping = {
-  ...coreVenuesRoute,
+  ...coreEventsRoute,
   element: (
     <Page keyValue={"eventsPage"} title={"Events"}>
       <EventsPage />

@@ -1,8 +1,8 @@
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
-import { SitemapMapping } from "../model/SitemapMapping";
-import { coreRoutes } from "../config/BaseRoutes";
-import { baseUrl } from "../constants/AppConstants";
+import { SitemapMapping } from "../src/model/SitemapMapping";
+import { coreRoutes } from "../src/config/BaseRoutes";
+import { baseUrl } from "../src/constants/AppConstants";
 
 export const generateRoutesSitemap = async () => {
   // An array with your links

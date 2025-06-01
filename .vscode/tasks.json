@@ -42,13 +42,13 @@
         "kind": "build",
         "isDefault": true
       },
+      "problemMatcher": [],
       "options": {
         "env": {
           "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY_LIVE}",
           "RECAPTCHA_V2_SITE_KEY": "${RECAPTCHA_V2_SITE_KEY_LIVE}"
         }
       },
-      "problemMatcher": [],
       "detail": "Builds the project using Vite"
     },
     {
@@ -63,20 +63,9 @@
       "detail": "Previews the built project using Vite"
     },
     {
-      "label": "Preview Build On Host",
-      "type": "npm",
-      "script": "host",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": [],
-      "detail": "Previews the built project using Vite on a spceific exposed host"
-    },
-    {
       "label": "Run Tests",
       "type": "npm",
-      "script": "build",
+      "script": "test",
       "group": {
         "kind": "build",
         "isDefault": true
