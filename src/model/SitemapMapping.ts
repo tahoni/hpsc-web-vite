@@ -1,5 +1,7 @@
 import { SitemapChangeFrequency } from "../enums/SitemapChangeFrequency";
 
+const DEFAULT_SITEMAP_URL_CHANGEFREQ = SitemapChangeFrequency.Daily;
+
 export class SitemapMapping {
   url: string;
   changefreq?: SitemapChangeFrequency;
@@ -13,7 +15,7 @@ export class SitemapMapping {
     lastmod?: Date;
   }) {
     this.url = mapping.url;
-    this.changefreq = mapping.changefreq;
+    this.changefreq = mapping.changefreq ?? DEFAULT_SITEMAP_URL_CHANGEFREQ;
     this.priority = mapping.priority;
     this.lastmod = mapping.lastmod;
   }

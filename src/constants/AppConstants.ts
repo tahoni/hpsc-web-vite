@@ -1,4 +1,4 @@
-export const baseUrl: string = "https://hpsc.co.za";
+export const baseUrl: string = "https://www.hpsc.co.za";
 export const copyrightYear: number = 2025;
 
 export const logoAlt = "Logo";
