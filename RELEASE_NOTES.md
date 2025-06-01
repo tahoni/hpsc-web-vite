@@ -2,26 +2,18 @@
 
 ## Release Notes
 
-### Version 3.6.6 - _2025-06-01_
-
-Created a sitemap of the website.
+### Version 3.6.7 - _2025-06-01_
+Added a link to the World Shoot 2025 apparel at Bosninja.
+Added an architecture README document.
 
 #### Enhancements and Updates
 
-- Added a sitemap builder to the `builder` directory that generates a sitemap and logs it to the console.
-- Created a new model class for the sitemap builder to use.
-- Split off the page info needed by the sitemap builder into a separate TypeScript file.
-- Added metadata to the pages for the sitemap, like date last updated.
+- Added a link to the Bosninja IPSC Handgun World Shoot 2025 apparel for the 2025 World Shoot Handgun post.
+- Added the link to the Bosninja webpage to the constants.
 
-#### General Technical Changes
+#### Licence and Documentation
 
-- Generated a `sitemap.xml` file with all the pages of the website.
-- Referred to this file in the `robots.txt` file.
-
-#### Dependencies
-
-- Added the `sitemap` dependency.
-- Added the `tsx` dependency as a dev dependency.
+- Added an `ARCHITCTURE.md` file and copied the content of the `README.md` file there.
 
 #### Changes by
 
