@@ -1,28 +1,28 @@
 import { Navigate } from "react-router";
 import { PageAlias } from "../model/PageAlias.ts";
 import {
-  AboutUs,
-  History,
-  Home,
-  Links,
-  Members,
-  Events,
-} from "../conf/RouteAliases.tsx";
+  aboutUs,
+  history,
+  home,
+  links,
+  members,
+  events,
+} from "../config/RouteAliases.tsx";
 
 export const routes: PageAlias[] = [
-  { mapping: Home },
-  { path: "/home", mapping: Home, element: <Navigate to={"/"} /> },
-  { path: "/index.html", mapping: Home, element: <Navigate to={"/"} /> },
+  { mapping: home },
+  { path: "/home", mapping: home, element: <Navigate to={"/"} /> },
+  { path: "/index.html", mapping: home, element: <Navigate to={"/"} /> },
 
-  { mapping: Members },
-  { mapping: Links },
-  { mapping: History },
+  { mapping: members },
+  { mapping: links },
+  { mapping: history },
 
   // { mapping: ContactUs },
   // { path: "/contact_us", mapping: ContactUs },
-  { mapping: AboutUs },
-  { path: "/about_us", mapping: AboutUs },
+  { mapping: aboutUs },
+  { path: "/about_us", mapping: aboutUs },
 
-  { mapping: Events },
+  { mapping: events },
   // { mapping: Venues },
 ];

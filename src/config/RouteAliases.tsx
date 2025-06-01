@@ -2,6 +2,15 @@ import React from "react";
 import { PageMapping } from "../model/PageMapping.ts";
 import Page from "../pages/Page.tsx";
 import HomePage from "../pages/Home/HomePage.tsx";
+import {
+  coreAboutUsRoute,
+  coreContactUsRoute,
+  coreVenuesRoute,
+  coreHistoryRoute,
+  coreHomeRoute,
+  coreLinksRoute,
+  coreMembersRoute,
+} from "./BaseRoutes.ts";
 
 const MembersPage = React.lazy(
   () => import("../pages/Members/MembersPage.tsx"),
@@ -19,55 +28,50 @@ const AboutUsPage = React.lazy(
 const EventsPage = React.lazy(() => import("../pages/Events/EventsPage.tsx"));
 const VenuesPage = React.lazy(() => import("../pages/Venues/VenuesPage.tsx"));
 
-export const Home: PageMapping = {
-  name: "Home",
-  path: "/",
+export const home: PageMapping = new PageMapping({
+  ...coreHomeRoute,
   element: (
     <Page keyValue={"homePage"} title={""}>
       <HomePage />
     </Page>
   ),
-};
+});
 
-export const Members: PageMapping = {
-  name: "Members",
-  path: "/members",
+export const members: PageMapping = {
+  ...coreMembersRoute,
   element: (
     <Page keyValue={"membersPage"} title={"Members"}>
       <MembersPage />
     </Page>
   ),
 };
-export const Links: PageMapping = {
-  name: "Links",
-  path: "/links",
+export const links: PageMapping = {
+  ...coreLinksRoute,
   element: (
     <Page keyValue={"linksPage"} title={"Links"}>
       <LinksPage />
     </Page>
   ),
 };
-export const History: PageMapping = {
-  name: "History",
-  path: "/history",
+export const history: PageMapping = {
+  ...coreHistoryRoute,
   element: (
     <Page keyValue={"historyPage"} title={"History"}>
       <HistoryPage />
     </Page>
   ),
 };
-export const AboutUs: PageMapping = {
-  name: "About Us",
-  path: "/about",
+
+export const aboutUs: PageMapping = {
+  ...coreAboutUsRoute,
   element: (
     <Page keyValue={"aboutUsPage"} title={"About Us"}>
       <AboutUsPage />
     </Page>
   ),
 };
-export const ContactUs: PageMapping = {
-  name: "Contact Us",
-  path: "/contact",
+export const contactUs: PageMapping = {
+  ...coreContactUsRoute,
   element: (
     <Page keyValue={"contactUsPage"} title={"Contact Us"}>
       <ContactUsPage />
@@ -75,18 +79,16 @@ export const ContactUs: PageMapping = {
   ),
 };
 
-export const Events: PageMapping = {
-  name: "Events",
-  path: "/events",
+export const events: PageMapping = {
+  ...coreVenuesRoute,
   element: (
     <Page keyValue={"eventsPage"} title={"Events"}>
       <EventsPage />
     </Page>
   ),
 };
-export const Venues: PageMapping = {
-  name: "Shooting Ranges",
-  path: "/venues",
+export const venues: PageMapping = {
+  ...coreVenuesRoute,
   element: (
     <Page keyValue={"venuesPage"} title={"Shooting Ranges"}>
       <VenuesPage />
