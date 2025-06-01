@@ -1,5 +1,5 @@
 // Names and descriptions
-import { logoAkt } from "../AppConstants.ts";
+import { logoAlt } from "../AppConstants.ts";
 
 // Summary
 export const provincialAssociationName: string =
@@ -27,8 +27,8 @@ export const internationalAssociationLogo =
 
 // Alternative text
 export const provincialAssociationLogoAlt =
-  provincialAssociationName + " " + logoAkt;
+  provincialAssociationName + " " + logoAlt;
 export const nationalAssociationLogoAlt =
-  nationalAssociationName + " " + logoAkt;
+  nationalAssociationName + " " + logoAlt;
 export const internationalAssociationLogoAlt =
-  internationalAssociationName + " " + logoAkt;
+  internationalAssociationName + " " + logoAlt;
