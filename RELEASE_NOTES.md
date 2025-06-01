@@ -2,21 +2,26 @@
 
 ## Release Notes
 
-### Version 3.6.5 - _2025-05-15_
+### Version 3.6.6 - _2025-06-01_
 
-Changed the canonical URL to just the domain name, since it is served like that
-by the web server.
-Fixed all the pages being redirected to the home page on refresh.
+Created a sitemap of the website.
 
 #### Enhancements and Updates
 
-- Updated the canonical URL in `index.html` to just [https://hpsc.co.za](https://hpsc.co.za),
-  without the `www` prefix.
+- Added a sitemap builder to the `builder` directory that generates a sitemap and logs it to the console.
+- Created a new model class for the sitemap builder to use.
+- Split off the page info needed by the sitemap builder into a separate TypeScript file.
+- Added metadata to the pages for the sitemap, like date last updated.
 
 #### General Technical Changes
 
-- Removed the permanent redirect (HTTP status 301) from the `.htaccess` rules
-  that was redirecting all pages to the home page on manual refresh.
+- Generated a `sitemap.xml` file with all the pages of the website.
+- Referred to this file in the `robots.txt` file.
+
+#### Dependencies
+
+- Added the `sitemap` dependency.
+- Added the `tsx` dependency as a dev dependency.
 
 #### Changes by
 

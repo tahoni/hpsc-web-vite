@@ -13,9 +13,9 @@
       "options": {
         "env": {
           "NPM_TOKEN": "${NPM_TOKEN_READ}"
-        },
-        "detail": "Installs project dependencies using npm"
-      }
+        }
+      },
+      "detail": "Installs project dependencies using npm"
     },
     {
       "label": "Run Dev Server",
@@ -42,13 +42,13 @@
         "kind": "build",
         "isDefault": true
       },
+      "problemMatcher": [],
       "options": {
         "env": {
           "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY_LIVE}",
           "RECAPTCHA_V2_SITE_KEY": "${RECAPTCHA_V2_SITE_KEY_LIVE}"
         }
       },
-      "problemMatcher": [],
       "detail": "Builds the project using Vite"
     },
     {
@@ -56,29 +56,18 @@
       "type": "npm",
       "script": "preview",
       "group": {
-        "kind": "test",
+        "kind": "build",
         "isDefault": true
       },
       "problemMatcher": [],
       "detail": "Previews the built project using Vite"
     },
     {
-      "label": "Preview Build On Host",
-      "type": "npm",
-      "script": "host",
-      "group": {
-        "kind": "test",
-        "isDefault": true
-      },
-      "problemMatcher": [],
-      "detail": "Previews the built project using Vite on a spceific exposed host"
-    },
-    {
       "label": "Run Tests",
       "type": "npm",
       "script": "test",
       "group": {
-        "kind": "test",
+        "kind": "build",
         "isDefault": true
       },
       "problemMatcher": [],
@@ -89,7 +78,7 @@
       "type": "npm",
       "script": "lint",
       "group": {
-        "kind": "test",
+        "kind": "build",
         "isDefault": true
       },
       "problemMatcher": [],
@@ -100,7 +89,7 @@
       "type": "npm",
       "script": "audit",
       "group": {
-        "kind": "test",
+        "kind": "build",
         "isDefault": true
       },
       "problemMatcher": [],
@@ -111,7 +100,7 @@
       "type": "shell",
       "command": "npm audit",
       "group": {
-        "kind": "test",
+        "kind": "build",
         "isDefault": true
       },
       "problemMatcher": [],
@@ -122,7 +111,7 @@
       "type": "shell",
       "command": "npm audit fix",
       "group": {
-        "kind": "test",
+        "kind": "build",
         "isDefault": true
       },
       "problemMatcher": [],
