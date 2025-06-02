@@ -4,6 +4,7 @@
 
 ### Table of Contents
 
+- [Version 3.6.8](#version-368---2025-06-02)
 - [Version 3.6.7](#version-367---2025-06-01)
 - [Version 3.6.6](#version-366---2025-06-01)
 - [Version 3.6.5](#version-365---2025-05-15)
@@ -46,7 +47,20 @@
 - [Version 3.0.1](#version-301---2024-08-27)
 - [Version 3.0.0](#version-300---2024-08-18)
 
+### [Version 3.6.8](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.8) - _2025-06-02_
+
+Added a YouTube video to the Frontier shooting range.
+
+#### Enhancements and Updates
+
+- Added an iframe with the YouTube video for the Frontier shooting range.
+
+#### Changes by
+
+@tahoni
+
 ### [Version 3.6.7](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.7) - _2025-06-01_
+
 Added a link to the World Shoot 2025 apparel at Bosninja.
 Added an architecture README document.
 
