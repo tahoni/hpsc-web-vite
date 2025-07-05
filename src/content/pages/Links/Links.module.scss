@@ -1,4 +1,4 @@
-@import "bootstrap/scss/bootstrap-grid";
+@use "bootstrap/scss/bootstrap-grid" as *;
 
 .logoHyperlink {
   margin: 0.75em;
