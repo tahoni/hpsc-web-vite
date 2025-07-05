@@ -3,7 +3,7 @@
 
 /* Colours */
 :root {
-  --focus-ring-color: var(--club-blue-light);
+  --focus-ring-color: $focus-ring-color;
 }
 
 $body-color: $club-butterscotch-dark;
@@ -11,5 +11,5 @@ $headings-color: $body-color;
 $link-color: $club-butterscotch-medium;
 $link-hover-color: $club-yellow-darkest;
 $border-color: $club-primary-yellow;
-$focus-ring-color: var(--focus-ring-color);
+$focus-ring-color: $club-blue-light;
 $input-focus-border-color: $club-primary-blue;
