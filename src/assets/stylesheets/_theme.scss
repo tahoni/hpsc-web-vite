@@ -1,13 +1,11 @@
 @use "colors" as *;
-@use "../../vendors/bootstrap/stylesheets/style" as *;
+@use "../../vendors/bootstrap/stylesheets/custom" as *;
 
 /* Fonts */
 $text-font: $body-color;
-$heading-text-font-family: $headings-font-family;
 
 /* Colours */
 $background-gradient: $blue-gradient-top;
-$heading-text-color: $headings-color;
 $btn-primary-background-color: $club-blue-dark;
 $btn-primary-hover-color: $club-primary-blue;
 $menu-background-color: $club-blue-lighter;
