@@ -1,5 +1,5 @@
-@use "styles-color" as *;
-@use "styles-custom" as *;
+@use "colors" as *;
+@use "../../vendors/bootstrap/stylesheets/custom" as *;
 
 /* Fonts */
 $text-font: $body-color;

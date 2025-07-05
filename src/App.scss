@@ -1,4 +1,4 @@
-@forward "@tahoni/tahoni-lib-react/dist/index.css";
-@forward "assets/stylesheets/styles";
-@use "bootstrap/scss/bootstrap";
+@use "@tahoni/tahoni-lib-react/dist/index.css" as *;
+@use "assets/stylesheets/style" as *;
+@use "vendors/bootstrap/stylesheets/style" as *;
 @use "sweetalert2/dist/sweetalert2.css" as *;

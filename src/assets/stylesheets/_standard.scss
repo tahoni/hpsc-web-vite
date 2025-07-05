@@ -1,5 +1,6 @@
-@use "styles-theme" as *;
-@use "styles-classes" as *;
+@use "fonts" as *;
+@use "theme" as *;
+@use "forms" as *;
 
 /* General */
 html, body {
@@ -14,6 +15,11 @@ html, body {
   width: 100%;
   max-width: 1366px;
   padding: 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: $noto-sans-display-font-family
 }
 
 /* Form controls */

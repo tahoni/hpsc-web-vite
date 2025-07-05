@@ -1,6 +1,6 @@
 @use "bootstrap/scss/bootstrap" as *;
-@use "styles-theme" as *;
-@use "styles-variables" as *;
+@use "theme" as *;
+@use "variables" as *;
 
 /* Default form controls */
 .form-group-default {
