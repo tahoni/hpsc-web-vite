@@ -41,6 +41,7 @@ export class VenueEvent {
 
   // Apparel
   private _apparelLink: string | undefined;
+  private _apparelDescription: string | undefined;
 
   constructor(event: {
     description: string;
@@ -65,6 +66,7 @@ export class VenueEvent {
     mapMode?: string;
     mapZoom?: number;
     apparelLink?: string;
+    apparelDescription?: string;
   }) {
     // Core
     this._description = event.description;
@@ -110,6 +112,7 @@ export class VenueEvent {
 
     // Apparel
     this._apparelLink = event.apparelLink;
+    this._apparelDescription = event.apparelDescription;
   }
 
   // Core
@@ -270,5 +273,13 @@ export class VenueEvent {
 
   set apparelLink(value: string | undefined) {
     this._apparelLink = value;
+  }
+
+  get apparelDescription(): string | undefined {
+    return this._apparelDescription;
+  }
+
+  set apparelDescription(value: string | undefined) {
+    this._apparelDescription = value;
   }
 }

@@ -55,11 +55,8 @@ const WorldShootContent = React.memo(
         <h6>Apparel</h6>
         <div className={classes.worldShootSummary}>
           <p>
-            <a
-              href={worldShootEvent.apparelLink}
-              target="_blank"
-            >
-              {worldShootEvent.description} Apparel @ BosNinja
+            <a href={worldShootEvent.apparelLink} target="_blank">
+              {worldShootEvent.apparelDescription}
             </a>
           </p>
         </div>

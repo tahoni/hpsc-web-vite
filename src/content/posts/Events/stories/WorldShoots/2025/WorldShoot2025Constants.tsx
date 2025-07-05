@@ -17,6 +17,7 @@ const worldShoot2025Image: ImageWithSourceAndDescription =
 // Links
 export const worldShoot2025ApparelLink: string =
   "https://www.bosninja.co.za/product-category/ipsc-handgun-world-shoot-2025/";
+export const worldShoot2025ApparelDescription: string = `${worldShoot2025Description} Apparel @ BosNinja`;
 
 export const worldShoot2025Event: VenueEvent = new VenueEvent({
   description: worldShoot2025Description,
@@ -36,4 +37,5 @@ export const worldShoot2025Event: VenueEvent = new VenueEvent({
   mapMode: "satellite",
   mapZoom: 17,
   apparelLink: worldShoot2025ApparelLink,
+  apparelDescription: worldShoot2025ApparelDescription,
 });
