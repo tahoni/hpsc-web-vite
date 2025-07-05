@@ -56,7 +56,7 @@ const WorldShootContent = React.memo(
         <div className={classes.worldShootSummary}>
           <p>
             <a
-              href="https://www.bosninja.co.za/product-category/ipsc-handgun-world-shoot-2025/"
+              href={worldShootEvent.apparelLink}
               target="_blank"
             >
               {worldShootEvent.description} Apparel @ BosNinja

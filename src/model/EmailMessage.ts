@@ -1,9 +1,10 @@
 import { EmailContent } from "./EmailContent.ts";
 import { sanitizeValue } from "../utils/HtmlUtils.ts";
+import {EmailAttachment} from "./EmailAttachment.ts";
 
 export class EmailMessage extends EmailContent {
   private _message: string;
-  private _attachments: any[];
+  private _attachments: EmailAttachment[] = [];
 
   constructor(email: {
     name?: string;
@@ -29,11 +30,11 @@ export class EmailMessage extends EmailContent {
     this._message = sanitizeValue(value).trim();
   }
 
-  get attachments(): any[] {
+  get attachments(): EmailAttachment[] {
     return this._attachments;
   }
 
-  set attachments(value: any[]) {
+  set attachments(value: EmailAttachment[]) {
     this._attachments = value;
   }
 }

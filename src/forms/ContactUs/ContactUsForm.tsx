@@ -20,6 +20,8 @@ import {
   clubLogoFilename,
   clubLogoPath,
 } from "../../constants/about/ClubConstants.ts";
+import {FormValidation} from "@rjsf/utils/src/types.ts";
+import {EmailAttachment} from "../../model/EmailAttachment.ts";
 
 const ContactUsForm = React.memo((): ReactElement => {
   const emailService = new EmailService();
@@ -131,10 +133,10 @@ const ContactUsForm = React.memo((): ReactElement => {
 
   const validateFields = (
     formData: ContactUsFormData | undefined,
-    errors: any,
-  ): any => {
+    errors: FormValidation<ContactUsFormData>,
+  ): FormValidation<ContactUsFormData> => {
     if (formData !== undefined) {
-      if (formData.captcha === undefined || !formData.captcha) {
+      if ((formData.captcha) && (errors.captcha)) {
         errors.captcha.addError("Please solve the CAPTCHA to continue");
       }
     }
@@ -142,14 +144,14 @@ const ContactUsForm = React.memo((): ReactElement => {
   };
 
   const handleSubmit = async (
-    data: IChangeEvent<any, StrictRJSFSchema>,
+    data: IChangeEvent<ContactUsFormData, StrictRJSFSchema>,
   ): Promise<void> => {
     if (!formRef.current) {
       return;
     }
 
     // Populate the form with the sanitised data
-    const contactUsData: ContactUsFormData = data.formData;
+    const contactUsData: ContactUsFormData | undefined = data.formData;
 
     const emailContent: EmailContent = new EmailContent(contactUsData);
 
@@ -171,11 +173,11 @@ const ContactUsForm = React.memo((): ReactElement => {
         message: htmlMessage,
       });
       emailMessage.attachments = [
-        {
-          filename: clubLogoFilename,
+        new EmailAttachment({
+          fileName: clubLogoFilename,
           path: clubLogoPath,
           cid: "club_logo",
-        },
+        }),
       ];
 
       // Send the e-nail

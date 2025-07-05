@@ -14,6 +14,10 @@ const worldShoot2025Image: ImageWithSourceAndDescription =
     description: worldShoot2025Description + " logo",
   });
 
+// Links
+export const worldShoot2025ApparelLink: string =
+  "https://www.bosninja.co.za/product-category/ipsc-handgun-world-shoot-2025/";
+
 export const worldShoot2025Event: VenueEvent = new VenueEvent({
   description: worldShoot2025Description,
   type: "Handgun",
@@ -31,7 +35,5 @@ export const worldShoot2025Event: VenueEvent = new VenueEvent({
   shootingRangeKey: ShootingRanges.FRONTIER,
   mapMode: "satellite",
   mapZoom: 17,
+  apparelLink: worldShoot2025ApparelLink,
 });
-
-export const worldShoot2025ApparelLink: string =
-  "https://www.bosninja.co.za/product-category/ipsc-handgun-world-shoot-2025/";

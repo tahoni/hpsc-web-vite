@@ -4,48 +4,48 @@
 
 ### Table of Contents
 
-- [Version 3.6.8](#version-368---2025-06-02)
-- [Version 3.6.7](#version-367---2025-06-01)
-- [Version 3.6.6](#version-366---2025-06-01)
-- [Version 3.6.5](#version-365---2025-05-15)
-- [Version 3.6.4](#version-364---2025-05-14)
-- [Version 3.6.3](#version-363---2025-05-14)
-- [Version 3.6.2](#version-362---2025-05-04)
-- [Version 3.6.1](#version-361---2025-05-02)
-- [Version 3.6.0](#version-300---2024-08-18)
-- [Version 3.5.2](#version-352---2025-04-30)
-- [Version 3.5.1](#version-351---2025-04-26)
-- [Version 3.5.0](#version-350---2025-04-26)
-- [Version 3.4.1](#version-341---2025-03-28)
-- [Version 3.4.0](#version-340---2025-02-25)
-- [Version 3.3.9](#version-339---2025-02-15)
-- [Version 3.3.8](#version-338---2025-02-09)
-- [Version 3.3.7](#version-337---2025-01-08)
-- [Version 3.3.6](#version-336---2025-01-07)
-- [Version 3.3.5](#version-335---2025-01-06)
-- [Version 3.3.4](#version-334---2025-01-05)
-- [Version 3.3.3](#version-333---2025-01-05)
-- [Version 3.3.2](#version-332---2025-01-04)
-- [Version 3.3.1](#version-331---2025-01-02)
-- [Version 3.3.0](#version-330---2025-01-02)
-- [Version 3.2.6](#version-326---2024-12-26)
-- [Version 3.2.5](#version-325---2024-12-25)
-- [Version 3.2.4](#version-324---2024-12-24)
-- [Version 3.2.3](#version-323---2024-12-22)
-- [Version 3.2.2](#version-322---2024-12-18)
-- [Version 3.2.1](#version-321---2024-12-17)
-- [Version 3.2.0](#version-320---2024-12-17)
-- [Version 3.1.4](#version-314---2024-12-16)
-- [Version 3.1.3](#version-313---2024-12-16)
-- [Version 3.1.2](#version-312---2024-12-16)
-- [Version 3.1.1](#version-311---2024-12-15)
-- [Version 3.1.0](#version-310---2024-12-14)
-- [Version 3.0.5](#version-305---2024-12-06)
-- [Version 3.0.4](#version-304---2024-11-02)
-- [Version 3.0.3](#version-303---2024-10-29)
-- [Version 3.0.2](#version-302---2024-08-27)
-- [Version 3.0.1](#version-301---2024-08-27)
-- [Version 3.0.0](#version-300---2024-08-18)
+- [Version 3.6.8](#version-368---_2025-06-02_)
+- [Version 3.6.7](#version-367---_2025-06-01_)
+- [Version 3.6.6](#version-366---_2025-06-01_)
+- [Version 3.6.5](#version-365---_2025-05-15_)
+- [Version 3.6.4](#version-364---_2025-05-14_)
+- [Version 3.6.3](#version-363---_2025-05-14_)
+- [Version 3.6.2](#version-362---_2025-05-04_)
+- [Version 3.6.1](#version-361---_2025-05-02_)
+- [Version 3.6.0](#version-300---_2024-08-18_)
+- [Version 3.5.2](#version-352---_2025-04-30_)
+- [Version 3.5.1](#version-351---_2025-04-26_)
+- [Version 3.5.0](#version-350---_2025-04-26_)
+- [Version 3.4.1](#version-341---_2025-03-28_)
+- [Version 3.4.0](#version-340---_2025-02-25_)
+- [Version 3.3.9](#version-339---_2025-02-15_)
+- [Version 3.3.8](#version-338---_2025-02-09_)
+- [Version 3.3.7](#version-337---_2025-01-08_)
+- [Version 3.3.6](#version-336---_2025-01-07_)
+- [Version 3.3.5](#version-335---_2025-01-06_)
+- [Version 3.3.4](#version-334---_2025-01-05_)
+- [Version 3.3.3](#version-333---_2025-01-05_)
+- [Version 3.3.2](#version-332---_2025-01-04_)
+- [Version 3.3.1](#version-331---_2025-01-02_)
+- [Version 3.3.0](#version-330---_2025-01-02_)
+- [Version 3.2.6](#version-326---_2024-12-26_)
+- [Version 3.2.5](#version-325---_2024-12-25_)
+- [Version 3.2.4](#version-324---_2024-12-24_)
+- [Version 3.2.3](#version-323---_2024-12-22_)
+- [Version 3.2.2](#version-322---_2024-12-18_)
+- [Version 3.2.1](#version-321---_2024-12-17_)
+- [Version 3.2.0](#version-320---_2024-12-17_)
+- [Version 3.1.4](#version-314---_2024-12-16_)
+- [Version 3.1.3](#version-313---_2024-12-16_)
+- [Version 3.1.2](#version-312---_2024-12-16_)
+- [Version 3.1.1](#version-311---_2024-12-15_)
+- [Version 3.1.0](#version-310---_2024-12-14_)
+- [Version 3.0.5](#version-305---_2024-12-06_)
+- [Version 3.0.4](#version-304---_2024-11-02_)
+- [Version 3.0.3](#version-303---_2024-10-29_)
+- [Version 3.0.2](#version-302---_2024-08-27_)
+- [Version 3.0.1](#version-301---_2024-08-27_)
+- [Version 3.0.0](#version-300---_2024-08-18_)
 
 ### [Version 3.6.8](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.8) - _2025-06-02_
 
@@ -67,7 +67,7 @@ Added an architecture README document.
 #### Enhancements and Updates
 
 - Added a link to the Bosninja IPSC Handgun World Shoot 2025 apparel for the 2025 World Shoot Handgun post.
-- Added the link to the Bosninja webpage to the constants.
+- Add the link to the Bosninja webpage to the constants.
 
 #### Licence and Documentation
 
@@ -222,7 +222,7 @@ Really return HTTP status 404 for pages not found.
 #### General Code Improvements
 
 - Changed the `.htaccess` file to only allow known routes, other routes will
-  automatically returns a 404 HTTP status.
+  automatically return a 404 HTTP status.
 
 #### Changes by
 
@@ -230,13 +230,13 @@ Really return HTTP status 404 for pages not found.
 
 ### [Version 3.5.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.0) - _2025-04-26_
 
-Used a better library for Google Maps.
+Use a better library for Google Maps.
 Return HTTP status 404 for pages not found.
 
 #### Enhancements and Updates
 
 - Removed the Not Found component.
-- Removed the Page Not Found page.
+- Removed the page: Page Not Found.
 
 #### General Code Improvements
 
@@ -338,8 +338,8 @@ Added icons to the contact details in the footer.
 
 ### [Version 3.3.8](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.8) - _2025-02-09_
 
-Mitigated a critical severity security vulnerability.
-Removed the Contact Us menu option for now.
+Mitigated security vulnerability with severity of critical.
+Remove the Contact Us menu option for now.
 
 #### Enhancements and Updates
 
@@ -393,7 +393,7 @@ Synced with the `hpsc-template-react` project.
 
 ### [Version 3.3.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.6) - _2025-01-07_
 
-Implemented the reCAPTCHA component with a safe library.
+Implement the reCAPTCHA component with a safe library.
 Improved accessibility.
 
 #### Enhancements and Updates
@@ -469,7 +469,7 @@ Removed the CAPTCHA library as it was injecting suspicious code into the HTML.
 
 ### [Version 3.3.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.2) - _2025-01-04_
 
-Created a Links page.
+Create a Links page.
 Created a Member page.
 
 #### Enhancements and Updates
@@ -592,7 +592,7 @@ Moved all common static content to global constants.
 
 Made the About Us page the homepage.
 Finished the website layout by completing the footer.
-Completed the footer by adding contact details and copyright.
+Complete the footer by adding contact details and copyright.
 Improved the responsiveness of the website.
 Added more keywords for SEO purposes.
 
@@ -628,7 +628,7 @@ Added more keywords for SEO purposes.
 
 ### [Version 3.2.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.3) - _2024-12-22_
 
-Added the SAPSA and IPSC logos to the footer.
+Add the SAPSA and IPSC logos to the footer.
 Completed the map to the shooting range in the footer.
 
 #### Enhancements and Updates
@@ -824,7 +824,7 @@ Made the header responsive.
 ### [Version 3.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.0) - _2024-12-14_
 
 Created an SVG favicon.
-Added the HPSC and SAPSA logos to the header.
+Add the HPSC and SAPSA logos to the header.
 Added content to the homepage.
 
 #### Enhancements and Updates

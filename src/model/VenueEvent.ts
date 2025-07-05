@@ -39,6 +39,9 @@ export class VenueEvent {
   private _mapMode: string | undefined;
   private _mapZoom: number | undefined;
 
+  // Apparel
+  private _apparelLink: string | undefined;
+
   constructor(event: {
     description: string;
     type: string;
@@ -61,6 +64,7 @@ export class VenueEvent {
     shootingRangeLink?: string;
     mapMode?: string;
     mapZoom?: number;
+    apparelLink?: string;
   }) {
     // Core
     this._description = event.description;
@@ -103,6 +107,9 @@ export class VenueEvent {
     // Shooting range map
     this._mapMode = event.mapMode;
     this._mapZoom = event.mapZoom;
+
+    // Apparel
+    this._apparelLink = event.apparelLink;
   }
 
   // Core
@@ -255,5 +262,13 @@ export class VenueEvent {
   }
   public set mapZoom(value: number | undefined) {
     this._mapZoom = value;
+  }
+
+  get apparelLink(): string | undefined {
+    return this._apparelLink;
+  }
+
+  set apparelLink(value: string | undefined) {
+    this._apparelLink = value;
   }
 }

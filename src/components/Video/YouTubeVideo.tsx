@@ -1,8 +1,8 @@
 import { VideoProps } from "./VideoProps";
 
-export interface YouTubeVideoProps extends VideoProps {}
+export type YouTubeVideoProps = VideoProps
 
-export const YouTubeVideo = (props: VideoProps) => {
+export const YouTubeVideo = (props: YouTubeVideoProps) => {
   return (
     <iframe
       // width={props.width ?? 560}

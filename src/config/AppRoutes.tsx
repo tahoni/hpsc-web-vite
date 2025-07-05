@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 import { Route, Routes } from "react-router";
-import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import {
   leftShooter,
   rightShooter,
@@ -10,16 +9,13 @@ import { routes } from "../helpers/RouteHelpers";
 import { Layout } from "../layout";
 
 const AppRoutes = (): ReactElement => {
-  const leftSidebarImage: ImageWithSourceAndDescription = leftShooter;
-  const rightSidebarImage: ImageWithSourceAndDescription = rightShooter;
-
   return (
     <Routes>
       <Route
         element={
           <Layout
-            leftSideImage={leftSidebarImage}
-            rightSideImage={rightSidebarImage}
+            leftSideImage={leftShooter}
+            rightSideImage={rightShooter}
           />
         }
       >
