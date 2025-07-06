@@ -62,7 +62,7 @@ Add a YouTube video to the Frontier shooting range.
 ### [Version 3.6.7](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.7) - _2025-06-01_
 
 Add a link to the World Shoot 2025 apparel at Bosninja.
-Add an architecture README document.
+Add an `ARCHITECTURE` file.
 
 #### Enhancements and Updates
 
@@ -380,8 +380,8 @@ Sync with the `hpsc-template-react` project.
 
 #### Licence and Documentation
 
-- Improve the directory structure in the README file.
-- Document the Google reCAPTCHA site key environment variable in the README.
+- Improve the directory structure in the `README` file.
+- Document the Google reCAPTCHA site key environment variable in the `README`.
 
 #### General Technical Changes
 
@@ -563,8 +563,8 @@ Improve the documentation.
 
 #### Licence and Documentation
 
-- Bring the README file up to date.
-- Bring the LICENCE file up to date.
+- Bring the `README` file up to date.
+- Bring the `LICENCE` file up to date.
 - Add release notes.
 - Add a change log.
 
@@ -790,7 +790,7 @@ Create the sidebar component and added it to the homepage.
 #### Licence and Documentation
 
 - Change the licence to "All rights reserved".
-- Add the homepage to the README file.
+- Add the homepage to the `README` file.
 
 #### Dependencies
 
@@ -957,10 +957,10 @@ Create a homepage with an under-construction carousel.
 
 #### Licence and Documentation
 
-- Create a README file with a detailed project description, structure,
+- Create a `README` file with a detailed project description, structure,
   technology stack, instructions, screenshots, licence, author, and support
   information.
-- Add a LICENCE file.
+- Add a `LICENCE` file.
 
 #### General Technical Changes
 
