@@ -191,7 +191,7 @@ Use this to check if the production build looks OK in your local environment.
 ## Screenshots
 ### History Page
 
-![History Page](./documentation/screenshots/HistoryPage.png)
+![History Page](documentation/current/screenshots/HistoryPage.png)
 
 ## License
 Copyright © 2025 Hartbeespoortdam Practical Shooting Club.<br/>
