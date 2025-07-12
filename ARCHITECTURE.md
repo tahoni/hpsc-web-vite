@@ -211,7 +211,7 @@ Use this to check if the production build looks OK in your local environment.
 
 ### History Page
 
-![History Page](documentation/current/screenshots/HistoryPage.png)
+![History Page](documentation/screenshots/HistoryPage.png)
 
 ## License
 
