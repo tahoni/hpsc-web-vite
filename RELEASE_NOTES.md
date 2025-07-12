@@ -2,13 +2,12 @@
 
 ## Release Notes
 
-### Version 3.6.8 - _2025-06-02_
+### Version 3.6.9 - _2025-07-12_
+- Mitigate vulnerable dependencies.
 
-Added a YouTube video to the Frontier shooting range.
+#### Dependencies
 
-#### Enhancements and Updates
-
-- Added an iframe with the YouTube video for the Frontier shooting range.
+- Update the vulnerable `brace-expansion` transitive dependency.
 
 #### Changes by
 
