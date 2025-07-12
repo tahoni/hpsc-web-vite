@@ -3,7 +3,7 @@
   "author": "Leoni Lubbinge <tahoni@gmail.com>",
   "description": "HPSC website",
   "private": true,
-  "version": "3.6.6",
+  "version": "3.6.9",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -29,7 +29,6 @@
     "@rjsf/core": "^5.24.3",
     "@rjsf/utils": "^5.24.3",
     "@rjsf/validator-ajv8": "^5.24.3",
-    "@rollup/plugin-babel": "^6.0.4",
     "@tahoni/tahoni-lib-react": "^3.2.5",
     "@vis.gl/react-google-maps": "^1.5.2",
     "bootstrap": "^5.3.3",
@@ -46,6 +45,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@rollup/plugin-babel": "^6.0.4",
     "@types/react": "~19.0.3",
     "@types/react-dom": "~19.0.2",
     "@types/react-google-recaptcha": "^2.1.9",
