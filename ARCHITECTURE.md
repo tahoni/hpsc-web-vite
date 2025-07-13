@@ -1,3 +1,11 @@
+# HPSC website
+
+## Table of Contents
+
+- [Technology](#technology)
+- [Instructions](#instructions)
+- [Structure](#structure)
+
 ## Technology
 
 ### Tech Stack
@@ -41,7 +49,7 @@
 - Bootstrap 5
 
   [![Bootstrap Badge](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-  
+
 - React Bootstrap 2
 
   [![React Bootstrap Badge](https://img.shields.io/badge/React_Bootstrap-7952B3?logo=bootstrap&logoColor=white)](https://react-bootstrap.github.io/)
@@ -49,53 +57,10 @@
 - React Router 7
 
   [![React Router Badge](https://img.shields.io/badge/React_Router-CB3837?logo=react&logoColor=white)](https://reactrouter.com/en/main)
-## Structure
 
-A high-level structure of the project.
+## Instructions
 
-### Directory structure
-
-```text
-├───.github
-│   └───workflows
-├───builders
-├───documentation
-│   ├───screenshots
-│   └───templates
-├───public
-│   └───assets
-│       └───images
-│           ├───club
-│           ├───content
-│           ├───layout
-│           └───logos
-└───src
-    ├───assets
-    │   └───images
-    ├───components
-    ├───config
-    ├───constants
-    ├───content
-    │   ├───pages
-    │   └───posts
-    ├───enums
-    ├───forms
-    ├───helpers
-    ├───layout
-    ├───model
-    ├───pages
-    ├───services
-    ├───templates
-    ├───utils
-    └───vendors
-        └───bootstrap
-            └───stylesheets
-```
-
-### Code structure
-
-
-### Commands  
+### Commands
 
 The following commands are available in this project
 to set up the development environment
@@ -128,7 +93,7 @@ The page will reload if you make edits.
 #### `npm run sitemap`
 
 This creates a sitemap of the web page.<br/>
-It outputs the sitemap to the console, and then it can 
+It outputs the sitemap to the console, and then it can
 be copied to `public/sitemap.xml`.
 
 ### Environment Variables
@@ -141,7 +106,131 @@ The Google Maps API key from Google Cloud Services needs
 to be set in the `GOOGLE_MAPS_API_KEY` environment variable,
 otherwise, the map will not be available.
 
-The Google reCAPTCHA site key from Google Cloud Services needs
-to be set in the `RECAPTCHA_V2_SITE_KEY` environment variable,
+The Google reCAPTCHA site key from Google Cloud Services must
+ be set in the `RECAPTCHA_V2_SITE_KEY` environment variable,
 otherwise, the CAPTCHA will break.
 
+## Structure
+
+### Naming conventions
+
+### Other conventions
+
+### Directory structure
+
+```text
+├───.github
+│   └───workflows
+├───builders
+├───documentation
+│   ├───demos
+│   ├───screenshots
+│   └───templates
+├───public
+│   └───assets
+│       └───images
+│           ├───club
+│           ├───content
+│           ├───layout
+│           └───logos
+└───src
+    ├───assets
+    │   ├───images
+    │   │   ├───icons
+    │   │   └───ids
+    │   └───stylesheets
+    │       └───images
+    ├───components
+    ├───config
+    │   └───Routes
+    ├───constants
+    ├───content
+    │   ├───pages
+    │   └───posts
+    │       ├───Xxx1
+    │       │   └───stories
+    │       └───Xxx2
+    ├───enums
+    ├───forms
+    ├───helpers
+    ├───layout
+    │   ├───Body
+    │   ├───Content
+    │   ├───Footer
+    │   └───Header
+    ├───models
+    ├───pages
+    ├───services
+    ├───templates
+    ├───utils
+    └───vendors
+        └───xxxx
+            └───stylesheets
+
+```
+
+### Code structure
+- `github/`: GitHub-specific files. 
+  - `workflows/`: GitHub workflow actions. 
+
+- `builders/`: Scripts to build things, like the sitemap.
+
+- `documentation/`: Files related to documentation. 
+  - `demos/`:  Demo GIF images. 
+  - `screenshots/`: Screenshot PNG/JPG images.
+  - `templates/`: Markdown template files.
+
+- `public/`: The source code files that need to be exposed in the `dist` directory 
+   when the project is built.
+  - `assets/`: The JavaScript, stylesheets and images to externalise.
+  - `images/`: The images to be externalised. 
+    - `club/`: Club-specific images.
+    - `content/`: Images related to the website content.
+    - `layout/`: Images related to the website layout.
+    - `logos/`: Logo images.
+
+- `src/`: The source code files that need to be compiled to the `dist` directory, 
+  but not directly exposed there.
+  
+  - `assets/`: Product-specific JavaScript, stylesheets and images.
+    - `images/`: The source code images. 
+      - `icons/`: Icon images, e.g. the HPSC logo icon in different sizes.
+      - `ids/`: ID images, e.g. the HPSC logo in colour and black & white.
+    - `stylesheets/`: The source code stylesheets. 
+      - `images/`: Images used by or related to the stylesheets.
+  
+  - `vendors/`:  Vendor-specific JavaScript, stylesheets and images.
+    - `xxx/`:  Vendor-specific library name.
+      - `stylesheets/`: Stylesheets that include the vendor-specific library and 
+      possibly override values in it.
+
+  - `config/`: Configuration components.
+    - `Routes/`: Route components used for routing as well as generating the sitemap.
+
+  - `layout/`: Layout components.
+    - `Header/`: The header of the layout.
+    - `Footer/`: The footer of the layout.
+    - `Body/`: The body of the layout.
+    - `Content/`: The content of the `Body` component.
+  
+  - `components/`: Website UI/UX components. Each component has its own directory under this.
+  - `pages/`: Website pages. Each page has its own directory under this.
+  - `forms/`: Website forms. Each form has its own directory under this.
+  
+  - `content/`: The static and/or dynamic content of the website.
+    - `pages/`: The content of the static pages. Each relevant page has its own directory.
+    - `posts/`: The content of the dynamic pages. Each relevant page has its own directory.
+      - `Xxx1/`: A page with multiple posts.
+        - `stories/`: The specific stories making up the page content. 
+        Each one is a post on its own, and pages can have multiple stories.
+        - `Xxx2/`: A page with a single post.
+  - `templates/`: Templates to create output files, e.g. e-mail templates. 
+  Forms will mostly use this.
+
+  - `models/`: The model classes.
+  - `enums/`:  The enum structures.
+  - `constants/`: The constants, used by either single or multiple components.
+
+  - `services/`: Services providing business logic functionality.
+  - `utils/`: Utilities that don't have any dependencies into the project.
+  - `helpers/`: Helpers aiding other classes.  
