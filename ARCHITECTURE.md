@@ -75,6 +75,8 @@ This installs the project and dependencies.
 This runs the app in development mode.<br/>
 The page will reload if you make edits.
 
+[//]: # (TODO: add more info)
+
 #### `npm run build`
 
 This builds the app for production to the `dist` folder.<br/>
@@ -85,7 +87,11 @@ Your app is ready to be deployed!
 This previews the app in the `dist` folder locally.<br/>
 Use this to check if the production build looks OK in your local environment.
 
+[//]: # (TODO: add more info)
+
 #### `npm run host`
+
+[//]: # (TODO: add more info)
 
 This runs the app in development mode at [http://hpsc.local](http://hpsc.local).<br/>
 The page will reload if you make edits.
@@ -170,6 +176,7 @@ otherwise, the CAPTCHA will break.
 ```
 
 ### Code structure
+[//]: # (TODO: expand on files in directory)
 - `github/`: GitHub-specific files. 
   - `workflows/`: GitHub workflow actions. 
 
