@@ -73,9 +73,8 @@ This installs the project and dependencies.
 #### `npm run dev`
 
 This runs the app in development mode.<br/>
+The page loads at http://localhost:5173.<br/>
 The page will reload if you make edits.
-
-[//]: # (TODO: add more info)
 
 #### `npm run build`
 
@@ -85,15 +84,13 @@ Your app is ready to be deployed!
 #### `npm run preview`
 
 This previews the app in the `dist` folder locally.<br/>
+The page loads at http://localhost:4173/.
 Use this to check if the production build looks OK in your local environment.
-
-[//]: # (TODO: add more info)
 
 #### `npm run host`
 
-[//]: # (TODO: add more info)
-
-This runs the app in development mode at [http://hpsc.local](http://hpsc.local).<br/>
+This runs the app in development mode at http://hpsc.local:5173/, 
+if you put hpsc.local in your `hosts` file.<br/>
 The page will reload if you make edits.
 
 #### `npm run sitemap`
@@ -236,7 +233,7 @@ otherwise, the CAPTCHA will break.
 
   - `models/`: The model classes.
   - `enums/`:  The enum structures.
-  - `constants/`: The constants, used by either single or multiple components.
+  - `constants/`: The global constants, used by multiple components.
 
   - `services/`: Services providing business logic functionality.
   - `utils/`: Utilities that don't have any dependencies into the project.
