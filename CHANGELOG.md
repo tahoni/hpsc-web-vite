@@ -2,7 +2,7 @@
 
 ## Change Log
 
-### [Version 0.0.0](https://github.com/tahoni/template-react/releases/tag/version-0.0.0) - _20xx-xx-xx_
+### [Version 4.0.0](https://github.com/tahoni/template-react/releases/tag/version-4.0.0) - _2025-07-xx_
 A summary of the main changes.<br/>
 
 #### Enhancements and Updates

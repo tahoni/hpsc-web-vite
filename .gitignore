@@ -298,4 +298,4 @@ target/
 .idea/*_theme_*.xml
 .idea/**/jpa-buddy.xml
 .idea/**/jpa.xml
-.idea/runConfigurations/
+.idea/**/pandoc.xml

@@ -2,8 +2,9 @@
 
 ## Change Log
 
-### Version 3.x.x
+## Version 3
 
+- [Version 3.6.9](#version-369---_2025-07-12_)
 - [Version 3.6.8](#version-368---_2025-06-02_)
 - [Version 3.6.7](#version-367---_2025-06-01_)
 - [Version 3.6.6](#version-366---_2025-06-01_)
@@ -46,6 +47,17 @@
 - [Version 3.0.2](#version-302---_2024-08-27_)
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
+
+### [Version 3.6.9](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.9) - _2025-07-12_
+- Mitigate vulnerable dependencies.
+
+#### Dependencies
+
+- Update the vulnerable `brace-expansion` transitive dependency.
+
+#### Changes by
+
+@tahoni
 
 ### [Version 3.6.8](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.8) - _2025-06-02_
 
