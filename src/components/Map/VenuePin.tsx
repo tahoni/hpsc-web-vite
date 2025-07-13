@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { AdvancedMarker } from "@vis.gl/react-google-maps";
-import { VenueType } from "../../model/Venue.ts";
+import { VenueType } from "../../models/Venue.ts";
 
 export interface VenuePinProps {
   venue: VenueType;

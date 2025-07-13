@@ -1,5 +1,5 @@
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
-import { VenueEvent } from "../../../../../../model/VenueEvent";
+import { VenueEvent } from "../../../../../../models/VenueEvent";
 import { ShootingRanges } from "../../../../Venues/VenueConstants";
 
 // Core

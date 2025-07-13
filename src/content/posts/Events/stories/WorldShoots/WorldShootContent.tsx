@@ -1,8 +1,8 @@
 import React, { CSSProperties, PropsWithChildren, ReactElement } from "react";
 import { Image } from "react-bootstrap";
 import SimpleVenueMap from "../../../../../components/Map/SimpleVenueMap";
-import { VenueType } from "../../../../../model/Venue";
-import { VenueEvent } from "../../../../../model/VenueEvent";
+import { VenueType } from "../../../../../models/Venue";
+import { VenueEvent } from "../../../../../models/VenueEvent";
 import { worldShootEvents } from "./WorldShootConstants";
 import classes from "./WorldShoot.module.scss";
 import { YouTubeVideo } from "../../../../../components/Video/YouTubeVideo";

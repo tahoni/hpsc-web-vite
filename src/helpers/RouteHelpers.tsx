@@ -1,5 +1,5 @@
 import { Navigate } from "react-router";
-import { PageAlias } from "../model/PageAlias.ts";
+import { PageAlias } from "../models/PageAlias.ts";
 import {
   aboutUs,
   events,
@@ -7,7 +7,7 @@ import {
   home,
   links,
   members,
-} from "../config/RouteAliases.tsx";
+} from "../config/Routes/RouteAliases.tsx";
 
 export const routes: PageAlias[] = [
   { mapping: home },

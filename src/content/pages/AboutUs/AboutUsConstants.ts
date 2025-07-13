@@ -1,5 +1,5 @@
 import { clubShootingRangeVenue } from "../../../constants/about/ClubConstants";
-import { VenueType } from "../../../model/Venue";
+import { VenueType } from "../../../models/Venue";
 
 // Eufees shooting range
 export const eufeesShootingRange: VenueType = clubShootingRangeVenue;

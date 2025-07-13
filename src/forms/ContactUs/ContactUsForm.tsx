@@ -4,8 +4,8 @@ import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
-import { EmailMessage } from "../../model/EmailMessage.ts";
-import { EmailContent } from "../../model/EmailContent.ts";
+import { EmailMessage } from "../../models/EmailMessage.ts";
+import { EmailContent } from "../../models/EmailContent.ts";
 import { ContactUsFormData } from "./ContactUsFormData.ts";
 import { EmailService } from "../../services/EmailService.ts";
 import {
@@ -20,8 +20,8 @@ import {
   clubLogoFilename,
   clubLogoPath,
 } from "../../constants/about/ClubConstants.ts";
-import {FormValidation} from "@rjsf/utils/src/types.ts";
-import {EmailAttachment} from "../../model/EmailAttachment.ts";
+import { FormValidation } from "@rjsf/utils/src/types.ts";
+import { EmailAttachment } from "../../models/EmailAttachment.ts";
 
 const ContactUsForm = React.memo((): ReactElement => {
   const emailService = new EmailService();
@@ -136,7 +136,7 @@ const ContactUsForm = React.memo((): ReactElement => {
     errors: FormValidation<ContactUsFormData>,
   ): FormValidation<ContactUsFormData> => {
     if (formData !== undefined) {
-      if ((formData.captcha) && (errors.captcha)) {
+      if (formData.captcha && errors.captcha) {
         errors.captcha.addError("Please solve the CAPTCHA to continue");
       }
     }

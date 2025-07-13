@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import VenueMap, { VenueMapProps } from "./VenueMap.tsx";
 import VenuePins from "./VenuePins.tsx";
-import { VenueType } from "../../model/Venue.ts";
+import { VenueType } from "../../models/Venue.ts";
 import classes from "./VenueMap.module.scss";
 
 interface SimpleVenueMapProps extends VenueMapProps {
@@ -17,7 +17,7 @@ const SimpleVenueMap = React.memo(
         </VenueMap>
       </div>
     );
-  }
+  },
 );
 
 export default SimpleVenueMap;

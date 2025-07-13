@@ -1,4 +1,4 @@
-import { PageMapping } from "../model/PageMapping";
+import { PageMapping } from "../../models/PageMapping.ts";
 
 export const coreHomeRoute = new PageMapping({
   name: "Home",

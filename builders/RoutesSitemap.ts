@@ -1,7 +1,7 @@
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
 import { SitemapMapping } from "../src/model/SitemapMapping";
-import { coreRoutes } from "../src/config/BaseRoutes";
+import { coreRoutes } from "../src/config/Routes/BaseRoutes";
 import { baseUrl } from "../src/constants/AppConstants";
 
 export const generateRoutesSitemap = async () => {

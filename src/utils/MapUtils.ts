@@ -1,4 +1,4 @@
-import { Venue, VenueMapLatLngType } from "../model/Venue.ts";
+import { Venue, VenueMapLatLngType } from "../models/Venue.ts";
 
 export const generateMapVenueKey = (venue?: Venue): string => {
   return (

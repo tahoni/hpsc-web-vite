@@ -1,7 +1,7 @@
 import React from "react";
-import { PageMapping } from "../model/PageMapping.ts";
-import Page from "../pages/Page.tsx";
-import HomePage from "../pages/Home/HomePage.tsx";
+import { PageMapping } from "../../models/PageMapping.ts";
+import Page from "../../pages/Page.tsx";
+import HomePage from "../../pages/Home/HomePage.tsx";
 import {
   coreAboutUsRoute,
   coreContactUsRoute,
@@ -14,20 +14,24 @@ import {
 } from "./BaseRoutes.ts";
 
 const MembersPage = React.lazy(
-  () => import("../pages/Members/MembersPage.tsx"),
+  () => import("../../pages/Members/MembersPage.tsx"),
 );
-const LinksPage = React.lazy(() => import("../pages/Links/LinksPage.tsx"));
+const LinksPage = React.lazy(() => import("../../pages/Links/LinksPage.tsx"));
 const HistoryPage = React.lazy(
-  () => import("../pages/History/HistoryPage.tsx"),
+  () => import("../../pages/History/HistoryPage.tsx"),
 );
 const ContactUsPage = React.lazy(
-  () => import("../pages/ContactUs/ContactUsPage.tsx"),
+  () => import("../../pages/ContactUs/ContactUsPage.tsx"),
 );
 const AboutUsPage = React.lazy(
-  () => import("../pages/AboutUs/AboutUsPage.tsx"),
+  () => import("../../pages/AboutUs/AboutUsPage.tsx"),
 );
-const EventsPage = React.lazy(() => import("../pages/Events/EventsPage.tsx"));
-const VenuesPage = React.lazy(() => import("../pages/Venues/VenuesPage.tsx"));
+const EventsPage = React.lazy(
+  () => import("../../pages/Events/EventsPage.tsx"),
+);
+const VenuesPage = React.lazy(
+  () => import("../../pages/Venues/VenuesPage.tsx"),
+);
 
 export const home: PageMapping = new PageMapping({
   ...coreHomeRoute,
