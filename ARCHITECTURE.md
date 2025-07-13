@@ -116,8 +116,29 @@ otherwise, the CAPTCHA will break.
 ## Structure
 
 ### Naming conventions
+#### Directories
+The top-level directories are named using lower case.
+The leaf directories are named using Pascal case.
+
+#### Styles
+All CSS classes are named using snake case.
+
+#### Variables
+  - Non-component:
+    - All non-component variables are named using camel case.
+  - Component:
+    - All component variables are named using Pascal case. 
 
 ### Other conventions
+#### Components
+  - Each component is in a directory named after it.
+  - The component has a name describing its function and use.
+  - The directory has an `index.tsx` or `index.ts`
+  including and exporting the component(s) in it.
+
+#### Styles
+  - The global stylesheet is called `style.scss`.
+  - The `style.sccs` stylesheet includes all the partial global spreadsheets 
 
 ### Directory structure
 
@@ -173,7 +194,6 @@ otherwise, the CAPTCHA will break.
 ```
 
 ### Code structure
-[//]: # (TODO: expand on files in directory)
 - `github/`: GitHub-specific files. 
   - `workflows/`: GitHub workflow actions. 
 
@@ -186,13 +206,20 @@ otherwise, the CAPTCHA will break.
 
 - `public/`: The source code files that need to be exposed in the `dist` directory 
    when the project is built.
+  - `.htaccess`: The web sever configuration.
+  - `favicon.*`: The icon of the website. 
+  - `robots.txt`: The web crawler instructions.
+  - `site.webmanifest`: The site web manifest.
+  - `sitemap.xml`: The sitemap of the website.
+  - `*.png`: The icon of the website in different device formats. 
+  
   - `assets/`: The JavaScript, stylesheets and images to externalise.
-  - `images/`: The images to be externalised. 
-    - `club/`: Club-specific images.
-    - `content/`: Images related to the website content.
-    - `layout/`: Images related to the website layout.
-    - `logos/`: Logo images.
-
+    - `images/`: The images to be externalised. 
+      - `club/`: Club-specific images.
+      - `content/`: Images related to the website content.
+      - `layout/`: Images related to the website layout.
+      - `logos/`: Logo images.
+  
 - `src/`: The source code files that need to be compiled to the `dist` directory, 
   but not directly exposed there.
   
@@ -200,7 +227,8 @@ otherwise, the CAPTCHA will break.
     - `images/`: The source code images. 
       - `icons/`: Icon images, e.g. the HPSC logo icon in different sizes.
       - `ids/`: ID images, e.g. the HPSC logo in colour and black & white.
-    - `stylesheets/`: The source code stylesheets. 
+    - `stylesheets/`: The source code stylesheets.
+      - `style.scss`: The main stylesheet. 
       - `images/`: Images used by or related to the stylesheets.
   
   - `vendors/`:  Vendor-specific JavaScript, stylesheets and images.
@@ -210,6 +238,9 @@ otherwise, the CAPTCHA will break.
 
   - `config/`: Configuration components.
     - `Routes/`: Route components used for routing as well as generating the sitemap.
+      - `BaseRoutes.ts`: Describe the different routes.
+      - `RouteAliases.tsx`: Map each route to a component and sitemap setting.  
+      - `AppRoutes.tsx`:  The React Router routes.
 
   - `layout/`: Layout components.
     - `Header/`: The header of the layout.
@@ -238,3 +269,39 @@ otherwise, the CAPTCHA will break.
   - `services/`: Services providing business logic functionality.
   - `utils/`: Utilities that don't have any dependencies into the project.
   - `helpers/`: Helpers aiding other classes.  
+
+### Assets structure
+- `public/`
+  - `assets/`
+    - `images/`
+      - `logos/`: Logo images, colour and black & white.
+      - `layout/`: Images used in the layout of the website.
+      - `content/`: Images used in the content of the website.
+      - `club/`: The HPSC related images.
+
+- `src/`
+  - `assets/`
+    - `images/`
+      - `icons/`: The HPSC icons in different sizes.
+      - `ids/`: The HPSC corporate ID images in colour and black & white.
+    
+    - `stylesheets/`
+      - `images/`
+        - `_colors.png`: The HPSC colour palette as an image.
+    
+      - `_colors.scss`: The colour palette classes. 
+      - `_fonts.scss`: The font classes.
+      - `_icons.scss`: The icon classes.
+      - `_forms.scss` The classes used in the forms.
+      - `_variables.scss`: The project variables. 
+      These variables all start with hpsc.
+      - `_theme.scss`: The theme classes. 
+      They are defined using the colour, fonts, icons and forms classes.
+      They are also defined using the project variables.
+      - `_standard.scss`: The built-in classes defined using the theme classes.
+      - `style.scss`: The main stylesheet, including all the above stylesheets.
+
+  - `vendors/`:
+    - `stylesheets/` 
+      - `_custom.scss`: Bootstrap variable overrides.
+      - `style.scss`: The Bootstrap classes, with the style overridden in `_custom.scc`.
