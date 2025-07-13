@@ -1,9 +1,10 @@
 import React from "react";
+import NewsContent from "../../content/posts/News/NewsContent.tsx";
 
 const NewsPage = React.memo(() => {
-  // TODO: News
   return (
     <>
+      <NewsContent />
     </>
   );
 });

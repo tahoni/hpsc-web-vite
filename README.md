@@ -52,8 +52,13 @@ You can download Node.js from [here](https://nodejs.org/).
 Clone the project from [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
 Install the project using `npm install`.<br/>
-Run it locally with `npm run dev`.<br/>
-Build it for production with `npm run build`.
+
+Run it locally with `npm run dev`.<br/> 
+It will load at http://localhost:5173/.<br/> 
+This page will reload if you make edits.
+
+Build it for production with `npm run build` to the `dist` directory.<br/> 
+The production build can be verified by running `npm run preview`.
 
 ## Architecture
 
