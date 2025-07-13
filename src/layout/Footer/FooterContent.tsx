@@ -17,6 +17,7 @@ import { clubShootingRangeVenue } from "../../constants/about/ClubConstants.ts";
 import classes from "./Footer.module.scss";
 
 export const FooterContent = React.memo((): ReactElement => {
+  // TODO: use CSS classes
   const mapStyle: CSSProperties = {
     width: classes.mapWidth,
     height: classes.mapHeight,

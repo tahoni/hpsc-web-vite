@@ -20,6 +20,7 @@ const WorldShootContent = React.memo(
       return <></>;
     }
 
+    // TODO: use CSS classes
     const mapStyle: CSSProperties = {
       width: classes.mapWidth,
       height: classes.mapHeight,

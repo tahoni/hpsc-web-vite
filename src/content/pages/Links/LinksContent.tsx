@@ -18,6 +18,13 @@ import {
   provincialAssociationName,
   provincialAssociationWebsite,
 } from "../../../constants/about/AssociationConstants.ts";
+import {
+  bosninjaDetail,
+  bosninjaLogo,
+  bosninjaLogoAlt,
+  bosninjaName,
+  bosninjaWebsite,
+} from "./LinksConstants.ts";
 
 const LinksContent = React.memo((): ReactElement => {
   return (
@@ -27,8 +34,8 @@ const LinksContent = React.memo((): ReactElement => {
           website={provincialAssociationWebsite}
           logoImageSrc={provincialAssociationLogo}
           logoImageAlt={provincialAssociationLogoAlt}
-          linkDescriptionDetail={provincialAssociationName}
-          linkDescriptionName={provincialAssociationAbbreviation}
+          linkDescriptionName={provincialAssociationName}
+          linkDescriptionAbbreviation={provincialAssociationAbbreviation}
         />
       </Row>
       <Row>
@@ -36,8 +43,8 @@ const LinksContent = React.memo((): ReactElement => {
           website={nationalAssociationWebsite}
           logoImageSrc={nationalAssociationLogo}
           logoImageAlt={nationalAssociationLogoAlt}
-          linkDescriptionDetail={nationalAssociationName}
-          linkDescriptionName={nationalAssociationAbbreviation}
+          linkDescriptionName={nationalAssociationName}
+          linkDescriptionAbbreviation={nationalAssociationAbbreviation}
         />
       </Row>
       <Row>
@@ -45,8 +52,17 @@ const LinksContent = React.memo((): ReactElement => {
           website={internationalAssociationWebsite}
           logoImageSrc={internationalAssociationLogo}
           logoImageAlt={internationalAssociationLogoAlt}
-          linkDescriptionDetail={internationalAssociationName}
-          linkDescriptionName={internationalAssociationAbbreviation}
+          linkDescriptionName={internationalAssociationName}
+          linkDescriptionAbbreviation={internationalAssociationAbbreviation}
+        />
+      </Row>
+      <Row>
+        <LinkWithLogoAndDescription
+          website={bosninjaWebsite}
+          logoImageSrc={bosninjaLogo}
+          logoImageAlt={bosninjaLogoAlt}
+          linkDescriptionName={bosninjaName}
+          linkDescriptionDetail={bosninjaDetail}
         />
       </Row>
     </article>
