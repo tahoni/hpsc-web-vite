@@ -1,17 +1,16 @@
-@use "../../../assets/stylesheets/fonts" as *;
-@use "../../../assets/stylesheets/colors" as *;
+@use "../../../assets/stylesheets/colors" as hpsc-colors;
 
 /* Colours */
 :root {
-  --focus-ring-color: $club-primary-black;
+  --focus-ring-color: hpsc-colors.$club-primary-black;
 }
 
-$body-color: $club-butterscotch-5;
+$body-color: hpsc-colors.$club-butterscotch-5;
 $headings-color: $body-color;
-$border-color: $club-primary-yellow;
-$link-color: $club-butterscotch-20;
-$link-hover-color: $club-yellow-5;
-$input-focus-border-color: $club-primary-blue;
+$border-color: hpsc-colors.$club-primary-yellow;
+$link-color: hpsc-colors.$club-butterscotch-20;
+$link-hover-color: hpsc-colors.$club-yellow-5;
+$input-focus-border-color: hpsc-colors.$club-primary-blue;
 
 //$focus-ring-opacity: 0.25;
 //$focus-ring-color: rgba(var(--focus-ring-color), 0.25);
