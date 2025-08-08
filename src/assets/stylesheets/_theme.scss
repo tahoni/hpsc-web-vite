@@ -1,12 +1,16 @@
 @use "colors" as *;
-@use "../../vendors/bootstrap/stylesheets/custom" as *;
-
-/* Fonts */
-$text-font: $body-color;
+@use "../../vendors/bootstrap/stylesheets/custom" as hpsc-custom;
 
 /* Colours */
 $background-gradient: $blue-gradient-top;
-$btn-primary-background-color: $club-blue-dark;
+$body-color: hpsc-custom.$body-color;
+$headings-color: hpsc-custom.$headings-color;
+$border-color: hpsc-custom.$border-color;
+$link-color: hpsc-custom.$link-color;
+$link-hover-color: hpsc-custom.$link-hover-color;
+$btn-primary-background-color: $club-blue-40;
 $btn-primary-hover-color: $club-primary-blue;
-$menu-background-color: $club-blue-lighter;
-$menu-hover-color: $club-blue-light;
+//$focus-ring-color: hpsc-custom.$focus-ring-color;
+$input-focus-border-color: hpsc-custom.$input-focus-border-color;
+$menu-background-color: $club-blue-95;
+$menu-hover-color: $club-blue-80;

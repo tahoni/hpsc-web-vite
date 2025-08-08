@@ -3,13 +3,15 @@
 
 /* Colours */
 :root {
-  --focus-ring-color: var(--club-blue-light);
+  --focus-ring-color: $club-primary-black;
 }
 
-$body-color: $club-butterscotch-dark;
+$body-color: $club-butterscotch-5;
 $headings-color: $body-color;
-$link-color: $club-butterscotch-medium;
-$link-hover-color: $club-yellow-darkest;
 $border-color: $club-primary-yellow;
-$focus-ring-color: var(--focus-ring-color);
+$link-color: $club-butterscotch-20;
+$link-hover-color: $club-yellow-5;
 $input-focus-border-color: $club-primary-blue;
+
+//$focus-ring-opacity: 0.25;
+//$focus-ring-color: rgba(var(--focus-ring-color), 0.25);

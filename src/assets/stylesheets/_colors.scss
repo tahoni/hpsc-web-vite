@@ -6,7 +6,7 @@
   --club-primary-yellow: #f4f421ff;
 }
 
-$club-primary-butterscotch: #ca9148ff;
+$club-primary-butterscotch: #ba7645;
 $club-primary-blue: #0a07fbff;
 $club-primary-white-smoke: #f5f4f4ff;
 $club-primary-black: #000000ff;
@@ -18,14 +18,14 @@ $club-primary-yellow: #f4f421ff;
   --club-blue-dark: #0603c9;
 }
 
-$club-butterscotch-dark: #130c07;
-$club-butterscotch-medium: #513615;
-$club-blue-lighter: #e6e6ff;
-$club-blue-light: #9c9bfd;
-$club-blue-dark: #0603c9;
-$club-yellow-lightest: #fefee7;
-$club-yellow-darkest: #181802;
-$club-blue-light-rgb: 156, 155, 253;
+$club-butterscotch-5: #130c07;
+$club-butterscotch-20: #4a2f1c;
+$club-blue-95: #e6e6ff;
+$club-blue-80: #9c9bfd;
+$club-blue-40: #0603c9;
+$club-yellow-95: #fefee7;
+$club-yellow-5: #181801;
+$club-blue-80-rgb: 156, 155, 253;
 
 /* International Primary Colours */
 $international-black: #31261d;
@@ -36,15 +36,15 @@ $internation-gold: #a28d5b;
 $international-secondary-blue: #00263a;
 
 /* Gradients */
-$blue-gradient-top: linear-gradient(0deg, $club-blue-light, $club-blue-lighter);
-$blue-gradient-right: linear-gradient(90deg, $club-blue-light, $club-blue-lighter);
-$blue-gradient-bottom: linear-gradient(180deg, $club-blue-light, $club-blue-lighter);
-$blue-gradient-left: linear-gradient(270deg, $club-blue-light, $club-blue-lighter);
-$blue-gradient-top-right: linear-gradient(45deg, $club-blue-light, $club-blue-lighter);
-$blue-gradient-bottom-right: linear-gradient(135deg, $club-blue-light, $club-blue-lighter);
-$blue-gradient-top-left: linear-gradient(225deg, $club-blue-light, $club-blue-lighter);
-$blue-gradient-bottom-left: linear-gradient(315deg, $club-blue-light, $club-blue-lighter);
-$blue-gradient-radial: radial-gradient($club-blue-light, $club-blue-lighter);
+$blue-gradient-top: linear-gradient(0deg, $club-blue-80, $club-blue-95);
+$blue-gradient-right: linear-gradient(90deg, $club-blue-80, $club-blue-95);
+$blue-gradient-bottom: linear-gradient(180deg, $club-blue-80, $club-blue-95);
+$blue-gradient-left: linear-gradient(270deg, $club-blue-80, $club-blue-95);
+$blue-gradient-top-right: linear-gradient(45deg, $club-blue-80, $club-blue-95);
+$blue-gradient-bottom-right: linear-gradient(135deg, $club-blue-80, $club-blue-95);
+$blue-gradient-top-left: linear-gradient(225deg, $club-blue-80, $club-blue-95);
+$blue-gradient-bottom-left: linear-gradient(315deg, $club-blue-80, $club-blue-95);
+$blue-gradient-radial: radial-gradient($club-blue-80, $club-blue-95);
 
 /* Social Media Colours */
 $facebook-blue: #1877f2;
