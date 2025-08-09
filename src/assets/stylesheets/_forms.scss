@@ -7,14 +7,13 @@
 }
 
 .form-control-default {
-  border-color: hpsc-theme.$border-color;
   border-width: 0.125em;
 }
 
 .form-control-default:active, .form-control-default:focus,
 select.form-control-default:active, select.form-control-default:focus,
 textarea.form-control-default:active, textarea.form-control-default:focus {
-  border-color: hpsc-theme.$btn-primary-hover-color !important;
+  border-color: $primary !important;
   border-width: 0.25em;
 }
 
@@ -25,7 +24,6 @@ textarea.form-control-default:focus, textarea.form-control-default:hover {
 }
 
 .form-control-default:hover, select.form-control:hover, textarea.form-control:focus {
-  border-color: hpsc-theme.$border-color;
   border-width: 0.2em;
 }
 
@@ -53,19 +51,20 @@ textarea.form-control-error:focus, textarea.form-control-error:hover {
   box-shadow: 0 0 0 0.25em rgba($danger, $focus-ring-opacity) !important;
 }
 
-/* Button from controls */
+/* Button form controls */
 .form-control-button-info {
-  color: white;
-  background-color: hpsc-theme.$btn-primary-background-color;
+  color: $white;
+  background-color: hpsc-theme.$btn-info-background-color !important;
   margin-bottom: 0.75em;
 }
 
 .form-control-button-info:active, .form-control-button-info:focus {
-  color: white;
-  background-color: hpsc-theme.$btn-primary-hover-color;
+  color: $white;
+  background-color: hpsc-theme.$btn-info-hover-color !important;
+  box-shadow: 0 0 0 0.25em rgba($focus-ring-color, $focus-ring-opacity) !important;
 }
 
 .form-control-button-info:hover {
-  color: white;
-  background-color: hpsc-theme.$btn-primary-hover-color;
+  color: $white;
+  background-color: hpsc-theme.$btn-info-hover-color !important;
 }
