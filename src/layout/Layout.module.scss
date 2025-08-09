@@ -1,4 +1,4 @@
-@use "bootstrap/scss/bootstrap-grid" as *;
+@use "bootstrap/scss/bootstrap-grid" as bootstrap-grid;
 
 // Layout
 .layout {
@@ -156,7 +156,7 @@
   order: 2;
 }
 
-@include media-breakpoint-down(md) {
+@include bootstrap-grid.media-breakpoint-down(md) {
   .headerSidebar:first-child,
   .footerSidebar:first-child {
     width: 50%;

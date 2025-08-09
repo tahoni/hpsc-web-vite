@@ -52,19 +52,19 @@ textarea.form-control-error:focus, textarea.form-control-error:hover {
 }
 
 /* Button form controls */
-.form-control-button-info {
-  color: $white;
+.form-control-button-info, .form-control-button-info:active, .form-control-button-info:focus,
+.form-control-button-info:hover {
+  color: $white !important;
   background-color: hpsc-theme.$btn-info-background-color !important;
+  border-color: $focus-ring-color !important;
   margin-bottom: 0.75em;
 }
 
 .form-control-button-info:active, .form-control-button-info:focus {
-  color: $white;
-  background-color: hpsc-theme.$btn-info-hover-color !important;
+  background-color: hpsc-theme.$btn-info-active-color !important;
   box-shadow: 0 0 0 0.25em rgba($focus-ring-color, $focus-ring-opacity) !important;
 }
 
 .form-control-button-info:hover {
-  color: $white;
-  background-color: hpsc-theme.$btn-info-hover-color !important;
+  box-shadow: 0 0 0 0.25em rgba($focus-ring-color, $focus-ring-opacity) !important;
 }

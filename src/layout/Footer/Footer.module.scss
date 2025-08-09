@@ -1,9 +1,10 @@
-@use "bootstrap/scss/bootstrap-grid" as *;
+@use "bootstrap/scss/bootstrap-grid" as bootstrap-grid;
 @use "../Layout.module.scss";
 
 $map-width: 100%;
 $map-height: 12em;
 
+// TODO: is there a better way to do this
 :export {
   mapWidth: $map-width;
   mapHeight: $map-height;
@@ -36,7 +37,7 @@ $map-height: 12em;
   font-size: 0.9em;
 }
 
-@include media-breakpoint-down(lg) {
+@include bootstrap-grid.media-breakpoint-down(lg) {
   .footerMap {
     margin-bottom: 0.75em;
   }

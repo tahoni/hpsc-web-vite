@@ -7,7 +7,6 @@ import {
   googleMapDefaultZoom,
 } from "../../constants/MapConstants.ts";
 import { generateMapKey } from "../../utils/MapUtils.ts";
-import classes from "./VenueMap.module.scss";
 
 export interface VenueMapProps {
   mapStyle: CSSProperties;
@@ -19,7 +18,7 @@ export interface VenueMapProps {
 const VenueMap = React.memo(
   (props: PropsWithChildren<VenueMapProps>): ReactElement => {
     return (
-      <div className={classes.VenueMap}>
+      <div>
         <APIProvider apiKey={googleMapApiKey}>
           <Map
             mapId={generateMapKey(props.center)}

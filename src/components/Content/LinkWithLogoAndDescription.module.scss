@@ -1,8 +1,9 @@
-@use "bootstrap/scss/bootstrap-grid" as *;
+@use "bootstrap/scss/bootstrap-grid" as bootstrap-grid;
 
 $logo-max-height: 60px;
 $logo-max-width: 100px;
 
+// TODO: is there a better way?
 :export {
   logoHeight: $logo-max-height;
   loigWidth: $logo-max-width;
@@ -25,7 +26,7 @@ $logo-max-width: 100px;
   object-fit: contain;
 }
 
-@include media-breakpoint-down(md) {
+@include bootstrap-grid.media-breakpoint-down(md) {
   .linkDescription {
     display: block;
   }
