@@ -1,7 +1,31 @@
 import { SitemapChangeFrequency } from "../enums/SitemapChangeFrequency";
 
+/**
+ * Represents the default change frequency for URLs in a sitemap.
+ * This is used to indicate how often the content at a particular URL
+ * is expected to change and provides guidance for search engines
+ * when crawling the site. The default value is set to "Daily".
+ *
+ * Possible values are typically derived from predefined change
+ * frequency constants such as
+ * - Always
+ * - Hourly
+ * - Daily
+ * - Weekly
+ * - Monthly
+ * - Yearly
+ * - Never
+ *
+ * Used to optimize sitemap generation and content crawling efficiency.
+ */
 const DEFAULT_SITEMAP_URL_CHANGEFREQ = SitemapChangeFrequency.Daily;
 
+/**
+ * Represents a mapping for a sitemap entry.
+ *
+ * This class provides the necessary properties to define a sitemap entry
+ * with its associated URL, change frequency, priority, and last modified date.
+ */
 export class SitemapMapping {
   url: string;
   changefreq?: SitemapChangeFrequency;
