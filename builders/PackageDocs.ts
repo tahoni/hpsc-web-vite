@@ -50,7 +50,7 @@ function extractPackageDoc(content: string): string | null {
   const blockRegex = /\/\*\*([\s\S]*?)\*\//g;
   let match: RegExpExecArray | null;
   while ((match = blockRegex.exec(content)) !== null) {
-    const block = match[1];
+    const block: string = match[1] ?? "";
     if (/@packageDocumentation\b/.test(block)) {
       // Normalise lines: remove leading * and spaces
       const lines = block
@@ -62,8 +62,12 @@ function extractPackageDoc(content: string): string | null {
       const filtered = lines.filter((l) => !/^@packageDocumentation\b/.test(l));
 
       // Trim leading/trailing empty lines
-      while (filtered.length > 0 && filtered[0].trim() === "") filtered.shift();
-      while (filtered.length > 0 && filtered[filtered.length - 1].trim() === "")
+      while (filtered.length > 0 && (filtered[0] ?? "").trim() === "")
+        filtered.shift();
+      while (
+        filtered.length > 0 &&
+        (filtered[filtered.length - 1] ?? "").trim() === ""
+      )
         filtered.pop();
 
       const text = filtered.join("\n").trim();
