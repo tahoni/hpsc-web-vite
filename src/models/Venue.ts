@@ -34,6 +34,22 @@ export class Venue {
   private _latLng: VenueMapLatLngType;
   private _center?: VenueMapLatLngType;
 
+  /**
+   * Creates a new Venue instance.
+   *
+   * @constructor
+   * @param venue - Initialization object describing the venue.
+   * @param venue.club - Club or organisation associated with the venue (required).
+   * @param venue.name - Optional venue name.
+   * @param venue.website - Optional venue website URL.
+   * @param venue.address - Optional street or mailing address.
+   * @param venue.city - City where the venue is located (required).
+   * @param venue.province - Optional province/state.
+   * @param venue.country - Optional country.
+   * @param venue.plusCode - Optional Plus Code representing the location.
+   * @param venue.latLng - Geographic coordinates of the venue (required).
+   * @param venue.center - Optional map centre coordinates for the venue area.
+   */
   constructor(venue: {
     club: string;
     name?: string;

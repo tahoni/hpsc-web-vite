@@ -10,6 +10,17 @@ export class EmailMessage extends EmailContent {
   private _message: string;
   private _attachments: EmailAttachment[] = [];
 
+  /**
+   * Creates a new EmailMessage instance.
+   *
+   * @constructor
+   * @param email - Initialisation object.
+   * @param email.name - Optional sender display name. Defaults to an empty string.
+   * @param email.email - Optional sender email address. Defaults to an empty string.
+   * @param email.subject - Optional message subject. Defaults to an empty string.
+   * @param email.content - Optional content/preview text. Defaults to an empty string.
+   * @param email.message - Optional message body. Leading/trailing whitespace is trimmed. Defaults to an empty string.
+   */
   constructor(email: {
     name?: string;
     email?: string;

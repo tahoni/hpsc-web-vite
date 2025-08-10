@@ -9,6 +9,16 @@ export class EmailContent {
   private _subject: string = "";
   private _content: string = "";
 
+  /**
+   * Creates a new EmailContent instance.
+   *
+   * @constructor
+   * @param message - Optional initialisation object.
+   * @param message.name - Sender display name. Defaults to an empty string; value is sanitised and trimmed.
+   * @param message.email - Sender email address. Defaults to an empty string; value is sanitised and trimmed.
+   * @param message.subject - Email subject. Defaults to an empty string; value is sanitised and trimmed.
+   * @param message.content - Email content/body. Defaults to an empty string; value is sanitised and trimmed.
+   */
   constructor(message?: {
     name?: string;
     email?: string;

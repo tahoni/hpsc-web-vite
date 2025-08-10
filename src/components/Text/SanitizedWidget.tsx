@@ -32,7 +32,7 @@ interface SanitizedWidgetProps extends BaseInputTemplateProps {
  * including `onChange`, `onBlur`, and `type`, which determines the widget type.
  *
  * @returns {JSX.Element} A sanitized input widget determined by the `type` property,
- * incorporating custom `onChange` and `onBlur` behavior.
+ * incorporating custom `onChange` and `onBlur` behaviour.
  */
 const SanitizedWidget = (props: SanitizedWidgetProps) => {
   const { onChange, onBlur } = props;

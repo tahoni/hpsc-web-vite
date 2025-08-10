@@ -46,6 +46,28 @@ export class VenueEvent {
   private _apparelLink: string | undefined;
   private _apparelDescription: string | undefined;
 
+  /**
+   * Creates a new VenueEvent instance.
+   *
+   * @constructor
+   * @param event - Initialization object describing the venue event.
+   * @param event.description - Human-readable description of the event (required).
+   * @param event.type - Event category or type identifier (required).
+   * @param event.year - Calendar year the event takes place (required).
+   * @param event.town - Town or locality of the event (required).
+   * @param event.city - Optional city where the event occurs.
+   * @param event.province - Optional province/state of the event location.
+   * @param event.country - Optional country of the event location.
+   * @param event.location - Optional specific location or venue name/address.
+   * @param event.link - Canonical link to the event’s website or details page (required).
+   * @param event.longDates - Human-friendly date range string (e.g., “12–14 Aug 2025”) (required).
+   * @param event.isoStartDate - Optional ISO 8601 start date (e.g., "2025-08-12").
+   * @param event.isoEndDate - Optional ISO 8601 end date (e.g., "2025-08-14").
+   * @param event.isoDates - Optional combined ISO date range string.
+   * @param event.images - Collection of event images with metadata (required).
+   * @param event.imageWidth - Display width to use for images, in pixels (required).
+   * @param event.shootingRangeKey - Identifier used to look up the associated shooting range (required).
+   */
   constructor(event: {
     description: string;
     type: string;

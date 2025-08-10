@@ -10,6 +10,11 @@ import {
   members,
 } from "../config/Routes/RouteAliases.tsx";
 
+/**
+ * @packageDocumentation
+ * Module containing route configuration helpers and navigation utilities for the application.
+ */
+
 export const routes: PageAlias[] = [
   { mapping: home },
   { path: "/home", mapping: home, element: <Navigate to={"/"} /> },

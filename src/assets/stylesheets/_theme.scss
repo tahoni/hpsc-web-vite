@@ -1,3 +1,12 @@
+/**
+ * @packageDocumentation
+ * Theme variables composed from colors and fonts
+ *
+ * Centralizes variables that define the visual theme of the application,
+ * combining values from colors.scss and fonts.scss. These variables are
+ * consumed by other stylesheets (e.g., forms and standard) to keep a
+ * consistent look and feel across the UI.
+ */
 @use "colors" as hpsc-colors;
 @use "fonts" as hpsc-fonts;
 

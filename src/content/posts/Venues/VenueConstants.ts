@@ -1,5 +1,12 @@
 import { Venue } from "../../../models/Venue.ts";
 
+/**
+ * @packageDocumentation
+ * Constants and data related to shooting venues and ranges.
+ * Contains enumerations and venue information including locations,
+ * contact details, and geographic coordinates.
+ */
+
 export enum ShootingRanges {
   EUFEES = "EUFEES",
   MAGNUM = "MAGNUM",

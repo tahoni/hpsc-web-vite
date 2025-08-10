@@ -32,6 +32,16 @@ export class SitemapMapping {
   priority?: number;
   lastmod?: Date;
 
+  /**
+   * Creates a new SitemapMapping instance.
+   *
+   * @constructor
+   * @param mapping - Initialization object for the sitemap entry.
+   * @param mapping.url - The absolute or relative URL of the page (required).
+   * @param mapping.changefreq - How frequently the URL is expected to change; defaults to SitemapChangeFrequency.Daily.
+   * @param mapping.priority - Optional relative priority between 0.0 and 1.0.
+   * @param mapping.lastmod - Optional last modified timestamp for the URL.
+   */
   constructor(mapping: {
     url: string;
     changefreq?: SitemapChangeFrequency;

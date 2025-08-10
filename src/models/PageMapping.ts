@@ -24,6 +24,17 @@ export class PageMapping {
   dateCreated?: Date;
   dateUpdated?: Date;
 
+  /**
+   * Creates a new PageMapping instance.
+   *
+   * @constructor
+   * @param mapping - Initialisation object for the page mapping.
+   * @param mapping.name - The unique name of the page (required).
+   * @param mapping.path - The route path associated with the page (required).
+   * @param mapping.element - Optional JSX element/component to render for the page.
+   * @param mapping.dateCreated - Optional creation timestamp for this mapping.
+   * @param mapping.dateUpdated - Optional last update timestamp for this mapping.
+   */
   constructor(mapping: {
     name: string;
     path: string;

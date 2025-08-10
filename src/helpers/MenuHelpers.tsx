@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ * Helper functions and constants for application navigation menus.
+ * Defines the structure and content of the main navigation menu items.
+ */
+
 import { PageMapping } from "../models/PageMapping.ts";
 import {
   aboutUs,
