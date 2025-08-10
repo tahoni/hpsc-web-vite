@@ -1,5 +1,9 @@
 import { EmailAttachment } from "./EmailAttachment.ts";
 
+/**
+ * Represents an email with properties such as sender, recipients, subject, message content,
+ * and optional attachments.
+ */
 export class Email {
   private _from: string;
   private _to: string;

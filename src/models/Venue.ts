@@ -1,6 +1,27 @@
 export type VenueMapLatLngType = { lat: number; lng: number };
 export type VenueType = Venue | undefined;
 
+/**
+ * Represents a venue, providing details such as the associated club,
+ * name, location, and other optional metadata.
+ *
+ * The Venue class is designed to store and manage information about a particular venue and its geographic details.
+ *
+ * Properties:
+ * - `club`: The club or organisation associated with the venue. This field is required.
+ * - `name`: The name of the venue. This field is optional.
+ * - `website`: The website URL of the venue. This field is optional.
+ * - `address`: The physical address of the venue. This field is optional.
+ * - `city`: The city where the venue is located. This field is required.
+ * - `province`: The province or state where the venue is located. This field is optional.
+ * - `country`: The country where the venue is located. This field is optional.
+ * - `plusCode`: The Plus Code that provides a formatted address or geolocation reference. This field is optional.
+ * - `latLng`: The geographic latitude and longitude coordinates of the venue. This field is required.
+ * - `centre`: Optional latLng coordinates representing the centre of the venue's geographic region.
+ *
+ * Methods:
+ * - Getters and setters are provided for each property to allow controlled access and mutation of the venue's data.
+ */
 export class Venue {
   private _club: string;
   private _name?: string;

@@ -18,6 +18,20 @@ import {
 } from "./AboutUsConstants.ts";
 import classes from "./AboutUs.module.scss";
 
+/**
+ * AboutUsContent is a React memoised functional component that displays information
+ * about the organisation, including contact details and location details.
+ *
+ * It provides details such as general enquiry email, chairman's email, and secretary's email.
+ * Additionally, it shows information about the club's shooting range and renders a map
+ * centred at a specified location with pins representing venues.
+ *
+ * The component makes use of responsive grid layout for better presentation and is styled
+ * using CSS classes.
+ *
+ * @constant
+ * @type {React.MemoExoticComponent<() => ReactElement>}
+ */
 const AboutUsContent = React.memo((): ReactElement => {
   const mapStyle: CSSProperties = {
     width: classes.mapWidth,

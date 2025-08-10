@@ -11,6 +11,15 @@ interface WorldShootContentProps {
   year: number;
 }
 
+/**
+ * A memoised React component that displays content related to a World Shoot event.
+ *
+ * This component renders event-specific information such as descriptions, dates, location,
+ * images, links to external resources, and a map with venue details.
+ *
+ * @param {PropsWithChildren<WorldShootContentProps>} props - The properties passed to this component.
+ * @returns {ReactElement} A React element representing the World Shoot event content, or an empty fragment if no event is found for the provided year.
+ */
 const WorldShootContent = React.memo(
   (props: PropsWithChildren<WorldShootContentProps>): ReactElement => {
     const worldShootEvent: VenueEvent | undefined = worldShootEvents.get(

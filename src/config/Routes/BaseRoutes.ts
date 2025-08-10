@@ -1,3 +1,12 @@
+/**
+ * @packageDocumentation
+ * Core route definitions for the application.
+ *
+ * This module declares the fundamental PageMapping instances (core routes)
+ * used across the app, including Home, Members, Links, History, About Us,
+ * Contact Us, Events, and Venues. Other modules import these base mappings
+ * to compose full route configurations and UI elements.
+ */
 import { PageMapping } from "../../models/PageMapping.ts";
 
 /**
@@ -33,9 +42,6 @@ export const coreMembersRoute = new PageMapping({
   dateUpdated: new Date("2025-01-04"),
 });
 
-/**
- * @packageDocumentation
- */
 
 /**
  * Represents the route configuration for the "Links" page.

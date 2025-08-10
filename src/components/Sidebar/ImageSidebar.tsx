@@ -7,6 +7,16 @@ interface SidebarProps {
   source: ImageWithSourceAndDescription;
 }
 
+/**
+ * A functional React component that renders a sidebar containing an image.
+ * The component is memoised to enhance performance by preventing unnecessary re-renders.
+ *
+ * The component displays an image passed through the `source` property of the `props` object.
+ * It uses React-Bootstrap components for layout and styling.
+ *
+ * @param {SidebarProps} props - The properties object containing configuration for the sidebar.
+ * @returns {ReactElement} The rendered sidebar component containing the image.
+ */
 const ImageSidebar = React.memo((props: SidebarProps): ReactElement => {
   return (
     <Container fluid className={classes.sidebar}>

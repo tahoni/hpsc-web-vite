@@ -1,3 +1,6 @@
+/**
+ * Represents an email attachment with its file details and optionally, a content ID (CID).
+ */
 export class EmailAttachment {
   private _fileName: string;
   private _path: string;

@@ -1,5 +1,8 @@
-import {sanitizeValue} from "../utils/HtmlUtils.ts";
+import { sanitizeValue } from "../utils/HtmlUtils.ts";
 
+/**
+ * Represents the content of an email, including sender details, subject, and message content.
+ */
 export class EmailContent {
   private _name: string = "";
   private _email: string = "";

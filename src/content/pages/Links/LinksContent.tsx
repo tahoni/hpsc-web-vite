@@ -26,6 +26,17 @@ import {
   bosninjaWebsite,
 } from "./LinksConstants.ts";
 
+/**
+ * A functional React component wrapped with React.memo for optimized rendering.
+ * Renders a collection of rows, each containing a link with an associated logo and description.
+ * Used to display multiple links with information such as name, abbreviation, or additional details.
+ *
+ * The component utilizes the `LinkWithLogoAndDescription` component to display individual links,
+ * requiring various props such as the website URL, logo image, name, and other descriptive details.
+ *
+ * @constant LinksContent
+ * @type {React.MemoExoticComponent<()=>React.ReactElement>}
+ */
 const LinksContent = React.memo((): ReactElement => {
   return (
     <article>

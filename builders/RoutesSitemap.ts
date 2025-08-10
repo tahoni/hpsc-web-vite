@@ -1,3 +1,11 @@
+/**
+ * @packageDocumentation
+ * Sitemap builder script for HPSC Web.
+ *
+ * Executed via `npm run sitemap`, this module generates an XML sitemap from the
+ * app's static route metadata. Output is printed to stdout so callers can
+ * redirect to a file (e.g., `npm run sitemap > target/sitemap.xml`).
+ */
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
 import { SitemapMapping } from "../src/models/SitemapMapping";

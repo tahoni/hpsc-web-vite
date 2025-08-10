@@ -12,6 +12,20 @@ interface LinkWithLogoAndDescriptionProps {
   linkDescriptionAbbreviation?: string;
 }
 
+/**
+ * React functional component that displays a link with an associated logo image and description.
+ * This component is memoised using React.memo to optimise rendering and prevent unnecessary re-renders.
+ *
+ * The component accepts the following properties to render a structured layout:
+ * - A linked logo image, with specified source, alternative text, and dimensions.
+ * - A textual description, including name, details, and an optional abbreviation.
+ *
+ * The layout consists of two main sections:
+ * - The logo rendered as an image within a hyperlink.
+ * - The description rendered as a styled paragraph.
+ *
+ * @param {LinkWithLogoAndDescriptionProps} props - The props required to customise the logo, description, and hyperlink.
+ */
 const LinkWithLogoAndDescription = React.memo(
   (props: LinkWithLogoAndDescriptionProps) => {
     // TODO: use CSS classes

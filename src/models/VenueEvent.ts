@@ -3,6 +3,9 @@ import { VenueType } from "./Venue";
 import { nonBreakingHyphens } from "../utils/HtmlUtils";
 import { shootingRangeVenues } from "../content/posts/Venues/VenueConstants";
 
+/**
+ * Represents an event taking place at a specific venue.
+ */
 export class VenueEvent {
   // Core
   private _description: string;

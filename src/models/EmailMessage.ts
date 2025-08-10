@@ -1,7 +1,11 @@
 import { EmailContent } from "./EmailContent.ts";
 import { sanitizeValue } from "../utils/HtmlUtils.ts";
-import {EmailAttachment} from "./EmailAttachment.ts";
+import { EmailAttachment } from "./EmailAttachment.ts";
 
+/**
+ * Represents an email message, extending the base functionality of EmailContent.
+ * Provides additional support for an email's message body and attachments.
+ */
 export class EmailMessage extends EmailContent {
   private _message: string;
   private _attachments: EmailAttachment[] = [];
