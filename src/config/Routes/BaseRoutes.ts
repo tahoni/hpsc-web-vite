@@ -1,6 +1,6 @@
 import { PageMapping } from "../../models/PageMapping.ts";
 
-export const coreHomeRoute = new PageMapping({
+export const coreHomeRoute: PageMapping = new PageMapping({
   name: "Home",
   path: "/",
   dateCreated: new Date("2024-12-14"),
@@ -19,7 +19,7 @@ export const coreLinksRoute = new PageMapping({
   dateCreated: new Date("2025-01-03"),
   dateUpdated: new Date("2025-01-03"),
 });
-export const coreHistoryRoute = new PageMapping({
+export const coreHistoryRoute: PageMapping = new PageMapping({
   name: "History",
   path: "/history",
   dateCreated: new Date("2024-12-14"),
@@ -40,7 +40,7 @@ export const coreContactUsRoute = new PageMapping({
   dateUpdated: new Date("2025-03-03"),
 });
 
-export const coreEventsRoute = new PageMapping({
+export const coreEventsRoute: PageMapping = new PageMapping({
   name: "Events",
   path: "/events",
   dateCreated: new Date("2025-04-29"),

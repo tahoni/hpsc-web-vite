@@ -57,7 +57,8 @@ const SanitizedWidget = (props: SanitizedWidgetProps) => {
           onChange={handleChange}
           onBlur={handleBlur}
         />
-      ); }
+      );
+    }
   }
 };
 
