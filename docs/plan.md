@@ -96,7 +96,7 @@ This plan synthesizes key goals and constraints from the repository’s document
 
 ### 5.1 Accessibility baseline
 - Actions:
-  - Define a checklist: semantic headings, focus outlines, color contrast compliance (WCAG AA), ARIA landmarks, link purpose clarity.
+  - Define a checklist: semantic headings, focus outlines, colour contrast compliance (WCAG AA), ARIA landmarks, link purpose clarity.
   - Integrate an automated a11y check in dev (optional: axe-core in dev-only tests or playwright/axe in CI later).
 - Rationale: Inclusive design and better UX.
 - Impact: Reduced accessibility issues; improved usability.
@@ -121,7 +121,7 @@ This plan synthesizes key goals and constraints from the repository’s document
 - Actions:
   - When adding component tests, use @testing-library/react with jsdom environment. Introduce vitest.config.ts with test.environment = 'jsdom' if component testing expands.
 - Rationale: React 19 compatibility and testing best practices.
-- Impact: Reliable UI behavior validation.
+- Impact: Reliable UI behaviour validation.
 
 ## 7. CI/CD and Release Hygiene
 
