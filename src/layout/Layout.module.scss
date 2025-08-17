@@ -1,4 +1,4 @@
-@import "bootstrap/scss/bootstrap-grid";
+@use "bootstrap/scss/bootstrap-grid" as bootstrap-grid;
 
 // Layout
 .layout {
@@ -156,7 +156,7 @@
   order: 2;
 }
 
-@include media-breakpoint-down(md) {
+@include bootstrap-grid.media-breakpoint-down(md) {
   .headerSidebar:first-child,
   .footerSidebar:first-child {
     width: 50%;
@@ -192,7 +192,7 @@
 
   // Logo and heading alignment
   // The two logos come after the heading
-  // With the heaidng on it's own line
+  // With the heading on it's own line
   .footerSidebar:first-child {
     order: 2;
   }

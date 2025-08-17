@@ -1,9 +1,5 @@
-@use "../WorldShoots.module.scss";
+@use "../WorldShoot.module.scss";
 
-.worldShoot2025 img {
-  margin-bottom: 0.75em;
-}
-
-.worldShoot2025 h6 {
-  margin-bottom: 1.55em;
+.worldShoot2025 {
+  @extend .worldShoot;
 }

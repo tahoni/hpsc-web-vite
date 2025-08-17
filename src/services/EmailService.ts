@@ -1,5 +1,5 @@
-import { EmailMessage } from "../model/EmailMessage.ts";
-import { Email } from "../model/Email.ts";
+import { EmailMessage } from "../models/EmailMessage.ts";
+import { Email } from "../models/Email.ts";
 import {
   contactUsEmail,
   noReplyEmail,

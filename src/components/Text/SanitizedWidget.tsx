@@ -13,7 +13,7 @@ const SanitizedWidget = (props: SanitizedWidgetProps) => {
   const { onChange, onBlur } = props;
 
   const handleChange = (
-    value: any,
+    value: string,
     es?: ErrorSchema | undefined,
     id?: string,
   ): void => {
@@ -25,7 +25,7 @@ const SanitizedWidget = (props: SanitizedWidgetProps) => {
     onChange(trimmedValue, es, id);
   };
 
-  const handleBlur = (id: string, value: any): void => {
+  const handleBlur = (id: string, value: string): void => {
     const sanitizedValue: string = sanitizeValue(value);
     const trimmedValue: string = sanitizedValue.trim();
     if (trimmedValue !== value) {
@@ -49,7 +49,7 @@ const SanitizedWidget = (props: SanitizedWidgetProps) => {
       );
     case SanitizedWidgetTypes.TEMPLATE:
     default:
-      const OldBaseInputTemplate =
+      { const OldBaseInputTemplate =
         getDefaultRegistry().templates.BaseInputTemplate;
       return (
         <OldBaseInputTemplate
@@ -58,6 +58,7 @@ const SanitizedWidget = (props: SanitizedWidgetProps) => {
           onBlur={handleBlur}
         />
       );
+    }
   }
 };
 

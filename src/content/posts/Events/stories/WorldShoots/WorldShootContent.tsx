@@ -1,8 +1,8 @@
 import React, { CSSProperties, PropsWithChildren, ReactElement } from "react";
 import { Image } from "react-bootstrap";
 import SimpleVenueMap from "../../../../../components/Map/SimpleVenueMap";
-import { VenueType } from "../../../../../model/Venue";
-import { VenueEvent } from "../../../../../model/VenueEvent";
+import { VenueType } from "../../../../../models/Venue";
+import { VenueEvent } from "../../../../../models/VenueEvent";
 import { worldShootEvents } from "./WorldShootConstants";
 import classes from "./WorldShoot.module.scss";
 import { YouTubeVideo } from "../../../../../components/Video/YouTubeVideo";
@@ -20,6 +20,7 @@ const WorldShootContent = React.memo(
       return <></>;
     }
 
+    // TODO: use CSS classes
     const mapStyle: CSSProperties = {
       width: classes.mapWidth,
       height: classes.mapHeight,
@@ -55,11 +56,8 @@ const WorldShootContent = React.memo(
         <h6>Apparel</h6>
         <div className={classes.worldShootSummary}>
           <p>
-            <a
-              href="https://www.bosninja.co.za/product-category/ipsc-handgun-world-shoot-2025/"
-              target="_blank"
-            >
-              {worldShootEvent.description} Apparel @ BosNinja
+            <a href={worldShootEvent.apparelLink} target="_blank">
+              {worldShootEvent.apparelDescription}
             </a>
           </p>
         </div>

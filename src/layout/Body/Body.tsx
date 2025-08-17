@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { Container } from "react-bootstrap";
-import { Content } from "../Content/Content.tsx";
+import { Content } from "../Content";
 import ImageSidebar from "../../components/Sidebar/ImageSidebar.tsx";
 import { BodyProps } from "../LayoutProps.ts";
 import classes from "./Body.module.scss";

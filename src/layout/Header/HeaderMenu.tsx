@@ -3,7 +3,7 @@ import { NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { menuIcon } from "../../constants/IconConstants";
-import { PageMapping } from "../../model/PageMapping.ts";
+import { PageMapping } from "../../models/PageMapping.ts";
 import { menuItems } from "../../helpers/MenuHelpers.tsx";
 
 export const HeaderMenu = React.memo((): ReactElement => {

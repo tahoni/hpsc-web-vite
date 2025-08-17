@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { VenueEvent } from "../../../../../model/VenueEvent";
+import { VenueEvent } from "../../../../../models/VenueEvent";
 import WorldShoot2025Component from "./2025/WorldShoot2025Component";
 import { worldShoot2025Event } from "./2025/WorldShoot2025Constants";
 

@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { EmailContent } from "../../model/EmailContent.ts";
+import { EmailContent } from "../../models/EmailContent.ts";
 import { Heading, Html, Img, Section } from "@react-email/components";
 import { clubLogoAlt } from "../../constants/about/ClubConstants.ts";
 

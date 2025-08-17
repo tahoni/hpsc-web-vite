@@ -3,7 +3,7 @@ import {
   ShootingRanges,
   shootingRangeVenues,
 } from "../../content/posts/Venues/VenueConstants.ts";
-import { VenueType } from "../../model/Venue.ts";
+import { VenueType } from "../../models/Venue.ts";
 import { logoAlt } from "../AppConstants.ts";
 
 // Summary

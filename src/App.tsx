@@ -3,7 +3,7 @@ import { APIProvider } from "@vis.gl/react-google-maps";
 import { Breakpoints } from "./layout";
 import { Loader } from "@tahoni/tahoni-lib-react";
 import { googleMapApiKey } from "./constants/MapConstants.ts";
-import AppRoutes from "./config/AppRoutes.tsx";
+import AppRoutes from "./config/Routes/AppRoutes.tsx";
 import "./App.scss";
 
 function App(): ReactElement {

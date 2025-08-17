@@ -3,7 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";
-import { VenueType } from "../../model/Venue.ts";
+import { VenueType } from "../../models/Venue.ts";
 import SimpleVenueMap from "../../components/Map/SimpleVenueMap.tsx";
 import { copyrightYear } from "../../constants/AppConstants.ts";
 import {
@@ -17,6 +17,7 @@ import { clubShootingRangeVenue } from "../../constants/about/ClubConstants.ts";
 import classes from "./Footer.module.scss";
 
 export const FooterContent = React.memo((): ReactElement => {
+  // TODO: use CSS classes
   const mapStyle: CSSProperties = {
     width: classes.mapWidth,
     height: classes.mapHeight,

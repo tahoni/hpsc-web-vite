@@ -3,14 +3,17 @@
   "author": "Leoni Lubbinge <tahoni@gmail.com>",
   "description": "HPSC website",
   "private": true,
-  "version": "3.6.9",
+  "version": "4.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint",
     "preview": "vite preview",
-    "host": "vite --host hpsc.local"
+    "host": "vite --host hpsc.local",
+    "sitemap": "tsx builders/RoutesSitemap.ts",
+    "pr:desc": "tsx builders/GeneratePrDescription.ts",
+    "release:notes": "tsx builders/GenerateReleaseNotes.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -54,6 +57,7 @@
     "eslint": "^9.20.1",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-tsdoc": "^0.4.0",
     "globals": "^15.15.0",
     "rollup-plugin-visualizer": "^5.14.0",
     "sass": "^1.85.0",

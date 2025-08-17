@@ -1,0 +1,11 @@
+@use "colors" as hpsc-colors;
+@use "fonts" as hpsc-fonts;
+
+/* Colours */
+$headings-font-family: hpsc-fonts.$noto-sans-display-font-family;
+$background-gradient: hpsc-colors.$blue-gradient-top;
+$btn-info-background-color: hpsc-colors.$club-primary-blue;
+$btn-info-active-color: hpsc-colors.$club-blue-40;
+$menu-background-color: hpsc-colors.$club-blue-95;
+$menu-hover-color: hpsc-colors.$club-blue-80;
+$spinner-color: hpsc-colors.$club-primary-yellow;

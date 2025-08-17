@@ -1,7 +1,7 @@
 import React, { CSSProperties, ReactElement } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SimpleVenueMap from "../../../components/Map/SimpleVenueMap.tsx";
-import { VenueType } from "../../../model/Venue.ts";
+import { VenueType } from "../../../models/Venue.ts";
 import {
   adminEmail,
   chairmanEmail,
