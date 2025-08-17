@@ -3,6 +3,7 @@ $map-height: 15em;
 $video-width: 36em;
 $video-height: 20em;
 
+// TODO: is there a bette way to do this?
 :export {
   mapWidth: $map-width;
   mapHeight: $map-height;

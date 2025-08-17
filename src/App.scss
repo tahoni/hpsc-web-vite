@@ -1,6 +1,9 @@
-@import "assets/stylesheets/styles-variables";
-@import "assets/stylesheets/styles-custom";
-@import "bootstrap/scss/bootstrap";
-@import "sweetalert2/dist/sweetalert2.css";
-@import "@tahoni/tahoni-lib-react/dist/index.css";
-@import "assets/stylesheets/styles";
+// Personal library styles
+@use "@tahoni/tahoni-lib-react/dist/index.css" as *;
+// Project styles
+@use "assets/stylesheets/style" as *;
+// External library styles
+@use "vendors/bootstrap/stylesheets/style" as *;
+
+// Package styles
+@use "sweetalert2/dist/sweetalert2.css" as *;

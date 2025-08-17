@@ -6,6 +6,6 @@ export interface BodyProps {
   pageTitle?: string;
 }
 
-export interface SimpleLayoutProps extends BodyProps {}
+export type SimpleLayoutProps = BodyProps
 
-export interface LayoutProps extends SimpleLayoutProps {}
+export type LayoutProps = SimpleLayoutProps

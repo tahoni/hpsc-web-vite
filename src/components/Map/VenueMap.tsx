@@ -1,5 +1,5 @@
 import React, { CSSProperties, PropsWithChildren, ReactElement } from "react";
-import { VenueMapLatLngType } from "../../model/Venue.ts";
+import { VenueMapLatLngType } from "../../models/Venue.ts";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import {
   googleMapApiKey,
@@ -7,7 +7,6 @@ import {
   googleMapDefaultZoom,
 } from "../../constants/MapConstants.ts";
 import { generateMapKey } from "../../utils/MapUtils.ts";
-import classes from "./VenueMap.module.scss";
 
 export interface VenueMapProps {
   mapStyle: CSSProperties;
@@ -19,7 +18,7 @@ export interface VenueMapProps {
 const VenueMap = React.memo(
   (props: PropsWithChildren<VenueMapProps>): ReactElement => {
     return (
-      <div className={classes.VenueMap}>
+      <div>
         <APIProvider apiKey={googleMapApiKey}>
           <Map
             mapId={generateMapKey(props.center)}

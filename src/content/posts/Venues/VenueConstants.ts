@@ -1,4 +1,4 @@
-import { Venue } from "../../../model/Venue.ts";
+import { Venue } from "../../../models/Venue.ts";
 
 export enum ShootingRanges {
   EUFEES = "EUFEES",

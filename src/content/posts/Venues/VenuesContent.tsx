@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Venue } from "../../../model/Venue.ts";
+import { Venue } from "../../../models/Venue.ts";
 import { shootingRangeVenues } from "./VenueConstants.ts";
 
 const VenuesContent = React.memo((): ReactElement => {

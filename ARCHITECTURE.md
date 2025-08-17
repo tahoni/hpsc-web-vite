@@ -2,123 +2,13 @@
 
 ## Table of Contents
 
-- [Description](#description)
-- [Summary](#summary)
-- [Repository](#repository)
-- [Structure](#structure)
 - [Technology](#technology)
 - [Instructions](#instructions)
-- [Screenshots](#screenshots)
-- [License](#license)
-- [Author](#author)
-
-## Description
-
-This repository contains the source code for the Hartbeespoortdam Practical Shooting Club (HPSC) website.
-
-## Summary
-
-The [HPSC website](https://hpsc.co.za) uses modern web technologies
-to provide an informative and user-friendly platform for members and visitors.<br/>
-The primary technologies used in this project include TypeScript, SCSS, and MDX.
-
-## Repository
-
-The repository for this project is located at
-[GitHub](https://github.com/tahoni/hpsc-web-vite).
-
-Feature requests, suggestions for improvements and bugs can be
-logged using the project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
-
-An overview of the project can be found at
-[https://tahoni.info/projects/hpsc-web-vite](https://www.tahoni.info/projects/hpsc-web-vite).
-
-## Structure
-
-A high-level structure of the project.
-
-```text
-├───.github
-│   └───workflows
-├───builders
-├───documentation
-│   └───screenshots
-├───public
-│   └───assets
-│       └───images
-│           ├───club
-│           ├───content
-│           ├───layout
-│           └───logos
-└───src
-    ├───assets
-    │   ├───fonts
-    │   │   └───icomoon
-    │   ├───images
-    │   │   ├───icons
-    │   │   └───ids
-    │   └───stylesheets
-    ├───components
-    │   ├───Captcha
-    │   ├───Map
-    │   ├───Sidebar
-    │   ├───Text
-    │   └───Title
-    ├───config
-    ├───constants
-    │   ├───about
-    │   └───images
-    ├───content
-    │   ├───pages
-    │   │   ├───AboutUs
-    │   │   ├───History
-    │   │   ├───Home
-    │   │   └───Links
-    │   └───posts
-    │       ├───Events
-    │       ├───Members
-    │       └───Venues
-    ├───enums
-    ├───forms
-    │   └───ContactUs
-    ├───helpers
-    ├───layout
-    │   ├───Body
-    │   ├───Breakpoints
-    │   ├───Content
-    │   ├───Footer
-    │   └───Header
-    ├───model
-    ├───pages
-    │   ├───AboutUs
-    │   ├───ContactUs
-    │   ├───Events
-    │   ├───History
-    │   ├───Home
-    │   ├───Links
-    │   ├───Members
-    │   ├───News
-    │   └───Venues
-    ├───services
-    ├───templates
-    │   └───ContactUs
-    └───utils
-```
+- [Structure](#structure)
 
 ## Technology
 
-### Overview
-
-This is a React project bootstrapped using Vite with the TypeScript React template.
-
-It is written in TypeScript and uses both JSX and MDX components.
-
-Bootstrap and React Bootstrap are used for the UI/UX.<br/>
-Styling is done by SCSS stylesheets.
-
-React Router is used for page routing.
-
-### Technology Stack
+### Tech Stack
 
 #### Languages:
 
@@ -132,11 +22,15 @@ React Router is used for page routing.
 
 - CSS 3
 
-  [![CSS Badge](https://img.shields.io/badge/CSS-1572B6?logo=css3)](https://www.w3.org/)
+  [![CSS Badge](https://img.shields.io/badge/CSS-1572B6?logo=css)](https://www.w3.org/)
 
 #### Build Tools:
 
-- npm 10
+- node 22
+
+- [![node Badge](https://img.shields.io/badge/node-CB3837?logo=nodedotjs&logoColor=white)](https://www.nodejs.com/)
+
+- npm 11
 
   [![npm Badge](https://img.shields.io/badge/npm-CB3837?logo=npm)](https://www.npmjs.com/)
 
@@ -160,11 +54,13 @@ React Router is used for page routing.
 
   [![React Bootstrap Badge](https://img.shields.io/badge/React_Bootstrap-7952B3?logo=bootstrap&logoColor=white)](https://react-bootstrap.github.io/)
 
-- React Router 6
+- React Router 7
 
   [![React Router Badge](https://img.shields.io/badge/React_Router-CB3837?logo=react&logoColor=white)](https://reactrouter.com/en/main)
 
 ## Instructions
+
+### Commands
 
 The following commands are available in this project
 to set up the development environment
@@ -172,25 +68,12 @@ and build the production environment.
 
 #### `npm install`
 
-This installs the dependencies.
-
-#### Environment Variables
-
-The npm key to @tahoni on GitHub needs
-to be set in the `GITHUB_TOKEN` environment variable,
-to load the `tahoni-lib-react` npm package.
-
-The Google Maps API key from Google Cloud Services needs
-to be set in the `GOOGLE_MAPS_API_KEY` environment variable,
-otherwise, the map will not be available.
-
-The Google reCAPTCHA site key from Google Cloud Services needs
-to be set in the `RECAPTCHA_V2_SITE_KEY` environment variable,
-otherwise, the CAPTCHA will break.
+This installs the project and dependencies.
 
 #### `npm run dev`
 
 This runs the app in development mode.<br/>
+The page loads at http://localhost:5173.<br/>
 The page will reload if you make edits.
 
 #### `npm run build`
@@ -200,32 +83,225 @@ Your app is ready to be deployed!
 
 #### `npm run preview`
 
-This previews the app locally in the `dist` folder.<br/>
+This previews the app in the `dist` folder locally.<br/>
+The page loads at http://localhost:4173/.
 Use this to check if the production build looks OK in your local environment.
 
-<!-- TODO: help on how to generate sitemap -->
+#### `npm run host`
 
-## Screenshots
+This runs the app in development mode at http://hpsc.local:5173/, 
+if you put hpsc.local in your `hosts` file.<br/>
+The page will reload if you make edits.
 
-<!-- TODO: update screenshots -->
+#### `npm run sitemap`
 
-### History Page
+This creates a sitemap of the web page.<br/>
+It outputs the sitemap to the console, and then it can
+be copied to `public/sitemap.xml`.
 
-![History Page](./documentation/screenshots/HistoryPage.png)
+### Environment Variables
 
-## License
+The npm key to `@tahoni` on GitHub needs
+to be set in the `GITHUB_TOKEN` environment variable,
+to load the `tahoni-lib-react` npm package.
 
-Copyright © 2025 Hartbeespoortdam Practical Shooting Club.<br/>
-All Rights Reserved.
+The Google Maps API key from Google Cloud Services needs
+to be set in the `GOOGLE_MAPS_API_KEY` environment variable,
+otherwise, the map will not be available.
 
-## Author
+The Google reCAPTCHA site key from Google Cloud Services must
+ be set in the `RECAPTCHA_V2_SITE_KEY` environment variable,
+otherwise, the CAPTCHA will break.
 
-**Leoni Lubbinge**
+## Structure
 
-- [![Website Badge](https://custom-icon-badges.demolab.com/badge/https%3A%2F%2Ftahoni.info-blue?logo=file-code)](https://www.tahoni.info)
-- [![Email Badge](https://custom-icon-badges.demolab.com/badge/leonil%40tahoni.info-blue?logo=mail)](mailto:leonil@tahoni.info)
+### Naming conventions
+#### Directories
+The top-level directories are named using lower case.
+The leaf directories are named using Pascal case.
 
-- [![Outlook Email Badge](https://custom-icon-badges.demolab.com/badge/tahoni%40outlook.com-blue.svg?logo=mail)](mailto:tahoni@outlook.com)
-- [![Gmail Email Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail)](mailto:tahoni@gmail.com)
-- [![GitHub Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=github)](https://github.com/tahoni)
-- [![LinkedIn Badge](https://custom-icon-badges.demolab.com/badge/Leoni_Lubbinge-blue.svg?logoSource=feather&logo=linkedin)](https://www.linkedin.com/in/leoni-lubbinge-06066b16/)
+#### Styles
+All CSS classes are named using snake case.
+
+#### Variables
+  - Non-component:
+    - All non-component variables are named using camel case.
+  - Component:
+    - All component variables are named using Pascal case. 
+
+### Other conventions
+#### Components
+  - Each component is in a directory named after it.
+  - The component has a name describing its function and use.
+  - The directory has an `index.tsx` or `index.ts`
+  including and exporting the component(s) in it.
+
+#### Styles
+  - The global stylesheet is called `style.scss`.
+  - The `style.sccs` stylesheet includes all the partial global spreadsheets 
+
+### Directory structure
+
+```text
+├───.github
+│   └───workflows
+├───builders
+├───documentation
+│   ├───demos
+│   ├───screenshots
+│   └───templates
+├───public
+│   └───assets
+│       └───images
+│           ├───club
+│           ├───content
+│           ├───layout
+│           └───logos
+└───src
+    ├───assets
+    │   ├───images
+    │   │   ├───icons
+    │   │   └───ids
+    │   └───stylesheets
+    │       └───images
+    ├───components
+    ├───config
+    │   └───Routes
+    ├───constants
+    ├───content
+    │   ├───pages
+    │   └───posts
+    │       ├───Xxx1
+    │       │   └───stories
+    │       └───Xxx2
+    ├───enums
+    ├───forms
+    ├───helpers
+    ├───layout
+    │   ├───Body
+    │   ├───Content
+    │   ├───Footer
+    │   └───Header
+    ├───models
+    ├───pages
+    ├───services
+    ├───templates
+    ├───utils
+    └───vendors
+        └───xxxx
+            └───stylesheets
+
+```
+
+### Code structure
+- `github/`: GitHub-specific files. 
+  - `workflows/`: GitHub workflow actions. 
+
+- `builders/`: Scripts to build things, like the sitemap.
+
+- `documentation/`: Files related to documentation. 
+  - `demos/`:  Demo GIF images. 
+  - `screenshots/`: Screenshot PNG/JPG images.
+  - `templates/`: Markdown template files.
+
+- `public/`: The source code files that need to be exposed in the `dist` directory 
+   when the project is built.
+  - `.htaccess`: The web sever configuration.
+  - `favicon.*`: The icon of the website. 
+  - `robots.txt`: The web crawler instructions.
+  - `site.webmanifest`: The site web manifest.
+  - `sitemap.xml`: The sitemap of the website.
+  - `*.png`: The icon of the website in different device formats. 
+  
+  - `assets/`: The JavaScript, stylesheets and images to externalise.
+    - `images/`: The images to be externalised. 
+      - `club/`: Club-specific images.
+      - `content/`: Images related to the website content.
+      - `layout/`: Images related to the website layout.
+      - `logos/`: Logo images.
+  
+- `src/`: The source code files that need to be compiled to the `dist` directory, 
+  but not directly exposed there.
+  
+  - `assets/`: Product-specific JavaScript, stylesheets and images.
+    - `images/`: The source code images. 
+      - `icons/`: Icon images, e.g. the HPSC logo icon in different sizes.
+      - `ids/`: ID images, e.g. the HPSC logo in colour and black & white.
+    - `stylesheets/`: The source code stylesheets.
+      - `style.scss`: The main stylesheet. 
+      - `images/`: Images used by or related to the stylesheets.
+  
+  - `vendors/`:  Vendor-specific JavaScript, stylesheets and images.
+    - `xxx/`:  Vendor-specific library name.
+      - `stylesheets/`: Stylesheets that include the vendor-specific library and 
+      possibly override values in it.
+
+  - `config/`: Configuration components.
+    - `Routes/`: Route components used for routing as well as generating the sitemap.
+      - `BaseRoutes.ts`: Describe the different routes.
+      - `RouteAliases.tsx`: Map each route to a component and sitemap setting.  
+      - `AppRoutes.tsx`:  The React Router routes.
+
+  - `layout/`: Layout components.
+    - `Header/`: The header of the layout.
+    - `Footer/`: The footer of the layout.
+    - `Body/`: The body of the layout.
+    - `Content/`: The content of the `Body` component.
+  
+  - `components/`: Website UI/UX components. Each component has its own directory under this.
+  - `pages/`: Website pages. Each page has its own directory under this.
+  - `forms/`: Website forms. Each form has its own directory under this.
+  
+  - `content/`: The static and/or dynamic content of the website.
+    - `pages/`: The content of the static pages. Each relevant page has its own directory.
+    - `posts/`: The content of the dynamic pages. Each relevant page has its own directory.
+      - `Xxx1/`: A page with multiple posts.
+        - `stories/`: The specific stories making up the page content. 
+        Each one is a post on its own, and pages can have multiple stories.
+        - `Xxx2/`: A page with a single post.
+  - `templates/`: Templates to create output files, e.g. e-mail templates. 
+  Forms will mostly use this.
+
+  - `models/`: The model classes.
+  - `enums/`:  The enum structures.
+  - `constants/`: The global constants, used by multiple components.
+
+  - `services/`: Services providing business logic functionality.
+  - `utils/`: Utilities that don't have any dependencies into the project.
+  - `helpers/`: Helpers aiding other classes.  
+
+### Assets structure
+- `public/`
+  - `assets/`
+    - `images/`
+      - `logos/`: Logo images, colour and black & white.
+      - `layout/`: Images used in the layout of the website.
+      - `content/`: Images used in the content of the website.
+      - `club/`: The HPSC related images.
+
+- `src/`
+  - `assets/`
+    - `images/`
+      - `icons/`: The HPSC icons in different sizes.
+      - `ids/`: The HPSC corporate ID images in colour and black & white.
+    
+    - `stylesheets/`
+      - `images/`
+        - `_colors.png`: The HPSC colour palette as an image.
+    
+      - `_colors.scss`: The colour palette classes. 
+      - `_fonts.scss`: The font classes.
+      - `_icons.scss`: The icon classes.
+      - `_forms.scss` The classes used in the forms.
+      - `_variables.scss`: The project variables. 
+      These variables all start with hpsc.
+      - `_theme.scss`: The theme classes. 
+      They are defined using the colour, fonts, icons and forms classes.
+      They are also defined using the project variables.
+      - `_standard.scss`: The built-in classes defined using the theme classes.
+      - `style.scss`: The main stylesheet, including all the above stylesheets.
+
+  - `vendors/`:
+    - `stylesheets/` 
+      - `_custom.scss`: Bootstrap variable overrides.
+      - `style.scss`: The Bootstrap classes, with the style overridden in `_custom.scc`.

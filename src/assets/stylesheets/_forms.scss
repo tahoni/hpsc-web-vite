@@ -1,0 +1,70 @@
+@use "bootstrap/scss/bootstrap" as *;
+@use "theme" as hpsc-theme;
+
+/* Default form controls */
+.form-group-default {
+  margin: 0.75em 0;
+}
+
+.form-control-default {
+  border-width: 0.125em;
+}
+
+.form-control-default:active, .form-control-default:focus,
+select.form-control-default:active, select.form-control-default:focus,
+textarea.form-control-default:active, textarea.form-control-default:focus {
+  border-color: $primary !important;
+  border-width: 0.25em;
+}
+
+.form-control-default:focus, .form-control-default:hover,
+select.form-control-default:focus, select.form-control-default:hover,
+textarea.form-control-default:focus, textarea.form-control-default:hover {
+  box-shadow: 0 0 0 0.25em rgba($focus-ring-color, $focus-ring-opacity);
+}
+
+.form-control-default:hover, select.form-control:hover, textarea.form-control:focus {
+  border-width: 0.2em;
+}
+
+/* Required form controls */
+.form-control-required {
+  border-left-width: 0.25em;
+}
+
+/* Error form controls */
+.form-control-error, select.form-control-error, textarea.form-control-error {
+  background-color: $danger-bg-subtle;
+  border-color: $danger;
+}
+
+.form-control-error:active, .form-control-error:focus,
+select.form-control-error:active, select.form-control-error:focus,
+textarea.form-control-error:active, textarea.form-control-error:focus {
+  border-color: $danger !important;
+  border-width: 0.25em;
+}
+
+.form-control-error:focus, .form-control-error:hover,
+select.form-control-error:focus, select.form-control-error:hover,
+textarea.form-control-error:focus, textarea.form-control-error:hover {
+  box-shadow: 0 0 0 0.25em rgba($danger, $focus-ring-opacity) !important;
+}
+
+/* Button form controls */
+.form-control-button-info, .form-control-button-info:active, .form-control-button-info:focus,
+.form-control-button-info:hover {
+  color: $white !important;
+  background-color: hpsc-theme.$btn-info-background-color !important;
+  border-color: $focus-ring-color !important;
+  margin-bottom: 0.75em;
+}
+
+.form-control-button-info:active, .form-control-button-info:focus {
+  background-color: hpsc-theme.$btn-info-active-color !important;
+  box-shadow: 0 0 0 0.25em rgba($focus-ring-color, $focus-ring-opacity) !important;
+}
+
+.form-control-button-info:hover {
+  box-shadow: 0 0 0 0.25em rgba($focus-ring-color, $focus-ring-opacity) !important;
+}

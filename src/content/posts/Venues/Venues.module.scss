@@ -1,6 +1,7 @@
 $map-width: 100%;
 $map-height: 15em;
 
+// TODO: is there a bette way to do this?
 :export {
   maxWidth: $map-width;
   mapHeight: $map-height;
