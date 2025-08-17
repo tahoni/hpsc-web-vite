@@ -60,6 +60,30 @@ This page will reload if you make edits.
 Build it for production with `npm run build` to the `dist` directory.<br/> 
 The production build can be verified by running `npm run preview`.
 
+### Generate a Pull Request Description
+
+To generate a Markdown PR description comparing the current branch to main:
+
+- Run: `npm run pr:desc`
+- To compare to a different base (e.g., develop): `npm run pr:desc -- --base=develop`
+
+The script prints Markdown to stdout; you can copy it into your PR description or redirect it to a file:
+
+- `npm run pr:desc > target/pr-description.md`
+
+### Generate Release Notes (this branch → main)
+
+To generate structured release notes comparing the current branch to the main branch:
+
+- Run: `npm run release:notes`
+- To compare to a different base (e.g., develop): `npm run release:notes -- --base=develop`
+
+The script prints Markdown to stdout and also writes a file under `target/` named like:
+
+- `target/release-notes-<branch>-to-<base>.md`
+
+You can paste the output into PRs or include in RELEASE_NOTES.md as needed.
+
 ## Architecture
 
 A detailed explanation of the architecture can be found

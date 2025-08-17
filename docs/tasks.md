@@ -23,10 +23,10 @@ Note: Each item is actionable and intended to be checked off when completed. Ite
 19. [ ] Audit and remove commented-out routes or re-enable them deliberately; document rationale to keep coreRoutes authoritative
 20. [ ] Ensure RouteAliases.tsx exports have stable named exports and match coreRoutes; add a lightweight test to detect drift
 21. [ ] Implement accessibility linting (eslint-plugin-jsx-a11y) and fix common issues across layout and components
-22. [ ] Review color contrast and focus styles in src/vendors/bootstrap/stylesheets/_custom.scss; align with WCAG AA
+22. [ ] Review colour contrast and focus styles in src/vendors/bootstrap/stylesheets/_custom.scss; align with WCAG AA
 23. [ ] Add accessible names/labels on interactive elements (HeaderMenu, Footer links) and ARIA attributes where appropriate
 24. [ ] Provide a non-reCAPTCHA fallback or clear error messaging; ensure CAPTCHA field has accessible description/help text
-25. [ ] Sanitize all user-generated HTML/MDX content paths; verify sanitize-html usage and add a central sanitizer utility
+25. [ ] Sanitise all user-generated HTML/MDX content paths; verify sanitize-html usage and add a central sanitiser utility
 26. [ ] For MDX, ensure only trusted components are allowed; review mdx plugin usage for potential XSS vectors
 27. [ ] Review EmailService: add robust error handling, timeouts, and retry/backoff; surface user-friendly errors in ContactUsForm
 28. [ ] Debounce or disable submit button during ContactUsForm submission; show a loading state to prevent duplicate emails
@@ -45,7 +45,7 @@ Note: Each item is actionable and intended to be checked off when completed. Ite
 41. [ ] Add data-testids or roles to critical components to ease UI testing without polluting production UX
 42. [ ] Document environment variables (GITHUB_TOKEN, GOOGLE_MAPS_API_KEY, RECAPTCHA_V2_SITE_KEY, SITEMAP_BASE_URL) in README
 43. [ ] Add a CONTRIBUTING.md with project setup, branching, lint/test/build expectations, and PR checklist
-44. [ ] Update ARCHITECTURE.md to include current routing, sitemap assumptions, and any new builders or env-driven behavior
+44. [ ] Update ARCHITECTURE.md to include current routing, sitemap assumptions, and any new builders or env-driven behaviour
 45. [ ] Create a release checklist in documentation/templates and reference it from RELEASE_NOTES.md for consistent releases
 46. [ ] Add a basic smoke test (Vitest) that renders the app shell with jsdom and verifies essential layout components mount
 47. [ ] Verify robots.txt and sitemap.xml alignment with routes; add a script to write sitemap to public/sitemap.xml if desired

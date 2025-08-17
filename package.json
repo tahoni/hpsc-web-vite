@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "host": "vite --host hpsc.local",
     "sitemap": "tsx builders/RoutesSitemap.ts",
-    "package-docs": "tsx builders/PackageDocs.ts"
+    "pr:desc": "tsx builders/GeneratePrDescription.ts",
+    "release:notes": "tsx builders/GenerateReleaseNotes.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
