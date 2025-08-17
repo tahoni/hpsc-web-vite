@@ -1,6 +1,6 @@
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
-import { SitemapMapping } from "../src/model/SitemapMapping";
+import { SitemapMapping } from "../src/models/SitemapMapping";
 import { coreRoutes } from "../src/config/Routes/BaseRoutes";
 import { baseUrl } from "../src/constants/AppConstants";
 
