@@ -1,3 +1,3 @@
 <component name="DependencyValidationManager">
-  <scope name="src" pattern="file[hpsc-web-vite]:src//*||file[hpsc-web-vite]:public//*||file[hpsc-web-vite]:builders//*||file:tsconfig.app.json||file:tsconfig.json||file:tsconfig.node.json||file:vite.config.ts" />
+  <scope name="src" pattern="(file[hpsc-web-vite]:src//*||file[hpsc-web-vite]:public//*||file[hpsc-web-vite]:builders//*||file[hpsc-web-vite]:documentation//*||file:ARCHITECTURE.md||file:CHANGELOG.md||file:LICENSE.md||file:README.md||file:RELEASE_NOTES.md||file:index.html)&amp;&amp;!file:public/favicon.svg&amp;&amp;!file:public/robots.txt&amp;&amp;!file:public/site.webmanifest&amp;&amp;!file:public/sitemap.xml&amp;&amp;!file:src/vite-env.d.ts&amp;&amp;!file[hpsc-web-vite]:src/assets/fonts//*" />
 </component>

@@ -16,7 +16,7 @@ export default defineConfig({
     react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
   ],
   build: {
-    target: "ES2025",
+    target: "ES2023",
     minify: true,
     sourcemap: false,
     modulePreload: {
