@@ -1,38 +1,35 @@
 import React, { ReactElement } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
-import { reCaptchaV2SiteKey } from "../../constants/CaptchaConstants.ts";
-import classes from "./Captcha.module.scss";
+import { GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 interface SimpleCaptchaProps {
-  handleChange?: (token: string | null) => void;
+  handleChange?: (token: string) => void;
 }
 
 /**
- * SimpleCaptcha is a React memoised component that renders a ReCAPTCHA V2 widget.
- * It is designed to handle CAPTCHA verification and pass the verification token
- * to the parent component using the provided handleChange callback function.
+ * A React memoized component that provides a simple CAPTCHA verification mechanism using Google ReCaptcha.
+ *
+ * This component leverages React.memo to optimise rendering performance by memoizing the component and ensuring
+ * it only re-renders when props change. It listens for captcha verification tokens using the Google ReCaptcha component
+ * and invokes the handleChange callback provided by the parent component when a token is received.
+ *
+ * The main purpose of this component is to enhance form security by validating that the user is human.
  *
  * Props:
- * - `handleChange`: A callback function that receives the CAPTCHA token. It is invoked
- *   whenever the CAPTCHA is successfully completed. If the token is null, the callback
- *   receives an undefined value.
- *
- * The component uses the global reCAPTCHA V2 site key and displays the CAPTCHA in the "en" locale.
+ * - handleChange: A callback function that receives the verification token as a string when the CAPTCHA challenge is completed.
  */
 export const SimpleCaptcha = React.memo(
   (props: SimpleCaptchaProps): ReactElement => {
-    const handleChange = (token: string | null) => {
+    const handleChange = (token: string) => {
       if (props.handleChange !== undefined) {
-        props.handleChange(token !== undefined && token !== "" ? token : null);
+        props.handleChange(token);
       }
     };
 
     return (
-      <ReCAPTCHA
-        className={classes.simpleCaptcha}
-        sitekey={reCaptchaV2SiteKey}
-        onChange={handleChange}
-        hl="en"
+      <GoogleReCaptcha
+        onVerify={handleChange}
+        action={"submit"}
+        refreshReCaptcha={true}
       />
     );
   },

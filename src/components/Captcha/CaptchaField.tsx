@@ -18,8 +18,8 @@ import { SimpleCaptcha } from "./SimpleCaptcha";
  * - ReactElement: The rendered SimpleCaptcha component.
  */
 const CaptchaField = React.memo((props: FieldProps): ReactElement => {
-  const handleChange = (token: string | null) => {
-    props.onChange(token !== undefined && token !== "");
+  const handleChange = (token: string) => {
+    props.onChange(token);
   };
 
   return <SimpleCaptcha handleChange={handleChange} />;
