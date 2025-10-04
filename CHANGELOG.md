@@ -27,6 +27,7 @@ Changed the stylesheets to conform to standards.
 - Renamed the partial stylesheets to start with an underscore.
 - Overrode some default bootstrap styles.
 - Used namespaces in the project stylesheets.
+- Created a `vendors` subdirectory for bootstrap overrides.
 - Refactored the directory structure.
 
 #### General Technical Changes
