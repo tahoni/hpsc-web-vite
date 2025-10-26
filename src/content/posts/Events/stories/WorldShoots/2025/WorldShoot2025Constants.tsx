@@ -2,6 +2,23 @@ import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import { VenueEvent } from "../../../../../../models/VenueEvent";
 import { ShootingRanges } from "../../../../Venues/VenueConstants";
 
+/**
+ * @packageDocumentation
+ *
+ * Constants and configuration for the 2025 IPSC Handgun World Shoot event.
+ *
+ * This module provides event data, imagery, and links related to the 2025 World Shoot
+ * competition in Stilfontein, South Africa. It exports a configured VenueEvent object
+ * with all details needed for displaying the event information across the site.
+ *
+ * Includes:
+ * - Event description and basic metadata
+ * - Event imagery with descriptive text
+ * - Location information including shooting range details
+ * - Date information in both ISO and human-readable formats
+ * - External links to the official event website and apparel store
+ */
+
 // Core
 const worldShoot2025Description = "2025 IPSC Handgun World Shoot";
 

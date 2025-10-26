@@ -11,6 +11,15 @@ interface WorldShootContentProps {
   year: number;
 }
 
+/**
+ * A memoised React component that displays content related to a World Shoot event.
+ *
+ * This component renders event-specific information such as descriptions, dates, location,
+ * images, links to external resources, and a map with venue details.
+ *
+ * @param {PropsWithChildren<WorldShootContentProps>} props - The properties passed to this component.
+ * @returns {ReactElement} A React element representing the World Shoot event content, or an empty fragment if no event is found for the provided year.
+ */
 const WorldShootContent = React.memo(
   (props: PropsWithChildren<WorldShootContentProps>): ReactElement => {
     const worldShootEvent: VenueEvent | undefined = worldShootEvents.get(
@@ -20,7 +29,6 @@ const WorldShootContent = React.memo(
       return <></>;
     }
 
-    // TODO: use CSS classes
     const mapStyle: CSSProperties = {
       width: classes.mapWidth,
       height: classes.mapHeight,
@@ -38,7 +46,7 @@ const WorldShootContent = React.memo(
         </h4>
         <h5>{worldShootEvent.shootingRangeName}</h5>
         <br />
-        {worldShootEvent.images.length > 0 && worldShootEvent.images[0] ? (
+        {worldShootEvent.images.length > 0 && worldShootEvent.images[0] && (
           <a href={worldShootEvent.link} target="_blank">
             <Image
               src={worldShootEvent.images[0].image}
@@ -47,8 +55,6 @@ const WorldShootContent = React.memo(
               width={worldShootEvent.imageWidth}
             />
           </a>
-        ) : (
-          <></>
         )}
 
         <div className={classes.worldShootSummary}>{props.children}</div>

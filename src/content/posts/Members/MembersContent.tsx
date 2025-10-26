@@ -2,6 +2,17 @@ import React, { MemoExoticComponent, ReactElement } from "react";
 import ClubShirts from "./stories/ClubShirts.tsx";
 import ContentWithStories from "../../../components/Content/ContentWithStories.tsx";
 
+/**
+ * MembersContent is a memoized React functional component that renders a section containing
+ * member-related content. The component utilizes React.memo to optimize rendering performance
+ * by memoizing the output and preventing unnecessary re-renders.
+ *
+ * This component makes use of an array of content components, which are passed to the ContentWithStories
+ * component for rendering. It is designed to handle "member" type content specifically.
+ *
+ * The component relies on external dependencies such as React.memo, and assumes the existence of
+ * reusable components like ContentWithStories and ClubShirts.
+ */
 const MembersContent = React.memo((): ReactElement => {
   const Contents: MemoExoticComponent<() => ReactElement>[] = [ClubShirts];
 

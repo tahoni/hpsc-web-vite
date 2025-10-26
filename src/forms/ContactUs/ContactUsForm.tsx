@@ -23,6 +23,28 @@ import {
 import { FormValidation } from "@rjsf/utils/src/types.ts";
 import { EmailAttachment } from "../../models/EmailAttachment.ts";
 
+/**
+ * ContactUsForm is a React functional component wrapped with React.memo for optimization.
+ * This component defines a contact form with validation, error handling, and submission features.
+ * It leverages React's `useRef` for direct interaction with the form and integrates with an external
+ * EmailService to handle email generation and sending.
+ *
+ * Key Features:
+ * - Custom error transformation for more user-friendly error messages.
+ * - Validation of form data with specific rules for required fields, minimum/maximum length, and patterns.
+ * - Logic to populate, sanitize, and submit the form data as an email, including attachment support.
+ * - Integration with a reCAPTCHA field to prevent spam submissions.
+ * - Feedback messages via Swal for success or error states after email submission.
+ *
+ * Dependencies:
+ * - React.memo for performance improvements.
+ * - A JSON schema for form definitions (contactUsJsonSchema, contactUsUiSchema).
+ * - An external email service for handling email logic.
+ * - React JSON Schema Form (RJSF) for rendering, validation, and customization of form structures.
+ *
+ * This component does not handle navigation or external side effects, relying on props and
+ * external services like Swal and EmailService for enhanced functionality.
+ */
 const ContactUsForm = React.memo((): ReactElement => {
   const emailService = new EmailService();
 

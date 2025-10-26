@@ -2,6 +2,22 @@ import { RJSFSchema, UiSchema } from "@rjsf/utils";
 import CaptchaField from "../../components/Captcha/CaptchaField";
 import SanitizedTextareaWidget from "../../components/Text/SanitizedTextareaWidget.tsx";
 
+/**
+ * @packageDocumentation
+ *
+ * Contains schema definitions and UI configurations for the Contact Us form.
+ *
+ * This module provides:
+ * - JSON Schema definition for the contact form fields (name, email, subject, content, captcha)
+ * - UI Schema configuration for field rendering and behaviour
+ * - Custom field and widget mappings for specialised components
+ *
+ * The form includes validation rules such as length restrictions and pattern matching
+ * for email addresses, along with required field specifications. The UI schema defines
+ * field ordering, autocomplete behaviour, and connects specialised components like
+ * the sanitised text area and CAPTCHA verification field.
+ */
+
 export const contactUsJsonFields = {
   captchaField: CaptchaField,
 };

@@ -8,6 +8,22 @@ import { PageAlias } from "../../models/PageAlias.ts";
 import { routes } from "../../helpers/RouteHelpers.tsx";
 import { Layout } from "../../layout";
 
+/**
+ * AppRoutes is a React functional component responsible for rendering
+ * the application's route structure.
+ * It uses the `Routes` and `Route`
+ * components from `react-router-dom` to define the navigation paths and
+ * associated components for the application.
+ *
+ * The component uses a parent layout, `Layout`, which accepts `leftSideImage`
+ * and `rightSideImage` props for customisation.
+ * The specific routes are dynamically
+ * generated based on the `routes` array, where each route specifies properties
+ * such as path and element.
+ *
+ * @returns {ReactElement} The rendered route structure for the application.
+ */
+
 const AppRoutes = (): ReactElement => {
   return (
     <Routes>

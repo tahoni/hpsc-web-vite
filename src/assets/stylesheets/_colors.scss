@@ -1,4 +1,21 @@
-/* Coolors Exported Palette - https://coolors.co/ca9148-0a07fb-f5f4f4-000000-f4f421 */
+/**
+ * @packageDocumentation
+ * 
+ * Club color system and theming variables
+ * 
+ * This stylesheet defines the color palette for the application, organized into:
+ * 
+ * - Club primary colors: The main brand colors
+ * - Club shaded colors: Variations of primary colors at different opacity levels
+ * - International colors: Colors for international-themed components
+ * - Gradients: Pre-defined gradient combinations for backgrounds and UI elements
+ * - Social media colors: Standard colors for social media platforms
+ * 
+ * Colors are defined both as CSS variables (in :root) for use in CSS and as SCSS 
+ * variables ($name) for use in SCSS imports and functions.
+ * 
+ * Imported from Coolors.co palette: https://coolors.co/ca9148-0a07fb-f5f4f4-000000-f4f421
+ */
 
 /* Club Primary Colours */
 :root {

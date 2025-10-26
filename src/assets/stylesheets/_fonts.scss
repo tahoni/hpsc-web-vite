@@ -1,3 +1,37 @@
+/**
+ * @packageDocumentation
+ * 
+ * Font definitions for the application UI
+ * 
+ * This stylesheet defines the primary typography system for the application,
+ * based on the Google Noto font family. It provides a comprehensive set of
+ * font variables for consistent typography across the application.
+ * 
+ * The file includes:
+ * - Base font definitions for the Noto font family variants
+ * - Font family definitions with appropriate fallbacks
+ * 
+ * These variables should be imported and used throughout the application
+ * to ensure consistent typography and maintain the design system guidelines.
+ * 
+ * @example
+ * ```scss
+ * @import '../assets/stylesheets/fonts';
+ * 
+ * .heading {
+ *   font-family: $noto-sans-display-font-family;
+ * }
+ * 
+ * .body-text {
+ *   font-family: $noto-sans-font-family;
+ * }
+ * 
+ * .code-sample {
+ *   font-family: $noto-code-font-family;
+ * }
+ * ```
+ */
+
 /* Noto - https://fonts.google.com/noto/fonts */
 
 /* Fonts */

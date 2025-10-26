@@ -1,3 +1,11 @@
+/**
+ * @packageDocumentation
+ * Shared CSS custom properties for external integrations
+ *
+ * Defines CSS variables used by external libraries/components (e.g., TahoniLib)
+ * so they can derive colors and other theme values from our design system.
+ */
+
 /* tahoni */
 :root {
   --tl-loader-color: var(--club-primary-yellow);

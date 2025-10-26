@@ -1,6 +1,13 @@
+/**
+ * @packageDocumentation
+ * Helper functions and constants for application navigation menus.
+ * Defines the structure and content of the main navigation menu items.
+ */
+
 import { PageMapping } from "../models/PageMapping.ts";
 import {
   aboutUs,
+  contactUs,
   events,
   history,
   home,
@@ -15,6 +22,6 @@ export const menuItems: PageMapping[] = [
   // venues,
   events,
   history,
+  contactUs,
   aboutUs,
-  // contactUs,
 ];

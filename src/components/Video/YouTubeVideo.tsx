@@ -1,13 +1,20 @@
 import { VideoProps } from "./VideoProps";
 
-export type YouTubeVideoProps = VideoProps
+export type YouTubeVideoProps = VideoProps;
 
+/**
+ * A React functional component for rendering a YouTube video using an iframe.
+ *
+ * The `YouTubeVideo` component takes properties to configure the video URL and optionally its dimensions.
+ * By default, the width is set to "100%" and the height is set to "100%".
+ *
+ * @param {YouTubeVideoProps} props - The properties to configure the YouTube video iframe.
+ * @param {string} props.url - The URL of the YouTube video to embed.
+ * @*/
 export const YouTubeVideo = (props: YouTubeVideoProps) => {
   return (
     <iframe
-      // width={props.width ?? 560}
       width="100%"
-      // height={props.height ?? 315}
       height="100%"
       src={props.url}
       title="YouTube video player"
