@@ -2,12 +2,18 @@ import { Navigate } from "react-router";
 import { PageAlias } from "../models/PageAlias.ts";
 import {
   aboutUs,
+  contactUs,
   events,
   history,
   home,
   links,
   members,
 } from "../config/Routes/RouteAliases.tsx";
+
+/**
+ * @packageDocumentation
+ * Module containing route configuration helpers and navigation utilities for the application.
+ */
 
 export const routes: PageAlias[] = [
   { mapping: home },
@@ -18,8 +24,8 @@ export const routes: PageAlias[] = [
   { mapping: links },
   { mapping: history },
 
-  // { mapping: contactUs },
-  // { path: "/contact_us", mapping: contactUs },
+  { mapping: contactUs },
+  { path: "/contact_us", mapping: contactUs },
   { mapping: aboutUs },
   { path: "/about_us", mapping: aboutUs },
 

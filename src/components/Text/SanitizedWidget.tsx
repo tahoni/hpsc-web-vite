@@ -9,6 +9,31 @@ interface SanitizedWidgetProps extends BaseInputTemplateProps {
   type: SanitizedWidgetTypes;
 }
 
+/**
+ * SanitizedWidget is a functional component that wraps and enhances input widgets
+ * with additional sanitation and validation logic. It processes input values to
+ * ensure there are no unnecessary leading whitespaces or unclean data before
+ * passing them to the provided `onChange` and `onBlur` handlers.
+ *
+ * The component supports multiple input types such as `TEXT_AREA`, `TEXT`, and
+ * a default or custom template. Based on the specified input type, SanitizedWidget
+ * renders the appropriate widget while maintaining consistency and ensuring sanitized values.
+ *
+ * The `handleChange` method trims leading whitespaces from the input value and
+ * passes the sanitized value to the `onChange` handler.
+ *
+ * The `handleBlur` method performs additional sanitization by trimming the entire
+ * value, ensuring that it is clean before invoking the `onBlur` handler.
+ *
+ * SanitizedWidget provides a seamless way to enforce input cleanliness and prevent
+ * invalid or poorly formatted data from being propagated downstream.
+ *
+ * @param {SanitizedWidgetProps} props - The properties for configuring the widget,
+ * including `onChange`, `onBlur`, and `type`, which determines the widget type.
+ *
+ * @returns {JSX.Element} A sanitized input widget determined by the `type` property,
+ * incorporating custom `onChange` and `onBlur` behaviour.
+ */
 const SanitizedWidget = (props: SanitizedWidgetProps) => {
   const { onChange, onBlur } = props;
 
@@ -48,8 +73,8 @@ const SanitizedWidget = (props: SanitizedWidgetProps) => {
         <TextWidget {...props} onChange={handleChange} onBlur={handleBlur} />
       );
     case SanitizedWidgetTypes.TEMPLATE:
-    default:
-      { const OldBaseInputTemplate =
+    default: {
+      const OldBaseInputTemplate =
         getDefaultRegistry().templates.BaseInputTemplate;
       return (
         <OldBaseInputTemplate

@@ -8,16 +8,15 @@ import SimpleVenueMap from "../../components/Map/SimpleVenueMap.tsx";
 import { copyrightYear } from "../../constants/AppConstants.ts";
 import {
   clubName,
+  clubShootingRangeVenue,
   enquiriesEmail,
   facebookGroup,
   facebookPage,
   webmasterEmail,
 } from "../../constants/about/ClubConstants.ts";
-import { clubShootingRangeVenue } from "../../constants/about/ClubConstants.ts";
 import classes from "./Footer.module.scss";
 
 export const FooterContent = React.memo((): ReactElement => {
-  // TODO: use CSS classes
   const mapStyle: CSSProperties = {
     width: classes.mapWidth,
     height: classes.mapHeight,
@@ -29,14 +28,12 @@ export const FooterContent = React.memo((): ReactElement => {
     <>
       <Row className={classes.footerContent}>
         <Col xs={12} lg={6} className={classes.footerMap}>
-          {footerMapPins && footerMapPins.length > 0 && footerMapPins[0] ? (
+          {footerMapPins && footerMapPins.length > 0 && footerMapPins[0] && (
             <SimpleVenueMap
               mapStyle={mapStyle}
               center={footerMapPins[0].center ?? footerMapPins[0].latLng}
               venues={footerMapPins}
             />
-          ) : (
-            <></>
           )}
         </Col>
         <Col className={classes.footerDetails}>

@@ -5,6 +5,10 @@ import {
   noReplyEmail,
 } from "../constants/about/ClubConstants.ts";
 
+/**
+ * The EmailService class provides functionality for sending emails.
+ * It includes methods to handle email-related operations.
+ */
 export class EmailService {
   // TODO: call back-end
   async sendEmail(emailMessage: EmailMessage): Promise<boolean> {

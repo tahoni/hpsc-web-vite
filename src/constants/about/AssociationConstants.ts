@@ -1,3 +1,9 @@
+/**
+ * @packageDocumentation
+ * Constants describing provincial, national, and international associations used across the app.
+ * Includes names, abbreviations, websites, logos, and alt-text.
+ */
+
 // Names and descriptions
 import { logoAlt } from "../AppConstants.ts";
 
