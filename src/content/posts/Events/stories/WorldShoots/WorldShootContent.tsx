@@ -29,7 +29,6 @@ const WorldShootContent = React.memo(
       return <></>;
     }
 
-    // TODO: use CSS classes
     const mapStyle: CSSProperties = {
       width: classes.mapWidth,
       height: classes.mapHeight,
@@ -47,7 +46,7 @@ const WorldShootContent = React.memo(
         </h4>
         <h5>{worldShootEvent.shootingRangeName}</h5>
         <br />
-        {worldShootEvent.images.length > 0 && worldShootEvent.images[0] ? (
+        {worldShootEvent.images.length > 0 && worldShootEvent.images[0] && (
           <a href={worldShootEvent.link} target="_blank">
             <Image
               src={worldShootEvent.images[0].image}
@@ -56,8 +55,6 @@ const WorldShootContent = React.memo(
               width={worldShootEvent.imageWidth}
             />
           </a>
-        ) : (
-          <></>
         )}
 
         <div className={classes.worldShootSummary}>{props.children}</div>

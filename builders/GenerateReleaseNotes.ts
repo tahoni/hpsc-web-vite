@@ -1,24 +1,34 @@
 import { execSync } from "child_process";
-import { readFileSync, mkdirSync, writeFileSync } from "fs";
+import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
+/**
+ * Executes a shell command and returns the output as a trimmed string.
+ * Returns an empty string if the command fails.
+ */
 function run(cmd: string): string {
   try {
-    return execSync(cmd, { stdio: ["ignore", "pipe", "pipe"] }).toString().trim();
+    const output = execSync(cmd, { stdio: ["ignore", "pipe", "pipe"] });
+    return output.toString().trim();
   } catch {
     return "";
   }
 }
 
+/**
+ * Detects the base branch for the PR, with fallback logic.
+ */
 function detectBaseBranch(argBase?: string): string {
-  const base = argBase || process.env.PR_BASE || "main";
+  const base = argBase ?? process.env.PR_BASE ?? "main";
   const hasOriginBase = run(`git rev-parse --verify --quiet origin/${base}`);
   if (hasOriginBase) return `origin/${base}`;
+
   const hasLocalBase = run(`git rev-parse --verify --quiet ${base}`);
   if (hasLocalBase) return base;
+
   const upstream = run("git remote show origin");
   const match = upstream.match(/HEAD branch: (.+)/);
-  if (match) {
+  if (match?.[1]) {
     const head = match[1];
     const hasOriginHead = run(`git rev-parse --verify --quiet origin/${head}`);
     if (hasOriginHead) return `origin/${head}`;
@@ -26,63 +36,167 @@ function detectBaseBranch(argBase?: string): string {
   return base;
 }
 
+/**
+ * Gets the current Git branch name.
+ */
 function getCurrentBranch(): string {
   const branch = run("git rev-parse --abbrev-ref HEAD");
   return branch || "(detached)";
 }
 
-function getMergeBase(base: string, head: string): string | null {
+/**
+ * Gets the merge base between two Git references.
+ */
+function getMergeBase(base: string, head: string): string {
   const mb = run(`git merge-base ${base} ${head}`);
-  return mb || null;
+  return mb || base;
 }
 
+/**
+ * Formats a Date object as a local datetime string with timezone.
+ */
 function formatDateTime(d: Date): string {
-  const pad = (n: number) => n.toString().padStart(2, "0");
+  const pad = (n: number): string => n.toString().padStart(2, "0");
+
   const yyyy = d.getFullYear();
   const mm = pad(d.getMonth() + 1);
   const dd = pad(d.getDate());
   const hh = pad(d.getHours());
   const mi = pad(d.getMinutes());
   const ss = pad(d.getSeconds());
+
   const tz = -d.getTimezoneOffset();
   const sign = tz >= 0 ? "+" : "-";
   const tzh = pad(Math.floor(Math.abs(tz) / 60));
   const tzm = pad(Math.abs(tz) % 60);
+
   return `${yyyy}-${mm}-${dd} ${hh}:${mi}:${ss} ${sign}${tzh}:${tzm}`;
 }
 
+/**
+ * Reads and parses the package.json version field.
+ */
 function getPackageVersion(): string {
   try {
-    const pkg = JSON.parse(readFileSync("package.json", "utf-8"));
-    return pkg.version || "0.0.0";
+    const content = readFileSync("package.json", "utf-8");
+    const pkg = JSON.parse(content) as { version?: string };
+    return pkg.version ?? "0.0.0";
   } catch {
     return "0.0.0";
   }
 }
 
-type CommitRec = {
+/**
+ * Represents a parsed Git commit record.
+ */
+interface CommitRecord {
   hash: string;
   short: string;
   subject: string;
   author: string;
   date: string; // YYYY-MM-DD
   type: string; // feat, fix, chore, etc.
-};
+}
 
-function parseCommitType(subject: string): string {
-  const m = subject.match(/^([a-zA-Z]+)(\([^)]+\))?!?:\s/);
-  if (m) {
-    return m[1].toLowerCase();
+/**
+ * Known commit types for categorisation.
+ */
+const KNOWN_TYPES = [
+  "feat",
+  "fix",
+  "perf",
+  "refactor",
+  "docs",
+  "chore",
+  "test",
+  "build",
+  "ci",
+  "revert",
+  "other",
+] as const;
+
+type CommitType = (typeof KNOWN_TYPES)[number];
+
+/**
+ * Parses the commit type from a conventional commit subject.
+ */
+function parseCommitType(subject: string): CommitType {
+  const m = subject.match(/^([a-zA-Z]+)(?:\([^)]+\))?!?:\s/);
+  if (m?.[1]) {
+    const type = m[1].toLowerCase();
+    if (KNOWN_TYPES.includes(type as CommitType)) {
+      return type as CommitType;
+    }
   }
-  // fallback: detect simple prefixes
+
+  // Fallback: detect simple prefixes
   const lower = subject.toLowerCase();
-  for (const t of ["feat", "fix", "perf", "refactor", "docs", "chore", "test", "build", "ci", "revert"]) {
+  for (const t of KNOWN_TYPES) {
     if (lower.startsWith(t + ":")) return t;
   }
+
   return "other";
 }
 
-function generate(): { markdown: string; outPath: string } {
+/**
+ * Creates a Markdown section with a title and body.
+ */
+function section(title: string, body: string): string {
+  return `## ${title}\n${body}\n`;
+}
+
+/**
+ * Parses a file change line from git diff output.
+ */
+function parseFileChangeLine(line: string): string {
+  const parts = line.split(/\t/);
+  const status = parts[0];
+
+  if (!status) {
+    return "";
+  }
+
+  if (status.startsWith("R")) {
+    // Rename: "R100\told\tnew"
+    const from = parts[1];
+    const to = parts[2];
+    if (from && to) {
+      return `- ${status}: ${from} → ${to}`;
+    }
+  }
+
+  // Add, Modify, Delete: "M\tpath"
+  const file = parts[1];
+  if (file) {
+    return `- ${status}: ${file}`;
+  }
+
+  return "";
+}
+
+/**
+ * Result of the release notes generation.
+ */
+interface GenerateResult {
+  markdown: string;
+  outPath: string;
+}
+
+/**
+ * Change count summary for the release.
+ */
+interface ChangeCounts {
+  features: number;
+  fixes: number;
+  docs: number;
+  refactors: number;
+  chores: number;
+}
+
+/**
+ * Generates a PR description based on Git history.
+ */
+function generate(): GenerateResult {
   const args = process.argv.slice(2);
   const baseArg = args.find((a) => a.startsWith("--base="))?.split("=")[1];
 
@@ -92,42 +206,63 @@ function generate(): { markdown: string; outPath: string } {
   // Best effort: refresh remotes
   run("git fetch --all --prune");
 
-  const mergeBase = getMergeBase(baseRef, "HEAD") || baseRef;
+  const mergeBase = getMergeBase(baseRef, "HEAD");
 
   const shortstat = run(`git diff --shortstat ${mergeBase}..HEAD`);
   const filesChangedList = run(`git diff --name-status ${mergeBase}..HEAD`);
 
   const logFmt = "%H%x1f%h%x1f%s%x1f%an%x1f%ad"; // SEP = \x1f
-  const rawCommits = run(`git log --no-merges --pretty=format:"${logFmt}" --date=short ${mergeBase}..HEAD`);
+  const rawCommits = run(
+    `git log --no-merges --pretty=format:"${logFmt}" --date=short ${mergeBase}..HEAD`,
+  );
 
-  const commits: CommitRec[] = rawCommits
-    ? rawCommits.split(/\r?\n/).filter(Boolean).map((line) => {
-        const [hash, short, subject, author, date] = line.split("\x1f");
-        return { hash, short, subject, author, date, type: parseCommitType(subject) };
-      })
+  const commits: CommitRecord[] = rawCommits
+    ? rawCommits
+        .split(/\r?\n/)
+        .filter(Boolean)
+        .map((line): CommitRecord => {
+          const parts = line.split("\x1f");
+          const [hash = "", short = "", subject = "", author = "", date = ""] =
+            parts;
+          return {
+            hash,
+            short,
+            subject,
+            author,
+            date,
+            type: parseCommitType(subject),
+          };
+        })
     : [];
 
-  const groups = new Map<string, CommitRec[]>();
-  const knownTypes = ["feat", "fix", "perf", "refactor", "docs", "chore", "test", "build", "ci", "revert", "other"];
-  for (const t of knownTypes) groups.set(t, []);
-  for (const c of commits) {
-    const key = knownTypes.includes(c.type) ? c.type : "other";
-    groups.get(key)!.push(c);
+  const groups = new Map<CommitType, CommitRecord[]>();
+  for (const t of KNOWN_TYPES) {
+    groups.set(t, []);
   }
 
-  const counts = {
-    features: groups.get("feat")!.length,
-    fixes: groups.get("fix")!.length,
-    docs: groups.get("docs")!.length,
-    refactors: groups.get("refactor")!.length,
-    chores: groups.get("chore")!.length,
+  for (const c of commits) {
+    const key = KNOWN_TYPES.includes(c.type as CommitType)
+      ? (c.type as CommitType)
+      : "other";
+    const group = groups.get(key);
+    if (group) {
+      group.push(c);
+    }
+  }
+
+  const counts: ChangeCounts = {
+    features: groups.get("feat")?.length ?? 0,
+    fixes: groups.get("fix")?.length ?? 0,
+    docs: groups.get("docs")?.length ?? 0,
+    refactors: groups.get("refactor")?.length ?? 0,
+    chores: groups.get("chore")?.length ?? 0,
   };
 
   const version = getPackageVersion();
   const now = new Date();
   const nowStr = formatDateTime(now);
 
-  const summarizeCounts = () => {
+  const summarizeCounts = (): string => {
     const parts: string[] = [];
     if (counts.features) parts.push(`${counts.features} feature(s)`);
     if (counts.fixes) parts.push(`${counts.fixes} fix(es)`);
@@ -137,26 +272,24 @@ function generate(): { markdown: string; outPath: string } {
     return parts.length ? parts.join(", ") : "No categorised changes";
   };
 
-  function section(title: string, body: string): string {
-    return `## ${title}\n${body}\n`;
-  }
-
   const header = `# Release Notes: v${version} — ${headBranch} → ${baseRef}\n\nGenerated: ${nowStr}`;
 
   const overviewLines = [
     `Base: ${baseRef}`,
     `Head: ${headBranch}`,
-    mergeBase ? `Merge-base: ${mergeBase}` : undefined,
+    mergeBase !== baseRef ? `Merge-base: ${mergeBase}` : null,
     shortstat ? `Stats: ${shortstat}` : "Stats: No differences detected",
     `Summary: ${summarizeCounts()}`,
-  ].filter(Boolean) as string[];
+  ].filter((line): line is string => line !== null);
 
   const overview = overviewLines.join("\n\n");
 
-  function renderGroup(label: string, type: string): string {
-    const list = groups.get(type)!;
-    if (!list.length) return "";
-    const items = list.map((c) => `- ${c.short} ${c.subject} (${c.author}, ${c.date})`).join("\n");
+  function renderGroup(label: string, type: CommitType): string {
+    const list = groups.get(type);
+    if (!list || list.length === 0) return "";
+    const items = list
+      .map((c) => `- ${c.short} ${c.subject} (${c.author}, ${c.date})`)
+      .join("\n");
     return section(label, items);
   }
 
@@ -164,23 +297,15 @@ function generate(): { markdown: string; outPath: string } {
     ? filesChangedList
         .split(/\r?\n/)
         .filter(Boolean)
-        .map((line) => {
-          const parts = line.split(/\t/);
-          if (parts[0].startsWith("R")) {
-            const status = parts[0];
-            const from = parts[1];
-            const to = parts[2];
-            return `- ${status}: ${from} → ${to}`;
-          }
-          const status = parts[0];
-          const file = parts[1];
-          return `- ${status}: ${file}`;
-        })
+        .map(parseFileChangeLine)
+        .filter(Boolean)
         .join("\n")
     : "(No files changed)";
 
   const allCommitsBody = commits.length
-    ? commits.map((c) => `- ${c.short} ${c.subject} (${c.author}, ${c.date})`).join("\n")
+    ? commits
+        .map((c) => `- ${c.short} ${c.subject} (${c.author}, ${c.date})`)
+        .join("\n")
     : "(No commits differ from base)";
 
   const bodySections = [
@@ -196,25 +321,37 @@ function generate(): { markdown: string; outPath: string } {
     section("Files Changed", filesBody),
     section("All Commits", allCommitsBody),
     section("Metadata", `Generator: builders/GenerateReleaseNotes.ts`),
-  ].filter(Boolean).join("\n");
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   const markdown = `${header}\n\n${bodySections}\n`;
 
   const baseName = baseRef.replace(/^origin\//, "");
-  const fileName = `release-notes-${headBranch}-to-${baseName}.md`.replace(/[^a-zA-Z0-9_.-]/g, "_");
+  const fileName = `release-notes-${headBranch}-to-${baseName}.md`.replace(
+    /[^a-zA-Z0-9_.-]/g,
+    "_",
+  );
   const outDir = join("target");
+
   try {
     mkdirSync(outDir, { recursive: true });
   } catch {
-    // ignore errors creating the directory; writeFile may fail later if path is invalid
+    // Ignore errors creating the directory;
+    // writeFile may fail later if a path is invalid
   }
+
   const outPath = join(outDir, fileName);
   writeFileSync(outPath, markdown, "utf-8");
 
   return { markdown, outPath };
 }
 
-if (import.meta.url === `file://${process.argv[1]}` || process.argv[1].endsWith("GenerateReleaseNotes.ts")) {
+// Execute when run directly
+if (
+  import.meta.url === `file://${process.argv[1]}` ||
+  process.argv[1]?.endsWith("GenerateReleaseNotes.ts")
+) {
   const { markdown, outPath } = generate();
   console.log(markdown);
   console.error(`\n[info] Release notes also written to: ${outPath}`);

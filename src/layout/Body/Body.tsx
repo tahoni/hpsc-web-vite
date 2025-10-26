@@ -10,11 +10,7 @@ export const Body = React.memo((props: BodyProps): ReactElement => {
     <div className={classes.body}>
       <div className={classes.bodyInner}>
         <div className={classes.bodySidebar}>
-          {props.leftSideImage ? (
-            <ImageSidebar source={props.leftSideImage} />
-          ) : (
-            <></>
-          )}
+          {props.leftSideImage && <ImageSidebar source={props.leftSideImage} />}
         </div>
         <div className={classes.bodyCenter}>
           <Container>
@@ -22,10 +18,8 @@ export const Body = React.memo((props: BodyProps): ReactElement => {
           </Container>
         </div>
         <div className={classes.bodySidebar}>
-          {props.rightSideImage ? (
+          {props.rightSideImage && (
             <ImageSidebar source={props.rightSideImage} />
-          ) : (
-            <></>
           )}
         </div>
       </div>

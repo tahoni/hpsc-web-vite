@@ -12,7 +12,7 @@ interface PageProps {
  * Page is a React functional component that serves as a wrapper for rendering page content.
  * It displays an optional page title and provides support for suspense-based loading of child components.
  *
- * The component uses React.memo for performance optimization by memoizing its rendering output
+ * The component uses React.memo for performance optimisation by memoizing its rendering output
  * to prevent unnecessary re-renders when props do not change.
  *
  * @param {PropsWithChildren<PageProps>} props - The properties passed to the component.
@@ -25,14 +25,12 @@ interface PageProps {
 const Page = React.memo((props: PropsWithChildren<PageProps>): ReactElement => {
   return (
     <section>
-      {props.title ? (
+      {props.title && (
         <Row>
           <Col>
             <PageTitle title={props.title} />
           </Col>
         </Row>
-      ) : (
-        <></>
       )}
       <Suspense fallback={<Loader isLoading={true} />} key={props.keyValue}>
         <Row>
