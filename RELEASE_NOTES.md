@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-### [Version 4.0.1](https://github.com/tahoni/template-react/releases/tag/version-4.0.1)
+### Version 4.0.1 - _2025-10-27_
 
 Upgraded Bootstrap framework integration with Bootstrap Icons.
 
