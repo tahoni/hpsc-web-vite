@@ -294,8 +294,7 @@ hs_err_pid*
 .run/
 build/
 dist/
-target/bundle-visualization.html
-.idea/*_theme_*.xml
+target/
 .idea/**/jpa-buddy.xml
 .idea/**/jpa.xml
 .idea/**/pandoc.xml
