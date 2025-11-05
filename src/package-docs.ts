@@ -27,7 +27,7 @@
  *
  * Notes
  * - TypeScript is configured with `moduleResolution: "bundler"` and strict type checks
- * - Avoid path alias drift unless synchronized with Vite resolve.alias and tsconfig
+ * - Avoid path alias drift unless synchronised with Vite resolve.alias and tsconfig
  * - Do not rely on Node.js globals in browser code; use Vite's `import.meta.env`
  *
  * @remarks

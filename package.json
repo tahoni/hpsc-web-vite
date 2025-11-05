@@ -11,9 +11,9 @@
     "lint": "eslint",
     "preview": "vite preview",
     "host": "vite --host hpsc.local",
-    "sitemap": "tsx builders/RoutesSitemap.ts",
-    "pr:desc": "tsx builders/GeneratePrDescription.ts",
-    "release:notes": "tsx builders/GenerateReleaseNotes.ts"
+    "sitemap": "tsx builders/RoutesSitemap",
+    "pr:desc": "tsx builders/GeneratePrDescription",
+    "release:notes": "tsx builders/GenerateReleaseNotes"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

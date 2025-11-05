@@ -28,6 +28,28 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUncheckedIndexedAccess": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+
+    /* Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets"],
+      "@images/*": ["src/assets/images"],
+      "@styles/*": ["src/assets/styles"],
+      "@vendors/*": ["src/vendors"],
+      "@bootstrap/*": ["src/vendors/bootstrap"],
+      "@features/*": ["src/features/*"],
+      "@routes/*": ["src/routes/*"],
+      "@shared/*": ["src/shared/*"],
+      "@helpers/*": ["src/shared/helpers/*"],
+      "@utils/*": ["src/shared/utils/*"],
+      "@models/*": ["src/shared/models/*"],
+      "@constants/*": ["src/shared/constants/*"],
+      "@pages/*": ["src/shared/pages/*"],
+      "@components/*": ["src/shared/components/*"],
+      "@layouts/*": ["src/shared/layouts/*"]
+    }
   },
-  "include": ["src", "builders"]}
+  "include": ["src", "builders"]
+}

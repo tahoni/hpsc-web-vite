@@ -5,6 +5,7 @@ The standard locations for MDX files depend on their purpose:
 ## **1. Content/Documentation MDX Files**
 
 ### **`src/content/`** (Recommended for CMS-like content)
+
 ```
 src/
 ├── content/
@@ -19,8 +20,8 @@ src/
 │       └── api-reference.mdx
 ```
 
-
 **When to use:**
+
 - Blog posts, articles, or news
 - CMS-like content management
 - Documentation that's part of the app
@@ -31,6 +32,7 @@ src/
 ## **2. Component Documentation MDX**
 
 ### **Co-located with components**
+
 ```
 src/
 ├── components/
@@ -40,8 +42,8 @@ src/
 │   │   └── Button.test.tsx
 ```
 
-
 **When to use:**
+
 - Storybook stories
 - Component usage examples
 - Component-level documentation
@@ -51,6 +53,7 @@ src/
 ## **3. Page-Level MDX Files**
 
 ### **`src/pages/`** (if using file-based routing)
+
 ```
 src/
 ├── pages/
@@ -60,8 +63,8 @@ src/
 │       └── [slug].mdx
 ```
 
-
 **When to use:**
+
 - Next.js-style file-based routing
 - Pages that are primarily content
 
@@ -70,6 +73,7 @@ src/
 ## **4. Documentation Site MDX**
 
 ### **Root-level `docs/` or `documentation/`**
+
 ```
 docs/                    # ← Outside src/
 ├── guide/
@@ -79,8 +83,8 @@ docs/                    # ← Outside src/
     └── reference.mdx
 ```
 
-
 **When to use:**
+
 - Standalone documentation site
 - Developer documentation (not part of the main app)
 - Technical specifications
@@ -90,6 +94,7 @@ docs/                    # ← Outside src/
 ## **Most Common Conventions**
 
 ### **For Content-Rich Apps (Blogs, Documentation Sites):**
+
 ```
 src/
 └── content/             ← Primary location
@@ -98,8 +103,8 @@ src/
     └── docs/
 ```
 
-
 ### **For Component Libraries:**
+
 ```
 src/
 └── components/
@@ -108,12 +113,12 @@ src/
         └── ComponentName.mdx  ← Co-located
 ```
 
-
 ---
 
 ## **Best Practices**
 
 ### **1. Consistent Naming Conventions**
+
 ```
 content/
 └── posts/
@@ -121,8 +126,8 @@ content/
     └── 2024-02-20-another-post.mdx
 ```
 
-
 ### **2. Frontmatter for Metadata**
+
 ```textmate
 ---
 title: "My Article"
@@ -134,32 +139,31 @@ tags: ["react", "typescript"]
 # Content starts here
 ```
 
-
 ### **3. Type Your MDX Imports**
+
 ```typescript
-// src/types/mdx.d.ts
+// src/models/mdx.d.ts
 declare module '*.mdx' {
-  import { ComponentType } from 'react';
-  
-  export const frontMatter: {
-    title: string;
-    date: string;
-    [key: string]: any;
-  };
-  
-  const MDXComponent: ComponentType;
-  export default MDXComponent;
+    import {ComponentType} from 'react';
+
+    export const frontMatter: {
+        title: string;
+        date: string;
+        [key: string]: any;
+    };
+
+    const MDXComponent: ComponentType;
+    export default MDXComponent;
 }
 ```
 
-
 ### **4. Centralized Configuration**
+
 ```typescript
 // src/config/mdx.ts
 export const MDX_CONTENT_PATH = '/src/content';
 export const MDX_POSTS_PATH = `${MDX_CONTENT_PATH}/posts`;
 ```
-
 
 ---
 
@@ -179,8 +183,8 @@ documentation/                  # ← Keep for technical/dev docs
 └── contributing.mdx
 ```
 
-
 **Rationale:**
+
 - `src/content/` - Processed by Vite, bundled with app, available at runtime
 - `documentation/` - Developer/technical docs, not bundled with the app
 

@@ -1,0 +1,51 @@
+@use "bootstrap/scss/bootstrap-grid" as bootstrap-grid;
+@use "../Layout.module";
+
+$map-width: 100%;
+$map-height: 12em;
+
+:export {
+  mapWidth: $map-width;
+  mapHeight: $map-height;
+}
+
+.footerMap {
+  margin: 0 0.75em;
+}
+
+.footerDetails {
+  margin: 0 0.75em;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: stretch;
+  justify-content: space-between;
+  justify-items: stretch;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.contactInfo {
+  margin-bottom: 0.75em !important;
+  font-weight: 400;
+}
+
+.websiteInfo p {
+  margin-bottom: 0;
+  font-size: 0.9em;
+}
+
+@include bootstrap-grid.media-breakpoint-down(lg) {
+  .footerMap {
+    margin-bottom: 0.75em;
+  }
+
+  .footerDetails {
+    margin-top: 0.75em !important;
+  }
+
+  .websiteInfo {
+    margin-top: 0.75em !important;
+  }
+}

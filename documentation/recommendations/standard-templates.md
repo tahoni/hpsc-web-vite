@@ -27,7 +27,7 @@ src/
 
 **Example:**
 
-```typescript
+```typescript jsx
 // src/templates/email/WelcomeEmail.tsx
 import {Html, Head, Body, Container, Text, Button} from '@react-email/components';
 
@@ -37,19 +37,19 @@ interface WelcomeEmailProps {
 }
 
 export const WelcomeEmail = ({name, confirmUrl}: WelcomeEmailProps) => (
-    <Html>
-        <Head / >
-    <Body>
-        <Container>
-            <Text>Welcome, {name}! < /Text>
-    < Button
-href = {confirmUrl} > Confirm
-Your
-Email < /Button>
-< /Container>
-< /Body>
-< /Html>
-)
+        <Html>
+            <Head/>
+            <Body>
+                <Container>
+                    <Text>Welcome, {name}! < /Text>
+                    <Button
+                        href={confirmUrl}> Confirm
+                        Your
+                        Email </Button>
+                < /Container>
+            < /Body>
+        < /Html>
+    )
 ;
 ```
 
@@ -127,31 +127,31 @@ src/
 
 **Example:**
 
-```typescript
+```typescript jsx
 // src/templates/documents/InvoiceTemplate.tsx
 import {Document, Page, Text, View} from '@react-pdf/renderer';
 
 export const InvoiceTemplate = ({invoice}) => (
-    <Document>
-        <Page>
-            <View>
-                <Text>Invoice
-#
-{
-    invoice.number
-}
-</Text>
-< Text > Total
-:
-$
-{
-    invoice.total
-}
-</Text>
-< /View>
-< /Page>
-< /Document>
-)
+        <Document>
+            <Page>
+                <View>
+                    <Text>Invoice
+                        #
+                        {
+                            invoice.number
+                        }
+                    </Text>
+                    < Text> Total
+                        :
+                        $
+                        {
+                            invoice.total
+                        }
+                    </Text>
+                < /View>
+            < /Page>
+        < /Document>
+    )
 ;
 ```
 
@@ -174,11 +174,11 @@ src/
 
 - Page layout templates
 - Consistent UI structures
-- Atomic design pattern (templates layer)
+- Atomic design pattern (template layer)
 
 **Example:**
 
-```typescript
+```typescript jsx
 // src/components/templates/PageTemplate.tsx
 interface PageTemplateProps {
     title: string;
@@ -186,12 +186,12 @@ interface PageTemplateProps {
 }
 
 export const PageTemplate = ({title, children}: PageTemplateProps) => (
-    <div className = "page-template" >
+    <div className="page-template">
         <header>
             <h1>{title} < /h1>
         < /header>
-        < main > {children} < /main>
-        < /div>
+        < main> {children} < /main>
+    < /div>
 );
 ```
 
@@ -276,7 +276,7 @@ project-root/
 
 ## **Best Practices**
 
-### **1. Organize by Purpose**
+### **1. Organise by Purpose**
 
 ```
 src/templates/
@@ -302,14 +302,14 @@ src/templates/email/
 ### **3. Type Your Templates**
 
 ```typescript
-// src/templates/email/types.ts
+// src/templates/email/models.ts
 export interface EmailTemplateProps {
     recipientName: string;
     subject: string;
 }
 
 // src/templates/email/WelcomeEmail.tsx
-import {EmailTemplateProps} from './types';
+import {EmailTemplateProps} from './models';
 
 export const WelcomeEmail = (props: EmailTemplateProps) => {
     // ...
@@ -318,20 +318,20 @@ export const WelcomeEmail = (props: EmailTemplateProps) => {
 
 ### **4. Preview/Development Mode**
 
-```typescript
+```typescript jsx
 // src/templates/email/preview.tsx
 import {WelcomeEmail} from './WelcomeEmail';
 
 // Preview in browser during development
 export const EmailPreview = () => (
-    <div>
-        <h1>Email
-Preview < /h1>
-< WelcomeEmail
-name = "John Doe"
-confirmUrl = "#" / >
-    </div>
-)
+        <div>
+            <h1>Email
+                Preview < /h1>
+            < WelcomeEmail
+                name="John Doe"
+                confirmUrl="#"/>
+        </div>
+    )
 ;
 ```
 
