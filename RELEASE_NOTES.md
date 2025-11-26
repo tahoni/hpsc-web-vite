@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-### Version 4.0.2 - _2025-11_27_
+### Version 4.0.2 - _2025-11_26_
 
 Configured the resources to use a relative path using the `@` notation.
 Performed refactoring to align with industry standards.

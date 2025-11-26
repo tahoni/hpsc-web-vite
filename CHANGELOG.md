@@ -6,9 +6,9 @@
 
 - [Version 4.0.0](#version-400---_2025-08-17_)
 - [Version 4.0.1](#version-401---_2025-10-27_)
-- [Version 4.0.2](#version-402---_2025-11_27_)
+- [Version 4.0.2](#version-402---_2025-11_26_)
 
-### [Version 4.0.2](https://github.com/tahoni/template-react/releases/tag/version-4.0.2) - _2025-11_27_
+### [Version 4.0.2](https://github.com/tahoni/template-react/releases/tag/version-4.0.2) - _2025-11_26_
 
 Configured the resources to use a relative path using the `@` notation.
 Performed refactoring to align with industry standards.
