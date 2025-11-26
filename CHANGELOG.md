@@ -7,6 +7,19 @@
 - [Version 4.0.0](#version-400---_2025-08-17_)
 - [Version 4.0.1](#version-401---_2025-10-27_)
 - [Version 4.0.2](#version-402---_2025-11_26_)
+- [Version 4.0.3](#version-403---_2025-11_26_)
+
+### [Version 4.0.3](https://github.com/tahoni/template-react/releases/tag/version-4.0.3) - _2025-11_26_
+
+Fixed the display of images.
+
+#### Bug Fixes
+
+- Moved the `public/images` directory to `public/assets/images` to display the images again.
+
+#### Changes by
+
+@tahoni
 
 ### [Version 4.0.2](https://github.com/tahoni/template-react/releases/tag/version-4.0.2) - _2025-11_26_
 
@@ -35,7 +48,6 @@ Performed refactoring to align with industry standards.
 #### Changes by
 
 @tahoni
-
 @dependabot
 
 ### [Version 4.0.1](https://github.com/tahoni/template-react/releases/tag/version-4.0.1) - _2025-10-27_
@@ -74,7 +86,6 @@ Upgraded Bootstrap framework integration with Bootstrap Icons.
 #### Changes by
 
 @tahoni
-
 @dependabot
 
 ### [Version 4.0.0](https://github.com/tahoni/template-react/releases/tag/version-4.0.0) - _2025-08-17_
@@ -119,5 +130,4 @@ Changed the stylesheets to conform to standards.
 #### Changes by
 
 @tahoni
-
 @dependabot
