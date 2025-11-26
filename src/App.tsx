@@ -1,11 +1,11 @@
 import { ReactElement, Suspense } from "react";
 import { APIProvider } from "@vis.gl/react-google-maps";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import { Breakpoints } from "./layout";
 import { Loader } from "@tahoni/tahoni-lib-react";
-import { googleMapApiKey } from "./constants/MapConstants.ts";
-import { reCaptchaV2SiteKey } from "./constants/CaptchaConstants.ts";
-import AppRoutes from "./config/Routes/AppRoutes.tsx";
+import { Breakpoints } from "@layouts/Breakpoints";
+import { reCaptchaV2SiteKey } from "@components/Captcha";
+import { googleMapApiKey } from "@components/Map";
+import AppRoutes from "@shared/routes/AppRoutes";
 import "./App.scss";
 
 /**

@@ -99,7 +99,7 @@ interface CommitRecord {
 }
 
 /**
- * Known commit types for categorisation.
+ * Known commit models for categorisation.
  */
 const KNOWN_TYPES = [
   "feat",

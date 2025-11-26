@@ -2,8 +2,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
 import { visualizer } from "rollup-plugin-visualizer";
+import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 
-// https://vitejs.dev/config/
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
   plugins: [
     {
@@ -15,6 +18,26 @@ export default defineConfig({
     visualizer({ open: true, filename: "target/bundle-visualization.html" }),
     react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+      "@assets": path.resolve(__dirname, "./src/assets"),
+      "@images": path.resolve(__dirname, "./src/assets/images"),
+      "@styles": path.resolve(__dirname, "./src/assets/styles"),
+      "@vendors": path.resolve(__dirname, "./src/vendors"),
+      "@bootstrap": path.resolve(__dirname, "./src/vendors/bootstrap"),
+      "@features": path.resolve(__dirname, "./src/features"),
+      "@routes": path.resolve(__dirname, "./src/routes"),
+      "@shared": path.resolve(__dirname, "./src/shared"),
+      "@helpers": path.resolve(__dirname, "./src/shared/helpers"),
+      "@components": path.resolve(__dirname, "./src/shared/components"),
+      "@layouts": path.resolve(__dirname, "./src/shared/layouts"),
+      "@pages": path.resolve(__dirname, "./src/shared/pages"),
+      "@models": path.resolve(__dirname, "./src/shared/models"),
+      "@utils": path.resolve(__dirname, "./src/shared/utils"),
+      "@constants": path.resolve(__dirname, "./src/shared/constants"),
+    },
+  },
   build: {
     target: "ES2023",
     minify: true,
