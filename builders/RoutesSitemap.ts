@@ -4,13 +4,13 @@
  *
  * Executed via `npm run sitemap`, this module generates an XML sitemap from the
  * app's static route metadata. Output is printed to stdout so callers can
- * redirect to a file (e.g., `npm run sitemap > target/sitemap.xml`).
+ * redirect to a file (e.g. `npm run sitemap > target/sitemap.xml`).
  */
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
-import { SitemapMapping } from "../src/models/SitemapMapping";
-import { coreRoutes } from "../src/config/Routes/BaseRoutes";
-import { baseUrl } from "../src/constants/AppConstants";
+import { SitemapMapping } from "@models/sitemap/SitemapMappings";
+import { coreRoutes } from "@shared/routes/BaseRoutes";
+import { baseUrl } from "@constants/commonConstants.ts";
 
 /**
  * Generates an XML sitemap containing URLs, priorities, and modification dates for specified routes.
@@ -20,7 +20,7 @@ import { baseUrl } from "../src/constants/AppConstants";
  * as the URL, priority, and last modification date.
  * Each route is assigned a priority, where the "Home" route has the highest priority.
  *
- * The method utilizes a SitemapStream to construct the sitemap and returns a promise
+ * The method uses a SitemapStream to construct the sitemap and returns a promise
  * that resolves to the generated XML string when the stream completes.
  *
  * @async

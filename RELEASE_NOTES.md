@@ -2,38 +2,29 @@
 
 ## Release Notes
 
-### Version 4.0.1 - _2025-10-27_
+### Version 4.0.2 - _2025-11_26_
 
-Upgraded Bootstrap framework integration with Bootstrap Icons.
-
-#### Enhancements and Updates
-
-- Upgraded Bootstrap framework integration with Bootstrap Icons.
+Configured the resources to use a relative path using the `@` notation.
+Performed refactoring to align with industry standards.
 
 #### General Code Improvements
 
-- Applied `fs.strict` check to HTML files (via Vite upgrade).
-- Refactored conditional rendering logic across components for improved readability and maintainability.
-- Improved error handling and type annotations.
+- Configured the resources to use a relative path using the `@` notation.
+- Refactored the directory structure to align with industry standards.
+- Renamed the stylesheets to align with industry standards.
 
 #### Licence and Documentation
 
-- Added JSDoc comments for better documentation.
+- Fixed the formatting of the `LICENSE.md` file.
 
 #### General Technical Changes
 
-- Improved builder scripts (`GeneratePrDescription.ts`, `GenerateReleaseNotes.ts`).
-- Improved code readability and maintainability.
-- Enhanced type safety in utility functions.
-- Resolved project errors and warnings.
+- Don't ignore `.env` files in when checking into Git.
 
 #### Dependencies
 
 - Fixed security vulnerabilities in dependencies.
-- **Vite** upgraded from 6.3.5 → 6.3.6 → 6.4.1 (security fixes and improvements).
-- Added `bootstrap-icons` for icon library support.
-- Added `react-google-recaptcha-v3` for reCAPTCHA integration.
-- Added `@types/react-google-recaptcha-v3` for type definitions.
+- Added the `react-pdf` dependency for PDF rendering.
 
 #### Changes by
 
