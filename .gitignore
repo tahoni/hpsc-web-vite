@@ -297,4 +297,3 @@ dist/
 target/
 .idea/**/jpa-buddy.xml
 .idea/**/jpa.xml
-.idea/**/pandoc.xml

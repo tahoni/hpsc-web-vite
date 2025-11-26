@@ -3,17 +3,17 @@ import sanitizeHtml from "sanitize-html";
 /**
  * @packageDocumentation
  * Utility functions for HTML content manipulation and security.
- * Provides methods for sanitizing HTML content and handling special
+ * Provides methods for sanitising HTML content and handling special
  * characters like non-breaking spaces and hyphens.
  */
 
 /**
- * Sanitizes a given string value by removing any HTML tags and attributes.
+ * Sanitises a given string value by removing any HTML tags and attributes.
  * This function ensures that the input string does not contain any
  * potentially unsafe or unwanted HTML content.
  *
- * @param {string} [value] - The input string to be sanitized. Defaults to an empty string if not provided.
- * @returns {string} - A sanitized string with all HTML tags and attributes removed.
+ * @param {string} [value] - The input string to be sanitised. Defaults to an empty string if not provided.
+ * @returns {string} - A sanitised string with all HTML tags and attributes removed.
  */
 export const sanitizeValue = (value?: string): string => {
   return sanitizeHtml(value ?? "", {

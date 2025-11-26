@@ -2,7 +2,6 @@ import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 
 /**
  * @packageDocumentation
- *
  * This module defines constants for content-related images used throughout the application.
  *
  * It exports image path constants as strings and also provides enhanced image objects with metadata

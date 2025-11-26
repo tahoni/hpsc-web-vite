@@ -1,9 +1,8 @@
 /**
  * @packageDocumentation
- *
  * Constants module for content-related configuration values used across the application.
  *
- * This module provides centralized management of UI and content-related constants such as
+ * This module provides centralised management of UI and content-related constants such as
  * default sizes, dimensions, and display settings that affect how content is rendered
  * throughout the application.
  *
