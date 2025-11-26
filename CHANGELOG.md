@@ -6,8 +6,39 @@
 
 - [Version 4.0.0](#version-400---_2025-08-17_)
 - [Version 4.0.1](#version-401---_2025-10-27_)
+- [Version 4.0.2](#version-402---_2025-11_27_)
 
-### [Version 4.0.1](https://github.com/tahoni/template-react/releases/tag/version-4.0.0) - _2025-10-27_
+### [Version 4.0.2](https://github.com/tahoni/template-react/releases/tag/version-4.0.2) - _2025-11_27_
+
+Configured the resources to use a relative path using the `@` notation.
+Performed refactoring to align with industry standards.
+
+#### General Code Improvements
+
+- Configured the resources to use a relative path using the `@` notation.
+- Refactored the directory structure to align with industry standards.
+- Renamed the stylesheets to align with industry standards.
+
+#### Licence and Documentation
+
+- Fixed the formatting of the `LICENSE.md` file.
+
+#### General Technical Changes
+
+- Don't ignore `.env` files in when checking into Git.
+
+#### Dependencies
+
+- Fixed security vulnerabilities in dependencies.
+- Added the `react-pdf` dependency for PDF rendering.
+
+#### Changes by
+
+@tahoni
+
+@dependabot
+
+### [Version 4.0.1](https://github.com/tahoni/template-react/releases/tag/version-4.0.1) - _2025-10-27_
 
 Upgraded Bootstrap framework integration with Bootstrap Icons.
 
