@@ -2,7 +2,7 @@
  * Utility functions for HTML content manipulation and security.
  * Provides methods for sanitising HTML content and handling special
  * characters like non-breaking spaces and hyphens.
- * @module htmlUtils
+ * @module
  */
 
 import sanitizeHtml from "sanitize-html";
