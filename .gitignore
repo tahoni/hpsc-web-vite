@@ -295,5 +295,6 @@ hs_err_pid*
 build/
 dist/
 target/
+docs/
 .idea/**/jpa-buddy.xml
 .idea/**/jpa.xml
