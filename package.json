@@ -13,9 +13,7 @@
     "docs": "typedoc",
     "test": "vitest",
     "host": "vite --host hpsc.local",
-    "sitemap": "tsx builders/RoutesSitemap",
-    "pr:desc": "tsx builders/GeneratePrDescription",
-    "release:notes": "tsx builders/GenerateReleaseNotes"
+    "sitemap": "tsx builders/RoutesSitemap"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
