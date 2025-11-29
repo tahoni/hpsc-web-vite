@@ -3,15 +3,26 @@ import { Heading, Html, Img, Section } from "@react-email/components";
 import { clubLogoAlt } from "@constants/about/clubConstants";
 import { ReactElement } from "react";
 
+/**
+ * Represents the properties required for the Contact Us email template.
+ * This interface is used to define the structure of the data needed
+ * to populate a Contact Us email.
+ *
+ * @interface ContactUsEmailTemplateProps
+ * @property {EmailContent} emailMessage - The content of the email message
+ * passed to the template. It typically includes text and other email-specific data.
+ */
 interface ContactUsEmailTemplateProps {
   emailMessage: EmailContent;
 }
 
 /**
  * A functional React component that generates an HTML template for a "Contact Us" email.
- * This template displays the sender's information (name and email) and the details of the message (subject and content).
+ * This template displays the sender's information (name and email) and
+ * the details of the message (subject and content).
  *
- * @param {ContactUsEmailTemplateProps} props - The properties required to generate the email content, including the sender's details and message information.
+ * @param {ContactUsEmailTemplateProps} props - The properties required to generate the email content,
+ * including the sender's details and message information.
  * @returns {ReactElement} The rendered HTML content for the "Contact Us" email template.
  */
 const ContactUsEmailTemplate = (

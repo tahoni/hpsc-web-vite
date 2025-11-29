@@ -9,9 +9,13 @@ import {
   clubShootingRangeDescription,
   clubShootingRangeName,
   enquiriesEmail,
-  secretaryName
+  secretaryName,
 } from "@constants/about/clubConstants";
-import { aboutUsMapMode, aboutUsMapZoom, eufeesShootingRange } from "./AboutUsConstants";
+import {
+  aboutUsMapMode,
+  aboutUsMapZoom,
+  eufeesShootingRange,
+} from "./AboutUsConstants";
 import classes from "./AboutUs.module.scss";
 
 /**
@@ -25,7 +29,6 @@ import classes from "./AboutUs.module.scss";
  * The component makes use of responsive grid layout for better presentation and is styled
  * using CSS classes.
  *
- * @constant
  * @type {React.MemoExoticComponent<() => ReactElement>}
  */
 const AboutUsContent: React.MemoExoticComponent<() => ReactElement> =

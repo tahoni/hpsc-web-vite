@@ -1,11 +1,11 @@
-import sanitizeHtml from "sanitize-html";
-
 /**
- * @packageDocumentation
  * Utility functions for HTML content manipulation and security.
  * Provides methods for sanitising HTML content and handling special
  * characters like non-breaking spaces and hyphens.
+ * @module htmlUtils
  */
+
+import sanitizeHtml from "sanitize-html";
 
 /**
  * Sanitises a given string value by removing any HTML tags and attributes.

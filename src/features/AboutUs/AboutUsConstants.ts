@@ -2,18 +2,35 @@ import { clubShootingRangeVenue } from "@constants/about/clubConstants";
 import { VenueType } from "@models/venues/VenueType";
 
 /**
- * @packageDocumentation
- * Constants for the About Us page of the HPSC website.
+ * Represents the venue type for the Eufees Shooting Range.
  *
- * This module centralises configuration values for the About Us section,
- * including shooting range information and map display settings.
- * These constants are used to provide consistent venue details
- * and map visualisation throughout the About Us components.
+ * This variable specifies the type of venue, categorised here as a
+ * club shooting range venue. It is used to denote the location type
+ * specific to shooting range operations for the Eufees system.
+ *
+ * The variable is assigned a value that correlates with the range being
+ * classified specifically within the shooting range category for clubs.
+ *
+ * @type {VenueType}
  */
-
-// Eufees shooting range
 export const eufeesShootingRange: VenueType = clubShootingRangeVenue;
 
-// Eufees shooting range map
+/**
+ * A variable representing the mode of the map displayed on the "About Us" page.
+ *
+ * The value of this string determines the map's rendering style.
+ * Common options could include "satellite", "terrain", "hybrid", or other map modes
+ * provided by the underlying map service.
+ *
+ * @defaultValue "satellite".
+ */
 export const aboutUsMapMode: string = "satellite";
+/**
+ * Represents the zoom level for the map displayed on the "About Us" page.
+ * This value defines how zoomed-in the map will appear.
+ *
+ * A higher value corresponds to a more zoomed-in view, providing a detailed
+ * look at the specific location. The value is typically determined based
+ * on the requirements of the map display or user preference.
+ */
 export const aboutUsMapZoom: number = 16;

@@ -296,6 +296,5 @@ build/
 dist/
 target/
 tsdocs/
-sassodcs/
 .idea/**/jpa-buddy.xml
 .idea/**/jpa.xml
