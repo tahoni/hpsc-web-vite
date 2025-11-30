@@ -8,6 +8,7 @@ import {
   home,
   links,
   members,
+  venues,
 } from "@shared/routes/RouteAliases";
 
 /**
@@ -30,5 +31,5 @@ export const routes: PageAlias[] = [
   { path: "/about_us", mapping: aboutUs },
 
   { mapping: events },
-  // { mapping: venues },
+  { mapping: venues },
 ];

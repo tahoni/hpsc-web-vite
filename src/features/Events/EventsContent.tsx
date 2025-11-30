@@ -5,7 +5,7 @@ import WorldShootsContent from "./content/Worldshoots";
 /**
  * EventsContent is a React functional component memoised using React.memo.
  * It represents a section specifically designed for rendering event-related content.
- * Within this component, it utilises the `ContentWithStories` component to display
+ * Within this component, it uses the `ContentWithStories` component to display
  * the provided list of event content components.
  *
  * The component uses a memoised array `Contents` which contains other React components
@@ -17,19 +17,19 @@ import WorldShootsContent from "./content/Worldshoots";
  * The memoised nature of EventsContent ensures that it does not re-render unnecessarily,
  * improving performance when the props or state have not changed.
  *
- * @constant
  * @type {React.MemoExoticComponent<() => React.ReactElement>}
  */
-const EventsContent = React.memo((): ReactElement => {
-  const Contents: MemoExoticComponent<() => ReactElement>[] = [
-    WorldShootsContent,
-  ];
+const EventsContent: React.MemoExoticComponent<() => React.ReactElement> =
+  React.memo((): ReactElement => {
+    const Contents: MemoExoticComponent<() => ReactElement>[] = [
+      WorldShootsContent,
+    ];
 
-  return (
-    <section>
-      <ContentWithStories type={"event"} Contents={Contents} />
-    </section>
-  );
-});
+    return (
+      <section>
+        <ContentWithStories type={"event"} Contents={Contents} />
+      </section>
+    );
+  });
 
 export default EventsContent;

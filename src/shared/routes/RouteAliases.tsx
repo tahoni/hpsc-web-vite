@@ -23,9 +23,7 @@ import {
  *
  * Use this component to render the Members page in the application.
  */
-const MembersPage = React.lazy(
-  () => import("@features/Members/MembersPage.tsx"),
-);
+const MembersPage = React.lazy(() => import("@features/Members"));
 
 /**
  * A React component that is lazily loaded using React.lazy.
@@ -51,9 +49,7 @@ const LinksPage = React.lazy(() => import("@features/Links/LinksPage.tsx"));
  * It is typically used for rendering the history-related features or content
  * of the application in a modular manner to improve performance.
  */
-const HistoryPage = React.lazy(
-  () => import("@features/History/HistoryPage.tsx"),
-);
+const HistoryPage = React.lazy(() => import("@features/History"));
 
 /**
  * ContactUsPage is a lazily loaded React component for the contact us page.
@@ -72,9 +68,7 @@ const ContactUsPage = React.lazy(
  * capabilities to optimise initial load time by deferring the loading
  * of the `AboutUsPage` component until it is actually rendered.
  */
-const AboutUsPage = React.lazy(
-  () => import("@features/AboutUs/AboutUsPage.tsx"),
-);
+const AboutUsPage = React.lazy(() => import("@features/AboutUs"));
 
 /**
  * The `EventsPage` variable represents a React component that has been loaded lazily
@@ -92,8 +86,24 @@ const AboutUsPage = React.lazy(
  *
  * File Path: @pages/Events/EventsPage.tsx
  */
-const EventsPage = React.lazy(() => import("@features/Events/EventsPage.tsx"));
-const VenuesPage = React.lazy(() => import("@features/Venues/VenuesPage.tsx"));
+const EventsPage = React.lazy(() => import("@features/Events"));
+
+/**
+ * VenuesPage is a React component that is lazily loaded, designed to handle the display
+ * and management of venues within the application. By using React.lazy, the component
+ * is efficiently loaded as needed, improving initial load time.
+ *
+ * Features:
+ * - Encapsulates the logic and UI related to venue management.
+ * - Utilizes dynamic import for optimized performance.
+ * - Integrates with the application's routing and state management.
+ *
+ * Usage considerations:
+ * - Ensure appropriate error boundaries are implemented in the parent component to handle
+ *   potential issues during lazy loading.
+ * - Designed for integration into larger applications requiring venue-related functionalities.
+ */
+const VenuesPage = React.lazy(() => import("@features/Venues"));
 
 /**
  * Represents the home page mapping configuration.

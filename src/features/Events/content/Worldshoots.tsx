@@ -12,7 +12,6 @@ import {
  *
  * The `key` for each child is dynamically generated using the year, its index, and a specific naming pattern to ensure unique identification for React's reconciliation process.
  *
- * @constant
  * @type {React.MemoExoticComponent<() => ReactElement>}
  */
 const WorldShootsContent = React.memo((): ReactElement => {

@@ -8,7 +8,7 @@ interface SimpleCaptchaProps {
 /**
  * A React memoized component that provides a simple CAPTCHA verification mechanism using Google ReCaptcha.
  *
- * This component leverages React.memo to optimise rendering performance by memoizing the component and ensuring
+ * This component leverages React.memo to optimise rendering performance by memoising the component and ensuring
  * it only re-renders when props change. It listens for captcha verification tokens using the Google ReCaptcha component
  * and invokes the handleChange callback provided by the parent component when a token is received.
  *

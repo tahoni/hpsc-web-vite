@@ -13,13 +13,14 @@ import {
   home,
   links,
   members,
+  venues,
 } from "@shared/routes/RouteAliases";
 
 export const menuItems: PageMapping[] = [
   home,
   members,
   links,
-  // venues,
+  venues,
   events,
   history,
   contactUs,
