@@ -54,15 +54,7 @@ h1, h2, h3, h4, h5, h6 {
   @extend .form-control-button-info;
 }
 
-/* Menus */
-.dropdown-menu {
-  background-color: hpsc-theme.$menu-background-color;
-}
-
-a.dropdown-item:hover {
-  background-color: hpsc-theme.$menu-hover-color;
-}
-
-.dropdown-item a, .dropdown-item a:visited, .dropdown-item a:hover, .dropdown-item a:active {
-  text-decoration: none;
+/* Navbar */
+a.nav-link {
+  font-style: italic;
 }
