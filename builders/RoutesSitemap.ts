@@ -1,10 +1,11 @@
 /**
- * @packageDocumentation
  * Sitemap builder script for HPSC Web.
  *
  * Executed via `npm run sitemap`, this module generates an XML sitemap from the
  * app's static route metadata. Output is printed to stdout so callers can
  * redirect to a file (e.g. `npm run sitemap > target/sitemap.xml`).
+ *
+ * @module
  */
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
@@ -23,8 +24,6 @@ import { baseUrl } from "@constants/commonConstants.ts";
  * The method uses a SitemapStream to construct the sitemap and returns a promise
  * that resolves to the generated XML string when the stream completes.
  *
- * @async
- * @function
  * @returns {Promise<string>} A promise that resolves to the XML string representation of the sitemap.
  */
 export const generateRoutesSitemap = async () => {
@@ -52,10 +51,3 @@ export const generateRoutesSitemap = async () => {
 generateRoutesSitemap().then((xml) => {
   console.log(xml);
 });
-
-// This code builds a sitemap using the sitemap package and streams the links into it.
-// The sitemap is then converted to a string and logged to the console.
-// You can modify the link array to include your own URLs and their properties.
-// Make sure to replace "https://..." with your actual hostname.
-// You can also adjust the changefreq and priority as needed for your sitemap.
-// This code is a basic example and can be expanded to include more complex logic or additional features as needed.

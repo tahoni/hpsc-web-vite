@@ -1,11 +1,11 @@
-import { Venue } from "@models/venues/Venue";
-
 /**
- * @packageDocumentation
  * Constants and data related to shooting venues and ranges.
  * Contains enumerations and venue information including locations,
  * contact details, and geographic coordinates.
+ *
+ * @module
  */
+import { Venue } from "@models/venues/Venue";
 
 export enum ShootingRanges {
   EUFEES = "EUFEES",

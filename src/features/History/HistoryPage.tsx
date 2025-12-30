@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 const HistoryContent = React.lazy(() => import("./HistoryContent"));
 
@@ -11,15 +11,17 @@ const HistoryContent = React.lazy(() => import("./HistoryContent"));
  *
  * This component does not accept any props.
  *
- * @constant
- * @type {React.MemoExoticComponent<React.FC>}
+ * @type {React.MemoExoticComponent<() => ReactElement>}
+ * @returns {ReactElement} The rendered output of the HistoryPage component, which includes the HistoryContent component.
  */
-const HistoryPage = React.memo(() => {
-  return (
-    <>
-      <HistoryContent />
-    </>
-  );
-});
+const HistoryPage: React.MemoExoticComponent<() => ReactElement> = React.memo(
+  () => {
+    return (
+      <>
+        <HistoryContent />
+      </>
+    );
+  },
+);
 
 export default HistoryPage;

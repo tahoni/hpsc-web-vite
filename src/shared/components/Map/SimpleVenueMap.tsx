@@ -3,7 +3,6 @@ import VenueMap, { VenueMapProps } from "./VenueMap";
 import VenuePins from "./VenuePins";
 import { VenueType } from "@models/venues/VenueType";
 
-// TODO: move VenueType to shared
 interface SimpleVenueMapProps extends VenueMapProps {
   venues: VenueType[];
 }

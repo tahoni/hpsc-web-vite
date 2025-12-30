@@ -1,15 +1,10 @@
 /**
- * @packageDocumentation
  * Form styling customizations that extend Bootstrap's form components.
  * 
  * This stylesheet provides custom styling for form controls including default states,
  * required fields, error states, and button variations. The styles build upon
  * Bootstrap's base styles with additional visual enhancements for focus states,
  * hover effects, and validation feedback.
- *
- * @module Forms
- * @requires bootstrap/scss/bootstrap
- * @requires theme
  */
 @use "bootstrap/scss/bootstrap" as *;
 @use "theme" as hpsc-theme;

@@ -16,7 +16,7 @@ import { SitemapChangeFrequency } from "./SitemapChangeFrequency.ts";
  * - Yearly
  * - Never
  *
- * Used to optimize sitemap generation and content crawling efficiency.
+ * Used to optimise sitemap generation and content crawling efficiency.
  */
 const DEFAULT_SITEMAP_URL_CHANGEFREQ = SitemapChangeFrequency.Daily;
 
@@ -36,7 +36,7 @@ export class SitemapMapping {
    * Creates a new SitemapMapping instance.
    *
    * @constructor
-   * @param mapping - Initialization object for the sitemap entry.
+   * @param mapping - Initialisation object for the sitemap entry.
    * @param mapping.url - The absolute or relative URL of the page (required).
    * @param mapping.changefreq - How frequently the URL is expected to change; defaults to SitemapChangeFrequency.Daily.
    * @param mapping.priority - Optional relative priority between 0.0 and 1.0.

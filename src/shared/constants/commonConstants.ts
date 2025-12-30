@@ -1,6 +1,4 @@
 /**
- * @packageDocumentation
- *
  * This module contains application-wide constants used throughout the application.
  *
  * These constants define fundamental application properties such as
@@ -9,6 +7,8 @@
  * - Text alternatives for images and logos
  *
  * Constants defined here should be considered global and immutable across the application.
+ *
+ * @module
  */
 
 export const baseUrl: string = "https://www.hpsc.co.za";

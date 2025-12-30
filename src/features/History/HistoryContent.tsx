@@ -2,21 +2,21 @@ import React, { ReactElement } from "react";
 import History from "./History.mdx";
 
 /**
- * A React functional component wrapped with `React.memo` for memoization.
+ * A React functional component wrapped with `React.memo` for memoisation.
  * The `HistoryContent` component renders an article containing the `History` component.
  *
- * The memoization ensures that the component only re-renders when its props change,
- * optimizing performance in React applications.
+ * The memoisation ensures that the component only re-renders when its props change,
+ * optimising performance in React applications.
  *
- * @constant
  * @type {React.MemoExoticComponent<() => ReactElement>}
  */
-const HistoryContent = React.memo((): ReactElement => {
-  return (
-    <article>
-      <History />
-    </article>
-  );
-});
+const HistoryContent: React.MemoExoticComponent<() => ReactElement> =
+  React.memo((): ReactElement => {
+    return (
+      <article>
+        <History />
+      </article>
+    );
+  });
 
 export default HistoryContent;

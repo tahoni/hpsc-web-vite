@@ -1,9 +1,10 @@
+// Package styles
+@use "sweetalert2/dist/sweetalert2.css" as *;
+@use "lightgallery/scss/lightgallery"as *;
+
 // Personal library styles
 @use "@tahoni/tahoni-lib-react/dist/index.css" as *;
 // Project styles
 @use "assets/styles/index" as *;
-// External library styles
+// Project external library styles
 @use "vendors/bootstrap/styles/index" as *;
-
-// Package styles
-@use "sweetalert2/dist/sweetalert2.css" as *;

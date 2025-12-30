@@ -1,3 +1,16 @@
+/**
+ * Custom Bootstrap Build Entry Point.
+ *
+ * This file serves as the main entry point for generating the project's custom
+ * Bootstrap CSS. It orchestrates the import order to ensure overrides are
+ * applied correctly:
+ *
+ * 1. Bootstrap functions (required for variable manipulation).
+ * 2. Custom variable overrides (user-defined settings).
+ * 3. Bootstrap variables and maps (using the overrides).
+ * 4. Bootstrap mixins and root styles.
+ */
+
 // Required Bootstrap functions
 @import "bootstrap/scss/functions";
 

@@ -12,8 +12,9 @@ import {
   enquiriesEmail,
   facebookGroup,
   facebookPage,
-  webmasterEmail,
+  webmasterEmail
 } from "@constants/about/clubConstants";
+import { footerMapId } from "./FooterConstants.ts";
 import classes from "./Footer.module.scss";
 
 export const FooterContent = React.memo((): ReactElement => {
@@ -31,6 +32,7 @@ export const FooterContent = React.memo((): ReactElement => {
           {footerMapPins && footerMapPins.length > 0 && footerMapPins[0] && (
             <SimpleVenueMap
               mapStyle={mapStyle}
+              mapId={footerMapId}
               center={footerMapPins[0].center ?? footerMapPins[0].latLng}
               venues={footerMapPins}
             />

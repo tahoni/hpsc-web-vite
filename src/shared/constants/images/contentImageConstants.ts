@@ -1,7 +1,4 @@
-import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
-
 /**
- * @packageDocumentation
  * This module defines constants for content-related images used throughout the application.
  *
  * It exports image path constants as strings and also provides enhanced image objects with metadata
@@ -11,7 +8,10 @@ import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
  * @remarks
  * All content images are stored in the /assets/images/content/ directory and are referenced
  * using relative paths. When adding new images, follow the existing pattern to maintain consistency.
+ *
+ * @module
  */
+import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 
 export const targetWithBulletHolesImage: string =
   "/assets/images/content/ipsc-target-with-bullet-holes.png";
