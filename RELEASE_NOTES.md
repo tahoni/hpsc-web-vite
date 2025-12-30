@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-### Version 4.1.0 - _2025-12_30_
+### Version 4.1.0 - _2025-12-30_
 
 Modernise the navigation experience, ensure the layouts are robust across various device sizes, 
 and leverage unique Google Map IDs for better management of map styles and features.

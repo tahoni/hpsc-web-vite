@@ -10,7 +10,7 @@
 - [Version 4.0.1](#version-401---_2025-10-27_)
 - [Version 4.0.0](#version-400---_2025-08-17_)
 
-### Version 4.1.0 - _2025-12_30_
+### Version 4.1.0 - _2025-12-30_
 
 Modernise the navigation experience, ensure the layouts are robust across various device sizes, 
 and leverage unique Google Map IDs for better management of map styles and features.
@@ -38,7 +38,7 @@ its SCSS into the global styles, preparing the site for enhanced image gallery f
 
 @tahoni
 
-### [Version 4.0.3](https://github.com/tahoni/template-react/releases/tag/version-4.0.3) - _2025-11_26_
+### [Version 4.0.3](https://github.com/tahoni/template-react/releases/tag/version-4.0.3) - _2025-11-26_
 
 Fixed the display of images.
 
@@ -50,7 +50,7 @@ Fixed the display of images.
 
 @tahoni
 
-### [Version 4.0.2](https://github.com/tahoni/template-react/releases/tag/version-4.0.2) - _2025-11_26_
+### [Version 4.0.2](https://github.com/tahoni/template-react/releases/tag/version-4.0.2) - _2025-11-26_
 
 Configured the resources to use a relative path using the `@` notation.
 Performed refactoring to align with industry standards.
