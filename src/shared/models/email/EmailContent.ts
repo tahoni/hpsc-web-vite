@@ -17,7 +17,7 @@ export class EmailContent {
    * @param message.name - Sender display name. Defaults to an empty string; value is sanitised and trimmed.
    * @param message.email - Sender email address. Defaults to an empty string; value is sanitised and trimmed.
    * @param message.subject - Email subject. Defaults to an empty string; value is sanitised and trimmed.
-   * @param message.content - Email content/body. Defaults to an empty string; value is sanitised and trimmed.
+   * @param message.content - Email content/body. Defaults to an empty string; the value is sanitised and trimmed.
    */
   constructor(message?: {
     name?: string;

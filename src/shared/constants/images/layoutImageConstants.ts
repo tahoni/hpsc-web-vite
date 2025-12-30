@@ -1,7 +1,4 @@
-import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
-
 /**
- * @packageDocumentation
  * This module defines constants for layout-related images used throughout the application's interface.
  *
  * It exports both simple string paths to images and enhanced image objects with additional metadata
@@ -12,7 +9,10 @@ import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
  * All layout images are stored in the /assets/images/layout/ directory and follow a consistent
  * naming convention. The transparent PNG format is used for elements that need to be overlaid
  * on different backgrounds.
+ *
+ * @module
  */
+import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 
 export const leftShooterImage: string =
   "/assets/images/layout/shooter-left-transparent.png";

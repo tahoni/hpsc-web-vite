@@ -1,3 +1,3 @@
-import Page from "./Page";
+import Page from "./Page.tsx";
 
 export { Page };

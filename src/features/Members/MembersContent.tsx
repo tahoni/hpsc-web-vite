@@ -5,9 +5,9 @@ import { ContentWithStories } from "@components/Content";
 /**
  * MembersContent is a memoized React functional component that renders a section containing
  * member-related content. The component uses React.memo to optimise rendering performance
- * by memoizing the output and preventing unnecessary re-renders.
+ * by memoising the output and preventing unnecessary re-renders.
  *
- * This component makes use of an array of content components, which are passed to the ContentWithStories
+ * This component uses an array of content components, which are passed to the ContentWithStories
  * component for rendering. It is designed to handle "member" type content specifically.
  *
  * The component relies on external dependencies such as React.memo, and assumes the existence of

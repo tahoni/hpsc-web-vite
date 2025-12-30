@@ -1,5 +1,9 @@
-// TODO: generate package documentation
-
+/**
+ * Custom Bootstrap configuration and variable overrides.
+ *
+ * This file maps project-specific fonts and colors to Bootstrap variables
+ * to customize the framework's look and feel.
+ */
 @use "@styles/_fonts.scss" as hpsc-fonts;
 @use "@styles/_colors.scss" as hpsc-colors;
 

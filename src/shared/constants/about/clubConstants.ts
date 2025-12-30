@@ -1,10 +1,11 @@
 /**
- * @packageDocumentation
  * Constants describing the Hartbeespoortdam Practical Shooting Club (HPSC).
  *
  * This module centralises club-related metadata such as the club name,
  * primary shooting range information, contact e-mails, social links, and logo paths.
  * These values are used across the site for display and configuration.
+ *
+ * @module
  */
 
 // Name, description and abbreviation

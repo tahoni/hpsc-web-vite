@@ -1,5 +1,4 @@
 /**
- * @packageDocumentation
  * Constants module for content-related configuration values used across the application.
  *
  * This module provides centralised management of UI and content-related constants such as
@@ -20,6 +19,8 @@
  *   <img src="logo.svg" height={linkWithLogoIconDefaultHeight} />
  * );
  * ```
+ *
+ * @module
  */
 
 export const linkWithLogoIconDefaultHeight: string = "60px";

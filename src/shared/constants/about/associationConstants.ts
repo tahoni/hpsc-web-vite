@@ -1,7 +1,8 @@
 /**
- * @packageDocumentation
  * Constants describing provincial, national, and international associations used across the app.
  * Include names, abbreviations, websites, logos, and alt-text.
+ *
+ * @module
  */
 
 // Names and descriptions
