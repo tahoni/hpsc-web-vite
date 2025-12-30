@@ -157,20 +157,49 @@
 }
 
 @include bootstrap-grid.media-breakpoint-down(md) {
-  .headerSidebar:first-child,
   .footerSidebar:first-child {
     width: 50%;
     flex: none !important;
   }
 
-  .headerSidebar:last-child,
   .footerSidebar:last-child {
     width: 50%;
     flex: none !important;
   }
 
-  .headerCenter,
   .footerCenter {
+    width: 100%;
+    flex: none !important;
+  }
+
+  // Logo and heading alignment
+  // The two logos come after the heading
+  // With the heading on it's own line
+  .footerSidebar:first-child {
+    order: 2;
+  }
+
+  .footerSidebar:last-child {
+    order: 3;
+  }
+
+  .footerCenter {
+    order: 1;
+  }
+}
+
+@include bootstrap-grid.media-breakpoint-down(lg) {
+  .headerSidebar:first-child {
+    width: 50%;
+    flex: none !important;
+  }
+
+  .headerSidebar:last-child {
+    width: 50%;
+    flex: none !important;
+  }
+
+  .headerCenter {
     width: 100%;
     flex: none !important;
   }
@@ -188,20 +217,5 @@
 
   .headerCenter {
     order: 3;
-  }
-
-  // Logo and heading alignment
-  // The two logos come after the heading
-  // With the heading on it's own line
-  .footerSidebar:first-child {
-    order: 2;
-  }
-
-  .footerSidebar:last-child {
-    order: 3;
-  }
-
-  .footerCenter {
-    order: 1;
   }
 }
