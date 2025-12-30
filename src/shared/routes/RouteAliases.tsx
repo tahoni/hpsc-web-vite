@@ -95,7 +95,7 @@ const EventsPage = React.lazy(() => import("@features/Events"));
  *
  * Features:
  * - Encapsulates the logic and UI related to venue management.
- * - Utilizes dynamic import for optimized performance.
+ * - Utilises dynamic import for optimised performance.
  * - Integrates with the application's routing and state management.
  *
  * Usage considerations:
