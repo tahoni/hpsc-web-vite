@@ -34,3 +34,10 @@ export const aboutUsMapMode: string = "satellite";
  * on the requirements of the map display or user preference.
  */
 export const aboutUsMapZoom: number = 16;
+
+/**
+ * Represents the unique identifier for the map displayed on the "About Us" page.
+ * This ID is typically used to fetch or reference the specific map instance associated
+ * with the "About Us" section of an application or website.
+ */
+export const aboutUsMapId: string = "32c6bdacf87e5485cf6c655b";

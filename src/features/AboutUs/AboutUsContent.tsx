@@ -9,13 +9,9 @@ import {
   clubShootingRangeDescription,
   clubShootingRangeName,
   enquiriesEmail,
-  secretaryName,
+  secretaryName
 } from "@constants/about/clubConstants";
-import {
-  aboutUsMapMode,
-  aboutUsMapZoom,
-  eufeesShootingRange,
-} from "./AboutUsConstants";
+import { aboutUsMapId, aboutUsMapMode, aboutUsMapZoom, eufeesShootingRange } from "./AboutUsConstants";
 import classes from "./AboutUs.module.scss";
 
 /**
@@ -85,6 +81,7 @@ const AboutUsContent: React.MemoExoticComponent<() => ReactElement> =
               {eufeesShootingRange && (
                 <SimpleVenueMap
                   mapStyle={mapStyle}
+                  mapId={aboutUsMapId}
                   mapMode={aboutUsMapMode}
                   zoom={aboutUsMapZoom}
                   center={

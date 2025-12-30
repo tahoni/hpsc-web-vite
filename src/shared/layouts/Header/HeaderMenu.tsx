@@ -1,28 +1,27 @@
 import React, { ReactElement } from "react";
-import { NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { menuIcon } from "@constants/icons/iconConstants";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { PageMapping } from "@models/pages/PageMapping";
 import { menuItems } from "@helpers/menuHelpers";
 
 export const HeaderMenu = React.memo((): ReactElement => {
   return (
-    <>
-      <NavDropdown
-        title={
-          <>
-            <span className="visually-hidden">Menu</span>
-            <FontAwesomeIcon icon={menuIcon} />
-          </>
-        }
-      >
-        {menuItems.map((item: PageMapping, index: number) => (
-          <NavDropdown.Item as={Link} to={item.path} key={"menu_" + index}>
-            {item.name}
-          </NavDropdown.Item>
-        ))}
-      </NavDropdown>
-    </>
+    <Container>
+      <Navbar expand="md">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav>
+            {menuItems.map((item: PageMapping, index: number) => (
+              <Nav.Link
+                href={item.path}
+                key={"menu_item_" + index}
+                active={item.path === window.location.pathname}
+              >
+                {item.name}
+              </Nav.Link>
+            ))}
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </Container>
   );
 });
