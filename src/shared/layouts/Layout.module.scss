@@ -53,7 +53,7 @@
 .headerSidebar,
 .footerSidebar {
   width: fit-content;
-  display: flex !important;
+  display: flex;
   flex: initial;
 }
 
@@ -139,14 +139,14 @@
 }
 
 // Logo and heading alignment
-// The two logos surround the heading
-// With everything on one line
-.headerSidebar:first-child,
+// The two logos surround the heading and menu
+// With everything on one line, including the title and menu
+.headerSidebar:first-of-type,
 .footerSidebar:first-child {
   order: 1;
 }
 
-.headerSidebar:last-child,
+.headerSidebar:last-of-type,
 .footerSidebar:last-child {
   order: 3;
 }
@@ -156,23 +156,43 @@
   order: 2;
 }
 
+/*
+@include bootstrap-grid.media-breakpoint-down(xl) {
+  .headerCenter {
+    flex: 2;
+  }
+
+  // Logo and heading alignment
+  // The two logos come before the heading
+  // With the heading on it's own line
+  .headerSidebar:first-child {
+    order: 1;
+  }
+
+  .headerSidebar:last-child {
+    order: 3;
+  }
+
+  .headerCenter {
+    order: 2;
+  }
+}
+*/
+
 @include bootstrap-grid.media-breakpoint-down(md) {
   .headerSidebar:first-child,
   .footerSidebar:first-child {
     width: 50%;
-    flex: none !important;
   }
 
   .headerSidebar:last-child,
   .footerSidebar:last-child {
     width: 50%;
-    flex: none !important;
   }
 
   .headerCenter,
   .footerCenter {
     width: 100%;
-    flex: none !important;
   }
 
   // Logo and heading alignment
@@ -205,3 +225,4 @@
     order: 1;
   }
 }
+
