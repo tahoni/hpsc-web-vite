@@ -1,30 +1,28 @@
 import React, { ReactElement } from "react";
-import { Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { PageMapping } from "@models/pages/PageMapping";
 import { menuItems } from "@helpers/menuHelpers";
 import classes from "../Layout.module.scss";
 
 export const HeaderMenu = React.memo((): ReactElement => {
   return (
-    <div className={classes.headerContent}>
-      <div className={classes.headerItem}>
-        <Navbar expand="md">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav>
-              {menuItems.map((item: PageMapping, index: number) => (
-                <Nav.Link
-                  href={item.path}
-                  key={"menu_item_" + index}
-                  active={item.path === window.location.pathname}
-                >
-                  {item.name}
-                </Nav.Link>
-              ))}
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-      </div>
-    </div>
+    <Container className={classes.headerItem}>
+      <Navbar expand="md">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav>
+            {menuItems.map((item: PageMapping, index: number) => (
+              <Nav.Link
+                href={item.path}
+                key={"menu_item_" + index}
+                active={item.path === window.location.pathname}
+              >
+                {item.name}
+              </Nav.Link>
+            ))}
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </Container>
   );
 });
