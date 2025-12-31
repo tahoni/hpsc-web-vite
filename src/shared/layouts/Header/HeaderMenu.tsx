@@ -2,11 +2,10 @@ import React, { ReactElement } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { PageMapping } from "@models/pages/PageMapping";
 import { menuItems } from "@helpers/menuHelpers";
-import classes from "../Layout.module.scss";
 
 export const HeaderMenu = React.memo((): ReactElement => {
   return (
-    <Container className={classes.headerItem}>
+    <Container>
       <Navbar expand="md">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

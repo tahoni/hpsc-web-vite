@@ -176,21 +176,6 @@
   }
 
   // Logo and heading alignment
-  // The two logos come before the heading
-  // With the heading on it's own line
-  .headerSidebar:first-child {
-    order: 1;
-  }
-
-  .headerSidebar:last-child {
-    order: 2;
-  }
-
-  .headerCenter {
-    order: 3;
-  }
-
-  // Logo and heading alignment
   // The two logos come after the heading
   // With the heading on it's own line
   .footerSidebar:first-child {
@@ -203,5 +188,37 @@
 
   .footerCenter {
     order: 1;
+  }
+}
+
+@include bootstrap-grid.media-breakpoint-down(lg) {
+  .headerSidebar:first-child {
+    width: 50%;
+    flex: none !important;
+  }
+
+  .headerSidebar:last-child {
+    width: 50%;
+    flex: none !important;
+  }
+
+  .headerCenter {
+    width: 100%;
+    flex: none !important;
+  }
+
+  // Logo and heading alignment
+  // The two logos come before the heading
+  // With the heading on it's own line
+  .headerSidebar:first-child {
+    order: 1;
+  }
+
+  .headerSidebar:last-child {
+    order: 2;
+  }
+
+  .headerCenter {
+    order: 3;
   }
 }
