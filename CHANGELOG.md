@@ -6,8 +6,8 @@
 
 - [Version 4.1.1](#version-411---_2026-01-02_)
 - [Version 4.1.0](#version-410---_2025-12-30_)
-- [Version 4.0.3](#version-403---_2025-11_26_)
-- [Version 4.0.2](#version-402---_2025-11_26_)
+- [Version 4.0.3](#version-403---_2025-11-26_)
+- [Version 4.0.2](#version-402---_2025-11-26_)
 - [Version 4.0.1](#version-401---_2025-10-27_)
 - [Version 4.0.0](#version-400---_2025-08-17_)
 

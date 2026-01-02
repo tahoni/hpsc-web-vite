@@ -5,24 +5,15 @@
  */
 
 import { PageMapping } from "@models/pages/PageMapping";
-import {
-  aboutUs,
-  contactUs,
-  events,
-  history,
-  home,
-  links,
-  members,
-  venues,
-} from "@shared/routes/RouteAliases";
+import { aboutUs, events, history, home, links, members } from "@shared/routes/RouteAliases";
 
 export const menuItems: PageMapping[] = [
   home,
   members,
   links,
-  venues,
+  // venues,
   events,
   history,
-  contactUs,
+  // contactUs,
   aboutUs,
 ];
