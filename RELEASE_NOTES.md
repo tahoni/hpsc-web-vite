@@ -4,27 +4,27 @@
 
 ### Version 4.1.1 - _2026-01-02_
 
-Modernise the navigation experience, ensure the layouts are robust across various device sizes, 
-and leverage unique Google Map IDs for better management of map styles and features.
+Refine the user interface, improve the responsive design for navigation components, and update project documentation and assets.
 
-#### Enhancements and Updates
-- _Menu Styling:_ Simplified menu styles in `_standard.scss`, moving away from custom dropdown overrides 
-to standard `nav-link` styling with an italicised touch.
-- _Map Identifier:_ Introduced `aboutUsMapId` and `footerMapId` to provide unique identifiers 
-for Google Maps instances. This allows for better referencing and configuration via the Google Maps Platform.
-- _Component Enhancement:_ Updated `VenueMap` and `SimpleVenueMap` to support an optional `mapId` prop, 
-falling back to a generated key if not provided.
-- _Layout Responsiveness:_ Significant updates to `Layout.module.scss` to handle header and footer sidebar 
-ordering across different breakpoints (`md` and `lg`). 
-This ensures logos and headings stack correctly on mobile devices.
+#### Enhancements & UI Improvements
+- _Navigation Refinement:_ Updated `HeaderMenu` with improved breakpoints and layout adjustments to ensure 
+better responsiveness on extra-large screens.
+- _Header Simplification:_ Streamlined the `Header` structure by removing redundant components (like `HeaderTitle`) 
+and consolidating `HeaderMenu` into `HeaderContent` for better maintainability.
+- _Styling Updates:_ 
+  - Refactored SCSS for the header and footer to ensure perfect alignment across different viewports.
+  - Improved layout consistency in `index.html`.
+- _Maps Integration:_ Added support for unique Google Map IDs to allow for better management of map styles and features.
 
-#### General Code Improvements
-- _Sass Clean-up:_ Reorganised imports in `App.scss` to better categorise package, library, and project styles.
+#### Documentation & Assets
+- _README Updates:_ Refreshed project screenshots and updated links to reflect the latest UI changes.
+- _Legal & Metadata:_ Updated copyright years to 2025 and standardised British English in code annotations and TSDoc.
+- _Developer Experience:_ Expanded TypeDoc entry points and enhanced TSDoc documentation across multiple features 
+for better API clarity.
 
-#### Dependencies
-
-- _LightGallery:_ Added `lightgallery` to the project dependencies and integrated 
-its SCSS into the global styles, preparing the site for enhanced image gallery features.
+#### Technical Maintenance
+- _Bug Fixes:_ Corrected date formatting inconsistencies in `CHANGELOG` and `RELEASE_NOTES`.
+- _Clean-up:_ Removed unused icon constants and simplified the overall component architecture.
 
 #### Changes by
 
