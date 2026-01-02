@@ -1,12 +1,11 @@
 import React, { ReactElement } from "react";
-import { Nav, Navbar, Row } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { PageMapping } from "@models/pages/PageMapping";
 import { menuItems } from "@helpers/menuHelpers";
-import classes from "../Layout.module.scss";
 
 export const HeaderMenu = React.memo((): ReactElement => {
   return (
-    <Row className={classes.headerItem}>
+    <Container>
       <Navbar expand="md">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -23,6 +22,6 @@ export const HeaderMenu = React.memo((): ReactElement => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </Row>
+    </Container>
   );
 });
