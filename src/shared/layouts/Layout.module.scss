@@ -138,8 +138,8 @@
   padding: 0.75rem;
 }
 
-// Logo and heading alignment
-// The two logos surround the heading
+// Logo and header and footer alignment
+// The two logos surround the header and footer content
 // With everything on one line
 .headerSidebar:first-child,
 .footerSidebar:first-child {
@@ -157,11 +157,13 @@
 }
 
 @include bootstrap-grid.media-breakpoint-down(md) {
+  .headerSidebar:first-child,
   .footerSidebar:first-child {
     width: 50%;
     flex: none !important;
   }
 
+  .headerSidebar:last-child,
   .footerSidebar:last-child {
     width: 50%;
     flex: none !important;
@@ -172,39 +174,7 @@
     flex: none !important;
   }
 
-  // Logo and heading alignment
-  // The two logos come after the heading
-  // With the heading on it's own line
-  .footerSidebar:first-child {
-    order: 2;
-  }
-
-  .footerSidebar:last-child {
-    order: 3;
-  }
-
-  .footerCenter {
-    order: 1;
-  }
-}
-
-@include bootstrap-grid.media-breakpoint-down(lg) {
-  .headerSidebar:first-child {
-    width: 50%;
-    flex: none !important;
-  }
-
-  .headerSidebar:last-child {
-    width: 50%;
-    flex: none !important;
-  }
-
-  .headerCenter {
-    width: 100%;
-    flex: none !important;
-  }
-
-  // Logo and heading alignment
+  // Logo and header alignment
   // The two logos come before the heading
   // With the heading on it's own line
   .headerSidebar:first-child {
@@ -217,5 +187,20 @@
 
   .headerCenter {
     order: 3;
+  }
+
+  // Logo and footer alignment
+  // The two logos come after footer content
+  // With everything on it's own line
+  .footerSidebar:first-child {
+    order: 2;
+  }
+
+  .footerSidebar:last-child {
+    order: 3;
+  }
+
+  .footerCenter {
+    order: 1;
   }
 }

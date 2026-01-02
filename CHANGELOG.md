@@ -4,13 +4,42 @@
 
 ### Table of Contents
 
-- [Version 4.1.0](#version-410---_2025-12_30_)
-- [Version 4.0.3](#version-403---_2025-11_26_)
-- [Version 4.0.2](#version-402---_2025-11_26_)
+- [Version 4.1.1](#version-411---_2026-01-02_)
+- [Version 4.1.0](#version-410---_2025-12-30_)
+- [Version 4.0.3](#version-403---_2025-11-26_)
+- [Version 4.0.2](#version-402---_2025-11-26_)
 - [Version 4.0.1](#version-401---_2025-10-27_)
 - [Version 4.0.0](#version-400---_2025-08-17_)
 
-### Version 4.1.0 - _2025-12_30_
+### [Version 4.1.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.1) - _2026-01-02_
+
+Refine the user interface, improve the responsive design for navigation components, and update project documentation and assets.
+
+#### Enhancements & UI Improvements
+- _Navigation Refinement:_ Updated `HeaderMenu` with improved breakpoints and layout adjustments to ensure 
+better responsiveness on extra-large screens.
+- _Header Simplification:_ Streamlined the `Header` structure by removing redundant components (like `HeaderTitle`) 
+and consolidating `HeaderMenu` into `HeaderContent` for better maintainability.
+- _Styling Updates:_ 
+  - Refactored SCSS for the header and footer to ensure perfect alignment across different viewports.
+  - Improved layout consistency in `index.html`.
+- _Maps Integration:_ Added support for unique Google Map IDs to allow for better management of map styles and features.
+
+#### Documentation & Assets
+- _README Updates:_ Refreshed project screenshots and updated links to reflect the latest UI changes.
+- _Legal & Metadata:_ Updated copyright years to 2025 and standardised British English in code annotations and TSDoc.
+- _Developer Experience:_ Expanded TypeDoc entry points and enhanced TSDoc documentation across multiple features 
+for better API clarity.
+
+#### Technical Maintenance
+- _Bug Fixes:_ Corrected date formatting inconsistencies in `CHANGELOG` and `RELEASE_NOTES`.
+- _Clean-up:_ Removed unused icon constants and simplified the overall component architecture.
+
+#### Changes by
+
+@tahoni
+
+### [Version 4.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.0) - _2025-12-30_
 
 Modernise the navigation experience, ensure the layouts are robust across various device sizes, 
 and leverage unique Google Map IDs for better management of map styles and features.
@@ -38,7 +67,7 @@ its SCSS into the global styles, preparing the site for enhanced image gallery f
 
 @tahoni
 
-### [Version 4.0.3](https://github.com/tahoni/template-react/releases/tag/version-4.0.3) - _2025-11_26_
+### [Version 4.0.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.0.3) - _2025-11-26_
 
 Fixed the display of images.
 
@@ -50,7 +79,7 @@ Fixed the display of images.
 
 @tahoni
 
-### [Version 4.0.2](https://github.com/tahoni/template-react/releases/tag/version-4.0.2) - _2025-11_26_
+### [Version 4.0.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.0.2) - _2025-11-26_
 
 Configured the resources to use a relative path using the `@` notation.
 Performed refactoring to align with industry standards.
@@ -79,7 +108,7 @@ Performed refactoring to align with industry standards.
 @tahoni
 @dependabot
 
-### [Version 4.0.1](https://github.com/tahoni/template-react/releases/tag/version-4.0.1) - _2025-10-27_
+### [Version 4.0.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.0.1) - _2025-10-27_
 
 Upgraded Bootstrap framework integration with Bootstrap Icons.
 
@@ -117,7 +146,7 @@ Upgraded Bootstrap framework integration with Bootstrap Icons.
 @tahoni
 @dependabot
 
-### [Version 4.0.0](https://github.com/tahoni/template-react/releases/tag/version-4.0.0) - _2025-08-17_
+### [Version 4.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.0.0) - _2025-08-17_
 
 Changed the stylesheets to conform to standards.
 
