@@ -5,8 +5,8 @@ import { menuItems } from "@helpers/menuHelpers";
 
 export const HeaderMenu = React.memo((): ReactElement => {
   return (
-    <Container>
-      <Navbar expand="md">
+    <Container fluid>
+      <Navbar expand="xl">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
