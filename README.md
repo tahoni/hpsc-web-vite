@@ -1,41 +1,32 @@
-# HPSC website
+# HPSC Website
+
+The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) web platform.
 
 ## Table of Contents
 
-- [Description](#description)
 - [Summary](#summary)
 - [Repository](#repository)
 - [Technology](#technology)
 - [Instructions](#instructions)
 - [Architecture](#architecture)
-- [Demo](#demo)
+- [User Interface](#user-interface)
 - [Screenshots](#screenshots)
 - [License](#license)
 - [Author](#author)
 
-## Description
-
-This repository contains the source code for the Hartbeespoortdam Practical
-Shooting Club (HPSC) website.
-
 ## Summary
 
-The [HPSC website](https://hpsc.co.za) uses modern web technologies
-to provide an informative and user-friendly platform for members and
-visitors.<br/>
+The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly platform for members and visitors.
+
 The primary technologies used in this project include TypeScript, SCSS, and MDX.
 
 ## Repository
 
-The repository for this project is located at
-[GitHub](https://github.com/tahoni/hpsc-web-vite).
+The repository for this project is located at [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
-Feature requests, suggestions for improvements and bugs can be
-logged using the
-project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
+Feature requests, suggestions for improvements and bugs can be logged using the project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
 
-An overview of the project can be found at
-[https://tahoni.info/projects/hpsc-web-vite](https://www.tahoni.info/projects/hpsc-web-vite).
+An overview of the project can be found at [https://tahoni.info/projects/hpsc-web-vite](https://www.tahoni.info/projects/hpsc-web-vite).
 
 ## Technology
 
@@ -44,7 +35,7 @@ template.
 
 It is written in TypeScript and uses both JSX and MDX components.
 
-Bootstrap and React Bootstrap are used for the UI/UX.<br/>
+Bootstrap and React Bootstrap are used for the UI/UX.
 Styling is done by SCSS stylesheets.
 
 React Router is used for page routing.
@@ -55,40 +46,37 @@ You can download Node.js from [here](https://nodejs.org/).
 
 Clone the project from [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
-Install the project using `npm install`.<br/>
+Install the project using `npm install`.
 
-Run it locally with `npm run dev`.<br/>
-It will load at http://localhost:5173/.<br/>
-This page will reload if you make edits.
+Run it locally with `npm run dev`.
 
-Build it for production with `npm run build` to the `dist` directory.<br/>
+It will load at http://localhost:5173/. This page will reload if you make edits.
+
+Build it for production with `npm run build` to the `dist` directory.
+
 The production build can be verified by running `npm run preview`.
 
 ### Generate a Pull Request Description
 
-To generate a Markdown PR description comparing the current branch to the main
-branch:
+To generate a Markdown PR description comparing the current branch to the main branch:
 
 - Run: `npm run pr:desc`
 - To compare to a different base (e.g. develop):
   `npm run pr:desc -- --base=develop`
 
-The script prints Markdown to stdout; you can copy it into your PR description
-or redirect it to a file:
+The script prints Markdown to stdout; you can copy it into your PR description or redirect it to a file:
 
 - `npm run pr:desc > target/pr-description.md`
 
 ### Generate Release Notes (this branch → main)
 
-To generate structured release notes comparing the current branch to the main
-branch:
+To generate structured release notes comparing the current branch to the main branch:
 
 - Run: `npm run release:notes`
 - To compare to a different base (e.g. develop):
   `npm run release:notes -- --base=develop`
 
-The script prints Markdown to stdout and also writes a file under `target/`
-named like:
+The script prints Markdown to stdout and also writes a file under `target/` named like:
 
 - `target/release-notes-<branch>-to-<base>.md`
 
@@ -96,16 +84,16 @@ You can paste the output into PRs or include it in RELEASE_NOTES.md as needed.
 
 ## Architecture
 
-A detailed explanation of the architecture can be found
-in the [`ARCHITECTURE.md`](./ARCHITECTURE.md) file.
+A detailed explanation of the architecture can be found in the [`ARCHITECTURE.md`](./ARCHITECTURE.md) file.
 
-## Demo
+## User Interface
 
-<!-- TODO: insert gif or link to demo -->
+A description of the user interface can be found in the [`UI.md`](./UI.md) file.
 
 ## Screenshots
+Home Page
 
-<!-- TODO: update screenshots -->
+![Home Page](./documentation/screenshots/HomePage.png) 
 
 ## License
 
