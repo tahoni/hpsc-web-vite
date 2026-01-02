@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { HeaderMenu } from "./HeaderMenu";
 import classes from "./Header.module.scss";
 
@@ -10,7 +10,7 @@ interface HeaderContentProps {
 export const HeaderContent = React.memo(
   (props: HeaderContentProps): ReactElement => {
     return (
-      <Container fluid className={classes.headerContent}>
+      <>
         <Row className={classes.headerItem}>
           <Col className={classes.headerText}>
             <h1>{props.title}</h1>
@@ -21,7 +21,7 @@ export const HeaderContent = React.memo(
             <HeaderMenu />
           </Col>
         </Row>
-      </Container>
+      </>
     );
   },
 );

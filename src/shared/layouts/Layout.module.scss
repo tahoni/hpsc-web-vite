@@ -53,7 +53,8 @@
 .headerSidebar,
 .footerSidebar {
   width: fit-content;
-  display: flex !important;
+  //display: flex !important;
+  display: flex;
   flex: initial;
 }
 
@@ -138,20 +139,32 @@
   padding: 0.75rem;
 }
 
-// Logo and heading alignment
-// The two logos surround the heading
+// Logo and heading alignment (header)
+// The two logos surround the heading and menu
 // With everything on one line
-.headerSidebar:first-child,
+.headerSidebar:first-child {
+  order: 1;
+}
+
+.headerSidebar:last-child {
+  order: 4;
+}
+
+.headerCenter {
+  order: 3;
+}
+
+// Logo and heading alignment (footer)
+// The two logos surround the map and contact details
+// With everything on one line
 .footerSidebar:first-child {
   order: 1;
 }
 
-.headerSidebar:last-child,
 .footerSidebar:last-child {
   order: 3;
 }
 
-.headerCenter,
 .footerCenter {
   order: 2;
 }
@@ -160,24 +173,43 @@
   .headerSidebar:first-child,
   .footerSidebar:first-child {
     width: 50%;
-    flex: none !important;
+    //flex: none !important;
   }
 
   .headerSidebar:last-child,
   .footerSidebar:last-child {
     width: 50%;
-    flex: none !important;
+    //flex: none !important;
   }
 
   .headerCenter,
   .footerCenter {
     width: 100%;
-    flex: none !important;
+    //flex: none !important;
   }
 
   // Logo and heading alignment
   // The two logos come after the heading
   // With the heading on it's own line
+  .headerSidebar:first-child {
+    order: 1;
+  }
+
+  .headerSidebar:last-child {
+    order: 2;
+  }
+
+  .headerCenter:first-child {
+    order: 3;
+  }
+
+  .headerCenter:last-child {
+    order: 4;
+  }
+
+  // Logo and heading alignment (footer)
+  // The two logos come after the footer content
+  // With the map and contact details all on their own lines
   .footerSidebar:first-child {
     order: 2;
   }
@@ -191,20 +223,21 @@
   }
 }
 
+/*
 @include bootstrap-grid.media-breakpoint-down(lg) {
   .headerSidebar:first-child {
     width: 50%;
-    flex: none !important;
+    //flex: none !important;
   }
 
   .headerSidebar:last-child {
     width: 50%;
-    flex: none !important;
+    //flex: none !important;
   }
 
   .headerCenter {
     width: 100%;
-    flex: none !important;
+    //flex: none !important;
   }
 
   // Logo and heading alignment
@@ -219,6 +252,32 @@
   }
 
   .headerCenter {
+    order: 2;
+  }
+
+  .headerCenter:last-child {
     order: 3;
   }
 }
+
+@include bootstrap-grid.media-breakpoint-down(xl) {
+  // Logo and heading alignment (header)
+  // The two logos surround the heading
+  // With the menu on it's own line
+  .headerSidebar:first-child {
+    order: 1;
+  }
+
+  .headerSidebar:last-child {
+    order: 3;
+  }
+
+  .headerCenter:first-child {
+    order: 2;
+  }
+
+  .headerCenter:last-child {
+    order: 4;
+  }
+}
+*/

@@ -91,6 +91,8 @@ A detailed explanation of the architecture can be found in the [`ARCHITECTURE.md
 A description of the user interface can be found in the [`UI.md`](./UI.md) file.
 
 ## Screenshots
+Home Page
+[![Home Paae](./documentation/screenshots/HomaPage.png)]] 
 
 <!-- TODO: update screenshots -->
 

@@ -1,18 +1,15 @@
 import React, { ReactElement } from "react";
 import { Col, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { HeaderContent } from "./HeaderContent";
-import {
-  clubLogo,
-  clubLogoAlt,
-  clubName,
-} from "@constants/about/clubConstants";
+import { clubLogo, clubLogoAlt, clubName } from "@constants/about/clubConstants";
 import {
   provincialAssociationAbbreviation,
   provincialAssociationLogo,
-  provincialAssociationWebsite,
+  provincialAssociationWebsite
 } from "@constants/about/associationConstants";
 import classes from "./Header.module.scss";
+import { HeaderTitle } from "@layouts/Header/HeaderTitle.tsx";
+import { HeaderMenu } from "@layouts/Header/HeaderMenu.tsx";
 
 export const Header = React.memo((): ReactElement => {
   return (
@@ -29,9 +26,10 @@ export const Header = React.memo((): ReactElement => {
             </Link>
           </Col>
         </div>
-        <Col className={classes.headerCenter}>
-          <HeaderContent title={clubName} />
-        </Col>
+        <div className={classes.headerCenter}>
+          <HeaderTitle title={clubName} />
+          <HeaderMenu />
+        </div>
         <div className={classes.headerSidebar}>
           <Col className={classes.logoContainer}>
             <a href={provincialAssociationWebsite} target="_blank">
