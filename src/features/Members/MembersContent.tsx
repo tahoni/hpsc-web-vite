@@ -1,5 +1,5 @@
 import React, { MemoExoticComponent, ReactElement } from "react";
-import ClubShirts from "./content/ClubShirts";
+import ClubShirts from "./content/2025/ClubShirts.tsx";
 import { ContentWithStories } from "@components/Content";
 
 /**

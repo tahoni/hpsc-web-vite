@@ -1,11 +1,11 @@
 import React, { CSSProperties, PropsWithChildren, ReactElement } from "react";
 import { Image } from "react-bootstrap";
 import { SimpleVenueMap } from "@components/Map";
-import { worldShootEvents } from "./WorldShootConstants";
-import classes from "./WorldShoot.module.scss";
 import { YouTubeVideo } from "@components/Video";
 import { VenueEvent } from "@models/venues/VenueEvent.ts";
 import { VenueType } from "@models/venues/VenueType.ts";
+import { worldShootEvents } from "./WorldShootConstants.tsx";
+import classes from "./WorldShoot.module.scss";
 
 interface WorldShootContentProps {
   year: number;
@@ -22,7 +22,7 @@ interface WorldShootContentProps {
  *
  * @type {React.MemoExoticComponent<() => ReactElement>}
  */
-const WorldShootContent = React.memo(
+const WorldShoot2025Content = React.memo(
   (props: PropsWithChildren<WorldShootContentProps>): ReactElement => {
     const worldShootEvent: VenueEvent | undefined = worldShootEvents.get(
       props.year,
@@ -61,6 +61,7 @@ const WorldShootContent = React.memo(
 
         <div className={classes.worldShootSummary}>{props.children}</div>
 
+        {/*
         <h6>Apparel</h6>
         <div className={classes.worldShootSummary}>
           <p>
@@ -70,6 +71,7 @@ const WorldShootContent = React.memo(
           </p>
         </div>
         <br />
+*/}
 
         <h6>
           {worldShootEvent.shootingRangeName} at{" "}
@@ -98,4 +100,4 @@ const WorldShootContent = React.memo(
   },
 );
 
-export default WorldShootContent;
+export default WorldShoot2025Content;

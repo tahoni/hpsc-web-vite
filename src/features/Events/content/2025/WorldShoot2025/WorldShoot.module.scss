@@ -31,3 +31,7 @@ $video-height: 20em;
 .worldShoot h6 {
   margin-bottom: 1.55em;
 }
+
+.worldShoot2025 {
+  @extend .worldShoot;
+}

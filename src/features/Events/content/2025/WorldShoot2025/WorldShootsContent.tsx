@@ -1,9 +1,6 @@
 import React, { ReactElement } from "react";
-import WorldShootContent from "./WorldShootContent";
-import {
-  worldShootComponents,
-  worldShootEventYears,
-} from "./WorldShootConstants";
+import { worldShootComponents, worldShootEventYears } from "./WorldShootConstants.tsx";
+import WorldShoot2025Content from "./WorldShoot2025Content.tsx";
 
 /**
  * `WorldShootsContent` is a React memoised functional component that renders a section containing a list of `WorldShootContent` components. Each `WorldShootContent` represents a year's world shooting event, dynamically created based on the `worldShootEventYears` array.
@@ -19,12 +16,12 @@ const WorldShootsContent = React.memo((): ReactElement => {
     <section>
       {worldShootEventYears.map((year: number, index: number) => {
         return (
-          <WorldShootContent
+          <WorldShoot2025Content
             year={year}
             key={"worldShoot_" + "_" + year + "_" + index}
           >
             {worldShootComponents.get(year)}
-          </WorldShootContent>
+          </WorldShoot2025Content>
         );
       })}
     </section>
