@@ -1,6 +1,8 @@
+import { JSX } from "react";
+import WorldShoot2025Component from "@features/Events/content/2025/WorldShoot2025/WorldShoot2025Component.tsx";
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
-import { ShootingRanges } from "@constants/about/venueConstants";
-import { VenueEvent } from "@models/venues/VenueEvent";
+import { ShootingRanges } from "@constants/about/venueConstants.ts";
+import { VenueEvent } from "@models/venues/VenueEvent.ts";
 
 /**
  * @packageDocumentation
@@ -20,6 +22,7 @@ import { VenueEvent } from "@models/venues/VenueEvent";
  */
 
 // Core
+const worldShoot2025Year = 2025;
 const worldShoot2025Description = "2025 IPSC Handgun World Shoot";
 
 // Images
@@ -36,6 +39,7 @@ export const worldShoot2025ApparelLink: string =
   "https://www.bosninja.co.za/product-category/ipsc-handgun-world-shoot-2025/";
 export const worldShoot2025ApparelDescription: string = `${worldShoot2025Description} Apparel @ BosNinja`;
 
+// Event
 export const worldShoot2025Event: VenueEvent = new VenueEvent({
   description: worldShoot2025Description,
   type: "Handgun",
@@ -56,3 +60,12 @@ export const worldShoot2025Event: VenueEvent = new VenueEvent({
   apparelLink: worldShoot2025ApparelLink,
   apparelDescription: worldShoot2025ApparelDescription,
 });
+
+// Summary
+export const worldShootEventYears: number[] = [worldShoot2025Year];
+export const worldShootEvents: Map<number, VenueEvent> = new Map([
+  [worldShoot2025Year, worldShoot2025Event],
+]);
+export const worldShootComponents: Map<number, JSX.Element> = new Map([
+  [worldShoot2025Year, <WorldShoot2025Component />],
+]);

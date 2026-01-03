@@ -1,6 +1,6 @@
 import React, { MemoExoticComponent, ReactElement } from "react";
 import { ContentWithStories } from "@components/Content";
-import WorldShootsContent from "./content/Worldshoots";
+import { WorldShootsContent } from "./content/2025";
 
 /**
  * EventsContent is a React functional component memoised using React.memo.

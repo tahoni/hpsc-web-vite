@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { Image } from "react-bootstrap";
-import { clubShirts2024Image } from "../MemberConstants";
+import { clubShirts2024Image } from "../../MemberConstants.tsx";
 
 /**
  * `ClubShirts` is a React functional component that renders an article element displaying
