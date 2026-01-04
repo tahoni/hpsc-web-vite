@@ -33,7 +33,7 @@ updated `@extend` rules to maintain visual consistency.
 - _Section Component_: Introduced a generic `Section` component in `src/shared/components/Section/` to handle 
 arrays of `ReactElement` with optional collapsed states.
 
-#### Cleanup & Maintenance
+#### Clean-up & Maintenance
 - _Import Fixes:_ Cleaned up relative imports and added missing `.tsx` extensions across several files.
 - _Version Bump:_ Incremented project version in `package.json` from `4.1.1` to `4.1.2`.
 - _MDX Updates:_ Simplified imports within `WorldShoot2025.mdx`.
