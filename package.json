@@ -44,8 +44,8 @@
     "react-email": "^4.0.7",
     "react-google-recaptcha-v3": "^1.11.0",
     "react-pdf": "^10.2.0",
-    "react-router": "^7.5.2",
-    "react-router-dom": "^7.5.2",
+    "react-router": "^7.12.0",
+    "react-router-dom": "^7.12.0",
     "sanitize-html": "^2.14.0",
     "sweetalert2": "^11.22.4"
   },
