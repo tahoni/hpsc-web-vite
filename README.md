@@ -1,112 +1,77 @@
-# HPSC Website
+# Hartbeespoortdam Practical Shooting Club (HPSC) Website
 
-The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) web platform.
+This is the official web application for the Hartbeespoortdam Practical Shooting Club (HPSC), built with
+React, Vite, and TypeScript.
 
-## Table of Contents
+## 🚀 Quick Start
 
-- [Summary](#summary)
-- [Repository](#repository)
-- [Technology](#technology)
-- [Instructions](#instructions)
-- [Architecture](#architecture)
-- [User Interface](#user-interface)
-- [Screenshots](#screenshots)
-- [License](#license)
-- [Author](#author)
+### Prerequisites
 
-## Summary
+- **Node.js**: Version 20 or higher (recommended)
+- **npm**: Version 10 or higher
 
-The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly platform for members and visitors.
+### Installation
 
-The primary technologies used in this project include TypeScript, SCSS, and MDX.
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Repository
+### Development
 
-The repository for this project is located at [GitHub](https://github.com/tahoni/hpsc-web-vite).
+Start the development server with Hot Module Replacement (HMR):
 
-Feature requests, suggestions for improvements and bugs can be logged using the project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
+```bash
+npm run dev
+```
 
-An overview of the project can be found at [https://tahoni.info/projects/hpsc-web-vite](https://www.tahoni.info/projects/hpsc-web-vite).
+```
 
-## Technology
+Build
+Create an optimized production build in the dist/ folder:``` bash
+npm run build
+```
 
-This is a React project bootstrapped using Vite with the TypeScript React
-template.
+The build process includes:
 
-It is written in TypeScript and uses both JSX and MDX components.
+- TypeScript type checking.
+- Asset optimization.
+- Sitemap generation.
+- Bundle visualization report (saved to `target/`).
 
-Bootstrap and React Bootstrap are used for the UI/UX.
-Styling is done by SCSS stylesheets.
+## 🛠 Tech Stack
 
-React Router is used for page routing.
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite 6](https://vitejs.dev/)
+- **Language**: [TypeScript 5](https://www.typescriptlang.org/)
+- **Routing**: [React Router 7](https://reactrouter.com/)
+- **UI Components**: [React Bootstrap 2](https://react-bootstrap.github.io/)
+- **Styling**: [Sass (SCSS)](https://sass-lang.com/)
+- **Content**: [MDX](https://mdxjs.com/) for rich text and documentation
+- **Testing**: [Vitest](https://vitest.dev/)
 
-## Instructions
+## 📁 Project Structure
 
-You can download Node.js from [here](https://nodejs.org/).
+- `src/features`: Domain-specific logic and page components.
+- `src/shared`: Reusable components, hooks, models, and utility functions.
+- `src/assets`: Global stylesheets, images, and fonts.
+- `builders`: Scripts for build-time operations (e.g., sitemap generation).
+- `public`: Static assets served directly (robots.txt, etc.).
 
-Clone the project from [GitHub](https://github.com/tahoni/hpsc-web-vite).
+For a detailed breakdown of the technical design, see [ARCHITECTURE.md](./ARCHITECTURE.md).
 
-Install the project using `npm install`.
+## 📜 Scripts
 
-Run it locally with `npm run dev`.
+- `npm run dev`: Start dev server.
+- `npm run build`: Build for production.
+- `npm run preview`: Preview the production build locally.
+- `npm run lint`: Run ESLint to check for code quality.
+- `npm run test`: Run the test suite using Vitest.
+- `npm run docs`: Generate TypeDoc documentation.
 
-It will load at http://localhost:5173/. This page will reload if you make edits.
+## 🤝 Contributing
 
-Build it for production with `npm run build` to the `dist` directory.
-
-The production build can be verified by running `npm run preview`.
-
-### Generate a Pull Request Description
-
-To generate a Markdown PR description comparing the current branch to the main branch:
-
-- Run: `npm run pr:desc`
-- To compare to a different base (e.g. develop):
-  `npm run pr:desc -- --base=develop`
-
-The script prints Markdown to stdout; you can copy it into your PR description or redirect it to a file:
-
-- `npm run pr:desc > target/pr-description.md`
-
-### Generate Release Notes (this branch → main)
-
-To generate structured release notes comparing the current branch to the main branch:
-
-- Run: `npm run release:notes`
-- To compare to a different base (e.g. develop):
-  `npm run release:notes -- --base=develop`
-
-The script prints Markdown to stdout and also writes a file under `target/` named like:
-
-- `target/release-notes-<branch>-to-<base>.md`
-
-You can paste the output into PRs or include it in RELEASE_NOTES.md as needed.
-
-## Architecture
-
-A detailed explanation of the architecture can be found in the [`ARCHITECTURE.md`](./ARCHITECTURE.md) file.
-
-## User Interface
-
-A description of the user interface can be found in the [`UI.md`](./UI.md) file.
-
-## Screenshots
-Home Page
-
-![Home Page](./documentation/screenshots/HomePage.png) 
-
-## License
-
-The copyright licence can be found in the [`LICENSE.md`](./LICENSE.md) file.
-
-## Author
-
-**Leoni Lubbinge**
-
-- [![Website Badge](https://custom-icon-badges.demolab.com/badge/https%3A%2F%2Ftahoni.info-blue?logo=file-code)](https://www.tahoni.info)
-- [![Email Badge](https://custom-icon-badges.demolab.com/badge/leonil%40tahoni.info-blue?logo=mail)](mailto:leonil@tahoni.info)
-
-
-- [![Gmail Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail)](mailto:tahoni@gmail.com)
-- [![GitHub Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=github)](https://github.com/tahoni)
-- [![LinkedIn Badge](https://custom-icon-badges.demolab.com/badge/Leoni_Lubbinge-blue.svg?logoSource=feather&logo=linkedin)](https://www.linkedin.com/in/leoni-lubbinge-06066b16/)
+1. Ensure your code follows the established ESLint and Prettier configurations.
+2. Add tests for any new utility or shared logic.
+3. Update `CHANGELOG.md` for any significant changes.
