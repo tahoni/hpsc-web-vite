@@ -49,6 +49,7 @@
 - [Version 3.0.0](#version-300---_2024-08-18_)
 
 ### [Version 3.6.9](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.9) - _2025-07-12_
+
 - Mitigate vulnerable dependencies.
 
 #### Dependencies
@@ -592,9 +593,9 @@ Move all common static content to global constants.
 
 - Move all common static content to global constants.
 - Use these constants in:
-  - the header.
-  - the footer.
-  - the About page.
+    - the header.
+    - the footer.
+    - the About page.
 
 #### Changes by
 

@@ -2,34 +2,30 @@
 
 ## Release Notes
 
-### Version 4.1.2 - _2026-01-03_
+### Version 4.1.3 - _2026-01-11_
 
-Refactored the `Events` and `Members` features to better organise content by year (specifically for 2025). 
-It introduces a cleaner directory structure, relocates "World Shoot 2025" and "Club Shirts" content into dedicated namespaces, 
-and fixes several import paths.
+Improved responsive behaviour and enhanced the development workflow with better security tooling.
 
-#### Refactoring & Organisation
-- _Namespace Restructuring:_ Moved `WorldShoot2025` related components, constants, and styles into a new nested directory 
-structure under `src/features/Events/content/2025/WorldShoot2025/`.
-- _Component Renaming:_ Updated `WorldShootContent` to `WorldShoot2025Content` to be more specific to the event year.
-- _Member Content Update:_ Relocated `ClubShirts` content to a `2025` subfolder within the `Members` feature.
-- _Index Exports:_ Added `index.ts` files to the `2025` content folders to simplify exports and improve modularity.
+#### Enhancements and Updates
 
-#### Styles & Assets
-- _Style Consolidation:_ Merged `WorldShoot2025.module.scss` into a shared `WorldShoot.module.scss` and 
-updated `@extend` rules to maintain visual consistency.
+- Updated the `HeaderMenu` component's breakpoint. The navigation bar now collapses at the `lg` size instead
+  of `xl`, providing a better experience on medium-sized screens.
+- Updated favicons in `index.html` and cleaned up metadata for a more polished look.
 
-#### New Components
-- _Section Component_: Introduced a generic `Section` component in `src/shared/components/Section/` to handle 
-arrays of `ReactElement` with optional collapsed states.
+#### General Technical Changes
 
-#### Clean-up & Maintenance
-- _Import Fixes:_ Cleaned up relative imports and added missing `.tsx` extensions across several files.
-- _Version Bump:_ Incremented project version in `package.json` from `4.1.1` to `4.1.2`.
-- _MDX Updates:_ Simplified imports within `WorldShoot2025.mdx`.
-- _Commented Code:_ Temporarily commented out the "Apparel" section in the World Shoot summary.
+- Added a CodeQL analysis workflow configuration to enhance automated security scanning and code quality
+  checks.
+- Updated `.gitignore` to exclude IDE-specific theme files (`_theme_*.xml`) and updated `.idea` code style
+  settings for team consistency.
+
+#### Dependencies
+
+- Upgraded `react-router-dom` to `7.12.0` to support React 18.
+- Updated several internal dev-dependencies including `@typescript-eslint`, `@rollup` packages, and
+  `eslint-utils` to their latest compatible versions.
 
 #### Changes by
 
-@imgbot
+@dependabot
 @tahoni

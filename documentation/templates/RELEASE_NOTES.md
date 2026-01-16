@@ -3,7 +3,7 @@
 ## Release Notes
 
 ### Version 0.0.0 - _20xx-xx-xx_
-A summary of the main changes.<br/>
+A summary of the main changes.
 
 #### Enhancements and Updates
 
