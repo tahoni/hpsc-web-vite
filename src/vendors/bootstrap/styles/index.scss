@@ -1,4 +1,5 @@
 /**
+ * @stylesheet index.scss Bootstrap Build Entry Point
  * Custom Bootstrap Build Entry Point.
  *
  * <p>
@@ -13,17 +14,24 @@
  * </p>
  */
 
-// Required Bootstrap functions
+/**
+ * @styles bootstrap-functions Bootstrap Functions
+ * Bootstrap functions required for variable manipulation.
+ */
 @import "bootstrap/scss/functions";
 
-// Default variable overrides
+/**
+ * @styles bootstrap-variables Bootstrap Variables
+ * Bootstrap variables and maps, including overrides.
+ */
 @import "custom";
 
-// Required Bootstrap components
+/**
+ * @styles bootstrap-components Bootstrap Components
+ * Bootstrap components, including mixins and root styles.
+ */
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/root";
-
-// Optional Bootstrap components

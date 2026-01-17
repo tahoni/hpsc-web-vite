@@ -1,4 +1,5 @@
 /**
+ * @stylesheet theme.scss Theme
  * Theme variables composed from colors and fonts.
  *
  * <p>
@@ -11,7 +12,10 @@
 @use "colors" as hpsc-colors;
 @use "fonts" as hpsc-fonts;
 
-/* Colours */
+/**
+ * @styles theme-colours Theme Colours
+ * Colours used in the application UI.
+ */
 $headings-font-family: hpsc-fonts.$noto-sans-display-font-family;
 $background-gradient: hpsc-colors.$blue-gradient-top;
 $btn-info-background-color: hpsc-colors.$club-primary-blue;

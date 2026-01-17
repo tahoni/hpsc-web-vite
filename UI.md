@@ -73,3 +73,9 @@ The UI is built using **Bootstrap 5**, ensuring that the website is fully respon
 -   **Icons**: [FontAwesome](https://fontawesome.com/) for social media and contact icons.
 -   **Content**: A mix of TSX components and **MDX** for content-heavy pages.
 -   **Routing**: [React Router](https://reactrouter.com/) for client-side navigation.
+
+## Screenshots
+Home Page
+
+![Home Page](./documentation/screenshots/HomePage.png) 
+

@@ -10,13 +10,13 @@ The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) 
 - [Instructions](#instructions)
 - [Architecture](#architecture)
 - [User Interface](#user-interface)
-- [Screenshots](#screenshots)
 - [License](#license)
 - [Author](#author)
 
 ## Summary
 
-The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly platform for members and visitors.
+The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly 
+platform for members and visitors.
 
 The primary technologies used in this project include TypeScript, SCSS, and MDX.
 
@@ -24,14 +24,14 @@ The primary technologies used in this project include TypeScript, SCSS, and MDX.
 
 The repository for this project is located at [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
-Feature requests, suggestions for improvements and bugs can be logged using the project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
+Feature requests, suggestions for improvements and bugs can be logged using the project's 
+[Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
 
 An overview of the project can be found at [https://tahoni.info/projects/hpsc-web-vite](https://www.tahoni.info/projects/hpsc-web-vite).
 
 ## Technology
 
-This is a React project bootstrapped using Vite with the TypeScript React
-template.
+This is a React project bootstrapped using Vite with the TypeScript React template.
 
 It is written in TypeScript and uses both JSX and MDX components.
 
@@ -56,32 +56,6 @@ Build it for production with `npm run build` to the `dist` directory.
 
 The production build can be verified by running `npm run preview`.
 
-### Generate a Pull Request Description
-
-To generate a Markdown PR description comparing the current branch to the main branch:
-
-- Run: `npm run pr:desc`
-- To compare to a different base (e.g. develop):
-  `npm run pr:desc -- --base=develop`
-
-The script prints Markdown to stdout; you can copy it into your PR description or redirect it to a file:
-
-- `npm run pr:desc > target/pr-description.md`
-
-### Generate Release Notes (this branch → main)
-
-To generate structured release notes comparing the current branch to the main branch:
-
-- Run: `npm run release:notes`
-- To compare to a different base (e.g. develop):
-  `npm run release:notes -- --base=develop`
-
-The script prints Markdown to stdout and also writes a file under `target/` named like:
-
-- `target/release-notes-<branch>-to-<base>.md`
-
-You can paste the output into PRs or include it in RELEASE_NOTES.md as needed.
-
 ## Architecture
 
 A detailed explanation of the architecture can be found in the [`ARCHITECTURE.md`](./ARCHITECTURE.md) file.
@@ -89,11 +63,6 @@ A detailed explanation of the architecture can be found in the [`ARCHITECTURE.md
 ## User Interface
 
 A description of the user interface can be found in the [`UI.md`](./UI.md) file.
-
-## Screenshots
-Home Page
-
-![Home Page](./documentation/screenshots/HomePage.png) 
 
 ## License
 

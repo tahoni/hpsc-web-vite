@@ -1,4 +1,5 @@
 /**
+ * @stylesheet icons.scss Icons
  * Icon color helpers for social platforms.
  *
  * <p>
@@ -8,7 +9,10 @@
  */
 @use "colors" as hpsc-colors;
 
-/* Social media icons */
+/**
+ * @styles icon-defaults.scss Icon Defaults
+ * Default styles for social media icons.
+ */
 .facebook-icon {
   color: hpsc-colors.$facebook-blue;
 }

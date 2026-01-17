@@ -1,4 +1,5 @@
 /**
+ * @stylesheet forms.scss Forms
  * Form styling customizations that extend Bootstrap's form components.
  *
  * <p>
@@ -11,7 +12,10 @@
 @use "bootstrap/scss/bootstrap" as *;
 @use "theme" as hpsc-theme;
 
-/* Default form controls */
+/**
+ * @styles form-defaults.scss Form Controls Defaults
+ * Default styles for form controls.
+ */
 .form-group-default {
   margin: 0.75em 0;
 }
@@ -20,6 +24,10 @@
   border-width: 0.125em;
 }
 
+/**
+ * @styles form-states.scss Form Controls States
+ * Styles for form controls in different states.
+ */
 .form-control-default:active, .form-control-default:focus,
 select.form-control-default:active, select.form-control-default:focus,
 textarea.form-control-default:active, textarea.form-control-default:focus {
@@ -37,12 +45,18 @@ textarea.form-control-default:focus, textarea.form-control-default:hover {
   border-width: 0.2em;
 }
 
-/* Required form controls */
+/**
+ * @styles form-required.scss Form Controls Required
+ * Styles for required form controls.
+ */
 .form-control-required {
   border-left-width: 0.25em;
 }
 
-/* Error form controls */
+/**
+ * @styles form-error.scss Form Controls Error
+ * Styles for error form controls.
+ */
 .form-control-error, select.form-control-error, textarea.form-control-error {
   background-color: $danger-bg-subtle;
   border-color: $danger;
@@ -61,7 +75,10 @@ textarea.form-control-error:focus, textarea.form-control-error:hover {
   box-shadow: 0 0 0 0.25em rgba($danger, $focus-ring-opacity) !important;
 }
 
-/* Button form controls */
+/**
+ * @styles form-button.scss Form Controls Button
+ * Styles for button form controls.
+ */
 .form-control-button-info, .form-control-button-info:active, .form-control-button-info:focus,
 .form-control-button-info:hover {
   color: $white !important;

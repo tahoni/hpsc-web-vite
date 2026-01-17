@@ -1,4 +1,5 @@
 /**
+ * @stylesheet fonts.scss Fonts
  * Font definitions for the application UI.
  *
  * <p>
@@ -14,14 +15,20 @@
 
 /* Noto - https://fonts.google.com/noto/fonts */
 
-/* Fonts */
+/**
+ * @styles noto-fonts Noto Sans
+ * Noto Sans font family definitions.
+ */
 $noto-sans-font: 'Noto Sans';
 $noto-sans-display-font: 'Noto Sans Display';
 $noto-serif-font: 'Noto Serif';
 $noto-serif-display-font: 'Noto Serif Display';
 $noto-sans-code-font: 'Noto Sans Mono';
 
-/* Font Families */
+/**
+ * @styles font-families Font Families
+ * Font family definitions for the application UI.
+ */
 $noto-sans-font-family: $noto-sans-font, Arial, Helvetica, sans-serif;
 $noto-sans-display-font-family: $noto-sans-display-font, $noto-sans-font, Arial, Helvetica, sans-serif;
 $noto-serif-font-family: $noto-serif-font, 'Times New Roman', Times, serif;
