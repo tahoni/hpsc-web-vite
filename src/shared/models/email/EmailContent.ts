@@ -12,7 +12,6 @@ export class EmailContent {
   /**
    * Creates a new EmailContent instance.
    *
-   * @constructor
    * @param message - Optional initialisation object.
    * @param message.name - Sender display name. Defaults to an empty string; value is sanitised and trimmed.
    * @param message.email - Sender email address. Defaults to an empty string; value is sanitised and trimmed.

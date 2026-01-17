@@ -16,7 +16,6 @@ export class Email {
   /**
    * Initialises a new Email instance with the provided data.
    *
-   * @constructor
    * @param email - Initialisation data for the email.
    *   - from: Sender's email address (required).
    *   - to: Primary recipient's email address (required).

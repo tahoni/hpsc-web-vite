@@ -27,7 +27,6 @@ export class PageMapping {
   /**
    * Creates a new PageMapping instance.
    *
-   * @constructor
    * @param mapping - Initialisation object for the page mapping.
    * @param mapping.name - The unique name of the page (required).
    * @param mapping.path - The route path associated with the page (required).

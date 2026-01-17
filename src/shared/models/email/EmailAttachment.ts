@@ -9,7 +9,6 @@ export class EmailAttachment {
   /**
    * Creates a new EmailAttachment instance.
    *
-   * @constructor
    * @param attachment - Initialisation object.
    * @param attachment.fileName - Attachment file name (required).
    * @param attachment.path - Filesystem path or URL to the attachment (required).

@@ -13,7 +13,6 @@ export class EmailMessage extends EmailContent {
   /**
    * Creates a new EmailMessage instance.
    *
-   * @constructor
    * @param email - Initialisation object.
    * @param email.name - Optional sender display name. Defaults to an empty string.
    * @param email.email - Optional sender email address. Defaults to an empty string.

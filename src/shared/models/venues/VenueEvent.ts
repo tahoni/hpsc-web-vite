@@ -49,7 +49,6 @@ export class VenueEvent {
   /**
    * Creates a new VenuesTypes instance.
    *
-   * @constructor
    * @param event - Initialization object describing the venue event.
    * @param event.description - Human-readable description of the event (required).
    * @param event.type - Event category or type identifier (required).
@@ -115,8 +114,8 @@ export class VenueEvent {
     this._isoDates =
       event.isoDates ??
       nonBreakingHyphens(this._isoStartDate) +
-        " - " +
-        nonBreakingHyphens(this._isoEndDate);
+      " - " +
+      nonBreakingHyphens(this._isoEndDate);
 
     // Images
     this._images = event.images;
@@ -144,18 +143,23 @@ export class VenueEvent {
   public get description(): string {
     return this._description;
   }
+
   public set description(value: string) {
     this._description = value;
   }
+
   public get type(): string {
     return this._type;
   }
+
   public set type(value: string) {
     this._type = value;
   }
+
   public get year(): number {
     return this._year;
   }
+
   public set year(value: number) {
     this._year = value;
   }
@@ -164,30 +168,39 @@ export class VenueEvent {
   public get town(): string | undefined {
     return this._town;
   }
+
   public set town(value: string | undefined) {
     this._town = value;
   }
+
   public get city(): string {
     return this._city;
   }
+
   public set city(value: string | undefined) {
     this._city = value ?? "";
   }
+
   public get province(): string | undefined {
     return this._province;
   }
+
   public set province(value: string | undefined) {
     this._province = value;
   }
+
   public get country(): string {
     return this._country;
   }
+
   public set country(value: string | undefined) {
     this._country = value ?? "";
   }
+
   public get location(): string {
     return this._location;
   }
+
   public set location(value: string | undefined) {
     this._location = value ?? this._city + ", " + this._country;
   }
@@ -196,6 +209,7 @@ export class VenueEvent {
   public get link(): string {
     return this._link;
   }
+
   public set link(value: string) {
     this._link = value;
   }
@@ -204,12 +218,15 @@ export class VenueEvent {
   public get longDates(): string {
     return this._longDates;
   }
+
   public set longDates(value: string) {
     this._longDates = value;
   }
+
   public get isoStartDate(): string {
     return this._isoStartDate;
   }
+
   public set isoStartDate(value: string | undefined) {
     this._isoStartDate = value ? nonBreakingHyphens(value) : "";
     this._isoDates =
@@ -217,9 +234,11 @@ export class VenueEvent {
       " - " +
       nonBreakingHyphens(this._isoEndDate);
   }
+
   public get isoEndDate(): string {
     return this._isoEndDate;
   }
+
   public set isoEndDate(value: string | undefined) {
     this._isoEndDate = value ? nonBreakingHyphens(value) : "";
     this._isoDates =
@@ -227,14 +246,16 @@ export class VenueEvent {
       " - " +
       nonBreakingHyphens(this._isoEndDate);
   }
+
   public get isoDates(): string {
     return this._isoDates;
   }
+
   public set isoDates(value: string | undefined) {
     this._isoDates = value
       ? nonBreakingHyphens(this._isoStartDate) +
-        " - " +
-        nonBreakingHyphens(this._isoEndDate)
+      " - " +
+      nonBreakingHyphens(this._isoEndDate)
       : "";
   }
 
@@ -242,12 +263,15 @@ export class VenueEvent {
   public get images(): ImageWithSourceAndDescription[] {
     return this._images;
   }
+
   public set images(value: ImageWithSourceAndDescription[]) {
     this._images = value;
   }
+
   public get imageWidth(): number {
     return this._imageWidth;
   }
+
   public set imageWidth(value: number) {
     this._imageWidth = value;
   }
@@ -256,24 +280,31 @@ export class VenueEvent {
   public get shootingRangeKey(): string {
     return this._shootingRangeKey;
   }
+
   public set shootingRangeKey(value: string) {
     this._shootingRangeKey = value;
   }
+
   public get shootingRange(): VenueType | undefined {
     return this._shootingRange;
   }
+
   public set shootingRange(value: VenueType | undefined) {
     this._shootingRange = value;
   }
+
   public get shootingRangeName(): string | undefined {
     return this._shootingRangeName;
   }
+
   public set shootingRangeName(value: string | undefined) {
     this._shootingRangeName = value;
   }
+
   public get shootingRangeLink(): string | undefined {
     return this._shootingRangeLink;
   }
+
   public set shootingRangeLink(value: string | undefined) {
     this._shootingRangeLink = value;
   }
@@ -282,12 +313,15 @@ export class VenueEvent {
   public get mapMode(): string | undefined {
     return this._mapMode;
   }
+
   public set mapMode(value: string | undefined) {
     this._mapMode = value;
   }
+
   public get mapZoom(): number | undefined {
     return this._mapZoom;
   }
+
   public set mapZoom(value: number | undefined) {
     this._mapZoom = value;
   }

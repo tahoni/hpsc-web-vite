@@ -35,7 +35,6 @@ export class SitemapMapping {
   /**
    * Creates a new SitemapMapping instance.
    *
-   * @constructor
    * @param mapping - Initialisation object for the sitemap entry.
    * @param mapping.url - The absolute or relative URL of the page (required).
    * @param mapping.changefreq - How frequently the URL is expected to change; defaults to SitemapChangeFrequency.Daily.
