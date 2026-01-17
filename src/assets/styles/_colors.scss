@@ -1,6 +1,7 @@
 /**
  * Club color system and theming variables.
- * 
+ *
+ * <p>
  * This stylesheet defines the color palette for the application, organized into:
  * 
  * - Club primary colors: The main brand colors.
@@ -11,6 +12,7 @@
  * 
  * Colors are defined both as CSS variables (in :root) for use in CSS and as SCSS 
  * variables ($name) for use in SCSS imports and functions.
+ * </p>
  */
 
 /* Imported from Coolors.co palette: https://coolors.co/ca9148-0a07fb-f5f4f4-000000-f4f421 */
@@ -24,7 +26,7 @@ $club-primary-butterscotch: #ba7645;
 $club-primary-blue: #0a07fbff;
 $club-primary-white-smoke: #f5f4f4ff;
 $club-primary-black: #000000ff;
-$club-primary-yellow: #f4f421ff;
+$club-primary-yellow: var(--club-primary-yellow);
 
 /* Club Shaded Colours */
 $club-butterscotch-5: #130c07;
