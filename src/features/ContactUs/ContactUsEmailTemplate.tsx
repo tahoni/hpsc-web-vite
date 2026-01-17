@@ -1,6 +1,6 @@
-import { EmailContent } from "@models/email/EmailContent";
+import { EmailContent } from "@/models/email/EmailContent";
 import { Heading, Html, Img, Section } from "@react-email/components";
-import { clubLogoAlt } from "@constants/about/clubConstants";
+import { clubLogoAlt } from "@/constants/about/clubConstants";
 import { ReactElement } from "react";
 
 /**

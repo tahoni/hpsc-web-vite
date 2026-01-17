@@ -1,5 +1,5 @@
 import { Navigate } from "react-router";
-import { PageAlias } from "@models/pages/PageAlias";
+import { PageAlias } from "@/models/pages/PageAlias.ts";
 import {
   aboutUs,
   events,
@@ -7,7 +7,7 @@ import {
   home,
   links,
   members,
-} from "@shared/routes/RouteAliases";
+} from "@shared/routes/RouteAliases.tsx";
 
 /**
  * @packageDocumentation

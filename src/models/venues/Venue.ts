@@ -1,4 +1,4 @@
-import { VenueMapLatLngType } from "@models/venues/VenueType";
+import { VenueMapLatLngType } from "@/models/venues/VenueType.ts";
 
 export class Venue {
   private _club: string;

@@ -9,9 +9,9 @@
  */
 
 // Name, description and abbreviation
-import { ShootingRanges, shootingRangeVenues } from "@constants/about/venueConstants";
-import { VenueType } from "@models/venues/VenueType";
-import { logoAlt } from "@constants/commonConstants"; // Summary
+import { ShootingRanges, shootingRangeVenues } from "@/constants/about/venueConstants.ts";
+import { VenueType } from "@/models/venues/VenueType.ts";
+import { logoAlt } from "@/constants/commonConstants.ts"; // Summary
 
 // Summary
 export const clubName: string = "Hartbeespoortdam Practical Shooting Club";

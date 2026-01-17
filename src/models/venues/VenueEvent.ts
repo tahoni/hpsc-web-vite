@@ -1,7 +1,7 @@
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import { nonBreakingHyphens } from "@/utils/htmlUtils.ts";
-import { shootingRangeVenues } from "@constants/about/venueConstants.ts";
-import { VenueType } from "./VenueType";
+import { shootingRangeVenues } from "@/constants/about/venueConstants.ts";
+import { VenueType } from "./VenueType.ts";
 
 /**
  * Represents an event taking place at a specific venue.

@@ -7,7 +7,7 @@
  * Contact Us, Events, and Venues. Other modules import these base mappings
  * to compose full route configurations and UI elements.
  */
-import { PageMapping } from "@models/pages/PageMapping.ts";
+import { PageMapping } from "@/models/pages/PageMapping.ts";
 
 /**
  * Represents the core route mapping for the Home page in the application.

@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { PageMapping } from "./PageMapping";
+import { PageMapping } from "./PageMapping.ts";
 
 /**
  * Represents a page alias which defines a specific path and its associated mapping

@@ -6,7 +6,7 @@
  */
 
 // Names and descriptions
-import { logoAlt } from "@constants/commonConstants";
+import { logoAlt } from "@/constants/commonConstants.ts";
 
 // Summary
 export const provincialAssociationName: string =

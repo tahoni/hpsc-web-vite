@@ -1,5 +1,5 @@
 import React from "react";
-import { PageMapping } from "@models/pages/PageMapping.ts";
+import { PageMapping } from "@/models/pages/PageMapping.ts";
 import { Page } from "@shared/pages";
 import HomePage from "@features/Home/HomePage.tsx";
 import {

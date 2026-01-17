@@ -1,5 +1,5 @@
-import { clubShootingRangeVenue } from "@constants/about/clubConstants";
-import { VenueType } from "@models/venues/VenueType";
+import { clubShootingRangeVenue } from "@/constants/about/clubConstants";
+import { VenueType } from "@/models/venues/VenueType";
 
 /**
  * Represents the venue type for the Eufees Shooting Range.

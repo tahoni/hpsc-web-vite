@@ -1,6 +1,6 @@
-import { sanitizeValue } from "@/utils/htmlUtils";
-import { EmailContent } from "./EmailContent";
-import { EmailAttachment } from "./EmailAttachment";
+import { sanitizeValue } from "@/utils/htmlUtils.ts";
+import { EmailContent } from "./EmailContent.ts";
+import { EmailAttachment } from "./EmailAttachment.ts";
 
 /**
  * Represents an email message, extending the base functionality of EmailContent.

@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
-import { Venue } from "@models/venues/Venue";
-import { shootingRangeVenues } from "@constants/about/venueConstants";
+import { Venue } from "@/models/venues/Venue";
+import { shootingRangeVenues } from "@/constants/about/venueConstants";
 
 /**
  * VenuesContent is a React functional component wrapped with React.memo for performance optimisation.

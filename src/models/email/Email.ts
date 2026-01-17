@@ -1,4 +1,4 @@
-import { EmailAttachment } from "./EmailAttachment";
+import { EmailAttachment } from "./EmailAttachment.ts";
 
 /**
  * Represents an email with properties such as sender, recipients, subject, message content,

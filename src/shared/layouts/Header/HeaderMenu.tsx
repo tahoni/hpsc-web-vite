@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { PageMapping } from "@models/pages/PageMapping";
-import { menuItems } from "@helpers/menuHelpers";
+import { PageMapping } from "@/models/pages/PageMapping";
+import { menuItems } from "@/helpers/menuHelpers";
 
 export const HeaderMenu = React.memo((): ReactElement => {
   return (

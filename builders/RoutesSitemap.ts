@@ -9,9 +9,9 @@
  */
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
-import { SitemapMapping } from "@models/sitemap/SitemapMappings";
+import { SitemapMapping } from "@/models/sitemap/SitemapMappings";
 import { coreRoutes } from "@shared/routes/BaseRoutes";
-import { baseUrl } from "@constants/commonConstants.ts";
+import { baseUrl } from "@/constants/commonConstants.ts";
 
 /**
  * Generates an XML sitemap containing URLs, priorities, and modification dates for specified routes.

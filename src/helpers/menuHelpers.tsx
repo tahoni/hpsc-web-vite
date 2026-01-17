@@ -4,8 +4,8 @@
  * Defines the structure and content of the main navigation menu items.
  */
 
-import { PageMapping } from "@models/pages/PageMapping";
-import { aboutUs, events, history, home, links, members } from "@shared/routes/RouteAliases";
+import { PageMapping } from "@/models/pages/PageMapping.ts";
+import { aboutUs, events, history, home, links, members } from "@shared/routes/RouteAliases.tsx";
 
 export const menuItems: PageMapping[] = [
   home,

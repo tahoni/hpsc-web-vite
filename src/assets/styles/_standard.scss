@@ -2,7 +2,6 @@
  * @stylesheet standard.scss Standard Stylesheet
  * Core stylesheet that defines standard styling for HPSC Web application.
  *
- * <p>
  * This stylesheet provides foundational styling for HTML elements, layout containers,
  * typography, form elements, buttons, and navigation components. It imports and applies
  * theme variables and form styling from separate SCSS modules.
@@ -10,7 +9,6 @@
  * The stylesheet maintains consistent visual appearance across the application by
  * extending base styles and applying theme-specific variables for colors, fonts,
  * and other visual properties.
- * </p>
  */
 @use "theme" as hpsc-theme;
 @use "forms" as hpsc-forms;
