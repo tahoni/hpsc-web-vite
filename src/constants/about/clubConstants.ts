@@ -8,7 +8,6 @@
  * @module
  */
 
-// Name, description and abbreviation
 import { ShootingRanges, shootingRangeVenues } from "@/constants/about/venueConstants.ts";
 import { VenueType } from "@/models/venues/VenueType.ts";
 import { logoAlt } from "@/constants/commonConstants.ts"; // Summary

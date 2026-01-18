@@ -6,12 +6,14 @@
  * images across the application and provide proper descriptions for accessibility purposes.
  *
  * @remarks
- * All layout images are stored in the /assets/images/layout/ directory and follow a consistent
- * naming convention. The transparent PNG format is used for elements that need to be overlaid
- * on different backgrounds.
+ * All layout images are stored in the /assets/images/layout/ directory, follow a consistent
+ * naming convention, and are referenced using relative paths. The transparent PNG format is used
+ * for elements that need to be overlaid on different backgrounds. When adding new images,
+ * follow the existing pattern to maintain consistency.
  *
  * @module
  */
+
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 
 export const leftShooterImage: string =

@@ -1,5 +1,6 @@
 /**
  * Constants and data related to shooting venues and ranges.
+ *
  * Contains enumerations and venue information including locations,
  * contact details, and geographic coordinates.
  *
@@ -7,6 +8,13 @@
  */
 import { Venue } from "@/models/venues/Venue.ts";
 
+/**
+ * Enumeration representing various shooting ranges.
+ *
+ * This enum provides a set of predefined constants corresponding to the names
+ * of shooting ranges. It can be used to reference specific ranges in a
+ * consistent and type-safe manner.
+ */
 export enum ShootingRanges {
   EUFEES = "EUFEES",
   MAGNUM = "MAGNUM",
@@ -14,6 +22,14 @@ export enum ShootingRanges {
   FRONTIER = "FRONTIER",
 }
 
+/**
+ * A map containing information about various shooting range venues.
+ *
+ * The key is a unique identifier for the shooting range, typically defined
+ * in the `ShootingRanges` enum.
+ * The value is an instance of the `Venue` class containing detailed information
+ * about the venue.
+ */
 export const shootingRangeVenues: Map<string, Venue> = new Map([
   [
     ShootingRanges.EUFEES,

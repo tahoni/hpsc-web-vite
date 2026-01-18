@@ -11,15 +11,6 @@
  * application's appearance, modifying these constants is preferable to hardcoding values
  * in individual components.
  *
- * @example
- * ```tsx
- * import { linkWithLogoIconDefaultHeight } from '@constants/content/ContentConstants';
- *
- * const LogoComponent = () => (
- *   <img src="logo.svg" height={linkWithLogoIconDefaultHeight} />
- * );
- * ```
- *
  * @module
  */
 

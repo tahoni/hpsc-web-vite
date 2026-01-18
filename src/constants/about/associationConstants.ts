@@ -1,11 +1,14 @@
 /**
- * Constants describing provincial, national, and international associations used across the app.
- * Include names, abbreviations, websites, logos, and alt-text.
+ * Constants describing provincial, national, and international associations used
+ * across the application.
+ *
+ * This module centralises association-related metadata such as the association name,
+ * abbreviation, websites, and logo paths with their alternative text descriptions.
+ * These values are used across the site for display and configuration.
  *
  * @module
  */
 
-// Names and descriptions
 import { logoAlt } from "@/constants/commonConstants.ts";
 
 // Summary
