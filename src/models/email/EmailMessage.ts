@@ -5,33 +5,51 @@ import { EmailAttachment } from "./EmailAttachment.ts";
 /**
  * Represents an email message, extending the base functionality of EmailContent.
  * Provides additional support for an email's message body and attachments.
+ *
+ * Properties:
+ * - `message`: Optional message body. The value is sanitised and trimmed.
+ * - `attachments`: Optional list of attachments.
+ * - `inlineAttachments`: Optional list of inline attachments.
  */
 export class EmailMessage extends EmailContent {
   private _message: string;
   private _attachments: EmailAttachment[] = [];
+  private _inlineAttachments: EmailAttachment[] = [];
 
   /**
    * Creates a new EmailMessage instance.
    *
-   * @param email - Initialisation object.
-   * @param email.name - Optional sender display name. Defaults to an empty string.
-   * @param email.email - Optional sender email address. Defaults to an empty string.
-   * @param email.subject - Optional message subject. Defaults to an empty string.
-   * @param email.content - Optional content/preview text. Defaults to an empty string.
-   * @param email.message - Optional message body. Leading/trailing whitespace is trimmed. Defaults to an empty string.
+   * @param message - Initialisation object for the email message.
+   * @param message.name - Optional sender display name.Defaults to an empty string.
+   *   the value is sanitised and trimmed.
+   * @param message.email - Optional sender email address.Defaults to an empty string.
+   *   the value is sanitised and trimmed.
+   * @param message.subject - Optional message subject.Defaults to an empty string.
+   *   the value is sanitised and trimmed.
+   * @param message.preview - Optional preview text.Defaults to an empty string.
+   *   the value is sanitised and trimmed.
+   * @param message.message - Optional message body. Defaults to an empty string.
+   *   the value is sanitised and trimmed.
    */
-  constructor(email: {
+  constructor(message: {
     name?: string;
     email?: string;
     subject?: string;
-    content?: string;
+    preview?: string;
     message?: string;
   }) {
-    super({ ...email });
-    this._message = (email.message ?? "").trim();
+    super({ ...message });
+    this._message = (sanitizeValue(message.message) ?? "").trim();
     this._attachments = [];
+    this._inlineAttachments = [];
   }
 
+  /**
+   * Checks if the necessary properties: name, email, subject, preview, and message
+   * are valid and non-empty.
+   *
+   * @return Returns true if all required properties are non-empty, otherwise false.
+   */
   override isValid(): boolean {
     return super.isValid() ? this._message !== "" : false;
   }
@@ -50,5 +68,13 @@ export class EmailMessage extends EmailContent {
 
   set attachments(value: EmailAttachment[]) {
     this._attachments = value;
+  }
+
+  get inlineAttachments(): EmailAttachment[] {
+    return this._inlineAttachments;
+  }
+
+  set inlineAttachments(value: EmailAttachment[]) {
+    this._inlineAttachments = value;
   }
 }

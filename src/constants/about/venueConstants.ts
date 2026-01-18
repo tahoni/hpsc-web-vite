@@ -18,6 +18,7 @@ export const shootingRangeVenues: Map<string, Venue> = new Map([
   [
     ShootingRanges.EUFEES,
     new Venue({
+      key: "EUFEES",
       club: "Pretoria Military Practical Shooting Club",
       name: "Eeufees Range",
       website: "https://www.pmpsc.co.za/",
@@ -32,6 +33,7 @@ export const shootingRangeVenues: Map<string, Venue> = new Map([
   [
     ShootingRanges.MAGNUM,
     new Venue({
+      key: "MAGNUM",
       club: "Magnum United Shooting Club",
       name: "Magnum United Shooting Range",
       website: "https://www.magnumunited.com/",
@@ -45,6 +47,7 @@ export const shootingRangeVenues: Map<string, Venue> = new Map([
   [
     ShootingRanges.VEKTOR,
     new Venue({
+      key: "VEKTOR",
       club: "Vektor Shooting Club",
       name: "Vektor Shooting Range",
       website: "https://www.vektor.co.za/",
@@ -58,6 +61,7 @@ export const shootingRangeVenues: Map<string, Venue> = new Map([
   [
     ShootingRanges.FRONTIER,
     new Venue({
+      key: "FRONTIER",
       club: "Frontier Shooting Range",
       name: "Frontier Shooting Range",
       website: "https://frontierguns.co.za/",

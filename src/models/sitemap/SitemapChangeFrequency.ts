@@ -5,6 +5,7 @@
  * Each value specifies a time interval indicating how frequently the resource changes,
  * helping search engines determine how often to crawl the resource.
  *
+ * Values:
  * - `Always`: The resource changes each time it is accessed.
  * - `Hourly`: The resource changes every hour.
  * - `Daily`: The resource changes every day.

@@ -5,6 +5,31 @@ import { VenueType } from "./VenueType.ts";
 
 /**
  * Represents an event taking place at a specific venue.
+ *
+ * Properties:
+ * - `description`: A description of the event.
+ * - `type`: The type of the event (e.g. handgun).
+ * - `year`: The year the event takes place.
+ * - `town`: The town where the event will take place.
+ * - `city`: The city where the event will take place.
+ * - `province`: The province where the event will take place.
+ * - `country`: The country where the event will take place.
+ * - `location`: A formatted location description.
+ * - `link`: The link to the event website.
+ * - `longDates`: Human-friendly date range string (e.g. “12–14 Aug 2025”).
+ * - `isoStartDate`: Optional ISO 8601 start date (e.g. "2025-08-12").
+ * - `isoEndDate`: Optional ISO 8601 end date (e.g. "2025-08-14").
+ * - `isoDates`: Optional combined ISO date range string.
+ * - `images`: A list of images associated with the event, including their sources and descriptions.
+ * - `imageWidth`: The width of the associated images.
+ * - `shootingRangeKey`: A unique key identifying the shooting range associated with the event.
+ * - `shootingRange`: The shooting range details.
+ * - `shootingRangeName`: The name of the shooting range.
+ * - `shootingRangeLink`: A link to the shooting range website.
+ * - `mapMode`: The mode of the map used to display the shooting range (e.g. "satellite").
+ * - `mapZoom`: The zoom level for the map used to display the shooting range.
+ * - `apparelLink`: A link to event-related apparel.
+ * - `apparelDescription`: A description of the event-related apparel.
  */
 export class VenueEvent {
   // Core
@@ -47,25 +72,43 @@ export class VenueEvent {
   private _apparelDescription: string | undefined;
 
   /**
-   * Creates a new VenuesTypes instance.
+   * Constructs a new VenueEvent instance with the provided details.
    *
-   * @param event - Initialization object describing the venue event.
-   * @param event.description - Human-readable description of the event (required).
-   * @param event.type - Event category or type identifier (required).
-   * @param event.year - Calendar year the event takes place (required).
-   * @param event.town - Town or locality of the event (required).
-   * @param event.city - Optional city where the event occurs.
-   * @param event.province - Optional province/state of the event location.
-   * @param event.country - Optional country of the event location.
-   * @param event.location - Optional specific location or venue name/address.
-   * @param event.link - Canonical link to the event’s website or details page (required).
-   * @param event.longDates - Human-friendly date range string (e.g. “12–14 Aug 2025”) (required).
-   * @param event.isoStartDate - Optional ISO 8601 start date (e.g. "2025-08-12").
-   * @param event.isoEndDate - Optional ISO 8601 end date (e.g. "2025-08-14").
-   * @param event.isoDates - Optional combined ISO date range string.
-   * @param event.images - Collection of event images with metadata (required).
-   * @param event.imageWidth - Display width to use for images, in pixels (required).
-   * @param event.shootingRangeKey - Identifier used to look up the associated shooting range (required).
+   * @param event - The initialisation object for the event.
+   * @param event.description - A description of the event.
+   * @param event.type - The type of the event (e.g. handgun).
+   * @param event.year - The year the event takes place.
+   * @param event.town - The town where the event will take place.
+   * @param event.city - The city where the event will take place. Defaults to an empty string
+   *   if not provided.
+   * @param event.province - The province where the event will take place.
+   * @param event.country - The country where the event will take place. Defaults to an empty string
+   *   if not provided.
+   * @param event.location - A formatted location description. Defaults to a combination
+   *   of `city` and `country` if not provided.
+   * @param event.link - The link to the event website.
+   * @param event.longDates - Human-friendly date range string (e.g. “12–14 Aug 2025”).
+   * @param event.isoStartDate - Optional ISO 8601 start date (e.g. "2025-08-12"). Defaults
+   *   to an empty string if not provided.
+   * @param event.isoEndDate - Optional ISO 8601 end date (e.g. "2025-08-14"). Defaults
+   *   to an empty string if not provided.
+   * @param event.isoDates - Optional combined ISO date range string. Defaults to
+   *   a combination of `isoStartDate` and `isoEndDate` if not provided.
+   * @param event.images - A list of images associated with the event, including their
+   *   sources and descriptions.
+   * @param event.imageWidth - The width of the associated images.
+   * @param event.shootingRangeKey - A unique key identifying the shooting range associated
+   *   with the event.
+   * @param event.shootingRange - The shooting range details. Defaults to a pre-configured range
+   *   based on the `shootingRangeKey` if not provided.
+   * @param event.shootingRangeName - The name of the shooting range. Defaults to the value
+   *   in `shootingRangeVenues` or an empty string if not available.
+   * @param event.shootingRangeLink - A link to the shooting range website. Defaults to the value
+   *   in `shootingRangeVenues` or an empty string if not available.
+   * @param event.mapMode - The mode of the map used to display the shooting range (e.g. "satellite").
+   * @param event.mapZoom - The zoom level for the map used to display the shooting range.
+   * @param event.apparelLink - A link to event-related apparel.
+   * @param event.apparelDescription - A description of the event-related apparel.
    */
   constructor(event: {
     description: string;
@@ -114,8 +157,8 @@ export class VenueEvent {
     this._isoDates =
       event.isoDates ??
       nonBreakingHyphens(this._isoStartDate) +
-      " - " +
-      nonBreakingHyphens(this._isoEndDate);
+        " - " +
+        nonBreakingHyphens(this._isoEndDate);
 
     // Images
     this._images = event.images;
@@ -254,8 +297,8 @@ export class VenueEvent {
   public set isoDates(value: string | undefined) {
     this._isoDates = value
       ? nonBreakingHyphens(this._isoStartDate) +
-      " - " +
-      nonBreakingHyphens(this._isoEndDate)
+        " - " +
+        nonBreakingHyphens(this._isoEndDate)
       : "";
   }
 

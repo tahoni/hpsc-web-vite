@@ -10,11 +10,12 @@
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
 import { SitemapMapping } from "@/models/sitemap/SitemapMappings";
-import { coreRoutes } from "@shared/routes/BaseRoutes";
 import { baseUrl } from "@/constants/commonConstants.ts";
+import { coreRoutes } from "@shared/routes/BaseRoutes";
 
 /**
- * Generates an XML sitemap containing URLs, priorities, and modification dates for specified routes.
+ * Generates an XML sitemap containing URLs, priorities, and modification dates
+ * for specified routes.
  *
  * This function creates a sitemap by mapping over a collection of core route objects,
  * transforming each route into a SitemapMapping containing relevant metadata such
@@ -24,9 +25,10 @@ import { baseUrl } from "@/constants/commonConstants.ts";
  * The method uses a SitemapStream to construct the sitemap and returns a promise
  * that resolves to the generated XML string when the stream completes.
  *
- * @returns {Promise<string>} A promise that resolves to the XML string representation of the sitemap.
+ * @returns {Promise<string>} A promise that resolves to the XML string representation
+ * of the sitemap.
  */
-export const generateRoutesSitemap = async () => {
+export const generateRoutesSitemap = async (): Promise<string> => {
   // An array with your links
   const links: SitemapMapping[] = coreRoutes.map((route) => {
     const priority: number = route.name === "Home" ? 1.0 : 0.5;
@@ -48,6 +50,6 @@ export const generateRoutesSitemap = async () => {
   return data.toString();
 };
 
-generateRoutesSitemap().then((xml) => {
+generateRoutesSitemap().then((xml: string) => {
   console.log(xml);
 });

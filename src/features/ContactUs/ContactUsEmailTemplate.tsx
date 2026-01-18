@@ -90,7 +90,7 @@ const ContactUsEmailTemplate = (
         <Heading as={"h3"}>Subject</Heading>
         {props.emailMessage.subject}
         <Heading as={"h3"}>Content</Heading>
-        {props.emailMessage.content}
+        {props.emailMessage.preview}
       </Section>
       <br />
       <br />

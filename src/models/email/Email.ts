@@ -3,6 +3,16 @@ import { EmailAttachment } from "./EmailAttachment.ts";
 /**
  * Represents an email with properties such as sender, recipients, subject, message content,
  * and optional attachments.
+ *
+ * Properties:
+ * - `from`: Sender's email address.
+ * - `to`: Primary recipient's email address.
+ * - `cc`: Optional list of CC recipient addresses.
+ * - `subject`: Email subject.
+ * - `message`: Email body content.
+ * - `messageType`: Content type (e.g. "html" or "text").
+ * - `attachments`: Optional list of attachments.
+ * - `inlineAttachments`: Optional list of inline attachments.
  */
 export class Email {
   private _from: string;
@@ -12,20 +22,22 @@ export class Email {
   private _message: string;
   private _messageType: string;
   private _attachments: EmailAttachment[];
+  private _inlineAttachments: EmailAttachment[];
 
   /**
-   * Initialises a new Email instance with the provided data.
+   * Creates a new Email instance with the specified details
    *
-   * @param email - Initialisation data for the email.
-   *   - from: Sender's email address (required).
-   *   - to: Primary recipient's email address (required).
-   *   - cc: Optional list of CC recipient addresses.
-   *   - subject: Email subject. Defaults to an empty string.
-   *   - message: Email body content. Defaults to an empty string.
-   *   - messageType: Content type (e.g, "html" or "text"). Defaults to "html".
-   *   - attachments: Optional list of attachments. Defaults to an empty array.
+   * @param mail - Initialisation object for the email.
+   * @param mail.from - Sender's email address.
+   * @param mail.to - Primary recipient's email address.
+   * @param mail.cc - Optional list of CC recipient addresses.
+   * @param mail.subject - Email subject. Defaults to an empty string.
+   * @param mail.message - Email body content. Defaults to an empty string.
+   * @param mail.messageType - Content type (e.g. "html" or "text"). Defaults to "html".
+   * @param mail.attachments - Optional list of attachments. Defaults to an empty array.
+   * @param mail.inlineAttachments - Optional list of inline attachments. Defaults to an empty array.
    */
-  constructor(email: {
+  constructor(mail: {
     from: string;
     to: string;
     cc?: string[];
@@ -33,14 +45,16 @@ export class Email {
     message?: string;
     messageType?: string;
     attachments?: EmailAttachment[];
+    inlineAttachments?: EmailAttachment[];
   }) {
-    this._from = email.from;
-    this._to = email.to;
-    this._cc = email.cc;
-    this._subject = email.subject ?? "";
-    this._message = email.message ?? "";
-    this._messageType = email.messageType ?? "html";
-    this._attachments = email.attachments ?? [];
+    this._from = mail.from;
+    this._to = mail.to;
+    this._cc = mail.cc;
+    this._subject = mail.subject ?? "";
+    this._message = mail.message ?? "";
+    this._messageType = mail.messageType ?? "html";
+    this._attachments = mail.attachments ?? [];
+    this._inlineAttachments = mail.inlineAttachments ?? [];
   }
 
   get from(): string {
@@ -97,5 +111,13 @@ export class Email {
 
   set attachments(value: EmailAttachment[]) {
     this._attachments = value;
+  }
+
+  get inlineAttachments(): EmailAttachment[] {
+    return this._inlineAttachments;
+  }
+
+  set inlineAttachments(value: EmailAttachment[]) {
+    this._inlineAttachments = value;
   }
 }

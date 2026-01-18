@@ -12,7 +12,7 @@ import {
   contactUsJsonFields,
   contactUsJsonSchema,
   contactUsJsonWidgets,
-  contactUsUiSchema,
+  contactUsUiSchema
 } from "./ContactUsSchema";
 import { SanitizedBaseInputTemplate } from "@components/Text";
 import ContactUsEmailTemplate from "./ContactUsEmailTemplate";
@@ -193,7 +193,7 @@ const ContactUsForm: React.MemoExoticComponent<() => ReactElement> = React.memo(
           name: emailContent.name,
           subject: emailContent.subject,
           email: emailContent.email,
-          content: emailContent.content,
+          preview: emailContent.preview,
           message: htmlMessage,
         });
         emailMessage.attachments = [
