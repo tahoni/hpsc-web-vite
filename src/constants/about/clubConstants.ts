@@ -8,9 +8,12 @@
  * @module
  */
 
-import { ShootingRanges, shootingRangeVenues } from "@/constants/about/venueConstants.ts";
+import {
+  ShootingRanges,
+  shootingRangeVenues,
+} from "@/constants/about/venueConstants.ts";
 import { VenueType } from "@/models/venues/VenueType.ts";
-import { logoAlt } from "@/constants/commonConstants.ts"; // Summary
+import { logoAlt } from "@/constants/commonConstants.ts";
 
 // Summary
 export const clubName: string = "Hartbeespoortdam Practical Shooting Club";

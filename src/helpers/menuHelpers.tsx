@@ -1,10 +1,12 @@
 /**
  * Helper functions and constants for application navigation menus.
  * Defines the structure and content of the main navigation menu items.
+ *
+ * @module
  */
 
-import { PageMapping } from "@/models/pages/PageMapping.ts";
-import { aboutUs, events, history, home, links, members } from "@shared/routes/RouteAliases.tsx";
+import {PageMapping} from "@/models/pages/PageMapping.ts";
+import {aboutUs, events, history, home, links, members} from "@shared/routes/RouteAliases.tsx";
 
 /**
  * Represents an array of page mappings used to define navigation menu items.

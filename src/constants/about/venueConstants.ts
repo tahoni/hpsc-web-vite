@@ -6,6 +6,7 @@
  *
  * @module
  */
+
 import { Venue } from "@/models/venues/Venue.ts";
 
 /**

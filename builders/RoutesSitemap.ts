@@ -7,6 +7,7 @@
  *
  * @module
  */
+
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
 import { SitemapMapping } from "@/models/sitemap/SitemapMappings";
@@ -25,8 +26,7 @@ import { coreRoutes } from "@shared/routes/BaseRoutes";
  * The method uses a SitemapStream to construct the sitemap and returns a promise
  * that resolves to the generated XML string when the stream completes.
  *
- * @returns {Promise<string>} A promise that resolves to the XML string representation
- * of the sitemap.
+ * @returns A promise that resolves to the XML string representation of the sitemap.
  */
 export const generateRoutesSitemap = async (): Promise<string> => {
   // An array with your links
