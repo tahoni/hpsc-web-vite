@@ -1,77 +1,81 @@
-# Hartbeespoortdam Practical Shooting Club (HPSC) Website
+# HPSC Website
 
-This is the official web application for the Hartbeespoortdam Practical Shooting Club (HPSC), built with
-React, Vite, and TypeScript.
+The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) web platform.
 
-## 🚀 Quick Start
+## Table of Contents
 
-### Prerequisites
+- [Summary](#summary)
+- [Repository](#repository)
+- [Technology](#technology)
+- [Instructions](#instructions)
+- [Architecture](#architecture)
+- [User Interface](#user-interface)
+- [License](#license)
+- [Author](#author)
 
-- **Node.js**: Version 20 or higher (recommended)
-- **npm**: Version 10 or higher
+## Summary
 
-### Installation
+The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly 
+platform for members and visitors.
 
-1. Clone the repository.
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+The primary technologies used in this project include TypeScript, SCSS, and MDX.
 
-### Development
+## Repository
 
-Start the development server with Hot Module Replacement (HMR):
+The repository for this project is located at [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
-```bash
-npm run dev
-```
+Feature requests, suggestions for improvements and bugs can be logged using the project's 
+[Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
 
-```
+An overview of the project can be found at [https://tahoni.info/projects/hpsc-web-vite](https://www.tahoni.info/projects/hpsc-web-vite).
 
-Build
-Create an optimized production build in the dist/ folder:``` bash
-npm run build
-```
+## Technology
 
-The build process includes:
+This is a React project bootstrapped using Vite with the TypeScript React template.
 
-- TypeScript type checking.
-- Asset optimization.
-- Sitemap generation.
-- Bundle visualization report (saved to `target/`).
+It is written in TypeScript and uses both JSX and MDX components.
 
-## 🛠 Tech Stack
+Bootstrap and React Bootstrap are used for the UI/UX.
+Styling is done by SCSS stylesheets.
 
-- **Framework**: [React 19](https://react.dev/)
-- **Build Tool**: [Vite 6](https://vitejs.dev/)
-- **Language**: [TypeScript 5](https://www.typescriptlang.org/)
-- **Routing**: [React Router 7](https://reactrouter.com/)
-- **UI Components**: [React Bootstrap 2](https://react-bootstrap.github.io/)
-- **Styling**: [Sass (SCSS)](https://sass-lang.com/)
-- **Content**: [MDX](https://mdxjs.com/) for rich text and documentation
-- **Testing**: [Vitest](https://vitest.dev/)
+React Router is used for page routing.
 
-## 📁 Project Structure
+## Instructions
 
-- `src/features`: Domain-specific logic and page components.
-- `src/shared`: Reusable components, hooks, models, and utility functions.
-- `src/assets`: Global stylesheets, images, and fonts.
-- `builders`: Scripts for build-time operations (e.g., sitemap generation).
-- `public`: Static assets served directly (robots.txt, etc.).
+You can download Node.js from [here](https://nodejs.org/).
 
-For a detailed breakdown of the technical design, see [ARCHITECTURE.md](./ARCHITECTURE.md).
+Clone the project from [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
-## 📜 Scripts
+Install the project using `npm install`.
 
-- `npm run dev`: Start dev server.
-- `npm run build`: Build for production.
-- `npm run preview`: Preview the production build locally.
-- `npm run lint`: Run ESLint to check for code quality.
-- `npm run test`: Run the test suite using Vitest.
-- `npm run docs`: Generate TypeDoc documentation.
+Run it locally with `npm run dev`.
 
-## 🤝 Contributing
+It will load at http://localhost:5173/. This page will reload if you make edits.
 
-1. Ensure your code follows the established ESLint and Prettier configurations.
-2. Add tests for any new utility or shared logic.
-3. Update `CHANGELOG.md` for any significant changes.
+Build it for production with `npm run build` to the `dist` directory.
+
+The production build can be verified by running `npm run preview`.
+
+## Architecture
+
+A detailed explanation of the architecture can be found in the [`ARCHITECTURE.md`](./ARCHITECTURE.md) file.
+
+## User Interface
+
+A description of the user interface can be found in the [`UI.md`](./UI.md) file.
+
+## License
+
+The copyright licence can be found in the [`LICENSE.md`](./LICENSE.md) file.
+
+## Author
+
+**Leoni Lubbinge**
+
+- [![Website Badge](https://custom-icon-badges.demolab.com/badge/https%3A%2F%2Ftahoni.info-blue?logo=file-code)](https://www.tahoni.info)
+- [![Email Badge](https://custom-icon-badges.demolab.com/badge/leonil%40tahoni.info-blue?logo=mail)](mailto:leonil@tahoni.info)
+
+
+- [![Gmail Badge](https://img.shields.io/badge/tahoni%40gmail.com-blue?logo=gmail)](mailto:tahoni@gmail.com)
+- [![GitHub Badge](https://img.shields.io/badge/Leoni_Lubbinge-blue?logo=github)](https://github.com/tahoni)
+- [![LinkedIn Badge](https://custom-icon-badges.demolab.com/badge/Leoni_Lubbinge-blue.svg?logoSource=feather&logo=linkedin)](https://www.linkedin.com/in/leoni-lubbinge-06066b16/)
