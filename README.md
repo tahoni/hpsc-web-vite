@@ -1,33 +1,34 @@
 # HPSC Website
 
-The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) web platform.
+The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) website.
 
 ## Table of Contents
 
-- [Summary](#summary)
+- [Introduction](#introduction)
 - [Repository](#repository)
 - [Technology](#technology)
 - [Instructions](#instructions)
+    - [Install the Project](#install-the-project)
+    - [Available Scripts](#available-scripts)
+    - [Environment Variables](#environment-variables)
 - [Architecture](#architecture)
 - [User Interface](#user-interface)
 - [License](#license)
 - [Author](#author)
 
-## Summary
+## Introduction
 
-The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly 
-platform for members and visitors.
+The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and
+user-friendly platform for members and visitors.
 
-The primary technologies used in this project include TypeScript, SCSS, and MDX.
+The primary technologies used in this project include TypeScript, SCSS and MDX.
 
 ## Repository
 
 The repository for this project is located at [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
-Feature requests, suggestions for improvements and bugs can be logged using the project's 
+Feature requests, suggestions for improvements and bugs can be logged using the project's
 [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
-
-An overview of the project can be found at [https://tahoni.info/projects/hpsc-web-vite](https://www.tahoni.info/projects/hpsc-web-vite).
 
 ## Technology
 
@@ -46,15 +47,57 @@ You can download Node.js from [here](https://nodejs.org/).
 
 Clone the project from [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
+### Install the project
+
 Install the project using `npm install`.
 
 Run it locally with `npm run dev`.
 
-It will load at http://localhost:5173/. This page will reload if you make edits.
+It will load at http://localhost:5173/.
+This page will reload if you make edits.
 
 Build it for production with `npm run build` to the `dist` directory.
 
 The production build can be verified by running `npm run preview`.
+
+### Available Scripts
+
+The following commands are available in this project.
+
+#### `npm install`
+
+This installs the dependencies.
+
+#### `npm run dev`
+
+This runs the app in development mode.
+The page will reload if you make edits.
+
+#### `npm run build`
+
+This builds the app for production to the `dist` directory.
+Your app is ready to be deployed!
+
+#### `npm run preview`
+
+This previews the app locally in the `dist` directory.
+Use this to check if the production build looks OK in your local environment.
+
+#### `npm run lint`
+
+Runs ESLint to check for code quality issues.
+
+#### `npm run docs`
+
+Generates technical documentation using TypeDoc to the `tsdocs` directory.
+
+#### Environment Variables
+
+A npm read key to @tahoni on GitHub needs to be set in the ````GITHUB_TOKEN````
+environment variable, to load the ````tahoni-lib-react```` npm package.
+
+The Google Maps API key from Google Cloud Services needs to be set in the ````GOOGLE_API_KEY````
+environment variable, otherwise, the map will not be available.
 
 ## Architecture
 
