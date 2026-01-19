@@ -1,5 +1,5 @@
 import React, { CSSProperties, PropsWithChildren, ReactElement } from "react";
-import { VenueMapLatLngType } from "@/models/venues/VenueType";
+import { VenueMapLatLngType } from "@models/venues/VenueType";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import { googleMapApiKey, googleMapDefaultTypeId, googleMapDefaultZoom } from "./MapConstants.ts";
 import { generateMapKey } from "@features/Venues/MapUtils.ts";

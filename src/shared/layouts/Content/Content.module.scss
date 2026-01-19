@@ -1,21 +1,8 @@
-/**
- * @stylesheet Content.module.scss Content Styles
- *  Styles for the body content.
- */
-
-/**
- * @styles content-defaults Content Defaults
- * Default styles for the body content.
- */
 .content {
   height: 100%;
   justify-items: center;
 }
 
-/**
- * @styles content-children Content Children
- * Styles for the child elements of the body content.
- */
 .contentInner {
   width: 100%;
   margin: auto;

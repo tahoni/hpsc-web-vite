@@ -8,7 +8,7 @@ import React from "react";
  * improving the initial load time of the application by loading the component only when it is needed.
  */
 const AboutUsContent = React.lazy(
-  () => import("@features//AboutUs/AboutUsContent")
+  () => import("@features//AboutUs/AboutUsContent"),
 );
 
 /**

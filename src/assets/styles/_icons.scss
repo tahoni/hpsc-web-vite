@@ -1,16 +1,13 @@
 /**
- * @stylesheet icons.scss Icons
  * Icon color helpers for social platforms.
  *
  * Provides utility classes for social media icon colors based on the
- * project color palette defined in colors.scss.
+ * project color palette defined in colors.scss. Import this module to ensure
+ * icons for platforms like Facebook and Google follow brand-consistent colors.
  */
 @use "colors" as hpsc-colors;
 
-/**
- * @styles icon-defaults.scss Icon Defaults
- * Default styles for social media icons.
- */
+/* Social media icons */
 .facebook-icon {
   color: hpsc-colors.$facebook-blue;
 }

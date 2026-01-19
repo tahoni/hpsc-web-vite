@@ -1,43 +1,32 @@
 /**
- * @stylesheet colors.scss Colours
- * Club colour system and theming variables.
- *
- * This stylesheet defines the colour palette for the application, organized into:
+ * Club color system and theming variables.
  * 
- * - Club primary colours: The main brand colours.
- * - Club shaded colours: Variations of primary colours at different opacity levels.
- * - International colours: colours for international-themed components.
+ * This stylesheet defines the color palette for the application, organized into:
+ * 
+ * - Club primary colors: The main brand colors.
+ * - Club shaded colors: Variations of primary colors at different opacity levels.
+ * - International colors: Colors for international-themed components.
  * - Gradients: Pre-defined gradient combinations for backgrounds and UI elements.
- * - Social media colours: Standard colours for social media platforms.
- *
- * Colours are defined both as CSS variables (in :root) for use in CSS and as SCSS
+ * - Social media colors: Standard colors for social media platforms.
+ * 
+ * Colors are defined both as CSS variables (in :root) for use in CSS and as SCSS 
  * variables ($name) for use in SCSS imports and functions.
  */
 
 /* Imported from Coolors.co palette: https://coolors.co/ca9148-0a07fb-f5f4f4-000000-f4f421 */
 
-/**
- * @styles root-colors Root colours
- * Root CSS variables for Club primary colours.
- */
+/* Club Primary Colours */
 :root {
   --club-primary-yellow: #f4f421ff;
 }
 
-/**
- * @styles primary-colors Primary colours
- * Club primary colours.
- */
 $club-primary-butterscotch: #ba7645;
 $club-primary-blue: #0a07fbff;
 $club-primary-white-smoke: #f5f4f4ff;
 $club-primary-black: #000000ff;
-$club-primary-yellow: var(--club-primary-yellow);
+$club-primary-yellow: #f4f421ff;
 
-/**
- * @styles shaded-colors Shaded colours
- * Shaded versions of the club primary colours.
- */
+/* Club Shaded Colours */
 $club-butterscotch-5: #130c07;
 $club-butterscotch-20: #4a2f1c;
 $club-blue-95: #e6e6ff;
@@ -46,24 +35,15 @@ $club-blue-40: #0603c9;
 $club-yellow-95: #fefee7;
 $club-yellow-5: #181801;
 
-/**
- * @styles international-colors International colours
- * International primary colours.
- */
+/* International Primary Colours */
 $international-black: #31261d;
 $internation-blue: #006ba6;
 $internation-gold: #a28d5b;
 
-/**
- * @styles international-secondary-colors International Secondary colours
- * International secondary colours.
- */
+/* International Secondary Colours */
 $international-secondary-blue: #00263a;
 
-/**
- * @styles gradients Gradients
- * Pre-defined gradient combinations for backgrounds and UI elements.
- */
+/* Gradients */
 $blue-gradient-top: linear-gradient(0deg, $club-blue-80, $club-blue-95);
 $blue-gradient-right: linear-gradient(90deg, $club-blue-80, $club-blue-95);
 $blue-gradient-bottom: linear-gradient(180deg, $club-blue-80, $club-blue-95);
@@ -74,9 +54,6 @@ $blue-gradient-top-left: linear-gradient(225deg, $club-blue-80, $club-blue-95);
 $blue-gradient-bottom-left: linear-gradient(315deg, $club-blue-80, $club-blue-95);
 $blue-gradient-radial: radial-gradient($club-blue-80, $club-blue-95);
 
-/**
- * @styles social-media-colors Social Media colours
- * Standard colours for social media platforms.
- */
+/* Social Media Colours */
 $facebook-blue: #1877f2;
 $google-blue: #4285f4;

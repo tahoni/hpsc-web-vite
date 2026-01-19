@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
-import { Venue } from "@/models/venues/Venue";
-import { shootingRangeVenues } from "@/constants/about/venueConstants";
+import { Venue } from "@models/venues/Venue";
+import { shootingRangeVenues } from "@constants/about/venueConstants";
 
 /**
  * VenuesContent is a React functional component wrapped with React.memo for performance optimisation.
@@ -8,6 +8,7 @@ import { shootingRangeVenues } from "@/constants/about/venueConstants";
  *
  * This component loops through the `shootingRangeVenues` array and populates the `venues` array with its elements.
  *
+ * @constant {React.MemoExoticComponent} VenuesContent - Memoized functional component to handle venue-related rendering logic.
  * @returns {ReactElement} A React fragment containing the structured render elements.
  */
 const VenuesContent = React.memo((): ReactElement => {

@@ -4,21 +4,21 @@ import Form, { IChangeEvent } from "@rjsf/core";
 import { RJSFValidationError, StrictRJSFSchema } from "@rjsf/utils";
 import validator from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
-import { EmailMessage } from "@/models/email/EmailMessage";
-import { EmailContent } from "@/models/email/EmailContent";
+import { EmailMessage } from "@models/email/EmailMessage";
+import { EmailContent } from "@models/email/EmailContent";
 import { ContactUsFormData } from "./ContactUsFormData";
 import { EmailService } from "./EmailService";
 import {
   contactUsJsonFields,
   contactUsJsonSchema,
   contactUsJsonWidgets,
-  contactUsUiSchema
+  contactUsUiSchema,
 } from "./ContactUsSchema";
 import { SanitizedBaseInputTemplate } from "@components/Text";
 import ContactUsEmailTemplate from "./ContactUsEmailTemplate";
-import { clubLogoFilename, clubLogoPath } from "@/constants/about/clubConstants";
+import { clubLogoFilename, clubLogoPath } from "@constants/about/clubConstants";
 import { FormValidation } from "@rjsf/utils/src/types";
-import { EmailAttachment } from "@/models/email/EmailAttachment";
+import { EmailAttachment } from "@models/email/EmailAttachment";
 
 /**
  * ContactUsForm is a React functional component wrapped with React.memo for optimisation.
@@ -193,7 +193,7 @@ const ContactUsForm: React.MemoExoticComponent<() => ReactElement> = React.memo(
           name: emailContent.name,
           subject: emailContent.subject,
           email: emailContent.email,
-          preview: emailContent.preview,
+          content: emailContent.content,
           message: htmlMessage,
         });
         emailMessage.attachments = [

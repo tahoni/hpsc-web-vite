@@ -6,12 +6,12 @@ import {
   clubLogo,
   clubLogoAlt,
   clubName,
-} from "@/constants/about/clubConstants";
+} from "@constants/about/clubConstants";
 import {
   provincialAssociationAbbreviation,
   provincialAssociationLogo,
   provincialAssociationWebsite,
-} from "@/constants/about/associationConstants";
+} from "@constants/about/associationConstants";
 import classes from "./Header.module.scss";
 
 export const Header = React.memo((): ReactElement => {

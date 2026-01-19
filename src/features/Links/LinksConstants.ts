@@ -1,4 +1,4 @@
-import { logoAlt } from "@/constants/commonConstants.ts";
+import { logoAlt } from "@constants/commonConstants";
 
 /**
  * @packageDocumentation

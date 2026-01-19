@@ -2,5 +2,5 @@
   "sourceLinkTemplate": "https://github.com/tahoni/hpsc-web-vite/{gitRevision}/{path}#L{line}",
   "out": "tsdocs",
   "entryPoints": ["src", "public", "builders"],
-  "entryPointStrategy": "expand"
+  "entryPointStrategy": "Expand"
 }

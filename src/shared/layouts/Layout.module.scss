@@ -1,14 +1,6 @@
-/**
- * @stylesheet Layout.module.scss Layout Styles
- * Styles for the application layout.
- */
-
 @use "bootstrap/scss/bootstrap-grid" as bootstrap-grid;
 
-/**
- * @styles layout-defaults Layout Defaults
- * Default styles for the application layout.
- */
+// Layout
 .layout {
   display: flex;
   flex-direction: column;
@@ -24,10 +16,7 @@
   flex: auto;
 }
 
-/**
- * @styles layout-logos Layout Logos
- * Styles for the application logo.
- */
+// Logos
 .logoContainer {
   align-content: center;
   padding: 0.75em;
@@ -54,10 +43,7 @@
   height: 100%;
 }
 
-/**
- * @styles layout-header-footer Layout Header and Footer
- * Styles for the application header and footer.
- */
+// Header and Footer
 .header,
 .footer {
   align-content: center;
@@ -152,11 +138,7 @@
   padding: 0.75rem;
 }
 
-/**
- * @styles layout-header-footer-logo-order Layout Header and Footer Logo Order
- * Styles for the application header and footer logo order.
- */
-
+// Logo and header and footer alignment
 // The two logos surround the header and footer content
 // With everything on one line
 .headerSidebar:first-child,
@@ -174,10 +156,6 @@
   order: 2;
 }
 
-/**
- * styles layout-media-queries Layout Media Queries
- * Responsive styles for the application layout.
- */
 @include bootstrap-grid.media-breakpoint-down(md) {
   .headerSidebar:first-child,
   .footerSidebar:first-child {
@@ -196,7 +174,8 @@
     flex: none !important;
   }
 
-  // The two header logos come before the header content
+  // Logo and header alignment
+  // The two logos come before the heading
   // With the heading on it's own line
   .headerSidebar:first-child {
     order: 1;
@@ -210,7 +189,8 @@
     order: 3;
   }
 
-  // The two footer logos come after footer content
+  // Logo and footer alignment
+  // The two logos come after footer content
   // With everything on it's own line
   .footerSidebar:first-child {
     order: 2;

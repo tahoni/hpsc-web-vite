@@ -1,6 +1,6 @@
-import { EmailMessage } from "@/models/email/EmailMessage";
-import { Email } from "@/models/email/Email";
-import { contactUsEmail, noReplyEmail } from "@/constants/about/clubConstants";
+import { EmailMessage } from "@models/email/EmailMessage";
+import { Email } from "@models/email/Email";
+import { contactUsEmail, noReplyEmail } from "@constants/about/clubConstants";
 
 /**
  * The EmailService class provides functionality for sending emails.

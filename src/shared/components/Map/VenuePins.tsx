@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import VenuePin from "./VenuePin";
-import { VenueType } from "@/models/venues/VenueType";
+import { VenueType } from "@models/venues/VenueType";
 import { generateMapVenueKey } from "@features/Venues/MapUtils";
 
 export interface VenuePinsProps {

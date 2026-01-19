@@ -1,27 +1,10 @@
-/**
- * @stylesheet App.scss Application Stylesheet
- * Stylesheet for the application, includes all global stylesheets.
- */
-
-/**
- * @styles package-styles Package Stylesheets
- * Stylesheets for external packages used by the application.
- */
+// Package styles
 @use "sweetalert2/dist/sweetalert2.css" as *;
 @use "lightgallery/scss/lightgallery"as *;
 
-/**
- * @styles library-styles Library Stylesheets
- * Stylesheets for personal external libraries used by the application.
- */
+// Personal library styles
 @use "@tahoni/tahoni-lib-react/dist/index.css" as *;
-/**
- * @styles personal-styles Personal Stylesheets
- * Stylesheets for personal components and utilities.
- */
+// Project styles
 @use "assets/styles/index" as *;
-/**
- * @styles vendor-styles Vendor Stylesheets
- * Stylesheets overriding external library styles, if required.
- */
+// Project external library styles
 @use "vendors/bootstrap/styles/index" as *;

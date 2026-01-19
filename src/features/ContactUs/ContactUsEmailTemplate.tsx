@@ -1,6 +1,6 @@
-import { EmailContent } from "@/models/email/EmailContent";
+import { EmailContent } from "@models/email/EmailContent";
 import { Heading, Html, Img, Section } from "@react-email/components";
-import { clubLogoAlt } from "@/constants/about/clubConstants";
+import { clubLogoAlt } from "@constants/about/clubConstants";
 import { ReactElement } from "react";
 
 /**
@@ -90,7 +90,7 @@ const ContactUsEmailTemplate = (
         <Heading as={"h3"}>Subject</Heading>
         {props.emailMessage.subject}
         <Heading as={"h3"}>Content</Heading>
-        {props.emailMessage.preview}
+        {props.emailMessage.content}
       </Section>
       <br />
       <br />
