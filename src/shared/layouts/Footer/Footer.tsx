@@ -8,7 +8,7 @@ import {
   nationalAssociationAbbreviation,
   nationalAssociationLogo,
   nationalAssociationWebsite,
-} from "@constants/about/associationConstants";
+} from "@/constants/about/associationConstants";
 import classes from "./Footer.module.scss";
 
 export const Footer = React.memo((): ReactElement => {

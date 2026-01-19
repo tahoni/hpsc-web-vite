@@ -1,11 +1,15 @@
 /**
+ * @stylesheet variables Variables
  * Shared CSS custom properties for external integrations.
  *
  * Defines CSS variables used by external libraries/components (e.g., TahoniLib)
  * so they can derive colors and other theme values from our design system.
  */
 
-/* tahoni */
+/**
+ * @styles tahoni-lib-variables TahoniLib Variables
+ * Variables for TahoniLib.
+ */
 :root {
   --tl-loader-color: var(--club-primary-yellow);
 }

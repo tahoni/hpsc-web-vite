@@ -4,8 +4,8 @@
  * Provides methods for generating unique keys for venues and maps.
  */
 
-import { Venue } from "@models/venues/Venue.ts";
-import { VenueMapLatLngType } from "@models/venues/VenueType.ts";
+import { Venue } from "@/models/venues/Venue.ts";
+import { VenueMapLatLngType } from "@/models/venues/VenueType.ts";
 
 /**
  * Generates a unique key for a venue by combining the club name and its latitude/longitude.

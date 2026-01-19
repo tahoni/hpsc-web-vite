@@ -1,5 +1,14 @@
+/**
+ * @stylesheet Body.module.scc Body Styles
+ * Styles for the layout body.
+ */
+
 @use "bootstrap/scss/bootstrap-grid" as bootstrap-grid;
 
+/**
+ * @styles body-defaults Body Defaults
+ * Default styles for the layout body.
+ */
 .body {
   width: 100%;
   height: 100%;
@@ -7,6 +16,10 @@
   justify-content: center;
 }
 
+/**
+ * @styles body-children Body Children
+ * Styles for the child elements of the layout body.
+ */
 .bodySidebar {
   max-width: 15%;
   flex: initial;
@@ -19,6 +32,10 @@
   justify-content: center;
 }
 
+/**
+ * styles body-media-queries Body Media Queries
+ * Responsive styles for the layout body.
+ */
 @include bootstrap-grid.media-breakpoint-down(md) {
   .body {
     padding: 0;
