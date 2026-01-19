@@ -2,19 +2,6 @@ import { VenueMapLatLngType } from "@/models/venues/VenueType.ts";
 
 /**
  * Represents a venue with detailed location and administrative information.
- *
- * Properties:
- * - `key`: The unique identifier of the venue in the `shootingRange` mapping.
- * - `club`: The name of the club associated with the venue.
- * - `name`: The name of the venue (optional).
- * - `website`: The website of the venue (optional).
- * - `address`: The address of the venue (optional).
- * - `city`: The city where the venue is located.
- * - `province`: The province/state where the venue is located (optional).
- * - `country`: The country where the venue is located (optional).
- * - `plusCode`: The Google Plus Code identifying the venue location (optional).
- * - `latLng`: The geographical latitude and longitude of the venue.
- * - `centre`: The centre point of the venue on the map (optional).
  */
 export class Venue {
   private _key: string;
@@ -33,17 +20,6 @@ export class Venue {
    * Creates a new Venue instance with the specified details.
    *
    * @param venue - Initialisation object for the venue.
-   * @param venue.key - The unique identifier of the venue in the `shootingRange` enum.
-   * @param venue.club - The name of the club associated with the venue.
-   * @param venue.name - The name of the venue (optional).
-   * @param venue.website - The website of the venue (optional).
-   * @param venue.address - The address of the venue (optional).
-   * @param venue.city - The city where the venue is located.
-   * @param venue.province - The province/state where the venue is located (optional).
-   * @param venue.country - The country where the venue is located (optional).
-   * @param venue.plusCode - The Google Plus Code identifying the venue location (optional).
-   * @param venue.latLng - The geographical latitude and longitude of the venue.
-   * @param venue.center - The centre point of the venue on the map (optional).
    */
   constructor(venue: {
     key: string;

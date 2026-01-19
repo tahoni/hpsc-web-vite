@@ -3,16 +3,6 @@ import { EmailAttachment } from "./EmailAttachment.ts";
 /**
  * Represents an email with properties such as sender, recipients, subject, message content,
  * and optional attachments.
- *
- * Properties:
- * - `from`: Sender's email address.
- * - `to`: Primary recipient's email address.
- * - `cc`: Optional list of CC recipient addresses.
- * - `subject`: Email subject.
- * - `message`: Email body content.
- * - `messageType`: Content type (e.g. "html" or "text").
- * - `attachments`: Optional list of attachments.
- * - `inlineAttachments`: Optional list of inline attachments.
  */
 export class Email {
   private _from: string;
@@ -28,14 +18,6 @@ export class Email {
    * Creates a new Email instance with the specified details
    *
    * @param mail - Initialisation object for the email.
-   * @param mail.from - Sender's email address.
-   * @param mail.to - Primary recipient's email address.
-   * @param mail.cc - Optional list of CC recipient addresses.
-   * @param mail.subject - Email subject. Defaults to an empty string.
-   * @param mail.message - Email body content. Defaults to an empty string.
-   * @param mail.messageType - Content type (e.g. "html" or "text"). Defaults to "html".
-   * @param mail.attachments - Optional list of attachments. Defaults to an empty array.
-   * @param mail.inlineAttachments - Optional list of inline attachments. Defaults to an empty array.
    */
   constructor(mail: {
     from: string;

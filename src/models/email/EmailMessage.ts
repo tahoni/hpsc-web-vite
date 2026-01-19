@@ -5,11 +5,6 @@ import { EmailAttachment } from "./EmailAttachment.ts";
 /**
  * Represents an email message, extending the base functionality of EmailContent.
  * Provides additional support for an email's message body and attachments.
- *
- * Properties:
- * - `message`: Optional message body. The value is sanitised and trimmed.
- * - `attachments`: Optional list of attachments.
- * - `inlineAttachments`: Optional list of inline attachments.
  */
 export class EmailMessage extends EmailContent {
   private _message: string;
@@ -20,16 +15,6 @@ export class EmailMessage extends EmailContent {
    * Creates a new EmailMessage instance.
    *
    * @param message - Initialisation object for the email message.
-   * @param message.name - Optional sender display name.Defaults to an empty string.
-   *   the value is sanitised and trimmed.
-   * @param message.email - Optional sender email address.Defaults to an empty string.
-   *   the value is sanitised and trimmed.
-   * @param message.subject - Optional message subject.Defaults to an empty string.
-   *   the value is sanitised and trimmed.
-   * @param message.preview - Optional preview text.Defaults to an empty string.
-   *   the value is sanitised and trimmed.
-   * @param message.message - Optional message body. Defaults to an empty string.
-   *   the value is sanitised and trimmed.
    */
   constructor(message: {
     name?: string;

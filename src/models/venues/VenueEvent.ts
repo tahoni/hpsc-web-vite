@@ -5,31 +5,6 @@ import { VenueType } from "./VenueType.ts";
 
 /**
  * Represents an event taking place at a specific venue.
- *
- * Properties:
- * - `description`: A description of the event.
- * - `type`: The type of the event (e.g. handgun).
- * - `year`: The year the event takes place.
- * - `town`: The town where the event will take place.
- * - `city`: The city where the event will take place.
- * - `province`: The province where the event will take place.
- * - `country`: The country where the event will take place.
- * - `location`: A formatted location description.
- * - `link`: The link to the event website.
- * - `longDates`: Human-friendly date range string (e.g. “12–14 Aug 2025”).
- * - `isoStartDate`: Optional ISO 8601 start date (e.g. "2025-08-12").
- * - `isoEndDate`: Optional ISO 8601 end date (e.g. "2025-08-14").
- * - `isoDates`: Optional combined ISO date range string.
- * - `images`: A list of images associated with the event, including their sources and descriptions.
- * - `imageWidth`: The width of the associated images.
- * - `shootingRangeKey`: A unique key identifying the shooting range associated with the event.
- * - `shootingRange`: The shooting range details.
- * - `shootingRangeName`: The name of the shooting range.
- * - `shootingRangeLink`: A link to the shooting range website.
- * - `mapMode`: The mode of the map used to display the shooting range (e.g. "satellite").
- * - `mapZoom`: The zoom level for the map used to display the shooting range.
- * - `apparelLink`: A link to event-related apparel.
- * - `apparelDescription`: A description of the event-related apparel.
  */
 export class VenueEvent {
   // Core
@@ -75,40 +50,6 @@ export class VenueEvent {
    * Constructs a new VenueEvent instance with the provided details.
    *
    * @param event - The initialisation object for the event.
-   * @param event.description - A description of the event.
-   * @param event.type - The type of the event (e.g. handgun).
-   * @param event.year - The year the event takes place.
-   * @param event.town - The town where the event will take place.
-   * @param event.city - The city where the event will take place. Defaults to an empty string
-   *   if not provided.
-   * @param event.province - The province where the event will take place.
-   * @param event.country - The country where the event will take place. Defaults to an empty string
-   *   if not provided.
-   * @param event.location - A formatted location description. Defaults to a combination
-   *   of `city` and `country` if not provided.
-   * @param event.link - The link to the event website.
-   * @param event.longDates - Human-friendly date range string (e.g. “12–14 Aug 2025”).
-   * @param event.isoStartDate - Optional ISO 8601 start date (e.g. "2025-08-12"). Defaults
-   *   to an empty string if not provided.
-   * @param event.isoEndDate - Optional ISO 8601 end date (e.g. "2025-08-14"). Defaults
-   *   to an empty string if not provided.
-   * @param event.isoDates - Optional combined ISO date range string. Defaults to
-   *   a combination of `isoStartDate` and `isoEndDate` if not provided.
-   * @param event.images - A list of images associated with the event, including their
-   *   sources and descriptions.
-   * @param event.imageWidth - The width of the associated images.
-   * @param event.shootingRangeKey - A unique key identifying the shooting range associated
-   *   with the event.
-   * @param event.shootingRange - The shooting range details. Defaults to a pre-configured range
-   *   based on the `shootingRangeKey` if not provided.
-   * @param event.shootingRangeName - The name of the shooting range. Defaults to the value
-   *   in `shootingRangeVenues` or an empty string if not available.
-   * @param event.shootingRangeLink - A link to the shooting range website. Defaults to the value
-   *   in `shootingRangeVenues` or an empty string if not available.
-   * @param event.mapMode - The mode of the map used to display the shooting range (e.g. "satellite").
-   * @param event.mapZoom - The zoom level for the map used to display the shooting range.
-   * @param event.apparelLink - A link to event-related apparel.
-   * @param event.apparelDescription - A description of the event-related apparel.
    */
   constructor(event: {
     description: string;

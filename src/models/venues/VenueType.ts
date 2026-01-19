@@ -2,10 +2,6 @@ import { Venue } from "@/models/venues/Venue.ts";
 
 /**
  * Represents a geographic location using latitude and longitude coordinates.
- *
- * This type defines a point on a map, where:
- * - `lat` indicates the latitude of the location.
- * - `lng` indicates the longitude of the location.
  */
 export type VenueMapLatLngType = { lat: number; lng: number };
 

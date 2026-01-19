@@ -2,12 +2,6 @@ import { sanitizeValue } from "@/utils/htmlUtils.ts";
 
 /**
  * Represents the content of an email, including sender details, subject, and message preview.
- *
- * Properties:
- * - `name`: Sender display name. The value is sanitised and trimmed.
- * - `email`: Sender email address. The value is sanitised and trimmed.
- * - `subject`: Email subject. The value is sanitised and trimmed.
- * - `preview`: Email preview. The value is sanitised and trimmed.
  */
 export class EmailContent {
   private _name: string = "";
@@ -19,14 +13,6 @@ export class EmailContent {
    * Creates a new EmailContent instance with the specified optional details.
    *
    * @param content - Optional initialisation object for the email content.
-   * @param content.name - Sender display name. Defaults to an empty string.
-   *   the value is sanitised and trimmed.
-   * @param content.email - Sender email address. Defaults to an empty string.
-   *   the value is sanitised and trimmed.
-   * @param content.subject - Email subject. Defaults to an empty string.
-   *   the value is sanitised and trimmed.
-   * @param content.preview - Email preview. Defaults to an empty string.
-   *   the value is sanitised and trimmed.
    */
   constructor(content?: {
     name?: string;
