@@ -9,7 +9,11 @@
  * @module
  */
 
-import { logoAlt } from "@/constants/commonConstants.ts";
+import {
+  defaultImageExtension,
+  defaultImagePath,
+  logoAlt,
+} from "@/constants/commonConstants.ts";
 
 // Summary
 export const provincialAssociationName: string =
@@ -30,10 +34,12 @@ export const nationalAssociationWebsite: string = "https://sapsa.co.za/";
 export const internationalAssociationWebsite: string = "https://www.ipsc.org/";
 
 // Logos
-export const provincialAssociationLogo = "/assets/images/logos/ngpsa-logo.png";
-export const nationalAssociationLogo = "/assets/images/logos/sapsa-logo.png";
+export const provincialAssociationLogo =
+  defaultImagePath + "/logos/ngpsa-logo" + defaultImageExtension;
+export const nationalAssociationLogo =
+  defaultImagePath + "/logos/sapsa-logo" + defaultImageExtension;
 export const internationalAssociationLogo =
-  "/assets/images/logos/ipsc-logo.png";
+  defaultImagePath + "/logos/ipsc-logo" + defaultImageExtension;
 
 // Alternative text
 export const provincialAssociationLogoAlt =

@@ -15,3 +15,11 @@ export const baseUrl: string = "https://www.hpsc.co.za";
 export const copyrightYear: number = 2026;
 
 export const logoAlt = "Logo";
+
+export const imageWebpExtension: string = ".webp";
+export const imagePngExtension: string = ".png";
+export const imageJpegExtension: string = ".jpeg";
+export const imageAvifExtension: string = ".avif";
+
+export const defaultImagePath: string = "/assets/images/";
+export const defaultImageExtension: string = imageWebpExtension;

@@ -15,9 +15,15 @@
  */
 
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
+import {
+  defaultImageExtension,
+  defaultImagePath,
+} from "@/constants/commonConstants.ts";
 
 export const targetWithBulletHolesImage: string =
-  "/assets/images/content/ipsc-target-with-bullet-holes.png";
+  defaultImagePath +
+  "/content/ipsc-target-with-bullet-holes" +
+  defaultImageExtension;
 export const targetWithBulletHoles: ImageWithSourceAndDescription =
   new ImageWithSourceAndDescription({
     image: targetWithBulletHolesImage,

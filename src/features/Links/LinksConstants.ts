@@ -1,4 +1,4 @@
-import { logoAlt } from "@/constants/commonConstants.ts";
+import { defaultImageExtension, defaultImagePath, logoAlt } from "@/constants/commonConstants.ts";
 
 /**
  * @packageDocumentation
@@ -11,7 +11,8 @@ import { logoAlt } from "@/constants/commonConstants.ts";
 export const bosninjaWebsite: string = "https://www.bosninja.co.za/";
 
 // Logos
-export const bosninjaLogo = "/assets/images/logos/bosninja-logo.png";
+export const bosninjaLogo =
+  defaultImagePath + "/logos/bosninja-logo" + defaultImageExtension;
 
 // Alternative text
 export const bosninjaLogoAlt = bosninjaLogo + " " + logoAlt;
