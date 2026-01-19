@@ -2,28 +2,25 @@
 
 ## Release Notes
 
-### Version 4.1.3 - _2026-01-11_
+### Version 4.1.4 - _2026-01-19_
 
-Improved responsive behaviour and enhanced the development workflow with better security tooling.
+Adds or updates project documentation and onboarding material.
+Documents development, build, test and deploy workflows for the project.
 
-#### Enhancements and Updates
+#### Licence and Documentation
 
-- Updated the `HeaderMenu` component's breakpoint. The navigation bar now collapses at the `lg` size instead
-  of `xl`, providing a better experience on medium-sized screens.
-- Updated favicons in `index.html` and cleaned up metadata for a more polished look.
-
-#### General Technical Changes
-
-- Added a CodeQL analysis workflow configuration to enhance automated security scanning and code quality
-  checks.
-- Updated `.gitignore` to exclude IDE-specific theme files (`_theme_*.xml`) and updated `.idea` code style
-  settings for team consistency.
-
-#### Dependencies
-
-- Upgraded `react-router-dom` to `7.12.0` to support React 18.
-- Updated several internal dev-dependencies including `@typescript-eslint`, `@rollup` packages, and
-  `eslint-utils` to their latest compatible versions.
+- Added and updated `README.md` with:
+    - Quickstart and prerequisites
+    - Install and development steps
+    - Build and preview instructions
+    - Test and lint commands
+    - Contribution guidelines
+- Clarified the usage of scripts in `package.json` (examples: `dev`, `build`, `host`, `preview`, `test`,
+  `docs`, `sitemap`) in `README.md`.
+- Small editorial fixes `ARCHITECTURE.md` and `UI.md`.
+- Small formatting changes in `plan.md` and `task.md` in the `documnetation/roadmap/` folder.
+- Removed the sceeenshot from `README.md` to reduce maintenance overhead.
+- Deleted the `documentation/screenshots/` folder as the content is not being used any more.
 
 #### Changes by
 
