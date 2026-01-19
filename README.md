@@ -1,37 +1,38 @@
 # HPSC Website
 
-The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) web platform.
+The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) website.
 
 ## Table of Contents
 
-- [Summary](#summary)
+- [Introduction](#introduction)
 - [Repository](#repository)
 - [Technology](#technology)
 - [Instructions](#instructions)
+    - [Install the Project](#install-the-project)
+    - [Available Scripts](#available-scripts)
+    - [Environment Variables](#environment-variables)
 - [Architecture](#architecture)
 - [User Interface](#user-interface)
-- [Screenshots](#screenshots)
 - [License](#license)
 - [Author](#author)
 
-## Summary
+## Introduction
 
-The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly platform for members and visitors.
+The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and
+user-friendly platform for members and visitors.
 
-The primary technologies used in this project include TypeScript, SCSS, and MDX.
+The primary technologies used in this project include TypeScript, SCSS and MDX.
 
 ## Repository
 
 The repository for this project is located at [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
-Feature requests, suggestions for improvements and bugs can be logged using the project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
-
-An overview of the project can be found at [https://tahoni.info/projects/hpsc-web-vite](https://www.tahoni.info/projects/hpsc-web-vite).
+Feature requests, suggestions for improvements and bugs can be logged using the project's
+[Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
 
 ## Technology
 
-This is a React project bootstrapped using Vite with the TypeScript React
-template.
+This is a React project bootstrapped using Vite with the TypeScript React template.
 
 It is written in TypeScript and uses both JSX and MDX components.
 
@@ -46,41 +47,57 @@ You can download Node.js from [here](https://nodejs.org/).
 
 Clone the project from [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
+### Install the project
+
 Install the project using `npm install`.
 
 Run it locally with `npm run dev`.
 
-It will load at http://localhost:5173/. This page will reload if you make edits.
+It will load at http://localhost:5173/.
+This page will reload if you make edits.
 
 Build it for production with `npm run build` to the `dist` directory.
 
 The production build can be verified by running `npm run preview`.
 
-### Generate a Pull Request Description
+### Available Scripts
 
-To generate a Markdown PR description comparing the current branch to the main branch:
+The following commands are available in this project.
 
-- Run: `npm run pr:desc`
-- To compare to a different base (e.g. develop):
-  `npm run pr:desc -- --base=develop`
+#### `npm install`
 
-The script prints Markdown to stdout; you can copy it into your PR description or redirect it to a file:
+This installs the dependencies.
 
-- `npm run pr:desc > target/pr-description.md`
+#### `npm run dev`
 
-### Generate Release Notes (this branch → main)
+This runs the app in development mode.
+The page will reload if you make edits.
 
-To generate structured release notes comparing the current branch to the main branch:
+#### `npm run build`
 
-- Run: `npm run release:notes`
-- To compare to a different base (e.g. develop):
-  `npm run release:notes -- --base=develop`
+This builds the app for production to the `dist` directory.
+Your app is ready to be deployed!
 
-The script prints Markdown to stdout and also writes a file under `target/` named like:
+#### `npm run preview`
 
-- `target/release-notes-<branch>-to-<base>.md`
+This previews the app locally in the `dist` directory.
+Use this to check if the production build looks OK in your local environment.
 
-You can paste the output into PRs or include it in RELEASE_NOTES.md as needed.
+#### `npm run lint`
+
+Runs ESLint to check for code quality issues.
+
+#### `npm run docs`
+
+Generates technical documentation using TypeDoc to the `tsdocs` directory.
+
+#### Environment Variables
+
+A npm read key to @tahoni on GitHub needs to be set in the ````GITHUB_TOKEN````
+environment variable, to load the ````tahoni-lib-react```` npm package.
+
+The Google Maps API key from Google Cloud Services needs to be set in the ````GOOGLE_API_KEY````
+environment variable, otherwise, the map will not be available.
 
 ## Architecture
 
@@ -89,11 +106,6 @@ A detailed explanation of the architecture can be found in the [`ARCHITECTURE.md
 ## User Interface
 
 A description of the user interface can be found in the [`UI.md`](./UI.md) file.
-
-## Screenshots
-Home Page
-
-![Home Page](./documentation/screenshots/HomePage.png) 
 
 ## License
 
