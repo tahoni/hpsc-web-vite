@@ -4,6 +4,7 @@
 
 ### Table of Contents
 
+- [Version 4.1.4](#version-414---_2026-01-19_)
 - [Version 4.1.3](#version-413---_2026-01-11_)
 - [Version 4.1.2](#version-412---_2026-01-03_)
 - [Version 4.1.1](#version-411---_2026-01-02_)
@@ -12,6 +13,31 @@
 - [Version 4.0.2](#version-402---_2025-11-26_)
 - [Version 4.0.1](#version-401---_2025-10-27_)
 - [Version 4.0.0](#version-400---_2025-08-17_)
+
+### [Version 4.1.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.4) - _2026-01-19_
+
+Adds or updates project documentation and onboarding material.
+Documents development, build, test and deploy workflows for the project.
+
+#### Licence and Documentation
+
+- Added and updated `README.md` with:
+    - Quickstart and prerequisites
+    - Install and development steps
+    - Build and preview instructions
+    - Test and lint commands
+    - Contribution guidelines
+- Clarified the usage of scripts in `package.json` (examples: `dev`, `build`, `host`, `preview`, `test`,
+  `docs`, `sitemap`) in `README.md`.
+- Small editorial fixes `ARCHITECTURE.md` and `UI.md`.
+- Small formatting changes in `plan.md` and `task.md` in the `documnetation/roadmap/` folder.
+- Removed the sceeenshot from `README.md` to reduce maintenance overhead.
+- Deleted the `documentation/screenshots/` folder as the content is not being used any more.
+
+#### Changes by
+
+@dependabot
+@tahoni
 
 ### [Version 4.1.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.3) - _2026-01-11_
 
@@ -45,7 +71,7 @@ Improved responsive behaviour and enhanced the development workflow with better 
 
 Refactored the `Events` and `Members` features to better organise content by year (specifically for 2025).
 Introduced a cleaner directory structure, relocates "World Shoot 2025" and "Club Shirts" content into
-dedicated namespaces, and fixes several import paths.
+dedicated namespaces and fixes several import paths.
 
 #### Enhancements and Updates
 
@@ -55,7 +81,7 @@ dedicated namespaces, and fixes several import paths.
 
 #### General Code Improvements
 
-- Moved `WorldShoot2025` related components, constants, and styles into a new nested directory structure under
+- Moved `WorldShoot2025` related components, constants and styles into a new nested directory structure under
   `src/features/Events/content/2025/WorldShoot2025/`.
 - Merged `WorldShoot2025.module.scss` into a shared `WorldShoot.module.scss` and updated `@extend` rules to
   maintain visual consistency.
@@ -75,7 +101,7 @@ dedicated namespaces, and fixes several import paths.
 
 ### [Version 4.1.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.1) - _2026-01-02_
 
-Refined the user interface, improved the responsive design for navigation components, and updated project
+Refined the user interface, improved the responsive design for navigation components and updated project
 documentation and assets.
 
 #### Enhancements & Updates
@@ -109,7 +135,7 @@ documentation and assets.
 
 ### [Version 4.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.0) - _2025-12-30_
 
-Modernised the navigation experience, ensured the layouts are robust across various device sizes, and
+Modernised the navigation experience, ensured the layouts are robust across various device sizes and
 leveraged unique Google Map IDs for better management of map styles and features.
 
 #### Enhancements and Updates
@@ -125,7 +151,7 @@ leveraged unique Google Map IDs for better management of map styles and features
 
 #### General Code Improvements
 
-- Reorganised imports in `App.scss` to better categorise package, library, and project styles.
+- Reorganised imports in `App.scss` to better categorise package, library and project styles.
 
 #### Dependencies
 
