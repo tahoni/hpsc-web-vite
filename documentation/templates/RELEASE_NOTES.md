@@ -3,6 +3,7 @@
 ## Release Notes
 
 ### Version 0.0.0 - _20xx-xx-xx_
+
 A summary of the main changes.
 
 #### Enhancements and Updates
@@ -18,4 +19,5 @@ A summary of the main changes.
 #### Dependencies
 
 #### Changes by
+
 @tahoni
