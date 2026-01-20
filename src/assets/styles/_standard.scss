@@ -1,6 +1,7 @@
 /**
+ * @stylesheet standard.scss Standard Stylesheet
  * Core stylesheet that defines standard styling for HPSC Web application.
- * 
+ *
  * This stylesheet provides foundational styling for HTML elements, layout containers,
  * typography, form elements, buttons, and navigation components. It imports and applies
  * theme variables and form styling from separate SCSS modules.
@@ -12,7 +13,10 @@
 @use "theme" as hpsc-theme;
 @use "forms" as hpsc-forms;
 
-/* General */
+/**
+ * @stylesheet general.scss General Styles
+ * General styles for HTML elements and layout containers.
+ */
 html, body {
   background: hpsc-theme.$background-gradient fixed no-repeat;
   font-optical-sizing: auto;
@@ -20,19 +24,25 @@ html, body {
   font-variation-settings: "wdth" 100;
 }
 
-/* Body */
 #root .container-fluid {
   width: 100%;
   max-width: 1366px;
   padding: 0;
 }
 
-/* Headings */
+/**
+ * @stylesheet typography.scss Typography
+ * Styles for typography elements, including headings, paragraphs, lists, and links.
+ */
 h1, h2, h3, h4, h5, h6 {
   font-family: hpsc-theme.$headings-font-family
 }
 
-/* Form controls */
+/**
+ * @stylesheet forms.scss Form Controls
+ * Styles for form controls, including form groups, form controls, buttons,
+ * and navigation components.
+ */
 .form-group {
   @extend .form-group-default;
 }
@@ -49,12 +59,14 @@ h1, h2, h3, h4, h5, h6 {
   @extend .form-control-error;
 }
 
-/* Buttons */
+/**
+ * @styles components.scss Components
+ * Styles for application components, including buttons, menus, and navigation.
+ */
 .btn-info {
   @extend .form-control-button-info;
 }
 
-/* Menu */
 a.nav-link {
   font-style: italic;
 }

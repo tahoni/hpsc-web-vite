@@ -8,7 +8,7 @@ import "./App.scss";
  * Represents the main application component wrapped with necessary providers
  * and suspense fallback for asynchronous loading.
  *
- * @return {ReactElement} The React element representing the application.
+ * @return The React element representing the application.
  */
 function App(): ReactElement {
   return (

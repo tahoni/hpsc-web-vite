@@ -1,7 +1,7 @@
 import React, { CSSProperties, ReactElement } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { SimpleVenueMap } from "@components/Map";
-import { VenueType } from "@models/venues/VenueType";
+import { VenueType } from "@/models/venues/VenueType";
 import {
   adminEmail,
   chairmanEmail,
@@ -10,7 +10,7 @@ import {
   clubShootingRangeName,
   enquiriesEmail,
   secretaryName
-} from "@constants/about/clubConstants";
+} from "@/constants/about/clubConstants";
 import { aboutUsMapId, aboutUsMapMode, aboutUsMapZoom, eufeesShootingRange } from "./AboutUsConstants";
 import classes from "./AboutUs.module.scss";
 

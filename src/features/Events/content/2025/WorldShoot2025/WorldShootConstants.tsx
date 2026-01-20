@@ -1,8 +1,10 @@
 import { JSX } from "react";
-import WorldShoot2025Component from "@features/Events/content/2025/WorldShoot2025/WorldShoot2025Component.tsx";
+import WorldShoot2025Component
+  from "@features/Events/content/2025/WorldShoot2025/WorldShoot2025Component.tsx";
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
-import { ShootingRanges } from "@constants/about/venueConstants.ts";
-import { VenueEvent } from "@models/venues/VenueEvent.ts";
+import { ShootingRanges } from "@/constants/about/venueConstants.ts";
+import { VenueEvent } from "@/models/venues/VenueEvent.ts";
+import { defaultImageExtension, defaultImagePath } from "@/constants/commonConstants.ts";
 
 /**
  * @packageDocumentation
@@ -27,7 +29,9 @@ const worldShoot2025Description = "2025 IPSC Handgun World Shoot";
 
 // Images
 const worldShoot2025ImageFile: string =
-  "/assets/images/content/events/2025-HWS-Logo-Circular.png";
+  defaultImagePath +
+  "/content/events/2025-HWS-Logo-Circular" +
+  defaultImageExtension;
 const worldShoot2025Image: ImageWithSourceAndDescription =
   new ImageWithSourceAndDescription({
     image: worldShoot2025ImageFile,
