@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { Route, Routes } from "react-router";
 import { leftShooter, rightShooter } from "@/constants/images/layoutImageConstants.ts";
 import { PageAlias } from "@/models/pages/PageAlias.ts";
-import { routes } from "@/helpers/routeHelpers.tsx";
+import { routes } from "@shared/helpers/routeHelpers.tsx";
 import { Layout } from "@shared/layouts";
 
 /**
