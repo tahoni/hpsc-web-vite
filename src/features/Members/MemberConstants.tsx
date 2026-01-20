@@ -1,4 +1,8 @@
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
+import {
+  defaultImageExtension,
+  defaultImagePath,
+} from "@/constants/commonConstants.ts";
 
 /**
  * @packageDocumentation
@@ -7,7 +11,7 @@ import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
  */
 
 export const clubShirts2024ImageFile: string =
-  "/assets/images/club/Bosninja_ HPSC_Club_shirts.png";
+  defaultImagePath + "/club/Bosninja_ HPSC_Club_shirts" + defaultImageExtension;
 
 export const clubShirts2024Image: ImageWithSourceAndDescription =
   new ImageWithSourceAndDescription({

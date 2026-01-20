@@ -2,27 +2,24 @@
 
 ## Release Notes
 
-### Version 4.1.4 - _2026-01-19_
+### Version 4.2.0 - _2026-01-20_
 
-Adds or updates project documentation and onboarding material.
-Documents development, build, test and deploy workflows for the project.
+Optimised the images by using the webp format.
 
-#### Licence and Documentation
+#### Enhancements and Updates
 
-- Added and updated `README.md` with:
-    - Quickstart and prerequisites
-    - Install and development steps
-    - Build and preview instructions
-    - Test and lint commands
-    - Contribution guidelines
-- Clarified the usage of scripts in `package.json` (examples: `dev`, `build`, `host`, `preview`, `test`,
-  `docs`, `sitemap`) in `README.md`.
-- Small editorial fixes `ARCHITECTURE.md` and `UI.md`.
-- Small formatting changes in `plan.md` and `task.md` in the `documnetation/roadmap/` folder.
-- Removed the sceeenshot from `README.md` to reduce maintenance overhead.
-- Deleted the `documentation/screenshots/` folder as the content is not being used any more.
+- Decreased the size of all images by converting them to the webp format.
+
+#### Bug Fixes
+
+- Fixed the corrupt `ipsc-target-with-bullet-holes.png` image file, and
+  converted it to the webp format.
+
+#### General Code Improvements
+
+- Added a constant for the default file extension for future maintainability.
+- Added a constant for the default images folder for easier maintainability.
 
 #### Changes by
 
-@dependabot
 @tahoni

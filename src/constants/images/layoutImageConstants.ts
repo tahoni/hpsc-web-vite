@@ -15,20 +15,26 @@
  */
 
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
+import {
+  defaultImageExtension,
+  defaultImagePath,
+} from "@/constants/commonConstants.ts";
 
 export const leftShooterImage: string =
-  "/assets/images/layout/shooter-left-transparent.png";
+  defaultImagePath + "/layout/shooter-left-transparent" + defaultImageExtension;
 export const rightShooterImage: string =
-  "/assets/images/layout/shooter-right-transparent.png";
+  defaultImagePath +
+  "/layout/shooter-right-transparent" +
+  defaultImageExtension;
 
 export const leftShooter: ImageWithSourceAndDescription =
   new ImageWithSourceAndDescription({
     image: leftShooterImage,
-    description: "Shooter",
+    description: "Shooter Left",
   });
 
 export const rightShooter: ImageWithSourceAndDescription =
   new ImageWithSourceAndDescription({
     image: rightShooterImage,
-    description: "Shooter",
+    description: "Shooter Right",
   });

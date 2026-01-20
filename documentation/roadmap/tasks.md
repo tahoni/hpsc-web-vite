@@ -19,7 +19,7 @@ foundational/tooling improvements through architecture, code quality, UX/a11y, p
 8. [ ] Add a npm script for strict type-check only (e.g., "typecheck": "tsc -b --noEmit") and use in CI
 9. [ ] Replace internal import of @rjsf/utils/src/types.ts with public typings from @rjsf/utils to avoid
    relying on private paths
-10. [ ] Validate and fix any future-dated route metadata (e.g., Contact Us dateCreated set to 2025-12-26) to
+10. [ ] Validate and fix any future-dated route metadata (e.g. Contact Us dateCreated set to 2025-12-26) to
     reflect accurate created/updated dates
 11. [ ] Ensure all routes that exist in the UI are represented in coreRoutes with dateCreated/dateUpdated for
     accurate sitemap generation
@@ -94,5 +94,5 @@ foundational/tooling improvements through architecture, code quality, UX/a11y, p
     accidental commit of large HTML
 49. [ ] Add a security checklist (CSP, dependency audit via npm audit, periodic update cadence) to
     documentation
-50. [ ] Schedule dependency updates (e.g., monthly) and pin React Router minor where breaking changes are
+50. [ ] Schedule dependency updates (e.g. monthly) and pin React Router minor where breaking changes are
     likely; document policy

@@ -13,7 +13,11 @@ import {
   shootingRangeVenues,
 } from "@/constants/about/venueConstants.ts";
 import { VenueType } from "@/models/venues/VenueType.ts";
-import { logoAlt } from "@/constants/commonConstants.ts";
+import {
+  defaultImageExtension,
+  defaultImagePath,
+  logoAlt,
+} from "@/constants/commonConstants.ts";
 
 // Summary
 export const clubName: string = "Hartbeespoortdam Practical Shooting Club";
@@ -47,7 +51,7 @@ export const facebookPage: string =
 export const facebookGroup: string = facebookUrl + "groups/933580883991020";
 
 // Logos
-export const clubLogoFilename: string = "hpsc-logo.png";
-export const clubLogoPath: string = "/assets/images/logos";
+export const clubLogoFilename: string = "hpsc-logo" + defaultImageExtension;
+export const clubLogoPath: string = defaultImagePath + "/logos";
 export const clubLogo: string = clubLogoPath + "/" + clubLogoFilename;
 export const clubLogoAlt: string = clubName + " " + logoAlt;

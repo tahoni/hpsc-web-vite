@@ -4,6 +4,7 @@
 
 ### Table of Contents
 
+- [Version 4.2.0](#version-420---_2026-01-20_)
 - [Version 4.1.4](#version-414---_2026-01-19_)
 - [Version 4.1.3](#version-413---_2026-01-11_)
 - [Version 4.1.2](#version-412---_2026-01-03_)
@@ -13,6 +14,28 @@
 - [Version 4.0.2](#version-402---_2025-11-26_)
 - [Version 4.0.1](#version-401---_2025-10-27_)
 - [Version 4.0.0](#version-400---_2025-08-17_)
+
+### [Version 4.2.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.0) - _2026-01-20_
+
+Optimised the images by using the webp format.
+
+#### Enhancements and Updates
+
+- Decreased the size of all images by converting them to the webp format.
+
+#### Bug Fixes
+
+- Fixed the corrupt `ipsc-target-with-bullet-holes.png` image file, and
+  converted it to the webp format.
+
+#### General Code Improvements
+
+- Added a constant for the default file extension for future maintainability.
+- Added a constant for the default images folder for easier maintainability.
+
+#### Changes by
+
+@tahoni
 
 ### [Version 4.1.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.4) - _2026-01-19_
 
@@ -31,7 +54,7 @@ Documents development, build, test and deploy workflows for the project.
   `docs`, `sitemap`) in `README.md`.
 - Small editorial fixes `ARCHITECTURE.md` and `UI.md`.
 - Small formatting changes in `plan.md` and `task.md` in the `documnetation/roadmap/` folder.
-- Removed the sceeenshot from `README.md` to reduce maintenance overhead.
+- Removed the screenshot from `README.md` to reduce maintenance overhead.
 - Deleted the `documentation/screenshots/` folder as the content is not being used any more.
 
 #### Changes by
