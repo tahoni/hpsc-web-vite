@@ -17,7 +17,7 @@ import {
   provincialAssociationLogoAlt,
   provincialAssociationName,
   provincialAssociationWebsite,
-} from "@constants/about/associationConstants";
+} from "@/constants/about/associationConstants";
 import {
   bosninjaDetail,
   bosninjaLogo,

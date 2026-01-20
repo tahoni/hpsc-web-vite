@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Image, Row } from "react-bootstrap";
-import { linkWithLogoIconDefaultHeight } from "@constants/content/contentConstants";
+import { linkWithLogoIconDefaultHeight } from "@/constants/content/contentConstants";
 import classes from "./LinkWithLogoAndDescription.module.scss";
 
 interface LinkWithLogoAndDescriptionProps {

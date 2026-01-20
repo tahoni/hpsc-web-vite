@@ -3,9 +3,9 @@ import { Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";
-import { VenueType } from "@models/venues/VenueType";
+import { VenueType } from "@/models/venues/VenueType";
 import { SimpleVenueMap } from "@components/Map";
-import { copyrightYear } from "@constants/commonConstants";
+import { copyrightYear } from "@/constants/commonConstants.ts";
 import {
   clubName,
   clubShootingRangeVenue,
@@ -13,7 +13,7 @@ import {
   facebookGroup,
   facebookPage,
   webmasterEmail
-} from "@constants/about/clubConstants";
+} from "@/constants/about/clubConstants";
 import { footerMapId } from "./FooterConstants.ts";
 import classes from "./Footer.module.scss";
 
