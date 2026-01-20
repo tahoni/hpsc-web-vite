@@ -4,6 +4,7 @@
 
 ### Table of Contents
 
+- [Version 4.2.1](#version-421---_2026-01-20_)
 - [Version 4.2.0](#version-420---_2026-01-20_)
 - [Version 4.1.4](#version-414---_2026-01-19_)
 - [Version 4.1.3](#version-413---_2026-01-11_)
@@ -14,6 +15,29 @@
 - [Version 4.0.2](#version-402---_2025-11-26_)
 - [Version 4.0.1](#version-401---_2025-10-27_)
 - [Version 4.0.0](#version-400---_2025-08-17_)
+
+### [Version 4.2.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.1) - _2026-01-20_
+
+Moved shared local helpers back under the `shared` directory.
+Added a file documenting all the dependencies in the project that are looking for funding.
+
+#### General Code Improvements
+
+- Moved helpers for route management back under the `src/shared/helpers/` directory.
+
+#### Licence and Documentation
+
+- Added a `PACKAGES.md` file documenting all the dependencies in the project that are looking
+  for funding.
+
+#### Dependencies
+
+- Removed the unused dependencies `lightgallery` and `react-pdf`.
+- Updated the `@tahoni/tahoni-lib-react` dependency to version `3.3.0`.
+
+#### Changes by
+
+@tahoni
 
 ### [Version 4.2.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.0) - _2026-01-20_
 
