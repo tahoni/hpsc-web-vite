@@ -54,7 +54,7 @@ Documents development, build, test and deploy workflows for the project.
   `docs`, `sitemap`) in `README.md`.
 - Small editorial fixes `ARCHITECTURE.md` and `UI.md`.
 - Small formatting changes in `plan.md` and `task.md` in the `documnetation/roadmap/` folder.
-- Removed the sceeenshot from `README.md` to reduce maintenance overhead.
+- Removed the screenshot from `README.md` to reduce maintenance overhead.
 - Deleted the `documentation/screenshots/` folder as the content is not being used any more.
 
 #### Changes by

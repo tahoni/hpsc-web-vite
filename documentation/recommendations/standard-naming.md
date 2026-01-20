@@ -66,7 +66,7 @@ src/pages/
 └── NotFound.tsx           ✅ Page component
 ```
 
-#### **Or Organized by Folder**
+#### **Or Organised by Folder**
 
 ```
 src/pages/
@@ -360,12 +360,13 @@ import {Button} from '@/components/Button';
 
 ```typescript jsx
 // Button.tsx
+// Correct: ✅
 export const Button = () => { /* ... */
-};  ✅
+};  
 
-// Not:
+// Not: ❌
 export const MyButton = () => { /* ... */
-};  ❌
+};  
 ```
 
 ### **5. Separate Concerns with Multiple Files**
