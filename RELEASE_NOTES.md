@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-### Version 4.1.5 - _2026-01-20_
+### Version 4.2.0 - _2026-01-20_
 
 Optimised the images by using the webp format.
 
