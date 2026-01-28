@@ -1,4 +1,4 @@
-# HPSC website
+# HPSC Website
 
 ## Change Log
 
@@ -6,7 +6,7 @@
 
 - [Version 0.0.0](#version-000---_20xx-xx-xx_)
 
-### [Version 0.0.0](https://github.com/tahoni/template-react/releases/tag/version-0.0.0) - _20xx-xx-xx_
+### [Version 0.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-0.0.0) - _20xx-xx-xx_
 
 A summary of the main changes.
 
