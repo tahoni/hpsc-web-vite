@@ -1,4 +1,4 @@
-# HPSC Web – Improvement Tasks Checklist
+# HPSC Website – Improvement Tasks Checklist
 
 Note: Each item is actionable and intended to be checked off when completed. Items are ordered from
 foundational/tooling improvements through architecture, code quality, UX/a11y, performance, and documentation.
