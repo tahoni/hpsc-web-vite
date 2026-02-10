@@ -1,4 +1,4 @@
-# HPSC website
+# HPSC Website
 
 ## Change Log
 
