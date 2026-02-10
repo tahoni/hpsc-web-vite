@@ -4,6 +4,7 @@
 
 ### Table of Contents
 
+- [Version 4.2.2](#version-422---_2026-02-10_)
 - [Version 4.2.1](#version-421---_2026-01-20_)
 - [Version 4.2.0](#version-420---_2026-01-20_)
 - [Version 4.1.4](#version-414---_2026-01-19_)
