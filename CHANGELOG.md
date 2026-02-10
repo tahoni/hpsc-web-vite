@@ -16,6 +16,24 @@
 - [Version 4.0.1](#version-401---_2025-10-27_)
 - [Version 4.0.0](#version-400---_2025-08-17_)
 
+### [Version 4.2.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.2) - _2026-02-10_
+
+Fixed security vulnerabilities in dependencies.
+
+#### Licence and Documentation
+
+- Updated `CHANGELOG.md` and `RELEASE_NOTES.md` to reflect repository and title changes.
+- Normalised filenames and updated `.gitignore`.
+
+#### Dependencies
+
+- Fixed security vulnerabilities in dependencies.
+
+#### Changes by
+
+@dependabot[bot]
+@tahoni
+
 ### [Version 4.2.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.1) - _2026-01-20_
 
 Moved shared local helpers back under the `shared` directory.
