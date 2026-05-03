@@ -2,15 +2,7 @@
 
 ## Release Notes
 
-### Table of Contents
-
-- [Unreleased](#unreleased)
-- [Version 4.2.3](#version-423---_2026-05-03_)
-- [Version 4.2.2](#version-422---_2026-02-10_)
-
-### Unreleased
-
-### [Version 4.2.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.3) - _2026-05-03_
+### Version 4.2.3 - _2026-05-03_
 
 Updated office-bearer details and fixed a case-sensitive import path.
 
@@ -36,22 +28,4 @@ Updated office-bearer details and fixed a case-sensitive import path.
 
 #### Changes by
 
-@tahoni
-
-### [Version 4.2.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.2) - _2026-02-10_
-
-Fixed security vulnerabilities in dependencies.
-
-#### Licence and Documentation
-
-- Updated `CHANGELOG.md` and `RELEASE_NOTES.md` to reflect repository and title changes.
-- Normalised filenames and updated `.gitignore`.
-
-#### Dependencies
-
-- Fixed security vulnerabilities in dependencies.
-
-#### Changes by
-
-@dependabot[bot]
 @tahoni

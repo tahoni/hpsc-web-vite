@@ -297,4 +297,5 @@ dist/
 target/
 tsdocs/
 .idea/
+.claude/
 
