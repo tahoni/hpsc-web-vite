@@ -757,7 +757,7 @@ Read all page content from Markdown components.
 
 Optimise the images.
 
-#### Enhancements and Updated
+#### Enhancements and Updates
 
 - Optimise all images.
 

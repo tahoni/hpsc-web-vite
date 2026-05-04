@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-### [Version 4.2.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.3) - _2026-05-04_
+### Version 4.2.3 - _2026-05-03_
 
 Updated office-bearer details and fixed a case-sensitive import path.
 
