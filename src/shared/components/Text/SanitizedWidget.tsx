@@ -5,7 +5,7 @@ import { SanitizedWidgetTypes } from "./SanitizedWidgetTypes";
 import TextWidget from "@rjsf/core/lib/components/widgets/TextWidget";
 import TextareaWidget from "@rjsf/core/lib/components/widgets/TextareaWidget";
 
-interface SanitizedWidgetProps extends BaseInputTemplateProps {
+export interface SanitizedWidgetProps extends BaseInputTemplateProps {
   type: SanitizedWidgetTypes;
 }
 

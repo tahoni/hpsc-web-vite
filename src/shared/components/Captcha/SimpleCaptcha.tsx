@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { GoogleReCaptcha } from "react-google-recaptcha-v3";
 
-interface SimpleCaptchaProps {
+export interface SimpleCaptchaProps {
   handleChange?: (token: string) => void;
 }
 

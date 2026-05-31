@@ -6,17 +6,18 @@
  */
 
 import {Navigate} from "react-router";
-import {PageAlias} from "@/models/pages/PageAlias.ts";
-import {aboutUs, events, history, home, links, members} from "@shared/routes/RouteAliases.tsx";
+import {PageAlias} from "src/models/pages/PageAlias.ts";
+import {aboutUs, events, history, home, links, members} from "src/shared/routes/RouteAliases.tsx";
 
 /**
  * Represents an array of route configurations for the application.
- * Elements for navigation are provided for specific paths to handle redirections.
+ * The array contains a selection of specific pages that are included in the
+ * main router paths.
  *
- *
- * Each route configuration object specifies the mapping for a page,
- * and optionally its path and element for navigation.
- *
+ * Each item in the array corresponds to a {@link PageAlias} object, which defines
+ * the path and the component to render for that path.
+ * This array serves as the central source of metadata and behaviour for the
+ * respective page in the navigation system.
  */
 export const routes: PageAlias[] = [
   { mapping: home },

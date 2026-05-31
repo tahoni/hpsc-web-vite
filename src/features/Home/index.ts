@@ -1,6 +1,6 @@
 /**
  * This module serves as the entry point for the "Home" feature of the application.
- * It exports the {@code HomePage} component, which is responsible for rendering
+ * It exports the {@link HomePage} component, which is responsible for rendering
  * the main content of the "Home" page.
  *
  * @module
