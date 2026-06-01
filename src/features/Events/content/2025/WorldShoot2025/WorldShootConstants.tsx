@@ -1,7 +1,7 @@
 import { JSX } from "react";
+import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import WorldShoot2025Component
   from "@features/Events/content/2025/WorldShoot2025/WorldShoot2025Component.tsx";
-import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import { ShootingRanges } from "@/constants/about/venueConstants.ts";
 import { VenueEvent } from "@/models/venues/VenueEvent.ts";
 import { defaultImageExtension, defaultImagePath } from "@/constants/commonConstants.ts";

@@ -4,6 +4,7 @@
 
 ### Table of Contents
 
+- [Version 4.2.3](#version-423---_2026-05-04_)
 - [Version 4.2.2](#version-422---_2026-02-10_)
 - [Version 4.2.1](#version-421---_2026-01-20_)
 - [Version 4.2.0](#version-420---_2026-01-20_)
@@ -16,6 +17,35 @@
 - [Version 4.0.2](#version-402---_2025-11-26_)
 - [Version 4.0.1](#version-401---_2025-10-27_)
 - [Version 4.0.0](#version-400---_2025-08-17_)
+
+### [Version 4.2.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.3) - _2026-05-04_
+
+Updated office-bearer details and fixed a case-sensitive import path.
+
+#### Enhancements and Updates
+
+- Updated club office-bearer names:
+  - Chairman: Jan Kleynhans → Jan Lubbinge
+  - Secretary: Albert van Herk → Engela Lubbinge
+
+#### Bug Fixes
+
+- Fixed case-sensitive import path in `WorldShootConstants` — the `worldShoot2025` component directory
+  was referenced with incorrect casing, causing build failures on case-sensitive file systems.
+
+#### General Technical Changes
+
+- Removed `.idea` (JetBrains IDE) and `.junie` directories from version control.
+- Added `.idea` to the VCS ignore list.
+
+#### Dependencies
+
+- Fixed security vulnerabilities in dependencies (`lodash-es`, `brace-expansion`, `minimatch`, `picomatch`).
+- Updated `eslint-plugin-tsdoc` from 0.4.0 to 0.5.2 and related dependencies.
+
+#### Changes by
+
+@tahoni
 
 ### [Version 4.2.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.2) - _2026-02-10_
 
@@ -170,7 +200,7 @@ dedicated namespaces and fixes several import paths.
 Refined the user interface, improved the responsive design for navigation components and updated project
 documentation and assets.
 
-#### Enhancements & Updates
+#### Enhancements and Updates
 
 - Updated `HeaderMenu` with improved breakpoints and layout adjustments to ensure better responsiveness on
   extra-large screens.
@@ -202,7 +232,7 @@ documentation and assets.
 ### [Version 4.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.0) - _2025-12-30_
 
 Modernised the navigation experience, ensured the layouts are robust across various device sizes and
-leveraged unique Google Map IDs for better management of map styles and features.
+leveraged unique Google Maps IDs for better management of map styles and features.
 
 #### Enhancements and Updates
 

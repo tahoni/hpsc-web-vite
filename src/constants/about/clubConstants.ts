@@ -41,8 +41,8 @@ export const webmasterEmail: string = "webmaster@hpsc.co.za";
 export const noReplyEmail: string = "no-reply@hpsc.co.za";
 
 // People
-export const chairmanName: string = "Jan Kleynhans";
-export const secretaryName: string = "Albert van Herk";
+export const chairmanName: string = "Jan Lubbinge";
+export const secretaryName: string = "Engela Lubbinge";
 
 // Social media
 export const facebookUrl: string = "https://www.facebook.com/";
