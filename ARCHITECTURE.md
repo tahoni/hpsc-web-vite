@@ -5,17 +5,19 @@ of the Hartbeespoortdam Practical Shooting Club (HPSC) website.
 
 ## Table of Contents
 
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Core Concepts](#core-concepts)
-    - [Data-Driven Routing](#data-driven-routing)
-    - [Feature-Based Organization](#feature-based-organization)
-    - [Content Strategy (MDX)](#content-strategy-mdx)
-    - [Styling and Theming](#styling-and-theming)
-- [Build and Tooling](#build-and-tooling)
-- [Development Guidelines](#development-guidelines)
+- [⚙️ Technology Stack](#-technology-stack)
+- [📁 Project Structure](#-project-structure)
+- [🎯 Core Concepts](#-core-concepts)
+    - [🧭 Data-Driven Routing](#-data-driven-routing)
+    - [🧩 Feature-Based Organization](#-feature-based-organization)
+    - [📝 Content Strategy (MDX)](#-content-strategy-mdx)
+    - [🎨 Styling and Theming](#-styling-and-theming)
+- [🔧 Build and Tooling](#-build-and-tooling)
+- [🛠️ Development Guidelines](#-development-guidelines)
 
-## Technology Stack
+---
+
+## ⚙️ Technology Stack
 
 The application is built using modern web technologies:
 
@@ -27,13 +29,15 @@ The application is built using modern web technologies:
 - **Styling**: [SCSS (Sass)](https://sass-lang.com/) with Sass Modules
 - **Content**: [MDX](https://mdxjs.com/) for content-heavy pages
 
-## Project Structure
+---
+
+## 📁 Project Structure
 
 The project follows a modular structure, separating shared infrastructure from feature-specific logic.
 
 ```text
 ├───builders            # Build-time scripts (e.g., sitemap generation)
-├───documentation       # Project documentation and templates
+├───documentation       # Project documentation, release history archive, and planning notes
 ├───public              # Static assets (robots.txt, sitemap.xml, favicon)
 │   └───assets          # Externalized images (club, content, layout, logos)
 ├───src                 # Main source code
@@ -53,9 +57,11 @@ The project follows a modular structure, separating shared infrastructure from f
 └───vite.config.ts      # Vite configuration
 ```
 
-## Core Concepts
+---
 
-### Data-Driven Routing
+## 🎯 Core Concepts
+
+### 🧭 Data-Driven Routing
 
 Routing is handled through a data-driven approach rather than static JSX routes. This allows the same route
 definitions to be used for both the React application and the sitemap builder.
@@ -67,7 +73,7 @@ definitions to be used for both the React application and the sitemap builder.
 - **`AppRoutes.tsx`**: Renders the `Routes` and `Route` components from React Router by iterating over the
   configured aliases.
 
-### Feature-Based Organization
+### 🧩 Feature-Based Organization
 
 Code is organised by "features" under `src/features`. Each feature folder is self-contained and
 typically includes:
@@ -78,7 +84,7 @@ typically includes:
 - Feature-specific styles (Sass Modules).
 - An `index.ts` for clean exports.
 
-### Content Strategy (MDX)
+### 📝 Content Strategy (MDX)
 
 For pages with significant text content (like History or Home), the project uses **MDX**. This allows writing
 content in Markdown while embedding React components where necessary.
@@ -86,7 +92,7 @@ content in Markdown while embedding React components where necessary.
 - MDX files are imported as React components.
 - The Vite config uses `@mdx-js/rollup` to process these files.
 
-### Styling and Theming
+### 🎨 Styling and Theming
 
 The project uses a combination of Bootstrap and custom SCSS:
 
@@ -97,7 +103,9 @@ The project uses a combination of Bootstrap and custom SCSS:
   `src/vendors/bootstrap/styles/_custom.scss`. This allows the club's colour palette (Butterscotch, etc.)
   to be applied to standard Bootstrap components.
 
-## Build and Tooling
+---
+
+## 🔧 Build and Tooling
 
 - **Vite**: Handles the build process, including HMR during development and optimised bundling for production.
 - **Manual Chunking**: Large dependencies (e.g. FontAwesome, FullCalendar) are split into separate vendor
@@ -107,7 +115,9 @@ The project uses a combination of Bootstrap and custom SCSS:
 - **Bundle Visualisation**: `rollup-plugin-visualizer` generates a report in
   `target/bundle-visualization.html` after every build to monitor bundle size.
 
-## Development Guidelines
+---
+
+## 🛠️ Development Guidelines
 
 Refer to the [README.md](./README.md) for detailed instructions on local setup, commands, and
 coding standards.
