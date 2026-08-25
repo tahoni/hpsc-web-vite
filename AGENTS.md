@@ -135,37 +135,36 @@ Every heading listed in a Table of Contents is prefixed with an emoji, and its T
 
 Root-level documentation, and the goal of each file (`README.md` links out to `ARCHITECTURE.md`, `UI.md`, and `LICENSE.md` individually rather than via a single documentation index — `README.md` is the canonical version if the two ever drift):
 
-| File               | Purpose                                                                       |
-|--------------------|-------------------------------------------------------------------------------|
-| `README.md`        | Project overview, setup, and links to the rest of the documentation           |
-| `ARCHITECTURE.md`  | Detailed architectural design, directory structure, and core concepts         |
-| `UI.md`            | User interface layout, navigation, and design overview                        |
-| `CLAUDE.md`        | Guidance for Claude Code specifically when working in this repository         |
-| `AGENTS.md`        | Cross-tool agent conventions (this file)                                      |
-| `CONTRIBUTING.md`  | Contributor-facing setup, git workflow, and pull request checklist            |
-| `IMPROVEMENT_PLAN.md` | Themed improvement plan synthesising project goals, constraints, and concrete actions with rationale/impact per item — supersedes `documentation/roadmap-old/plan.md` |
-| `CHANGELOG.md`     | Notable changes per released version, in Keep a Changelog format              |
-| `HISTORY.md`       | Narrative history of the project's evolution across all versions              |
-| `RELEASE_NOTES.md` | Detailed release notes for the current/latest version only                    |
-| `PACKAGES.md`      | Generated funding-tree manifest listing dependencies seeking sponsorship      |
-| `LICENSE.md`       | MIT License                                                                   |
+| File                                        | Purpose                                                                                                                                                               |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `README.md`                                 | Project overview, setup, and links to the rest of the documentation                                                                                                   |
+| `ARCHITECTURE.md`                           | Detailed architectural design, directory structure, and core concepts                                                                                                 |
+| `UI.md`                                     | User interface layout, navigation, and design overview                                                                                                                |
+| `CLAUDE.md`                                 | Guidance for Claude Code specifically when working in this repository                                                                                                 |
+| `AGENTS.md`                                 | Cross-tool agent conventions (this file)                                                                                                                              |
+| `CONTRIBUTING.md`                           | Contributor-facing setup, git workflow, and pull request checklist                                                                                                    |
+| `CHANGELOG.md`                              | Notable changes per released version, in Keep a Changelog format                                                                                                      |
+| `HISTORY.md`                                | Narrative history of the project's evolution across all versions                                                                                                      |
+| `RELEASE_NOTES.md`                          | Detailed release notes for the current/latest version only                                                                                                            |
+| `PACKAGES.md`                               | Generated funding-tree manifest listing dependencies seeking sponsorship                                                                                              |
+| `LICENSE.md`                                | MIT License                                                                                                                                                           |
 
 These documentation-only folders supplement it:
 
 - **`documentation/history/`** holds one of each of the following files per released version, archived once the release is finalised:
 
-  | File                       | Purpose                                                     |
-  |-----------------------------|--------------------------------------------------------------|
-  | `RELEASE_NOTES_vX.Y.Z.md`  | Archived snapshot of `RELEASE_NOTES.md` at release time      |
-  | `PR_DESCRIPTION_vX.Y.Z.md` | The release pull request's body, archived for that version   |
+  | File                       | Purpose                                                    |
+  |----------------------------|------------------------------------------------------------|
+  | `RELEASE_NOTES_vX.Y.Z.md`  | Archived snapshot of `RELEASE_NOTES.md` at release time    |
+  | `PR_DESCRIPTION_vX.Y.Z.md` | The release pull request's body, archived for that version |
 - **`documentation/recommendations/`** holds general React/TypeScript convention reference notes (naming, directory structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions — read alongside `ARCHITECTURE.md`, not as a replacement for it.
-- **`documentation/roadmap-old/`** is the archived former home of the improvement plan — its `plan.md` is superseded by the root `IMPROVEMENT_PLAN.md`, but `tasks.md` (the flat, checkable task backlog) remains the live source; check both `IMPROVEMENT_PLAN.md` and `tasks.md` before assuming a gap (missing CI pipeline, no tests, no `CONTRIBUTING.md`) is unintentional — it may already be tracked there.
+- **`documentation/roadmap/`** holds `IMPROVEMENT_PLAN.md` — a synthesis of this project's own goals/constraints into numbered, evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success Criteria — and `TASKS.md`, the checkbox-level task breakdown of those gaps, organised by the plan's Now/Next/Later/Ongoing phasing (each item tags its originating gap number). Check both files before assuming a gap (missing CI pipeline, no tests, no `CONTRIBUTING.md`) is unintentional; it may already be tracked there.
 
 ---
 
 ## 🧪 Test Conventions
 
-Vitest is configured (`npm test`) but no test files exist yet in this repository — see `documentation/roadmap-old/tasks.md` items on establishing CI and initial test coverage. When adding tests:
+Vitest is configured (`npm test`) but no test files exist yet in this repository — see `documentation/roadmap/TASKS.md` items on establishing CI and initial test coverage. When adding tests:
 
 - Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
 - For component tests, use `@testing-library/react` with a `jsdom` environment (add as a dev dependency and configure `test.environment` in a `vitest.config.ts` — neither exists yet).
@@ -217,10 +216,10 @@ This repository follows the [GitFlow](https://nvie.com/posts/a-successful-git-br
 When cutting a new version, work through these steps **in order** — the version number and date must be final before anything downstream references them:
 
 1. **Bump `package.json`.** Update the `version` field to the new `X.Y.Z`.
-2. **Promote `### 🧪 [Unreleased]` to a dated version entry.** Rename it `### 🧾 [X.Y.Z] - YYYY-MM-DD`, keeping only the Keep a Changelog categories that actually have entries (`➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security` — omit any that are empty) and their `##### <Area>` sub-headings. Add the new version to the Table of Contents, move the "← Current" marker onto it, then start a fresh, fully-empty `### 🧪 [Unreleased]` section above it (six empty category headings: `➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security`).
-3. **Replace `RELEASE_NOTES.md`.** Unlike `CHANGELOG.md`, this file holds only the *current* release. Follow this section order: **Theme** (one line naming the release's focus, matching the Theme that will go into `HISTORY.md`'s Historical Timeline entry for this version) → **Key Highlights** (a short bullet list of the release's most notable points, matching that entry's Key Focus bullets) → the categorised change list (same categories and Area sub-headings as the `CHANGELOG.md` entry, without the Table of Contents). Replace the previous version's content outright rather than appending to it.
+2. **Promote `### 🧪 [Unreleased]` to a dated version entry.** Rename it `### 🧾 [X.Y.Z] - YYYY-MM-DD`, keeping only the Keep a Changelog categories that actually have entries (`➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security` — omit any that are empty) and their `##### <Area>` subheadings. Add the new version to the Table of Contents, move the "← Current" marker onto it, then start a fresh, fully-empty `### 🧪 [Unreleased]` section above it (six empty category headings: `➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security`).
+3. **Replace `RELEASE_NOTES.md`.** Unlike `CHANGELOG.md`, this file holds only the *current* release. Follow this section order: **Theme** (one line naming the release's focus, matching the Theme that will go into `HISTORY.md`'s Historical Timeline entry for this version) → **Key Highlights** (a short bullet list of the release's most notable points, matching that entry's Key Focus bullets) → the categorised change list (same categories and Area subheadings as the `CHANGELOG.md` entry, without the Table of Contents). Replace the previous version's content outright rather than appending to it.
 4. **Verify links and dates.** Confirm the `version-X.Y.Z` tag slug and the `YYYY-MM-DD` date match between `CHANGELOG.md` and `RELEASE_NOTES.md`.
-5. **Extend `HISTORY.md`.** Add a new entry to the Historical Timeline (Theme + Key Focus bullets, at the same depth as the existing entries, placed at the top to keep reverse chronological order). If the release is significant enough to have shifted the project's trajectory, also thread it through the other sections that track version-by-version state (Evolution Overview's Phases, Major Milestones, Architectural Evolution, Feature Timeline, Project Philosophy Evolution, Key Learnings, Future Roadmap Implications, Conclusion) — use how the immediately preceding version was woven into those sections as the template. A routine patch release may only need the Historical Timeline entry.
+5. **Extend `HISTORY.md`.** Add a new entry to the Historical Timeline (Theme and Key Focus bullets, at the same depth as the existing entries, placed at the top to keep reverse chronological order). If the release is significant enough to have shifted the project's trajectory, also thread it through the other sections that track version-by-version state (Evolution Overview's Phases, Major Milestones, Architectural Evolution, Feature Timeline, Project Philosophy Evolution, Key Learnings, Future Roadmap Implications, Conclusion) — use how the immediately preceding version was woven into those sections as the template. A routine patch release may only need the Historical Timeline entry.
 6. **Archive `RELEASE_NOTES.md`.** Once finalised, copy it byte-for-byte (no edits, no trimming) to `documentation/history/RELEASE_NOTES_vX.Y.Z.md`.
 7. **Write `documentation/history/PR_DESCRIPTION_vX.Y.Z.md`.** The body text for the release pull request. Keep it small — a PR body, not a second `RELEASE_NOTES.md`: a few bullets per section, high-level only, no line-by-line detail. Structure:
    - `## 🎯 Summary` — two to four bullets on what the release is and why

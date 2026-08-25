@@ -37,13 +37,13 @@ For the full set of conventions AI coding agents (and, by extension, contributor
 
 The scripts most relevant while contributing:
 
-| Script          | Purpose                                             |
-|------------------|------------------------------------------------------|
-| `npm run dev`    | Run the dev server with HMR                          |
-| `npm run lint`   | Lint with ESLint                                      |
-| `npm test`       | Run the Vitest test suite                             |
-| `npm run build`  | Type-check and build for production (`dist/`)         |
-| `npm run preview`| Preview the production build locally                  |
+| Script            | Purpose                                       |
+|-------------------|-----------------------------------------------|
+| `npm run dev`     | Run the dev server with HMR                   |
+| `npm run lint`    | Lint with ESLint                              |
+| `npm test`        | Run the Vitest test suite                     |
+| `npm run build`   | Type-check and build for production (`dist/`) |
+| `npm run preview` | Preview the production build locally          |
 
 See `README.md`'s Available Scripts section for the complete list, including `npm run docs` and `npm run sitemap`.
 
@@ -72,7 +72,7 @@ See `AGENTS.md`'s Documentation Conventions section for the full rules. The esse
 
 ## 🧪 Testing
 
-Vitest is configured (`npm test`) but this project currently has no test files — see `documentation/roadmap-old/tasks.md` for the tracked task on establishing initial coverage. When adding tests, per `AGENTS.md`'s Test Conventions:
+Vitest is configured (`npm test`) but this project currently has no test files — see `documentation/roadmap/TASKS.md` for the tracked task on establishing initial coverage. When adding tests, per `AGENTS.md`'s Test Conventions:
 
 - Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
 - For component tests, use `@testing-library/react` with a `jsdom` environment.

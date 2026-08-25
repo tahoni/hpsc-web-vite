@@ -239,7 +239,7 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 ### Version 3.5.0 (April 26, 2025)
 
-**Theme:** Google Maps Migration & 404 Cleanup
+**Theme:** Google Maps Migration & 404 Clean-up
 
 **Key Focus:**
 
@@ -354,7 +354,7 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Brought `README.md`/`LICENCE` up to date; added the project's first release notes and change log
+- Brought `README.md`/`LICENCE` up to date; added the project's first release notes and change the log
 
 ### Version 3.2.5 (December 25, 2024)
 
@@ -526,7 +526,7 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 - `.htaccess`-based client-side routing support; accessibility fixes (nested hyperlinks, two-line small-screen content)
 - A CAPTCHA dependency was removed after it was found injecting suspicious code — an early, formative security lesson
 
-**Technical Focus:** Turning a static shell into a real, interactive multi-page site, with security and accessibility corrections along the way.
+**Technical Focus:** Turning a static shell into a real, interactive multipage site, with security and accessibility corrections along the way.
 
 ---
 
@@ -541,7 +541,7 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 - Migrated from `@react-google-maps` to `@vis.gl/react-google-maps`
 - `.htaccess` corrected to return real HTTP 404s for unknown routes, retiring the client-side "Page Not Found" component
 
-**Technical Focus:** Correctness — routing that behaves like a real multi-page site under refresh/direct-link, and a maps library the project could build on longer-term.
+**Technical Focus:** Correctness — routing that behaves like a real multipage site under refresh/direct-link, and a maps library the project could build on longer-term.
 
 ---
 
@@ -641,7 +641,7 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 - Real HTTP 404 handling, canonical URL and redirect fixes, and a route-metadata-driven `sitemap.xml` builder
 
-**Achievement:** Made the site behave correctly as a genuine multi-page site under direct links, refreshes, and search-engine crawling.
+**Achievement:** Made the site behave correctly as a genuine multipage site under direct links, refreshes, and search-engine crawling.
 
 ---
 
@@ -877,7 +877,7 @@ Route (React Router, data-driven)
 
 ## 🚀 Future Roadmap Implications
 
-Based on the evolution to Version 4.2.3, and the tracked backlog in [`documentation/roadmap-old/tasks.md`](documentation/roadmap-old/tasks.md) (as it stood at the time), the following areas were identified for future work:
+Based on the evolution to Version 4.2.3 and the tracked backlog in `documentation/roadmap/tasks.md` (as it stood at the time — since superseded and no longer present in the repository), the following areas were identified for future work:
 
 ### Recently Completed (v4.2.0 – v4.2.3)
 
@@ -907,7 +907,7 @@ Based on the evolution to Version 4.2.3, and the tracked backlog in [`documentat
 - Add a `CONTRIBUTING.md` with setup, branching, and PR-checklist guidance
 - Schedule a regular dependency-update cadence and document it
 
-The full, itemised backlog (50 tracked items as of this release) lived in `documentation/roadmap/tasks.md` and `documentation/roadmap/plan.md` at the time; the current backlog and plan live in `documentation/roadmap-old/tasks.md` and the root [`IMPROVEMENT_PLAN.md`](IMPROVEMENT_PLAN.md) respectively — check there before assuming a gap is unintentional.
+The full, itemised backlog (50 tracked items as of this release) lived in `documentation/roadmap/tasks.md` and `documentation/roadmap/plan.md` at the time (since superseded and no longer present in the repository); the current backlog and plan live in `documentation/roadmap/TASKS.md` and [`documentation/roadmap/IMPROVEMENT_PLAN.md`](documentation/roadmap/IMPROVEMENT_PLAN.md) respectively — check there before assuming a gap is unintentional.
 
 ---
 

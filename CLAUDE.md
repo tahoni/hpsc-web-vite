@@ -43,11 +43,11 @@ npm run sitemap
 
 ## Environment Variables
 
-| Variable                | Used in                     | Purpose                                                                            |
-|--------------------------|------------------------------|-------------------------------------------------------------------------------------|
-| `NPM_TOKEN_READ`         | `.npmrc`                     | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
-| `GOOGLE_MAPS_API_KEY`    | `.env.local` → `VITE_GOOGLE_MAPS_API_KEY`   | Google Maps API key; without it the venue map does not render        |
-| `RECAPTCHA_V2_SITE_KEY`  | `.env.local` → `VITE_RECAPTCHA_V2_SITE_KEY` | reCAPTCHA v2 site key for the Contact Us form's `Captcha` component   |
+| Variable                | Used in                                     | Purpose                                                                             |
+|-------------------------|---------------------------------------------|-------------------------------------------------------------------------------------|
+| `NPM_TOKEN_READ`        | `.npmrc`                                    | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
+| `GOOGLE_MAPS_API_KEY`   | `.env.local` → `VITE_GOOGLE_MAPS_API_KEY`   | Google Maps API key; without it the venue map does not render                       |
+| `RECAPTCHA_V2_SITE_KEY` | `.env.local` → `VITE_RECAPTCHA_V2_SITE_KEY` | reCAPTCHA v2 site key for the Contact Us form's `Captcha` component                 |
 
 `.env.production` only sets `VITE_SHOW_BREAKPOINTS=false` (a debug overlay toggle); it carries no secrets.
 
@@ -70,20 +70,20 @@ Route (React Router)
 
 ### Key directories (`src/`)
 
-| Directory      | Role                                                                                                          |
-|----------------|-----------------------------------------------------------------------------------------------------------------|
-| `features/`    | One folder per page/domain (`Home`, `AboutUs`, `ContactUs`, `Events`, `History`, `Links`, `Members`, `News`, `Venues`), each self-contained with a `…Page.tsx`, content component(s), optional `.mdx`, styles, and a barrel `index.ts` |
-| `shared/routes/` | Data-driven routing: `BaseRoutes.ts` (route metadata as `PageMapping`s), `RouteAliases.tsx` (maps mappings to lazy-loaded components), `AppRoutes.tsx` (renders `Routes`/`Route` from the mappings) |
-| `shared/layouts/` | `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints` — the page chrome every route renders inside |
-| `shared/components/` | Reusable UI: `Captcha`, `Map`, `Sidebar`, `Section`, `Text`, `Title`, `Video`, `Content` |
-| `shared/pages/`   | `Page` — the base wrapper feature pages compose |
-| `models/`      | TypeScript interfaces/classes grouped by domain: `email/`, `pages/`, `sitemap/`, `venues/`                                |
-| `helpers/`     | Application-specific helpers with routing/UI context (`routeHelpers.tsx`, `menuHelpers.tsx`) — see [`documentation/recommendations/standard-utils-vs-helpers.md`](documentation/recommendations/standard-utils-vs-helpers.md) for the `utils/` vs `helpers/` split this project follows |
-| `utils/`       | Framework-agnostic pure functions (`htmlUtils.ts`)                                                                         |
-| `constants/`   | Grouped by domain (`about/`, `content/`, `images/`) plus `commonConstants.ts`                                              |
-| `enums/`       | `email/EmailType`                                                                                                          |
-| `vendors/bootstrap/` | Bootstrap 5 SCSS overrides — the club's colour palette (Butterscotch, etc.) is applied here, not by editing Bootstrap itself |
-| `assets/`      | Bundler-processed assets: `images/`, `styles/` (global SCSS, using `@use`, not `@import`)                                  |
+| Directory            | Role                                                                                                                                                                                                                                                                                    |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `features/`          | One folder per page/domain (`Home`, `AboutUs`, `ContactUs`, `Events`, `History`, `Links`, `Members`, `News`, `Venues`), each self-contained with a `…Page.tsx`, content component(s), optional `.mdx`, styles, and a barrel `index.ts`                                                  |
+| `shared/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata as `PageMapping`s), `RouteAliases.tsx` (maps mappings to lazy-loaded components), `AppRoutes.tsx` (renders `Routes`/`Route` from the mappings)                                                                                     |
+| `shared/layouts/`    | `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints` — the page chrome every route renders inside                                                                                                                                                                             |
+| `shared/components/` | Reusable UI: `Captcha`, `Map`, `Sidebar`, `Section`, `Text`, `Title`, `Video`, `Content`                                                                                                                                                                                                |
+| `shared/pages/`      | `Page` — the base wrapper feature pages compose                                                                                                                                                                                                                                         |
+| `models/`            | TypeScript interfaces/classes grouped by domain: `email/`, `pages/`, `sitemap/`, `venues/`                                                                                                                                                                                              |
+| `helpers/`           | Application-specific helpers with routing/UI context (`routeHelpers.tsx`, `menuHelpers.tsx`) — see [`documentation/recommendations/standard-utils-vs-helpers.md`](documentation/recommendations/standard-utils-vs-helpers.md) for the `utils/` vs `helpers/` split this project follows |
+| `utils/`             | Framework-agnostic pure functions (`htmlUtils.ts`)                                                                                                                                                                                                                                      |
+| `constants/`         | Grouped by domain (`about/`, `content/`, `images/`) plus `commonConstants.ts`                                                                                                                                                                                                           |
+| `enums/`             | `email/EmailType`                                                                                                                                                                                                                                                                       |
+| `vendors/bootstrap/` | Bootstrap 5 SCSS overrides — the club's colour palette (Butterscotch, etc.) is applied here, not by editing Bootstrap itself                                                                                                                                                            |
+| `assets/`            | Bundler-processed assets: `images/`, `styles/` (global SCSS, using `@use`, not `@import`)                                                                                                                                                                                               |
 
 `builders/RoutesSitemap.ts` reuses the same `BaseRoutes` metadata to generate `public/sitemap.xml` at build time (`npm run sitemap`).
 
@@ -106,7 +106,7 @@ Header/
 
 ## Testing
 
-Vitest is configured (`npm test`) but the project currently has no test files — establishing test coverage is tracked in [`documentation/roadmap-old/tasks.md`](documentation/roadmap-old/tasks.md). When adding tests:
+Vitest is configured (`npm test`) but the project currently has no test files — establishing test coverage is tracked in [`documentation/roadmap/TASKS.md`](documentation/roadmap/TASKS.md). When adding tests:
 
 - Co-locate `*.test.ts`/`*.test.tsx` next to the file under test, matching the naming table in [`documentation/recommendations/standard-naming.md`](documentation/recommendations/standard-naming.md).
 - For component tests, add `@testing-library/react` and configure a `jsdom` environment (not yet set up) rather than reaching for a full browser runner.

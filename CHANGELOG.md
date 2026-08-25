@@ -42,15 +42,15 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ##### Documentation
 
 - Added a Contributors convention to `AGENTS.md`'s Documentation Conventions — when docs credit contributors or authors, source the list from `git log`/GitHub history (including bot accounts) rather than assuming
-- Added `CONTRIBUTING.md` with project setup, git workflow, documentation and testing conventions, and a pull request checklist, and linked it from `README.md`'s new Contributing section — closes `documentation/roadmap/tasks.md` item 43
-- Filed `documentation/roadmap/tasks.md` items 51 and 52 (with matching `plan.md` §4.1 actions) for two bugs found while auditing the roadmap checklist: `src/features/News` isn't wired into any route mapping, and `coreContactUsRoute` in `BaseRoutes.ts` has a `dateCreated` that postdates its own `dateUpdated`
-- Added `IMPROVEMENT_PLAN.md` — a root-level synthesis of the project's goals, constraints, and improvement themes with rationale/impact per item — and added it to `AGENTS.md`'s Documentation File Map
+- Added `CONTRIBUTING.md` with project setup, git workflow, documentation and testing conventions, and a pull request checklist, and linked it from `README.md`'s new Contributing section
+- Added `documentation/roadmap/IMPROVEMENT_PLAN.md` — a synthesis of this project's own goals/constraints into eight evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success Criteria — and added it to `AGENTS.md`'s Documentation File Map
+- Added `documentation/roadmap/TASKS.md` — a checkbox-level task breakdown of `documentation/roadmap/IMPROVEMENT_PLAN.md`'s eight gaps, organised by the plan's Now/Next/Later/Ongoing phasing, each item tagging its originating gap number for traceability
 
 #### 🔄 Changed
 
 ##### Documentation
 
-- Renamed `documentation/roadmap/` to `documentation/roadmap-old/` and merged `plan.md`'s full themed content into the root `IMPROVEMENT_PLAN.md`, which now supersedes it; `tasks.md` remains the live task backlog at its new path. Updated the resulting stale cross-references in `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, and `HISTORY.md`'s Future Roadmap Implications section
+- Renamed `documentation/roadmap/` to `documentation/roadmap-old/`, superseded by the recreated `documentation/roadmap/IMPROVEMENT_PLAN.md` and `documentation/roadmap/TASKS.md`; `documentation/roadmap-old/` is now a fully archived, no-longer-maintained snapshot. Updated the resulting stale cross-references in `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, and `HISTORY.md`'s Future Roadmap Implications section
 
 #### 🐛 Fixed
 
@@ -86,7 +86,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 ##### Build & Tooling
 
-- Fixed case-sensitive import path in `WorldShootConstants` — the `worldShoot2025` component directory was referenced with incorrect casing, causing build failures on case-sensitive file systems
+- Fixed the case-sensitive import path in `WorldShootConstants` — the `worldShoot2025` component directory was referenced with incorrect casing, causing build failures on case-sensitive file systems
 
 #### 🗑️ Removed
 
@@ -162,7 +162,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 ##### Assets
 
-- Fixed the corrupt `ipsc-target-with-bullet-holes.png` image file, and converted it to the `webp` format
+- Fixed the corrupt `ipsc-target-with-bullet-holes.png` image file and converted it to the `webp` format
 
 ---
 
@@ -180,7 +180,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 - Clarified the usage of `package.json` scripts (`dev`, `build`, `host`, `preview`, `test`, `docs`, `sitemap`) in `README.md`
 - Small editorial fixes to `ARCHITECTURE.md` and `UI.md`
-- Small formatting changes in `plan.md`/`tasks.md` under `documentation/roadmap/`
+- Small formatting changes in `plan.md`/`TASKS.md` under `documentation/roadmap/`
 
 #### 🗑️ Removed
 
@@ -465,7 +465,7 @@ The legacy Version 3.x line, narrated in [HISTORY.md](HISTORY.md), already follo
 
 ### 🤝 Contributing
 
-This project does not yet have a dedicated `CONTRIBUTING.md` (tracked in [`documentation/roadmap/tasks.md`](documentation/roadmap/tasks.md)). Until then, follow the conventions in [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md):
+This project does not yet have a dedicated `CONTRIBUTING.md` (tracked in [`documentation/roadmap/TASKS.md`](documentation/roadmap/TASKS.md)). Until then, follow the conventions in [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md):
 
 1. Branch from `develop` using the GitFlow model (`feature/<short-description>`, `hotfix/<short-description>`, or `release/vX.Y.Z` — see AGENTS.md's Git Workflow)
 2. Run `npm run lint`, `npm run build`, and `npm test` before opening a PR
