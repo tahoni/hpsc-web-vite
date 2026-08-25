@@ -11,7 +11,8 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 4.2.3](#-423---2026-05-04) ← Current
+- [🧾 Version 5.0.0](#-500---2026-08-25) ← Current
+- [🧾 Version 4.2.3](#-423---2026-05-04)
 - [🧾 Version 4.2.2](#-422---2026-02-10)
 - [🧾 Version 4.2.1](#-421---2026-01-20)
 - [🧾 Version 4.2.0](#-420---2026-01-20)
@@ -32,6 +33,22 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ---
 
 ### 🧪 [Unreleased]
+
+#### ➕ Added
+
+#### 🔄 Changed
+
+#### 🐛 Fixed
+
+#### ⚠️ Deprecated
+
+#### 🗑️ Removed
+
+#### 🔐 Security
+
+---
+
+### 🧾 [5.0.0] - 2026-08-25
 
 #### ➕ Added
 
@@ -69,11 +86,13 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 #### 🐛 Fixed
 
+##### Build & Tooling
+
+- Fixed broken `src/helpers/routeHelpers.tsx`/`menuHelpers.tsx` imports left as unresolvable bare `src/...` specifiers after the helpers relocation, which only type-checked (via `tsc`'s `baseUrl`) but broke `npm run build`; corrected them to the `@/` and `@shared` path aliases already used elsewhere, and fixed the `@helpers`/`@models`/`@utils`/`@constants` alias mappings in `vite.config.ts`/`tsconfig.app.json`, which still pointed at their pre-relocation `src/shared/*` locations
+
 ##### Documentation
 
 - Fixed `UI.md`'s unlabelled Designers heading
-
-#### ⚠️ Deprecated
 
 #### 🗑️ Removed
 
@@ -488,7 +507,7 @@ The legacy Version 3.x line, narrated in [HISTORY.md](HISTORY.md), already follo
 
 ### 🤝 Contributing
 
-This project does not yet have a dedicated `CONTRIBUTING.md` (tracked in [`documentation/roadmap/TASKS.md`](documentation/roadmap/TASKS.md)). Until then, follow the conventions in [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md):
+Project setup, this repository's git workflow, and the pull request checklist are documented in [`CONTRIBUTING.md`](CONTRIBUTING.md), which follows the conventions in [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md). In short:
 
 1. Branch from `develop` using the GitFlow model (`feature/<short-description>`, `hotfix/<short-description>`, or `release/vX.Y.Z` — see AGENTS.md's Git Workflow)
 2. Run `npm run lint`, `npm run build`, and `npm test` before opening a PR

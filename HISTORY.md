@@ -21,6 +21,18 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 ## 📅 Historical Timeline
 
+### Version 5.0.0 (August 25, 2026)
+
+**Theme:** AI Agent Conventions & Release Process Foundations
+
+**Key Focus:**
+
+- Added `AGENTS.md`/`CLAUDE.md` cross-tool AI agent conventions and five Claude Code slash commands for release prep and test scaffolding, plus `CONTRIBUTING.md`
+- Restructured `CHANGELOG.md`/`HISTORY.md` into the icon-based Keep a Changelog format and introduced a `documentation/history/` per-version release archive
+- Added `documentation/roadmap/IMPROVEMENT_PLAN.md`/`TASKS.md`, an evidence-backed improvement backlog
+- Refactored email models and relocated `menuHelpers`/`routeHelpers` to `src/helpers/`; closed all open GitHub Dependabot alerts
+- Fixed broken imports left behind by the helpers relocation, and stale `@helpers`/`@models`/`@utils`/`@constants` path aliases, which were breaking `npm run build`
+
 ### Version 4.2.3 (May 4, 2026)
 
 **Theme:** Office-Bearer Update & Case-Sensitivity Fix
@@ -602,6 +614,21 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 ---
 
+### Phase 8: AI Agent Tooling & Release Process Foundations (v5.0.0)
+
+**Duration:** May 4, 2026 – August 25, 2026
+
+**Key Accomplishments:**
+
+- `AGENTS.md`/`CLAUDE.md` established as cross-tool AI agent conventions, alongside five Claude Code slash commands automating release prep and test scaffolding
+- `CONTRIBUTING.md` added; `CHANGELOG.md`/`HISTORY.md` restructured into the icon-based Keep a Changelog format, with a `documentation/history/` per-version archive introduced
+- `documentation/roadmap/IMPROVEMENT_PLAN.md`/`TASKS.md` added, turning ad-hoc improvement ideas into an evidence-backed, trackable backlog
+- Email models refactored (`EmailContent` merged into `EmailMessage`, an `EmailType` enum introduced) and helpers relocated to `src/helpers/`; all open GitHub Dependabot alerts closed
+
+**Technical Focus:** Establishing durable, tool-agnostic documentation and process conventions, and paying down internal model debt, as groundwork ahead of the site's own visual/structural redesign — the branch this release ships from is named for it.
+
+---
+
 ## 🎯 Major Milestones
 
 ### Milestone 1: Initial Scaffold (v3.0.0)
@@ -666,6 +693,14 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 - Year-namespaced `2025/` content directories for `WorldShoot2025`/`ClubShirts`; a generic collapsible `Section` component; `webp` image optimisation
 
 **Achievement:** Established a repeatable pattern for yearly event content, ahead of future years' World Shoot and club-shirt updates.
+
+---
+
+### Milestone 9: AI Agent Documentation & Process Conventions (v5.0.0)
+
+- `AGENTS.md`/`CLAUDE.md` conventions, `CONTRIBUTING.md`, five Claude Code slash commands, `documentation/roadmap/` planning docs, and the `documentation/history/` per-version archive
+
+**Achievement:** Established a durable, cross-tool contract for how AI coding agents and human contributors work in this repository — documentation conventions, git workflow, and a Release Checklist — ahead of the redesign the branch is named for.
 
 ---
 
@@ -764,6 +799,7 @@ Route (React Router, data-driven)
 - **v3.3.6:** Reimplemented CAPTCHA using the `ReCAPTCHA` class
 - **v3.4.1:** Contact Us form sends e-mail on submission, with sanitised inputs
 - **v4.0.1:** Migrated to `react-google-recaptcha-v3`
+- **v5.0.0:** Refactored email models — merged `EmailContent` into `EmailMessage`, added an `EmailType` enum
 
 ### Maps
 
@@ -793,6 +829,7 @@ Route (React Router, data-driven)
 - **v4.0.2:** `@`-notation path aliases adopted; directory/stylesheet restructuring
 - **v4.1.3:** CodeQL analysis workflow added
 - **v4.2.0:** Images converted to `webp`
+- **v5.0.0:** Five Claude Code slash commands added for release prep and test scaffolding; all open GitHub Dependabot alerts closed
 
 ### Documentation
 
@@ -801,6 +838,7 @@ Route (React Router, data-driven)
 - **v4.0.0:** `CHANGELOG.md`/`HISTORY.md` split introduced; templates created
 - **v4.1.4:** `README.md` overhaul with quickstart and contribution guidance
 - **v4.2.1:** `PACKAGES.md` added for dependency-funding transparency
+- **v5.0.0:** `AGENTS.md`/`CLAUDE.md` cross-tool AI agent conventions and `CONTRIBUTING.md` added; `documentation/roadmap/` planning docs (`IMPROVEMENT_PLAN.md`, `TASKS.md`) and a `documentation/history/` per-version archive introduced
 
 ---
 
@@ -850,6 +888,14 @@ Route (React Router, data-driven)
 - Optimise assets, reorganise recurring-event content by year, and fix small correctness issues
 - Keep dependencies and documentation current
 
+### AI-Agent Process Phase (v5.0.0)
+
+**Focus:** Make the Project Legible to AI Coding Agents
+
+- Establish `AGENTS.md`/`CLAUDE.md` as the single source of truth for documentation, git workflow, and release conventions, shared across tools
+- Automate release-prep and test-scaffolding steps via Claude Code slash commands
+- Turn ad-hoc improvement ideas into an evidence-backed, trackable roadmap (`documentation/roadmap/`)
+
 ---
 
 ## 📚 Key Learnings
@@ -865,6 +911,7 @@ Route (React Router, data-driven)
 1. **MDX Over Plain Markdown:** Chosen in v3.2.0 specifically to allow embedding real React components inside content, not just formatted text
 2. **A Dedicated Maps Migration:** Moving from `@react-google-maps` to `@vis.gl/react-google-maps` (v3.5.0) was a deliberate bet on a more actively maintained library, paying off with the per-instance map ID support added in v4.1.0
 3. **Documentation Split by Audience:** `CHANGELOG.md` (current, technical) and `HISTORY.md` (narrative, full history) were split in v4.0.0 so the current release record stays short while the full story remains available
+4. **Tool-Agnostic Agent Conventions:** `AGENTS.md` was introduced in v5.0.0 as the cross-tool source of truth, with `CLAUDE.md` kept as a Claude-Code-specific quick reference — so conventions hold regardless of which AI coding tool is in use
 
 ### Technical Evolution
 
@@ -884,5 +931,6 @@ The HPSC Website has evolved from a single under-construction placeholder page i
 - **Structural Debt Repayment:** A dedicated standards phase (v4.0.0 – v4.0.3) to align the codebase with industry conventions once it had grown enough to warrant it
 - **Documentation as a First-Class Concern:** From the first `README`/changelog (v3.2.6) through the `CHANGELOG.md`/`HISTORY.md` split (v4.0.0) to the most recent `README.md` overhaul (v4.1.4)
 - **Content Reuse for Recurring Events:** A repeatable, year-namespaced pattern for annual content (World Shoot, club shirts) established in v4.1.2 and extended since
+- **Agent-Legible Process:** Formalising `AGENTS.md`/`CLAUDE.md` conventions and Claude Code slash commands in v5.0.0, so human and AI contributors alike follow the same documentation and release process
 
 The architecture settled in v4.0.0 – v4.0.2 — feature-organised directories, path aliases, and the Route → Page → Content → MDX pattern from v3.2.0 — remains the foundation the project builds on today.
