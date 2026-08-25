@@ -43,6 +43,7 @@ The project follows a modular structure, separating shared infrastructure from f
 ├───src                 # Main source code
 │   ├───assets          # Internal assets (icons, global stylesheets)
 │   ├───constants       # Global constants
+│   ├───enums           # Domain enums (e.g. email content type)
 │   ├───features        # Domain-specific features (Home, AboutUs, Events, etc.)
 │   ├───helpers         # Logic and routing helpers
 │   ├───models          # TypeScript interfaces and classes
