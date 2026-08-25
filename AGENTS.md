@@ -143,6 +143,7 @@ Root-level documentation, and the goal of each file (`README.md` links out to `A
 | `CLAUDE.md`        | Guidance for Claude Code specifically when working in this repository         |
 | `AGENTS.md`        | Cross-tool agent conventions (this file)                                      |
 | `CONTRIBUTING.md`  | Contributor-facing setup, git workflow, and pull request checklist            |
+| `IMPROVEMENT_PLAN.md` | Executive-level synthesis of project goals, constraints, and improvement themes, linking out to `documentation/roadmap/` for detail |
 | `CHANGELOG.md`     | Notable changes per released version, in Keep a Changelog format              |
 | `HISTORY.md`       | Narrative history of the project's evolution across all versions              |
 | `RELEASE_NOTES.md` | Detailed release notes for the current/latest version only                    |
