@@ -1,7 +1,6 @@
 # HPSC Website Architecture
 
-This document describes the architectural design, directory structure, and core concepts
-of the Hartbeespoortdam Practical Shooting Club (HPSC) website.
+This document describes the architectural design, directory structure, and core concepts of the Hartbeespoortdam Practical Shooting Club (HPSC) website.
 
 ## Table of Contents
 
@@ -64,8 +63,7 @@ The project follows a modular structure, separating shared infrastructure from f
 
 ### 🧭 Data-Driven Routing
 
-Routing is handled through a data-driven approach rather than static JSX routes. This allows the same route
-definitions to be used for both the React application and the sitemap builder.
+Routing is handled through a data-driven approach rather than static JSX routes. This allows the same route definitions to be used for both the React application and the sitemap builder.
 
 - **`PageMapping` (Model)**: Defines a page's metadata (name, path, timestamps) and its React element.
 - **`BaseRoutes.ts`**: Contains the core `PageMapping` instances for all main pages.
@@ -76,8 +74,7 @@ definitions to be used for both the React application and the sitemap builder.
 
 ### 🧩 Feature-Based Organization
 
-Code is organised by "features" under `src/features`. Each feature folder is self-contained and
-typically includes:
+Code is organised by "features" under `src/features`. Each feature folder is self-contained and typically includes:
 
 - The main page component (e.g., `HomePage.tsx`).
 - Content components (e.g., `HomeContent.tsx`).
@@ -87,8 +84,7 @@ typically includes:
 
 ### 📝 Content Strategy (MDX)
 
-For pages with significant text content (like History or Home), the project uses **MDX**. This allows writing
-content in Markdown while embedding React components where necessary.
+For pages with significant text content (like History or Home), the project uses **MDX**. This allows writing content in Markdown while embedding React components where necessary.
 
 - MDX files are imported as React components.
 - The Vite config uses `@mdx-js/rollup` to process these files.
@@ -120,5 +116,4 @@ The project uses a combination of Bootstrap and custom SCSS:
 
 ## 🛠️ Development Guidelines
 
-Refer to the [README.md](./README.md) for detailed instructions on local setup, commands, and
-coding standards.
+Refer to the [README.md](README.md) for detailed instructions on local setup, commands, and coding standards.

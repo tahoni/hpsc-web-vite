@@ -1,14 +1,12 @@
 # Difference Between `helpers/` and `utils/`
 
-While the terms are often used interchangeably, there are semantic differences in how they're typically organised in
-React projects:
+While the terms are often used interchangeably, there are semantic differences in how they're typically organised in React projects:
 
 ---
 
 ## **`utils/` (Utilities)**
 
-**Purpose:** Pure, generic utility functions that are **framework-agnostic** and have no dependencies on React or
-application-specific logic.
+**Purpose:** Pure, generic utility functions that are **framework-agnostic** and have no dependencies on React or application-specific logic.
 
 **Characteristics:**
 
@@ -69,8 +67,7 @@ export const chunk = <T>(array: T[], size: number): T[][] => {
 
 ## **`helpers/` (Helpers)**
 
-**Purpose:** Application-specific functions that **support business logic** and may have dependencies on React, app
-context, or domain models.
+**Purpose:** Application-specific functions that **support business logic** and may have dependencies on React, app context, or domain models.
 
 **Characteristics:**
 
@@ -240,5 +237,4 @@ src/
 - **Yes** → `utils/`
 - **No** (needs app context/models) → `helpers/`
 
-However, many teams simply use `utils/` for everything to avoid confusion. Choose consistency over strict semantic
-separation.
+However, many teams simply use `utils/` for everything to avoid confusion. Choose consistency over strict semantic separation.
