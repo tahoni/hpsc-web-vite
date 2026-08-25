@@ -38,7 +38,16 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 #### 🔄 Changed
 
+##### Documentation
+
+- Expanded `AGENTS.md`'s Release Checklist template for `RELEASE_NOTES.md` with Migration Guide, Statistics, Design Notes, Testing, Known Issues, Future Enhancements, Contributors, and Notes sections, added matching ⭐/📊/🔮/👥 icons to the icon table, and rewrote `RELEASE_NOTES.md` to follow the expanded template
+- Consolidated `README.md`'s per-file documentation links into a new Documentation section, now referenced by `AGENTS.md`'s Documentation File Map, and clarified its Prerequisites/Installation and Execution steps
+
 #### 🐛 Fixed
+
+##### Documentation
+
+- Fixed hard-wrapped paragraphs in `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md`, `documentation/recommendations/standard-css.md`, and `documentation/recommendations/standard-utils-vs-helpers.md` that broke mid-sentence or mid-clause instead of matching the rest of the repo's one-paragraph-per-line convention; also converted `PACKAGES.md` from UTF-16 to UTF-8, matching every other Markdown file in the repo
 
 #### ⚠️ Deprecated
 
