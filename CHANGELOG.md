@@ -36,6 +36,10 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 #### ➕ Added
 
+##### Build & Tooling
+
+- Added a `/sync-unreleased-changes` Claude Code command — audits the current branch's diff against its base branch and adds any missing `CHANGELOG.md` Unreleased entries for notable changes
+
 #### 🔄 Changed
 
 ##### Documentation
@@ -50,6 +54,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 - Fixed hard-wrapped paragraphs in `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md`, `documentation/recommendations/standard-css.md`, and `documentation/recommendations/standard-utils-vs-helpers.md` that broke mid-sentence or mid-clause instead of matching the rest of the repo's one-paragraph-per-line convention; also converted `PACKAGES.md` from UTF-16 to UTF-8, matching every other Markdown file in the repo
 - Fixed additional hard-wrapped list-item descriptions in `ARCHITECTURE.md` (the `RouteAliases.tsx`/`AppRoutes.tsx`, Sass Modules/Bootstrap Overrides, and Build and Tooling bullets) missed by the earlier paragraph rewrap
 - Fixed `documentation/history/RELEASE_NOTES_v5.0.0.md`'s stale archive snapshot, which had fallen out of sync with `RELEASE_NOTES.md`'s expanded Migration Guide/Statistics/Design Notes/Testing/Known Issues/Future Enhancements/Contributors/Notes template — resynced it byte-for-byte per AGENTS.md's Release Checklist archive rule
+- Fixed `ARCHITECTURE.md`'s Project Structure tree missing the `src/enums/` directory, which had been added without updating the tree
 
 #### ⚠️ Deprecated
 
