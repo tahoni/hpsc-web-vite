@@ -170,7 +170,7 @@ It proposes concrete improvements organised by theme, with rationale and expecte
 ### 7.2 Release checklist
 
 - Actions:
-    - Create a release checklist template in documentation/templates and reference it from RELEASE_NOTES.md.
+    - Done — the release checklist lives in AGENTS.md's Release Checklist section.
 - Rationale: Repeatable, low-risk releases.
 - Impact: Fewer missed steps during releases.
 

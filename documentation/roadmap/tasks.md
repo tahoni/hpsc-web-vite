@@ -84,8 +84,7 @@ foundational/tooling improvements through architecture, code quality, UX/a11y, p
 43. [ ] Add a CONTRIBUTING.md with project setup, branching, lint/test/build expectations and PR checklist
 44. [ ] Update ARCHITECTURE.md to include current routing, sitemap assumptions and any new builders or
     env-driven behaviour
-45. [ ] Create a release checklist in documentation/templates and reference it from RELEASE_NOTES.md for
-    consistent releases
+45. [x] Create a release checklist for consistent releases — done via AGENTS.md's Release Checklist section
 46. [ ] Add a basic smoke test (Vitest) that renders the app shell with jsdom and verifies essential layout
     components mount
 47. [ ] Verify robots.txt and sitemap.xml alignment with routes; add a script to write sitemap to
