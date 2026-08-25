@@ -60,6 +60,10 @@ All documentation prose and code comments use British English spelling (e.g. "li
 - Document exported components, hooks, and utility functions with a summary line and `@param`/`@returns` where the signature isn't self-explanatory from its types.
 - Don't restate what strict TypeScript types already make obvious (e.g. don't write `@param name - The name` for `name: string`) — reserve prose for behaviour, side effects, and non-obvious constraints.
 
+### Contributors
+
+When documentation credits contributors or authors (e.g. README.md's Author section, a release PR description), source the list from actual git/GitHub history — never assume or guess who contributed. Run `git log --format='%an <%ae>' | sort -u` (or check the repository's GitHub Contributors view) and include every account found, bots (e.g. `dependabot[bot]`, `ImgBotApp`) included.
+
 ### Standard structure
 
 Every documentation file in this repository follows the same shape:
