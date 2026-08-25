@@ -6,8 +6,8 @@
  */
 
 import {Navigate} from "react-router";
-import {PageAlias} from "src/models/pages/PageAlias.ts";
-import {aboutUs, events, history, home, links, members} from "src/shared/routes/RouteAliases.tsx";
+import {PageAlias} from "@/models/pages/PageAlias.ts";
+import {aboutUs, events, history, home, links, members} from "@shared/routes/RouteAliases.tsx";
 
 /**
  * Represents an array of route configurations for the application.

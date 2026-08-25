@@ -5,8 +5,8 @@
  * @module
  */
 
-import {PageMapping} from "src/models/pages/PageMapping.ts";
-import {aboutUs, events, history, home, links, members} from "src/shared/routes/RouteAliases.tsx";
+import {PageMapping} from "@/models/pages/PageMapping.ts";
+import {aboutUs, events, history, home, links, members} from "@shared/routes/RouteAliases.tsx";
 
 /**
  * Represents an array of page mappings used to define navigation menu items.
