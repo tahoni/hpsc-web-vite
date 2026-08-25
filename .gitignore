@@ -292,9 +292,10 @@ hs_err_pid*
 
 ## TAHONI
 .run/
+build/
 target/
 dist/
 tsdocs/
 .idea/
-.claude/
 .junie/
+.claude/*.local.json

@@ -42,6 +42,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ##### Build & Tooling
 
 - Added five Claude Code slash commands under `.claude/commands/`: `/generate-commit-message` (drafts a commit message and matching `CHANGELOG.md` entry from the working tree diff), `/generate-pr-description` (prepares a new version release per the Release Checklist), `/generate-pr-summary` (condenses a release into a short PR summary), and `/scaffold-unit-tests`/`/scaffold-integration-tests` (scaffold Vitest unit/integration tests following this project's testing conventions)
+- Added `build/` to `.gitignore`; replaced the blanket `.claude/` ignore entry with `.claude/*.local.json`, so `.claude/commands/` can be tracked while local-only Claude config stays ignored
 
 ##### Documentation
 
