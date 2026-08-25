@@ -10,6 +10,10 @@ HPSC Web is the React/TypeScript frontend for the Hartbeespoortdam Practical Sho
 - **Dev server**: `http://localhost:5173/` (or `http://hpsc.local/` via `npm run host`)
 - **Routing**: React Router 7, driven by data (`PageMapping` instances), not static JSX route trees
 
+## Working on Complex Tasks
+
+For multistep or non-trivial tasks, use the TodoWrite tool to create and maintain a todo list, updating it as work progresses — this keeps progress visible and keeps the work on track, per AGENTS.md's Git Workflow Conventions.
+
 ## Build & Run Commands
 
 ```bash
