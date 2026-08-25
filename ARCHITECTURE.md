@@ -67,10 +67,8 @@ Routing is handled through a data-driven approach rather than static JSX routes.
 
 - **`PageMapping` (Model)**: Defines a page's metadata (name, path, timestamps) and its React element.
 - **`BaseRoutes.ts`**: Contains the core `PageMapping` instances for all main pages.
-- **`RouteAliases.tsx`**: Maps mappings to their respective components, often using `React.lazy`
-  for code-splitting.
-- **`AppRoutes.tsx`**: Renders the `Routes` and `Route` components from React Router by iterating over the
-  configured aliases.
+- **`RouteAliases.tsx`**: Maps mappings to their respective components, often using `React.lazy` for code-splitting.
+- **`AppRoutes.tsx`**: Renders the `Routes` and `Route` components from React Router by iterating over the configured aliases.
 
 ### 🧩 Feature-Based Organization
 
@@ -93,24 +91,18 @@ For pages with significant text content (like History or Home), the project uses
 
 The project uses a combination of Bootstrap and custom SCSS:
 
-- **Sass Modules**: Used for component-specific styles (e.g., `Layout.module.scss`) to prevent
-  selector collisions.
+- **Sass Modules**: Used for component-specific styles (e.g., `Layout.module.scss`) to prevent selector collisions.
 - **Global Styles**: Defined in `src/assets/stylesheets`, using the `@use` syntax for modularity.
-- **Bootstrap Overrides**: Custom variables and overrides are located in
-  `src/vendors/bootstrap/styles/_custom.scss`. This allows the club's colour palette (Butterscotch, etc.)
-  to be applied to standard Bootstrap components.
+- **Bootstrap Overrides**: Custom variables and overrides are located in `src/vendors/bootstrap/styles/_custom.scss`. This allows the club's colour palette (Butterscotch, etc.) to be applied to standard Bootstrap components.
 
 ---
 
 ## 🔧 Build and Tooling
 
 - **Vite**: Handles the build process, including HMR during development and optimised bundling for production.
-- **Manual Chunking**: Large dependencies (e.g. FontAwesome, FullCalendar) are split into separate vendor
-  chunks to improve caching and load times.
-- **Sitemap Generation**: A custom script (`builders/RoutesSitemap.ts`) uses the routing metadata to
-  generate `sitemap.xml`.
-- **Bundle Visualisation**: `rollup-plugin-visualizer` generates a report in
-  `target/bundle-visualization.html` after every build to monitor bundle size.
+- **Manual Chunking**: Large dependencies (e.g. FontAwesome, FullCalendar) are split into separate vendor chunks to improve caching and load times.
+- **Sitemap Generation**: A custom script (`builders/RoutesSitemap.ts`) uses the routing metadata to generate `sitemap.xml`.
+- **Bundle Visualisation**: `rollup-plugin-visualizer` generates a report in`target/bundle-visualization.html` after every build to monitor bundle size.
 
 ---
 
