@@ -53,6 +53,10 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 #### 🔐 Security
 
+##### Dependencies
+
+- Updated `vitest`, `react-router`, `postcss`, `vite`, `sanitize-html`, `ws`, `js-yaml`, `nanoid`, `brace-expansion`, `fast-uri`, `immutable`, `linkify-it`, `markdown-it`, `socket.io-parser`, and `@babel/core` to their patched versions, closing all currently open GitHub Dependabot alerts (1 critical, 25 high, 12 moderate, 2 low)
+
 ---
 
 ### 🧾 [4.2.3] - 2026-05-04
