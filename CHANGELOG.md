@@ -44,9 +44,13 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 - Added a Contributors convention to `AGENTS.md`'s Documentation Conventions — when docs credit contributors or authors, source the list from `git log`/GitHub history (including bot accounts) rather than assuming
 - Added `CONTRIBUTING.md` with project setup, git workflow, documentation and testing conventions, and a pull request checklist, and linked it from `README.md`'s new Contributing section — closes `documentation/roadmap/tasks.md` item 43
 - Filed `documentation/roadmap/tasks.md` items 51 and 52 (with matching `plan.md` §4.1 actions) for two bugs found while auditing the roadmap checklist: `src/features/News` isn't wired into any route mapping, and `coreContactUsRoute` in `BaseRoutes.ts` has a `dateCreated` that postdates its own `dateUpdated`
-- Added `IMPROVEMENT_PLAN.md` — a root-level, executive-level synthesis of the project's goals, constraints, and improvement themes, linking out to `documentation/roadmap/plan.md` and `tasks.md` for detail — and added it to `AGENTS.md`'s Documentation File Map
+- Added `IMPROVEMENT_PLAN.md` — a root-level synthesis of the project's goals, constraints, and improvement themes with rationale/impact per item — and added it to `AGENTS.md`'s Documentation File Map
 
 #### 🔄 Changed
+
+##### Documentation
+
+- Renamed `documentation/roadmap/` to `documentation/roadmap-old/` and merged `plan.md`'s full themed content into the root `IMPROVEMENT_PLAN.md`, which now supersedes it; `tasks.md` remains the live task backlog at its new path. Updated the resulting stale cross-references in `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, and `HISTORY.md`'s Future Roadmap Implications section
 
 #### 🐛 Fixed
 

@@ -72,7 +72,7 @@ See `AGENTS.md`'s Documentation Conventions section for the full rules. The esse
 
 ## 🧪 Testing
 
-Vitest is configured (`npm test`) but this project currently has no test files — see `documentation/roadmap/tasks.md` for the tracked task on establishing initial coverage. When adding tests, per `AGENTS.md`'s Test Conventions:
+Vitest is configured (`npm test`) but this project currently has no test files — see `documentation/roadmap-old/tasks.md` for the tracked task on establishing initial coverage. When adding tests, per `AGENTS.md`'s Test Conventions:
 
 - Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
 - For component tests, use `@testing-library/react` with a `jsdom` environment.

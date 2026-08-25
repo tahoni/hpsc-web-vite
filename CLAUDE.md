@@ -106,7 +106,7 @@ Header/
 
 ## Testing
 
-Vitest is configured (`npm test`) but the project currently has no test files — establishing test coverage is tracked in [`documentation/roadmap/tasks.md`](documentation/roadmap/tasks.md). When adding tests:
+Vitest is configured (`npm test`) but the project currently has no test files — establishing test coverage is tracked in [`documentation/roadmap-old/tasks.md`](documentation/roadmap-old/tasks.md). When adding tests:
 
 - Co-locate `*.test.ts`/`*.test.tsx` next to the file under test, matching the naming table in [`documentation/recommendations/standard-naming.md`](documentation/recommendations/standard-naming.md).
 - For component tests, add `@testing-library/react` and configure a `jsdom` environment (not yet set up) rather than reaching for a full browser runner.

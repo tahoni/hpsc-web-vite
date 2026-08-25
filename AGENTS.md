@@ -143,7 +143,7 @@ Root-level documentation, and the goal of each file (`README.md` links out to `A
 | `CLAUDE.md`        | Guidance for Claude Code specifically when working in this repository         |
 | `AGENTS.md`        | Cross-tool agent conventions (this file)                                      |
 | `CONTRIBUTING.md`  | Contributor-facing setup, git workflow, and pull request checklist            |
-| `IMPROVEMENT_PLAN.md` | Executive-level synthesis of project goals, constraints, and improvement themes, linking out to `documentation/roadmap/` for detail |
+| `IMPROVEMENT_PLAN.md` | Themed improvement plan synthesising project goals, constraints, and concrete actions with rationale/impact per item — supersedes `documentation/roadmap-old/plan.md` |
 | `CHANGELOG.md`     | Notable changes per released version, in Keep a Changelog format              |
 | `HISTORY.md`       | Narrative history of the project's evolution across all versions              |
 | `RELEASE_NOTES.md` | Detailed release notes for the current/latest version only                    |
@@ -159,13 +159,13 @@ These documentation-only folders supplement it:
   | `RELEASE_NOTES_vX.Y.Z.md`  | Archived snapshot of `RELEASE_NOTES.md` at release time      |
   | `PR_DESCRIPTION_vX.Y.Z.md` | The release pull request's body, archived for that version   |
 - **`documentation/recommendations/`** holds general React/TypeScript convention reference notes (naming, directory structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions — read alongside `ARCHITECTURE.md`, not as a replacement for it.
-- **`documentation/roadmap/`** holds `plan.md` (themed improvement plan with rationale) and `tasks.md` (a flat, checkable task backlog derived from it) — check both before assuming a gap (missing CI pipeline, no tests, no `CONTRIBUTING.md`) is unintentional; it may already be tracked there.
+- **`documentation/roadmap-old/`** is the archived former home of the improvement plan — its `plan.md` is superseded by the root `IMPROVEMENT_PLAN.md`, but `tasks.md` (the flat, checkable task backlog) remains the live source; check both `IMPROVEMENT_PLAN.md` and `tasks.md` before assuming a gap (missing CI pipeline, no tests, no `CONTRIBUTING.md`) is unintentional — it may already be tracked there.
 
 ---
 
 ## 🧪 Test Conventions
 
-Vitest is configured (`npm test`) but no test files exist yet in this repository — see `documentation/roadmap/tasks.md` items on establishing CI and initial test coverage. When adding tests:
+Vitest is configured (`npm test`) but no test files exist yet in this repository — see `documentation/roadmap-old/tasks.md` items on establishing CI and initial test coverage. When adding tests:
 
 - Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
 - For component tests, use `@testing-library/react` with a `jsdom` environment (add as a dev dependency and configure `test.environment` in a `vitest.config.ts` — neither exists yet).

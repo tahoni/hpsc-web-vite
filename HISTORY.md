@@ -877,7 +877,7 @@ Route (React Router, data-driven)
 
 ## 🚀 Future Roadmap Implications
 
-Based on the evolution to Version 4.2.3, and the tracked backlog in [`documentation/roadmap/tasks.md`](documentation/roadmap/tasks.md), the following areas are identified for future work:
+Based on the evolution to Version 4.2.3, and the tracked backlog in [`documentation/roadmap-old/tasks.md`](documentation/roadmap-old/tasks.md) (as it stood at the time), the following areas were identified for future work:
 
 ### Recently Completed (v4.2.0 – v4.2.3)
 
@@ -907,7 +907,7 @@ Based on the evolution to Version 4.2.3, and the tracked backlog in [`documentat
 - Add a `CONTRIBUTING.md` with setup, branching, and PR-checklist guidance
 - Schedule a regular dependency-update cadence and document it
 
-The full, itemised backlog (50 tracked items as of this release) lives in `documentation/roadmap/tasks.md` and `documentation/roadmap/plan.md` — check there before assuming a gap is unintentional.
+The full, itemised backlog (50 tracked items as of this release) lived in `documentation/roadmap/tasks.md` and `documentation/roadmap/plan.md` at the time; the current backlog and plan live in `documentation/roadmap-old/tasks.md` and the root [`IMPROVEMENT_PLAN.md`](IMPROVEMENT_PLAN.md) respectively — check there before assuming a gap is unintentional.
 
 ---
 
