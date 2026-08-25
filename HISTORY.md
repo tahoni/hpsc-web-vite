@@ -15,7 +15,6 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 - [✨ Feature Timeline](#-feature-timeline)
 - [💡 Project Philosophy Evolution](#-project-philosophy-evolution)
 - [📚 Key Learnings](#-key-learnings)
-- [🚀 Future Roadmap Implications](#-future-roadmap-implications)
 - [🎓 Conclusion](#-conclusion)
 
 ---
@@ -872,42 +871,6 @@ Route (React Router, data-driven)
 1. **Security Response:** The v3.3.3 removal of a CAPTCHA dependency injecting suspicious code, followed by a from-scratch reimplementation in v3.3.6, shows a willingness to cut a dependency rather than work around a security problem
 2. **Dependency Currency:** Regular, focused security-vulnerability patches (v3.3.8, v3.6.9, v4.0.1, v4.0.2, v4.2.2, v4.2.3) rather than large, infrequent upgrade batches
 3. **Recurring-Content Pattern:** Year-namespaced directories for `WorldShoot2025`/`ClubShirts` (v4.1.2 – v4.2.1) establish a repeatable structure for future years' equivalent content, rather than a one-off fix
-
----
-
-## 🚀 Future Roadmap Implications
-
-Based on the evolution to Version 4.2.3 and the tracked backlog in `documentation/roadmap/tasks.md` (as it stood at the time — since superseded and no longer present in the repository), the following areas were identified for future work:
-
-### Recently Completed (v4.2.0 – v4.2.3)
-
-- All images converted to `webp`; a corrupt source image fixed
-- `WorldShoot2025`/`ClubShirts` content reorganised into year-namespaced directories
-- `PACKAGES.md` added; unused dependencies removed
-- Office-bearer details refreshed; a case-sensitivity build issue fixed
-
-### Short-term (Tooling & Testing Foundations)
-
-- Establish a CI pipeline running `npm install`, lint, type-check, build, and Vitest on push/PR
-- Introduce `vitest.config.ts` with a `jsdom` environment, and add `@testing-library/react`/`@testing-library/user-event` as dev dependencies for the first component tests
-- Add a strict type-check-only script and wire it into CI
-- Add Prettier and a `format` script for consistent code style
-
-### Medium-term (Correctness & Coverage)
-
-- Validate and fix future-dated/missing route metadata (`dateCreated`/`dateUpdated`) so the sitemap stays accurate
-- Add accessibility linting (`eslint-plugin-jsx-a11y`) and review colour contrast/focus styles against WCAG AA
-- Sanitise all user-generated HTML/MDX content paths and restrict trusted components in MDX
-- Add an app-level error boundary and route-level Suspense/loader boundaries
-
-### Long-term (Performance & Polish)
-
-- Lazy-load heavy routes/components (FullCalendar, Google Maps) with route-level code-splitting
-- Add an image-optimisation pipeline for `public/assets` and consider responsive images
-- Add a `CONTRIBUTING.md` with setup, branching, and PR-checklist guidance
-- Schedule a regular dependency-update cadence and document it
-
-The full, itemised backlog (50 tracked items as of this release) lived in `documentation/roadmap/tasks.md` and `documentation/roadmap/plan.md` at the time (since superseded and no longer present in the repository); the current backlog and plan live in `documentation/roadmap/TASKS.md` and [`documentation/roadmap/IMPROVEMENT_PLAN.md`](documentation/roadmap/IMPROVEMENT_PLAN.md) respectively — check there before assuming a gap is unintentional.
 
 ---
 

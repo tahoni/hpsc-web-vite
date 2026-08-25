@@ -158,7 +158,15 @@ These documentation-only folders supplement it:
   | `RELEASE_NOTES_vX.Y.Z.md`  | Archived snapshot of `RELEASE_NOTES.md` at release time    |
   | `PR_DESCRIPTION_vX.Y.Z.md` | The release pull request's body, archived for that version |
 - **`documentation/recommendations/`** holds general React/TypeScript convention reference notes (naming, directory structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions — read alongside `ARCHITECTURE.md`, not as a replacement for it.
-- **`documentation/roadmap/`** holds `IMPROVEMENT_PLAN.md` — a synthesis of this project's own goals/constraints into numbered, evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success Criteria — and `TASKS.md`, the checkbox-level task breakdown of those gaps, organised by the plan's Now/Next/Later/Ongoing phasing (each item tags its originating gap number). Check both files before assuming a gap (missing CI pipeline, no tests, no `CONTRIBUTING.md`) is unintentional; it may already be tracked there.
+
+### Roadmap Planning
+
+Unlike the folders above, `documentation/roadmap/` isn't reference material — it's the project's active improvement backlog, kept separate from the standard documentation files:
+
+- **`IMPROVEMENT_PLAN.md`** — a synthesis of this project's own goals/constraints into numbered, evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success Criteria.
+- **`TASKS.md`** — the checkbox-level task breakdown of those gaps, organised by the plan's Now/Next/Later/Ongoing phasing (each item tags its originating gap number).
+
+Check both files before assuming a gap (missing CI pipeline, no tests, no `CONTRIBUTING.md`) is unintentional; it may already be tracked there.
 
 ---
 

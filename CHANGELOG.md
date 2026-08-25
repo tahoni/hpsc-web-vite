@@ -54,13 +54,18 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 ##### Documentation
 
-- Renamed `documentation/roadmap/` to `documentation/roadmap-old/`, superseded by the recreated `documentation/roadmap/IMPROVEMENT_PLAN.md` and `documentation/roadmap/TASKS.md`; `documentation/roadmap-old/` is now a fully archived, no-longer-maintained snapshot. Updated the resulting stale cross-references in `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, and `HISTORY.md`'s Future Roadmap Implications section
+- Renamed `documentation/roadmap/` to `documentation/roadmap-old/`, superseded by the recreated `documentation/roadmap/IMPROVEMENT_PLAN.md` and `documentation/roadmap/TASKS.md`; `documentation/roadmap-old/` is now a fully archived, no-longer-maintained snapshot. Updated the resulting stale cross-references in `AGENTS.md`, `CLAUDE.md`, and `CONTRIBUTING.md`
+- Split `AGENTS.md`'s Documentation File Map into a new "Roadmap Planning" subsection for `documentation/roadmap/`'s two files, separate from the reference-material folders (`documentation/history/`, `documentation/recommendations/`) — it's the project's active improvement backlog, not standard documentation
 
 #### 🐛 Fixed
 
 #### ⚠️ Deprecated
 
 #### 🗑️ Removed
+
+##### Documentation
+
+- Removed `HISTORY.md`'s "🚀 Future Roadmap Implications" section and its Table of Contents entry — it restated the now-superseded `documentation/roadmap/tasks.md`/`plan.md` backlog
 
 ##### Release Process
 
