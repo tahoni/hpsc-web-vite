@@ -122,6 +122,7 @@ Every heading listed in a Table of Contents is prefixed with an emoji, and its T
 | 🔐   | Security                                |
 | 📋   | Version policy / prerequisites          |
 | 🤝   | Contributing                            |
+| ✅   | Checklist                               |
 | 💬   | Support                                 |
 | 📅   | Historical timeline / dates             |
 | 💡   | Philosophy / insight                    |
@@ -141,6 +142,7 @@ Root-level documentation, and the goal of each file (`README.md` links out to `A
 | `UI.md`            | User interface layout, navigation, and design overview                        |
 | `CLAUDE.md`        | Guidance for Claude Code specifically when working in this repository         |
 | `AGENTS.md`        | Cross-tool agent conventions (this file)                                      |
+| `CONTRIBUTING.md`  | Contributor-facing setup, git workflow, and pull request checklist            |
 | `CHANGELOG.md`     | Notable changes per released version, in Keep a Changelog format              |
 | `HISTORY.md`       | Narrative history of the project's evolution across all versions              |
 | `RELEASE_NOTES.md` | Detailed release notes for the current/latest version only                    |

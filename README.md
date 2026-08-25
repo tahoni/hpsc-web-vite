@@ -13,6 +13,7 @@ The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) 
     - [⚙️ Environment Variables](#-environment-variables)
 - [🏛️ Architecture](#-architecture)
 - [🖥️ User Interface](#-user-interface)
+- [🤝 Contributing](#-contributing)
 - [📜 License](#-license)
 - [👤 Author](#-author)
 
@@ -133,6 +134,12 @@ A detailed explanation of the architecture can be found in the [`ARCHITECTURE.md
 ## 🖥️ User Interface
 
 A description of the user interface can be found in the [`UI.md`](./UI.md) file.
+
+---
+
+## 🤝 Contributing
+
+Guidelines for setting up the project, this repository's git workflow, and the pull request checklist can be found in the [`CONTRIBUTING.md`](./CONTRIBUTING.md) file.
 
 ---
 

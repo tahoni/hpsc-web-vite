@@ -42,6 +42,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ##### Documentation
 
 - Added a Contributors convention to `AGENTS.md`'s Documentation Conventions — when docs credit contributors or authors, source the list from `git log`/GitHub history (including bot accounts) rather than assuming
+- Added `CONTRIBUTING.md` with project setup, git workflow, documentation and testing conventions, and a pull request checklist, and linked it from `README.md`'s new Contributing section — closes `documentation/roadmap/tasks.md` item 43
 
 #### 🔄 Changed
 
