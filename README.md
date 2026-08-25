@@ -4,33 +4,40 @@ The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) 
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Repository](#repository)
-- [Technology](#technology)
-- [Instructions](#instructions)
-    - [Install the Project](#install-the-project)
-    - [Available Scripts](#available-scripts)
-    - [Environment Variables](#environment-variables)
-- [Architecture](#architecture)
-- [User Interface](#user-interface)
-- [License](#license)
-- [Author](#author)
+- [📖 Introduction](#-introduction)
+- [🔗 Repository](#-repository)
+- [⚙️ Technology](#-technology)
+- [🚀 Instructions](#-instructions)
+    - [🔧 Install the Project](#-install-the-project)
+    - [🧰 Available Scripts](#-available-scripts)
+    - [⚙️ Environment Variables](#-environment-variables)
+- [🏛️ Architecture](#-architecture)
+- [🖥️ User Interface](#-user-interface)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [👤 Author](#-author)
 
-## Introduction
+---
+
+## 📖 Introduction
 
 The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and
 user-friendly platform for members and visitors.
 
 The primary technologies used in this project include TypeScript, SCSS and MDX.
 
-## Repository
+---
+
+## 🔗 Repository
 
 The repository for this project is located at [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
 Feature requests, suggestions for improvements and bugs can be logged using the project's
 [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
 
-## Technology
+---
+
+## ⚙️ Technology
 
 This is a React project bootstrapped using Vite with the TypeScript React template.
 
@@ -41,13 +48,15 @@ Styling is done by SCSS stylesheets.
 
 React Router is used for page routing.
 
-## Instructions
+---
+
+## 🚀 Instructions
 
 You can download Node.js from [here](https://nodejs.org/).
 
 Clone the project from [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
-### Install the project
+### 🔧 Install the project
 
 Install the project using `npm install`.
 
@@ -60,7 +69,7 @@ Build it for production with `npm run build` to the `dist` directory.
 
 The production build can be verified by running `npm run preview`.
 
-### Available Scripts
+### 🧰 Available Scripts
 
 The following commands are available in this project.
 
@@ -72,6 +81,10 @@ This installs the dependencies.
 
 This runs the app in development mode.
 The page will reload if you make edits.
+
+#### `npm run host`
+
+This runs the app in development mode, bound to `http://hpsc.local/` instead of `localhost`.
 
 #### `npm run build`
 
@@ -87,31 +100,56 @@ Use this to check if the production build looks OK in your local environment.
 
 Runs ESLint to check for code quality issues.
 
+#### `npm test`
+
+Runs the Vitest test suite.
+
 #### `npm run docs`
 
 Generates technical documentation using TypeDoc to the `tsdocs` directory.
 
-#### Environment Variables
+#### `npm run sitemap`
 
-A npm read key to @tahoni on GitHub needs to be set in the ````GITHUB_TOKEN````
+Regenerates `public/sitemap.xml` from the route metadata.
+
+#### ⚙️ Environment Variables
+
+A npm read key to @tahoni on GitHub needs to be set in the ````NPM_TOKEN_READ````
 environment variable, to load the ````tahoni-lib-react```` npm package.
 
-The Google Maps API key from Google Cloud Services needs to be set in the ````GOOGLE_API_KEY````
+The Google Maps API key from Google Cloud Services needs to be set in the ````GOOGLE_MAPS_API_KEY````
 environment variable, otherwise, the map will not be available.
 
-## Architecture
+The reCAPTCHA v2 site key needs to be set in the ````RECAPTCHA_V2_SITE_KEY````
+environment variable, otherwise, the Contact Us form's captcha will not be available.
+
+---
+
+## 🏛️ Architecture
 
 A detailed explanation of the architecture can be found in the [`ARCHITECTURE.md`](./ARCHITECTURE.md) file.
 
-## User Interface
+---
+
+## 🖥️ User Interface
 
 A description of the user interface can be found in the [`UI.md`](./UI.md) file.
 
-## License
+---
+
+## 🤝 Contributing
+
+Guidelines for setting up the project, this repository's git workflow, and the pull request checklist can be found in the [`CONTRIBUTING.md`](./CONTRIBUTING.md) file.
+
+---
+
+## 📜 License
 
 The copyright licence can be found in the [`LICENSE.md`](./LICENSE.md) file.
 
-## Author
+---
+
+## 👤 Author
 
 **Leoni Lubbinge**
 

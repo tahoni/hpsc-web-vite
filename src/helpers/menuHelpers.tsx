@@ -12,7 +12,7 @@ import {aboutUs, events, history, home, links, members} from "@shared/routes/Rou
  * Represents an array of page mappings used to define navigation menu items.
  * The array contains a selection of specific pages that are included in the menu.
  *
- * Each item in the array corresponds to a `PageMapping` object, which defines
+ * Each item in the array corresponds to a {@link PageMapping} object, which defines
  * metadata and behaviour for the respective page in the navigation system.
  */
 export const menuItems: PageMapping[] = [

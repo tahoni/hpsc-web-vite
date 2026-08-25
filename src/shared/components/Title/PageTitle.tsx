@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import classes from "./PageTitle.module.scss";
 
-interface PageTitleProps {
+export interface PageTitleProps {
   title: string;
 }
 

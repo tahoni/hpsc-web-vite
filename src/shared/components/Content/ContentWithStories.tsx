@@ -1,6 +1,6 @@
 import React, { MemoExoticComponent, ReactElement } from "react";
 
-interface ContentWithStoriesProps {
+export interface ContentWithStoriesProps {
   type: string;
   Contents: MemoExoticComponent<() => ReactElement>[];
 }

@@ -1,382 +1,524 @@
 # HPSC Website
 
-## Change Log
+## 🧾 Change Log
+
+All notable changes to the HPSC Website project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTORY.md](HISTORY.md) for a narrative account of the project's full evolution, including that era.
+
+---
 
 ### Table of Contents
 
-- [Version 4.2.3](#version-423---_2026-05-04_)
-- [Version 4.2.2](#version-422---_2026-02-10_)
-- [Version 4.2.1](#version-421---_2026-01-20_)
-- [Version 4.2.0](#version-420---_2026-01-20_)
-- [Version 4.1.4](#version-414---_2026-01-19_)
-- [Version 4.1.3](#version-413---_2026-01-11_)
-- [Version 4.1.2](#version-412---_2026-01-03_)
-- [Version 4.1.1](#version-411---_2026-01-02_)
-- [Version 4.1.0](#version-410---_2025-12-30_)
-- [Version 4.0.3](#version-403---_2025-11-26_)
-- [Version 4.0.2](#version-402---_2025-11-26_)
-- [Version 4.0.1](#version-401---_2025-10-27_)
-- [Version 4.0.0](#version-400---_2025-08-17_)
+- [🧪 Unreleased](#-unreleased)
+- [🧾 Version 5.0.0](#-500---2026-08-25) ← Current
+- [🧾 Version 4.2.3](#-423---2026-05-04)
+- [🧾 Version 4.2.2](#-422---2026-02-10)
+- [🧾 Version 4.2.1](#-421---2026-01-20)
+- [🧾 Version 4.2.0](#-420---2026-01-20)
+- [🧾 Version 4.1.4](#-414---2026-01-19)
+- [🧾 Version 4.1.3](#-413---2026-01-11)
+- [🧾 Version 4.1.2](#-412---2026-01-03)
+- [🧾 Version 4.1.1](#-411---2026-01-02)
+- [🧾 Version 4.1.0](#-410---2025-12-30)
+- [🧾 Version 4.0.3](#-403---2025-11-26)
+- [🧾 Version 4.0.2](#-402---2025-11-26)
+- [🧾 Version 4.0.1](#-401---2025-10-27)
+- [🧾 Version 4.0.0](#-400---2025-08-17)
+- [📋 Version Policy](#-version-policy)
+- [🚀 Upgrade Guide](#-upgrade-guide)
+- [🤝 Contributing](#-contributing)
+- [💬 Support](#-support)
 
-### [Version 4.2.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.3) - _2026-05-04_
+---
 
-Updated office-bearer details and fixed a case-sensitive import path.
+### 🧪 [Unreleased]
 
-#### Enhancements and Updates
+#### ➕ Added
 
-- Updated club office-bearer names:
-  - Chairman: Jan Kleynhans → Jan Lubbinge
-  - Secretary: Albert van Herk → Engela Lubbinge
+#### 🔄 Changed
 
-#### Bug Fixes
+#### 🐛 Fixed
 
-- Fixed case-sensitive import path in `WorldShootConstants` — the `worldShoot2025` component directory
-  was referenced with incorrect casing, causing build failures on case-sensitive file systems.
+#### ⚠️ Deprecated
 
-#### General Technical Changes
+#### 🗑️ Removed
 
-- Removed `.idea` (JetBrains IDE) and `.junie` directories from version control.
-- Added `.idea` to the VCS ignore list.
+#### 🔐 Security
 
-#### Dependencies
+---
 
-- Fixed security vulnerabilities in dependencies (`lodash-es`, `brace-expansion`, `minimatch`, `picomatch`).
-- Updated `eslint-plugin-tsdoc` from 0.4.0 to 0.5.2 and related dependencies.
+### 🧾 [5.0.0] - 2026-08-25
 
-#### Changes by
+#### ➕ Added
 
-@tahoni
+##### Release Process
 
-### [Version 4.2.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.2) - _2026-02-10_
+- Added a `documentation/history/` archive folder — each release now archives a `RELEASE_NOTES_vX.Y.Z.md` snapshot and a `PR_DESCRIPTION_vX.Y.Z.md`, and `RELEASE_NOTES.md` gains a Theme/Key Highlights lead-in — enabling the new `/generate-pr-summary` command, converted from a sibling project, to condense a release into a short Bitbucket-style PR summary
 
-Fixed security vulnerabilities in dependencies.
+##### Build & Tooling
 
-#### Licence and Documentation
+- Added five Claude Code slash commands under `.claude/commands/`: `/generate-commit-message` (drafts a commit message and matching `CHANGELOG.md` entry from the working tree diff), `/generate-pr-description` (prepares a new version release per the Release Checklist), `/generate-pr-summary` (condenses a release into a short PR summary), and `/scaffold-unit-tests`/`/scaffold-integration-tests` (scaffold Vitest unit/integration tests following this project's testing conventions)
+- Added `build/` to `.gitignore`; replaced the blanket `.claude/` ignore entry with `.claude/*.local.json`, so `.claude/commands/` can be tracked while local-only Claude config stays ignored
+- Added `.junie/` to `.gitignore`
 
-- Updated `CHANGELOG.md` and `RELEASE_NOTES.md` to reflect repository and title changes.
-- Normalised filenames and updated `.gitignore`.
+##### Documentation
 
-#### Dependencies
+- Added `AGENTS.md` and `CLAUDE.md`, establishing cross-tool documentation conventions (British English, icon-headed sections, GFM tables, GitFlow git workflow, and the Release Checklist) shared by any AI coding agent working in this repository
+- Added a Contributors convention to `AGENTS.md`'s Documentation Conventions — when docs credit contributors or authors, source the list from `git log`/GitHub history (including bot accounts) rather than assuming
+- Added `CONTRIBUTING.md` with project setup, git workflow, documentation and testing conventions, and a pull request checklist, and linked it from `README.md`'s new Contributing section
+- Added `documentation/roadmap/IMPROVEMENT_PLAN.md` — a synthesis of this project's own goals/constraints into eight evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success Criteria — and added it to `AGENTS.md`'s Documentation File Map
+- Added `documentation/roadmap/TASKS.md` — a checkbox-level task breakdown of `documentation/roadmap/IMPROVEMENT_PLAN.md`'s eight gaps, organised by the plan's Now/Next/Later/Ongoing phasing, each item tagging its originating gap number for traceability
+- Added a "Working on Complex Tasks" section to `CLAUDE.md`, instructing use of the TodoWrite tool for multistep or non-trivial tasks, per `AGENTS.md`'s Git Workflow Conventions
 
-- Fixed security vulnerabilities in dependencies.
+#### 🔄 Changed
 
-#### Changes by
+##### Components & Helpers
 
-@dependabot[bot]
-@tahoni
+- Refactored email-related models: removed `EmailContent`, merging its functionality into `EmailMessage`; added an `EmailType` enum (`HTML`/`TEXT`) under `src/enums/email/`; and moved `menuHelpers.tsx`/`routeHelpers.tsx` from `src/shared/helpers/` to `src/helpers/`, adjusting all dependent components (`ContactUsForm`, `ContactUsEmailTemplate`, and every feature's barrel `index.ts`)
 
-### [Version 4.2.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.1) - _2026-01-20_
+##### Documentation
 
-Moved shared local helpers back under the `shared` directory.
-Added a file documenting all the dependencies in the project that are looking for funding.
+- Restructured `CHANGELOG.md` and `HISTORY.md` into the icon-based Keep a Changelog format, backfilling historical entries for prior versions
+- Applied the icon-heading and section-separator convention to `README.md`, `ARCHITECTURE.md`, `UI.md`, and `RELEASE_NOTES.md`; documented the previously-missing `npm run host`, `npm test`, and `npm run sitemap` scripts in `README.md`; added a Theme/Key Highlights lead-in to `RELEASE_NOTES.md`'s 4.2.3 entry
+- Renamed `documentation/roadmap/` to `documentation/roadmap-old/`, superseded by the recreated `documentation/roadmap/IMPROVEMENT_PLAN.md` and `documentation/roadmap/TASKS.md`; `documentation/roadmap-old/` is now a fully archived, no-longer-maintained snapshot. Updated the resulting stale cross-references in `AGENTS.md`, `CLAUDE.md`, and `CONTRIBUTING.md`
+- Split `AGENTS.md`'s Documentation File Map into a new "Roadmap Planning" subsection for `documentation/roadmap/`'s two files, separate from the reference-material folders (`documentation/history/`, `documentation/recommendations/`) — it's the project's active improvement backlog, not standard documentation
 
-#### General Code Improvements
+#### 🐛 Fixed
 
-- Moved helpers for route management back under the `src/shared/helpers/` directory.
+##### Build & Tooling
 
-#### Licence and Documentation
+- Fixed broken `src/helpers/routeHelpers.tsx`/`menuHelpers.tsx` imports left as unresolvable bare `src/...` specifiers after the helpers relocation, which only type-checked (via `tsc`'s `baseUrl`) but broke `npm run build`; corrected them to the `@/` and `@shared` path aliases already used elsewhere, and fixed the `@helpers`/`@models`/`@utils`/`@constants` alias mappings in `vite.config.ts`/`tsconfig.app.json`, which still pointed at their pre-relocation `src/shared/*` locations
 
-- Added a `PACKAGES.md` file documenting all the dependencies in the project that are looking
-  for funding.
+##### Documentation
 
-#### Dependencies
+- Fixed `UI.md`'s unlabelled Designers heading
 
-- Removed the unused dependencies `lightgallery` and `react-pdf`.
-- Updated the `@tahoni/tahoni-lib-react` dependency to version `3.3.0`.
+#### 🗑️ Removed
 
-#### Changes by
+##### Documentation
 
-@tahoni
+- Removed `HISTORY.md`'s "🚀 Future Roadmap Implications" section and its Table of Contents entry — it restated the now-superseded `documentation/roadmap/tasks.md`/`plan.md` backlog
 
-### [Version 4.2.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.2.0) - _2026-01-20_
+##### Release Process
 
-Optimised the images by using the webp format.
+- Removed the `documentation/templates/` scaffold (`CHANGELOG.md`/`RELEASE_NOTES.md` templates) — superseded by inline Release Checklist instructions in `AGENTS.md` and the new `documentation/history/` per-version archive
 
-#### Enhancements and Updates
+#### 🔐 Security
 
-- Decreased the size of all images by converting them to the webp format.
+##### Dependencies
 
-#### Bug Fixes
+- Updated `vitest`, `react-router`, `postcss`, `vite`, `sanitize-html`, `ws`, `js-yaml`, `nanoid`, `brace-expansion`, `fast-uri`, `immutable`, `linkify-it`, `markdown-it`, `socket.io-parser`, and `@babel/core` to their patched versions, closing all currently open GitHub Dependabot alerts (1 critical, 25 high, 12 moderate, 2 low)
 
-- Fixed the corrupt `ipsc-target-with-bullet-holes.png` image file, and
-  converted it to the webp format.
+---
 
-#### General Code Improvements
+### 🧾 [4.2.3] - 2026-05-04
 
-- Added a constant for the default file extension for future maintainability.
-- Added a constant for the default images folder for easier maintainability.
+#### 🔄 Changed
 
-#### Changes by
+##### Content
 
-@tahoni
+- Updated club office-bearer names — Chairman: Jan Kleynhans → Jan Lubbinge; Secretary: Albert van Herk → Engela Lubbinge
 
-### [Version 4.1.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.4) - _2026-01-19_
+##### Dependencies
 
-Adds or updates project documentation and onboarding material.
-Documents development, build, test and deploy workflows for the project.
+- Updated `eslint-plugin-tsdoc` from 0.4.0 to 0.5.2 and related dependencies
 
-#### Licence and Documentation
+#### 🐛 Fixed
 
-- Added and updated `README.md` with:
-    - Quickstart and prerequisites
-    - Install and development steps
-    - Build and preview instructions
-    - Test and lint commands
-    - Contribution guidelines
-- Clarified the usage of scripts in `package.json` (examples: `dev`, `build`, `host`, `preview`, `test`,
-  `docs`, `sitemap`) in `README.md`.
-- Small editorial fixes `ARCHITECTURE.md` and `UI.md`.
-- Small formatting changes in `plan.md` and `task.md` in the `documnetation/roadmap/` folder.
-- Removed the screenshot from `README.md` to reduce maintenance overhead.
-- Deleted the `documentation/screenshots/` folder as the content is not being used any more.
+##### Build & Tooling
 
-#### Changes by
+- Fixed the case-sensitive import path in `WorldShootConstants` — the `worldShoot2025` component directory was referenced with incorrect casing, causing build failures on case-sensitive file systems
 
-@dependabot
-@tahoni
+#### 🗑️ Removed
 
-### [Version 4.1.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.3) - _2026-01-11_
+##### Repository Hygiene
 
-Improved responsive behaviour and enhanced the development workflow with better security tooling.
+- Removed `.idea` (JetBrains IDE) and `.junie` directories from version control; added `.idea` to the VCS ignore list
 
-#### Enhancements and Updates
+#### 🔐 Security
 
-- Updated the `HeaderMenu` component's breakpoint. The navigation bar now collapses at the `lg` size instead
-  of `xl`, providing a better experience on medium-sized screens.
-- Updated favicons in `index.html` and cleaned up metadata for a more polished look.
+##### Dependencies
 
-#### General Technical Changes
+- Fixed security vulnerabilities in `lodash-es`, `brace-expansion`, `minimatch`, `picomatch`
 
-- Added a CodeQL analysis workflow configuration to enhance automated security scanning and code quality
-  checks.
-- Updated `.gitignore` to exclude IDE-specific theme files (`_theme_*.xml`) and updated `.idea` code style
-  settings for team consistency.
+---
 
-#### Dependencies
+### 🧾 [4.2.2] - 2026-02-10
 
-- Upgraded `react-router-dom` to `7.12.0` to support React 18.
-- Updated several internal dev-dependencies including `@typescript-eslint`, `@rollup` packages, and
-  `eslint-utils` to their latest compatible versions.
+#### 🔄 Changed
 
-#### Changes by
+##### Documentation
 
-@dependabot
-@tahoni
+- Updated `CHANGELOG.md` and `RELEASE_NOTES.md` to reflect repository and title changes; normalised filenames and updated `.gitignore`
 
-### [Version 4.1.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.2) - _2026-01-03_
+#### 🔐 Security
 
-Refactored the `Events` and `Members` features to better organise content by year (specifically for 2025).
-Introduced a cleaner directory structure, relocates "World Shoot 2025" and "Club Shirts" content into
-dedicated namespaces and fixes several import paths.
+##### Dependencies
 
-#### Enhancements and Updates
+- Fixed security vulnerabilities in dependencies
 
-- Introduced a generic `Section` component in `src/shared/components/Section/` to handle arrays of
-  `ReactElement` with optional collapsed states.
-- Temporarily commented out the "Apparel" section in the World Shoot summary.
+---
 
-#### General Code Improvements
+### 🧾 [4.2.1] - 2026-01-20
 
-- Moved `WorldShoot2025` related components, constants and styles into a new nested directory structure under
-  `src/features/Events/content/2025/WorldShoot2025/`.
-- Merged `WorldShoot2025.module.scss` into a shared `WorldShoot.module.scss` and updated `@extend` rules to
-  maintain visual consistency.
-- Updated `WorldShootContent` to `WorldShoot2025Content` to be more specific to the event year.
-- Simplified imports within `WorldShoot2025.mdx`.
-- Relocated `ClubShirts` content to a `2025` subfolder within the `Members` feature.
-- Added `index.ts` files to the `2025` content folders to simplify exports and improve modularity.
+#### ➕ Added
 
-#### General Technical Changes
+##### Documentation
 
-- Cleaned up relative imports and added missing `.tsx` extensions across several files.
+- Added `PACKAGES.md` documenting dependencies in the project that are looking for funding
 
-#### Changes by
+#### 🔄 Changed
 
-@imgbot
-@tahoni
+##### Components & Helpers
 
-### [Version 4.1.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.1) - _2026-01-02_
+- Moved helpers for route management back under `src/shared/helpers/`
 
-Refined the user interface, improved the responsive design for navigation components and updated project
-documentation and assets.
+##### Dependencies
 
-#### Enhancements and Updates
+- Updated `@tahoni/tahoni-lib-react` to version `3.3.0`
 
-- Updated `HeaderMenu` with improved breakpoints and layout adjustments to ensure better responsiveness on
-  extra-large screens.
-- Streamlined the `Header` structure by removing redundant components (like `HeaderTitle`) and consolidating
-  `HeaderMenu` into `HeaderContent` for better maintainability.
-- Refactored SCSS for the header and footer to ensure perfect alignment across different viewports.
-- Improved layout consistency in `index.html`.
-- Added support for unique Google Maps IDs to allow for better management of map styles and features.
+#### 🗑️ Removed
 
-#### General Code Improvements
+##### Dependencies
 
-- Expanded TypeDoc entry points and enhanced TSDoc documentation across multiple features for better API
-  clarity.
+- Removed the unused `lightgallery` and `react-pdf` dependencies
 
-#### Licence and Documentation
+---
 
-- Corrected date formatting inconsistencies in `CHANGELOG` and `RELEASE_NOTES`.
-- Refreshed project screenshots and updated links to reflect the latest UI changes.
-- Updated copyright years to 2026 and standardised British English in code annotations and TSDoc.
+### 🧾 [4.2.0] - 2026-01-20
 
-#### General Technical Changes
+#### ➕ Added
 
-- Removed unused icon constants and simplified the overall component architecture.
+##### Constants
 
-#### Changes by
+- Added a constant for the default file extension, and a constant for the default images folder, for easier maintainability
 
-@tahoni
+#### 🔄 Changed
 
-### [Version 4.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.1.0) - _2025-12-30_
+##### Assets
 
-Modernised the navigation experience, ensured the layouts are robust across various device sizes and
-leveraged unique Google Maps IDs for better management of map styles and features.
+- Decreased the size of all images by converting them to the `webp` format
 
-#### Enhancements and Updates
+#### 🐛 Fixed
 
-- Simplified menu styles in `_standard.scss`, moving away from custom dropdown overrides to standard
-  `nav-link` styling with an italicised touch.
-- Introduced `aboutUsMapId` and `footerMapId` to provide unique identifiers for Google Maps instances. This
-  allows for better referencing and configuration via the Google Maps Platform.
-- Updated `VenueMap` and `SimpleVenueMap` to support an optional `mapId` prop, falling back to a generated key
-  if not provided.
-- Significant updates to `Layout.module.scss` to handle header and footer sidebar ordering across different
-  breakpoints (`md` and `lg`). This ensures logos and headings stack correctly on mobile devices.
+##### Assets
 
-#### General Code Improvements
+- Fixed the corrupt `ipsc-target-with-bullet-holes.png` image file and converted it to the `webp` format
 
-- Reorganised imports in `App.scss` to better categorise package, library and project styles.
+---
 
-#### Dependencies
+### 🧾 [4.1.4] - 2026-01-19
 
-Added `lightgallery` to the project dependencies and integrated its SCSS into the global styles, preparing the
-site for enhanced image gallery features.
+#### ➕ Added
 
-#### Changes by
+##### Documentation
 
-@tahoni
+- Added/updated `README.md` with quickstart and prerequisites, install and development steps, build and preview instructions, test and lint commands, and contribution guidelines
 
-### [Version 4.0.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.0.3) - _2025-11-26_
+#### 🔄 Changed
 
-Fixed the display of images.
+##### Documentation
 
-#### Bug Fixes
+- Clarified the usage of `package.json` scripts (`dev`, `build`, `host`, `preview`, `test`, `docs`, `sitemap`) in `README.md`
+- Small editorial fixes to `ARCHITECTURE.md` and `UI.md`
+- Small formatting changes in `plan.md`/`TASKS.md` under `documentation/roadmap/`
 
-- Moved the `public/images` directory to `public/assets/images` to display the images again.
+#### 🗑️ Removed
 
-#### Changes by
+##### Documentation
 
-@tahoni
+- Removed the screenshot from `README.md` and deleted the `documentation/screenshots/` folder, to reduce maintenance overhead
 
-### [Version 4.0.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.0.2) - _2025-11-26_
+---
 
-Configured the resources to use a relative path using the `@` notation.
-Performed refactoring to align with industry standards.
+### 🧾 [4.1.3] - 2026-01-11
 
-#### General Code Improvements
+#### ➕ Added
 
-- Configured the resources to use a relative path using the `@` notation.
-- Refactored the directory structure to align with industry standards.
-- Renamed the stylesheets to align with industry standards.
+##### CI/CD
 
-#### Licence and Documentation
+- Added a CodeQL analysis workflow configuration for automated security scanning and code quality checks
 
-- Fixed the formatting of the `LICENSE.md` file.
+#### 🔄 Changed
 
-#### General Technical Changes
+##### Components
 
-- Don't ignore `.env` files in when checking into Git.
+- `HeaderMenu`'s navigation bar now collapses at the `lg` breakpoint instead of `xl`, for a better experience on medium-sized screens
 
-#### Dependencies
+##### Assets
 
-- Fixed security vulnerabilities in dependencies.
-- Added the `react-pdf` dependency for PDF rendering.
+- Updated favicons in `index.html` and cleaned up metadata
 
-#### Changes by
+##### Build & Tooling
 
-@tahoni
-@dependabot
+- Updated `.gitignore` to exclude IDE-specific theme files (`_theme_*.xml`); updated `.idea` code style settings for team consistency
 
-### [Version 4.0.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.0.1) - _2025-10-27_
+##### Dependencies
 
-Upgraded Bootstrap framework integration with Bootstrap Icons.
+- Upgraded `react-router-dom` to `7.12.0`; updated `@typescript-eslint`, `@rollup` packages, and `eslint-utils` to their latest compatible versions
 
-#### Enhancements and Updates
+---
 
-- Upgraded Bootstrap framework integration with Bootstrap Icons.
+### 🧾 [4.1.2] - 2026-01-03
 
-#### General Code Improvements
+#### ➕ Added
 
-- Applied `fs.strict` check to HTML files (via Vite upgrade).
-- Refactored conditional rendering logic across components for improved readability and maintainability.
-- Improved error handling and type annotations.
+##### Components
 
-#### Licence and Documentation
+- Introduced a generic `Section` component in `src/shared/components/Section/` to handle arrays of `ReactElement` with optional collapsed states
 
-- Added JSDoc comments for better documentation.
+#### 🔄 Changed
 
-#### General Technical Changes
+##### Content
 
-- Improved builder scripts (`GeneratePrDescription.ts`, `GenerateReleaseNotes.ts`).
-- Improved code readability and maintainability.
-- Enhanced type safety in utility functions.
-- Resolved project errors and warnings.
+- Temporarily commented out the "Apparel" section in the World Shoot summary
 
-#### Dependencies
+##### Components
 
-- Fixed security vulnerabilities in dependencies.
-- **Vite** upgraded from 6.3.5 → 6.3.6 → 6.4.1 (security fixes and improvements).
-- Added `bootstrap-icons` for icon library support.
-- Added `react-google-recaptcha-v3` for reCAPTCHA integration.
-- Added `@types/react-google-recaptcha-v3` for type definitions.
+- Moved `WorldShoot2025`-related components, constants and styles into a new nested directory structure under `src/features/Events/content/2025/WorldShoot2025/`
+- Merged `WorldShoot2025.module.scss` into a shared `WorldShoot.module.scss`, updating `@extend` rules to maintain visual consistency
+- Renamed `WorldShootContent` to `WorldShoot2025Content` to be more specific to the event year
+- Simplified imports within `WorldShoot2025.mdx`
+- Relocated `ClubShirts` content to a `2025` subfolder within the `Members` feature
+- Added `index.ts` files to the `2025` content folders to simplify exports and improve modularity
 
-#### Changes by
+##### Build & Tooling
 
-@tahoni
-@dependabot
+- Cleaned up relative imports and added missing `.tsx` extensions across several files
 
-### [Version 4.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-4.0.0) - _2025-08-17_
+---
 
-Changed the stylesheets to conform to standards.
+### 🧾 [4.1.1] - 2026-01-02
 
-#### Enhancements and Updates
+#### ➕ Added
 
-- Added the Bosninja logo in black and white.
-- Created new Content components.
-- Updated the sitemap.
+##### Maps
 
-#### Bug Fixes
+- Added support for unique Google Maps IDs, for better management of map styles and features
 
-- Fixed the e-mail address regular expression.
+#### 🔄 Changed
 
-#### General Code Improvements
+##### Components
 
-- Used `@use` and `@forward` instead of `@import` in the stylesheets.
-- Renamed the partial stylesheets to start with an underscore.
-- Overrode some default bootstrap styles.
-- Used namespaces in the project stylesheets.
-- Created a `vendors` subdirectory for bootstrap overrides.
-- Refactored the directory structure.
+- Improved `HeaderMenu` breakpoints and layout adjustments for better responsiveness on extra-large screens
+- Streamlined the `Header` structure by removing `HeaderTitle` and consolidating `HeaderMenu` into `HeaderContent` for better maintainability
 
-#### General Technical Changes
+##### Styling
 
-- Updated the build targets to `ES2023`.
-- Integrated with Junie.
+- Refactored SCSS for the header and footer to ensure alignment across different viewports
+- Improved layout consistency in `index.html`
 
-#### Licence and Documentation
+##### Documentation
 
-- Improved the `ARCHITECTURE.md` file.
-- Moved the `CHANGELOG.md` file contents for version 3 to the `HISTORY.md` file.
-- Created a template for the `CHANGELOG.md` file.
-- Created a template for the `RELEASE_NOTES.md` file.
+- Expanded TypeDoc entry points and enhanced TSDoc documentation across multiple features for better API clarity
+- Corrected date-formatting inconsistencies in `CHANGELOG.md` and `RELEASE_NOTES.md`
+- Refreshed project screenshots and updated links to reflect the latest UI changes
+- Updated copyright years to 2026 and standardised British English in code annotations and TSDoc
 
-#### Dependencies
+#### 🗑️ Removed
 
-- Updated vulnerable dependencies.
+##### Components
 
-#### Changes by
+- Removed unused icon constants and simplified the overall component architecture
 
-@tahoni
-@dependabot
+---
+
+### 🧾 [4.1.0] - 2025-12-30
+
+#### ➕ Added
+
+##### Maps
+
+- Introduced `aboutUsMapId` and `footerMapId` to provide unique identifiers for Google Maps instances, allowing better referencing and configuration via the Google Maps Platform
+- Updated `VenueMap` and `SimpleVenueMap` to support an optional `mapId` prop, falling back to a generated key if not provided
+
+##### Dependencies
+
+- Added `lightgallery` to the project dependencies and integrated its SCSS into the global styles, preparing the site for enhanced image gallery features
+
+#### 🔄 Changed
+
+##### Styling
+
+- Simplified menu styles in `_standard.scss`, moving away from custom dropdown overrides to standard `nav-link` styling with an italicised touch
+- Significant updates to `Layout.module.scss` to handle header and footer sidebar ordering across different breakpoints (`md` and `lg`), ensuring logos and headings stack correctly on mobile devices
+
+##### Build & Tooling
+
+- Reorganised imports in `App.scss` to better categorise package, library and project styles
+
+---
+
+### 🧾 [4.0.3] - 2025-11-26
+
+#### 🐛 Fixed
+
+##### Assets
+
+- Moved the `public/images` directory to `public/assets/images` to display the images again
+
+---
+
+### 🧾 [4.0.2] - 2025-11-26
+
+#### ➕ Added
+
+##### Dependencies
+
+- Added the `react-pdf` dependency for PDF rendering
+
+#### 🔄 Changed
+
+##### Build & Tooling
+
+- Configured the resources to use a relative path via the `@` notation
+- Refactored the directory structure and renamed the stylesheets to align with industry standards
+- `.env` files are no longer ignored when checking into Git
+
+#### 🐛 Fixed
+
+##### Documentation
+
+- Fixed the formatting of the `LICENSE.md` file
+
+#### 🔐 Security
+
+##### Dependencies
+
+- Fixed security vulnerabilities in dependencies
+
+---
+
+### 🧾 [4.0.1] - 2025-10-27
+
+#### ➕ Added
+
+##### Documentation
+
+- Added JSDoc comments for better documentation
+
+##### Dependencies
+
+- Added `bootstrap-icons` for icon library support
+- Added `react-google-recaptcha-v3` and `@types/react-google-recaptcha-v3` for reCAPTCHA integration
+
+#### 🔄 Changed
+
+##### Build & Tooling
+
+- Upgraded Bootstrap framework integration with Bootstrap Icons
+- Applied `fs.strict` checking to HTML files (via the Vite upgrade)
+- Improved the `GeneratePrDescription.ts`/`GenerateReleaseNotes.ts` builder scripts
+- Improved code readability, maintainability and type safety; resolved outstanding project errors and warnings
+
+##### Components
+
+- Refactored conditional rendering logic across components for improved readability and maintainability
+- Improved error handling and type annotations
+
+#### 🔐 Security
+
+##### Dependencies
+
+- Fixed security vulnerabilities in dependencies; **Vite** upgraded `6.3.5` → `6.3.6` → `6.4.1` (security fixes and improvements)
+
+---
+
+### 🧾 [4.0.0] - 2025-08-17
+
+#### ➕ Added
+
+##### Assets
+
+- Added the Bosninja logo in black and white
+
+##### Components
+
+- Created new Content components
+
+#### 🔄 Changed
+
+##### Routing & Sitemap
+
+- Updated the sitemap
+
+##### Styling
+
+- Used `@use` and `@forward` instead of `@import` in the stylesheets
+- Renamed the partial stylesheets to start with an underscore
+- Overrode some default Bootstrap styles and used namespaces in the project stylesheets
+- Created a `vendors` subdirectory for Bootstrap overrides
+
+##### Build & Tooling
+
+- Refactored the directory structure
+- Updated the build targets to `ES2023`
+- Integrated with Junie
+
+##### Documentation
+
+- Improved the `ARCHITECTURE.md` file
+- Moved the `CHANGELOG.md` file contents for Version 3 to `HISTORY.md`
+- Created templates for `CHANGELOG.md` and `RELEASE_NOTES.md`
+
+#### 🐛 Fixed
+
+##### Forms
+
+- Fixed the e-mail address regular expression
+
+#### 🔐 Security
+
+##### Dependencies
+
+- Updated vulnerable dependencies
+
+---
+
+### 📋 Version Policy
+
+This project follows [Semantic Versioning 2.0.0](https://semver.org/):
+
+- **MAJOR** version for a significant redesign or structural overhaul of the site (routing, directory layout, or the underlying framework)
+- **MINOR** version for new pages, features, or backward-compatible additions
+- **PATCH** version for fixes, content updates, and small improvements
+
+The legacy Version 3.x line, narrated in [HISTORY.md](HISTORY.md), already followed this same `MAJOR.MINOR.PATCH` scheme.
+
+---
+
+### 🚀 Upgrade Guide
+
+#### From v3.x to v4.x
+
+**Breaking changes for local development:** Yes
+
+- The directory structure was refactored and stylesheets renamed to align with industry standards (v4.0.0/v4.0.2)
+- Relative imports were replaced with path aliases (`@`, `@components`, `@features`, etc. — see `CLAUDE.md`'s Path Aliases section); re-run `npm install` and check any local branches for stale relative imports
+- `.env` files are no longer excluded from Git (v4.0.2) — review your local `.env.local`/`.env.production` before pulling to avoid conflicts
+- `public/images` moved to `public/assets/images` (v4.0.3)
+
+#### Within the v4.x line
+
+**Breaking changes:** None. Each v4.x release is a backward-compatible content, feature, or maintenance update — pull the latest `develop`/`main`, run `npm install`, and rebuild.
+
+---
+
+### 🤝 Contributing
+
+Project setup, this repository's git workflow, and the pull request checklist are documented in [`CONTRIBUTING.md`](CONTRIBUTING.md), which follows the conventions in [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md). In short:
+
+1. Branch from `develop` using the GitFlow model (`feature/<short-description>`, `hotfix/<short-description>`, or `release/vX.Y.Z` — see AGENTS.md's Git Workflow)
+2. Run `npm run lint`, `npm run build`, and `npm test` before opening a PR
+3. Add a `CHANGELOG.md` entry under `### 🧪 [Unreleased]` in the same change, per AGENTS.md's Git Workflow conventions
+4. Open the PR against `develop`, never `main`
+
+---
+
+### 💬 Support
+
+For issues, feature requests, or questions:
+
+- **GitHub Issues:** [tahoni/hpsc-web-vite/issues](https://github.com/tahoni/hpsc-web-vite/issues)
+- **Repository:** [tahoni/hpsc-web-vite](https://github.com/tahoni/hpsc-web-vite)

@@ -1,6 +1,6 @@
 import { SitemapChangeFrequency } from "./SitemapChangeFrequency.ts";
 
-const DEFAULT_SITEMAP_URL_CHANGEFREQ = SitemapChangeFrequency.Daily;
+const DEFAULT_SITEMAP_URL_CHANGEFREQ = SitemapChangeFrequency.Weekly;
 
 /**
  * Represents a mapping for a sitemap entry.

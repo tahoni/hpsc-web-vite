@@ -3,7 +3,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";
 import classes from "./ImageSidebar.module.scss";
 
-interface SidebarProps {
+export interface SidebarProps {
   source: ImageWithSourceAndDescription;
 }
 

@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { HeaderMenu } from "./HeaderMenu";
 import classes from "./Header.module.scss";
 
-interface HeaderContentProps {
+export interface HeaderContentProps {
   title: string;
 }
 
