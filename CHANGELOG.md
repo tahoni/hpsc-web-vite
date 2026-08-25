@@ -43,6 +43,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 - Added a Contributors convention to `AGENTS.md`'s Documentation Conventions — when docs credit contributors or authors, source the list from `git log`/GitHub history (including bot accounts) rather than assuming
 - Added `CONTRIBUTING.md` with project setup, git workflow, documentation and testing conventions, and a pull request checklist, and linked it from `README.md`'s new Contributing section — closes `documentation/roadmap/tasks.md` item 43
+- Filed `documentation/roadmap/tasks.md` items 51 and 52 (with matching `plan.md` §4.1 actions) for two bugs found while auditing the roadmap checklist: `src/features/News` isn't wired into any route mapping, and `coreContactUsRoute` in `BaseRoutes.ts` has a `dateCreated` that postdates its own `dateUpdated`
 
 #### 🔄 Changed
 

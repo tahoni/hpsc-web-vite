@@ -81,7 +81,7 @@ foundational/tooling improvements through architecture, code quality, UX/a11y, p
 41. [ ] Add data-testids or roles to critical components to ease UI testing without polluting production UX
 42. [ ] Document environment variables (GITHUB_TOKEN, GOOGLE_MAPS_API_KEY, RECAPTCHA_V2_SITE_KEY,
     SITEMAP_BASE_URL) in README
-43. [ ] Add a CONTRIBUTING.md with project setup, branching, lint/test/build expectations and PR checklist
+43. [x] Add a CONTRIBUTING.md with project setup, branching, lint/test/build expectations and PR checklist — done via `CONTRIBUTING.md`
 44. [ ] Update ARCHITECTURE.md to include current routing, sitemap assumptions and any new builders or
     env-driven behaviour
 45. [x] Create a release checklist for consistent releases — done via AGENTS.md's Release Checklist section
@@ -95,3 +95,8 @@ foundational/tooling improvements through architecture, code quality, UX/a11y, p
     documentation
 50. [ ] Schedule dependency updates (e.g. monthly) and pin React Router minor where breaking changes are
     likely; document policy
+51. [ ] Wire src/features/News into coreRoutes (BaseRoutes.ts) and RouteAliases.tsx/AppRoutes.tsx — the
+    feature folder exists but isn't referenced by any route mapping, so it's unreachable and missing from
+    the sitemap; remove the folder instead if the feature isn't ready to ship
+52. [ ] Fix coreContactUsRoute's inverted dates in BaseRoutes.ts — dateCreated (2025-12-26) currently
+    postdates dateUpdated (2025-03-03)

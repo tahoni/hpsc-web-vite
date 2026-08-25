@@ -99,6 +99,11 @@ It proposes concrete improvements organised by theme, with rationale and expecte
 - Actions:
     - Ensure coreRoutes (BaseRoutes.ts) maintain the correct dateCreated/dateUpdated for sitemap.
     - Add a lightweight script or unit test that scans route metadata and warns on missing dates.
+    - Wire src/features/News into coreRoutes (BaseRoutes.ts) and RouteAliases.tsx/AppRoutes.tsx — the feature
+      folder exists but is not referenced by any route mapping, so it is unreachable and absent from the
+      sitemap; alternatively remove the folder if the feature isn't ready to ship.
+    - Fix coreContactUsRoute's inverted dates in BaseRoutes.ts: dateCreated is currently 2025-12-26, which
+      postdates its own dateUpdated of 2025-03-03.
 - Rationale: Sitemap priority and freshness rely on accurate metadata.
 - Impact: Better SEO signals.
 
