@@ -1,65 +1,111 @@
-import { sanitizeValue } from "@/utils/htmlUtils.ts";
-import { EmailContent } from "./EmailContent.ts";
-import { EmailAttachment } from "./EmailAttachment.ts";
+import {sanitizeValue} from "@/utils/htmlUtils.ts";
+import {EmailAttachment} from "./EmailAttachment.ts";
 
 /**
- * Represents an email message, extending the base functionality of EmailContent.
- * Provides additional support for an email's message body and attachments.
+ * Represents an email message with sender details, subject, consent, preview
+ * and optional attachments.
  */
-export class EmailMessage extends EmailContent {
-  private _message: string;
-  private _attachments: EmailAttachment[] = [];
-  private _inlineAttachments: EmailAttachment[] = [];
+export class EmailMessage {
+    private _name: string;
+    private _email: string;
+    private _subject: string;
+    private _preview: string;
 
-  /**
-   * Creates a new EmailMessage instance.
-   *
-   * @param message - Initialisation object for the email message.
-   */
-  constructor(message: {
-    name?: string;
-    email?: string;
-    subject?: string;
-    preview?: string;
-    message?: string;
-  }) {
-    super({ ...message });
-    this._message = (sanitizeValue(message.message) ?? "").trim();
-    this._attachments = [];
-    this._inlineAttachments = [];
-  }
+    private _content: string;
 
-  /**
-   * Checks if the necessary properties: name, email, subject, preview, and message
-   * are valid and non-empty.
-   *
-   * @return Returns true if all required properties are non-empty, otherwise false.
-   */
-  override isValid(): boolean {
-    return super.isValid() ? this._message !== "" : false;
-  }
+    private _attachments: EmailAttachment[] = [];
+    private _inlineAttachments: EmailAttachment[] = [];
 
-  get message(): string | undefined {
-    return this._message;
-  }
+    /**
+     * Creates a new EmailMessage instance.
+     *
+     * @param message - Initialisation object for the email message.
+     */
+    constructor(message: {
+        name?: string;
+        email?: string;
+        subject?: string;
+        preview?: string;
+        content?: string;
+    }) {
+        this._name = sanitizeValue(message.name ?? "").trim();
+        this._email = sanitizeValue(message.email ?? "").trim();
+        this._subject = sanitizeValue(message.subject ?? "").trim();
+        this._preview = sanitizeValue(message.preview ?? "").trim();
+        this._content = (sanitizeValue(message.content) ?? "").trim();
+        this._attachments = [];
+        this._inlineAttachments = [];
+    }
 
-  set message(value: string) {
-    this._message = sanitizeValue(value).trim();
-  }
+    /**
+     * Checks if the necessary properties: name, email, subject, preview, and content
+     * are valid and non-empty.
+     *
+     * @return Returns true if all required properties are non-empty, otherwise false.
+     */
+    isValid(): boolean {
+        return (
+            this._name !== "" &&
+            this._email !== "" &&
+            this._subject !== "" &&
+            this._preview !== "" &&
+            this._content !== ""
+        );
+    }
 
-  get attachments(): EmailAttachment[] {
-    return this._attachments;
-  }
+    get name(): string {
+        return this._name;
+    }
 
-  set attachments(value: EmailAttachment[]) {
-    this._attachments = value;
-  }
+    set name(value: string) {
+        this._name = sanitizeValue(value).trim();
+    }
 
-  get inlineAttachments(): EmailAttachment[] {
-    return this._inlineAttachments;
-  }
+    get email(): string {
+        return this._email;
+    }
 
-  set inlineAttachments(value: EmailAttachment[]) {
-    this._inlineAttachments = value;
-  }
+    set email(value: string) {
+        this._email = sanitizeValue(value).trim();
+    }
+
+    get subject(): string {
+        return this._subject;
+    }
+
+    set subject(value: string) {
+        this._subject = sanitizeValue(value).trim();
+    }
+
+    get preview(): string {
+        return this._preview;
+    }
+
+    set preview(value: string) {
+        this._preview = sanitizeValue(value).trim();
+    }
+
+    get content(): string {
+        return this._content;
+    }
+
+    set content(value: string) {
+        this._content = sanitizeValue(value).trim();
+    }
+
+    get attachments(): EmailAttachment[] {
+        return this._attachments;
+    }
+
+    set attachments(value: EmailAttachment[]) {
+        this._attachments = value;
+    }
+
+    get inlineAttachments(): EmailAttachment[] {
+        return this._inlineAttachments;
+    }
+
+    set inlineAttachments(value: EmailAttachment[]) {
+        this._inlineAttachments = value;
+    }
 }

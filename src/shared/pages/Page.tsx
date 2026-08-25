@@ -3,7 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import { Loader } from "@tahoni/tahoni-lib-react";
 import { PageTitle } from "@components/Title";
 
-interface PageProps {
+export interface PageProps {
   title: string;
   keyValue: string;
 }

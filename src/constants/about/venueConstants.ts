@@ -27,9 +27,9 @@ export enum ShootingRanges {
  * A map containing information about various shooting range venues.
  *
  * The key is a unique identifier for the shooting range, typically defined
- * in the `ShootingRanges` enum.
- * The value is an instance of the `Venue` class containing detailed information
- * about the venue.
+ * in the {@link ShootingRanges}  enum.
+ * The value is an instance of the {@link Venue} class containing detailed information
+ * about the venue, including its location.
  */
 export const shootingRangeVenues: Map<string, Venue> = new Map([
   [

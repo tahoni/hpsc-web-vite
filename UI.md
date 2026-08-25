@@ -5,22 +5,27 @@ Club (HPSC) website.
 
 ## Table of Contents
 
-- [Design Philosophy](#design-philosophy)
-- [Layout Structure](#layout-structure)
-    - [Header](#header)
-    - [Body](#body)
-    - [Footer](#footer)
-- [Navigation](#navigation)
-- [Responsive Design](#responsive-design)
-- [Technical Implementation](#technical-implementation)
+- [🎨 Design Philosophy](#-design-philosophy)
+- [📐 Layout Structure](#-layout-structure)
+    - [🔝 Header](#-header)
+    - [📄 Body](#-body)
+    - [⬇️ Footer](#-footer)
+- [🧭 Navigation](#-navigation)
+- [📱 Responsive Design](#-responsive-design)
+- [💻 Technical Implementation](#-technical-implementation)
+- [👤 Designers](#-designers)
 
-## Design Philosophy
+---
+
+## 🎨 Design Philosophy
 
 The HPSC website is designed to be informative, accessible, and user-friendly. It follows a clean and modern
 aesthetic, using a consistent layout across all pages to ensure ease of navigation for both members and
 visitors.
 
-## Layout Structure
+---
+
+## 📐 Layout Structure
 
 The application uses a standard three-part layout structure, managed by the `Layout` component:
 
@@ -28,7 +33,7 @@ The application uses a standard three-part layout structure, managed by the `Lay
 2. **Body**: The main content area, which may include sidebars for additional imagery or context.
 3. **Footer**: Contains contact information, social media links, a venue map, and copyright details.
 
-### Header
+### 🔝 Header
 
 The Header is consistent across all pages and consists of:
 
@@ -37,7 +42,7 @@ The Header is consistent across all pages and consists of:
 - **Club Name**: Displayed prominently in the centre.
 - **Navigation Menu**: A responsive menu below the club name, providing links to key areas of the site.
 
-### Body
+### 📄 Body
 
 The Body component is flexible and adapts to the content being displayed. It features:
 
@@ -45,7 +50,7 @@ The Body component is flexible and adapts to the content being displayed. It fea
 - **Sidebars**: Optional left and right sidebars used for displaying theme-related images (`ImageSidebar`),
   enhancing the visual experience of the page.
 
-### Footer
+### ⬇️ Footer
 
 The Footer provides essential information and links:
 
@@ -55,7 +60,9 @@ The Footer provides essential information and links:
 - **Social Media**: Links to the HPSC Facebook page and group.
 - **Copyright Information**: Standard copyright notice and year.
 
-## Navigation
+---
+
+## 🧭 Navigation
 
 The primary navigation menu includes the following routes:
 
@@ -68,13 +75,17 @@ The primary navigation menu includes the following routes:
 - **Events**: Information about upcoming and past events.
 - **Shooting Ranges**: Details and locations of shooting ranges.
 
-## Responsive Design
+---
+
+## 📱 Responsive Design
 
 The UI is built using **Bootstrap 5**, ensuring that the website is fully responsive and works seamlessly
 across various devices and screen sizes (desktops, tablets, and smartphones). The navigation menu
 automatically collapses into a "hamburger" menu on smaller screens.
 
-## Technical Implementation
+---
+
+## 💻 Technical Implementation
 
 - **Framework**: [React 19](https://react.dev/)
 - **Styling**: [SCSS (Sass)](https://sass-lang.com/) for custom styles
@@ -83,7 +94,9 @@ automatically collapses into a "hamburger" menu on smaller screens.
 - **Content**: A mix of TSX components and **MDX** for content-heavy pages.
 - **Routing**: [React Router](https://reactrouter.com/) for client-side navigation.
 
-## Designers
+---
+
+## 👤 Designers
 
 _Leoni Lubbinge_
 

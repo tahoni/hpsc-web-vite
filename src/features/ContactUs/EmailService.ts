@@ -1,4 +1,4 @@
-import { EmailMessage } from "@/models/email/EmailMessage";
+import { EmailMessage } from "../../models/email/EmailMessage";
 import { Email } from "@/models/email/Email";
 import { contactUsEmail, noReplyEmail } from "@/constants/about/clubConstants";
 
@@ -13,7 +13,7 @@ export class EmailService {
       from: noReplyEmail,
       to: contactUsEmail,
       subject: emailMessage.subject,
-      message: emailMessage.message,
+      message: emailMessage.content,
       attachments: emailMessage.attachments,
     });
     return true;

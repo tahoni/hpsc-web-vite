@@ -7,7 +7,7 @@ import { VenueType } from "@/models/venues/VenueType.ts";
 import { worldShootEvents } from "./WorldShootConstants.tsx";
 import classes from "./WorldShoot.module.scss";
 
-interface WorldShootContentProps {
+export interface WorldShootContentProps {
   year: number;
 }
 

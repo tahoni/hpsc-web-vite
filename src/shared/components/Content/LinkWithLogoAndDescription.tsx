@@ -3,7 +3,7 @@ import { Col, Image, Row } from "react-bootstrap";
 import { linkWithLogoIconDefaultHeight } from "@/constants/content/contentConstants";
 import classes from "./LinkWithLogoAndDescription.module.scss";
 
-interface LinkWithLogoAndDescriptionProps {
+export interface LinkWithLogoAndDescriptionProps {
   website: string;
   logoImageSrc: string;
   logoImageAlt: string;
@@ -14,7 +14,7 @@ interface LinkWithLogoAndDescriptionProps {
 
 /**
  * React functional component that displays a link with an associated logo image and description.
- * This component is memoised using {@link React.memo} to optimise rendering and prevent unnecessary re-renders.
+ * This component is memoised using `React.memo` to optimise rendering and prevent unnecessary re-renders.
  *
  * The component accepts the following properties to render a structured layout:
  * - A linked logo image, with specified source, alternative text, and dimensions.
