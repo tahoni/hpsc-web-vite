@@ -13,7 +13,7 @@
     "docs": "typedoc",
     "test": "vitest",
     "host": "vite --host hpsc.local",
-    "sitemap": "tsx builders/RoutesSitemap"
+    "sitemap": "tsx --tsconfig tsconfig.app.json builders/RoutesSitemap"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

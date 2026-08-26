@@ -61,6 +61,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ##### Build & Tooling
 
 - Fixed `npm run build` failing with `Unsupported target "ES2023"` under Vite 8 by setting `vite.config.ts`'s `build.cssMinify` to `"esbuild"`; Vite 8 defaults CSS minification to `lightningcss`, which expects browser targets rather than the JS-version string already configured in `build.target`
+- Fixed `npm run sitemap` failing with `Cannot find package '@/models'`; `tsx` resolves path aliases from the nearest `tsconfig.json`, but the root `tsconfig.json` only references `tsconfig.app.json`/`tsconfig.node.json` and carries no `compilerOptions.paths` of its own, so the `@/*` alias used by `builders/RoutesSitemap.ts` went unresolved — pointed the `sitemap` script at `tsconfig.app.json` (which already defines the aliases and includes `builders`) via `tsx`'s `--tsconfig` flag
 
 ##### Documentation
 
