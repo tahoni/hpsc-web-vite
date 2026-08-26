@@ -97,5 +97,4 @@ No main stylesheet needed—styles are defined in JavaScript.
 
 ## **Recommendation**
 
-Use **`index.css`** for global styles—it's the de facto standard in the React ecosystem and what most developers expect
-to see.
+Use **`index.css`** for global styles—it's the de facto standard in the React ecosystem and what most developers expect to see.

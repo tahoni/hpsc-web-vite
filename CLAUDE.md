@@ -38,7 +38,7 @@ npm run lint
 # Run the Vitest test suite
 npm test
 
-# Generate TypeDoc API documentation (outputs to tsdocs/)
+# Generate TypeDoc API documentation (outputs to /target/docs/)
 npm run docs
 
 # Regenerate public/sitemap.xml from route metadata

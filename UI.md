@@ -1,7 +1,6 @@
 # HPSC Website User Interface
 
-This document provides an overview of the user interface (UI) for the Hartbeespoortdam Practical Shooting
-Club (HPSC) website.
+This document provides an overview of the user interface (UI) for the Hartbeespoortdam Practical Shooting Club (HPSC) website.
 
 ## Table of Contents
 
@@ -19,9 +18,7 @@ Club (HPSC) website.
 
 ## 🎨 Design Philosophy
 
-The HPSC website is designed to be informative, accessible, and user-friendly. It follows a clean and modern
-aesthetic, using a consistent layout across all pages to ensure ease of navigation for both members and
-visitors.
+The HPSC website is designed to be informative, accessible, and user-friendly. It follows a clean and modern aesthetic, using a consistent layout across all pages to ensure ease of navigation for both members and visitors.
 
 ---
 
@@ -79,9 +76,7 @@ The primary navigation menu includes the following routes:
 
 ## 📱 Responsive Design
 
-The UI is built using **Bootstrap 5**, ensuring that the website is fully responsive and works seamlessly
-across various devices and screen sizes (desktops, tablets, and smartphones). The navigation menu
-automatically collapses into a "hamburger" menu on smaller screens.
+The UI is built using **Bootstrap 5**, ensuring that the website is fully responsive and works seamlessly across various devices and screen sizes (desktops, tablets, and smartphones). The navigation menu automatically collapses into a "hamburger" menu on smaller screens.
 
 ---
 

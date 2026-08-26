@@ -11,7 +11,8 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.0.0](#-500---2026-08-25) ← Current
+- [🧾 Version 5.1.0](#-510---2026-08-26) ← Current
+- [🧾 Version 5.0.0](#-500---2026-08-25)
 - [🧾 Version 4.2.3](#-423---2026-05-04)
 - [🧾 Version 4.2.2](#-422---2026-02-10)
 - [🧾 Version 4.2.1](#-421---2026-01-20)
@@ -39,6 +40,63 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 #### 🔄 Changed
 
 #### 🐛 Fixed
+
+#### ⚠️ Deprecated
+
+#### 🗑️ Removed
+
+#### 🔐 Security
+
+---
+
+### 🧾 [5.1.0] - 2026-08-26
+
+#### ➕ Added
+
+##### Build & Tooling
+
+- Added a `/sync-unreleased-changes` Claude Code command — audits the current branch's diff against its base branch and adds any missing `CHANGELOG.md` Unreleased entries for notable changes
+- Added an `.aiignore` file, mirroring most of `.gitignore`'s coverage, so AI coding agents don't read build artefacts, secrets, and IDE/tool-specific files as part of their context; it additionally excludes `.mvn/`, commented as not excluded by `.gitignore`
+
+#### 🔄 Changed
+
+##### Build & Tooling
+
+- Expanded `.gitignore` with newer JetBrains (AWS, SonarLint, Apifox, GitHub Copilot migration files), OS (`.DS_Store`, `Thumbs.db`, `desktop.ini`), secrets/credentials (`*.pem`, `*.key`, `*credentials*`, `*secrets*`), pnpm, Yarn v3, and Vite timestamp-file patterns
+- Widened `.gitignore`'s project-specific `TAHONI` rule from `.claude/*.local.json` to `.claude/*.local.*` and removed the now-unneeded `.junie/` entry
+- Updated `vite` (`^6.4.2` → `^8.2.2`), `@vitejs/plugin-react` (`^4.3.4` → `^6.1.0`, required for Vite 8 support), `vitest` (`^3.0.5` → `^4.1.11`), `eslint` and `@eslint/js` (`^9.20.1`/`^9.17.0` → `^9.39.5`), `eslint-plugin-react` (`^7.37.4` → `^7.37.5`), `eslint-plugin-react-hooks` (`^5.1.0` → `^7.1.1`), `eslint-plugin-react-refresh` (`^0.4.19` → `^0.5.5`), and `typescript-eslint` (`^8.24.0` → `^8.68.0`) to their latest mutually-compatible versions; kept `eslint` on the 9.x line rather than 10.x since `eslint-plugin-react`'s peer range doesn't yet support ESLint 10, and kept `typescript` on the 5.x line (`~5.6.2` → `~5.9.3`) rather than 7.x since `typescript-eslint`'s peer range doesn't yet support TypeScript 7's native-compiler major release
+- Added an `overrides` entry pinning `@babel/plugin-transform-runtime` to `^7.29.7` in `package.json`, resolving an `ERESOLVE` conflict between `@rollup/plugin-babel`'s `@babel/core@^7` requirement and `@vitejs/plugin-react@6`'s optional Rolldown/React Compiler peer chain, which otherwise pulled in `@babel/core@^8`
+- Updated the remaining `devDependencies` to their latest versions: `@rollup/plugin-babel` (`^6.0.4` → `^7.1.0`), `@types/react` (`~19.0.3` → `~19.2.18`), `@types/react-dom` (`~19.0.2` → `~19.2.5`), `@types/sanitize-html` (`^2.13.0` → `^2.16.1`), `globals` (`^15.15.0` → `^17.11.0`), `rollup-plugin-visualizer` (`^5.14.0` → `^7.1.1`), `sass` (`^1.85.0` → `^1.103.1`), `sitemap` (`^8.0.0` → `^9.0.1`), `tsx` (`^4.19.4` → `^4.23.12`), and `typedoc` (`^0.28.15` → `^0.28.20`)
+- Widened `react`/`react-dom` from `~19.0.0` to `~19.2.8`, now matching the `@types/react`/`@types/react-dom` versions already updated above; left every other outdated runtime dependency with a major-version jump available (`@fortawesome/*`, `@fullcalendar/*`, `@react-email/components`, `@rjsf/*`, `react-email`, `react-router`/`react-router-dom`) untouched, since those require code changes and manual testing beyond a version bump
+
+##### Dependencies
+
+- Updated `@tahoni/tahoni-lib-react` (`^3.3.0` → `^3.3.3`), which now peers on `react`/`react-dom` `~19.2.0`, `bootstrap` `^5.3.8`, `eslint-plugin-react` `^7.37.5`, `glob` `^13.0.6`, `react-bootstrap` `^2.10.10`, and `react-spinners` `^0.17.0`
+- Updated the remaining deferred major dependencies to their latest versions: `@fortawesome/fontawesome-svg-core`/`@fortawesome/free-brands-svg-icons`/`@fortawesome/free-regular-svg-icons`/`@fortawesome/free-solid-svg-icons` (`^6.7.2` → `^7.3.1`), `@fortawesome/react-fontawesome` (`^0.2.6` → `^3.5.0`), `@fullcalendar/*` (`^6.1.15` → `^6.1.21`), `@mdx-js/react`/`@mdx-js/rollup` (`^3.1.0` → `^3.1.1`), `@react-email/components` (`^0.0.36` → `^1.0.12`), `@rjsf/core`/`@rjsf/utils`/`@rjsf/validator-ajv8` (`^5.24.3` → `^6.8.0`), `@vis.gl/react-google-maps` (`^1.5.2` → `^1.9.0`), `bootstrap` (`^5.3.3` → `^5.3.8`), `react-bootstrap` (`^2.10.9` → `^2.10.10`), `react-email` (`^4.0.7` → `^6.9.3`), `react-router` (`^7.12.0` → `^8.3.0`), `react-router-dom` (`^7.12.0` → `^7.18.2`), `sanitize-html` (`^2.14.0` → `^2.17.7`), and `sweetalert2` (`^11.22.4` → `^11.26.25`)
+- Updated `typescript` (`~5.9.3` → `~6.0.3`); updated `tsconfig.app.json` accordingly, dropping `baseUrl` in favour of explicit `./`-relative `paths` entries and adding `"types": ["mdx"]`
+
+##### Documentation
+
+- Expanded `AGENTS.md`'s Release Checklist template for `RELEASE_NOTES.md` with Migration Guide, Statistics, Design Notes, Testing, Known Issues, Future Enhancements, Contributors, and Notes sections, added matching ⭐/📊/🔮/👥 icons to the icon table, and rewrote `RELEASE_NOTES.md` to follow the expanded template
+- Consolidated `README.md`'s per-file documentation links into a new Documentation section, now referenced by `AGENTS.md`'s Documentation File Map, and clarified its Prerequisites/Installation and Execution steps
+
+#### 🐛 Fixed
+
+##### Build & Tooling
+
+- Fixed `npm run build` failing with `Unsupported target "ES2023"` under Vite 8 by setting `vite.config.ts`'s `build.cssMinify` to `"esbuild"`; Vite 8 defaults CSS minification to `lightningcss`, which expects browser targets rather than the JS-version string already configured in `build.target`
+- Fixed `npm run sitemap` failing with `Cannot find package '@/models'`; `tsx` resolves path aliases from the nearest `tsconfig.json`, but the root `tsconfig.json` only references `tsconfig.app.json`/`tsconfig.node.json` and carries no `compilerOptions.paths` of its own, so the `@/*` alias used by `builders/RoutesSitemap.ts` went unresolved — pointed the `sitemap` script at `tsconfig.app.json` (which already defines the aliases and includes `builders`) via `tsx`'s `--tsconfig` flag
+
+##### Forms
+
+- Fixed `ContactUsForm.tsx` and its `SanitizedWidget`/`SanitizedTextareaWidget`/`SanitizedBaseInputTemplate` components failing to build under the `@rjsf/core`/`@rjsf/utils`/`@rjsf/validator-ajv8` v6 upgrade: `SanitizedWidget.tsx` no longer deep-imports `@rjsf/core/lib/components/widgets/TextWidget`/`TextareaWidget` (blocked by v6's stricter package `exports` map), using `getDefaultRegistry()` instead, and all three components are now properly generic over RJSF's type parameters; `ContactUsForm.tsx` builds its validator via `customizeValidator<ContactUsFormData>()` and imports `FormValidation` from `@rjsf/utils`'s root export; `CaptchaField.tsx`'s `onChange` call now passes the `path` argument v6's `FieldProps.onChange` requires
+
+##### Documentation
+
+- Fixed hard-wrapped paragraphs in `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md`, `documentation/recommendations/standard-css.md`, and `documentation/recommendations/standard-utils-vs-helpers.md` that broke mid-sentence or mid-clause instead of matching the rest of the repo's one-paragraph-per-line convention; also converted `PACKAGES.md` from UTF-16 to UTF-8, matching every other Markdown file in the repo
+- Fixed additional hard-wrapped list-item descriptions in `ARCHITECTURE.md` (the `RouteAliases.tsx`/`AppRoutes.tsx`, Sass Modules/Bootstrap Overrides, and Build and Tooling bullets) missed by the earlier paragraph rewrap
+- Fixed `documentation/history/RELEASE_NOTES_v5.0.0.md`'s stale archive snapshot, which had fallen out of sync with `RELEASE_NOTES.md`'s expanded Migration Guide/Statistics/Design Notes/Testing/Known Issues/Future Enhancements/Contributors/Notes template — resynced it byte-for-byte per AGENTS.md's Release Checklist archive rule
+- Fixed `ARCHITECTURE.md`'s Project Structure tree missing the `src/enums/` directory, which had been added without updating the tree
 
 #### ⚠️ Deprecated
 
