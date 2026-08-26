@@ -47,6 +47,8 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 - Expanded `.gitignore` with newer JetBrains (AWS, SonarLint, Apifox, GitHub Copilot migration files), OS (`.DS_Store`, `Thumbs.db`, `desktop.ini`), secrets/credentials (`*.pem`, `*.key`, `*credentials*`, `*secrets*`), pnpm, Yarn v3, and Vite timestamp-file patterns
 - Widened `.gitignore`'s project-specific `TAHONI` rule from `.claude/*.local.json` to `.claude/*.local.*` and removed the now-unneeded `.junie/` entry
+- Updated `vite` (`^6.4.2` → `^8.2.2`), `@vitejs/plugin-react` (`^4.3.4` → `^6.1.0`, required for Vite 8 support), `vitest` (`^3.0.5` → `^4.1.11`), `eslint` and `@eslint/js` (`^9.20.1`/`^9.17.0` → `^9.39.5`), `eslint-plugin-react` (`^7.37.4` → `^7.37.5`), `eslint-plugin-react-hooks` (`^5.1.0` → `^7.1.1`), `eslint-plugin-react-refresh` (`^0.4.19` → `^0.5.5`), and `typescript-eslint` (`^8.24.0` → `^8.68.0`) to their latest mutually-compatible versions; kept `eslint` on the 9.x line rather than 10.x since `eslint-plugin-react`'s peer range doesn't yet support ESLint 10, and kept `typescript` on the 5.x line (`~5.6.2` → `~5.9.3`) rather than 7.x since `typescript-eslint`'s peer range doesn't yet support TypeScript 7's native-compiler major release
+- Added an `overrides` entry pinning `@babel/plugin-transform-runtime` to `^7.29.7` in `package.json`, resolving an `ERESOLVE` conflict between `@rollup/plugin-babel`'s `@babel/core@^7` requirement and `@vitejs/plugin-react@6`'s optional Rolldown/React Compiler peer chain, which otherwise pulled in `@babel/core@^8`
 
 ##### Documentation
 
