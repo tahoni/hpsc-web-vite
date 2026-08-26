@@ -57,6 +57,10 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 #### 🐛 Fixed
 
+##### Build & Tooling
+
+- Fixed `npm run build` failing with `Unsupported target "ES2023"` under Vite 8 by setting `vite.config.ts`'s `build.cssMinify` to `"esbuild"`; Vite 8 defaults CSS minification to `lightningcss`, which expects browser targets rather than the JS-version string already configured in `build.target`
+
 ##### Documentation
 
 - Fixed hard-wrapped paragraphs in `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md`, `documentation/recommendations/standard-css.md`, and `documentation/recommendations/standard-utils-vs-helpers.md` that broke mid-sentence or mid-clause instead of matching the rest of the repo's one-paragraph-per-line convention; also converted `PACKAGES.md` from UTF-16 to UTF-8, matching every other Markdown file in the repo

@@ -41,6 +41,7 @@ export default defineConfig({
   build: {
     target: "ES2023",
     minify: true,
+    cssMinify: "esbuild",
     sourcemap: false,
     modulePreload: {
       polyfill: true,
