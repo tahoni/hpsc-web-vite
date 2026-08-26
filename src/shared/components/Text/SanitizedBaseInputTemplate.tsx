@@ -1,4 +1,9 @@
-import { BaseInputTemplateProps } from "@rjsf/utils";
+import {
+  BaseInputTemplateProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 import { SanitizedWidgetTypes } from "./SanitizedWidgetTypes";
 import SanitizedWidget from "./SanitizedWidget";
 
@@ -10,7 +15,13 @@ import SanitizedWidget from "./SanitizedWidget";
  * @param {BaseInputTemplateProps} props - The properties to be passed to the SanitizedWidget component.
  * @returns {JSX.Element} A rendered SanitizedWidget with the type TEMPLATE and provided properties.
  */
-const SanitizedBaseInputTemplate = (props: BaseInputTemplateProps) => {
+const SanitizedBaseInputTemplate = <
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(
+  props: BaseInputTemplateProps<T, S, F>,
+) => {
   return <SanitizedWidget type={SanitizedWidgetTypes.TEMPLATE} {...props} />;
 };
 

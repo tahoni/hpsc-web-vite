@@ -70,6 +70,10 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 - Fixed `npm run build` failing with `Unsupported target "ES2023"` under Vite 8 by setting `vite.config.ts`'s `build.cssMinify` to `"esbuild"`; Vite 8 defaults CSS minification to `lightningcss`, which expects browser targets rather than the JS-version string already configured in `build.target`
 - Fixed `npm run sitemap` failing with `Cannot find package '@/models'`; `tsx` resolves path aliases from the nearest `tsconfig.json`, but the root `tsconfig.json` only references `tsconfig.app.json`/`tsconfig.node.json` and carries no `compilerOptions.paths` of its own, so the `@/*` alias used by `builders/RoutesSitemap.ts` went unresolved — pointed the `sitemap` script at `tsconfig.app.json` (which already defines the aliases and includes `builders`) via `tsx`'s `--tsconfig` flag
 
+##### Forms
+
+- Fixed `ContactUsForm.tsx` and its `SanitizedWidget`/`SanitizedTextareaWidget`/`SanitizedBaseInputTemplate` components failing to build under the `@rjsf/core`/`@rjsf/utils`/`@rjsf/validator-ajv8` v6 upgrade: `SanitizedWidget.tsx` no longer deep-imports `@rjsf/core/lib/components/widgets/TextWidget`/`TextareaWidget` (blocked by v6's stricter package `exports` map), using `getDefaultRegistry()` instead, and all three components are now properly generic over RJSF's type parameters; `ContactUsForm.tsx` builds its validator via `customizeValidator<ContactUsFormData>()` and imports `FormValidation` from `@rjsf/utils`'s root export; `CaptchaField.tsx`'s `onChange` call now passes the `path` argument v6's `FieldProps.onChange` requires
+
 ##### Documentation
 
 - Fixed hard-wrapped paragraphs in `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md`, `documentation/recommendations/standard-css.md`, and `documentation/recommendations/standard-utils-vs-helpers.md` that broke mid-sentence or mid-clause instead of matching the rest of the repo's one-paragraph-per-line convention; also converted `PACKAGES.md` from UTF-16 to UTF-8, matching every other Markdown file in the repo

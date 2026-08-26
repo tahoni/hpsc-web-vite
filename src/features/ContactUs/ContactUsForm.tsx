@@ -1,8 +1,8 @@
 import React, {ReactElement, useRef} from "react";
 import {renderToStaticMarkup} from "react-dom/server";
 import Form, {IChangeEvent} from "@rjsf/core";
-import {RJSFValidationError, StrictRJSFSchema} from "@rjsf/utils";
-import validator from "@rjsf/validator-ajv8";
+import {FormValidation, RJSFValidationError, StrictRJSFSchema} from "@rjsf/utils";
+import { customizeValidator } from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
 import {EmailMessage} from "@/models/email/EmailMessage.ts";
 import {ContactUsFormData} from "./ContactUsFormData";
@@ -16,8 +16,9 @@ import {
 import {SanitizedBaseInputTemplate} from "@components/Text";
 import ContactUsEmailTemplate from "./ContactUsEmailTemplate";
 import {clubLogoFilename, clubLogoPath} from "@/constants/about/clubConstants";
-import {FormValidation} from "@rjsf/utils/src/types";
 import {EmailAttachment} from "@/models/email/EmailAttachment";
+
+const validator = customizeValidator<ContactUsFormData>();
 
 /**
  * ContactUsForm is a React functional component wrapped with React.memo for optimisation.
@@ -49,7 +50,7 @@ const ContactUsForm: React.MemoExoticComponent<() => ReactElement> = React.memo(
     (): ReactElement => {
         const emailService = new EmailService();
 
-        const formRef = useRef<Form>(null);
+        const formRef = useRef<Form<ContactUsFormData>>(null);
 
         const transformErrors = (
             errors: RJSFValidationError[],
@@ -228,7 +229,7 @@ const ContactUsForm: React.MemoExoticComponent<() => ReactElement> = React.memo(
         };
 
         return (
-            <Form
+            <Form<ContactUsFormData>
                 ref={formRef}
                 schema={contactUsJsonSchema}
                 uiSchema={contactUsUiSchema}
