@@ -21,9 +21,9 @@ This document describes the architectural design, directory structure, and core 
 The application is built using modern web technologies:
 
 - **Framework**: [React 19](https://react.dev/)
-- **Build Tool**: [Vite 6](https://vitejs.dev/)
-- **Language**: [TypeScript 5](https://www.typescriptlang.org/) (Strict mode)
-- **Routing**: [React Router 7](https://reactrouter.com/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/) (Strict mode)
+- **Routing**: [React Router](https://reactrouter.com/)
 - **UI Components**: [React Bootstrap 2](https://react-bootstrap.github.io/) (Bootstrap 5)
 - **Styling**: [SCSS (Sass)](https://sass-lang.com/) with Sass Modules
 - **Content**: [MDX](https://mdxjs.com/) for content-heavy pages
