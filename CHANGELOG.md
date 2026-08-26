@@ -39,8 +39,14 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ##### Build & Tooling
 
 - Added a `/sync-unreleased-changes` Claude Code command — audits the current branch's diff against its base branch and adds any missing `CHANGELOG.md` Unreleased entries for notable changes
+- Added an `.aiignore` file, mirroring most of `.gitignore`'s coverage, so AI coding agents don't read build artefacts, secrets, and IDE/tool-specific files as part of their context; it additionally excludes `.mvn/`, commented as not excluded by `.gitignore`
 
 #### 🔄 Changed
+
+##### Build & Tooling
+
+- Expanded `.gitignore` with newer JetBrains (AWS, SonarLint, Apifox, GitHub Copilot migration files), OS (`.DS_Store`, `Thumbs.db`, `desktop.ini`), secrets/credentials (`*.pem`, `*.key`, `*credentials*`, `*secrets*`), pnpm, Yarn v3, and Vite timestamp-file patterns
+- Widened `.gitignore`'s project-specific `TAHONI` rule from `.claude/*.local.json` to `.claude/*.local.*` and removed the now-unneeded `.junie/` entry
 
 ##### Documentation
 
