@@ -1,11 +1,19 @@
-import { BaseInputTemplateProps, ErrorSchema } from "@rjsf/utils";
+import {
+  BaseInputTemplateProps,
+  ErrorSchema,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 import { getDefaultRegistry } from "@rjsf/core";
 import { sanitizeValue } from "@/utils/htmlUtils";
 import { SanitizedWidgetTypes } from "./SanitizedWidgetTypes";
-import TextWidget from "@rjsf/core/lib/components/widgets/TextWidget";
-import TextareaWidget from "@rjsf/core/lib/components/widgets/TextareaWidget";
 
-export interface SanitizedWidgetProps extends BaseInputTemplateProps {
+export interface SanitizedWidgetProps<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+> extends BaseInputTemplateProps<T, S, F> {
   type: SanitizedWidgetTypes;
 }
 
@@ -34,12 +42,18 @@ export interface SanitizedWidgetProps extends BaseInputTemplateProps {
  * @returns {JSX.Element} A sanitized input widget determined by the `type` property,
  * incorporating custom `onChange` and `onBlur` behaviour.
  */
-const SanitizedWidget = (props: SanitizedWidgetProps) => {
+const SanitizedWidget = <
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(
+  props: SanitizedWidgetProps<T, S, F>,
+) => {
   const { onChange, onBlur } = props;
 
   const handleChange = (
     value: string,
-    es?: ErrorSchema | undefined,
+    es?: ErrorSchema<T> | undefined,
     id?: string,
   ): void => {
     let trimmedValue: string = value;
@@ -60,7 +74,9 @@ const SanitizedWidget = (props: SanitizedWidgetProps) => {
   };
 
   switch (props.type) {
-    case SanitizedWidgetTypes.TEXT_AREA:
+    case SanitizedWidgetTypes.TEXT_AREA: {
+      const TextareaWidget = getDefaultRegistry<T, S, F>().widgets
+        .TextareaWidget!;
       return (
         <TextareaWidget
           {...props}
@@ -68,14 +84,17 @@ const SanitizedWidget = (props: SanitizedWidgetProps) => {
           onBlur={handleBlur}
         />
       );
-    case SanitizedWidgetTypes.TEXT:
+    }
+    case SanitizedWidgetTypes.TEXT: {
+      const TextWidget = getDefaultRegistry<T, S, F>().widgets.TextWidget!;
       return (
         <TextWidget {...props} onChange={handleChange} onBlur={handleBlur} />
       );
+    }
     case SanitizedWidgetTypes.TEMPLATE:
     default: {
       const OldBaseInputTemplate =
-        getDefaultRegistry().templates.BaseInputTemplate;
+        getDefaultRegistry<T, S, F>().templates.BaseInputTemplate;
       return (
         <OldBaseInputTemplate
           {...props}

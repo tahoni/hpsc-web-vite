@@ -19,7 +19,7 @@ import { SimpleCaptcha } from "./SimpleCaptcha";
  */
 const CaptchaField = React.memo((props: FieldProps): ReactElement => {
   const handleChange = (token: string) => {
-    props.onChange(token);
+    props.onChange(token, props.fieldPathId.path);
   };
 
   return <SimpleCaptcha handleChange={handleChange} />;

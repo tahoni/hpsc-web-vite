@@ -1,6 +1,7 @@
-import { RJSFSchema, UiSchema } from "@rjsf/utils";
+import { RegistryFieldsType, RegistryWidgetsType, RJSFSchema, UiSchema } from "@rjsf/utils";
 import { CaptchaField } from "@components/Captcha";
 import { SanitizedTextareaWidget } from "@components/Text";
+import { ContactUsFormData } from "./ContactUsFormData";
 
 /**
  * Contains schema definitions and UI configurations for the Contact Us form.
@@ -23,7 +24,7 @@ import { SanitizedTextareaWidget } from "@components/Text";
  * @type {Object}
  * @property {CaptchaField} captchaField - Represents the CAPTCHA field used for validating the form submission to prevent automated spam.
  */
-export const contactUsJsonFields = {
+export const contactUsJsonFields: RegistryFieldsType<ContactUsFormData> = {
   captchaField: CaptchaField,
 };
 /**
@@ -34,7 +35,7 @@ export const contactUsJsonFields = {
  * @type {Object}
  * @property {SanitizedTextareaWidget} sanitizedTextareaWidget - A widget for sanitized textarea input in the contact form.
  */
-export const contactUsJsonWidgets = {
+export const contactUsJsonWidgets: RegistryWidgetsType<ContactUsFormData> = {
   sanitizedTextareaWidget: SanitizedTextareaWidget,
 };
 
@@ -103,7 +104,7 @@ export const contactUsJsonSchema: RJSFSchema = {
  * - `captcha`: An object defining a custom UI field for the "captcha" element.
  * - `ui:order`: Specifies the order in which the fields appear in the form.
  */
-export const contactUsUiSchema: UiSchema = {
+export const contactUsUiSchema: UiSchema<ContactUsFormData> = {
   "ui:classNames": "contactUs",
   name: {
     "ui:autofocus": true,

@@ -34,7 +34,7 @@ Conventions for any AI coding agent working in this repository. [`CLAUDE.md`](CL
 - **Alerts/dialogs:** `sweetalert2`
 - **Testing:** Vitest (configured; no tests written yet — see [🧪 Test Conventions](#-test-conventions))
 - **Linting:** ESLint 9 (flat config), `typescript-eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, `eslint-plugin-tsdoc`
-- **API documentation:** TypeDoc (`npm run docs`, output to `tsdocs/`)
+- **API documentation:** TypeDoc (`npm run docs`, output to `/target/docs`)
 - **Sitemap generation:** custom `builders/RoutesSitemap.ts` script, run via `tsx`
 
 Exact pinned versions are not listed here — they drift with every dependency bump. Check `package.json` for the versions currently in use.
@@ -105,9 +105,9 @@ Every heading listed in a Table of Contents is prefixed with an emoji, and its T
 | 📜   | License / licence and documentation     |
 | 👤   | Author / changes by                     |
 | 🧾   | Change log / release notes              |
-| 🐛   | Bug fixes                               |
+| 🐛   | Bug fixes / known issues                |
 | ♻️   | General code improvements               |
-| 📦   | Dependencies                            |
+| 📦   | Dependencies / what's new               |
 | 🧪   | Testing                                 |
 | 🔀   | Git workflow                            |
 | 🚢   | Release process                         |
@@ -126,14 +126,18 @@ Every heading listed in a Table of Contents is prefixed with an emoji, and its T
 | 💬   | Support                                 |
 | 📅   | Historical timeline / dates             |
 | 💡   | Philosophy / insight                    |
-| 📚   | Key learnings                           |
+| 📚   | Documentation / key learnings           |
 | 🎓   | Conclusion / retrospective              |
+| ⭐   | Key highlights                          |
+| 📊   | Statistics                              |
+| 🔮   | Future enhancements                     |
+| 👥   | Contributors                            |
 
 ---
 
 ## 🗺️ Documentation File Map
 
-Root-level documentation, and the goal of each file (`README.md` links out to `ARCHITECTURE.md`, `UI.md`, and `LICENSE.md` individually rather than via a single documentation index — `README.md` is the canonical version if the two ever drift):
+Root-level documentation, and the goal of each file (see `README.md`'s own [📚 Documentation](README.md#-documentation) section — `README.md` is the canonical version if the two ever drift):
 
 | File                                        | Purpose                                                                                                                                                               |
 |---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -184,7 +188,7 @@ Vitest is configured (`npm test`) but no test files exist yet in this repository
 ## 📁 Directory Tree Maintenance
 
 - Whenever a root-level directory or a top-level `src/` directory is added or removed, `ARCHITECTURE.md`'s Project Structure tree must be updated in the same change.
-- Directories covered by `.gitignore` (e.g. `.idea/`, `.run/`, `node_modules/`, `dist/`, `target/`, `tsdocs/`) must never appear in that tree.
+- Directories covered by `.gitignore` (e.g. `.idea/`, `.run/`, `node_modules/`, `dist/`, `target/`) must never appear in that tree.
 - When adding a path alias to `vite.config.ts`, add the matching entry to `tsconfig.app.json`'s `paths` in the same change — the two must stay in sync (see `CLAUDE.md`'s Path Aliases section).
 
 ---
@@ -225,7 +229,7 @@ When cutting a new version, work through these steps **in order** — the versio
 
 1. **Bump `package.json`.** Update the `version` field to the new `X.Y.Z`.
 2. **Promote `### 🧪 [Unreleased]` to a dated version entry.** Rename it `### 🧾 [X.Y.Z] - YYYY-MM-DD`, keeping only the Keep a Changelog categories that actually have entries (`➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security` — omit any that are empty) and their `##### <Area>` subheadings. Add the new version to the Table of Contents, move the "← Current" marker onto it, then start a fresh, fully-empty `### 🧪 [Unreleased]` section above it (six empty category headings: `➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security`).
-3. **Replace `RELEASE_NOTES.md`.** Unlike `CHANGELOG.md`, this file holds only the *current* release. Follow this section order: **Theme** (one line naming the release's focus, matching the Theme that will go into `HISTORY.md`'s Historical Timeline entry for this version) → **Key Highlights** (a short bullet list of the release's most notable points, matching that entry's Key Focus bullets) → the categorised change list (same categories and Area subheadings as the `CHANGELOG.md` entry, without the Table of Contents). Replace the previous version's content outright rather than appending to it.
+3. **Replace `RELEASE_NOTES.md`.** Unlike `CHANGELOG.md`, this file holds only the *current* release. Follow this section order: **Theme** (a one-line focus, expanded into a short paragraph, matching the Theme that will go into `HISTORY.md`'s Historical Timeline entry for this version) → **Key Highlights** (grouped under a few named `###` subheadings, each with a short bullet list, matching that entry's Key Focus bullets) → **What's New** (the categorised change list — same categories and Area subheadings as the `CHANGELOG.md` entry) → **Migration Guide** (For Deployers / For Developers) → **Statistics** (commit count and files-changed/lines-changed for the release, from `git log`/`git diff --stat` against the previous release) → **Design Notes** (a couple of short rationale bullets for the release's notable decisions) → **Testing** (what was run/verified) → **Known Issues** → **Future Enhancements** → **Contributors** (sourced per the Contributors convention above) → **Notes** (a short closing summary). Cover **everything** that changed for this version, not just the most recent commit — diff the release branch against the previous release tag (`git log <prev-tag>..HEAD`, `git diff --stat <prev-tag>...HEAD`) to confirm full coverage before finalising. Replace the previous version's content outright rather than appending to it.
 4. **Verify links and dates.** Confirm the `version-X.Y.Z` tag slug and the `YYYY-MM-DD` date match between `CHANGELOG.md` and `RELEASE_NOTES.md`.
 5. **Extend `HISTORY.md`.** Add a new entry to the Historical Timeline (Theme and Key Focus bullets, at the same depth as the existing entries, placed at the top to keep reverse chronological order). If the release is significant enough to have shifted the project's trajectory, also thread it through the other sections that track version-by-version state (Evolution Overview's Phases, Major Milestones, Architectural Evolution, Feature Timeline, Project Philosophy Evolution, Key Learnings, Future Roadmap Implications, Conclusion) — use how the immediately preceding version was woven into those sections as the template. A routine patch release may only need the Historical Timeline entry.
 6. **Archive `RELEASE_NOTES.md`.** Once finalised, copy it byte-for-byte (no edits, no trimming) to `documentation/history/RELEASE_NOTES_vX.Y.Z.md`.

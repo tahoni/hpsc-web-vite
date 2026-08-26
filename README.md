@@ -8,34 +8,25 @@ The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) 
 - [🔗 Repository](#-repository)
 - [⚙️ Technology](#-technology)
 - [🚀 Instructions](#-instructions)
-    - [🔧 Install the Project](#-install-the-project)
+    - [📋 Prerequisites](#-prerequisites)
+    - [🔧 Installation and Execution](#-installation-and-execution)
     - [🧰 Available Scripts](#-available-scripts)
-    - [⚙️ Environment Variables](#-environment-variables)
-- [🏛️ Architecture](#-architecture)
-- [🖥️ User Interface](#-user-interface)
-- [🤝 Contributing](#-contributing)
-- [📜 License](#-license)
+        - [⚙️ Environment Variables](#-environment-variables)
+- [📚 Documentation](#-documentation)
+    - [🗺️ Roadmap](#-roadmap)
 - [👤 Author](#-author)
-
----
 
 ## 📖 Introduction
 
-The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and
-user-friendly platform for members and visitors.
+The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly platform for members and visitors.
 
 The primary technologies used in this project include TypeScript, SCSS and MDX.
-
----
 
 ## 🔗 Repository
 
 The repository for this project is located at [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
-Feature requests, suggestions for improvements and bugs can be logged using the project's
-[Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
-
----
+Feature requests, suggestions for improvements and bugs can be logged using the project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
 
 ## ⚙️ Technology
 
@@ -48,26 +39,43 @@ Styling is done by SCSS stylesheets.
 
 React Router is used for page routing.
 
----
-
 ## 🚀 Instructions
 
-You can download Node.js from [here](https://nodejs.org/).
+### 📋 Prerequisites
 
-Clone the project from [GitHub](https://github.com/tahoni/hpsc-web-vite).
+- **Node.js**: Download from [nodejs.org](https://nodejs.org/)
+- **NPM registry access**: A read-only npm token for the `@tahoni` GitHub Packages scope, set in the `NPM_TOKEN_READ` environment variable (see [⚙️ Environment Variables](#-environment-variables))
 
-### 🔧 Install the project
+### 🔧 Installation and Execution
 
-Install the project using `npm install`.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/tahoni/hpsc-web-vite.git
+   cd hpsc-web-vite
+   ```
 
-Run it locally with `npm run dev`.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-It will load at http://localhost:5173/.
-This page will reload if you make edits.
+3. **Run the dev server**:
+   ```bash
+   npm run dev
+   ```
+   The app loads at `http://localhost:5173/` and reloads automatically if you make edits.
 
-Build it for production with `npm run build` to the `dist` directory.
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
+   Output is written to the `dist` directory.
 
-The production build can be verified by running `npm run preview`.
+5. **Preview the production build**:
+   ```bash
+   npm run preview
+   ```
+   Use this to check if the production build looks OK in your local environment.
 
 ### 🧰 Available Scripts
 
@@ -106,7 +114,7 @@ Runs the Vitest test suite.
 
 #### `npm run docs`
 
-Generates technical documentation using TypeDoc to the `tsdocs` directory.
+Generates technical documentation using TypeDoc to the `/target/docs` directory.
 
 #### `npm run sitemap`
 
@@ -114,40 +122,49 @@ Regenerates `public/sitemap.xml` from the route metadata.
 
 #### ⚙️ Environment Variables
 
-A npm read key to @tahoni on GitHub needs to be set in the ````NPM_TOKEN_READ````
-environment variable, to load the ````tahoni-lib-react```` npm package.
+A npm read key to @tahoni on GitHub needs to be set in the ````NPM_TOKEN_READ```` environment variable to load the ````tahoni-lib-react```` npm package.
 
-The Google Maps API key from Google Cloud Services needs to be set in the ````GOOGLE_MAPS_API_KEY````
-environment variable, otherwise, the map will not be available.
+The Google Maps API key from Google Cloud Services needs to be set in the ````GOOGLE_MAPS_API_KEY```` environment variable, otherwise, the map will not be available.
 
-The reCAPTCHA v2 site key needs to be set in the ````RECAPTCHA_V2_SITE_KEY````
-environment variable, otherwise, the Contact Us form's captcha will not be available.
+The reCAPTCHA v2 site key needs to be set in the ````RECAPTCHA_V2_SITE_KEY```` environment variable, otherwise, the Contact Us form's captcha will not be available.
 
----
+## 📚 Documentation
 
-## 🏛️ Architecture
+This project's documentation is spread across a few files, each with a distinct purpose:
 
-A detailed explanation of the architecture can be found in the [`ARCHITECTURE.md`](./ARCHITECTURE.md) file.
+| File                                   | Purpose                                                                                                  |
+|----------------------------------------|----------------------------------------------------------------------------------------------------------|
+| [`README.md`](README.md)               | Project overview, setup, and links to the rest of the documentation (this file)                          |
+| [`ARCHITECTURE.md`](ARCHITECTURE.md)   | Detailed architectural design, directory structure, and core concepts                                    |
+| [`UI.md`](UI.md)                       | User interface layout, navigation, and design overview                                                   |
+| [`CLAUDE.md`](CLAUDE.md)               | Guidance for Claude Code (AI assistant) when working in this repository                                  |
+| [`AGENTS.md`](AGENTS.md)               | Cross-tool conventions for AI coding agents working in this repository                                   |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md)   | Contributor-facing setup, git workflow, and pull request checklist                                       |
+| [`CHANGELOG.md`](CHANGELOG.md)         | Notable changes per released version, in [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format |
+| [`HISTORY.md`](HISTORY.md)             | Narrative history of the project's evolution across all versions                                         |
+| [`RELEASE_NOTES.md`](RELEASE_NOTES.md) | Detailed release notes for the current/latest version only                                               |
+| [`PACKAGES.md`](PACKAGES.md)           | Generated funding-tree manifest listing dependencies seeking sponsorship                                 |
+| [`LICENSE.md`](LICENSE.md)             | MIT License                                                                                              |
 
----
+[`documentation/history/`](documentation/history) holds one of each of the following files per released version, so past releases stay individually referenceable as `RELEASE_NOTES.md` and the release PR moves on to the next version:
 
-## 🖥️ User Interface
+| File                       | Purpose                                                    |
+|----------------------------|------------------------------------------------------------|
+| `RELEASE_NOTES_vX.Y.Z.md`  | Archived snapshot of `RELEASE_NOTES.md` at release time    |
+| `PR_DESCRIPTION_vX.Y.Z.md` | The release pull request's body, archived for that version |
 
-A description of the user interface can be found in the [`UI.md`](./UI.md) file.
+[`documentation/recommendations/`](documentation/recommendations) holds general React/TypeScript convention reference notes (naming, directory structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions — read alongside `ARCHITECTURE.md`, not as a replacement for it.
 
----
+### 🗺️ Roadmap
 
-## 🤝 Contributing
+[`documentation/roadmap/`](documentation/roadmap) holds in-progress planning documents — not part of the standard documentation set above, and not required reading to work in this repository:
 
-Guidelines for setting up the project, this repository's git workflow, and the pull request checklist can be found in the [`CONTRIBUTING.md`](./CONTRIBUTING.md) file.
+| File                  | Purpose                                                                                                          |
+|-----------------------|------------------------------------------------------------------------------------------------------------------|
+| `IMPROVEMENT_PLAN.md` | Synthesised goals/constraints from this project's own docs and configuration, and the resulting gaps and roadmap |
+| `TASKS.md`            | Concrete, checkbox-level task list broken out from `IMPROVEMENT_PLAN.md`'s gaps                                  |
 
----
-
-## 📜 License
-
-The copyright licence can be found in the [`LICENSE.md`](./LICENSE.md) file.
-
----
+This project follows [Semantic Versioning 2.0.0](https://semver.org/) (`MAJOR.MINOR.PATCH`) — see [CHANGELOG.md](CHANGELOG.md#-version-policy) for the full version policy.
 
 ## 👤 Author
 

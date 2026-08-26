@@ -1,5 +1,10 @@
 import { JSX } from "react";
-import { BaseInputTemplateProps } from "@rjsf/utils";
+import {
+  BaseInputTemplateProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 import { SanitizedWidgetTypes } from "./SanitizedWidgetTypes";
 import SanitizedWidget from "./SanitizedWidget";
 
@@ -11,7 +16,13 @@ import SanitizedWidget from "./SanitizedWidget";
  * @param {BaseInputTemplateProps} props - The properties passed to the component.
  * @returns {JSX.Element} - A JSX element representing a sanitized textarea widget.
  */
-const TrimmedTextareaWidget = (props: BaseInputTemplateProps): JSX.Element => {
+const TrimmedTextareaWidget = <
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(
+  props: BaseInputTemplateProps<T, S, F>,
+): JSX.Element => {
   return <SanitizedWidget type={SanitizedWidgetTypes.TEXT_AREA} {...props} />;
 };
 

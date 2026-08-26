@@ -21,6 +21,18 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 ## 📅 Historical Timeline
 
+### Version 5.1.0 (August 26, 2026)
+
+**Theme:** Dependency Modernisation Completion & @rjsf v6 Migration
+
+**Key Focus:**
+
+- Updated every dependency 5.0.0 left deferred pending code changes (`@fortawesome/*`, `@fullcalendar/*`, `@mdx-js/*`, `@react-email/components`, `@rjsf/*`, `@vis.gl/react-google-maps`, `bootstrap`, `react-bootstrap`, `react-email`, `react-router`/`react-router-dom`, `sanitize-html`, `sweetalert2`) plus `typescript` to `~6.0.3`
+- Fixed the Contact Us form and its sanitised widgets, broken by `@rjsf/core` v6's stricter package `exports` map and `FieldProps.onChange`'s new required `path` argument
+- Fixed `npm run build` under Vite 8's CSS minification default and `npm run sitemap`'s path-alias resolution
+- Added a `/sync-unreleased-changes` Claude Code command and an `.aiignore` file; expanded the Release Checklist's `RELEASE_NOTES.md` template
+- Cleaned up documentation hard-wrap and archive-sync issues carried over from the 5.0.0 release prep
+
 ### Version 5.0.0 (August 25, 2026)
 
 **Theme:** AI Agent Conventions & Release Process Foundations
