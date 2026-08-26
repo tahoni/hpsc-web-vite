@@ -47,6 +47,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 - Expanded `.gitignore` with newer JetBrains (AWS, SonarLint, Apifox, GitHub Copilot migration files), OS (`.DS_Store`, `Thumbs.db`, `desktop.ini`), secrets/credentials (`*.pem`, `*.key`, `*credentials*`, `*secrets*`), pnpm, Yarn v3, and Vite timestamp-file patterns
 - Widened `.gitignore`'s project-specific `TAHONI` rule from `.claude/*.local.json` to `.claude/*.local.*` and removed the now-unneeded `.junie/` entry
+- Relocated TypeDoc's output directory from `tsdocs/` to `/target/docs` in `typedoc.json`, removed the now-redundant `tsdocs/` entry from `.gitignore`/`.aiignore` (already covered by the existing `target/` rule), and updated the matching directory references in `AGENTS.md`, `CLAUDE.md`, `README.md`, and `RELEASE_NOTES.md`
 
 ##### Documentation
 
