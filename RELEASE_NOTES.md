@@ -115,7 +115,7 @@ Version 5.0.0 establishes `AGENTS.md`/`CLAUDE.md` as this project's cross-tool A
 
 ## 🧪 Testing
 
-- `npm run lint` — 0 errors (pre-existing warnings only, plus unrelated errors in the gitignored, locally-generated `tsdocs/` output)
+- `npm run lint` — 0 errors (pre-existing warnings only, plus unrelated errors in the gitignored, locally-generated `/target/docs/` output)
 - `npm run build` — was broken by the `routeHelpers`/`menuHelpers` import and path-alias bugs above; passes after the fix
 - `npm test` — no test files exist yet in this repository (tracked in `documentation/roadmap/TASKS.md`)
 - Manually confirmed the Contact Us form still sends e-mail correctly after the `EmailMessage`/`EmailType` refactor

@@ -114,7 +114,7 @@ Runs the Vitest test suite.
 
 #### `npm run docs`
 
-Generates technical documentation using TypeDoc to the `tsdocs` directory.
+Generates technical documentation using TypeDoc to the `/target/docs` directory.
 
 #### `npm run sitemap`
 

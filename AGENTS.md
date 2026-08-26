@@ -34,7 +34,7 @@ Conventions for any AI coding agent working in this repository. [`CLAUDE.md`](CL
 - **Alerts/dialogs:** `sweetalert2`
 - **Testing:** Vitest (configured; no tests written yet — see [🧪 Test Conventions](#-test-conventions))
 - **Linting:** ESLint 9 (flat config), `typescript-eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, `eslint-plugin-tsdoc`
-- **API documentation:** TypeDoc (`npm run docs`, output to `tsdocs/`)
+- **API documentation:** TypeDoc (`npm run docs`, output to `/target/docs`)
 - **Sitemap generation:** custom `builders/RoutesSitemap.ts` script, run via `tsx`
 
 Exact pinned versions are not listed here — they drift with every dependency bump. Check `package.json` for the versions currently in use.
@@ -188,7 +188,7 @@ Vitest is configured (`npm test`) but no test files exist yet in this repository
 ## 📁 Directory Tree Maintenance
 
 - Whenever a root-level directory or a top-level `src/` directory is added or removed, `ARCHITECTURE.md`'s Project Structure tree must be updated in the same change.
-- Directories covered by `.gitignore` (e.g. `.idea/`, `.run/`, `node_modules/`, `dist/`, `target/`, `tsdocs/`) must never appear in that tree.
+- Directories covered by `.gitignore` (e.g. `.idea/`, `.run/`, `node_modules/`, `dist/`, `target/`) must never appear in that tree.
 - When adding a path alias to `vite.config.ts`, add the matching entry to `tsconfig.app.json`'s `paths` in the same change — the two must stay in sync (see `CLAUDE.md`'s Path Aliases section).
 
 ---
