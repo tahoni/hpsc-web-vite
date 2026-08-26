@@ -52,6 +52,10 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 - Updated the remaining `devDependencies` to their latest versions: `@rollup/plugin-babel` (`^6.0.4` → `^7.1.0`), `@types/react` (`~19.0.3` → `~19.2.18`), `@types/react-dom` (`~19.0.2` → `~19.2.5`), `@types/sanitize-html` (`^2.13.0` → `^2.16.1`), `globals` (`^15.15.0` → `^17.11.0`), `rollup-plugin-visualizer` (`^5.14.0` → `^7.1.1`), `sass` (`^1.85.0` → `^1.103.1`), `sitemap` (`^8.0.0` → `^9.0.1`), `tsx` (`^4.19.4` → `^4.23.12`), and `typedoc` (`^0.28.15` → `^0.28.20`)
 - Widened `react`/`react-dom` from `~19.0.0` to `~19.2.8`, now matching the `@types/react`/`@types/react-dom` versions already updated above; left every other outdated runtime dependency with a major-version jump available (`@fortawesome/*`, `@fullcalendar/*`, `@react-email/components`, `@rjsf/*`, `react-email`, `react-router`/`react-router-dom`) untouched, since those require code changes and manual testing beyond a version bump
 
+##### Dependencies
+
+- Updated `@tahoni/tahoni-lib-react` (`^3.3.0` → `^3.3.2`), which now peers on `react`/`react-dom` `~19.2.0`, `bootstrap` `^5.3.8`, `eslint-plugin-react` `^7.37.5`, `glob` `^13.0.6`, `react-bootstrap` `^2.10.10`, and `react-spinners` `^0.17.0`
+
 ##### Documentation
 
 - Expanded `AGENTS.md`'s Release Checklist template for `RELEASE_NOTES.md` with Migration Guide, Statistics, Design Notes, Testing, Known Issues, Future Enhancements, Contributors, and Notes sections, added matching ⭐/📊/🔮/👥 icons to the icon table, and rewrote `RELEASE_NOTES.md` to follow the expanded template
