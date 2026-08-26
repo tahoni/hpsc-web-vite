@@ -11,7 +11,8 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.0.0](#-500---2026-08-25) ← Current
+- [🧾 Version 5.1.0](#-510---2026-08-26) ← Current
+- [🧾 Version 5.0.0](#-500---2026-08-25)
 - [🧾 Version 4.2.3](#-423---2026-05-04)
 - [🧾 Version 4.2.2](#-422---2026-02-10)
 - [🧾 Version 4.2.1](#-421---2026-01-20)
@@ -33,6 +34,22 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ---
 
 ### 🧪 [Unreleased]
+
+#### ➕ Added
+
+#### 🔄 Changed
+
+#### 🐛 Fixed
+
+#### ⚠️ Deprecated
+
+#### 🗑️ Removed
+
+#### 🔐 Security
+
+---
+
+### 🧾 [5.1.0] - 2026-08-26
 
 #### ➕ Added
 
