@@ -54,7 +54,9 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 ##### Dependencies
 
-- Updated `@tahoni/tahoni-lib-react` (`^3.3.0` → `^3.3.2`), which now peers on `react`/`react-dom` `~19.2.0`, `bootstrap` `^5.3.8`, `eslint-plugin-react` `^7.37.5`, `glob` `^13.0.6`, `react-bootstrap` `^2.10.10`, and `react-spinners` `^0.17.0`
+- Updated `@tahoni/tahoni-lib-react` (`^3.3.0` → `^3.3.3`), which now peers on `react`/`react-dom` `~19.2.0`, `bootstrap` `^5.3.8`, `eslint-plugin-react` `^7.37.5`, `glob` `^13.0.6`, `react-bootstrap` `^2.10.10`, and `react-spinners` `^0.17.0`
+- Updated the remaining deferred major dependencies to their latest versions: `@fortawesome/fontawesome-svg-core`/`@fortawesome/free-brands-svg-icons`/`@fortawesome/free-regular-svg-icons`/`@fortawesome/free-solid-svg-icons` (`^6.7.2` → `^7.3.1`), `@fortawesome/react-fontawesome` (`^0.2.6` → `^3.5.0`), `@fullcalendar/*` (`^6.1.15` → `^6.1.21`), `@mdx-js/react`/`@mdx-js/rollup` (`^3.1.0` → `^3.1.1`), `@react-email/components` (`^0.0.36` → `^1.0.12`), `@rjsf/core`/`@rjsf/utils`/`@rjsf/validator-ajv8` (`^5.24.3` → `^6.8.0`), `@vis.gl/react-google-maps` (`^1.5.2` → `^1.9.0`), `bootstrap` (`^5.3.3` → `^5.3.8`), `react-bootstrap` (`^2.10.9` → `^2.10.10`), `react-email` (`^4.0.7` → `^6.9.3`), `react-router` (`^7.12.0` → `^8.3.0`), `react-router-dom` (`^7.12.0` → `^7.18.2`), `sanitize-html` (`^2.14.0` → `^2.17.7`), and `sweetalert2` (`^11.22.4` → `^11.26.25`)
+- Updated `typescript` (`~5.9.3` → `~6.0.3`); updated `tsconfig.app.json` accordingly, dropping `baseUrl` in favour of explicit `./`-relative `paths` entries and adding `"types": ["mdx"]`
 
 ##### Documentation
 
