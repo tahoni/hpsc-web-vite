@@ -63,10 +63,25 @@ export default defineConfig({
                 return "rjsf";
               case "@fullcalendar":
                 return "fullcalendar";
-              case "react-google-recaptcha":
+              case "react-google-recaptcha-v3":
                 return "react-google";
               case "@vis.gl":
                 return "vis.gl";
+              case "react":
+              case "react-dom":
+              case "scheduler":
+                return "react-vendor";
+              case "react-router":
+              case "react-router-dom":
+                return "react-router";
+              case "bootstrap":
+              case "react-bootstrap":
+              case "bootstrap-icons":
+                return "bootstrap";
+              case "sweetalert2":
+                return "sweetalert2";
+              case "@tahoni":
+                return "tahoni";
             }
           }
         },
