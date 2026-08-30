@@ -18,7 +18,8 @@ The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) 
 
 ## 📖 Introduction
 
-The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly platform for members and visitors.
+The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly platform
+for members and visitors.
 
 The primary technologies used in this project include TypeScript, SCSS and MDX.
 
@@ -26,7 +27,8 @@ The primary technologies used in this project include TypeScript, SCSS and MDX.
 
 The repository for this project is located at [GitHub](https://github.com/tahoni/hpsc-web-vite).
 
-Feature requests, suggestions for improvements and bugs can be logged using the project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
+Feature requests, suggestions for improvements and bugs can be logged using the
+project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
 
 ## ⚙️ Technology
 
@@ -34,8 +36,7 @@ This is a React project bootstrapped using Vite with the TypeScript React templa
 
 It is written in TypeScript and uses both JSX and MDX components.
 
-Bootstrap and React Bootstrap are used for the UI/UX.
-Styling is done by SCSS stylesheets.
+Bootstrap and React Bootstrap are used for the UI/UX. Styling is done by SCSS stylesheets.
 
 React Router is used for page routing.
 
@@ -44,7 +45,8 @@ React Router is used for page routing.
 ### 📋 Prerequisites
 
 - **Node.js**: Download from [nodejs.org](https://nodejs.org/)
-- **NPM registry access**: A read-only npm token for the `@tahoni` GitHub Packages scope, set in the `NPM_TOKEN_READ` environment variable (see [⚙️ Environment Variables](#-environment-variables))
+- **NPM registry access**: A read-only npm token for the `@tahoni` GitHub Packages scope, set in the `NPM_TOKEN_READ`
+  environment variable (see [⚙️ Environment Variables](#-environment-variables))
 
 ### 🔧 Installation and Execution
 
@@ -87,8 +89,7 @@ This installs the dependencies.
 
 #### `npm run dev`
 
-This runs the app in development mode.
-The page will reload if you make edits.
+This runs the app in development mode. The page will reload if you make edits.
 
 #### `npm run host`
 
@@ -96,13 +97,12 @@ This runs the app in development mode, bound to `http://hpsc.local/` instead of 
 
 #### `npm run build`
 
-This builds the app for production to the `dist` directory.
-Your app is ready to be deployed!
+This builds the app for production to the `dist` directory. Your app is ready to be deployed!
 
 #### `npm run preview`
 
-This previews the app locally in the `dist` directory.
-Use this to check if the production build looks OK in your local environment.
+This previews the app locally in the `dist` directory. Use this to check if the production build looks OK in your local
+environment.
 
 #### `npm run lint`
 
@@ -122,11 +122,14 @@ Regenerates `public/sitemap.xml` from the route metadata.
 
 #### ⚙️ Environment Variables
 
-A npm read key to @tahoni on GitHub needs to be set in the ````NPM_TOKEN_READ```` environment variable to load the ````tahoni-lib-react```` npm package.
+A npm read key to @tahoni on GitHub needs to be set in the ````NPM_TOKEN_READ```` environment variable to load the
+````tahoni-lib-react```` npm package.
 
-The Google Maps API key from Google Cloud Services needs to be set in the ````GOOGLE_MAPS_API_KEY```` environment variable, otherwise, the map will not be available.
+The Google Maps API key from Google Cloud Services needs to be set in the ````GOOGLE_MAPS_API_KEY```` environment
+variable, otherwise, the map will not be available.
 
-The reCAPTCHA v2 site key needs to be set in the ````RECAPTCHA_V2_SITE_KEY```` environment variable, otherwise, the Contact Us form's captcha will not be available.
+The reCAPTCHA v2 site key needs to be set in the ````RECAPTCHA_V2_SITE_KEY```` environment variable, otherwise, the
+Contact Us form's captcha will not be available.
 
 ## 📚 Documentation
 
@@ -146,25 +149,30 @@ This project's documentation is spread across a few files, each with a distinct 
 | [`PACKAGES.md`](PACKAGES.md)           | Generated funding-tree manifest listing dependencies seeking sponsorship                                 |
 | [`LICENSE.md`](LICENSE.md)             | MIT License                                                                                              |
 
-[`documentation/history/`](documentation/history) holds one of each of the following files per released version, so past releases stay individually referenceable as `RELEASE_NOTES.md` and the release PR moves on to the next version:
+[`documentation/history/`](documentation/history) holds one of each of the following files per released version, so past
+releases stay individually referenceable as `RELEASE_NOTES.md` and the release PR moves on to the next version:
 
 | File                       | Purpose                                                    |
 |----------------------------|------------------------------------------------------------|
 | `RELEASE_NOTES_vX.Y.Z.md`  | Archived snapshot of `RELEASE_NOTES.md` at release time    |
 | `PR_DESCRIPTION_vX.Y.Z.md` | The release pull request's body, archived for that version |
 
-[`documentation/recommendations/`](documentation/recommendations) holds general React/TypeScript convention reference notes (naming, directory structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions — read alongside `ARCHITECTURE.md`, not as a replacement for it.
+[`documentation/recommendations/`](documentation/recommendations) holds general React/TypeScript convention reference
+notes (naming, directory structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's
+own conventions — read alongside `ARCHITECTURE.md`, not as a replacement for it.
 
 ### 🗺️ Roadmap
 
-[`documentation/roadmap/`](documentation/roadmap) holds in-progress planning documents — not part of the standard documentation set above, and not required reading to work in this repository:
+[`documentation/roadmap/`](documentation/roadmap) holds in-progress planning documents — not part of the standard
+documentation set above, and not required reading to work in this repository:
 
 | File                        | Purpose                                                                                                          |
 |-----------------------------|------------------------------------------------------------------------------------------------------------------|
 | `improvement-plan.md`       | Synthesised goals/constraints from this project's own docs and configuration, and the resulting gaps and roadmap |
 | `improvement-plan-tasks.md` | Concrete, checkbox-level task list broken out from `improvement-plan.md`'s gaps                                  |
 
-This project follows [Semantic Versioning 2.0.0](https://semver.org/) (`MAJOR.MINOR.PATCH`) — see [CHANGELOG.md](CHANGELOG.md#-version-policy) for the full version policy.
+This project follows [Semantic Versioning 2.0.0](https://semver.org/) (`MAJOR.MINOR.PATCH`) —
+see [CHANGELOG.md](CHANGELOG.md#-version-policy) for the full version policy.
 
 ## 👤 Author
 
