@@ -39,11 +39,19 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 #### 🔄 Changed
 
+##### Documentation
+
+- Renamed `documentation/roadmap/IMPROVEMENT_PLAN.md`/`TASKS.md` to `improvement-plan.md`/`improvement-plan-tasks.md`, matching `documentation/recommendations/`'s kebab-case file naming, and updated every cross-reference across `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `HISTORY.md`, `README.md`, `RELEASE_NOTES.md`, and `documentation/history/`
+
 #### 🐛 Fixed
 
 ##### Styling
 
 - Fixed Bootstrap component classes (`.btn`, `.card`, `.navbar`, etc.) rendering with stock Bootstrap colours instead of the club's theme: `src/assets/styles/_forms.scss` independently `@use`d `bootstrap/scss/bootstrap` directly, compiling a second, unthemed copy of Bootstrap that never saw `src/vendors/bootstrap/styles/_custom.scss`'s variable overrides ($primary rendered as Bootstrap's stock `#0d6efd` instead of the club's `#0a07fb`); it now `@use`s the already-themed `@bootstrap/styles/index` module instead, which itself now imports the full `bootstrap/scss/bootstrap` entry point (rather than stopping at `root`) so every component partial compiles using the overrides; documented the required pattern in `documentation/recommendations/project-css-naming.md`
+
+##### Documentation
+
+- Fixed a stale `documentation/recommendations/standard-naming.md` reference in `.claude/commands/scaffold-unit-tests.md`, left over from that file's own earlier rename to `standard-component-naming.md`
 
 #### ⚠️ Deprecated
 
