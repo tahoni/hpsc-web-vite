@@ -159,10 +159,10 @@ This project's documentation is spread across a few files, each with a distinct 
 
 [`documentation/roadmap/`](documentation/roadmap) holds in-progress planning documents — not part of the standard documentation set above, and not required reading to work in this repository:
 
-| File                  | Purpose                                                                                                          |
-|-----------------------|------------------------------------------------------------------------------------------------------------------|
-| `IMPROVEMENT_PLAN.md` | Synthesised goals/constraints from this project's own docs and configuration, and the resulting gaps and roadmap |
-| `TASKS.md`            | Concrete, checkbox-level task list broken out from `IMPROVEMENT_PLAN.md`'s gaps                                  |
+| File                        | Purpose                                                                                                          |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------|
+| `improvement-plan.md`       | Synthesised goals/constraints from this project's own docs and configuration, and the resulting gaps and roadmap |
+| `improvement-plan-tasks.md` | Concrete, checkbox-level task list broken out from `improvement-plan.md`'s gaps                                  |
 
 This project follows [Semantic Versioning 2.0.0](https://semver.org/) (`MAJOR.MINOR.PATCH`) — see [CHANGELOG.md](CHANGELOG.md#-version-policy) for the full version policy.
 

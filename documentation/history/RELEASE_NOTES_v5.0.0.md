@@ -7,7 +7,7 @@
 
 **AI Agent Conventions & Release Process Foundations**
 
-Version 5.0.0 establishes `AGENTS.md`/`CLAUDE.md` as this project's cross-tool AI agent conventions — documentation style, git workflow, and a Release Checklist — backed by five Claude Code slash commands and a new `CONTRIBUTING.md`. `CHANGELOG.md`/`HISTORY.md` are restructured into the icon-based Keep a Changelog format, and a `documentation/history/` per-version archive replaces the old `documentation/templates/` scaffold. Alongside the process work, `documentation/roadmap/IMPROVEMENT_PLAN.md`/`TASKS.md` turn ad-hoc improvement ideas into an evidence-backed, trackable backlog, email-related models are refactored and helpers relocated as internal clean-up, and all open GitHub Dependabot alerts are closed.
+Version 5.0.0 establishes `AGENTS.md`/`CLAUDE.md` as this project's cross-tool AI agent conventions — documentation style, git workflow, and a Release Checklist — backed by five Claude Code slash commands and a new `CONTRIBUTING.md`. `CHANGELOG.md`/`HISTORY.md` are restructured into the icon-based Keep a Changelog format, and a `documentation/history/` per-version archive replaces the old `documentation/templates/` scaffold. Alongside the process work, `../roadmap/improvement-plan.md`/`improvement-plan-tasks.md` turn ad-hoc improvement ideas into an evidence-backed, trackable backlog, email-related models are refactored and helpers relocated as internal clean-up, and all open GitHub Dependabot alerts are closed.
 
 ## ⭐ Key Highlights
 
@@ -18,7 +18,7 @@ Version 5.0.0 establishes `AGENTS.md`/`CLAUDE.md` as this project's cross-tool A
 
 ### 📝 Improvement Backlog
 
-- Added `documentation/roadmap/IMPROVEMENT_PLAN.md` — a synthesis of this project's own goals/constraints into eight evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement) — and `TASKS.md`, its checkbox-level task breakdown
+- Added `../roadmap/improvement-plan.md` — a synthesis of this project's own goals/constraints into eight evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement) — and `improvement-plan-tasks.md`, its checkbox-level task breakdown
 
 ### ♻️ Email Model Refactor & Dependency Security
 
@@ -48,8 +48,8 @@ Version 5.0.0 establishes `AGENTS.md`/`CLAUDE.md` as this project's cross-tool A
 - Added `AGENTS.md` and `CLAUDE.md`, establishing cross-tool documentation conventions (British English, icon-headed sections, GFM tables, GitFlow git workflow, and the Release Checklist) shared by any AI coding agent working in this repository
 - Added a Contributors convention to `AGENTS.md`'s Documentation Conventions — when docs credit contributors or authors, source the list from `git log`/GitHub history (including bot accounts) rather than assuming
 - Added `CONTRIBUTING.md` with project setup, git workflow, documentation and testing conventions, and a pull request checklist, and linked it from `README.md`'s new Contributing section
-- Added `documentation/roadmap/IMPROVEMENT_PLAN.md` — a synthesis of this project's own goals/constraints into eight evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success Criteria — and added it to `AGENTS.md`'s Documentation File Map
-- Added `documentation/roadmap/TASKS.md` — a checkbox-level task breakdown of `documentation/roadmap/IMPROVEMENT_PLAN.md`'s eight gaps, organised by the plan's Now/Next/Later/Ongoing phasing, each item tagging its originating gap number for traceability
+- Added `../roadmap/improvement-plan.md` — a synthesis of this project's own goals/constraints into eight evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success Criteria — and added it to `AGENTS.md`'s Documentation File Map
+- Added `../roadmap/improvement-plan-tasks.md` — a checkbox-level task breakdown of `../roadmap/improvement-plan.md`'s eight gaps, organised by the plan's Now/Next/Later/Ongoing phasing, each item tagging its originating gap number for traceability
 - Added a "Working on Complex Tasks" section to `CLAUDE.md`, instructing use of the TodoWrite tool for multistep or non-trivial tasks, per `AGENTS.md`'s Git Workflow Conventions
 
 ### 🔄 Changed
@@ -62,7 +62,7 @@ Version 5.0.0 establishes `AGENTS.md`/`CLAUDE.md` as this project's cross-tool A
 
 - Restructured `CHANGELOG.md` and `HISTORY.md` into the icon-based Keep a Changelog format, backfilling historical entries for prior versions
 - Applied the icon-heading and section-separator convention to `README.md`, `ARCHITECTURE.md`, `UI.md`, and `RELEASE_NOTES.md`; documented the previously-missing `npm run host`, `npm test`, and `npm run sitemap` scripts in `README.md`; added a Theme/Key Highlights lead-in to `RELEASE_NOTES.md`'s 4.2.3 entry
-- Renamed `documentation/roadmap/` to `documentation/roadmap-old/`, superseded by the recreated `documentation/roadmap/IMPROVEMENT_PLAN.md` and `documentation/roadmap/TASKS.md`; `documentation/roadmap-old/` is now a fully archived, no-longer-maintained snapshot. Updated the resulting stale cross-references in `AGENTS.md`, `CLAUDE.md`, and `CONTRIBUTING.md`
+- Renamed `documentation/roadmap/` to `documentation/roadmap-old/`, superseded by the recreated `../roadmap/improvement-plan.md` and `../roadmap/improvement-plan-tasks.md`; `documentation/roadmap-old/` is now a fully archived, no-longer-maintained snapshot. Updated the resulting stale cross-references in `AGENTS.md`, `CLAUDE.md`, and `CONTRIBUTING.md`
 - Split `AGENTS.md`'s Documentation File Map into a new "Roadmap Planning" subsection for `documentation/roadmap/`'s two files, separate from the reference-material folders (`documentation/history/`, `documentation/recommendations/`) — it's the project's active improvement backlog, not standard documentation
 
 ### 🐛 Fixed
@@ -117,15 +117,15 @@ Version 5.0.0 establishes `AGENTS.md`/`CLAUDE.md` as this project's cross-tool A
 
 - `npm run lint` — 0 errors (pre-existing warnings only, plus unrelated errors in the gitignored, locally-generated `tsdocs/` output)
 - `npm run build` — was broken by the `routeHelpers`/`menuHelpers` import and path-alias bugs above; passes after the fix
-- `npm test` — no test files exist yet in this repository (tracked in `documentation/roadmap/TASKS.md`)
+- `npm test` — no test files exist yet in this repository (tracked in `../roadmap/improvement-plan-tasks.md`)
 - Manually confirmed the Contact Us form still sends e-mail correctly after the `EmailMessage`/`EmailType` refactor
 - Manually confirmed no version-specific detail leaked into `README.md`/`ARCHITECTURE.md`/`UI.md`
 
 ## 🐛 Known Issues
 
-- No CI workflow runs `npm run lint`/`npm run build`/`npm test` automatically — only CodeQL runs on push/PR (`documentation/roadmap/TASKS.md` → Gap #1)
-- `News` isn't wired into routing, and the Contact Us route's `dateCreated`/`dateUpdated` metadata is inverted (`documentation/roadmap/TASKS.md` → Gap #2)
-- No automated test coverage exists yet — `npm test` has no test files (`documentation/roadmap/TASKS.md` → Gap #3)
+- No CI workflow runs `npm run lint`/`npm run build`/`npm test` automatically — only CodeQL runs on push/PR (`../roadmap/improvement-plan-tasks.md` → Gap #1)
+- `News` isn't wired into routing, and the Contact Us route's `dateCreated`/`dateUpdated` metadata is inverted (`../roadmap/improvement-plan-tasks.md` → Gap #2)
+- No automated test coverage exists yet — `npm test` has no test files (`../roadmap/improvement-plan-tasks.md` → Gap #3)
 
 ## 🔮 Future Enhancements
 

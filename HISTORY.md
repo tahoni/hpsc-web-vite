@@ -41,7 +41,7 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 - Added `AGENTS.md`/`CLAUDE.md` cross-tool AI agent conventions and five Claude Code slash commands for release prep and test scaffolding, plus `CONTRIBUTING.md`
 - Restructured `CHANGELOG.md`/`HISTORY.md` into the icon-based Keep a Changelog format and introduced a `documentation/history/` per-version release archive
-- Added `documentation/roadmap/IMPROVEMENT_PLAN.md`/`TASKS.md`, an evidence-backed improvement backlog
+- Added `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md`, an evidence-backed improvement backlog
 - Refactored email models and relocated `menuHelpers`/`routeHelpers` to `src/helpers/`; closed all open GitHub Dependabot alerts
 - Fixed broken imports left behind by the helpers relocation, and stale `@helpers`/`@models`/`@utils`/`@constants` path aliases, which were breaking `npm run build`
 
@@ -634,7 +634,7 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 - `AGENTS.md`/`CLAUDE.md` established as cross-tool AI agent conventions, alongside five Claude Code slash commands automating release prep and test scaffolding
 - `CONTRIBUTING.md` added; `CHANGELOG.md`/`HISTORY.md` restructured into the icon-based Keep a Changelog format, with a `documentation/history/` per-version archive introduced
-- `documentation/roadmap/IMPROVEMENT_PLAN.md`/`TASKS.md` added, turning ad-hoc improvement ideas into an evidence-backed, trackable backlog
+- `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md` added, turning ad-hoc improvement ideas into an evidence-backed, trackable backlog
 - Email models refactored (`EmailContent` merged into `EmailMessage`, an `EmailType` enum introduced) and helpers relocated to `src/helpers/`; all open GitHub Dependabot alerts closed
 
 **Technical Focus:** Establishing durable, tool-agnostic documentation and process conventions, and paying down internal model debt, as groundwork ahead of the site's own visual/structural redesign — the branch this release ships from is named for it.
@@ -850,7 +850,7 @@ Route (React Router, data-driven)
 - **v4.0.0:** `CHANGELOG.md`/`HISTORY.md` split introduced; templates created
 - **v4.1.4:** `README.md` overhaul with quickstart and contribution guidance
 - **v4.2.1:** `PACKAGES.md` added for dependency-funding transparency
-- **v5.0.0:** `AGENTS.md`/`CLAUDE.md` cross-tool AI agent conventions and `CONTRIBUTING.md` added; `documentation/roadmap/` planning docs (`IMPROVEMENT_PLAN.md`, `TASKS.md`) and a `documentation/history/` per-version archive introduced
+- **v5.0.0:** `AGENTS.md`/`CLAUDE.md` cross-tool AI agent conventions and `CONTRIBUTING.md` added; `documentation/roadmap/` planning docs (`improvement-plan.md`, `improvement-plan-tasks.md`) and a `documentation/history/` per-version archive introduced
 
 ---
 

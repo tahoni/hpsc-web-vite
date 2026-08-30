@@ -167,8 +167,8 @@ These documentation-only folders supplement it:
 
 Unlike the folders above, `documentation/roadmap/` isn't reference material — it's the project's active improvement backlog, kept separate from the standard documentation files:
 
-- **`IMPROVEMENT_PLAN.md`** — a synthesis of this project's own goals/constraints into numbered, evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success Criteria.
-- **`TASKS.md`** — the checkbox-level task breakdown of those gaps, organised by the plan's Now/Next/Later/Ongoing phasing (each item tags its originating gap number).
+- **`improvement-plan.md`** — a synthesis of this project's own goals/constraints into numbered, evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success Criteria.
+- **`improvement-plan-tasks.md`** — the checkbox-level task breakdown of those gaps, organised by the plan's Now/Next/Later/Ongoing phasing (each item tags its originating gap number).
 
 Check both files before assuming a gap (missing CI pipeline, no tests, no `CONTRIBUTING.md`) is unintentional; it may already be tracked there.
 
@@ -176,7 +176,7 @@ Check both files before assuming a gap (missing CI pipeline, no tests, no `CONTR
 
 ## 🧪 Test Conventions
 
-Vitest is configured (`npm test`) but no test files exist yet in this repository — see `documentation/roadmap/TASKS.md` items on establishing CI and initial test coverage. When adding tests:
+Vitest is configured (`npm test`) but no test files exist yet in this repository — see `documentation/roadmap/improvement-plan-tasks.md` items on establishing CI and initial test coverage. When adding tests:
 
 - Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
 - For component tests, use `@testing-library/react` with a `jsdom` environment (add as a dev dependency and configure `test.environment` in a `vitest.config.ts` — neither exists yet).

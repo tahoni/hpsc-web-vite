@@ -97,7 +97,7 @@ Configured in both `vite.config.ts` (runtime resolution) and `tsconfig.app.json`
 
 ### Component/layout folder shape
 
-Each non-trivial component or layout gets its own PascalCase folder (matching [`documentation/recommendations/standard-naming.md`](documentation/recommendations/standard-naming.md)):
+Each non-trivial component or layout gets its own PascalCase folder (matching [`documentation/recommendations/standard-component-naming.md`](documentation/recommendations/standard-component-naming.md)):
 
 ```
 Header/
@@ -110,7 +110,7 @@ Header/
 
 ## Testing
 
-Vitest is configured (`npm test`) but the project currently has no test files — establishing test coverage is tracked in [`documentation/roadmap/TASKS.md`](documentation/roadmap/TASKS.md). When adding tests:
+Vitest is configured (`npm test`) but the project currently has no test files — establishing test coverage is tracked in [`documentation/roadmap/improvement-plan-tasks.md`](documentation/roadmap/improvement-plan-tasks.md). When adding tests:
 
-- Co-locate `*.test.ts`/`*.test.tsx` next to the file under test, matching the naming table in [`documentation/recommendations/standard-naming.md`](documentation/recommendations/standard-naming.md).
+- Co-locate `*.test.ts`/`*.test.tsx` next to the file under test, matching the naming table in [`documentation/recommendations/standard-component-naming.md`](documentation/recommendations/standard-component-naming.md).
 - For component tests, add `@testing-library/react` and configure a `jsdom` environment (not yet set up) rather than reaching for a full browser runner.
