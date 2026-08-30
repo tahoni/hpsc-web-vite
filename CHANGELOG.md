@@ -67,6 +67,10 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 #### 🗑️ Removed
 
+##### Build & Tooling
+
+- Removed the `overrides` entry pinning `@babel/plugin-transform-runtime` to `^7.29.7` in `package.json` — added to resolve an `ERESOLVE` conflict when `@vitejs/plugin-react` was first bumped to v6, but that plugin's optional Rolldown/React Compiler peer chain (`@rolldown/plugin-babel`, `babel-plugin-react-compiler`) was never installed in this project, so `@babel/plugin-transform-runtime` no longer appears anywhere in the dependency tree; confirmed safe via `npm install` (no resolution changes beyond an unrelated stale lockfile `version` field) and a clean `npm run build`
+
 #### 🔐 Security
 
 ---
