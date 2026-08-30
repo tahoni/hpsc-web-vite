@@ -49,6 +49,10 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 
 - Fixed the `@routes` path alias in `vite.config.ts`/`tsconfig.app.json` to resolve to `src/shared/routes` (its actual location) instead of the nonexistent `src/routes` — resolves the `TODO: remove` comment added when the dead alias was first flagged
 
+##### Components
+
+- Moved `Layout.tsx`/`Layout.module.scss`/`LayoutProps.ts` into a new `src/shared/layouts/Layout/` folder, matching the folder-per-component shape every sibling layout (`Header/`, `Footer/`, `Body/`, `Content/`, `Breakpoints/`) already follows; fixed the resulting broken `LayoutProps` import in `Body.tsx` and the `@use "../Layout.module"` Sass imports in `Header.module.scss`/`Footer.module.scss`
+
 ##### Styling
 
 - Fixed Bootstrap component classes (`.btn`, `.card`, `.navbar`, etc.) rendering with stock Bootstrap colours instead of the club's theme: `src/assets/styles/_forms.scss` independently `@use`d `bootstrap/scss/bootstrap` directly, compiling a second, unthemed copy of Bootstrap that never saw `src/vendors/bootstrap/styles/_custom.scss`'s variable overrides ($primary rendered as Bootstrap's stock `#0d6efd` instead of the club's `#0a07fb`); it now `@use`s the already-themed `@bootstrap/styles/index` module instead, which itself now imports the full `bootstrap/scss/bootstrap` entry point (rather than stopping at `root`) so every component partial compiles using the overrides; documented the required pattern in `documentation/recommendations/project-css-naming.md`

@@ -1,8 +1,8 @@
 import React, { ReactElement } from "react";
 import { Container } from "react-bootstrap";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
-import { Body } from "./Body";
+import { Header } from "../Header";
+import { Footer } from "../Footer";
+import { Body } from "../Body";
 import { LayoutProps } from "./LayoutProps";
 import classes from "./Layout.module.scss";
 
