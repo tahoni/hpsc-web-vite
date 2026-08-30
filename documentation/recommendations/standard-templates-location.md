@@ -1,14 +1,29 @@
 # Where to Store Templates (Email, etc.) in React Directory Structure
 
-The location depends on the **type of template** and **where it's rendered**:
+## Table of Contents
+
+- [1. Email Templates (React Email Components)](#1-email-templates-react-email-components)
+- [2. Alternative: Backend/API Context](#2-alternative-backendapi-context)
+- [3. HTML Email Templates (Static)](#3-html-email-templates-static)
+- [4. Document Templates (PDFs, Invoices, Reports)](#4-document-templates-pdfs-invoices-reports)
+- [5. UI Component Templates (Reusable Layouts)](#5-ui-component-templates-reusable-layouts)
+- [6. Content Templates (MDX, Markdown)](#6-content-templates-mdx-markdown)
+- [7. Configuration Templates](#7-configuration-templates)
+- [📐 Complete Structure Example](#-complete-structure-example)
+- [✅ Best Practices](#-best-practices)
+- [🎯 Recommendation for Email Templates](#-recommendation-for-email-templates)
 
 ---
 
-## **1. Email Templates (React Email Components)**
+The location depends on the type of template and where it's rendered.
 
-### **`src/templates/email/`** (Recommended)
+---
 
-```
+## 1. Email Templates (React Email Components)
+
+**`src/templates/email/`** (recommended):
+
+```text
 src/
 └── templates/
     └── email/
@@ -37,31 +52,27 @@ interface WelcomeEmailProps {
 }
 
 export const WelcomeEmail = ({name, confirmUrl}: WelcomeEmailProps) => (
-        <Html>
-            <Head/>
-            <Body>
-                <Container>
-                    <Text>Welcome, {name}! < /Text>
-                    <Button
-                        href={confirmUrl}> Confirm
-                        Your
-                        Email </Button>
-                < /Container>
-            < /Body>
-        < /Html>
-    )
-;
+    <Html>
+        <Head/>
+        <Body>
+            <Container>
+                <Text>Welcome, {name}!</Text>
+                <Button href={confirmUrl}>Confirm Your Email</Button>
+            </Container>
+        </Body>
+    </Html>
+);
 ```
 
 ---
 
-## **2. Alternative: Backend/API Context**
+## 2. Alternative: Backend/API Context
 
-If emails are sent from a **separate backend** or **API routes**:
+If emails are sent from a separate backend or API routes:
 
-### **Node.js/Express Backend:**
+**Node.js/Express backend:**
 
-```
+```text
 server/
 └── templates/
     └── email/
@@ -69,9 +80,9 @@ server/
         └── password-reset.tsx
 ```
 
-### **Next.js API Routes:**
+**Next.js API routes:**
 
-```
+```text
 src/
 ├── app/
 │   └── api/
@@ -83,13 +94,11 @@ src/
 
 ---
 
-## **3. HTML Email Templates (Static)**
+## 3. HTML Email Templates (Static)
 
-For **static HTML** email templates (not React components):
+For static HTML email templates (not React components), use **`public/templates/email/`**:
 
-### **`public/templates/email/`**
-
-```
+```text
 public/
 └── templates/
     └── email/
@@ -106,11 +115,11 @@ public/
 
 ---
 
-## **4. Document Templates (PDFs, Invoices, Reports)**
+## 4. Document Templates (PDFs, Invoices, Reports)
 
-### **`src/templates/documents/`**
+**`src/templates/documents/`:**
 
-```
+```text
 src/
 └── templates/
     └── documents/
@@ -132,36 +141,24 @@ src/
 import {Document, Page, Text, View} from '@react-pdf/renderer';
 
 export const InvoiceTemplate = ({invoice}) => (
-        <Document>
-            <Page>
-                <View>
-                    <Text>Invoice
-                        #
-                        {
-                            invoice.number
-                        }
-                    </Text>
-                    < Text> Total
-                        :
-                        $
-                        {
-                            invoice.total
-                        }
-                    </Text>
-                < /View>
-            < /Page>
-        < /Document>
-    )
-;
+    <Document>
+        <Page>
+            <View>
+                <Text>Invoice #{invoice.number}</Text>
+                <Text>Total: ${invoice.total}</Text>
+            </View>
+        </Page>
+    </Document>
+);
 ```
 
 ---
 
-## **5. UI Component Templates (Reusable Layouts)**
+## 5. UI Component Templates (Reusable Layouts)
 
-### **`src/components/templates/`**
+**`src/components/templates/`:**
 
-```
+```text
 src/
 └── components/
     └── templates/
@@ -188,20 +185,20 @@ interface PageTemplateProps {
 export const PageTemplate = ({title, children}: PageTemplateProps) => (
     <div className="page-template">
         <header>
-            <h1>{title} < /h1>
-        < /header>
-        < main> {children} < /main>
-    < /div>
+            <h1>{title}</h1>
+        </header>
+        <main>{children}</main>
+    </div>
 );
 ```
 
 ---
 
-## **6. Content Templates (MDX, Markdown)**
+## 6. Content Templates (MDX, Markdown)
 
-### **`src/content/templates/`**
+**`src/content/templates/`:**
 
-```
+```text
 src/
 └── content/
     └── templates/
@@ -218,11 +215,11 @@ src/
 
 ---
 
-## **7. Configuration Templates**
+## 7. Configuration Templates
 
-### **`templates/` (Project Root)**
+**`templates/`** (project root):
 
-```
+```text
 project-root/
 └── templates/
     ├── component.template.tsx
@@ -238,9 +235,9 @@ project-root/
 
 ---
 
-## **Complete Structure Example**
+## 📐 Complete Structure Example
 
-```
+```text
 project-root/
 ├── src/
 │   ├── components/
@@ -249,36 +246,36 @@ project-root/
 │   │       └── DashboardTemplate.tsx
 │   │
 │   ├── templates/
-│   │   ├── email/              # Email templates (React Email)
+│   │   ├── email/               # Email templates (React Email)
 │   │   │   ├── WelcomeEmail.tsx
 │   │   │   ├── PasswordResetEmail.tsx
 │   │   │   └── layouts/
 │   │   │       └── BaseEmailLayout.tsx
 │   │   │
-│   │   └── documents/          # PDF/printable templates
+│   │   └── documents/           # PDF/printable templates
 │   │       ├── InvoiceTemplate.tsx
 │   │       └── ReportTemplate.tsx
 │   │
 │   └── content/
-│       └── templates/          # Content templates (MDX)
+│       └── templates/           # Content templates (MDX)
 │           └── blog-post.mdx
 │
 ├── public/
 │   └── templates/
-│       └── email/              # Static HTML email templates
+│       └── email/                # Static HTML email templates
 │           └── legacy-email.html
 │
-└── templates/                  # Code generation templates
+└── templates/                    # Code generation templates
     └── component.template.tsx
 ```
 
 ---
 
-## **Best Practices**
+## ✅ Best Practices
 
-### **1. Organise by Purpose**
+**Organise by purpose:**
 
-```
+```text
 src/templates/
 ├── email/           # Transactional emails
 ├── documents/       # PDFs, invoices
@@ -286,9 +283,9 @@ src/templates/
 └── print/           # Printable layouts
 ```
 
-### **2. Share Common Layouts**
+**Share common layouts:**
 
-```
+```text
 src/templates/email/
 ├── layouts/
 │   ├── BaseLayout.tsx
@@ -299,7 +296,7 @@ src/templates/email/
 └── WelcomeEmail.tsx
 ```
 
-### **3. Type Your Templates**
+**Type your templates:**
 
 ```typescript
 // src/templates/email/models.ts
@@ -316,7 +313,7 @@ export const WelcomeEmail = (props: EmailTemplateProps) => {
 };
 ```
 
-### **4. Preview/Development Mode**
+**Preview/development mode:**
 
 ```typescript jsx
 // src/templates/email/preview.tsx
@@ -324,24 +321,20 @@ import {WelcomeEmail} from './WelcomeEmail';
 
 // Preview in browser during development
 export const EmailPreview = () => (
-        <div>
-            <h1>Email
-                Preview < /h1>
-            < WelcomeEmail
-                name="John Doe"
-                confirmUrl="#"/>
-        </div>
-    )
-;
+    <div>
+        <h1>Email Preview</h1>
+        <WelcomeEmail name="John Doe" confirmUrl="#"/>
+    </div>
+);
 ```
 
 ---
 
-## **Recommendation for Email Templates**
+## 🎯 Recommendation for Email Templates
 
-**Use `src/templates/email/`** for React Email components:
+Use `src/templates/email/` for React Email components:
 
-```
+```text
 src/
 └── templates/
     └── email/
@@ -356,9 +349,4 @@ src/
         └── index.ts              # Export all templates
 ```
 
-This keeps them:
-
-- ✅ Separate from UI components
-- ✅ Easy to find and maintain
-- ✅ Co-located with email-specific logic
-- ✅ Testable and previewable
+This keeps them separate from UI components, easy to find and maintain, co-located with email-specific logic, and testable and previewable.

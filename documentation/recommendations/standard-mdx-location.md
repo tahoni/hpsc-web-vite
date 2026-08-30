@@ -1,12 +1,26 @@
 # Standard Location for MDX Files in React
 
-The standard locations for MDX files depend on their purpose:
+## Table of Contents
 
-## **1. Content/Documentation MDX Files**
+- [1. Content/Documentation MDX Files](#1-contentdocumentation-mdx-files)
+- [2. Component Documentation MDX](#2-component-documentation-mdx)
+- [3. Page-Level MDX Files](#3-page-level-mdx-files)
+- [4. Documentation Site MDX](#4-documentation-site-mdx)
+- [🏆 Most Common Conventions](#-most-common-conventions)
+- [✅ Best Practices](#-best-practices)
+- [🎯 Recommendation for Your Project](#-recommendation-for-your-project)
 
-### **`src/content/`** (Recommended for CMS-like content)
+---
 
-```
+The standard locations for MDX files depend on their purpose.
+
+---
+
+## 1. Content/Documentation MDX Files
+
+**`src/content/`** (recommended for CMS-like content):
+
+```text
 src/
 ├── content/
 │   ├── pages/           # MDX page content
@@ -29,11 +43,11 @@ src/
 
 ---
 
-## **2. Component Documentation MDX**
+## 2. Component Documentation MDX
 
-### **Co-located with components**
+**Co-located with components:**
 
-```
+```text
 src/
 ├── components/
 │   ├── Button/
@@ -50,11 +64,11 @@ src/
 
 ---
 
-## **3. Page-Level MDX Files**
+## 3. Page-Level MDX Files
 
-### **`src/pages/`** (if using file-based routing)
+**`src/pages/`** (if using file-based routing):
 
-```
+```text
 src/
 ├── pages/
 │   ├── index.mdx        # Home page
@@ -70,11 +84,11 @@ src/
 
 ---
 
-## **4. Documentation Site MDX**
+## 4. Documentation Site MDX
 
-### **Root-level `docs/` or `documentation/`**
+**Root-level `docs/` or `documentation/`:**
 
-```
+```text
 docs/                    # ← Outside src/
 ├── guide/
 │   ├── introduction.mdx
@@ -91,11 +105,11 @@ docs/                    # ← Outside src/
 
 ---
 
-## **Most Common Conventions**
+## 🏆 Most Common Conventions
 
-### **For Content-Rich Apps (Blogs, Documentation Sites):**
+**For content-rich apps (blogs, documentation sites):**
 
-```
+```text
 src/
 └── content/             ← Primary location
     ├── pages/
@@ -103,9 +117,9 @@ src/
     └── docs/
 ```
 
-### **For Component Libraries:**
+**For component libraries:**
 
-```
+```text
 src/
 └── components/
     └── ComponentName/
@@ -115,18 +129,18 @@ src/
 
 ---
 
-## **Best Practices**
+## ✅ Best Practices
 
-### **1. Consistent Naming Conventions**
+**Consistent naming conventions:**
 
-```
+```text
 content/
 └── posts/
     ├── 2024-01-15-my-post.mdx       # Date prefix for sorting
     └── 2024-02-20-another-post.mdx
 ```
 
-### **2. Frontmatter for Metadata**
+**Frontmatter for metadata:**
 
 ```textmate
 ---
@@ -139,7 +153,7 @@ tags: ["react", "typescript"]
 # Content starts here
 ```
 
-### **3. Type Your MDX Imports**
+**Type your MDX imports:**
 
 ```typescript
 // src/models/mdx.d.ts
@@ -157,7 +171,7 @@ declare module '*.mdx' {
 }
 ```
 
-### **4. Centralized Configuration**
+**Centralized configuration:**
 
 ```typescript
 // src/config/mdx.ts
@@ -167,11 +181,11 @@ export const MDX_POSTS_PATH = `${MDX_CONTENT_PATH}/posts`;
 
 ---
 
-## **Recommendation for Your Project**
+## 🎯 Recommendation for Your Project
 
 Based on common patterns and your existing structure:
 
-```
+```text
 src/
 └── content/                    # ← Use this for app content
     ├── pages/                  # Static MDX pages
@@ -185,7 +199,7 @@ documentation/                  # ← Keep for technical/dev docs
 
 **Rationale:**
 
-- `src/content/` - Processed by Vite, bundled with app, available at runtime
-- `documentation/` - Developer/technical docs, not bundled with the app
+- `src/content/` is processed by Vite, bundled with the app, and available at runtime.
+- `documentation/` holds developer/technical docs, not bundled with the app.
 
 This separation keeps content that users see (`src/content/`) distinct from content for developers (`documentation/`).
