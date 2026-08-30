@@ -4,18 +4,18 @@ This document lists the packages used in the HPSC Website project that are seeki
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Packages looking for funding](#packages-looking-for-funding)
-- [Subscriptions to packages looking for funding](#subscriptions-to-packages-looking-for-funding)
-- [Future Subscriptions to packages looking for funding](#future-subscriptions-to-packages-looking-for-funding)
+- [📖 Introduction](#-introduction)
+- [💰 Packages looking for funding](#-packages-looking-for-funding)
+- [💰 Subscriptions to packages looking for funding](#-subscriptions-to-packages-looking-for-funding)
+- [💰 Future subscriptions to packages looking for funding](#-future-subscriptions-to-packages-looking-for-funding)
 
-## Introduction
+## 📖 Introduction
 
 If you find the following packages useful, please consider supporting their development by visiting the provided links.
 Open source software relies heavily on the contributions of developers who often work voluntarily. Supporting these
 developers helps ensure the sustainability and continued improvement of the software.
 
-## Packages looking for funding
+## 💰 Packages looking for funding
 
 The following is a list of packages used in the HPSC Website project that are looking for funding.
 
@@ -142,7 +142,7 @@ hpsc-web-vite@4.1.4
 
 ```
 
-## Subscriptions to packages looking for funding
+## 💰 Subscriptions to packages looking for funding
 
 The following is a list of packages used in the HPSC Website project that are looking for funding with their
 subscription pricing.
@@ -272,7 +272,7 @@ hpsc-web-vite@4.1.4
 
 ```
 
-## Future subscriptions to packages looking for funding
+## 💰 Future subscriptions to packages looking for funding
 
 ```html
 ├─── <a href="https://github.com/sponsors/limonte">$5</a>

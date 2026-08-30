@@ -52,6 +52,9 @@ account of the project's full evolution, including that era.
   `HISTORY.md`, `PACKAGES.md`, `README.md`, `RELEASE_NOTES.md`, `UI.md`) to wrap prose at 100–120 characters per line
   instead of one unbroken line per paragraph; added a new Line Wrapping convention to `AGENTS.md`'s Documentation
   Conventions documenting the rule, superseding the one-paragraph-per-line convention `5.1.0` had fixed toward
+- Added icon-headed sections to `PACKAGES.md` (📖 Introduction, 💰 for its three funding-list sections), matching
+  `AGENTS.md`'s Icons in headings convention that every other root doc already follows; added the new 💰
+  Funding/sponsorship icon to `AGENTS.md`'s icon table
 
 #### 🐛 Fixed
 

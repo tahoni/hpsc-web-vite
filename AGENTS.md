@@ -132,6 +132,7 @@ genuinely new concept. Icons already established in this repository's documentat
 | 🐛   | Bug fixes / known issues                |
 | ♻️   | General code improvements               |
 | 📦   | Dependencies / what's new               |
+| 💰   | Funding / sponsorship                   |
 | 🧪   | Testing                                 |
 | 🔀   | Git workflow                            |
 | 🚢   | Release process                         |
