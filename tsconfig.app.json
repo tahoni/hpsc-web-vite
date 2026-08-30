@@ -40,14 +40,13 @@
       "@vendors/*": ["./src/vendors"],
       "@bootstrap/*": ["./src/vendors/bootstrap"],
       "@features/*": ["./src/features/*"],
-      // TODO: remove — "./src/routes" doesn't exist; routing lives at "./src/shared/routes" (use "@shared/routes")
-      "@routes/*": ["./src/routes/*"],
       "@shared/*": ["./src/shared/*"],
       "@helpers/*": ["./src/helpers/*"],
       "@utils/*": ["./src/utils/*"],
       "@models/*": ["./src/models/*"],
       "@constants/*": ["./src/constants/*"],
       "@pages/*": ["./src/shared/pages/*"],
+      "@routes/*": ["./src/shared/routes/*"],
       "@components/*": ["./src/shared/components/*"],
       "@layouts/*": ["./src/shared/layouts/*"]
     }
