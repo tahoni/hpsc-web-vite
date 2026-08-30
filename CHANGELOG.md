@@ -52,6 +52,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ##### Styling
 
 - Fixed Bootstrap component classes (`.btn`, `.card`, `.navbar`, etc.) rendering with stock Bootstrap colours instead of the club's theme: `src/assets/styles/_forms.scss` independently `@use`d `bootstrap/scss/bootstrap` directly, compiling a second, unthemed copy of Bootstrap that never saw `src/vendors/bootstrap/styles/_custom.scss`'s variable overrides ($primary rendered as Bootstrap's stock `#0d6efd` instead of the club's `#0a07fb`); it now `@use`s the already-themed `@bootstrap/styles/index` module instead, which itself now imports the full `bootstrap/scss/bootstrap` entry point (rather than stopping at `root`) so every component partial compiles using the overrides; documented the required pattern in `documentation/recommendations/project-css-naming.md`
+- Fixed `src/main.tsx` importing an empty, dead `src/index.css` left over from the Vite template default — contradicted `project-css-naming.md`'s claim that `App.scss` is the only global-style entry point; removed the import and deleted the file
 
 ##### Documentation
 
