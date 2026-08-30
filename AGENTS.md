@@ -24,7 +24,7 @@ reuse) is intentionally restated in both this file and the per-file docs it gove
 - **Language:** TypeScript (strict mode)
 - **Framework:** React 19
 - **Build tool:** Vite 6, via `npm run build` / `npm run dev`
-- **Routing:** React Router 7 (data-driven — see `ARCHITECTURE.md`)
+- **Routing:** React Router 8 (data-driven — see `ARCHITECTURE.md`)
 - **UI components:** React Bootstrap 2 (Bootstrap 5)
 - **Styling:** SCSS (Sass) with Sass Modules and `@use`-based global styles
 - **Content:** MDX for content-heavy pages (`@mdx-js/rollup`, `@mdx-js/react`)

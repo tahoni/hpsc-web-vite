@@ -109,6 +109,15 @@ account of the project's full evolution, including that era.
   via `npm install` (no resolution changes beyond an unrelated stale lockfile `version` field) and a clean
   `npm run build`
 
+##### Dependencies
+
+- Removed `react-router-dom` from `package.json` — it never published a `v8` release, so `5.1.0` deferred it on `7.18.2`
+  while `react-router` moved on to `8.3.0`; `react-router` `v8` absorbed `react-router-dom`'s DOM bindings
+  (`BrowserRouter`, `Link`, etc.) into its main package, making the separate package redundant. Migrated
+  `src/main.tsx`'s `BrowserRouter` import and `Header.tsx`'s `Link` import to `react-router`, removed the now-unneeded
+  `react-router-dom` case from `vite.config.ts`'s `manualChunks`, and updated `AGENTS.md`/`CLAUDE.md`'s Tech Stack entry
+  from "React Router 7" to "React Router 8"
+
 #### 🔐 Security
 
 ---

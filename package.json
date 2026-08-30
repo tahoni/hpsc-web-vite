@@ -43,7 +43,6 @@
     "react-email": "^6.9.3",
     "react-google-recaptcha-v3": "^1.11.0",
     "react-router": "^8.3.0",
-    "react-router-dom": "^7.18.2",
     "sanitize-html": "^2.17.7",
     "sweetalert2": "^11.26.25"
   },

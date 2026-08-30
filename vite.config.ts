@@ -72,7 +72,6 @@ export default defineConfig({
               case "scheduler":
                 return "react-vendor";
               case "react-router":
-              case "react-router-dom":
                 return "react-router";
               case "bootstrap":
               case "react-bootstrap":

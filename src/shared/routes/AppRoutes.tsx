@@ -8,7 +8,7 @@ import { Layout } from "@shared/layouts";
 /**
  * AppRoutes is a React functional component responsible for rendering
  * the application's route structure.
- * It uses the `Routes` and `Route` components from `react-router-dom` to
+ * It uses the `Routes` and `Route` components from `react-router` to
  * define the navigation paths and associated components for the application.
  *
  * The component uses a parent layout, `Layout`, which accepts `leftSideImage`

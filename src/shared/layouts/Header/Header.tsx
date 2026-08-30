@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { Col, Container, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { HeaderContent } from "./HeaderContent";
 import {
   clubLogo,

@@ -12,7 +12,7 @@ no backend in this repository; contact-form email delivery and reCAPTCHA verific
 dependencies, both handled by third-party services called directly from the client.
 
 - **Dev server**: `http://localhost:5173/` (or `http://hpsc.local/` via `npm run host`)
-- **Routing**: React Router 7, driven by data (`PageMapping` instances), not static JSX route trees
+- **Routing**: React Router 8, driven by data (`PageMapping` instances), not static JSX route trees
 
 ## Working on Complex Tasks
 
