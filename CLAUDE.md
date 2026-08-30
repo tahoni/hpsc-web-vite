@@ -6,7 +6,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 HPSC Web is the React/TypeScript frontend for the Hartbeespoortdam Practical Shooting Club (HPSC) website — an informational and content-driven site covering club news, events, history, venues, and membership information. There is no backend in this repository; contact-form email delivery and reCAPTCHA verification are the only server-side dependencies, both handled by third-party services called directly from the client.
 
-- **Runtime**: React 19, Vite 6, TypeScript 5 (strict mode)
 - **Dev server**: `http://localhost:5173/` (or `http://hpsc.local/` via `npm run host`)
 - **Routing**: React Router 7, driven by data (`PageMapping` instances), not static JSX route trees
 
@@ -20,23 +19,8 @@ For multistep or non-trivial tasks, use the TodoWrite tool to create and maintai
 # Install dependencies (requires NPM_TOKEN_READ — see Environment Variables below)
 npm install
 
-# Run the dev server with HMR
-npm run dev
-
 # Run the dev server bound to hpsc.local instead of localhost
 npm run host
-
-# Type-check and build for production (outputs to dist/)
-npm run build
-
-# Preview the production build locally
-npm run preview
-
-# Lint with ESLint
-npm run lint
-
-# Run the Vitest test suite
-npm test
 
 # Generate TypeDoc API documentation (outputs to /target/docs/)
 npm run docs
@@ -90,10 +74,6 @@ Route (React Router)
 | `assets/`            | Bundler-processed assets: `images/`, `styles/` (global SCSS, using `@use`, not `@import`)                                                                                                                                                                                               |
 
 `builders/RoutesSitemap.ts` reuses the same `BaseRoutes` metadata to generate `public/sitemap.xml` at build time (`npm run sitemap`).
-
-### Path aliases
-
-Configured in both `vite.config.ts` (runtime resolution) and `tsconfig.app.json` (type-checking) — keep them in sync when adding one. `@` maps to `src/`; `@assets`, `@images`, `@styles`, `@vendors`, `@bootstrap` map into `src/assets`/`src/vendors`; `@features`, `@shared` map to their same-named folders; `@helpers`, `@utils`, `@models`, `@constants`, `@pages`, `@components`, `@layouts` map into their `src/shared/*` equivalents.
 
 ### Component/layout folder shape
 

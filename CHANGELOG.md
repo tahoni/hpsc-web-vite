@@ -61,6 +61,7 @@ The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTO
 ##### Documentation
 
 - Fixed a stale `documentation/recommendations/standard-naming.md` reference in `.claude/commands/scaffold-unit-tests.md`, left over from that file's own earlier rename to `standard-component-naming.md`
+- Trimmed `CLAUDE.md` of content already derivable from `package.json`/`vite.config.ts`/`tsconfig.app.json`: a runtime-versions line, five standard `npm run` command descriptions (`dev`/`build`/`preview`/`lint`/`test`), and the entire Path Aliases section
 
 #### ⚠️ Deprecated
 
