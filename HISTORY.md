@@ -2,7 +2,10 @@
 
 ## Project History
 
-A narrative overview of the HPSC Website project's evolution from its first scaffold to the current release, documenting how its architecture, features, and design philosophy have developed across every version. For the technical, entry-by-entry record of the current Version 4.x line, see [CHANGELOG.md](CHANGELOG.md); this file additionally narrates the legacy Version 3.x line that predates it.
+A narrative overview of the HPSC Website project's evolution from its first scaffold to the current release, documenting
+how its architecture, features, and design philosophy have developed across every version. For the technical,
+entry-by-entry record of the current Version 4.x line, see [CHANGELOG.md](CHANGELOG.md); this file additionally narrates
+the legacy Version 3.x line that predates it.
 
 ---
 
@@ -10,6 +13,7 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 - [📅 Historical Timeline](#-historical-timeline)
 - [📖 Evolution Overview](#-evolution-overview)
+- [🎯 Major Version Goals](#-major-version-goals)
 - [🎯 Major Milestones](#-major-milestones)
 - [🏛️ Architectural Evolution](#-architectural-evolution)
 - [✨ Feature Timeline](#-feature-timeline)
@@ -27,10 +31,14 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Updated every dependency 5.0.0 left deferred pending code changes (`@fortawesome/*`, `@fullcalendar/*`, `@mdx-js/*`, `@react-email/components`, `@rjsf/*`, `@vis.gl/react-google-maps`, `bootstrap`, `react-bootstrap`, `react-email`, `react-router`/`react-router-dom`, `sanitize-html`, `sweetalert2`) plus `typescript` to `~6.0.3`
-- Fixed the Contact Us form and its sanitised widgets, broken by `@rjsf/core` v6's stricter package `exports` map and `FieldProps.onChange`'s new required `path` argument
+- Updated every dependency 5.0.0 left deferred pending code changes (`@fortawesome/*`, `@fullcalendar/*`, `@mdx-js/*`,
+  `@react-email/components`, `@rjsf/*`, `@vis.gl/react-google-maps`, `bootstrap`, `react-bootstrap`, `react-email`,
+  `react-router`/`react-router-dom`, `sanitize-html`, `sweetalert2`) plus `typescript` to `~6.0.3`
+- Fixed the Contact Us form and its sanitised widgets, broken by `@rjsf/core` v6's stricter package `exports` map and
+  `FieldProps.onChange`'s new required `path` argument
 - Fixed `npm run build` under Vite 8's CSS minification default and `npm run sitemap`'s path-alias resolution
-- Added a `/sync-unreleased-changes` Claude Code command and an `.aiignore` file; expanded the Release Checklist's `RELEASE_NOTES.md` template
+- Added a `/sync-unreleased-changes` Claude Code command and an `.aiignore` file; expanded the Release Checklist's
+  `RELEASE_NOTES.md` template
 - Cleaned up documentation hard-wrap and archive-sync issues carried over from the 5.0.0 release prep
 
 ### Version 5.0.0 (August 25, 2026)
@@ -39,11 +47,15 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Added `AGENTS.md`/`CLAUDE.md` cross-tool AI agent conventions and five Claude Code slash commands for release prep and test scaffolding, plus `CONTRIBUTING.md`
-- Restructured `CHANGELOG.md`/`HISTORY.md` into the icon-based Keep a Changelog format and introduced a `documentation/history/` per-version release archive
+- Added `AGENTS.md`/`CLAUDE.md` cross-tool AI agent conventions and five Claude Code slash commands for release prep and
+  test scaffolding, plus `CONTRIBUTING.md`
+- Restructured `CHANGELOG.md`/`HISTORY.md` into the icon-based Keep a Changelog format and introduced a
+  `documentation/history/` per-version release archive
 - Added `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md`, an evidence-backed improvement backlog
-- Refactored email models and relocated `menuHelpers`/`routeHelpers` to `src/helpers/`; closed all open GitHub Dependabot alerts
-- Fixed broken imports left behind by the helpers relocation, and stale `@helpers`/`@models`/`@utils`/`@constants` path aliases, which were breaking `npm run build`
+- Refactored email models and relocated `menuHelpers`/`routeHelpers` to `src/helpers/`; closed all open GitHub
+  Dependabot alerts
+- Fixed broken imports left behind by the helpers relocation, and stale `@helpers`/`@models`/`@utils`/`@constants` path
+  aliases, which were breaking `npm run build`
 
 ### Version 4.2.3 (May 4, 2026)
 
@@ -51,8 +63,10 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Updated club office-bearer names (Chairman, Secretary) and fixed a case-sensitive `WorldShootConstants` import path that broke builds on case-sensitive file systems
-- Removed `.idea`/`.junie` from version control; fixed vulnerable dependencies (`lodash-es`, `brace-expansion`, `minimatch`, `picomatch`)
+- Updated club office-bearer names (Chairman, Secretary) and fixed a case-sensitive `WorldShootConstants` import path
+  that broke builds on case-sensitive file systems
+- Removed `.idea`/`.junie` from version control; fixed vulnerable dependencies (`lodash-es`, `brace-expansion`,
+  `minimatch`, `picomatch`)
 
 ### Version 4.2.2 (February 10, 2026)
 
@@ -114,7 +128,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Streamlined `Header` by removing `HeaderTitle` and folding `HeaderMenu` into `HeaderContent`; improved extra-large breakpoint behaviour
+- Streamlined `Header` by removing `HeaderTitle` and folding `HeaderMenu` into `HeaderContent`; improved extra-large
+  breakpoint behaviour
 - Added unique Google Maps IDs; expanded TypeDoc/TSDoc coverage; standardised British English throughout
 
 ### Version 4.1.0 (December 30, 2025)
@@ -140,7 +155,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Adopted `@`-notation path aliases in place of relative imports; refactored the directory structure and stylesheet names to industry conventions
+- Adopted `@`-notation path aliases in place of relative imports; refactored the directory structure and stylesheet
+  names to industry conventions
 - `.env` files are no longer excluded from Git; fixed dependency vulnerabilities
 
 ### Version 4.0.1 (October 27, 2025)
@@ -158,8 +174,10 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Adopted `@use`/`@forward` over `@import`, underscore-prefixed partials, and a dedicated `vendors/` directory for Bootstrap overrides
-- Moved the Version 3.x changelog content into a new `HISTORY.md`, and created the `CHANGELOG.md`/`RELEASE_NOTES.md` templates — the point at which this project's release documentation took its current shape
+- Adopted `@use`/`@forward` over `@import`, underscore-prefixed partials, and a dedicated `vendors/` directory for
+  Bootstrap overrides
+- Moved the Version 3.x changelog content into a new `HISTORY.md`, and created the `CHANGELOG.md`/`RELEASE_NOTES.md`
+  templates — the point at which this project's release documentation took its current shape
 
 ### Version 3.6.9 (July 12, 2025)
 
@@ -267,7 +285,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 **Key Focus:**
 
 - Replaced the `@react-google-maps` library with `@vis.gl/react-google-maps`
-- Removed the client-side "Page Not Found" component now that `.htaccess` returns real 404s; introduced per-environment environment variables
+- Removed the client-side "Page Not Found" component now that `.htaccess` returns real 404s; introduced per-environment
+  environment variables
 
 ### Version 3.4.1 (March 28, 2025)
 
@@ -275,7 +294,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Finished the Contact Us page: sections/articles for content grouping, input sanitisation, and e-mail delivery on submission
+- Finished the Contact Us page: sections/articles for content grouping, input sanitisation, and e-mail delivery on
+  submission
 - Split the build into sensible bundles for load performance
 
 ### Version 3.4.0 (February 25, 2025)
@@ -285,7 +305,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 **Key Focus:**
 
 - Introduced a shared `Page` component and lazy-loaded route components behind it
-- Standardised form-control styling via a new `styles-classes.scss`; components switched to default exports in preparation for lazy loading
+- Standardised form-control styling via a new `styles-classes.scss`; components switched to default exports in
+  preparation for lazy loading
 
 ### Version 3.3.9 (February 15, 2025)
 
@@ -301,7 +322,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Mitigated a critical-severity dependency vulnerability (Vitest 3, Vite 6); temporarily removed the Contact Us menu option
+- Mitigated a critical-severity dependency vulnerability (Vitest 3, Vite 6); temporarily removed the Contact Us menu
+  option
 
 ### Version 3.3.7 (January 8, 2025)
 
@@ -327,7 +349,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Split content onto two lines where the screen was too narrow to display it together; removed paragraph-in-paragraph markup errors
+- Split content onto two lines where the screen was too narrow to display it together; removed paragraph-in-paragraph
+  markup errors
 
 ### Version 3.3.4 (January 5, 2025)
 
@@ -368,7 +391,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Built the Contact Us page on a JSON Schema Form (`@rjsf`) with a custom-validated CAPTCHA field, `sanitize-html`, and SweetAlert2 confirmation
+- Built the Contact Us page on a JSON Schema Form (`@rjsf`) with a custom-validated CAPTCHA field, `sanitize-html`, and
+  SweetAlert2 confirmation
 - Formatted the codebase with Prettier for the first time
 
 ### Version 3.2.6 (December 26, 2024)
@@ -402,7 +426,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Added a working shooting-range map and the SAPSA/IPSC logos to the footer, using new generic (simple and clustered) map components
+- Added a working shooting-range map and the SAPSA/IPSC logos to the footer, using new generic (simple and clustered)
+  map components
 - Removed an accidentally committed Google Maps API key
 
 ### Version 3.2.2 (December 18, 2024)
@@ -427,7 +452,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Replaced static HTML/Markdown page content with React MDX components — the foundation of this project's current content model
+- Replaced static HTML/Markdown page content with React MDX components — the foundation of this project's current
+  content model
 - Added the `Page` and `Content` component scaffolding that later pages build on
 
 ### Version 3.1.4 (December 16, 2024)
@@ -452,7 +478,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Added the sidebar component (with semi-transparent shooter imagery) directly to the homepage; made the HPSC/NGPSA logos hyperlinks
+- Added the sidebar component (with semi-transparent shooter imagery) directly to the homepage; made the HPSC/NGPSA
+  logos hyperlinks
 
 ### Version 3.1.1 (December 15, 2024)
 
@@ -468,7 +495,8 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Built the header/footer/body layout skeleton, replaced the ICO favicon with SVG, and replaced the under-construction placeholder with a real homepage
+- Built the header/footer/body layout skeleton, replaced the ICO favicon with SVG, and replaced the under-construction
+  placeholder with a real homepage
 
 ### Version 3.0.5 (December 6, 2024)
 
@@ -516,13 +544,15 @@ A narrative overview of the HPSC Website project's evolution from its first scaf
 
 **Key Focus:**
 
-- Scaffolded the React application on Vite with an under-construction carousel, using the `tahoni` React library for shared components and data structures — the project's starting point
+- Scaffolded the React application on Vite with an under-construction carousel, using the `tahoni` React library for
+  shared components and data structures — the project's starting point
 
 ---
 
 ## 📖 Evolution Overview
 
-The HPSC Website has evolved through distinct phases, each addressing a different stage of the site's growth from an under-construction placeholder to a full club website:
+The HPSC Website has evolved through distinct phases, each addressing a different stage of the site's growth from an
+under-construction placeholder to a full club website:
 
 ### Phase 1: Foundation & Layout Skeleton (v3.0.0 – v3.1.4)
 
@@ -534,7 +564,8 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 - Header/footer/body layout skeleton; SVG favicon; gradient background; sticky, image-backed sidebar
 - First real homepage content, replacing the placeholder
 
-**Technical Focus:** Getting a deployable React/Vite shell in front of users, with the visual identity (logos, gradient, sidebar) established early.
+**Technical Focus:** Getting a deployable React/Vite shell in front of users, with the visual identity (logos, gradient,
+sidebar) established early.
 
 ---
 
@@ -545,11 +576,13 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 **Key Accomplishments:**
 
 - MDX adopted as the content model for all pages — the pattern still in use today
-- About, Links, Member, and Contact Us pages built out; Contact Us gained a JSON-Schema-driven form with a validated CAPTCHA field and sanitised inputs
+- About, Links, Member, and Contact Us pages built out; Contact Us gained a JSON-Schema-driven form with a validated
+  CAPTCHA field and sanitised inputs
 - `.htaccess`-based client-side routing support; accessibility fixes (nested hyperlinks, two-line small-screen content)
 - A CAPTCHA dependency was removed after it was found injecting suspicious code — an early, formative security lesson
 
-**Technical Focus:** Turning a static shell into a real, interactive multipage site, with security and accessibility corrections along the way.
+**Technical Focus:** Turning a static shell into a real, interactive multipage site, with security and accessibility
+corrections along the way.
 
 ---
 
@@ -564,7 +597,8 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 - Migrated from `@react-google-maps` to `@vis.gl/react-google-maps`
 - `.htaccess` corrected to return real HTTP 404s for unknown routes, retiring the client-side "Page Not Found" component
 
-**Technical Focus:** Correctness — routing that behaves like a real multipage site under refresh/direct-link, and a maps library the project could build on longer-term.
+**Technical Focus:** Correctness — routing that behaves like a real multipage site under refresh/direct-link, and a maps
+library the project could build on longer-term.
 
 ---
 
@@ -578,7 +612,8 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 - A string of `.htaccess` redirect corrections (canonical URL, HTTPS, subdomain handling, refresh-on-page bug)
 - `ARCHITECTURE.md` created — the project's first dedicated architecture document, seeded from `README.md`
 
-**Technical Focus:** SEO and infrastructure correctness (sitemap, redirects, canonical URL) alongside the first substantial event content.
+**Technical Focus:** SEO and infrastructure correctness (sitemap, redirects, canonical URL) alongside the first
+substantial event content.
 
 ---
 
@@ -588,12 +623,14 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 **Key Accomplishments:**
 
-- Stylesheets standardised on `@use`/`@forward`, underscore-prefixed partials, and a dedicated `vendors/` directory for Bootstrap overrides
+- Stylesheets standardised on `@use`/`@forward`, underscore-prefixed partials, and a dedicated `vendors/` directory for
+  Bootstrap overrides
 - Directory structure refactored and `@`-notation path aliases adopted in place of relative imports
 - `CHANGELOG.md`/`HISTORY.md` split introduced, with the Version 3.x record moved into `HISTORY.md`
 - Bootstrap Icons, `react-google-recaptcha-v3`, and `react-pdf` added; Vite upgraded for security fixes
 
-**Technical Focus:** Paying down structural debt — aligning the codebase and its documentation with industry-standard conventions ahead of further feature growth.
+**Technical Focus:** Paying down structural debt — aligning the codebase and its documentation with industry-standard
+conventions ahead of further feature growth.
 
 ---
 
@@ -603,8 +640,10 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 **Key Accomplishments:**
 
-- Per-instance Google Maps IDs (`aboutUsMapId`, `footerMapId`); responsive header/footer sidebar ordering hardened across breakpoints
-- `Header` consolidated (`HeaderTitle` removed, `HeaderMenu` folded into `HeaderContent`); TypeDoc/TSDoc coverage expanded
+- Per-instance Google Maps IDs (`aboutUsMapId`, `footerMapId`); responsive header/footer sidebar ordering hardened
+  across breakpoints
+- `Header` consolidated (`HeaderTitle` removed, `HeaderMenu` folded into `HeaderContent`); TypeDoc/TSDoc coverage
+  expanded
 - `README.md` overhauled with quickstart, build, and contribution guidance; maintenance-heavy screenshots removed
 
 **Technical Focus:** Visual and structural polish on the layout, paired with a substantial documentation catch-up.
@@ -618,11 +657,13 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 **Key Accomplishments:**
 
 - All images converted to `webp`; a corrupt source image fixed in the process
-- `WorldShoot2025`/`ClubShirts` content reorganised into year-namespaced directories; a generic `Section` component introduced for collapsible content groups
+- `WorldShoot2025`/`ClubShirts` content reorganised into year-namespaced directories; a generic `Section` component
+  introduced for collapsible content groups
 - `PACKAGES.md` added for dependency-funding transparency; route-management helpers relocated back under `shared/`
 - Office-bearer details refreshed; a case-sensitive import path fixed ahead of builds on case-sensitive file systems
 
-**Technical Focus:** Housekeeping — asset size, content organisation for recurring yearly events, and small correctness fixes — consolidating the codebase ahead of the next major redesign.
+**Technical Focus:** Housekeeping — asset size, content organisation for recurring yearly events, and small correctness
+fixes — consolidating the codebase ahead of the next major redesign.
 
 ---
 
@@ -632,12 +673,63 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 **Key Accomplishments:**
 
-- `AGENTS.md`/`CLAUDE.md` established as cross-tool AI agent conventions, alongside five Claude Code slash commands automating release prep and test scaffolding
-- `CONTRIBUTING.md` added; `CHANGELOG.md`/`HISTORY.md` restructured into the icon-based Keep a Changelog format, with a `documentation/history/` per-version archive introduced
-- `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md` added, turning ad-hoc improvement ideas into an evidence-backed, trackable backlog
-- Email models refactored (`EmailContent` merged into `EmailMessage`, an `EmailType` enum introduced) and helpers relocated to `src/helpers/`; all open GitHub Dependabot alerts closed
+- `AGENTS.md`/`CLAUDE.md` established as cross-tool AI agent conventions, alongside five Claude Code slash commands
+  automating release prep and test scaffolding
+- `CONTRIBUTING.md` added; `CHANGELOG.md`/`HISTORY.md` restructured into the icon-based Keep a Changelog format, with a
+  `documentation/history/` per-version archive introduced
+- `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md` added, turning ad-hoc improvement ideas into
+  an evidence-backed, trackable backlog
+- Email models refactored (`EmailContent` merged into `EmailMessage`, an `EmailType` enum introduced) and helpers
+  relocated to `src/helpers/`; all open GitHub Dependabot alerts closed
 
-**Technical Focus:** Establishing durable, tool-agnostic documentation and process conventions, and paying down internal model debt, as groundwork ahead of the site's own visual/structural redesign — the branch this release ships from is named for it.
+**Technical Focus:** Establishing durable, tool-agnostic documentation and process conventions, and paying down internal
+model debt, as groundwork ahead of the site's own visual/structural redesign — the branch this release ships from is
+named for it.
+
+---
+
+## 🎯 Major Version Goals
+
+Zooming out from the per-release Historical Timeline and per-phase Evolution Overview above, each `MAJOR` line (per
+[`CHANGELOG.md`'s Version Policy](CHANGELOG.md#-version-policy) — "a significant redesign or structural overhaul of the
+site") has pursued a distinct overarching goal:
+
+### Major Version 4 (v4.0.0 – v4.2.3)
+
+**Goal:** Pay down structural debt and align the codebase and its documentation with industry-standard conventions,
+consolidating the project before attempting a further redesign.
+
+- Standardise stylesheets on `@use`/`@forward`, adopt `@`-notation path aliases in place of relative imports, and
+  reorganise the directory structure around features (Phase 5)
+- Split release documentation into a current `CHANGELOG.md` and a narrative `HISTORY.md`, so the active release record
+  stays short while the full project story remains available (Phase 5)
+- Catch up on documentation debt (`README.md` overhaul, expanded TypeDoc/TSDoc) and harden responsive layout behaviour
+  across breakpoints (Phase 6)
+- Housekeep before the next major phase: optimise image assets, reorganise recurring-event content by year, and keep
+  dependencies patched (Phase 7)
+
+**Outcome:** The feature-organised, path-aliased architecture this project still has today (see Milestone 6, below) —
+later v4.1.x/v4.2.x work refined it without changing its shape.
+
+### Major Version 5 (v5.0.0 – present)
+
+**Goal:** Make the project legible to both human and AI coding agents; formalise its release process; and modernise its
+dependency stack — groundwork ahead concerning a planned visual/structural redesign of the site itself.
+
+- Establish `AGENTS.md`/`CLAUDE.md` as a durable, cross-tool contract for documentation, git workflow, and the Release
+  Checklist, backed by Claude Code slash commands automating release prep and test scaffolding (v5.0.0)
+- Turn ad-hoc improvement ideas into an evidence-backed, trackable backlog under `documentation/roadmap/` (v5.0.0)
+- Close out every dependency 5.0.0 left deferred pending code changes — `@fortawesome/*`, `@fullcalendar/*`,
+  `@mdx-js/*`, `@rjsf/*` (a major-version migration), `@vis.gl/react-google-maps`, `bootstrap`/`react-bootstrap`,
+  `react-router`/`react-router-dom`, `sweetalert2`, and `typescript` (v5.1.0)
+- Correct internal structural and build issues surfaced by that modernisation — path-alias drift, an unthemed duplicate
+  Bootstrap compile, inconsistent component/layout folder shapes, and oversized production JS chunks; — so the codebase
+  is on solid footing before the redesign begins (v5.2.0, in progress)
+
+**Status:** In progress — establishing this foundation is the stated precondition for the redesign the release branch
+is named for, not the redesign itself; see
+[`documentation/roadmap/improvement-plan.md`](documentation/roadmap/improvement-plan.md) for the standing gaps still
+being worked through.
 
 ---
 
@@ -647,7 +739,8 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 - React application scaffolded on Vite, using the `tahoni` React library for shared components
 
-**Achievement:** Established the technical foundation — the Vite + React + `tahoni` stack — that every later version builds on.
+**Achievement:** Established the technical foundation — the Vite + React + `tahoni` stack — that every later version
+builds on.
 
 ---
 
@@ -663,7 +756,8 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 - All page content moved into React MDX components
 
-**Achievement:** Established the content authoring pattern — MDX plus content components — still used by every feature page today.
+**Achievement:** Established the content authoring pattern — MDX plus content components — still used by every feature
+page today.
 
 ---
 
@@ -671,7 +765,8 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 - JSON-Schema-driven Contact Us form with a validated CAPTCHA field, sanitised inputs, and e-mail delivery on submission
 
-**Achievement:** Delivered the site's only interactive, data-submitting feature, including its security and validation groundwork.
+**Achievement:** Delivered the site's only interactive, data-submitting feature, including its security and validation
+groundwork.
 
 ---
 
@@ -679,22 +774,26 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 - Real HTTP 404 handling, canonical URL and redirect fixes, and a route-metadata-driven `sitemap.xml` builder
 
-**Achievement:** Made the site behave correctly as a genuine multipage site under direct links, refreshes, and search-engine crawling.
+**Achievement:** Made the site behave correctly as a genuine multipage site under direct links, refreshes, and
+search-engine crawling.
 
 ---
 
 ### Milestone 6: Standards & Path Aliases (v4.0.0 – v4.0.3)
 
-- `@use`/`@forward` SCSS conventions, a `vendors/` Bootstrap-override directory, and `@`-notation path aliases replacing relative imports
+- `@use`/`@forward` SCSS conventions, a `vendors/` Bootstrap-override directory, and `@`-notation path aliases replacing
+  relative imports
 - The `CHANGELOG.md`/`HISTORY.md` documentation split introduced
 
-**Achievement:** Brought the codebase and its documentation in line with industry-standard conventions, setting up the structure this file itself follows.
+**Achievement:** Brought the codebase and its documentation in line with industry-standard conventions, setting up the
+structure this file itself follows.
 
 ---
 
 ### Milestone 7: Documentation Catch-Up (v4.1.0 – v4.1.4)
 
-- `README.md` overhaul, expanded TypeDoc/TSDoc coverage, British English standardisation across docs and code annotations
+- `README.md` overhaul, expanded TypeDoc/TSDoc coverage, British English standardisation across docs and code
+  annotations
 
 **Achievement:** Closed a substantial documentation gap, making the project easier for new contributors to onboard onto.
 
@@ -702,17 +801,22 @@ The HPSC Website has evolved through distinct phases, each addressing a differen
 
 ### Milestone 8: Content Reorganisation for Recurring Events (v4.1.2 – v4.2.3)
 
-- Year-namespaced `2025/` content directories for `WorldShoot2025`/`ClubShirts`; a generic collapsible `Section` component; `webp` image optimisation
+- Year-namespaced `2025/` content directories for `WorldShoot2025`/`ClubShirts`; a generic collapsible `Section`
+  component; `webp` image optimisation
 
-**Achievement:** Established a repeatable pattern for yearly event content, ahead of future years' World Shoot and club-shirt updates.
+**Achievement:** Established a repeatable pattern for yearly event content, ahead of future years' World Shoot and
+club-shirt updates.
 
 ---
 
 ### Milestone 9: AI Agent Documentation & Process Conventions (v5.0.0)
 
-- `AGENTS.md`/`CLAUDE.md` conventions, `CONTRIBUTING.md`, five Claude Code slash commands, `documentation/roadmap/` planning docs, and the `documentation/history/` per-version archive
+- `AGENTS.md`/`CLAUDE.md` conventions, `CONTRIBUTING.md`, five Claude Code slash commands, `documentation/roadmap/`
+  planning docs, and the `documentation/history/` per-version archive
 
-**Achievement:** Established a durable, cross-tool contract for how AI coding agents and human contributors work in this repository — documentation conventions, git workflow, and a Release Checklist — ahead of the redesign the branch is named for.
+**Achievement:** Established a durable, cross-tool contract for how AI coding agents and human contributors work in this
+repository — documentation conventions, git workflow, and a Release Checklist — ahead of the redesign the branch is
+named for.
 
 ---
 
@@ -788,7 +892,8 @@ Route (React Router, data-driven)
 - Relative imports replaced by `@`-notation path aliases (`@components`, `@features`, `@shared`, etc.)
 - SCSS standardised on `@use`/`@forward`, with a dedicated `vendors/` directory for Bootstrap overrides
 
-**This is, in essence, the architecture the project still has today** — later versions (v4.1.x – v4.2.x) refined it (year-namespaced content, a generic `Section` component, consolidated header structure) without changing its shape.
+**This is, in essence, the architecture the project still has today** — later versions (v4.1.x – v4.2.x) refined it
+(year-namespaced content, a generic `Section` component, consolidated header structure) without changing its shape.
 
 ---
 
@@ -841,7 +946,8 @@ Route (React Router, data-driven)
 - **v4.0.2:** `@`-notation path aliases adopted; directory/stylesheet restructuring
 - **v4.1.3:** CodeQL analysis workflow added
 - **v4.2.0:** Images converted to `webp`
-- **v5.0.0:** Five Claude Code slash commands added for release prep and test scaffolding; all open GitHub Dependabot alerts closed
+- **v5.0.0:** Five Claude Code slash commands added for release prep and test scaffolding; all open GitHub Dependabot
+  alerts closed
 
 ### Documentation
 
@@ -850,7 +956,9 @@ Route (React Router, data-driven)
 - **v4.0.0:** `CHANGELOG.md`/`HISTORY.md` split introduced; templates created
 - **v4.1.4:** `README.md` overhaul with quickstart and contribution guidance
 - **v4.2.1:** `PACKAGES.md` added for dependency-funding transparency
-- **v5.0.0:** `AGENTS.md`/`CLAUDE.md` cross-tool AI agent conventions and `CONTRIBUTING.md` added; `documentation/roadmap/` planning docs (`improvement-plan.md`, `improvement-plan-tasks.md`) and a `documentation/history/` per-version archive introduced
+- **v5.0.0:** `AGENTS.md`/`CLAUDE.md` cross-tool AI agent conventions and `CONTRIBUTING.md` added;
+  `documentation/roadmap/` planning docs (`improvement-plan.md`, `improvement-plan-tasks.md`) and a
+  `documentation/history/` per-version archive introduced
 
 ---
 
@@ -869,7 +977,8 @@ Route (React Router, data-driven)
 
 - Adopt MDX as the content model
 - Build out every core page, including the only data-submitting feature (Contact Us)
-- Learn from an early security incident (a CAPTCHA dependency injecting suspicious code) by removing it and replacing it with a trusted implementation
+- Learn from an early security incident (a CAPTCHA dependency injecting suspicious code) by removing it and replacing it
+  with a trusted implementation
 
 ### Correctness Phase (v3.4.0 – v3.6.9)
 
@@ -904,7 +1013,8 @@ Route (React Router, data-driven)
 
 **Focus:** Make the Project Legible to AI Coding Agents
 
-- Establish `AGENTS.md`/`CLAUDE.md` as the single source of truth for documentation, git workflow, and release conventions, shared across tools
+- Establish `AGENTS.md`/`CLAUDE.md` as the single source of truth for documentation, git workflow, and release
+  conventions, shared across tools
 - Automate release-prep and test-scaffolding steps via Claude Code slash commands
 - Turn ad-hoc improvement ideas into an evidence-backed, trackable roadmap (`documentation/roadmap/`)
 
@@ -914,35 +1024,57 @@ Route (React Router, data-driven)
 
 ### Architectural Insights
 
-1. **Content Model Longevity:** The Page → Content → MDX pattern introduced in v3.2.0 has needed no structural change since — later work extended it (year-namespaced directories, a generic `Section` component) rather than replacing it
-2. **Structural Debt Compounds:** Deferring the `@`-alias/directory-standards work until v4.0.0 – v4.0.2 meant a dedicated restructuring phase was needed later, rather than the convention being established from the start
-3. **Server-Side Routing Correctness Matters Early:** Several `.htaccess` fixes (v3.5.0 – v3.6.5) were needed to get 404 handling, canonical URLs, and redirects right — client-side routing alone was not sufficient for a production static site
+1. **Content Model Longevity:** The Page → Content → MDX pattern introduced in v3.2.0 has needed no structural change
+   since — later work extended it (year-namespaced directories, a generic `Section` component) rather than replacing it
+2. **Structural Debt Compounds:** Deferring the `@`-alias/directory-standards work until v4.0.0 – v4.0.2 meant a
+   dedicated restructuring phase was needed later, rather than the convention being established from the start
+3. **Server-Side Routing Correctness Matters Early:** Several `.htaccess` fixes (v3.5.0 – v3.6.5) were needed to get 404
+   handling, canonical URLs, and redirects right — client-side routing alone was not sufficient for a production static
+   site
 
 ### Design Decisions
 
-1. **MDX Over Plain Markdown:** Chosen in v3.2.0 specifically to allow embedding real React components inside content, not just formatted text
-2. **A Dedicated Maps Migration:** Moving from `@react-google-maps` to `@vis.gl/react-google-maps` (v3.5.0) was a deliberate bet on a more actively maintained library, paying off with the per-instance map ID support added in v4.1.0
-3. **Documentation Split by Audience:** `CHANGELOG.md` (current, technical) and `HISTORY.md` (narrative, full history) were split in v4.0.0 so the current release record stays short while the full story remains available
-4. **Tool-Agnostic Agent Conventions:** `AGENTS.md` was introduced in v5.0.0 as the cross-tool source of truth, with `CLAUDE.md` kept as a Claude-Code-specific quick reference — so conventions hold regardless of which AI coding tool is in use
+1. **MDX Over Plain Markdown:** Chosen in v3.2.0 specifically to allow embedding real React components inside content,
+   not just formatted text
+2. **A Dedicated Maps Migration:** Moving from `@react-google-maps` to `@vis.gl/react-google-maps` (v3.5.0) was a
+   deliberate bet on a more actively maintained library, paying off with the per-instance map ID support added in v4.1.0
+3. **Documentation Split by Audience:** `CHANGELOG.md` (current, technical) and `HISTORY.md` (narrative, full history)
+   were split in v4.0.0 so the current release record stays short while the full story remains available
+4. **Tool-Agnostic Agent Conventions:** `AGENTS.md` was introduced in v5.0.0 as the cross-tool source of truth, with
+   `CLAUDE.md` kept as a Claude-Code-specific quick reference — so conventions hold regardless of which AI coding tool
+   is in use
 
 ### Technical Evolution
 
-1. **Security Response:** The v3.3.3 removal of a CAPTCHA dependency injecting suspicious code, followed by a from-scratch reimplementation in v3.3.6, shows a willingness to cut a dependency rather than work around a security problem
-2. **Dependency Currency:** Regular, focused security-vulnerability patches (v3.3.8, v3.6.9, v4.0.1, v4.0.2, v4.2.2, v4.2.3) rather than large, infrequent upgrade batches
-3. **Recurring-Content Pattern:** Year-namespaced directories for `WorldShoot2025`/`ClubShirts` (v4.1.2 – v4.2.1) establish a repeatable structure for future years' equivalent content, rather than a one-off fix
+1. **Security Response:** The v3.3.3 removal of a CAPTCHA dependency injecting suspicious code, followed by a
+   from-scratch reimplementation in v3.3.6, shows a willingness to cut a dependency rather than work around a security
+   problem
+2. **Dependency Currency:** Regular, focused security-vulnerability patches (v3.3.8, v3.6.9, v4.0.1, v4.0.2, v4.2.2,
+   v4.2.3) rather than large, infrequent upgrade batches
+3. **Recurring-Content Pattern:** Year-namespaced directories for `WorldShoot2025`/`ClubShirts` (v4.1.2 – v4.2.1)
+   establish a repeatable structure for future years' equivalent content, rather than a one-off fix
 
 ---
 
 ## 🎓 Conclusion
 
-The HPSC Website has evolved from a single under-construction placeholder page into a full club website — covering news, events, history, venues, membership, and a working Contact Us form — while keeping a consistent, MDX-based content architecture since v3.2.0. This evolution demonstrates a commitment to:
+The HPSC Website has evolved from a single under-construction placeholder page into a full club website — covering news,
+events, history, venues, membership, and a working Contact Us form — while keeping a consistent, MDX-based content
+architecture since v3.2.0. This evolution demonstrates a commitment to:
 
 - **Incremental, Frequent Releases:** A steady cadence of small, focused versions rather than infrequent large rewrites
-- **Correctness Before Polish:** Investing early in routing, redirect, and SEO correctness (v3.5.0 – v3.6.9) before further feature work
-- **Willingness to Cut and Replace:** Removing a compromised CAPTCHA dependency outright (v3.3.3) rather than working around it
-- **Structural Debt Repayment:** A dedicated standards phase (v4.0.0 – v4.0.3) to align the codebase with industry conventions once it had grown enough to warrant it
-- **Documentation as a First-Class Concern:** From the first `README`/changelog (v3.2.6) through the `CHANGELOG.md`/`HISTORY.md` split (v4.0.0) to the most recent `README.md` overhaul (v4.1.4)
-- **Content Reuse for Recurring Events:** A repeatable, year-namespaced pattern for annual content (World Shoot, club shirts) established in v4.1.2 and extended since
-- **Agent-Legible Process:** Formalising `AGENTS.md`/`CLAUDE.md` conventions and Claude Code slash commands in v5.0.0, so human and AI contributors alike follow the same documentation and release process
+- **Correctness Before Polish:** Investing early in routing, redirect, and SEO correctness (v3.5.0 – v3.6.9) before
+  further feature work
+- **Willingness to Cut and Replace:** Removing a compromised CAPTCHA dependency outright (v3.3.3) rather than working
+  around it
+- **Structural Debt Repayment:** A dedicated standards phase (v4.0.0 – v4.0.3) to align the codebase with industry
+  conventions once it had grown enough to warrant it
+- **Documentation as a First-Class Concern:** From the first `README`/changelog (v3.2.6) through the `CHANGELOG.md`/
+  `HISTORY.md` split (v4.0.0) to the most recent `README.md` overhaul (v4.1.4)
+- **Content Reuse for Recurring Events:** A repeatable, year-namespaced pattern for annual content (World Shoot, club
+  shirts) established in v4.1.2 and extended since
+- **Agent-Legible Process:** Formalising `AGENTS.md`/`CLAUDE.md` conventions and Claude Code slash commands in v5.0.0,
+  so human and AI contributors alike follow the same documentation and release process
 
-The architecture settled in v4.0.0 – v4.0.2 — feature-organised directories, path aliases, and the Route → Page → Content → MDX pattern from v3.2.0 — remains the foundation the project builds on today.
+The architecture settled in v4.0.0 – v4.0.2 — feature-organised directories, path aliases, and the Route → Page →
+Content → MDX pattern from v3.2.0 — remains the foundation the project builds on today.
