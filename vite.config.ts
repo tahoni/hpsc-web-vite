@@ -27,6 +27,7 @@ export default defineConfig({
       "@vendors": path.resolve(__dirname, "./src/vendors"),
       "@bootstrap": path.resolve(__dirname, "./src/vendors/bootstrap"),
       "@features": path.resolve(__dirname, "./src/features"),
+      // TODO: remove — "./src/routes" doesn't exist; routing lives at "./src/shared/routes" (use "@shared/routes")
       "@routes": path.resolve(__dirname, "./src/routes"),
       "@shared": path.resolve(__dirname, "./src/shared"),
       "@helpers": path.resolve(__dirname, "./src/helpers"),
