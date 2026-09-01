@@ -22,7 +22,7 @@ evidence and reasoning there.
 - [ ] Run `npm ci`, `npm run lint`, `npm run build`, and `npm test` as the workflow's steps
 - [ ] Gate `rollup-plugin-visualizer`'s auto-open behind the CI environment (e.g. `open: !process.env.CI`)
 - [ ] Confirm the workflow fails the PR check on a lint, build, or test failure — not just a compile error
-- [ ] Once live, update `CLAUDE.md`'s Code Quality & CI section to drop the "run these locally" caveat
+- [ ] Once live, update `AGENTS.md`'s Code Quality & CI section to drop the "run these locally" caveat
 
 **Two route-metadata defects** *(IMPROVEMENT_PLAN.md → Gap #2)*
 
@@ -73,7 +73,7 @@ evidence and reasoning there.
 
 - [ ] Add a secret-free `.env.example`
 - [ ] Document `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY`, and `RECAPTCHA_V2_SITE_KEY` in `README.md` itself, not only
-  `CLAUDE.md`
+  `AGENTS.md`
 - [ ] Source `baseUrl` in `src/constants/commonConstants.ts` from an environment variable with a safe production default
 
 ---

@@ -14,7 +14,7 @@ Conventions to follow: @AGENTS.md @CLAUDE.md
 
 ## 🚀 Instructions
 
-Read and strictly follow **all conventions defined in AGENTS.md and CLAUDE.md** (both loaded above) — in particular AGENTS.md's **Test Conventions** section and CLAUDE.md's **Architecture** section (routing, feature/shared layering). Treat them as the single source of truth; do not reinterpret or contradict their rules.
+Read and strictly follow **all conventions defined in AGENTS.md** (loaded above) — in particular its **Test Conventions** section and its **Architecture Overview** section (routing, feature/shared layering). Treat it as the single source of truth; do not reinterpret or contradict its rules.
 
 This project has no service/repository/database layer to wire up for a "real" integration test the way a backend project would. The equivalent boundary here is **the full composed component tree** — Route → `Layout` → feature `Page` → content components → shared components — rendered through a real `MemoryRouter`, as opposed to the isolated, dependency-mocked component tests `/scaffold-unit-tests` produces. Only mock at genuine **external-service boundaries** (the same ones a Spring integration test would swap for H2 rather than MySQL): Google Maps, FullCalendar's own network calls, reCAPTCHA's script, and the actual `fetch`/email delivery in `EmailService`. Never mock this project's own components.
 

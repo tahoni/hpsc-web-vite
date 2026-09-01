@@ -34,10 +34,10 @@ project's stated intent and its current state.
 
 | Source                                               | Goal / constraint                                                                                                                                                                                                                                               |
 |------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `../../README.md`, `../../CLAUDE.md`                 | Deliver an informative, content-driven club website; there is no backend in this repository — contact-form email delivery and reCAPTCHA verification are the only server-side dependencies, both third-party, called directly from the client                   |
+| `../../README.md`, `../../AGENTS.md`                 | Deliver an informative, content-driven club website; there is no backend in this repository — contact-form email delivery and reCAPTCHA verification are the only server-side dependencies, both third-party, called directly from the client                   |
 | `../../ARCHITECTURE.md` (Data-Driven Routing)        | Routing is driven by `PageMapping` instances (`BaseRoutes.ts` → `RouteAliases.tsx` → `AppRoutes.tsx`), reused as-is by the sitemap builder — not static JSX route trees                                                                                         |
 | `../../ARCHITECTURE.md` (Feature-Based Organization) | Code is organised by feature under `../../src/features`, each self-contained with a page component, content component(s), MDX, styles, and a barrel `index.ts`                                                                                                  |
-| `../../CLAUDE.md` (Code Quality & CI)                | Only CodeQL runs automatically (push/PR to `main`, and weekly); `npm run lint`/`build`/`test` must be run locally before opening a PR — no automated build/test gate exists yet                                                                                 |
+| `../../AGENTS.md` (Code Quality & CI)                | Only CodeQL runs automatically (push/PR to `main`, and weekly); `npm run lint`/`build`/`test` must be run locally before opening a PR — no automated build/test gate exists yet                                                                                 |
 | `../../AGENTS.md` (Documentation Conventions)        | British English spelling throughout prose; every ToC-listed heading carries a reused or deliberately new emoji; `../../README.md`/`../../ARCHITECTURE.md`/`../../UI.md` stay version-agnostic (reverse-synced from release docs, not the other way round)       |
 | `../../AGENTS.md` (Git Workflow, Release Checklist)  | GitFlow branching (`develop` → `release/vX.Y.Z` → `main`, `hotfix/*` direct to `main`), and a fixed, ordered Release Checklist covering `../../package.json`, `../../CHANGELOG.md`, `../../RELEASE_NOTES.md`, `../../HISTORY.md`, and archived per-version docs |
 | `../../AGENTS.md` (Test Conventions)                 | Vitest is configured but no test files exist yet; when added, co-locate `*.test.ts`/`*.test.tsx`, use `@testing-library/react` with a `jsdom` environment, and don't test the type system or trivial pass-through props                                         |
@@ -51,7 +51,7 @@ project's stated intent and its current state.
 ### 1. No automatic lint/build/test gate on pull requests
 
 **Evidence:** `../../.github/workflows` contains only `codeql.yml` (security analysis, on push/PR to `main` and weekly).
-`../../CLAUDE.md`'s Code Quality & CI section states plainly: "There is currently no CI workflow that runs
+`../../AGENTS.md`'s Code Quality & CI section states plainly: "There is currently no CI workflow that runs
 `npm run lint`, `npm run build`, or `npm test` — only CodeQL runs automatically. Run these locally before opening a PR."
 `../../CONTRIBUTING.md`'s Pull Request Checklist relies entirely on the contributor remembering to run all three.
 
@@ -100,7 +100,7 @@ start with unit/smoke tests for pure logic (`htmlUtils.ts`, `RoutesSitemap.ts`) 
 **Evidence:** No `ErrorBoundary` component exists anywhere under `../../src`; a rendering error in any route currently
 produces a blank or broken page with no fallback UI.
 
-**Why it matters:** The site has no backend and no logging/monitoring integration (per `../../CLAUDE.md`'s Project
+**Why it matters:** The site has no backend and no logging/monitoring integration (per `../../AGENTS.md`'s Project
 Overview) — an unhandled render error is currently invisible to both the visitor and the maintainer.
 
 **Proposed improvement:** Add a top-level React error boundary around the route tree with a friendly fallback; evaluate
@@ -131,7 +131,7 @@ token map and usage examples for `src/assets/stylesheets`'s colours/variables.
 ### 7. Required environment variables aren't documented where a new contributor is likely to look first, and
 `baseUrl` is hardcoded
 
-**Evidence:** `../../CLAUDE.md`'s Environment Variables table documents `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY`, and
+**Evidence:** `../../AGENTS.md`'s Environment Variables table documents `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY`, and
 `RECAPTCHA_V2_SITE_KEY`, but `../../README.md`'s own Environment Variables subsection doesn't name or explain them.
 Separately, `baseUrl` in `../../src/constants/commonConstants.ts` is a hardcoded string literal, not sourced from an
 environment variable, despite feeding both the sitemap builder and (implicitly) canonical link tags.
@@ -141,7 +141,7 @@ just don't render, with no warning. A hardcoded `baseUrl` risks the wrong hostna
 to a staging domain.
 
 **Proposed improvement:** Add a secret-free `.env.example`, and document the three variables in `../../README.md`
-itself, not only `../../CLAUDE.md`. Source `baseUrl` from an environment variable with a safe production default.
+itself, not only `../../AGENTS.md`. Source `baseUrl` from an environment variable with a safe production default.
 
 ### 8. Dependency surface has no ongoing audit discipline
 
@@ -172,7 +172,7 @@ periodic (e.g. monthly) dependency-update cadence in `../../AGENTS.md`.
 ## ✅ Success Criteria
 
 - A CI workflow runs `npm run lint`, `npm run build`, and `npm test` automatically on PRs to `develop`/`main`, so
-  `../../CLAUDE.md`'s Code Quality & CI section can drop its "run these locally" caveat.
+  `../../AGENTS.md`'s Code Quality & CI section can drop its "run these locally" caveat.
 - `News` is either reachable through a real route or the folder is removed; `coreContactUsRoute`'s dates are internally
   consistent; `../../public/sitemap.xml` is regenerated and no longer malformed.
 - At least one test file exists under `../../src` and passes in CI.

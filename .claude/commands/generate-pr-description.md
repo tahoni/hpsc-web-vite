@@ -29,7 +29,7 @@ Conventions to follow: @AGENTS.md @CLAUDE.md
 
 ## 🚀 Instructions
 
-Read and strictly follow **all conventions defined in AGENTS.md and CLAUDE.md** (both loaded above) — in particular AGENTS.md's **Release Checklist**, **Documentation Conventions**, **Git Workflow** (Branching Model), and **Evergreen Documentation** (reverse sync rule) sections, and CLAUDE.md for accurate technical detail (build/test/lint commands, path aliases, architecture) when writing `RELEASE_NOTES.md`/the PR description. Treat both as the single source of truth; do not reinterpret or contradict their rules. Follow the Release Checklist steps **in order** — the version number and date must be final before anything downstream references them.
+Read and strictly follow **all conventions defined in AGENTS.md** (loaded above) — in particular its **Release Checklist**, **Documentation Conventions**, **Git Workflow** (Branching Model), **Evergreen Documentation** (reverse sync rule), **Build & Run Commands**, and **Architecture Overview** sections for accurate technical detail when writing `RELEASE_NOTES.md`/the PR description. Treat it as the single source of truth; do not reinterpret or contradict its rules. Follow the Release Checklist steps **in order** — the version number and date must be final before anything downstream references them.
 
 This project's checklist has no OpenAPI version to bump, but it does extend `HISTORY.md`, since that file narrates the project's full evolution (all versions, not just a closed legacy line), and it does archive each version's `RELEASE_NOTES.md` snapshot and PR description into `documentation/history/`.
 

@@ -1,14 +1,19 @@
 # AGENTS.md
 
-Conventions for any AI coding agent working in this repository. [`CLAUDE.md`](CLAUDE.md) remains the
-Claude-Code-specific quick reference (build/run commands, environment variables, architecture overview); this file holds
-the broader, tool-agnostic documentation and workflow conventions below. Some content (documentation conventions, icon
-reuse) is intentionally restated in both this file and the per-file docs it governs, since not every agent tool reads
-`AGENTS.md`.
+Conventions for any AI coding agent working in this repository — project overview, tech stack, architecture, build/run
+commands, environment variables, code quality & CI, documentation conventions, testing, git workflow, and the release
+checklist all live here. [`CLAUDE.md`](CLAUDE.md) is a thin pointer to this file, kept only because Claude Code
+specifically looks for a file by that name. Some content (documentation conventions, icon reuse) is intentionally
+restated in both this file and the per-file docs it governs, since not every agent tool reads `AGENTS.md`.
 
 ## Table of Contents
 
+- [📖 Project Overview](#-project-overview)
 - [⚙️ Tech Stack](#-tech-stack)
+- [🏛️ Architecture Overview](#-architecture-overview)
+- [🧰 Build & Run Commands](#-build--run-commands)
+- [🔧 Environment Variables](#-environment-variables)
+- [🔍 Code Quality & CI](#-code-quality--ci)
 - [📝 Documentation Conventions](#-documentation-conventions)
 - [🗺️ Documentation File Map](#-documentation-file-map)
 - [🧪 Test Conventions](#-test-conventions)
@@ -16,6 +21,18 @@ reuse) is intentionally restated in both this file and the per-file docs it gove
 - [🔀 Git Workflow](#-git-workflow)
 - [🚢 Release Checklist](#-release-checklist)
 - [🌲 Evergreen Documentation](#-evergreen-documentation-readmemd--architecturemd)
+
+---
+
+## 📖 Project Overview
+
+HPSC Web is the React/TypeScript frontend for the Hartbeespoortdam Practical Shooting Club (HPSC) website — an
+informational and content-driven site covering club news, events, history, venues, and membership information. There is
+no backend in this repository; contact-form email delivery and reCAPTCHA verification are the only server-side
+dependencies, both handled by third-party services called directly from the client.
+
+- **Dev server:** `http://localhost:5173/` (or `http://hpsc.local/` via `npm run host`)
+- **Routing:** React Router 8, driven by data (`PageMapping` instances), not static JSX route trees
 
 ---
 
@@ -44,6 +61,98 @@ reuse) is intentionally restated in both this file and the per-file docs it gove
 
 Exact pinned versions are not listed here — they drift with every dependency bump. Check `package.json` for the versions
 currently in use.
+
+---
+
+## 🏛️ Architecture Overview
+
+The application is organised by feature, with shared infrastructure centralised under `src/shared/`:
+
+```
+Route (React Router)
+    → Feature page   (src/features/<Feature>/<Feature>Page.tsx)
+    → Feature content (…Content.tsx, and .mdx for content-heavy pages)
+    → Shared components / layouts (src/shared/components/, src/shared/layouts/)
+```
+
+See `ARCHITECTURE.md` for the full architectural design; the summary below orients an agent quickly.
+
+### Key directories (`src/`)
+
+| Directory            | Role                                                                                                                                                                                                                                                                                    |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `features/`          | One folder per page/domain (`Home`, `AboutUs`, `ContactUs`, `Events`, `History`, `Links`, `Members`, `News`, `Venues`), each self-contained with a `…Page.tsx`, content component(s), optional `.mdx`, styles, and a barrel `index.ts`                                                  |
+| `shared/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata as `PageMapping`s), `RouteAliases.tsx` (maps mappings to lazy-loaded components), `AppRoutes.tsx` (renders `Routes`/`Route` from the mappings)                                                                                     |
+| `shared/layouts/`    | `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints` — the page chrome every route renders inside                                                                                                                                                                             |
+| `shared/components/` | Reusable UI: `Captcha`, `Map`, `Sidebar`, `Section`, `Text`, `Title`, `Video`, `Content`                                                                                                                                                                                                |
+| `shared/pages/`      | `Page` — the base wrapper feature pages compose                                                                                                                                                                                                                                         |
+| `models/`            | TypeScript interfaces/classes grouped by domain: `email/`, `pages/`, `sitemap/`, `venues/`                                                                                                                                                                                              |
+| `helpers/`           | Application-specific helpers with routing/UI context (`routeHelpers.tsx`, `menuHelpers.tsx`) — see [`documentation/recommendations/standard-utils-vs-helpers.md`](documentation/recommendations/standard-utils-vs-helpers.md) for the `utils/` vs `helpers/` split this project follows |
+| `utils/`             | Framework-agnostic pure functions (`htmlUtils.ts`)                                                                                                                                                                                                                                      |
+| `constants/`         | Grouped by domain (`about/`, `content/`, `images/`) plus `commonConstants.ts`                                                                                                                                                                                                           |
+| `enums/`             | `email/EmailType`                                                                                                                                                                                                                                                                       |
+| `vendors/bootstrap/` | Bootstrap 5 SCSS overrides — the club's colour palette (Butterscotch, etc.) is applied here, not by editing Bootstrap itself                                                                                                                                                            |
+| `assets/`            | Bundler-processed assets: `images/`, `styles/` (global SCSS, using `@use`, not `@import`)                                                                                                                                                                                               |
+
+`builders/RoutesSitemap.ts` reuses the same `BaseRoutes` metadata to generate `public/sitemap.xml` at build time
+(`npm run sitemap`).
+
+### Component/layout folder shape
+
+Each non-trivial component or layout gets its own PascalCase folder (matching [
+`documentation/recommendations/standard-component-naming.md`](documentation/recommendations/standard-component-naming.md)):
+
+```
+Header/
+├── Header.tsx              # Component
+├── Header.module.scss      # Sass Module — scoped styles
+├── HeaderContent.tsx        # Content/sub-component, where the component has one
+├── HeaderConstants.ts       # Component-local constants, where needed
+└── index.ts                 # Barrel export
+```
+
+---
+
+## 🧰 Build & Run Commands
+
+```bash
+# Install dependencies (requires NPM_TOKEN_READ — see Environment Variables below)
+npm install
+
+# Run the dev server bound to hpsc.local instead of localhost
+npm run host
+
+# Generate TypeDoc API documentation (outputs to /target/docs/)
+npm run docs
+
+# Regenerate public/sitemap.xml from route metadata
+npm run sitemap
+```
+
+See `README.md`'s Available Scripts section for the complete script list, including the standard `dev`/`build`/
+`preview`/`lint`/`test` scripts.
+
+---
+
+## 🔧 Environment Variables
+
+| Variable                | Used in                                     | Purpose                                                                             |
+|-------------------------|---------------------------------------------|-------------------------------------------------------------------------------------|
+| `NPM_TOKEN_READ`        | `.npmrc`                                    | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
+| `GOOGLE_MAPS_API_KEY`   | `.env.local` → `VITE_GOOGLE_MAPS_API_KEY`   | Google Maps API key; without it the venue map does not render                       |
+| `RECAPTCHA_V2_SITE_KEY` | `.env.local` → `VITE_RECAPTCHA_V2_SITE_KEY` | reCAPTCHA v2 site key for the Contact Us form's `Captcha` component                 |
+
+`.env.production` only sets `VITE_SHOW_BREAKPOINTS=false` (a debug overlay toggle); it carries no secrets.
+
+---
+
+## 🔍 Code Quality & CI
+
+- **CodeQL**: security analysis, runs on push/PR to `main` and weekly. Config: `.github/workflows/codeql.yml`.
+- **ESLint**: flat config (`eslint.config.js`) — TypeScript, React Hooks, and `react-refresh` rules. `.eslintrc.cjs` is
+  a legacy mirror kept for tooling that hasn't migrated to flat config; keep the two in sync when changing lint rules.
+- There is currently no CI workflow that runs `npm run lint`, `npm run build`, or `npm test` — only CodeQL runs
+  automatically. Run these locally before opening a PR.
 
 ---
 
@@ -165,19 +274,19 @@ genuinely new concept. Icons already established in this repository's documentat
 Root-level documentation, and the goal of each file (see `README.md`'s own [📚 Documentation](README.md#-documentation)
 section — `README.md` is the canonical version if the two ever drift):
 
-| File               | Purpose                                                                  |
-|--------------------|--------------------------------------------------------------------------|
-| `README.md`        | Project overview, setup, and links to the rest of the documentation      |
-| `ARCHITECTURE.md`  | Detailed architectural design, directory structure, and core concepts    |
-| `UI.md`            | User interface layout, navigation, and design overview                   |
-| `CLAUDE.md`        | Guidance for Claude Code specifically when working in this repository    |
-| `AGENTS.md`        | Cross-tool agent conventions (this file)                                 |
-| `CONTRIBUTING.md`  | Contributor-facing setup, git workflow, and pull request checklist       |
-| `CHANGELOG.md`     | Notable changes per released version, in Keep a Changelog format         |
-| `HISTORY.md`       | Narrative history of the project's evolution across all versions         |
-| `RELEASE_NOTES.md` | Detailed release notes for the current/latest version only               |
-| `PACKAGES.md`      | Generated funding-tree manifest listing dependencies seeking sponsorship |
-| `LICENSE.md`       | MIT License                                                              |
+| File               | Purpose                                                                        |
+|--------------------|--------------------------------------------------------------------------------|
+| `README.md`        | Project overview, setup, and links to the rest of the documentation            |
+| `ARCHITECTURE.md`  | Detailed architectural design, directory structure, and core concepts          |
+| `UI.md`            | User interface layout, navigation, and design overview                         |
+| `CLAUDE.md`        | Thin pointer to `AGENTS.md`, kept for tools that specifically read `CLAUDE.md` |
+| `AGENTS.md`        | Cross-tool agent conventions — the full guidance (this file)                   |
+| `CONTRIBUTING.md`  | Contributor-facing setup, git workflow, and pull request checklist             |
+| `CHANGELOG.md`     | Notable changes per released version, in Keep a Changelog format               |
+| `HISTORY.md`       | Narrative history of the project's evolution across all versions               |
+| `RELEASE_NOTES.md` | Detailed release notes for the current/latest version only                     |
+| `PACKAGES.md`      | Generated funding-tree manifest listing dependencies seeking sponsorship       |
+| `LICENSE.md`       | MIT License                                                                    |
 
 These documentation-only folders supplement it:
 
@@ -229,7 +338,7 @@ Vitest is configured (`npm test`) but no test files exist yet in this repository
 - Directories covered by `.gitignore` (e.g. `.idea/`, `.run/`, `node_modules/`, `dist/`, `target/`) must never appear in
   that tree.
 - When adding a path alias to `vite.config.ts`, add the matching entry to `tsconfig.app.json`'s `paths` in the same
-  change — the two must stay in sync (see `CLAUDE.md`'s Path Aliases section).
+  change — the two must stay in sync.
 
 ---
 

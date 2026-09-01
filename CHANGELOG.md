@@ -55,6 +55,12 @@ account of the project's full evolution, including that era.
 - Added icon-headed sections to `PACKAGES.md` (📖 Introduction, 💰 for its three funding-list sections), matching
   `AGENTS.md`'s Icons in headings convention that every other root doc already follows; added the new 💰
   Funding/sponsorship icon to `AGENTS.md`'s icon table
+- Centralised `CLAUDE.md`'s Project Overview, Architecture, Build & Run Commands, Environment Variables, and Code
+  Quality & CI content into `AGENTS.md` as new sections, so the full guidance is usable by any AI coding agent, not
+  only Claude Code; `CLAUDE.md` is now a thin pointer to `AGENTS.md` plus its one genuinely Claude-Code-specific
+  instruction (use the TodoWrite tool for complex tasks). Updated every cross-reference to the moved sections in
+  `README.md`, `CONTRIBUTING.md`, `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md`, and the
+  `.claude/commands/` slash commands
 
 #### 🐛 Fixed
 

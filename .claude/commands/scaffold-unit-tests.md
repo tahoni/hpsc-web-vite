@@ -14,7 +14,7 @@ Conventions to follow: @AGENTS.md @CLAUDE.md
 
 ## 🚀 Instructions
 
-Read and strictly follow **all conventions defined in AGENTS.md and CLAUDE.md** (both loaded above) — in particular AGENTS.md's **Test Conventions** section and CLAUDE.md's **Architecture** and **Path aliases** sections. Treat them as the single source of truth; do not reinterpret or contradict their rules.
+Read and strictly follow **all conventions defined in AGENTS.md** (loaded above) — in particular its **Test Conventions** and **Architecture Overview** sections. Treat it as the single source of truth; do not reinterpret or contradict its rules.
 
 1. **Check the test infrastructure exists first** — this repo has Vitest configured but, as of writing, no `vitest.config.ts`, no `jsdom` environment, and no `@testing-library/react`/`@testing-library/user-event`/`@testing-library/jest-dom` dev dependencies (see `../../documentation/roadmap/improvement-plan-tasks.md`'s "Zero test coverage despite a configured test runner" gap, under 🏗️ Next). If any are missing:
    - Add `jsdom`, `@testing-library/react`, `@testing-library/user-event`, and `@testing-library/jest-dom` as dev dependencies.
@@ -22,7 +22,7 @@ Read and strictly follow **all conventions defined in AGENTS.md and CLAUDE.md** 
    - This introduces `src/shared/testUtils/` as a new subdirectory under the existing `shared/` folder — not a new top-level `src/` directory, so `ARCHITECTURE.md`'s Project Structure tree only needs updating if you judge it warrants a mention there.
    - Do this once; skip if already present.
 2. **Resolve `$ARGUMENTS` to one or more targets.** Split on commas and/or whitespace; each token is a component/layout folder, hook, utility, helper, or model under `src/` — search by name with Glob/Grep if a bare name was given rather than a path. If `$ARGUMENTS` is empty, ask the user which target(s) to scaffold rather than guessing. Repeat steps 3–8 independently for each resolved target — a failure or ambiguity on one target must not block scaffolding the others; report it and move on.
-3. **Create the test file co-located with its target**, matching CLAUDE.md's component/layout folder shape and the naming table in `../../documentation/recommendations/standard-component-naming.md`:
+3. **Create the test file co-located with its target**, matching AGENTS.md's component/layout folder shape and the naming table in `../../documentation/recommendations/standard-component-naming.md`:
    - **Component/layout** (`src/features/<Feature>/…`, `src/shared/components/<Name>/`, `src/shared/layouts/<Name>/`): `<Name>.test.tsx` inside the component's own folder, alongside `<Name>.tsx`.
    - **Utility** (`src/utils/*.ts`): `<name>.test.ts` alongside the source file — pure-function tests, no rendering, no `jsdom` needed.
    - **Helper** (`src/helpers/*.tsx`): `<name>.test.tsx` alongside the source file.

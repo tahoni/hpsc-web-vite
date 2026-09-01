@@ -30,7 +30,7 @@ For the full set of conventions AI coding agents (and, by extension, contributor
 
 1. Install [Node.js](https://nodejs.org/).
 2. Clone the repository from [GitHub](https://github.com/tahoni/hpsc-web-vite).
-3. Set the environment variables the project needs — see `CLAUDE.md`'s Environment Variables table for the full list
+3. Set the environment variables the project needs — see `AGENTS.md`'s Environment Variables table for the full list
    (`NPM_TOKEN_READ` is required just to install dependencies; `GOOGLE_MAPS_API_KEY` and `RECAPTCHA_V2_SITE_KEY` are
    optional locally but needed for the venue map and Contact Us captcha to render).
 4. Install dependencies: `npm install`.
@@ -103,7 +103,7 @@ tests, per `AGENTS.md`'s Test Conventions:
 Before opening a pull request, confirm:
 
 - [ ] `npm run lint` passes with no errors.
-- [ ] `npm run build` succeeds (this project has no CI workflow that runs it automatically — see `CLAUDE.md`'s Code
+- [ ] `npm run build` succeeds (this project has no CI workflow that runs it automatically — see `AGENTS.md`'s Code
   Quality & CI section).
 - [ ] `npm test` passes, and any new logic has co-located tests where applicable.
 - [ ] A `CHANGELOG.md` entry has been added under `### 🧪 [Unreleased]`, in the correct Keep a Changelog category and

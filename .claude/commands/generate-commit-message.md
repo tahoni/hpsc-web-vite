@@ -26,7 +26,7 @@ Conventions to follow: @AGENTS.md @CLAUDE.md
 
 ## 🚀 Instructions
 
-Read and strictly follow the **Git Workflow** section in AGENTS.md (loaded above), plus CLAUDE.md (also loaded above) for accurate technical detail (build/test commands, path aliases, architecture) when describing what changed. Treat both as the single source of truth; do not reinterpret or contradict their rules.
+Read and strictly follow the **Git Workflow** section in AGENTS.md (loaded above), plus its **Build & Run Commands** and **Architecture Overview** sections for accurate technical detail when describing what changed. Treat AGENTS.md as the single source of truth; do not reinterpret or contradict its rules.
 
 1. **Inspect the changes above**, do not guess — review the actual diff hunks so the message describes real behaviour, not assumptions. If `$ARGUMENTS` narrows the scope, only consider matching files.
 2. **Compose the message**, matching this repo's actual style (see `git log` above for reference):
