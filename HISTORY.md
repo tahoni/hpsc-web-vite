@@ -1,6 +1,4 @@
-# HPSC Website
-
-## Project History
+# HPSC Website History
 
 A narrative overview of the HPSC Website project's evolution from its first scaffold to the current release, documenting
 how its architecture, features and design philosophy have developed across every version. For the technical,
@@ -9,7 +7,7 @@ the legacy Version 3.x line that predates it.
 
 ---
 
-### Table of Contents
+## Table of Contents
 
 - [📅 Historical Timeline](#-historical-timeline)
 - [📖 Evolution Overview](#-evolution-overview)
@@ -401,7 +399,7 @@ the legacy Version 3.x line that predates it.
 
 **Key Focus:**
 
-- Brought `README.md`/`LICENCE` up to date; added the project's first release notes and change the log
+- Brought `README.md`/`LICENSE.md` up to date; added the project's first release notes and change the log
 
 ### Version 3.2.5 (December 25, 2024)
 
@@ -597,8 +595,8 @@ corrections along the way.
 - Migrated from `@react-google-maps` to `@vis.gl/react-google-maps`
 - `.htaccess` corrected to return real HTTP 404s for unknown routes, retiring the client-side "Page Not Found" component
 
-**Technical Focus:** Correctness — routing that behaves like a real multipage site under refresh/direct-link, and a maps
-library the project could build on longer-term.
+**Technical Focus:** Correctness — routing that behaves like a real multipage site under refresh/direct-link, and a
+maps library the project could build on longer-term.
 
 ---
 
@@ -691,8 +689,8 @@ named for it.
 ## 🎯 Major Version Goals
 
 Zooming out from the per-release Historical Timeline and per-phase Evolution Overview above, each `MAJOR` line (per
-[`CHANGELOG.md`'s Version Policy](CHANGELOG.md#-version-policy) — "a significant redesign or structural overhaul of the
-site") has pursued a distinct overarching goal:
+[`CHANGELOG.md`'s Version Policy](CHANGELOG.md#-version-policy) — "a significant redesign or structural overhaul of
+the site") has pursued a distinct overarching goal:
 
 ### Major Version 4 (v4.0.0 – v4.2.3)
 
@@ -722,9 +720,9 @@ dependency stack — groundwork ahead concerning a planned visual/structural red
 - Close out every dependency 5.0.0 left deferred pending code changes — `@fortawesome/*`, `@fullcalendar/*`,
   `@mdx-js/*`, `@rjsf/*` (a major-version migration), `@vis.gl/react-google-maps`, `bootstrap`/`react-bootstrap`,
   `react-router`/`react-router-dom`, `sweetalert2` and `typescript` (v5.1.0)
-- Correct internal structural and build issues surfaced by that modernisation — path-alias drift, an unthemed duplicate
-  Bootstrap compile, inconsistent component/layout folder shapes and oversized production JS chunks; — so the codebase
-  is on solid footing before the redesign begins (v5.2.0, in progress)
+- Correct internal structural and build issues surfaced by that modernisation — path-alias drift, an unthemed
+  duplicate Bootstrap compile, inconsistent component/layout folder shapes and oversized production JS chunks; — so
+  the codebase is on solid footing before the redesign begins (v5.2.0, in progress)
 
 **Status:** In progress — establishing this foundation is the stated precondition for the redesign the release branch
 is named for, not the redesign itself; see
@@ -756,8 +754,8 @@ builds on.
 
 - All page content moved into React MDX components
 
-**Achievement:** Established the content authoring pattern — MDX plus content components — still used by every feature
-page today.
+**Achievement:** Established the content authoring pattern — MDX plus content components — still used by every
+feature page today.
 
 ---
 
@@ -1024,13 +1022,14 @@ Route (React Router, data-driven)
 
 ### Architectural Insights
 
-1. **Content Model Longevity:** The Page → Content → MDX pattern introduced in v3.2.0 has needed no structural change
-   since — later work extended it (year-namespaced directories, a generic `Section` component) rather than replacing it
+1. **Content Model Longevity:** The Page → Content → MDX pattern introduced in v3.2.0 has needed no structural
+   change since — later work extended it (year-namespaced directories, a generic `Section` component) rather than
+   replacing it
 2. **Structural Debt Compounds:** Deferring the `@`-alias/directory-standards work until v4.0.0 – v4.0.2 meant a
    dedicated restructuring phase was needed later, rather than the convention being established from the start
-3. **Server-Side Routing Correctness Matters Early:** Several `.htaccess` fixes (v3.5.0 – v3.6.5) were needed to get 404
-   handling, canonical URLs and redirects right — client-side routing alone was not sufficient for a production static
-   site
+3. **Server-Side Routing Correctness Matters Early:** Several `.htaccess` fixes (v3.5.0 – v3.6.5) were needed to get
+   404 handling, canonical URLs and redirects right — client-side routing alone was not sufficient for a production
+   static site
 
 ### Design Decisions
 
@@ -1058,9 +1057,9 @@ Route (React Router, data-driven)
 
 ## 🎓 Conclusion
 
-The HPSC Website has evolved from a single under-construction placeholder page into a full club website — covering news,
-events, history, venues, membership and a working Contact Us form — while keeping a consistent, MDX-based content
-architecture since v3.2.0. This evolution demonstrates a commitment to:
+The HPSC Website has evolved from a single under-construction placeholder page into a full club website — covering
+news, events, history, venues, membership and a working Contact Us form — while keeping a consistent, MDX-based
+content architecture since v3.2.0. This evolution demonstrates a commitment to:
 
 - **Incremental, Frequent Releases:** A steady cadence of small, focused versions rather than infrequent large rewrites
 - **Correctness Before Polish:** Investing early in routing, redirect and SEO correctness (v3.5.0 – v3.6.9) before

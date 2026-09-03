@@ -9,10 +9,10 @@ Practical Shooting Club (HPSC) website.
 - [📁 Project Structure](#-project-structure)
 - [🎯 Core Concepts](#-core-concepts)
     - [🧭 Data-Driven Routing](#-data-driven-routing)
-    - [🧩 Feature-Based Organization](#-feature-based-organization)
+    - [🧩 Feature-Based Organisation](#-feature-based-organisation)
     - [📝 Content Strategy (MDX)](#-content-strategy-mdx)
     - [🎨 Styling and Theming](#-styling-and-theming)
-- [🔧 Build and Tooling](#-build-and-tooling)
+- [🧰 Build and Tooling](#-build-and-tooling)
 - [🛠️ Development Guidelines](#-development-guidelines)
 
 ---
@@ -41,7 +41,7 @@ The project follows a modular structure, separating shared infrastructure from f
 ├───builders            # Build-time scripts (e.g., sitemap generation)
 ├───documentation       # Project documentation, release history archive and planning notes
 ├───public              # Static assets (robots.txt, sitemap.xml, favicon)
-│   └───assets          # Externalized images (club, content, layout, logos)
+│   └───assets          # Externalised images (club, content, layout, logos)
 ├───src                 # Main source code
 │   ├───assets          # Internal assets (icons, global stylesheets)
 │   ├───constants       # Global constants
@@ -75,7 +75,7 @@ to be used for both the React application and the sitemap builder.
 - **`AppRoutes.tsx`**: Renders the `Routes` and `Route` components from React Router by iterating over the configured
   aliases.
 
-### 🧩 Feature-Based Organization
+### 🧩 Feature-Based Organisation
 
 Code is organised by "features" under `src/features`. Each feature folder is self-contained and typically includes:
 
@@ -104,7 +104,7 @@ The project uses a combination of Bootstrap and custom SCSS:
 
 ---
 
-## 🔧 Build and Tooling
+## 🧰 Build and Tooling
 
 - **Vite**: Handles the build process, including HMR during development and optimised bundling for production.
 - **Manual Chunking**: Large dependencies (e.g. FontAwesome, FullCalendar) are split into separate vendor chunks to

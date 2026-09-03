@@ -45,7 +45,7 @@ The Header is consistent across all pages and consists of:
 
 The Body component is flexible and adapts to the content being displayed. It features:
 
-- **Main Content Area**: Centered and contained within a Bootstrap `Container`.
+- **Main Content Area**: Centred and contained within a Bootstrap `Container`.
 - **Sidebars**: Optional left and right sidebars used for displaying theme-related images (`ImageSidebar`), enhancing
   the visual experience of the page.
 

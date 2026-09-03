@@ -16,6 +16,8 @@ The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) 
     - [🗺️ Roadmap](#-roadmap)
 - [👤 Author](#-author)
 
+---
+
 ## 📖 Introduction
 
 The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly platform
@@ -30,6 +32,8 @@ The repository for this project is located at [GitHub](https://github.com/tahoni
 Feature requests, suggestions for improvements and bugs can be logged using the
 project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page.
 
+---
+
 ## ⚙️ Technology
 
 This is a React project bootstrapped using Vite with the TypeScript React template.
@@ -39,6 +43,8 @@ It is written in TypeScript and uses both JSX and MDX components.
 Bootstrap and React Bootstrap are used for the UI/UX. Styling is done by SCSS stylesheets.
 
 React Router is used for page routing.
+
+---
 
 ## 🚀 Instructions
 
@@ -122,14 +128,16 @@ Regenerates `public/sitemap.xml` from the route metadata.
 
 #### ⚙️ Environment Variables
 
-A npm read key to @tahoni on GitHub needs to be set in the ````NPM_TOKEN_READ```` environment variable to load the
-````tahoni-lib-react```` npm package.
+A npm read key to @tahoni on GitHub needs to be set in the `NPM_TOKEN_READ` environment variable to load the
+`tahoni-lib-react` npm package.
 
-The Google Maps API key from Google Cloud Services needs to be set in the ````GOOGLE_MAPS_API_KEY```` environment
+The Google Maps API key from Google Cloud Services needs to be set in the `GOOGLE_MAPS_API_KEY` environment
 variable, otherwise, the map will not be available.
 
-The reCAPTCHA v2 site key needs to be set in the ````RECAPTCHA_V2_SITE_KEY```` environment variable, otherwise, the
+The reCAPTCHA v2 site key needs to be set in the `RECAPTCHA_V2_SITE_KEY` environment variable, otherwise, the
 Contact Us form's captcha will not be available.
+
+---
 
 ## 📚 Documentation
 
@@ -147,7 +155,7 @@ This project's documentation is spread across a few files, each with a distinct 
 | [`HISTORY.md`](HISTORY.md)             | Narrative history of the project's evolution across all versions                                         |
 | [`RELEASE_NOTES.md`](RELEASE_NOTES.md) | Detailed release notes for the current/latest version only                                               |
 | [`PACKAGES.md`](PACKAGES.md)           | Generated funding-tree manifest listing dependencies seeking sponsorship                                 |
-| [`LICENSE.md`](LICENSE.md)             | MIT License                                                                                              |
+| [`LICENSE.md`](LICENSE.md)             | All Rights Reserved                                                                                      |
 
 [`documentation/history/`](documentation/history) holds one of each of the following files per released version, so past
 releases stay individually referenceable as `RELEASE_NOTES.md` and the release PR moves on to the next version:
@@ -173,6 +181,8 @@ documentation set above, and not required reading to work in this repository:
 
 This project follows [Semantic Versioning 2.0.0](https://semver.org/) (`MAJOR.MINOR.PATCH`) —
 see [CHANGELOG.md](CHANGELOG.md#-version-policy) for the full version policy.
+
+---
 
 ## 👤 Author
 

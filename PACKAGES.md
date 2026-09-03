@@ -9,11 +9,15 @@ This document lists the packages used in the HPSC Website project that are seeki
 - [💰 Subscriptions to packages looking for funding](#-subscriptions-to-packages-looking-for-funding)
 - [💰 Future subscriptions to packages looking for funding](#-future-subscriptions-to-packages-looking-for-funding)
 
+---
+
 ## 📖 Introduction
 
 If you find the following packages useful, please consider supporting their development by visiting the provided links.
 Open source software relies heavily on the contributions of developers who often work voluntarily. Supporting these
 developers helps ensure the sustainability and continued improvement of the software.
+
+---
 
 ## 💰 Packages looking for funding
 
@@ -141,6 +145,8 @@ hpsc-web-vite@4.1.4
 │                   └─── domelementtype@2.3.0
 
 ```
+
+---
 
 ## 💰 Subscriptions to packages looking for funding
 
@@ -271,6 +277,8 @@ hpsc-web-vite@4.1.4
 │                   └─── domelementtype@2.3.0
 
 ```
+
+---
 
 ## 💰 Future subscriptions to packages looking for funding
 

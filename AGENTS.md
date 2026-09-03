@@ -60,8 +60,8 @@ dependencies, both handled by third-party services called directly from the clie
 - **API documentation:** TypeDoc (`npm run docs`, output to `/target/docs`)
 - **Sitemap generation:** custom `builders/RoutesSitemap.ts` script, run via `tsx`
 
-Exact pinned versions are not listed here — they drift with every dependency bump. Check `package.json` for the versions
-currently in use.
+Exact pinned versions are not listed here — they drift with every dependency bump. Check `package.json` for the
+versions currently in use.
 
 ---
 
@@ -82,7 +82,7 @@ See `ARCHITECTURE.md` for the full architectural design; the summary below orien
 
 | Directory            | Role                                                                                                                                                                                                                                                                                    |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `features/`          | One folder per page/domain (`Home`, `AboutUs`, `ContactUs`, `Events`, `History`, `Links`, `Members`, `News`, `Venues`), each self-contained with a `…Page.tsx`, content component(s), optional `.mdx`, styles and a barrel `index.ts`                                                  |
+| `features/`          | One folder per page/domain (`Home`, `AboutUs`, `ContactUs`, `Events`, `History`, `Links`, `Members`, `News`, `Venues`), each self-contained with a `…Page.tsx`, content component(s), optional `.mdx`, styles and a barrel `index.ts`                                                   |
 | `shared/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata as `PageMapping`s), `RouteAliases.tsx` (maps mappings to lazy-loaded components), `AppRoutes.tsx` (renders `Routes`/`Route` from the mappings)                                                                                     |
 | `shared/layouts/`    | `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints` — the page chrome every route renders inside                                                                                                                                                                             |
 | `shared/components/` | Reusable UI: `Captcha`, `Map`, `Sidebar`, `Section`, `Text`, `Title`, `Video`, `Content`                                                                                                                                                                                                |
@@ -100,8 +100,8 @@ See `ARCHITECTURE.md` for the full architectural design; the summary below orien
 
 ### Component/layout folder shape
 
-Each non-trivial component or layout gets its own PascalCase folder (matching [
-`documentation/recommendations/standard-component-naming.md`](documentation/recommendations/standard-component-naming.md)):
+Each non-trivial component or layout gets its own PascalCase folder, matching the shape documented in
+[`standard-component-naming.md`](documentation/recommendations/standard-component-naming.md):
 
 ```
 Header/
@@ -162,16 +162,16 @@ See `README.md`'s Available Scripts section for the complete script list, includ
 `.claude/skills/` holds project-specific Claude Code skills that turn this file's conventions into ready-to-invoke
 workflows, available to any Claude Code session in this repository:
 
-| Skill                          | Purpose                                                                              |
-|---------------------------------|--------------------------------------------------------------------------------------|
-| `generate-commit-message`      | Draft a commit message and matching `CHANGELOG.md` entry for the current working tree changes |
-| `generate-pr-summary`          | Condense a version's `PR_DESCRIPTION.md`/`RELEASE_NOTES.md` into a short Bitbucket-style PR summary |
+| Skill                          | Purpose                                                                                                                                                                 |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `generate-commit-message`      | Draft a commit message and matching `CHANGELOG.md` entry for the current working tree changes                                                                           |
+| `generate-pr-summary`          | Condense a version's `PR_DESCRIPTION.md`/`RELEASE_NOTES.md` into a short Bitbucket-style PR summary                                                                     |
 | `prep-version-release`         | Prepare a new version release — `RELEASE_NOTES.md`, `CHANGELOG.md`, `HISTORY.md`, reverse-synced docs and a draft PR description, following the Release Checklist below |
-| `scaffold-integration-tests`   | Scaffold full-tree route/page rendering tests for a feature page                     |
-| `scaffold-unit-tests`          | Scaffold Vitest unit tests for a component, layout, hook, util, helper or model      |
-| `sync-improvement-plan-gaps`   | Check the current branch's changes against `improvement-plan.md`'s tracked gaps and mark any closed/progressed |
-| `sync-unreleased-changes`      | Audit the current branch's diff and ensure every notable change is reflected in `CHANGELOG.md`'s Unreleased section |
-| `update-improvement-plan-gaps` | Audit the codebase against `improvement-plan.md`/`improvement-plan-tasks.md` and record any newly identified gaps |
+| `scaffold-integration-tests`   | Scaffold full-tree route/page rendering tests for a feature page                                                                                                        |
+| `scaffold-unit-tests`          | Scaffold Vitest unit tests for a component, layout, hook, util, helper or model                                                                                         |
+| `sync-improvement-plan-gaps`   | Check the current branch's changes against `improvement-plan.md`'s tracked gaps and mark any closed/progressed                                                          |
+| `sync-unreleased-changes`      | Audit the current branch's diff and ensure every notable change is reflected in `CHANGELOG.md`'s Unreleased section                                                     |
+| `update-improvement-plan-gaps` | Audit the codebase against `improvement-plan.md`/`improvement-plan-tasks.md` and record any newly identified gaps                                                       |
 
 Every skill reads this file in full before acting and treats it as the single source of truth for the conventions it
 automates — a skill's own instructions must never drift from what's documented here; fix this file first, then update
@@ -193,8 +193,8 @@ All documentation prose and code comments use British English spelling (e.g. "li
   American English and must not be altered; any other doc that names or links to it (headings, tables, ToC entries) also
   spells it "License" for consistency.
 - Third-party product, library and API names.
-- Code identifiers (component, function and variable names) — these follow the codebase's existing naming, not spelling
-  conventions.
+- Code identifiers (component, function and variable names) — these follow the codebase's existing naming, not
+  spelling conventions.
 
 ### Serial commas
 
@@ -324,12 +324,12 @@ These documentation-only folders supplement it:
   is finalised:
 
   | File                       | Purpose                                                    |
-    |----------------------------|------------------------------------------------------------|
+  |----------------------------|------------------------------------------------------------|
   | `RELEASE_NOTES_vX.Y.Z.md`  | Archived snapshot of `RELEASE_NOTES.md` at release time    |
   | `PR_DESCRIPTION_vX.Y.Z.md` | The release pull request's body, archived for that version |
 - **`documentation/recommendations/`** holds general React/TypeScript convention reference notes (naming, directory
-  structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions — read
-  alongside `ARCHITECTURE.md`, not as a replacement for it.
+  structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions —
+  read alongside `ARCHITECTURE.md`, not as a replacement for it.
 
 ### Roadmap Planning
 
@@ -356,8 +356,8 @@ Vitest is configured (`npm test`) but no test files exist yet in this repository
   `test.environment` in a `vitest.config.ts` — neither exists yet).
 - Prefer testing behaviour and rendered output over implementation details; avoid snapshot tests of large component
   trees.
-- Don't write tests whose sole purpose is verifying that TypeScript's type system or a trivial pass-through prop works —
-  test logic, not the compiler.
+- Don't write tests whose sole purpose is verifying that TypeScript's type system or a trivial pass-through prop
+  works — test logic, not the compiler.
 
 ---
 
@@ -387,26 +387,26 @@ This repository follows the [GitFlow](https://nvie.com/posts/a-successful-git-br
 - **`develop`** is the current development branch — all day-to-day work lands here first.
 - **`main`** is the production branch. It is only ever updated by promoting `develop` after a `release/vX.Y.Z` branch
   has merged into it, or directly from a `hotfix/*` branch — never any other source.
-- **`feature/<short-description>`** — day-to-day feature and bug-fix work (e.g. `feature/redesign`). Branch from, and PR
-  back into, `develop`.
+- **`feature/<short-description>`** — day-to-day feature and bug-fix work (e.g. `feature/redesign`). Branch from,
+  and PR back into, `develop`.
 - **`release/vX.Y.Z`** branches are cut from `develop` once it's ready to ship — they carry the release-prep changes
   (version bump, `CHANGELOG.md`/`RELEASE_NOTES.md`, etc.; see the Release Checklist below) and are opened as a PR
   against `develop`. Once that merges, a second PR promotes `develop` into `main` (see Merging below).
-- **`hotfix/<short-description>`** — urgent fixes for a defect already in production. Branch from, and PR directly into,
-  `main`, bypassing `develop` and any in-progress `release/vX.Y.Z` branch so the fix ships immediately. Also, merge/PR
-  the same fix into `develop` so it isn't lost when the next release is cut.
+- **`hotfix/<short-description>`** — urgent fixes for a defect already in production. Branch from, and PR directly
+  into, `main`, bypassing `develop` and any in-progress `release/vX.Y.Z` branch so the fix ships immediately. Also,
+  merge/PR the same fix into `develop` so it isn't lost when the next release is cut.
 
-**All branches are committed to `develop` first, never `main`.** `hotfix/*` is the sole, deliberate exception, and even
-then the same fix still lands on `develop` immediately afterwards (see Merging below). Every other branch — `feature/*`
-and `release/*` included — must never open a PR directly against `main`.
+**All branches are committed to `develop` first, never `main`.** `hotfix/*` is the sole, deliberate exception, and
+even then the same fix still lands on `develop` immediately afterwards (see Merging below). Every other branch —
+`feature/*` and `release/*` included — must never open a PR directly against `main`.
 
 ### Merging
 
-- **`feature/*` → `develop`:** once the PR is approved and CI passes, merge with a standard merge commit (matching this
-  repo's existing history — no squashing or rebasing) and delete the branch afterwards.
-- **`hotfix/*` → `main` and `develop`:** merge the PR into `main` first so the fix ships immediately. Then open a second
-  PR carrying the same commit (s) from the `hotfix/*` branch into `develop`, referencing the original `main` PR in its
-  description — only delete the branch once both merges have landed; so the fix isn't lost when the next
+- **`feature/*` → `develop`:** once the PR is approved and CI passes, merge with a standard merge commit (matching
+  this repo's existing history — no squashing or rebasing) and delete the branch afterwards.
+- **`hotfix/*` → `main` and `develop`:** merge the PR into `main` first so the fix ships immediately. Then open a
+  second PR carrying the same commit (s) from the `hotfix/*` branch into `develop`, referencing the original `main`
+  PR in its description — only delete the branch once both merges have landed; so the fix isn't lost when the next
   `release/vX.Y.Z` branch is cut.
 - **`release/vX.Y.Z` → `develop`:** merge once the Release Checklist below is complete and all tests pass, with a
   standard merge commit and delete the branch afterwards.

@@ -126,6 +126,16 @@ account of the project's full evolution, including that era.
   `CHANGELOG.md`, `HISTORY.md`, `RELEASE_NOTES.md` and the `documentation/roadmap`/`documentation/recommendations`
   files, applying the new Serial Commas convention retroactively; left the byte-for-byte `documentation/history/`
   release archives untouched, as `AGENTS.md`'s Release Checklist requires
+- Fixed structural and spelling conformance issues found in a full audit of `README.md`, `ARCHITECTURE.md`, `UI.md`,
+  `PACKAGES.md` and `HISTORY.md` against `AGENTS.md`'s Documentation Conventions: added the missing `---` section
+  separators to `README.md` and `PACKAGES.md`, replaced quadruple-backtick inline code with single backticks in
+  `README.md`'s Environment Variables section, fixed American spellings ("Organization", "Externalized", "Centered"),
+  corrected `HISTORY.md`'s heading structure (removed a redundant `##` duplicating the H1, promoted its Table of
+  Contents heading from `###` to `##`, renamed the H1 to "HPSC Website History" to match its sibling docs) and its
+  stale `LICENCE` reference and rewrapped several over-length prose lines in `AGENTS.md` and `HISTORY.md`
+- Fixed `README.md`'s Documentation table and `AGENTS.md`'s Documentation File Map describing `LICENSE.md` as "MIT
+  License", when its actual content is a plain "All Rights Reserved" copyright notice — both now describe it
+  accurately; `LICENSE.md` itself is left untouched, per its own fixed-legal-text exception
 
 #### ⚠️ Deprecated
 
