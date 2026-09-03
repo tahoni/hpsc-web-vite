@@ -80,8 +80,8 @@ account of the project's full evolution, including that era.
   shorter pointer to it from `CONTRIBUTING.md`'s new Claude Code Skills section, so both docs stay in sync with the
   skills each of them already relies on
 - Reconciled two icon meanings that had drifted from the sibling `hpsc-web-springboot` repository's `AGENTS.md`:
-  `🧩` now means "Tooling / automation" and `✅` now means "Quality attributes", matching springboot's icon table.
-  Introduced `🗂️` for the "Feature-based organisation" concept `🧩` used to cover (`ARCHITECTURE.md`'s
+  `🧩` now means "Tooling / automation" and `✅` now means "Quality attributes", matching `hpsc-web-springboot`'s
+  icon table. Introduced `🗂️` for the "Feature-based organisation" concept `🧩` used to cover (`ARCHITECTURE.md`'s
   Feature-Based Organisation section and three headings in `documentation/recommendations/`) and split `✅`'s old
   "Checklist"/"Recommendation" usage into `☑️` Checklist (`CONTRIBUTING.md`'s Pull Request Checklist,
   `improvement-plan.md`'s Success Criteria) and `👍` Recommendation / best practices (nine headings across
