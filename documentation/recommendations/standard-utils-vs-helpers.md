@@ -4,7 +4,7 @@
 
 - [🧰 `utils/` (Utilities)](#-utils-utilities)
 - [🗂️ `helpers/` (Helpers)](#-helpers-helpers)
-- [📊 Key Differences Summary](#-key-differences-summary)
+- [🎓 Key Differences Summary](#-key-differences-summary)
 - [🗂️ Common Organisation Patterns](#-common-organisation-patterns)
 - [👍 Recommendation](#-recommendation)
 - [🎯 Practical Rule of Thumb](#-practical-rule-of-thumb)
@@ -157,7 +157,7 @@ export const transformApiPost = (data: ApiResponse): Post => {
 
 ---
 
-## 📊 Key Differences Summary
+## 🎓 Key Differences Summary
 
 | Aspect       | `utils/`                             | `helpers/`                          |
 |--------------|--------------------------------------|-------------------------------------|

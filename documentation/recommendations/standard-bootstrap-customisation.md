@@ -9,7 +9,7 @@
 - [5. Override Variables, Not Rules](#5-override-variables-not-rules)
 - [6. Extend Rather than Rewrite](#6-extend-rather-than-rewrite)
 - [7. Alternative: CSS Custom Properties (Lighter-Weight Option)](#7-alternative-css-custom-properties-lighter-weight-option)
-- [📊 Summary](#-summary)
+- [🎓 Summary](#-summary)
 
 ---
 
@@ -126,7 +126,7 @@ This doesn't recompile components (so things like `.btn-primary`'s hover/focus c
 
 ---
 
-## 📊 Summary
+## 🎓 Summary
 
 | Approach                                    | Best for                                        |
 |---------------------------------------------|-------------------------------------------------|

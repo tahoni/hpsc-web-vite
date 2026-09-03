@@ -14,7 +14,7 @@
     - [8. Constants & Configuration](#8-constants--configuration)
     - [9. Models & Schemas](#9-models--schemas)
     - [10. Test Files](#10-test-files)
-- [📋 Complete Naming Reference](#-complete-naming-reference)
+- [📚 Complete Naming Reference](#-complete-naming-reference)
 - [👍 Best Practices](#-best-practices)
 - [🌳 Quick Decision Tree](#-quick-decision-tree)
 - [🎯 Recommended Standard](#-recommended-standard)
@@ -291,7 +291,7 @@ src/utils/
 
 ---
 
-## 📋 Complete Naming Reference
+## 📚 Complete Naming Reference
 
 | File Type        | Extension      | Naming Convention       | Example           |
 |------------------|----------------|-------------------------|-------------------|

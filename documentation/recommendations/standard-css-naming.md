@@ -7,7 +7,7 @@
 - [3. `main.css`](#3-maincss)
 - [4. `styles.css` or `global.css`](#4-stylescss-or-globalcss)
 - [🏆 Most Popular Convention](#-most-popular-convention)
-- [🔀 Modern Alternatives](#-modern-alternatives)
+- [🔮 Modern Alternatives](#-modern-alternatives)
 - [👍 Recommendation](#-recommendation)
 
 ---
@@ -81,7 +81,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 ---
 
-## 🔀 Modern Alternatives
+## 🔮 Modern Alternatives
 
 ### SCSS/SASS
 

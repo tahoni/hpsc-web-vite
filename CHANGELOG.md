@@ -147,6 +147,13 @@ account of the project's full evolution, including that era.
 - Fixed `README.md`'s Documentation table and `AGENTS.md`'s Documentation File Map describing `LICENSE.md` as "MIT
   License", when its actual content is a plain "All Rights Reserved" copyright notice — both now describe it
   accurately; `LICENSE.md` itself is left untouched, per its own fixed-legal-text exception
+- Fixed inconsistent icon usage across `documentation/recommendations/`/`documentation/roadmap/`: `🔀` (Git workflow),
+  `🔗` (Repository/links), `📊` (Statistics) and `📋` (Version policy/prerequisites) were each reused for unrelated
+  headings in six files, and the roadmap's Next/Later/Ongoing phases duplicated `🏗️`/an undocumented `🔬`/`🔄`
+  (Changed items) rather than having their own icons; reassigned the misused headings to an already-established
+  matching icon (`⚖️`, `🧭`, `🎓` or `📚`) and gave the roadmap phases their own `⏭️`/`⏳`/`🔁`. Also added eleven
+  previously undocumented or newly introduced icons to `AGENTS.md`'s icon table: `🌐`, `🏗️`, `🧱`, `🌳`, `🏆`, `🗝️`,
+  `🏷️`, `⚖️` and the three roadmap phase icons above
 
 #### ⚠️ Deprecated
 

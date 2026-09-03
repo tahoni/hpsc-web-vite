@@ -301,6 +301,17 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 📤   | Output                                  |
 | 👍   | Recommendation / best practices         |
 | ✅   | Quality attributes                      |
+| 🌐   | Global scope                            |
+| 🏗️   | Shared / cross-feature infrastructure   |
+| 🧱   | Component/layout folder shape           |
+| 🌳   | Decision tree / quick reference         |
+| 🏆   | Most popular / prevailing convention    |
+| 🗝️   | Key principles                          |
+| ⏭️   | Next / upcoming                         |
+| ⏳   | Later / pending                         |
+| 🔁   | Ongoing / recurring                     |
+| 🏷️   | Naming conventions                      |
+| ⚖️   | Comparison / trade-offs                 |
 
 ---
 

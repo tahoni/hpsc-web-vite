@@ -6,10 +6,10 @@
 - [🏗️ `src/shared/`: Cross-Feature Infrastructure](#-srcshared-cross-feature-infrastructure)
 - [🧱 Component/Layout Folder Shape](#-componentlayout-folder-shape)
 - [🗂️ `src/models/`, `src/constants/`, `src/enums/`: Grouped by Domain](#-srcmodels-srcconstants-srcenums-grouped-by-domain)
-- [🔀 `src/helpers/` vs `src/utils/`: The Split Is Actually Enforced Here](#-srchelpers-vs-srcutils-the-split-is-actually-enforced-here)
+- [⚖️ `src/helpers/` vs `src/utils/`: The Split Is Actually Enforced Here](#-srchelpers-vs-srcutils-the-split-is-actually-enforced-here)
 - [📦 `src/vendors/<library>/`: Overrides, Not Forks](#-srcvendorslibrary-overrides-not-forks)
 - [🔧 `builders/`: Build-Time Scripts, Outside `src/`](#-builders-build-time-scripts-outside-src)
-- [🔗 Path Aliases Mirror This Structure](#-path-aliases-mirror-this-structure)
+- [🧭 Path Aliases Mirror This Structure](#-path-aliases-mirror-this-structure)
 - [👍 Recommendation](#-recommendation)
 
 ---
@@ -106,7 +106,7 @@ at `src/constants/` because it doesn't belong to a single domain.
 
 ---
 
-## 🔀 `src/helpers/` vs `src/utils/`: The Split Is Actually Enforced Here
+## ⚖️ `src/helpers/` vs `src/utils/`: The Split Is Actually Enforced Here
 
 [`standard-utils-vs-helpers.md`](standard-utils-vs-helpers.md) notes that "many teams simply use `utils/` for
 everything." This project doesn't — it keeps the two folders separate and enforces the semantic split:
@@ -147,7 +147,7 @@ client build.
 
 ---
 
-## 🔗 Path Aliases Mirror This Structure
+## 🧭 Path Aliases Mirror This Structure
 
 Every folder decision above has a matching alias, configured in both `vite.config.ts` (runtime resolution) and
 `tsconfig.app.json` (type-checking):

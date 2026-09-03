@@ -7,9 +7,9 @@ evidence and reasoning there.
 ## Table of Contents
 
 - [🚀 Now](#-now)
-- [🏗️ Next](#-next)
-- [🔬 Later](#-later)
-- [🔄 Ongoing](#-ongoing)
+- [⏭️ Next](#-next)
+- [⏳ Later](#-later)
+- [🔁 Ongoing](#-ongoing)
 
 ---
 
@@ -37,7 +37,7 @@ evidence and reasoning there.
 
 ---
 
-## 🏗️ Next
+## ⏭️ Next
 
 **Zero test coverage despite a configured test runner** *(IMPROVEMENT_PLAN.md → Gap #3)*
 
@@ -54,7 +54,7 @@ evidence and reasoning there.
 
 ---
 
-## 🔬 Later
+## ⏳ Later
 
 **Accessibility has no lint enforcement or documented baseline** *(IMPROVEMENT_PLAN.md → Gap #5)*
 
@@ -78,7 +78,7 @@ evidence and reasoning there.
 
 ---
 
-## 🔄 Ongoing
+## 🔁 Ongoing
 
 **Dependency surface has no ongoing audit discipline** *(IMPROVEMENT_PLAN.md → Gap #8)*
 

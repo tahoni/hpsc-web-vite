@@ -8,7 +8,7 @@
     - [🧱 Component Organisation](#-component-organisation)
     - [📚 Common Folder Purposes](#-common-folder-purposes)
     - [👍 Best Practices](#-best-practices)
-    - [🔗 Configuration for Path Aliases](#-configuration-for-path-aliases)
+    - [🧭 Configuration for Path Aliases](#-configuration-for-path-aliases)
 
 ---
 
@@ -154,7 +154,7 @@ components/
 - Keep the `src/` root clean (only essential files).
 - Use absolute imports with path aliases (`@/components`, `@/utils`).
 
-### 🔗 Configuration for Path Aliases
+### 🧭 Configuration for Path Aliases
 
 Add to `tsconfig.json`:
 
