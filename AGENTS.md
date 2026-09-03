@@ -17,7 +17,7 @@ every agent tool reads `AGENTS.md`.
 - [🔍 Code Quality & CI](#-code-quality--ci)
 - [📝 Documentation Conventions](#-documentation-conventions)
 - [🗺️ Documentation File Map](#-documentation-file-map)
-- [🗺️ Roadmap Planning](#-roadmap-planning)
+- [🛤️ Roadmap Planning](#-roadmap-planning)
 - [🛠️ Claude Code Skills](#-claude-code-skills)
 - [🧪 Test Conventions](#-test-conventions)
 - [📁 Directory Tree Maintenance](#-directory-tree-maintenance)
@@ -238,7 +238,8 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 🎨   | Styling and theming / design            |
 | 🛠️   | Development guidelines                  |
 | 👤   | Author / changes by                     |
-| 🗺️   | Documentation map / roadmap             |
+| 🗺️   | Documentation map                       |
+| 🛤️   | Roadmap                                 |
 | 📋   | Version policy / prerequisites          |
 | 📚   | Documentation / key learnings           |
 | 🏛️   | Architecture                            |
@@ -279,7 +280,9 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 💰   | Funding / sponsorship                   |
 | 📤   | Output                                  |
 | 👍   | Recommendation / best practices         |
-| ✅   | Quality attributes                      |
+| ✅   | Quality attributes / completed (roadmap gap status) |
+| 🟡   | Partially completed (roadmap gap status) |
+| ⚪   | Open / not started (roadmap gap status) |
 | 🌐   | Presentation / API layer                |
 | 🏗️   | Layered architecture                    |
 | 🧭   | Design notes                            |
@@ -348,7 +351,7 @@ These documentation-only folders supplement it:
 
 ---
 
-## 🗺️ Roadmap Planning
+## 🛤️ Roadmap Planning
 
 Unlike the folders above, `documentation/roadmap/` isn't reference material — it's the project's active improvement
 backlog, kept separate from the standard documentation files:

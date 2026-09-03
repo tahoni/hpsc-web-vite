@@ -180,6 +180,15 @@ account of the project's full evolution, including that era.
   that project's Java/Spring Boot backend (`⚡`, `📈`, `📥`, `🔓`, `🔢`, `🔬`, `🗄️`, `🛡️`, `🤔`, `🧬`) — kept out of
   the main table since they're unused here, but reserved so they're never accidentally repurposed for an unrelated
   concept in this project
+- Resolved three more issues found while diffing against `hpsc-web-springboot`'s still-evolving icon table: sidestepped
+  its new `🗂️` (Documentation file index) conflict — rather than reassigning this project's actively-used `🗂️`
+  (Feature-based organisation) again — by fixing this project's own pre-existing `🗺️` reuse across two adjacent
+  `AGENTS.md` headings (Documentation File Map and Roadmap Planning) with a new `🛤️` icon dedicated to Roadmap
+  Planning (and `README.md`'s matching Roadmap section), leaving `🗺️` to mean only "Documentation map"; updated `✅`'s
+  entry to "Quality attributes / completed (roadmap gap status)", reflecting that this project's own
+  `sync-improvement-plan-gaps`/`update-improvement-plan-gaps` skills already describe a
+  ✅ Completed/🟡 Partially Completed/⚪ Open status system for `improvement-plan.md`; added `🟡` and `⚪` as real
+  registry entries for that same reason, rather than reserving them as irrelevant
 
 #### ⚠️ Deprecated
 

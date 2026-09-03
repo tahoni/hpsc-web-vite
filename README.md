@@ -13,7 +13,7 @@ The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) 
     - [🧰 Available Scripts](#-available-scripts)
         - [⚙️ Environment Variables](#-environment-variables)
 - [📚 Documentation](#-documentation)
-    - [🗺️ Roadmap](#-roadmap)
+    - [🛤️ Roadmap](#-roadmap)
 - [👤 Author](#-author)
 
 ---
@@ -169,7 +169,7 @@ releases stay individually referenceable as `RELEASE_NOTES.md` and the release P
 notes (naming, directory structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's
 own conventions — read alongside `ARCHITECTURE.md`, not as a replacement for it.
 
-### 🗺️ Roadmap
+### 🛤️ Roadmap
 
 [`documentation/roadmap/`](documentation/roadmap) holds in-progress planning documents — not part of the standard
 documentation set above, and not required reading to work in this repository:
