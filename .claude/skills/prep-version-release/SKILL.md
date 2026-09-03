@@ -17,17 +17,20 @@ allowed-tools:
 
 # Prepare Version Release
 
-The version to prepare a release for is passed as `args` (e.g. `7.2.0`) — if not supplied, ask the user for it before
-proceeding. The rest of this skill refers to that value as `$VERSION`.
+The version to prepare a release for is passed as `args` (e.g. `7.2.0`) — if not supplied, default to `package.json`'s
+current `version` field (gathered below) rather than asking, since a release branch typically already has it bumped.
+The rest of this skill refers to the resolved value as `$VERSION`.
 
 ## 🔍 Gather current state
 
 Before drafting, run these yourself and read their output:
 
 1. `git branch --show-current`
-2. `git --no-pager diff --stat main...HEAD` (changes relative to `main`)
-3. `git log main..HEAD --oneline` (commit log relative to `main`)
-4. Read `AGENTS.md` in full for conventions.
+2. `package.json`'s current `version` field.
+3. `git --no-pager diff --stat main...HEAD` (changes relative to `main`)
+4. `git log main..HEAD --oneline` (commit log relative to `main`)
+5. Read `CHANGELOG.md`'s current `### 🧪 [Unreleased]` section.
+6. Read `AGENTS.md` in full for conventions.
 
 ## 🚀 Instructions
 
@@ -49,7 +52,7 @@ Steps:
    first skill just found). Neither commits on its own — review their draft edits with the user before continuing.
    This satisfies AGENTS.md's Release Checklist step of checking the roadmap docs before starting version-specific
    work.
-3. **Bump `package.json`.** Update the `version` field to `$VERSION`.
+3. **Bump `package.json`.** If its `version` field doesn't already equal `$VERSION`, update it now.
 4. **Run the `sync-unreleased-changes` skill before touching CHANGELOG.md.** Release branches are cut from `develop`
    (per AGENTS.md's Branching Model), so invoke it with its default base (`develop`) — never skip this even if
    `[Unreleased]` looks complete: it cross-checks every commit and any uncommitted diff against the actual

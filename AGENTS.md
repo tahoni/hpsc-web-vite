@@ -344,7 +344,7 @@ Vitest is configured (`npm test`) but no test files exist yet in this repository
 - Directories covered by `.gitignore` (e.g. `.idea/`, `.run/`, `node_modules/`, `dist/`, `target/`) must never appear in
   that tree.
 - Tracked tooling directories — `.claude/` and `.github/` — do belong in the tree, even though they sit alongside
-  gitignored directories at the repository root: they hold version-controlled configuration (Claude Code commands,
+  gitignored directories at the repository root: they hold version-controlled configuration (Claude Code skills,
   GitHub Actions workflows) rather than local machine state.
 - Directory comments in the tree describe purpose generically and must never enumerate the individual features or files
   inside — features are added, renamed and removed far more often than the directories that hold them, so a listed

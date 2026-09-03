@@ -36,7 +36,7 @@ The application is built using modern web technologies:
 The project follows a modular structure, separating shared infrastructure from feature-specific logic.
 
 ```text
-├───.claude             # Claude Code configuration (custom slash commands)
+├───.claude             # Claude Code configuration (custom skills)
 ├───.github             # GitHub configuration (Actions workflows)
 ├───builders            # Build-time scripts (e.g., sitemap generation)
 ├───documentation       # Project documentation, release history archive and planning notes

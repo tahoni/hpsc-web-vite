@@ -32,7 +32,8 @@ Before drafting, run these yourself and read their output:
    git --no-pager log --oneline "$base"..HEAD 2>/dev/null
    git --no-pager diff --stat "$base"..HEAD 2>/dev/null
    ```
-5. Read `AGENTS.md` in full for conventions.
+5. Read `CHANGELOG.md`'s current `### 🧪 [Unreleased]` section.
+6. Read `AGENTS.md` in full for conventions.
 
 ## 🚀 Instructions
 

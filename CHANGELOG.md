@@ -130,6 +130,9 @@ account of the project's full evolution, including that era.
 
 ##### Build & Tooling
 
+- Removed the six `.claude/commands/` slash commands, now fully superseded by their `.claude/skills/` equivalents
+  (same names, same behaviour); updated `AGENTS.md`'s Directory Tree Maintenance rule and `ARCHITECTURE.md`'s Project
+  Structure tree to describe `.claude/` as holding "custom skills" rather than "commands"
 - Removed the `overrides` entry pinning `@babel/plugin-transform-runtime` to `^7.29.7` in `package.json` — added to
   resolve an `ERESOLVE` conflict when `@vitejs/plugin-react` was first bumped to v6, but that plugin's optional
   Rolldown/React Compiler peer chain (`@rolldown/plugin-babel`, `babel-plugin-react-compiler`) was never installed in
