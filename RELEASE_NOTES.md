@@ -174,7 +174,7 @@ and archive-sync issues.
 - **Total Commits:** 22
 - **Files Changed:** 26 (+3,694 / −3,080 lines)
 
-## 🧭 Design Notes
+## 💡 Design Notes
 
 - **Batch deferred majors once, not one-by-one.** 5.0.0 deliberately deferred every dependency with a breaking
   major-version jump (`@rjsf`, `react-router`, `@fortawesome`, etc.) pending code changes; this release does that work

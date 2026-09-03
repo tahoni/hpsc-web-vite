@@ -154,6 +154,8 @@ account of the project's full evolution, including that era.
   matching icon (`⚖️`, `🧭`, `🎓` or `📚`) and gave the roadmap phases their own `⏭️`/`⏳`/`🔁`. Also added eleven
   previously undocumented or newly introduced icons to `AGENTS.md`'s icon table: `🌐`, `🏗️`, `🧱`, `🌳`, `🏆`, `🗝️`,
   `🏷️`, `⚖️` and the three roadmap phase icons above
+- Fixed `RELEASE_NOTES.md`'s "Design Notes" section using `🧭` (Routing/navigation) instead of `💡`
+  (Philosophy/insight), found while auditing the rest of the repository's docs for the same kind of icon reuse
 
 #### ⚠️ Deprecated
 
