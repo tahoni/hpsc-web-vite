@@ -7,7 +7,7 @@
 - [3. Page-Level MDX Files](#3-page-level-mdx-files)
 - [4. Documentation Site MDX](#4-documentation-site-mdx)
 - [🏆 Most Common Conventions](#-most-common-conventions)
-- [✅ Best Practices](#-best-practices)
+- [👍 Best Practices](#-best-practices)
 - [🎯 Recommendation for Your Project](#-recommendation-for-your-project)
 
 ---
@@ -129,7 +129,7 @@ src/
 
 ---
 
-## ✅ Best Practices
+## 👍 Best Practices
 
 **Consistent naming conventions:**
 

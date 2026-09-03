@@ -253,7 +253,8 @@ genuinely new concept. Icons already established in this repository's documentat
 | 📁   | Project / directory structure           |
 | 🎯   | Core concepts / theme overview          |
 | 🧭   | Routing / navigation                    |
-| 🧩   | Feature-based organisation              |
+| 🗂️   | Feature-based organisation              |
+| 🧩   | Tooling / automation                    |
 | 📝   | Content strategy / documentation        |
 | 🎨   | Styling and theming / design            |
 | 🛠️   | Development guidelines                  |
@@ -286,7 +287,9 @@ genuinely new concept. Icons already established in this repository's documentat
 | 🔐   | Security                                |
 | 📋   | Version policy / prerequisites          |
 | 🤝   | Contributing                            |
-| ✅   | Checklist                               |
+| ☑️   | Checklist                               |
+| 👍   | Recommendation / best practices         |
+| ✅   | Quality attributes                      |
 | 💬   | Support                                 |
 | 📅   | Historical timeline / dates             |
 | 💡   | Philosophy / insight                    |

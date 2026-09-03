@@ -79,6 +79,14 @@ account of the project's full evolution, including that era.
 - Added a new Claude Code Skills section to `AGENTS.md`, listing all eight `.claude/skills/` and their purpose, and a
   shorter pointer to it from `CONTRIBUTING.md`'s new Claude Code Skills section, so both docs stay in sync with the
   skills each of them already relies on
+- Reconciled two icon meanings that had drifted from the sibling `hpsc-web-springboot` repository's `AGENTS.md`:
+  `🧩` now means "Tooling / automation" and `✅` now means "Quality attributes", matching springboot's icon table.
+  Introduced `🗂️` for the "Feature-based organisation" concept `🧩` used to cover (`ARCHITECTURE.md`'s
+  Feature-Based Organisation section and three headings in `documentation/recommendations/`) and split `✅`'s old
+  "Checklist"/"Recommendation" usage into `☑️` Checklist (`CONTRIBUTING.md`'s Pull Request Checklist,
+  `improvement-plan.md`'s Success Criteria) and `👍` Recommendation / best practices (nine headings across
+  `documentation/recommendations/`); also fixed three American spellings ("Organizational", "Organization" ×2) found
+  in `standard-directory-structure.md` along the way
 
 #### 🐛 Fixed
 

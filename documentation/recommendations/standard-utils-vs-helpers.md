@@ -3,10 +3,10 @@
 ## Table of Contents
 
 - [🧰 `utils/` (Utilities)](#-utils-utilities)
-- [🧩 `helpers/` (Helpers)](#-helpers-helpers)
+- [🗂️ `helpers/` (Helpers)](#-helpers-helpers)
 - [📊 Key Differences Summary](#-key-differences-summary)
 - [🗂️ Common Organisation Patterns](#-common-organisation-patterns)
-- [✅ Recommendation](#-recommendation)
+- [👍 Recommendation](#-recommendation)
 - [🎯 Practical Rule of Thumb](#-practical-rule-of-thumb)
 
 ---
@@ -78,7 +78,7 @@ export const chunk = <T>(array: T[], size: number): T[][] => {
 
 ---
 
-## 🧩 `helpers/` (Helpers)
+## 🗂️ `helpers/` (Helpers)
 
 **Purpose:** Application-specific functions that support business logic and may have dependencies on React, app context,
 or domain models.
@@ -212,7 +212,7 @@ src/
 
 ---
 
-## ✅ Recommendation
+## 👍 Recommendation
 
 **For most projects:** use one folder (`utils/`) and organise by category:
 

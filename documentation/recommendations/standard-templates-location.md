@@ -10,7 +10,7 @@
 - [6. Content Templates (MDX, Markdown)](#6-content-templates-mdx-markdown)
 - [7. Configuration Templates](#7-configuration-templates)
 - [📐 Complete Structure Example](#-complete-structure-example)
-- [✅ Best Practices](#-best-practices)
+- [👍 Best Practices](#-best-practices)
 - [🎯 Recommendation for Email Templates](#-recommendation-for-email-templates)
 
 ---
@@ -271,7 +271,7 @@ project-root/
 
 ---
 
-## ✅ Best Practices
+## 👍 Best Practices
 
 **Organise by purpose:**
 

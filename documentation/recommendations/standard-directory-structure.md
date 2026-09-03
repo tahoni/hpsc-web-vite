@@ -3,11 +3,11 @@
 ## Table of Contents
 
 - [📁 Recommended Structure](#-recommended-structure)
-- [🗝️ Key Organizational Principles](#-key-organizational-principles)
-    - [🧩 Feature-Based Organization (Alternative)](#-feature-based-organization-alternative)
-    - [🧱 Component Organization](#-component-organization)
+- [🗝️ Key Organisational Principles](#-key-organisational-principles)
+    - [🗂️ Feature-Based Organisation (Alternative)](#-feature-based-organisation-alternative)
+    - [🧱 Component Organisation](#-component-organisation)
     - [📚 Common Folder Purposes](#-common-folder-purposes)
-    - [✅ Best Practices](#-best-practices)
+    - [👍 Best Practices](#-best-practices)
     - [🔗 Configuration for Path Aliases](#-configuration-for-path-aliases)
 
 ---
@@ -98,9 +98,9 @@ my-react-app/
 
 ---
 
-## 🗝️ Key Organizational Principles
+## 🗝️ Key Organisational Principles
 
-### 🧩 Feature-Based Organization (Alternative)
+### 🗂️ Feature-Based Organisation (Alternative)
 
 For larger applications, consider organizing by feature:
 
@@ -121,7 +121,7 @@ src/
 │   └── utils/
 ```
 
-### 🧱 Component Organization
+### 🧱 Component Organisation
 
 ```text
 components/
@@ -145,7 +145,7 @@ components/
 - **`context/`** — React Context providers
 - **`store/`** — Global state management
 
-### ✅ Best Practices
+### 👍 Best Practices
 
 - Keep components small and focused.
 - Co-locate related files (component + styles + tests).

@@ -5,8 +5,8 @@
 - [🌐 Global Styles: `App.scss`](#-global-styles-appscss)
 - [🎨 Shared/Personal Styles: `src/assets/styles/`](#-sharedpersonal-styles-srcassetsstyles)
 - [📦 Vendor Overrides: `src/vendors/bootstrap/styles/`](#-vendor-overrides-srcvendorsbootstrapstyles)
-- [🧩 Component/Layout Styles: CSS Modules](#-componentlayout-styles-css-modules)
-- [✅ Recommendation](#-recommendation)
+- [🗂️ Component/Layout Styles: CSS Modules](#-componentlayout-styles-css-modules)
+- [👍 Recommendation](#-recommendation)
 
 ---
 
@@ -109,7 +109,7 @@ grid/breakpoint mixins — `_custom.scss` doesn't override any grid variables, s
 
 ---
 
-## 🧩 Component/Layout Styles: CSS Modules
+## 🗂️ Component/Layout Styles: CSS Modules
 
 Every non-trivial component or layout gets its own scoped `*.module.scss` file, colocated in its component folder (see [
 `standard-component-naming.md`](standard-component-naming.md)):
@@ -127,7 +127,7 @@ Examples already in the codebase: `Header.module.scss`, `Footer.module.scss`, `B
 
 ---
 
-## ✅ Recommendation
+## 👍 Recommendation
 
 - Keep `App.scss` as the single global stylesheet aggregator. Do not add an `index.scss`.
 - Put project-wide SCSS (colours, fonts, theme, variables, shared base styles) in `src/assets/styles/` as partials,

@@ -12,7 +12,7 @@ project, follow this repository's workflow and submit a pull request.
 - [🔀 Git Workflow](#-git-workflow)
 - [📝 Documentation Conventions](#-documentation-conventions)
 - [🧪 Testing](#-testing)
-- [✅ Pull Request Checklist](#-pull-request-checklist)
+- [☑️ Pull Request Checklist](#-pull-request-checklist)
 - [💬 Questions & Support](#-questions--support)
 
 ---
@@ -111,7 +111,7 @@ tests, per `AGENTS.md`'s Test Conventions:
 
 ---
 
-## ✅ Pull Request Checklist
+## ☑️ Pull Request Checklist
 
 Before opening a pull request, confirm:
 

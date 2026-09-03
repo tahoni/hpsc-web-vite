@@ -8,7 +8,7 @@
 - [4. `styles.css` or `global.css`](#4-stylescss-or-globalcss)
 - [🏆 Most Popular Convention](#-most-popular-convention)
 - [🔀 Modern Alternatives](#-modern-alternatives)
-- [✅ Recommendation](#-recommendation)
+- [👍 Recommendation](#-recommendation)
 
 ---
 
@@ -105,6 +105,6 @@ No main stylesheet needed — styles are defined in JavaScript.
 
 ---
 
-## ✅ Recommendation
+## 👍 Recommendation
 
 Use `index.css` for global styles — it's the de facto standard in the React ecosystem and what most developers expect to see.

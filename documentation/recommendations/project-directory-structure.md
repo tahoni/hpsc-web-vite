@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [🧩 `src/features/<Feature>/`: One Folder per Page/Domain](#-srcfeaturesfeature-one-folder-per-pagedomain)
+- [🗂️ `src/features/<Feature>/`: One Folder per Page/Domain](#-srcfeaturesfeature-one-folder-per-pagedomain)
 - [🏗️ `src/shared/`: Cross-Feature Infrastructure](#-srcshared-cross-feature-infrastructure)
 - [🧱 Component/Layout Folder Shape](#-componentlayout-folder-shape)
 - [🗂️ `src/models/`, `src/constants/`, `src/enums/`: Grouped by Domain](#-srcmodels-srcconstants-srcenums-grouped-by-domain)
@@ -10,7 +10,7 @@
 - [📦 `src/vendors/<library>/`: Overrides, Not Forks](#-srcvendorslibrary-overrides-not-forks)
 - [🔧 `builders/`: Build-Time Scripts, Outside `src/`](#-builders-build-time-scripts-outside-src)
 - [🔗 Path Aliases Mirror This Structure](#-path-aliases-mirror-this-structure)
-- [✅ Recommendation](#-recommendation)
+- [👍 Recommendation](#-recommendation)
 
 ---
 
@@ -22,7 +22,7 @@ behind it, so new folders get added consistently rather than drifting toward the
 
 ---
 
-## 🧩 `src/features/<Feature>/`: One Folder per Page/Domain
+## 🗂️ `src/features/<Feature>/`: One Folder per Page/Domain
 
 Every top-level page/domain (`Home`, `AboutUs`, `ContactUs`, `Events`, `History`, `Links`, `Members`, `News`, `Venues`)
 is a single self-contained folder:
@@ -172,7 +172,7 @@ alias; treat `@shared/routes` as the real one.
 
 ---
 
-## ✅ Recommendation
+## 👍 Recommendation
 
 - Organise anything page-shaped as a self-contained `src/features/<Feature>/` folder (page + content + `.mdx`), not
   split across separate `pages/`/`components/`/`services/` trees.

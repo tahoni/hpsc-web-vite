@@ -11,7 +11,7 @@ project and should be revisited whenever a major gap it names is closed or a new
 - [⚙️ Goals & Constraints (Synthesised)](#-goals--constraints-synthesised)
 - [🔍 Gaps & Improvement Opportunities](#-gaps--improvement-opportunities)
 - [🚀 Roadmap](#-roadmap)
-- [✅ Success Criteria](#-success-criteria)
+- [☑️ Success Criteria](#-success-criteria)
 - [📚 Related Documentation](#-related-documentation)
 
 ---
@@ -169,7 +169,7 @@ periodic (e.g. monthly) dependency-update cadence in `../../AGENTS.md`.
 
 ---
 
-## ✅ Success Criteria
+## ☑️ Success Criteria
 
 - A CI workflow runs `npm run lint`, `npm run build` and `npm test` automatically on PRs to `develop`/`main`, so
   `../../AGENTS.md`'s Code Quality & CI section can drop its "run these locally" caveat.

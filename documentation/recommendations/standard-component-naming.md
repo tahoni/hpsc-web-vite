@@ -15,7 +15,7 @@
     - [9. Models & Schemas](#9-models--schemas)
     - [10. Test Files](#10-test-files)
 - [📋 Complete Naming Reference](#-complete-naming-reference)
-- [✅ Best Practices](#-best-practices)
+- [👍 Best Practices](#-best-practices)
 - [🌳 Quick Decision Tree](#-quick-decision-tree)
 - [🎯 Recommended Standard](#-recommended-standard)
 
@@ -309,7 +309,7 @@ src/utils/
 
 ---
 
-## ✅ Best Practices
+## 👍 Best Practices
 
 **Consistency is key.** Choose a convention and stick to it across your project — all components PascalCase, all utilities camelCase, all services camelCase or PascalCase (pick one).
 

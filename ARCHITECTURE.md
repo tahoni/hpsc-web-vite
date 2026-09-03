@@ -9,7 +9,7 @@ Practical Shooting Club (HPSC) website.
 - [📁 Project Structure](#-project-structure)
 - [🎯 Core Concepts](#-core-concepts)
     - [🧭 Data-Driven Routing](#-data-driven-routing)
-    - [🧩 Feature-Based Organisation](#-feature-based-organisation)
+    - [🗂️ Feature-Based Organisation](#-feature-based-organisation)
     - [📝 Content Strategy (MDX)](#-content-strategy-mdx)
     - [🎨 Styling and Theming](#-styling-and-theming)
 - [🧰 Build and Tooling](#-build-and-tooling)
@@ -75,7 +75,7 @@ to be used for both the React application and the sitemap builder.
 - **`AppRoutes.tsx`**: Renders the `Routes` and `Route` components from React Router by iterating over the configured
   aliases.
 
-### 🧩 Feature-Based Organisation
+### 🗂️ Feature-Based Organisation
 
 Code is organised by "features" under `src/features`. Each feature folder is self-contained and typically includes:
 
