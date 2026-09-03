@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Conventions for any AI coding agent working in this repository — project overview, tech stack, architecture, build/run
-commands, environment variables, code quality & CI, documentation conventions, testing, git workflow, and the release
+commands, environment variables, code quality & CI, documentation conventions, testing, git workflow and the release
 checklist all live here. [`CLAUDE.md`](CLAUDE.md) is a thin pointer to this file, kept only because Claude Code
 specifically looks for a file by that name. Some content (documentation conventions, icon reuse) is intentionally
 restated in both this file and the per-file docs it governs, since not every agent tool reads `AGENTS.md`.
@@ -27,7 +27,7 @@ restated in both this file and the per-file docs it governs, since not every age
 ## 📖 Project Overview
 
 HPSC Web is the React/TypeScript frontend for the Hartbeespoortdam Practical Shooting Club (HPSC) website — an
-informational and content-driven site covering club news, events, history, venues, and membership information. There is
+informational and content-driven site covering club news, events, history, venues and membership information. There is
 no backend in this repository; contact-form email delivery and reCAPTCHA verification are the only server-side
 dependencies, both handled by third-party services called directly from the client.
 
@@ -71,7 +71,7 @@ The application is organised by feature, with shared infrastructure centralised 
 ```
 Route (React Router)
     → Feature page   (src/features/<Feature>/<Feature>Page.tsx)
-    → Feature content (…Content.tsx, and .mdx for content-heavy pages)
+    → Feature content (…Content.tsx and .mdx for content-heavy pages)
     → Shared components / layouts (src/shared/components/, src/shared/layouts/)
 ```
 
@@ -81,7 +81,7 @@ See `ARCHITECTURE.md` for the full architectural design; the summary below orien
 
 | Directory            | Role                                                                                                                                                                                                                                                                                    |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `features/`          | One folder per page/domain (`Home`, `AboutUs`, `ContactUs`, `Events`, `History`, `Links`, `Members`, `News`, `Venues`), each self-contained with a `…Page.tsx`, content component(s), optional `.mdx`, styles, and a barrel `index.ts`                                                  |
+| `features/`          | One folder per page/domain (`Home`, `AboutUs`, `ContactUs`, `Events`, `History`, `Links`, `Members`, `News`, `Venues`), each self-contained with a `…Page.tsx`, content component(s), optional `.mdx`, styles and a barrel `index.ts`                                                  |
 | `shared/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata as `PageMapping`s), `RouteAliases.tsx` (maps mappings to lazy-loaded components), `AppRoutes.tsx` (renders `Routes`/`Route` from the mappings)                                                                                     |
 | `shared/layouts/`    | `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints` — the page chrome every route renders inside                                                                                                                                                                             |
 | `shared/components/` | Reusable UI: `Captcha`, `Map`, `Sidebar`, `Section`, `Text`, `Title`, `Video`, `Content`                                                                                                                                                                                                |
@@ -149,9 +149,9 @@ See `README.md`'s Available Scripts section for the complete script list, includ
 ## 🔍 Code Quality & CI
 
 - **CodeQL**: security analysis, runs on push/PR to `main` and weekly. Config: `.github/workflows/codeql.yml`.
-- **ESLint**: flat config (`eslint.config.js`) — TypeScript, React Hooks, and `react-refresh` rules. `.eslintrc.cjs` is
+- **ESLint**: flat config (`eslint.config.js`) — TypeScript, React Hooks and `react-refresh` rules. `.eslintrc.cjs` is
   a legacy mirror kept for tooling that hasn't migrated to flat config; keep the two in sync when changing lint rules.
-- There is currently no CI workflow that runs `npm run lint`, `npm run build`, or `npm test` — only CodeQL runs
+- There is currently no CI workflow that runs `npm run lint`, `npm run build` or `npm test` — only CodeQL runs
   automatically. Run these locally before opening a PR.
 
 ---
@@ -168,9 +168,15 @@ All documentation prose and code comments use British English spelling (e.g. "li
 - Standard legal or licence boilerplate. The `LICENSE.md` file itself (name and content) is a fixed legal term in
   American English and must not be altered; any other doc that names or links to it (headings, tables, ToC entries) also
   spells it "License" for consistency.
-- Third-party product, library, and API names.
-- Code identifiers (component, function, and variable names) — these follow the codebase's existing naming, not spelling
+- Third-party product, library and API names.
+- Code identifiers (component, function and variable names) — these follow the codebase's existing naming, not spelling
   conventions.
+
+### Serial commas
+
+Lists of three or more items don't take a comma before the final `and`/`or` (e.g. "news, events and venues", not
+"news, events, and venues") — consistent with the British English convention above. This doesn't apply to a comma
+joining two independent clauses (e.g. "the build passed, and the release was tagged"), only to the last item of a list.
 
 ### TSDoc
 
@@ -178,10 +184,10 @@ All documentation prose and code comments use British English spelling (e.g. "li
   documentation — not American English.
 - `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule is enabled (see `.eslintrc.cjs`); doc comments must be syntactically valid
   TSDoc, not JSDoc-only syntax.
-- Document exported components, hooks, and utility functions with a summary line and `@param`/`@returns` where the
+- Document exported components, hooks and utility functions with a summary line and `@param`/`@returns` where the
   signature isn't self-explanatory from its types.
 - Don't restate what strict TypeScript types already make obvious (e.g. don't write `@param name - The name` for
-  `name: string`) — reserve prose for behaviour, side effects, and non-obvious constraints.
+  `name: string`) — reserve prose for behaviour, side effects and non-obvious constraints.
 
 ### Contributors
 
@@ -271,17 +277,17 @@ genuinely new concept. Icons already established in this repository's documentat
 
 ## 🗺️ Documentation File Map
 
-Root-level documentation, and the goal of each file (see `README.md`'s own [📚 Documentation](README.md#-documentation)
+Root-level documentation and the goal of each file (see `README.md`'s own [📚 Documentation](README.md#-documentation)
 section — `README.md` is the canonical version if the two ever drift):
 
 | File               | Purpose                                                                        |
 |--------------------|--------------------------------------------------------------------------------|
-| `README.md`        | Project overview, setup, and links to the rest of the documentation            |
-| `ARCHITECTURE.md`  | Detailed architectural design, directory structure, and core concepts          |
-| `UI.md`            | User interface layout, navigation, and design overview                         |
+| `README.md`        | Project overview, setup and links to the rest of the documentation             |
+| `ARCHITECTURE.md`  | Detailed architectural design, directory structure and core concepts           |
+| `UI.md`            | User interface layout, navigation and design overview                          |
 | `CLAUDE.md`        | Thin pointer to `AGENTS.md`, kept for tools that specifically read `CLAUDE.md` |
 | `AGENTS.md`        | Cross-tool agent conventions — the full guidance (this file)                   |
-| `CONTRIBUTING.md`  | Contributor-facing setup, git workflow, and pull request checklist             |
+| `CONTRIBUTING.md`  | Contributor-facing setup, git workflow and pull request checklist              |
 | `CHANGELOG.md`     | Notable changes per released version, in Keep a Changelog format               |
 | `HISTORY.md`       | Narrative history of the project's evolution across all versions               |
 | `RELEASE_NOTES.md` | Detailed release notes for the current/latest version only                     |
@@ -307,7 +313,7 @@ Unlike the folders above, `documentation/roadmap/` isn't reference material — 
 backlog, kept separate from the standard documentation files:
 
 - **`improvement-plan.md`** — a synthesis of this project's own goals/constraints into numbered, evidence-backed gaps
-  (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success Criteria.
+  (each with its Evidence, Why it matters and Proposed improvement), a Roadmap table and Success Criteria.
 - **`improvement-plan-tasks.md`** — the checkbox-level task breakdown of those gaps, organised by the plan's
   Now/Next/Later/Ongoing phasing (each item tags its originating gap number).
 
@@ -337,6 +343,12 @@ Vitest is configured (`npm test`) but no test files exist yet in this repository
   Structure tree must be updated in the same change.
 - Directories covered by `.gitignore` (e.g. `.idea/`, `.run/`, `node_modules/`, `dist/`, `target/`) must never appear in
   that tree.
+- Tracked tooling directories — `.claude/` and `.github/` — do belong in the tree, even though they sit alongside
+  gitignored directories at the repository root: they hold version-controlled configuration (Claude Code commands,
+  GitHub Actions workflows) rather than local machine state.
+- Directory comments in the tree describe purpose generically and must never enumerate the individual features or files
+  inside — features are added, renamed and removed far more often than the directories that hold them, so a listed
+  feature name goes stale quickly while the generic description keeps the tree evergreen.
 - When adding a path alias to `vite.config.ts`, add the matching entry to `tsconfig.app.json`'s `paths` in the same
   change — the two must stay in sync.
 
@@ -373,7 +385,7 @@ and `release/*` included — must never open a PR directly against `main`.
   description — only delete the branch once both merges have landed; so the fix isn't lost when the next
   `release/vX.Y.Z` branch is cut.
 - **`release/vX.Y.Z` → `develop`:** merge once the Release Checklist below is complete and all tests pass, with a
-  standard merge commit, and delete the branch afterwards.
+  standard merge commit and delete the branch afterwards.
 - **`develop` → `main`:** immediately after, open a second PR promoting `develop` into `main` and merge it; tag the
   resulting commit on `main` as `version-X.Y.Z` (this project's tag format — not `vX.Y.Z`, matching the links already
   used in `CHANGELOG.md`/`HISTORY.md`).
@@ -381,7 +393,7 @@ and `release/*` included — must never open a PR directly against `main`.
 ### Conventions
 
 - **Commit in logical chunks.** One concern per commit — do not bundle unrelated changes (e.g. a dependency bump, a
-  documentation update, and a bug fix) into a single commit.
+  documentation update and a bug fix) into a single commit.
 - **Track complex work with a todo list.** For multistep or non-trivial tasks, maintain a tracked todo list and keep it
   updated as work progresses, so progress stays visible and the work stays on track.
 - **Update `CHANGELOG.md` in the same change.** Every notable change gets an entry under `### 🧪 [Unreleased]`, in the
@@ -399,14 +411,18 @@ and `release/*` included — must never open a PR directly against `main`.
 When cutting a new version, work through these steps **in order** — the version number and date must be final before
 anything downstream references them:
 
-1. **Bump `package.json`.** Update the `version` field to the new `X.Y.Z`.
-2. **Promote `### 🧪 [Unreleased]` to a dated version entry.** Rename it `### 🧾 [X.Y.Z] - YYYY-MM-DD`, keeping only the
-   Keep a Changelog categories that actually have entries (`➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`,
-   `🗑️ Removed`, `🔐 Security` — omit any that are empty) and their `##### <Area>` subheadings. Add the new version to
-   the Table of Contents, move the "← Current" marker onto it, then start a fresh, fully-empty `### 🧪 [Unreleased]`
-   section above it (six empty category headings: `➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`,
-   `🔐 Security`).
-3. **Replace `RELEASE_NOTES.md`.** Unlike `CHANGELOG.md`, this file holds only the *current* release. Follow this
+1. **Check `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md`.** Before starting any
+   version-specific work, check whether this release has closed, progressed or newly revealed any of the gaps
+   tracked there, and update them accordingly.
+2. **Bump `package.json`.** Update the `version` field to the new `X.Y.Z`.
+3. **Promote `### 🧪 [Unreleased]` to a dated version entry.** Cross-check every commit and any uncommitted diff on the
+   release branch against its entries first — don't assume it's already accurate just because entries were added along
+   the way; fill in anything missing. Then rename it `### 🧾 [X.Y.Z] - YYYY-MM-DD`, keeping only the Keep a Changelog
+   categories that actually have entries (`➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`,
+   `🔐 Security` — omit any that are empty) and their `##### <Area>` subheadings. Add the new version to the Table of
+   Contents, move the "← Current" marker onto it, then start a fresh, fully-empty `### 🧪 [Unreleased]` section above
+   it (six empty category headings: `➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security`).
+4. **Replace `RELEASE_NOTES.md`.** Unlike `CHANGELOG.md`, this file holds only the *current* release. Follow this
    section order: **Theme** (a one-line focus, expanded into a short paragraph, matching the Theme that will go into
    `HISTORY.md`'s Historical Timeline entry for this version) → **Key Highlights** (grouped under a few named `###`
    subheadings, each with a short bullet list, matching that entry's Key Focus bullets) → **What's New** (the
@@ -418,17 +434,23 @@ anything downstream references them:
    **everything** that changed for this version, not just the most recent commit — diff the release branch against the
    previous release tag (`git log <prev-tag>..HEAD`, `git diff --stat <prev-tag>...HEAD`) to confirm full coverage
    before finalising. Replace the previous version's content outright rather than appending to it.
-4. **Verify links and dates.** Confirm the `version-X.Y.Z` tag slug and the `YYYY-MM-DD` date match between
+5. **Verify links and dates.** Confirm the `version-X.Y.Z` tag slug and the `YYYY-MM-DD` date match between
    `CHANGELOG.md` and `RELEASE_NOTES.md`.
-5. **Extend `HISTORY.md`.** Add a new entry to the Historical Timeline (Theme and Key Focus bullets, at the same depth
+6. **Extend `HISTORY.md`.** Add a new entry to the Historical Timeline (Theme and Key Focus bullets, at the same depth
    as the existing entries, placed at the top to keep reverse chronological order). If the release is significant enough
    to have shifted the project's trajectory, also thread it through the other sections that track version-by-version
    state: (Evolution Overview's Phases, Major Milestones, Architectural Evolution, Feature Timeline, Project Philosophy
    Evolution, Key Learnings, Future Roadmap Implications, Conclusion). Use how the immediately preceding version was
    woven into those sections as the template. A routine patch release may only need the Historical Timeline entry.
-6. **Archive `RELEASE_NOTES.md`.** Once finalised, copy it byte-for-byte (no edits, no trimming) to
+7. **Update `CONTRIBUTING.md`** only if this version's changes affect developer setup, environment variables,
+   development scripts, git workflow or testing conventions documented there.
+8. **Verify `ARCHITECTURE.md`'s Project Structure tree against disk.** Per-change Directory Tree Maintenance (above)
+   still lets drift slip through, so treat every release as a backstop: cross-check the tree against the actual
+   repository structure and correct any directory that's missing, renamed or gone stale, including tracked tooling
+   directories (`.claude/`, `.github/`) — not just `src/`.
+9. **Archive `RELEASE_NOTES.md`.** Once finalised, copy it byte-for-byte (no edits, no trimming) to
    `documentation/history/RELEASE_NOTES_vX.Y.Z.md`.
-7. **Write `documentation/history/PR_DESCRIPTION_vX.Y.Z.md`.** The body text for the release pull request. Keep it
+10. **Write `documentation/history/PR_DESCRIPTION_vX.Y.Z.md`.** The body text for the release pull request. Keep it
    small — a PR body, not a second `RELEASE_NOTES.md`: a few bullets per section, high-level only, no line-by-line
    detail. Structure:
     - `## 🎯 Summary` — two to four bullets on what the release is and why
@@ -437,19 +459,19 @@ anything downstream references them:
     - `## 🔗 Related Documentation` — links to `RELEASE_NOTES.md`, `CHANGELOG.md`, `HISTORY.md`
 
 Commit these in logical chunks per the Git Workflow rule above — the version bump, the CHANGELOG/HISTORY/RELEASE_NOTES
-documentation, and the archived `documentation/history/` files are separate concerns unless trivially small.
+documentation and the archived `documentation/history/` files are separate concerns unless trivially small.
 
 This project's `CHANGELOG.md` covers the current Version 4.x line only; `HISTORY.md` narrates the full project history,
 including the legacy Version 3.x line that predates `CHANGELOG.md`'s Keep a Changelog structure.
 `documentation/history/` archives each version's `RELEASE_NOTES.md` snapshot and PR description once released —
-`HISTORY.md`'s narrative, `CHANGELOG.md`'s version history, and that per-version archive together are the durable
+`HISTORY.md`'s narrative, `CHANGELOG.md`'s version history and that per-version archive together are the durable
 record.
 
 ---
 
 ## 🌲 Evergreen Documentation (README.md & ARCHITECTURE.md)
 
-`README.md`, `ARCHITECTURE.md`, and `UI.md` describe the durable structure and purpose of the project, not its
+`README.md`, `ARCHITECTURE.md` and `UI.md` describe the durable structure and purpose of the project, not its
 current-version implementation details. They must:
 
 - **Never contain references to specific versions** — neither exact version numbers (e.g. `5.0.0`) nor version ranges of
@@ -462,6 +484,6 @@ current-version implementation details. They must:
 
 **Reverse sync rule:** When generating or updating `RELEASE_NOTES.md` or `CHANGELOG.md`, check whether any of the
 changes being documented are relevant to `README.md` (goal, tech stack, quick start), `ARCHITECTURE.md` (project
-structure, core concepts, build/tooling), or `UI.md` (layout, navigation, design) and update those files too if so.
+structure, core concepts, build/tooling) or `UI.md` (layout, navigation, design) and update those files too if so.
 Don't let them fall out of sync with what the release docs describe — while still keeping them release-agnostic per the
 rules above.

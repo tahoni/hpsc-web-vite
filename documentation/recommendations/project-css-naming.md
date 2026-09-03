@@ -40,7 +40,7 @@ everything global, grouped by origin:
 import "./App.scss";
 ```
 
-There is no `index.scss`, `index.css`, or `main.tsx`-level style import anywhere in the codebase — `App.scss` is the
+There is no `index.scss`, `index.css` or `main.tsx`-level style import anywhere in the codebase — `App.scss` is the
 single entry point for global styles. Do not introduce an `index.scss`; it would only split global styles across two
 files that both claim to be "the global stylesheet."
 
@@ -98,7 +98,7 @@ themed entry point guarantees a single, correctly themed Bootstrap compilation i
 
 `src/assets/styles/_forms.scss` does exactly this (`@use "@bootstrap/styles/index" as *;`) to reach `$primary`,
 `$danger`, etc. This used to instead do `@use "bootstrap/scss/bootstrap" as *;` directly — a separate, independently
-configured compilation that never saw `_custom.scss`'s overrides, so `.btn`, `.card`, and other Bootstrap component
+configured compilation that never saw `_custom.scss`'s overrides, so `.btn`, `.card` and other Bootstrap component
 classes silently rendered with stock Bootstrap colours (`#0d6efd`) instead of the club's palette. Watch for this pattern
 regressing if a new file needs Bootstrap variables — always go through `@bootstrap/styles/index`, never
 `bootstrap/scss/bootstrap` (or `.../variables`, `.../mixins`, etc.) directly.
@@ -122,7 +122,7 @@ Header/
 ```
 
 Examples already in the codebase: `Header.module.scss`, `Footer.module.scss`, `Body.module.scss`, `Content.module.scss`,
-`Layout.module.scss`, `Captcha.module.scss`, and each feature page's own `*.module.scss` (e.g. `AboutUs.module.scss`,
+`Layout.module.scss`, `Captcha.module.scss` and each feature page's own `*.module.scss` (e.g. `AboutUs.module.scss`,
 `Venues.module.scss`).
 
 ---

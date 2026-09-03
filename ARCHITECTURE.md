@@ -1,6 +1,6 @@
 # HPSC Website Architecture
 
-This document describes the architectural design, directory structure, and core concepts of the Hartbeespoortdam
+This document describes the architectural design, directory structure and core concepts of the Hartbeespoortdam
 Practical Shooting Club (HPSC) website.
 
 ## Table of Contents
@@ -36,8 +36,10 @@ The application is built using modern web technologies:
 The project follows a modular structure, separating shared infrastructure from feature-specific logic.
 
 ```text
+├───.claude             # Claude Code configuration (custom slash commands)
+├───.github             # GitHub configuration (Actions workflows)
 ├───builders            # Build-time scripts (e.g., sitemap generation)
-├───documentation       # Project documentation, release history archive, and planning notes
+├───documentation       # Project documentation, release history archive and planning notes
 ├───public              # Static assets (robots.txt, sitemap.xml, favicon)
 │   └───assets          # Externalized images (club, content, layout, logos)
 ├───src                 # Main source code
@@ -116,4 +118,4 @@ The project uses a combination of Bootstrap and custom SCSS:
 
 ## 🛠️ Development Guidelines
 
-Refer to the [README.md](README.md) for detailed instructions on local setup, commands, and coding standards.
+Refer to the [README.md](README.md) for detailed instructions on local setup, commands and coding standards.

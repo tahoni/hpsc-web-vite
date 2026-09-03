@@ -137,12 +137,12 @@ This project's documentation is spread across a few files, each with a distinct 
 
 | File                                   | Purpose                                                                                                  |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------|
-| [`README.md`](README.md)               | Project overview, setup, and links to the rest of the documentation (this file)                          |
-| [`ARCHITECTURE.md`](ARCHITECTURE.md)   | Detailed architectural design, directory structure, and core concepts                                    |
-| [`UI.md`](UI.md)                       | User interface layout, navigation, and design overview                                                   |
+| [`README.md`](README.md)               | Project overview, setup and links to the rest of the documentation (this file)                           |
+| [`ARCHITECTURE.md`](ARCHITECTURE.md)   | Detailed architectural design, directory structure and core concepts                                     |
+| [`UI.md`](UI.md)                       | User interface layout, navigation and design overview                                                    |
 | [`CLAUDE.md`](CLAUDE.md)               | Thin pointer to `AGENTS.md`, kept for tools that specifically read `CLAUDE.md`                           |
 | [`AGENTS.md`](AGENTS.md)               | Cross-tool conventions for AI coding agents working in this repository — the full guidance               |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md)   | Contributor-facing setup, git workflow, and pull request checklist                                       |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md)   | Contributor-facing setup, git workflow and pull request checklist                                        |
 | [`CHANGELOG.md`](CHANGELOG.md)         | Notable changes per released version, in [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format |
 | [`HISTORY.md`](HISTORY.md)             | Narrative history of the project's evolution across all versions                                         |
 | [`RELEASE_NOTES.md`](RELEASE_NOTES.md) | Detailed release notes for the current/latest version only                                               |

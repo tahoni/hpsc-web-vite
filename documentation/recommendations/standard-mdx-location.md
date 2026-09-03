@@ -36,7 +36,7 @@ src/
 
 **When to use:**
 
-- Blog posts, articles, or news
+- Blog posts, articles or news
 - CMS-like content management
 - Documentation that's part of the app
 - Content with frontmatter metadata
@@ -199,7 +199,7 @@ documentation/                  # ← Keep for technical/dev docs
 
 **Rationale:**
 
-- `src/content/` is processed by Vite, bundled with the app, and available at runtime.
+- `src/content/` is processed by Vite, bundled with the app and available at runtime.
 - `documentation/` holds developer/technical docs, not bundled with the app.
 
 This separation keeps content that users see (`src/content/`) distinct from content for developers (`documentation/`).

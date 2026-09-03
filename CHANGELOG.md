@@ -46,7 +46,7 @@ account of the project's full evolution, including that era.
 
 - Renamed `documentation/roadmap/IMPROVEMENT_PLAN.md`/`TASKS.md` to `improvement-plan.md`/`improvement-plan-tasks.md`,
   matching `documentation/recommendations/`'s kebab-case file naming, and updated every cross-reference across
-  `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `HISTORY.md`, `README.md`, `RELEASE_NOTES.md`, and
+  `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `HISTORY.md`, `README.md`, `RELEASE_NOTES.md` and
   `documentation/history/`
 - Reflowed every root Markdown file (`AGENTS.md`, `ARCHITECTURE.md`, `CHANGELOG.md`, `CLAUDE.md`, `CONTRIBUTING.md`,
   `HISTORY.md`, `PACKAGES.md`, `README.md`, `RELEASE_NOTES.md`, `UI.md`) to wrap prose at 100–120 characters per line
@@ -55,12 +55,17 @@ account of the project's full evolution, including that era.
 - Added icon-headed sections to `PACKAGES.md` (📖 Introduction, 💰 for its three funding-list sections), matching
   `AGENTS.md`'s Icons in headings convention that every other root doc already follows; added the new 💰
   Funding/sponsorship icon to `AGENTS.md`'s icon table
-- Centralised `CLAUDE.md`'s Project Overview, Architecture, Build & Run Commands, Environment Variables, and Code
+- Centralised `CLAUDE.md`'s Project Overview, Architecture, Build & Run Commands, Environment Variables and Code
   Quality & CI content into `AGENTS.md` as new sections, so the full guidance is usable by any AI coding agent, not
   only Claude Code; `CLAUDE.md` is now a thin pointer to `AGENTS.md` plus its one genuinely Claude-Code-specific
   instruction (use the TodoWrite tool for complex tasks). Updated every cross-reference to the moved sections in
-  `README.md`, `CONTRIBUTING.md`, `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md`, and the
+  `README.md`, `CONTRIBUTING.md`, `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md` and the
   `.claude/commands/` slash commands
+- Added a Serial Commas convention, a tracked-tooling-directories rule to Directory Tree Maintenance and three new
+  Release Checklist steps (a roadmap check, a `CONTRIBUTING.md` update and an `ARCHITECTURE.md` tree verification) to
+  `AGENTS.md`, synced from the more recently updated sibling `hpsc-web-springboot` repository; updated
+  `ARCHITECTURE.md`'s Project Structure tree to include the previously-missing `.claude`/`.github` tooling directories
+  per the new rule, and extended `CONTRIBUTING.md`'s Documentation Conventions and Pull Request Checklist to match
 
 #### 🐛 Fixed
 
@@ -71,7 +76,7 @@ account of the project's full evolution, including that era.
   first flagged
 - Fixed `npm run build`'s "chunks are larger than 500 kB" warning: `vite.config.ts`'s `manualChunks` now splits
   `react`/`react-dom`/`scheduler`, `react-router`/`react-router-dom`, `bootstrap`/`react-bootstrap`/`bootstrap-icons`,
-  `sweetalert2`, and `@tahoni` into their own vendor chunks instead of leaving them bundled into the main entry chunk
+  `sweetalert2` and `@tahoni` into their own vendor chunks instead of leaving them bundled into the main entry chunk
   (514 kB before the fix, 242 kB after); also corrected a `manualChunks` case that matched the non-existent
   `react-google-recaptcha` package name instead of the installed `react-google-recaptcha-v3`, which meant that library
   was never actually being split out
@@ -102,8 +107,12 @@ account of the project's full evolution, including that era.
   `.claude/commands/scaffold-unit-tests.md`, left over from that file's own earlier rename to
   `standard-component-naming.md`
 - Trimmed `CLAUDE.md` of content already derivable from `package.json`/`vite.config.ts`/`tsconfig.app.json`: a
-  runtime-versions line, five standard `npm run` command descriptions (`dev`/`build`/`preview`/`lint`/`test`), and the
+  runtime-versions line, five standard `npm run` command descriptions (`dev`/`build`/`preview`/`lint`/`test`) and the
   entire Path Aliases section
+- Removed the Oxford comma throughout `README.md`, `UI.md`, `CONTRIBUTING.md`, `AGENTS.md`, `ARCHITECTURE.md`,
+  `CHANGELOG.md`, `HISTORY.md`, `RELEASE_NOTES.md` and the `documentation/roadmap`/`documentation/recommendations`
+  files, applying the new Serial Commas convention retroactively; left the byte-for-byte `documentation/history/`
+  release archives untouched, as `AGENTS.md`'s Release Checklist requires
 
 #### ⚠️ Deprecated
 
@@ -124,7 +133,7 @@ account of the project's full evolution, including that era.
   while `react-router` moved on to `8.3.0`; `react-router` `v8` absorbed `react-router-dom`'s DOM bindings
   (`BrowserRouter`, `Link`, etc.) into its main package, making the separate package redundant. Migrated
   `src/main.tsx`'s `BrowserRouter` import and `Header.tsx`'s `Link` import to `react-router`, removed the now-unneeded
-  `react-router-dom` case from `vite.config.ts`'s `manualChunks`, and updated `AGENTS.md`/`CLAUDE.md`'s Tech Stack entry
+  `react-router-dom` case from `vite.config.ts`'s `manualChunks` and updated `AGENTS.md`/`CLAUDE.md`'s Tech Stack entry
   from "React Router 7" to "React Router 8"
 
 #### 🔐 Security
@@ -140,7 +149,7 @@ account of the project's full evolution, including that era.
 - Added a `/sync-unreleased-changes` Claude Code command — audits the current branch's diff against its base branch and
   adds any missing `CHANGELOG.md` Unreleased entries for notable changes
 - Added an `.aiignore` file, mirroring most of `.gitignore`'s coverage, so AI coding agents don't read build artefacts,
-  secrets, and IDE/tool-specific files as part of their context; it additionally excludes `.mvn/`, commented as not
+  secrets and IDE/tool-specific files as part of their context; it additionally excludes `.mvn/`, commented as not
   excluded by `.gitignore`
 
 #### 🔄 Changed
@@ -148,14 +157,14 @@ account of the project's full evolution, including that era.
 ##### Build & Tooling
 
 - Expanded `.gitignore` with newer JetBrains (AWS, SonarLint, Apifox, GitHub Copilot migration files), OS (`.DS_Store`,
-  `Thumbs.db`, `desktop.ini`), secrets/credentials (`*.pem`, `*.key`, `*credentials*`, `*secrets*`), pnpm, Yarn v3, and
+  `Thumbs.db`, `desktop.ini`), secrets/credentials (`*.pem`, `*.key`, `*credentials*`, `*secrets*`), pnpm, Yarn v3 and
   Vite timestamp-file patterns
 - Widened `.gitignore`'s project-specific `TAHONI` rule from `.claude/*.local.json` to `.claude/*.local.*` and removed
   the now-unneeded `.junie/` entry
 - Updated `vite` (`^6.4.2` → `^8.2.2`), `@vitejs/plugin-react` (`^4.3.4` → `^6.1.0`, required for Vite 8 support),
   `vitest` (`^3.0.5` → `^4.1.11`), `eslint` and `@eslint/js` (`^9.20.1`/`^9.17.0` → `^9.39.5`), `eslint-plugin-react`
   (`^7.37.4` → `^7.37.5`), `eslint-plugin-react-hooks` (`^5.1.0` → `^7.1.1`), `eslint-plugin-react-refresh` (`^0.4.19` →
-  `^0.5.5`), and `typescript-eslint` (`^8.24.0` → `^8.68.0`) to their latest mutually-compatible versions; kept `eslint`
+  `^0.5.5`) and `typescript-eslint` (`^8.24.0` → `^8.68.0`) to their latest mutually-compatible versions; kept `eslint`
   on the 9.x line rather than 10.x since `eslint-plugin-react`'s peer range doesn't yet support ESLint 10, and kept
   `typescript` on the 5.x line (`~5.6.2` → `~5.9.3`) rather than 7.x since `typescript-eslint`'s peer range doesn't yet
   support TypeScript 7's native-compiler major release
@@ -165,7 +174,7 @@ account of the project's full evolution, including that era.
 - Updated the remaining `devDependencies` to their latest versions: `@rollup/plugin-babel` (`^6.0.4` → `^7.1.0`),
   `@types/react` (`~19.0.3` → `~19.2.18`), `@types/react-dom` (`~19.0.2` → `~19.2.5`), `@types/sanitize-html`
   (`^2.13.0` → `^2.16.1`), `globals` (`^15.15.0` → `^17.11.0`), `rollup-plugin-visualizer` (`^5.14.0` → `^7.1.1`),
-  `sass` (`^1.85.0` → `^1.103.1`), `sitemap` (`^8.0.0` → `^9.0.1`), `tsx` (`^4.19.4` → `^4.23.12`), and `typedoc`
+  `sass` (`^1.85.0` → `^1.103.1`), `sitemap` (`^8.0.0` → `^9.0.1`), `tsx` (`^4.19.4` → `^4.23.12`) and `typedoc`
   (`^0.28.15` → `^0.28.20`)
 - Widened `react`/`react-dom` from `~19.0.0` to `~19.2.8`, now matching the `@types/react`/`@types/react-dom` versions
   already updated above; left every other outdated runtime dependency with a major-version jump available
@@ -175,7 +184,7 @@ account of the project's full evolution, including that era.
 ##### Dependencies
 
 - Updated `@tahoni/tahoni-lib-react` (`^3.3.0` → `^3.3.3`), which now peers on `react`/`react-dom` `~19.2.0`,
-  `bootstrap` `^5.3.8`, `eslint-plugin-react` `^7.37.5`, `glob` `^13.0.6`, `react-bootstrap` `^2.10.10`, and
+  `bootstrap` `^5.3.8`, `eslint-plugin-react` `^7.37.5`, `glob` `^13.0.6`, `react-bootstrap` `^2.10.10` and
   `react-spinners` `^0.17.0`
 - Updated the remaining deferred major dependencies to their latest versions: `@fortawesome/fontawesome-svg-core`/
   `@fortawesome/free-brands-svg-icons`/`@fortawesome/free-regular-svg-icons`/`@fortawesome/free-solid-svg-icons`
@@ -184,15 +193,15 @@ account of the project's full evolution, including that era.
   `@rjsf/core`/`@rjsf/utils`/`@rjsf/validator-ajv8` (`^5.24.3` → `^6.8.0`), `@vis.gl/react-google-maps` (`^1.5.2` →
   `^1.9.0`), `bootstrap` (`^5.3.3` → `^5.3.8`), `react-bootstrap` (`^2.10.9` → `^2.10.10`), `react-email` (`^4.0.7` →
   `^6.9.3`), `react-router` (`^7.12.0` → `^8.3.0`), `react-router-dom` (`^7.12.0` → `^7.18.2`), `sanitize-html`
-  (`^2.14.0` → `^2.17.7`), and `sweetalert2` (`^11.22.4` → `^11.26.25`)
+  (`^2.14.0` → `^2.17.7`) and `sweetalert2` (`^11.22.4` → `^11.26.25`)
 - Updated `typescript` (`~5.9.3` → `~6.0.3`); updated `tsconfig.app.json` accordingly, dropping `baseUrl` in favour of
   explicit `./`-relative `paths` entries and adding `"types": ["mdx"]`
 
 ##### Documentation
 
 - Expanded `AGENTS.md`'s Release Checklist template for `RELEASE_NOTES.md` with Migration Guide, Statistics, Design
-  Notes, Testing, Known Issues, Future Enhancements, Contributors, and Notes sections, added matching ⭐/📊/🔮/👥 icons to
-  the icon table, and rewrote `RELEASE_NOTES.md` to follow the expanded template
+  Notes, Testing, Known Issues, Future Enhancements, Contributors and Notes sections, added matching ⭐/📊/🔮/👥 icons to
+  the icon table and rewrote `RELEASE_NOTES.md` to follow the expanded template
 - Consolidated `README.md`'s per-file documentation links into a new Documentation section, now referenced by
   `AGENTS.md`'s Documentation File Map, and clarified its Prerequisites/Installation and Execution steps
 
@@ -222,12 +231,12 @@ account of the project's full evolution, including that era.
 ##### Documentation
 
 - Fixed hard-wrapped paragraphs in `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md`,
-  `documentation/recommendations/project-css-naming.md`, and
+  `documentation/recommendations/project-css-naming.md` and
   `documentation/recommendations/standard-utils-vs-helpers.md` that broke mid-sentence or mid-clause instead of matching
   the rest of the repo's one-paragraph-per-line convention; also converted `PACKAGES.md` from UTF-16 to UTF-8, matching
   every other Markdown file in the repo
 - Fixed additional hard-wrapped list-item descriptions in `ARCHITECTURE.md` (the `RouteAliases.tsx`/`AppRoutes.tsx`,
-  Sass Modules/Bootstrap Overrides, and Build and Tooling bullets) missed by the earlier paragraph rewrap
+  Sass Modules/Bootstrap Overrides and Build and Tooling bullets) missed by the earlier paragraph rewrap
 - Fixed `documentation/history/RELEASE_NOTES_v5.0.0.md`'s stale archive snapshot, which had fallen out of sync with
   `RELEASE_NOTES.md`'s expanded Migration Guide/Statistics/Design Notes/Testing/Known Issues/Future
   Enhancements/Contributors/Notes template — resynced it byte-for-byte per AGENTS.md's Release Checklist archive rule
@@ -257,7 +266,7 @@ account of the project's full evolution, including that era.
 
 - Added five Claude Code slash commands under `.claude/commands/`: `/generate-commit-message` (drafts a commit message
   and matching `CHANGELOG.md` entry from the working tree diff), `/generate-pr-description` (prepares a new version
-  release per the Release Checklist), `/generate-pr-summary` (condenses a release into a short PR summary), and
+  release per the Release Checklist), `/generate-pr-summary` (condenses a release into a short PR summary) and
   `/scaffold-unit-tests`/`/scaffold-integration-tests` (scaffold Vitest unit/integration tests following this project's
   testing conventions)
 - Added `build/` to `.gitignore`; replaced the blanket `.claude/` ignore entry with `.claude/*.local.json`, so
@@ -267,14 +276,14 @@ account of the project's full evolution, including that era.
 ##### Documentation
 
 - Added `AGENTS.md` and `CLAUDE.md`, establishing cross-tool documentation conventions (British English, icon-headed
-  sections, GFM tables, GitFlow git workflow, and the Release Checklist) shared by any AI coding agent working in this
+  sections, GFM tables, GitFlow git workflow and the Release Checklist) shared by any AI coding agent working in this
   repository
 - Added a Contributors convention to `AGENTS.md`'s Documentation Conventions — when docs credit contributors or authors,
   source the list from `git log`/GitHub history (including bot accounts) rather than assuming
-- Added `CONTRIBUTING.md` with project setup, git workflow, documentation and testing conventions, and a pull request
+- Added `CONTRIBUTING.md` with project setup, git workflow, documentation and testing conventions and a pull request
   checklist, and linked it from `README.md`'s new Contributing section
 - Added `documentation/roadmap/improvement-plan.md` — a synthesis of this project's own goals/constraints into eight
-  evidence-backed gaps (each with its Evidence, Why it matters, and Proposed improvement), a Roadmap table, and Success
+  evidence-backed gaps (each with its Evidence, Why it matters and Proposed improvement), a Roadmap table and Success
   Criteria — and added it to `AGENTS.md`'s Documentation File Map
 - Added `documentation/roadmap/improvement-plan-tasks.md` — a checkbox-level task breakdown of
   `documentation/roadmap/improvement-plan.md`'s eight gaps, organised by the plan's Now/Next/Later/Ongoing phasing, each
@@ -289,19 +298,19 @@ account of the project's full evolution, including that era.
 - Refactored email-related models: removed `EmailContent`, merging its functionality into `EmailMessage`; added an
   `EmailType` enum (`HTML`/`TEXT`) under `src/enums/email/`; and moved `menuHelpers.tsx`/`routeHelpers.tsx` from
   `src/shared/helpers/` to `src/helpers/`, adjusting all dependent components (`ContactUsForm`,
-  `ContactUsEmailTemplate`, and every feature's barrel `index.ts`)
+  `ContactUsEmailTemplate` and every feature's barrel `index.ts`)
 
 ##### Documentation
 
 - Restructured `CHANGELOG.md` and `HISTORY.md` into the icon-based Keep a Changelog format, backfilling historical
   entries for prior versions
-- Applied the icon-heading and section-separator convention to `README.md`, `ARCHITECTURE.md`, `UI.md`, and
-  `RELEASE_NOTES.md`; documented the previously-missing `npm run host`, `npm test`, and `npm run sitemap` scripts in
+- Applied the icon-heading and section-separator convention to `README.md`, `ARCHITECTURE.md`, `UI.md` and
+  `RELEASE_NOTES.md`; documented the previously-missing `npm run host`, `npm test` and `npm run sitemap` scripts in
   `README.md`; added a Theme/Key Highlights lead-in to `RELEASE_NOTES.md`'s 4.2.3 entry
 - Renamed `documentation/roadmap/` to `documentation/roadmap-old/`, superseded by the recreated
   `documentation/roadmap/improvement-plan.md` and `documentation/roadmap/improvement-plan-tasks.md`;
   `documentation/roadmap-old/` is now a fully archived, no-longer-maintained snapshot. Updated the resulting stale
-  cross-references in `AGENTS.md`, `CLAUDE.md`, and `CONTRIBUTING.md`
+  cross-references in `AGENTS.md`, `CLAUDE.md` and `CONTRIBUTING.md`
 - Split `AGENTS.md`'s Documentation File Map into a new "Roadmap Planning" subsection for `documentation/roadmap/`'s two
   files, separate from the reference-material folders (`documentation/history/`, `documentation/recommendations/`) —
   it's the project's active improvement backlog, not standard documentation
@@ -337,7 +346,7 @@ account of the project's full evolution, including that era.
 ##### Dependencies
 
 - Updated `vitest`, `react-router`, `postcss`, `vite`, `sanitize-html`, `ws`, `js-yaml`, `nanoid`, `brace-expansion`,
-  `fast-uri`, `immutable`, `linkify-it`, `markdown-it`, `socket.io-parser`, and `@babel/core` to their patched versions,
+  `fast-uri`, `immutable`, `linkify-it`, `markdown-it`, `socket.io-parser` and `@babel/core` to their patched versions,
   closing all currently open GitHub Dependabot alerts (1 critical, 25 high, 12 moderate, 2 low)
 
 ---
@@ -449,7 +458,7 @@ account of the project's full evolution, including that era.
 ##### Documentation
 
 - Added/updated `README.md` with quickstart and prerequisites, install and development steps, build and preview
-  instructions, test and lint commands, and contribution guidelines
+  instructions, test and lint commands and contribution guidelines
 
 #### 🔄 Changed
 
@@ -495,7 +504,7 @@ account of the project's full evolution, including that era.
 
 ##### Dependencies
 
-- Upgraded `react-router-dom` to `7.12.0`; updated `@typescript-eslint`, `@rollup` packages, and `eslint-utils` to their
+- Upgraded `react-router-dom` to `7.12.0`; updated `@typescript-eslint`, `@rollup` packages and `eslint-utils` to their
   latest compatible versions
 
 ---
@@ -730,10 +739,10 @@ account of the project's full evolution, including that era.
 
 This project follows [Semantic Versioning 2.0.0](https://semver.org/):
 
-- **MAJOR** version for a significant redesign or structural overhaul of the site (routing, directory layout, or the
+- **MAJOR** version for a significant redesign or structural overhaul of the site (routing, directory layout or the
   underlying framework)
-- **MINOR** version for new pages, features, or backward-compatible additions
-- **PATCH** version for fixes, content updates, and small improvements
+- **MINOR** version for new pages, features or backward-compatible additions
+- **PATCH** version for fixes, content updates and small improvements
 
 The legacy Version 3.x line, narrated in [HISTORY.md](HISTORY.md), already followed this same `MAJOR.MINOR.PATCH`
 scheme.
@@ -755,20 +764,20 @@ scheme.
 
 #### Within the v4.x line
 
-**Breaking changes:** None. Each v4.x release is a backward-compatible content, feature, or maintenance update — pull
-the latest `develop`/`main`, run `npm install`, and rebuild.
+**Breaking changes:** None. Each v4.x release is a backward-compatible content, feature or maintenance update — pull
+the latest `develop`/`main`, run `npm install` and rebuild.
 
 ---
 
 ### 🤝 Contributing
 
-Project setup, this repository's git workflow, and the pull request checklist are documented in [
+Project setup, this repository's git workflow and the pull request checklist are documented in [
 `CONTRIBUTING.md`](CONTRIBUTING.md), which follows the conventions in [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md).
 In short:
 
-1. Branch from `develop` using the GitFlow model (`feature/<short-description>`, `hotfix/<short-description>`, or
+1. Branch from `develop` using the GitFlow model (`feature/<short-description>`, `hotfix/<short-description>` or
    `release/vX.Y.Z` — see AGENTS.md's Git Workflow)
-2. Run `npm run lint`, `npm run build`, and `npm test` before opening a PR
+2. Run `npm run lint`, `npm run build` and `npm test` before opening a PR
 3. Add a `CHANGELOG.md` entry under `### 🧪 [Unreleased]` in the same change, per AGENTS.md's Git Workflow conventions
 4. Open the PR against `develop`, never `main`
 
@@ -776,7 +785,7 @@ In short:
 
 ### 💬 Support
 
-For issues, feature requests, or questions:
+For issues, feature requests or questions:
 
 - **GitHub Issues:** [tahoni/hpsc-web-vite/issues](https://github.com/tahoni/hpsc-web-vite/issues)
 - **Repository:** [tahoni/hpsc-web-vite](https://github.com/tahoni/hpsc-web-vite)

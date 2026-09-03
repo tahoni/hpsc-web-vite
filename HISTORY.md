@@ -3,7 +3,7 @@
 ## Project History
 
 A narrative overview of the HPSC Website project's evolution from its first scaffold to the current release, documenting
-how its architecture, features, and design philosophy have developed across every version. For the technical,
+how its architecture, features and design philosophy have developed across every version. For the technical,
 entry-by-entry record of the current Version 4.x line, see [CHANGELOG.md](CHANGELOG.md); this file additionally narrates
 the legacy Version 3.x line that predates it.
 
@@ -101,7 +101,7 @@ the legacy Version 3.x line that predates it.
 
 **Key Focus:**
 
-- Overhauled `README.md` with quickstart, install/build/test instructions, and contribution guidelines
+- Overhauled `README.md` with quickstart, install/build/test instructions and contribution guidelines
 - Removed the maintenance-heavy screenshots folder; editorial fixes across `ARCHITECTURE.md`/`UI.md`
 
 ### Version 4.1.3 (January 11, 2026)
@@ -174,7 +174,7 @@ the legacy Version 3.x line that predates it.
 
 **Key Focus:**
 
-- Adopted `@use`/`@forward` over `@import`, underscore-prefixed partials, and a dedicated `vendors/` directory for
+- Adopted `@use`/`@forward` over `@import`, underscore-prefixed partials and a dedicated `vendors/` directory for
   Bootstrap overrides
 - Moved the Version 3.x changelog content into a new `HISTORY.md`, and created the `CHANGELOG.md`/`RELEASE_NOTES.md`
   templates — the point at which this project's release documentation took its current shape
@@ -294,7 +294,7 @@ the legacy Version 3.x line that predates it.
 
 **Key Focus:**
 
-- Finished the Contact Us page: sections/articles for content grouping, input sanitisation, and e-mail delivery on
+- Finished the Contact Us page: sections/articles for content grouping, input sanitisation and e-mail delivery on
   submission
 - Split the build into sensible bundles for load performance
 
@@ -391,7 +391,7 @@ the legacy Version 3.x line that predates it.
 
 **Key Focus:**
 
-- Built the Contact Us page on a JSON Schema Form (`@rjsf`) with a custom-validated CAPTCHA field, `sanitize-html`, and
+- Built the Contact Us page on a JSON Schema Form (`@rjsf`) with a custom-validated CAPTCHA field, `sanitize-html` and
   SweetAlert2 confirmation
 - Formatted the codebase with Prettier for the first time
 
@@ -417,7 +417,7 @@ the legacy Version 3.x line that predates it.
 
 **Key Focus:**
 
-- Made the About Us page the homepage; completed the footer with contact details, copyright, and responsive styling
+- Made the About Us page the homepage; completed the footer with contact details, copyright and responsive styling
 - Added SEO keywords; fixed hyperlink hover colour
 
 ### Version 3.2.3 (December 22, 2024)
@@ -495,7 +495,7 @@ the legacy Version 3.x line that predates it.
 
 **Key Focus:**
 
-- Built the header/footer/body layout skeleton, replaced the ICO favicon with SVG, and replaced the under-construction
+- Built the header/footer/body layout skeleton, replaced the ICO favicon with SVG and replaced the under-construction
   placeholder with a real homepage
 
 ### Version 3.0.5 (December 6, 2024)
@@ -576,7 +576,7 @@ sidebar) established early.
 **Key Accomplishments:**
 
 - MDX adopted as the content model for all pages — the pattern still in use today
-- About, Links, Member, and Contact Us pages built out; Contact Us gained a JSON-Schema-driven form with a validated
+- About, Links, Member and Contact Us pages built out; Contact Us gained a JSON-Schema-driven form with a validated
   CAPTCHA field and sanitised inputs
 - `.htaccess`-based client-side routing support; accessibility fixes (nested hyperlinks, two-line small-screen content)
 - A CAPTCHA dependency was removed after it was found injecting suspicious code — an early, formative security lesson
@@ -623,11 +623,11 @@ substantial event content.
 
 **Key Accomplishments:**
 
-- Stylesheets standardised on `@use`/`@forward`, underscore-prefixed partials, and a dedicated `vendors/` directory for
+- Stylesheets standardised on `@use`/`@forward`, underscore-prefixed partials and a dedicated `vendors/` directory for
   Bootstrap overrides
 - Directory structure refactored and `@`-notation path aliases adopted in place of relative imports
 - `CHANGELOG.md`/`HISTORY.md` split introduced, with the Version 3.x record moved into `HISTORY.md`
-- Bootstrap Icons, `react-google-recaptcha-v3`, and `react-pdf` added; Vite upgraded for security fixes
+- Bootstrap Icons, `react-google-recaptcha-v3` and `react-pdf` added; Vite upgraded for security fixes
 
 **Technical Focus:** Paying down structural debt — aligning the codebase and its documentation with industry-standard
 conventions ahead of further feature growth.
@@ -644,7 +644,7 @@ conventions ahead of further feature growth.
   across breakpoints
 - `Header` consolidated (`HeaderTitle` removed, `HeaderMenu` folded into `HeaderContent`); TypeDoc/TSDoc coverage
   expanded
-- `README.md` overhauled with quickstart, build, and contribution guidance; maintenance-heavy screenshots removed
+- `README.md` overhauled with quickstart, build and contribution guidance; maintenance-heavy screenshots removed
 
 **Technical Focus:** Visual and structural polish on the layout, paired with a substantial documentation catch-up.
 
@@ -662,7 +662,7 @@ conventions ahead of further feature growth.
 - `PACKAGES.md` added for dependency-funding transparency; route-management helpers relocated back under `shared/`
 - Office-bearer details refreshed; a case-sensitive import path fixed ahead of builds on case-sensitive file systems
 
-**Technical Focus:** Housekeeping — asset size, content organisation for recurring yearly events, and small correctness
+**Technical Focus:** Housekeeping — asset size, content organisation for recurring yearly events and small correctness
 fixes — consolidating the codebase ahead of the next major redesign.
 
 ---
@@ -699,13 +699,13 @@ site") has pursued a distinct overarching goal:
 **Goal:** Pay down structural debt and align the codebase and its documentation with industry-standard conventions,
 consolidating the project before attempting a further redesign.
 
-- Standardise stylesheets on `@use`/`@forward`, adopt `@`-notation path aliases in place of relative imports, and
+- Standardise stylesheets on `@use`/`@forward`, adopt `@`-notation path aliases in place of relative imports and
   reorganise the directory structure around features (Phase 5)
 - Split release documentation into a current `CHANGELOG.md` and a narrative `HISTORY.md`, so the active release record
   stays short while the full project story remains available (Phase 5)
 - Catch up on documentation debt (`README.md` overhaul, expanded TypeDoc/TSDoc) and harden responsive layout behaviour
   across breakpoints (Phase 6)
-- Housekeep before the next major phase: optimise image assets, reorganise recurring-event content by year, and keep
+- Housekeep before the next major phase: optimise image assets, reorganise recurring-event content by year and keep
   dependencies patched (Phase 7)
 
 **Outcome:** The feature-organised, path-aliased architecture this project still has today (see Milestone 6, below) —
@@ -716,14 +716,14 @@ later v4.1.x/v4.2.x work refined it without changing its shape.
 **Goal:** Make the project legible to both human and AI coding agents; formalise its release process; and modernise its
 dependency stack — groundwork ahead concerning a planned visual/structural redesign of the site itself.
 
-- Establish `AGENTS.md`/`CLAUDE.md` as a durable, cross-tool contract for documentation, git workflow, and the Release
+- Establish `AGENTS.md`/`CLAUDE.md` as a durable, cross-tool contract for documentation, git workflow and the Release
   Checklist, backed by Claude Code slash commands automating release prep and test scaffolding (v5.0.0)
 - Turn ad-hoc improvement ideas into an evidence-backed, trackable backlog under `documentation/roadmap/` (v5.0.0)
 - Close out every dependency 5.0.0 left deferred pending code changes — `@fortawesome/*`, `@fullcalendar/*`,
   `@mdx-js/*`, `@rjsf/*` (a major-version migration), `@vis.gl/react-google-maps`, `bootstrap`/`react-bootstrap`,
-  `react-router`/`react-router-dom`, `sweetalert2`, and `typescript` (v5.1.0)
+  `react-router`/`react-router-dom`, `sweetalert2` and `typescript` (v5.1.0)
 - Correct internal structural and build issues surfaced by that modernisation — path-alias drift, an unthemed duplicate
-  Bootstrap compile, inconsistent component/layout folder shapes, and oversized production JS chunks; — so the codebase
+  Bootstrap compile, inconsistent component/layout folder shapes and oversized production JS chunks; — so the codebase
   is on solid footing before the redesign begins (v5.2.0, in progress)
 
 **Status:** In progress — establishing this foundation is the stated precondition for the redesign the release branch
@@ -746,7 +746,7 @@ builds on.
 
 ### Milestone 2: Layout & First Content (v3.1.0 – v3.1.4)
 
-- Header/footer/body layout skeleton, SVG favicon, sticky sidebar, and the first real homepage content
+- Header/footer/body layout skeleton, SVG favicon, sticky sidebar and the first real homepage content
 
 **Achievement:** Replaced the under-construction placeholder with a real, navigable site shell.
 
@@ -763,7 +763,7 @@ page today.
 
 ### Milestone 4: The Contact Us Form (v3.3.0 – v3.4.1)
 
-- JSON-Schema-driven Contact Us form with a validated CAPTCHA field, sanitised inputs, and e-mail delivery on submission
+- JSON-Schema-driven Contact Us form with a validated CAPTCHA field, sanitised inputs and e-mail delivery on submission
 
 **Achievement:** Delivered the site's only interactive, data-submitting feature, including its security and validation
 groundwork.
@@ -772,16 +772,16 @@ groundwork.
 
 ### Milestone 5: Routing & SEO Correctness (v3.5.0 – v3.6.9)
 
-- Real HTTP 404 handling, canonical URL and redirect fixes, and a route-metadata-driven `sitemap.xml` builder
+- Real HTTP 404 handling, canonical URL and redirect fixes and a route-metadata-driven `sitemap.xml` builder
 
-**Achievement:** Made the site behave correctly as a genuine multipage site under direct links, refreshes, and
+**Achievement:** Made the site behave correctly as a genuine multipage site under direct links, refreshes and
 search-engine crawling.
 
 ---
 
 ### Milestone 6: Standards & Path Aliases (v4.0.0 – v4.0.3)
 
-- `@use`/`@forward` SCSS conventions, a `vendors/` Bootstrap-override directory, and `@`-notation path aliases replacing
+- `@use`/`@forward` SCSS conventions, a `vendors/` Bootstrap-override directory and `@`-notation path aliases replacing
   relative imports
 - The `CHANGELOG.md`/`HISTORY.md` documentation split introduced
 
@@ -812,10 +812,10 @@ club-shirt updates.
 ### Milestone 9: AI Agent Documentation & Process Conventions (v5.0.0)
 
 - `AGENTS.md`/`CLAUDE.md` conventions, `CONTRIBUTING.md`, five Claude Code slash commands, `documentation/roadmap/`
-  planning docs, and the `documentation/history/` per-version archive
+  planning docs and the `documentation/history/` per-version archive
 
 **Achievement:** Established a durable, cross-tool contract for how AI coding agents and human contributors work in this
-repository — documentation conventions, git workflow, and a Release Checklist — ahead of the redesign the branch is
+repository — documentation conventions, git workflow and a Release Checklist — ahead of the redesign the branch is
 named for.
 
 ---
@@ -985,14 +985,14 @@ Route (React Router, data-driven)
 **Focus:** Behave Like a Real Multi-Page Site
 
 - Fix routing so refreshes and direct links work, not just in-app navigation
-- Get canonical URLs, redirects, and the sitemap right for SEO
+- Get canonical URLs, redirects and the sitemap right for SEO
 - Migrate to a maps library the project could build on long-term
 
 ### Standards Phase (v4.0.0 – v4.0.3)
 
 **Focus:** Pay Down Structural Debt
 
-- Align stylesheets, directory structure, and imports with industry conventions
+- Align stylesheets, directory structure and imports with industry conventions
 - Split release documentation into a current `CHANGELOG.md` and a narrative `HISTORY.md` for the legacy line
 
 ### Polish & Documentation Phase (v4.1.0 – v4.1.4)
@@ -1006,14 +1006,14 @@ Route (React Router, data-driven)
 
 **Focus:** Consolidate Before the Next Redesign
 
-- Optimise assets, reorganise recurring-event content by year, and fix small correctness issues
+- Optimise assets, reorganise recurring-event content by year and fix small correctness issues
 - Keep dependencies and documentation current
 
 ### AI-Agent Process Phase (v5.0.0)
 
 **Focus:** Make the Project Legible to AI Coding Agents
 
-- Establish `AGENTS.md`/`CLAUDE.md` as the single source of truth for documentation, git workflow, and release
+- Establish `AGENTS.md`/`CLAUDE.md` as the single source of truth for documentation, git workflow and release
   conventions, shared across tools
 - Automate release-prep and test-scaffolding steps via Claude Code slash commands
 - Turn ad-hoc improvement ideas into an evidence-backed, trackable roadmap (`documentation/roadmap/`)
@@ -1029,7 +1029,7 @@ Route (React Router, data-driven)
 2. **Structural Debt Compounds:** Deferring the `@`-alias/directory-standards work until v4.0.0 – v4.0.2 meant a
    dedicated restructuring phase was needed later, rather than the convention being established from the start
 3. **Server-Side Routing Correctness Matters Early:** Several `.htaccess` fixes (v3.5.0 – v3.6.5) were needed to get 404
-   handling, canonical URLs, and redirects right — client-side routing alone was not sufficient for a production static
+   handling, canonical URLs and redirects right — client-side routing alone was not sufficient for a production static
    site
 
 ### Design Decisions
@@ -1059,11 +1059,11 @@ Route (React Router, data-driven)
 ## 🎓 Conclusion
 
 The HPSC Website has evolved from a single under-construction placeholder page into a full club website — covering news,
-events, history, venues, membership, and a working Contact Us form — while keeping a consistent, MDX-based content
+events, history, venues, membership and a working Contact Us form — while keeping a consistent, MDX-based content
 architecture since v3.2.0. This evolution demonstrates a commitment to:
 
 - **Incremental, Frequent Releases:** A steady cadence of small, focused versions rather than infrequent large rewrites
-- **Correctness Before Polish:** Investing early in routing, redirect, and SEO correctness (v3.5.0 – v3.6.9) before
+- **Correctness Before Polish:** Investing early in routing, redirect and SEO correctness (v3.5.0 – v3.6.9) before
   further feature work
 - **Willingness to Cut and Replace:** Removing a compromised CAPTCHA dependency outright (v3.3.3) rather than working
   around it
@@ -1076,5 +1076,5 @@ architecture since v3.2.0. This evolution demonstrates a commitment to:
 - **Agent-Legible Process:** Formalising `AGENTS.md`/`CLAUDE.md` conventions and Claude Code slash commands in v5.0.0,
   so human and AI contributors alike follow the same documentation and release process
 
-The architecture settled in v4.0.0 – v4.0.2 — feature-organised directories, path aliases, and the Route → Page →
+The architecture settled in v4.0.0 – v4.0.2 — feature-organised directories, path aliases and the Route → Page →
 Content → MDX pattern from v3.2.0 — remains the foundation the project builds on today.

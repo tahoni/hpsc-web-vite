@@ -1,8 +1,8 @@
 # HPSC Website Improvement Plan
 
 This document synthesises the goals and constraints stated across this repository's documentation and configuration into
-a single set of prioritised improvement opportunities. Unlike [`../../README.md`](../../README.md) and [
-`../../ARCHITECTURE.md`](../../ARCHITECTURE.md), it is not evergreen — it reflects a point-in-time reading of the
+a single set of prioritised improvement opportunities. Unlike [`../../README.md`](../../README.md) and 
+[`../../ARCHITECTURE.md`](../../ARCHITECTURE.md), it is not evergreen — it reflects a point-in-time reading of the
 project and should be revisited whenever a major gap it names is closed or a new one is identified.
 
 ## Table of Contents
@@ -20,7 +20,7 @@ project and should be revisited whenever a major gap it names is closed or a new
 
 This plan draws only on what the repository already states about itself — `../../README.md`, `../../ARCHITECTURE.md`,
 `../../UI.md`, `../../AGENTS.md`, `../../CLAUDE.md`, `../../CONTRIBUTING.md`, `../../HISTORY.md`'s Future Roadmap
-sections, `../../package.json`, and `../../vite.config.ts` — rather than introducing new goals. Where the documentation
+sections, `../../package.json` and `../../vite.config.ts` — rather than introducing new goals. Where the documentation
 and the configuration disagree, or where a stated goal has no corresponding work item yet, that gap is called out below
 as an improvement opportunity.
 
@@ -36,11 +36,11 @@ project's stated intent and its current state.
 |------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `../../README.md`, `../../AGENTS.md`                 | Deliver an informative, content-driven club website; there is no backend in this repository — contact-form email delivery and reCAPTCHA verification are the only server-side dependencies, both third-party, called directly from the client                   |
 | `../../ARCHITECTURE.md` (Data-Driven Routing)        | Routing is driven by `PageMapping` instances (`BaseRoutes.ts` → `RouteAliases.tsx` → `AppRoutes.tsx`), reused as-is by the sitemap builder — not static JSX route trees                                                                                         |
-| `../../ARCHITECTURE.md` (Feature-Based Organization) | Code is organised by feature under `../../src/features`, each self-contained with a page component, content component(s), MDX, styles, and a barrel `index.ts`                                                                                                  |
+| `../../ARCHITECTURE.md` (Feature-Based Organization) | Code is organised by feature under `../../src/features`, each self-contained with a page component, content component(s), MDX, styles and a barrel `index.ts`                                                                                                   |
 | `../../AGENTS.md` (Code Quality & CI)                | Only CodeQL runs automatically (push/PR to `main`, and weekly); `npm run lint`/`build`/`test` must be run locally before opening a PR — no automated build/test gate exists yet                                                                                 |
 | `../../AGENTS.md` (Documentation Conventions)        | British English spelling throughout prose; every ToC-listed heading carries a reused or deliberately new emoji; `../../README.md`/`../../ARCHITECTURE.md`/`../../UI.md` stay version-agnostic (reverse-synced from release docs, not the other way round)       |
-| `../../AGENTS.md` (Git Workflow, Release Checklist)  | GitFlow branching (`develop` → `release/vX.Y.Z` → `main`, `hotfix/*` direct to `main`), and a fixed, ordered Release Checklist covering `../../package.json`, `../../CHANGELOG.md`, `../../RELEASE_NOTES.md`, `../../HISTORY.md`, and archived per-version docs |
-| `../../AGENTS.md` (Test Conventions)                 | Vitest is configured but no test files exist yet; when added, co-locate `*.test.ts`/`*.test.tsx`, use `@testing-library/react` with a `jsdom` environment, and don't test the type system or trivial pass-through props                                         |
+| `../../AGENTS.md` (Git Workflow, Release Checklist)  | GitFlow branching (`develop` → `release/vX.Y.Z` → `main`, `hotfix/*` direct to `main`), and a fixed, ordered Release Checklist covering `../../package.json`, `../../CHANGELOG.md`, `../../RELEASE_NOTES.md`, `../../HISTORY.md` and archived per-version docs  |
+| `../../AGENTS.md` (Test Conventions)                 | Vitest is configured but no test files exist yet; when added, co-locate `*.test.ts`/`*.test.tsx`, use `@testing-library/react` with a `jsdom` environment and don't test the type system or trivial pass-through props                                          |
 | `../../package.json`, `../../vite.config.ts`         | React 19, Vite 6, TypeScript 5 strict mode, React Router 7 — a fixed stack; `../../vite.config.ts`'s `manualChunks` already splits FontAwesome/MDX/RJSF/FullCalendar/react-google/vis.gl into separate vendor chunks                                            |
 | `../../CONTRIBUTING.md`                              | New contributors need `NPM_TOKEN_READ` just to `npm install`; `GOOGLE_MAPS_API_KEY`/`RECAPTCHA_V2_SITE_KEY` are optional locally but needed for the venue map and Contact Us captcha to render                                                                  |
 
@@ -52,7 +52,7 @@ project's stated intent and its current state.
 
 **Evidence:** `../../.github/workflows` contains only `codeql.yml` (security analysis, on push/PR to `main` and weekly).
 `../../AGENTS.md`'s Code Quality & CI section states plainly: "There is currently no CI workflow that runs
-`npm run lint`, `npm run build`, or `npm test` — only CodeQL runs automatically. Run these locally before opening a PR."
+`npm run lint`, `npm run build` or `npm test` — only CodeQL runs automatically. Run these locally before opening a PR."
 `../../CONTRIBUTING.md`'s Pull Request Checklist relies entirely on the contributor remembering to run all three.
 
 **Why it matters:** GitFlow's `feature/*` → `develop` → `release/*` → `main` promotion (per `../../AGENTS.md`'s Git
@@ -60,14 +60,14 @@ Workflow) depends on lint/build/test genuinely passing at each merge; today that
 contributor discipline, with nothing enforcing it automatically.
 
 **Proposed improvement:** Add a workflow (e.g. `build.yml`) triggered on push/PR to `develop` and `main`, mirroring
-`codeql.yml`'s trigger branches, running `npm ci`, `npm run lint`, `npm run build`, and `npm test`. Gate the bundle
+`codeql.yml`'s trigger branches, running `npm ci`, `npm run lint`, `npm run build` and `npm test`. Gate the bundle
 visualiser's auto-open behind the same CI check — `../../vite.config.ts`'s `rollup-plugin-visualizer` currently always
 opens (`open: true`), which would be disruptive in a headless runner.
 
 ### 2. Two concrete route-metadata defects, one already visible in production output
 
 **Evidence:** `../../src/features/News` exists as a complete feature folder but is referenced by no route mapping —
-absent from `BaseRoutes.ts`'s `coreRoutes`, `RouteAliases.tsx`, and consequently the generated sitemap. Separately,
+absent from `BaseRoutes.ts`'s `coreRoutes`, `RouteAliases.tsx` and consequently the generated sitemap. Separately,
 `coreContactUsRoute` in `BaseRoutes.ts` sets `dateCreated: new Date("2025-12-26")` after its own
 `dateUpdated: new Date("2025-03-03")` — an internally inconsistent pair that also feeds
 `../../builders/RoutesSitemap.ts`'s `lastmod` output.
@@ -87,7 +87,7 @@ feature isn't ready to ship. Fix the inverted Contact Us dates. Regenerate `../.
 `*.test.ts`/`*.test.tsx` file exists anywhere under `../../src`. There is no `vitest.config.ts`, no `jsdom` environment,
 and `@testing-library/react`/`@testing-library/user-event` aren't dev dependencies.
 
-**Why it matters:** Every route, the Contact Us forms RJSF schema/validation, and the data-driven route mappings
+**Why it matters:** Every route, the Contact Us forms RJSF schema/validation and the data-driven route mappings
 (`PageMapping`) currently ship with no regression safety net. `EmailService.sendEmail()` is still a
 `// TODO: call back-end` stub that unconditionally returns `true` — its eventual real implementation will have nothing
 to test against unless test infrastructure exists first.
@@ -131,7 +131,7 @@ token map and usage examples for `src/assets/stylesheets`'s colours/variables.
 ### 7. Required environment variables aren't documented where a new contributor is likely to look first, and
 `baseUrl` is hardcoded
 
-**Evidence:** `../../AGENTS.md`'s Environment Variables table documents `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY`, and
+**Evidence:** `../../AGENTS.md`'s Environment Variables table documents `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and
 `RECAPTCHA_V2_SITE_KEY`, but `../../README.md`'s own Environment Variables subsection doesn't name or explain them.
 Separately, `baseUrl` in `../../src/constants/commonConstants.ts` is a hardcoded string literal, not sourced from an
 environment variable, despite feeding both the sitemap builder and (implicitly) canonical link tags.
@@ -164,14 +164,14 @@ periodic (e.g. monthly) dependency-update cadence in `../../AGENTS.md`.
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Now**     | Add the CI lint/build/test gate (#1) — lowest effort, closes a gap the project's own docs already flag — and fix the two shipped route-metadata bugs (#2) |
 | **Next**    | Stand up initial test coverage (#3) and a top-level error boundary (#4), so the CI gate added in Now has something real to enforce                        |
-| **Later**   | Accessibility baseline (#5), the styling-convention cleanup (#6), and environment-variable/base-URL documentation (#7)                                    |
+| **Later**   | Accessibility baseline (#5), the styling-convention cleanup (#6) and environment-variable/base-URL documentation (#7)                                     |
 | **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                                    |
 
 ---
 
 ## ✅ Success Criteria
 
-- A CI workflow runs `npm run lint`, `npm run build`, and `npm test` automatically on PRs to `develop`/`main`, so
+- A CI workflow runs `npm run lint`, `npm run build` and `npm test` automatically on PRs to `develop`/`main`, so
   `../../AGENTS.md`'s Code Quality & CI section can drop its "run these locally" caveat.
 - `News` is either reachable through a real route or the folder is removed; `coreContactUsRoute`'s dates are internally
   consistent; `../../public/sitemap.xml` is regenerated and no longer malformed.
@@ -185,7 +185,7 @@ periodic (e.g. monthly) dependency-update cadence in `../../AGENTS.md`.
 
 - [`../../ARCHITECTURE.md`](../../ARCHITECTURE.md) — the data-driven routing and feature-based organisation this plan
   builds on.
-- [`../../AGENTS.md`](../../AGENTS.md) — the Git Workflow, Release Checklist, and Test Conventions referenced
+- [`../../AGENTS.md`](../../AGENTS.md) — the Git Workflow, Release Checklist and Test Conventions referenced
   throughout.
 - [`../../HISTORY.md`](../../HISTORY.md) — per-release "🚀 Future Roadmap Implications" sections this plan complements.
 - [`../../CONTRIBUTING.md`](../../CONTRIBUTING.md) — contributor-facing setup and pull request checklist.

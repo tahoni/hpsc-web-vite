@@ -86,7 +86,7 @@ or domain models.
 **Characteristics:**
 
 - Application/domain-specific
-- May use React hooks, context, or state
+- May use React hooks, context or state
 - May have side effects (API calls, localStorage)
 - Business logic orchestration
 - Tightly coupled to your application

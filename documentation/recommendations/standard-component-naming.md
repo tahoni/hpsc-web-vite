@@ -293,19 +293,19 @@ src/utils/
 
 ## 📋 Complete Naming Reference
 
-| File Type            | Extension      | Naming Convention       | Example           |
-|------------------------|------------------|----------------------------|----------------------|
-| React Component      | `.tsx`         | PascalCase              | `Button.tsx`      |
-| Page Component       | `.tsx`         | PascalCase              | `HomePage.tsx`    |
-| Custom Hook          | `.ts`          | camelCase with `use`    | `useAuth.ts`      |
-| Utility Function     | `.ts`          | camelCase               | `formatters.ts`   |
-| Service              | `.ts`          | camelCase or PascalCase | `authService.ts`  |
-| Context              | `.tsx`         | PascalCase + `Context`  | `AuthContext.tsx` |
-| Type Definitions     | `.ts`          | PascalCase + `.types`   | `User.types.ts`   |
-| Constants            | `.ts`          | camelCase               | `config.ts`       |
-| Model/Schema         | `.ts`          | PascalCase              | `User.ts`         |
-| Test File            | `.test.tsx/ts` | Match source + `.test`  | `Button.test.tsx` |
-| Barrel Export        | `.ts`          | Always `index`          | `index.ts`        |
+| File Type        | Extension      | Naming Convention       | Example           |
+|------------------|----------------|-------------------------|-------------------|
+| React Component  | `.tsx`         | PascalCase              | `Button.tsx`      |
+| Page Component   | `.tsx`         | PascalCase              | `HomePage.tsx`    |
+| Custom Hook      | `.ts`          | camelCase with `use`    | `useAuth.ts`      |
+| Utility Function | `.ts`          | camelCase               | `formatters.ts`   |
+| Service          | `.ts`          | camelCase or PascalCase | `authService.ts`  |
+| Context          | `.tsx`         | PascalCase + `Context`  | `AuthContext.tsx` |
+| Type Definitions | `.ts`          | PascalCase + `.types`   | `User.types.ts`   |
+| Constants        | `.ts`          | camelCase               | `config.ts`       |
+| Model/Schema     | `.ts`          | PascalCase              | `User.ts`         |
+| Test File        | `.test.tsx/ts` | Match source + `.test`  | `Button.test.tsx` |
+| Barrel Export    | `.ts`          | Always `index`          | `index.ts`        |
 
 ---
 
@@ -324,7 +324,7 @@ export type {ButtonProps} from './Button.models';
 import {Button} from '@/components/Button';
 ```
 
-**Avoid generic names** — `utils.ts`, `helpers.ts`, and `component.tsx` don't say what they contain; prefer `dateFormatters.ts`, `authHelpers.ts`, `UserProfile.tsx`.
+**Avoid generic names** — `utils.ts`, `helpers.ts` and `component.tsx` don't say what they contain; prefer `dateFormatters.ts`, `authHelpers.ts`, `UserProfile.tsx`.
 
 **Match the file name to its primary export:**
 

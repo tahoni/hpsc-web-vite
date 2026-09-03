@@ -35,8 +35,8 @@ src/features/Home/
 └── index.ts           ← barrel export
 ```
 
-The generic structure splits a page across `pages/Home/`, `components/features/home/`, and `services/`. This project
-keeps a feature's page, content, and (where present) `.mdx` copy in one folder instead, so working on a feature never
+The generic structure splits a page across `pages/Home/`, `components/features/home/` and `services/`. This project
+keeps a feature's page, content and (where present) `.mdx` copy in one folder instead, so working on a feature never
 means hunting across three top-level directories for its parts.
 
 ---
@@ -53,8 +53,8 @@ flat `components/`:
 | `shared/components/` | Reusable UI with no page-chrome role: `Captcha`, `Map`, `Sidebar`, `Section`, `Text`, `Video`, `Content`                                       |
 | `shared/pages/`      | `Page` — the base wrapper every feature page composes                                                                                          |
 
-The generic structure's `components/common/`, `components/layout/`, and a separate top-level `pages/` map roughly onto
-`shared/components/`, `shared/layouts/`, and `shared/pages/` — but nested under one `shared/` root instead of living at
+The generic structure's `components/common/`, `components/layout/` and a separate top-level `pages/` map roughly onto
+`shared/components/`, `shared/layouts/` and `shared/pages/` — but nested under one `shared/` root instead of living at
 `src/`'s top level. This way `src/` itself only ever contains folders that are either a feature or explicitly shared,
 never a third, ambiguous category.
 
@@ -74,7 +74,7 @@ Header/
 └── index.ts                # Barrel export
 ```
 
-This applies uniformly across `features/`, `shared/components/`, and `shared/layouts/` — there's no separate naming rule
+This applies uniformly across `features/`, `shared/components/` and `shared/layouts/` — there's no separate naming rule
 per directory.
 
 ---
@@ -180,7 +180,7 @@ alias; treat `@shared/routes` as the real one.
   never directly at `src/`'s top level.
 - Give every non-trivial component/layout its own PascalCase folder, per [`standard-component-naming.md`](standard-component-naming.md), 
   regardless of which directory it lives in.
-- Group `models/`, `constants/`, and `enums/` by domain once a domain has more than one related file; leave single-file,
+- Group `models/`, `constants/` and `enums/` by domain once a domain has more than one related file; leave single-file,
   cross-domain content (like `commonConstants.ts`) flat.
 - Keep `helpers/` and `utils/` genuinely separate, per [`standard-utils-vs-helpers.md`](standard-utils-vs-helpers.md) —
   `.tsx`/React-context code goes in `helpers/`, framework-agnostic pure functions in `utils/`.

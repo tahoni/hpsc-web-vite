@@ -19,7 +19,7 @@ The standard, recommended way to customize Bootstrap is through Sass, not by edi
 
 ## 1. Why not Just Override the CSS?
 
-Editing `bootstrap.min.css` directly or piling on override rules in a separate stylesheet works short-term but makes upgrading Bootstrap versions painful (your changes get lost or conflict), ships the full Bootstrap CSS *plus* your overrides (bloating file size), and fights Bootstrap's own specificity, leading to `!important` wars.
+Editing `bootstrap.min.css` directly or piling on override rules in a separate stylesheet works short-term but makes upgrading Bootstrap versions painful (your changes get lost or conflict), ships the full Bootstrap CSS *plus* your overrides (bloating file size) and fights Bootstrap's own specificity, leading to `!important` wars.
 
 The Sass approach avoids all of this because you're recompiling Bootstrap with your values baked in from the start.
 
@@ -129,7 +129,7 @@ This doesn't recompile components (so things like `.btn-primary`'s hover/focus c
 ## 📊 Summary
 
 | Approach                                    | Best for                                        |
-|------------------------------------------------|----------------------------------------------------|
+|---------------------------------------------|-------------------------------------------------|
 | Sass variable overrides + selective imports | Production projects, full control, smallest CSS |
 | CSS custom property overrides               | Quick theming, no-build-step setups             |
 | Editing compiled CSS directly               | Avoid — breaks on upgrade, bloats output        |

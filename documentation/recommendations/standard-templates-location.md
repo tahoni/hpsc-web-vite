@@ -349,4 +349,4 @@ src/
         └── index.ts              # Export all templates
 ```
 
-This keeps them separate from UI components, easy to find and maintain, co-located with email-specific logic, and testable and previewable.
+This keeps them separate from UI components, easy to find and maintain, co-located with email-specific logic and testable and previewable.

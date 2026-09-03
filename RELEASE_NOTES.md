@@ -22,7 +22,7 @@ and archive-sync issues.
 - Updated every dependency `5.0.0` left deferred pending code changes — `@fortawesome/*` (`6` → `7`), `@fullcalendar/*`,
   `@mdx-js/*`, `@react-email/components` (`0.0.36` → `1.0.12`), `@rjsf/*` (`5` → `6`), `@vis.gl/react-google-maps`,
   `bootstrap`, `react-bootstrap`, `react-email` (`4` → `6`), `react-router` (`7` → `8`), `react-router-dom`,
-  `sanitize-html`, and `sweetalert2` — plus `@tahoni/tahoni-lib-react`
+  `sanitize-html` and `sweetalert2` — plus `@tahoni/tahoni-lib-react`
 - Updated `typescript` (`~5.9.3` → `~6.0.3`); updated `tsconfig.app.json` accordingly, dropping `baseUrl` in favour of
   explicit `./`-relative `paths` entries and adding `"types": ["mdx"]`
 
@@ -40,7 +40,7 @@ and archive-sync issues.
 
 ### 📝 Documentation Clean-up
 
-- Fixed hard-wrapped paragraphs across `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md`, and two
+- Fixed hard-wrapped paragraphs across `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md` and two
   `documentation/recommendations/` files, and resynced `documentation/history/RELEASE_NOTES_v5.0.0.md`'s stale archive
   snapshot
 
@@ -53,7 +53,7 @@ and archive-sync issues.
 - Added a `/sync-unreleased-changes` Claude Code command — audits the current branch's diff against its base branch and
   adds any missing `CHANGELOG.md` Unreleased entries for notable changes
 - Added an `.aiignore` file, mirroring most of `.gitignore`'s coverage, so AI coding agents don't read build artefacts,
-  secrets, and IDE/tool-specific files as part of their context; it additionally excludes `.mvn/`, commented as not
+  secrets and IDE/tool-specific files as part of their context; it additionally excludes `.mvn/`, commented as not
   excluded by `.gitignore`
 
 ### 🔄 Changed
@@ -61,14 +61,14 @@ and archive-sync issues.
 #### Build & Tooling
 
 - Expanded `.gitignore` with newer JetBrains (AWS, SonarLint, Apifox, GitHub Copilot migration files), OS (`.DS_Store`,
-  `Thumbs.db`, `desktop.ini`), secrets/credentials (`*.pem`, `*.key`, `*credentials*`, `*secrets*`), pnpm, Yarn v3, and
+  `Thumbs.db`, `desktop.ini`), secrets/credentials (`*.pem`, `*.key`, `*credentials*`, `*secrets*`), pnpm, Yarn v3 and
   Vite timestamp-file patterns
 - Widened `.gitignore`'s project-specific `TAHONI` rule from `.claude/*.local.json` to `.claude/*.local.*` and removed
   the now-unneeded `.junie/` entry
 - Updated `vite` (`^6.4.2` → `^8.2.2`), `@vitejs/plugin-react` (`^4.3.4` → `^6.1.0`, required for Vite 8 support),
   `vitest` (`^3.0.5` → `^4.1.11`), `eslint` and `@eslint/js` (`^9.20.1`/`^9.17.0` → `^9.39.5`), `eslint-plugin-react`
   (`^7.37.4` → `^7.37.5`), `eslint-plugin-react-hooks` (`^5.1.0` → `^7.1.1`), `eslint-plugin-react-refresh` (`^0.4.19` →
-  `^0.5.5`), and `typescript-eslint` (`^8.24.0` → `^8.68.0`) to their latest mutually-compatible versions; kept `eslint`
+  `^0.5.5`) and `typescript-eslint` (`^8.24.0` → `^8.68.0`) to their latest mutually-compatible versions; kept `eslint`
   on the 9.x line rather than 10.x since `eslint-plugin-react`'s peer range doesn't yet support ESLint 10, and kept
   `typescript` on the 5.x line (`~5.6.2` → `~5.9.3`) rather than 7.x since `typescript-eslint`'s peer range doesn't yet
   support TypeScript 7's native-compiler major release
@@ -78,7 +78,7 @@ and archive-sync issues.
 - Updated the remaining `devDependencies` to their latest versions: `@rollup/plugin-babel` (`^6.0.4` → `^7.1.0`),
   `@types/react` (`~19.0.3` → `~19.2.18`), `@types/react-dom` (`~19.0.2` → `~19.2.5`), `@types/sanitize-html`
   (`^2.13.0` → `^2.16.1`), `globals` (`^15.15.0` → `^17.11.0`), `rollup-plugin-visualizer` (`^5.14.0` → `^7.1.1`),
-  `sass` (`^1.85.0` → `^1.103.1`), `sitemap` (`^8.0.0` → `^9.0.1`), `tsx` (`^4.19.4` → `^4.23.12`), and `typedoc`
+  `sass` (`^1.85.0` → `^1.103.1`), `sitemap` (`^8.0.0` → `^9.0.1`), `tsx` (`^4.19.4` → `^4.23.12`) and `typedoc`
   (`^0.28.15` → `^0.28.20`)
 - Widened `react`/`react-dom` from `~19.0.0` to `~19.2.8`, now matching the `@types/react`/`@types/react-dom` versions
   already updated above; left every other outdated runtime dependency with a major-version jump available
@@ -88,7 +88,7 @@ and archive-sync issues.
 #### Dependencies
 
 - Updated `@tahoni/tahoni-lib-react` (`^3.3.0` → `^3.3.3`), which now peers on `react`/`react-dom` `~19.2.0`,
-  `bootstrap` `^5.3.8`, `eslint-plugin-react` `^7.37.5`, `glob` `^13.0.6`, `react-bootstrap` `^2.10.10`, and
+  `bootstrap` `^5.3.8`, `eslint-plugin-react` `^7.37.5`, `glob` `^13.0.6`, `react-bootstrap` `^2.10.10` and
   `react-spinners` `^0.17.0`
 - Updated the remaining deferred major dependencies to their latest versions: `@fortawesome/fontawesome-svg-core`/
   `@fortawesome/free-brands-svg-icons`/`@fortawesome/free-regular-svg-icons`/`@fortawesome/free-solid-svg-icons`
@@ -97,15 +97,15 @@ and archive-sync issues.
   `@rjsf/core`/`@rjsf/utils`/`@rjsf/validator-ajv8` (`^5.24.3` → `^6.8.0`), `@vis.gl/react-google-maps` (`^1.5.2` →
   `^1.9.0`), `bootstrap` (`^5.3.3` → `^5.3.8`), `react-bootstrap` (`^2.10.9` → `^2.10.10`), `react-email` (`^4.0.7` →
   `^6.9.3`), `react-router` (`^7.12.0` → `^8.3.0`), `react-router-dom` (`^7.12.0` → `^7.18.2`), `sanitize-html`
-  (`^2.14.0` → `^2.17.7`), and `sweetalert2` (`^11.22.4` → `^11.26.25`)
+  (`^2.14.0` → `^2.17.7`) and `sweetalert2` (`^11.22.4` → `^11.26.25`)
 - Updated `typescript` (`~5.9.3` → `~6.0.3`); updated `tsconfig.app.json` accordingly, dropping `baseUrl` in favour of
   explicit `./`-relative `paths` entries and adding `"types": ["mdx"]`
 
 #### Documentation
 
 - Expanded `AGENTS.md`'s Release Checklist template for `RELEASE_NOTES.md` with Migration Guide, Statistics, Design
-  Notes, Testing, Known Issues, Future Enhancements, Contributors, and Notes sections, added matching ⭐/📊/🔮/👥 icons to
-  the icon table, and rewrote `RELEASE_NOTES.md` to follow the expanded template
+  Notes, Testing, Known Issues, Future Enhancements, Contributors and Notes sections, added matching ⭐/📊/🔮/👥 icons to
+  the icon table and rewrote `RELEASE_NOTES.md` to follow the expanded template
 - Consolidated `README.md`'s per-file documentation links into a new Documentation section, now referenced by
   `AGENTS.md`'s Documentation File Map, and clarified its Prerequisites/Installation and Execution steps
 
@@ -135,12 +135,12 @@ and archive-sync issues.
 #### Documentation
 
 - Fixed hard-wrapped paragraphs in `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md`,
-  `documentation/recommendations/project-css-naming.md`, and
+  `documentation/recommendations/project-css-naming.md` and
   `documentation/recommendations/standard-utils-vs-helpers.md` that broke mid-sentence or mid-clause instead of matching
   the rest of the repo's one-paragraph-per-line convention; also converted `PACKAGES.md` from UTF-16 to UTF-8, matching
   every other Markdown file in the repo
 - Fixed additional hard-wrapped list-item descriptions in `ARCHITECTURE.md` (the `RouteAliases.tsx`/`AppRoutes.tsx`,
-  Sass Modules/Bootstrap Overrides, and Build and Tooling bullets) missed by the earlier paragraph rewrap
+  Sass Modules/Bootstrap Overrides and Build and Tooling bullets) missed by the earlier paragraph rewrap
 - Fixed `documentation/history/RELEASE_NOTES_v5.0.0.md`'s stale archive snapshot, which had fallen out of sync with
   `RELEASE_NOTES.md`'s expanded Migration Guide/Statistics/Design Notes/Testing/Known Issues/Future
   Enhancements/Contributors/Notes template — resynced it byte-for-byte per AGENTS.md's Release Checklist archive rule
@@ -151,7 +151,7 @@ and archive-sync issues.
 
 ### For Deployers
 
-- **No schema, environment variable, or deployment changes in this release** — dependency upgrades, a compatibility fix,
+- **No schema, environment variable or deployment changes in this release** — dependency upgrades, a compatibility fix
   and documentation/tooling only.
 
 ### For Developers
@@ -194,7 +194,7 @@ and archive-sync issues.
 - `npm test` — no test files exist yet in this repository (tracked in `documentation/roadmap/improvement-plan-tasks.md`)
 - **Not performed:** a manual browser smoke test of the runtime packages bumped across a major version in this release
   (`@fortawesome/*` icon rendering, `@fullcalendar/*` on the Events page, `react-router`/`react-router-dom`'s split
-  versions, `sweetalert2` dialogs, `@vis.gl/react-google-maps`, and the Contact Us form's CAPTCHA/e-mail flow under the
+  versions, `sweetalert2` dialogs, `@vis.gl/react-google-maps` and the Contact Us form's CAPTCHA/e-mail flow under the
   new `@rjsf` validator) — recommended before merging to `main`
 
 ## 🐛 Known Issues
@@ -210,8 +210,8 @@ and archive-sync issues.
 
 ## 🔮 Future Enhancements
 
-- Add a CI workflow (`.github/workflows/build.yml`) that runs `npm run lint`, `npm run build`, and `npm test` on push/PR
-- Manually verify the Contact Us form, Events page calendar, and venue map in a browser before the next release, now
+- Add a CI workflow (`.github/workflows/build.yml`) that runs `npm run lint`, `npm run build` and `npm test` on push/PR
+- Manually verify the Contact Us form, Events page calendar and venue map in a browser before the next release, now
   that their underlying libraries have moved across major versions
 - Wire `News` into routing (or remove it) and fix the Contact Us route's inverted dates
 - Establish initial Vitest test coverage with a `jsdom` environment
@@ -224,8 +224,8 @@ Leoni Lubbinge
 
 This release closes out the dependency-modernisation effort started in 5.0.0 — every previously deferred major
 dependency is now current — and fixes the `@rjsf/core` v6 breakage that upgrade introduced in the Contact Us form. No
-page content, routing, or user-facing behaviour was intentionally changed; the runtime library bumps have been verified
-by type-check, lint, and build only, not by manual browser testing (see Known Issues).
+page content, routing or user-facing behaviour was intentionally changed; the runtime library bumps have been verified
+by type-check, lint and build only, not by manual browser testing (see Known Issues).
 
 ---
 

@@ -12,13 +12,13 @@
 
 ---
 
-The most common names for the main CSS stylesheet in React applications are `index.css`, `App.css`, `main.css`, and `styles.css`/`global.css`, each associated with a slightly different convention.
+The most common names for the main CSS stylesheet in React applications are `index.css`, `App.css`, `main.css` and `styles.css`/`global.css`, each associated with a slightly different convention.
 
 ---
 
 ## 1. `index.css` (Most Common)
 
-This is the most widely used convention, especially with Create React App (CRA), Vite React templates, and modern React projects generally:
+This is the most widely used convention, especially with Create React App (CRA), Vite React templates and modern React projects generally:
 
 ```typescript
 // main.tsx or index.tsx

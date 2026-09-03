@@ -19,7 +19,7 @@ website.
 
 ## 🎨 Design Philosophy
 
-The HPSC website is designed to be informative, accessible, and user-friendly. It follows a clean and modern aesthetic,
+The HPSC website is designed to be informative, accessible and user-friendly. It follows a clean and modern aesthetic,
 using a consistent layout across all pages to ensure ease of navigation for both members and visitors.
 
 ---
@@ -28,9 +28,9 @@ using a consistent layout across all pages to ensure ease of navigation for both
 
 The application uses a standard three-part layout structure, managed by the `Layout` component:
 
-1. **Header**: Contains branding, logos, and the primary navigation menu.
+1. **Header**: Contains branding, logos and the primary navigation menu.
 2. **Body**: The main content area, which may include sidebars for additional imagery or context.
-3. **Footer**: Contains contact information, social media links, a venue map, and copyright details.
+3. **Footer**: Contains contact information, social media links, a venue map and copyright details.
 
 ### 🔝 Header
 
@@ -79,7 +79,7 @@ The primary navigation menu includes the following routes:
 ## 📱 Responsive Design
 
 The UI is built using **Bootstrap 5**, ensuring that the website is fully responsive and works seamlessly across various
-devices and screen sizes (desktops, tablets, and smartphones). The navigation menu automatically collapses into a
+devices and screen sizes (desktops, tablets and smartphones). The navigation menu automatically collapses into a
 "hamburger" menu on smaller screens.
 
 ---

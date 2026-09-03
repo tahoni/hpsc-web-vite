@@ -1,7 +1,7 @@
 # Contributing
 
 Thank you for your interest in contributing to the HPSC website. This guide covers everything you need to set up the
-project, follow this repository's workflow, and submit a pull request.
+project, follow this repository's workflow and submit a pull request.
 
 ## Table of Contents
 
@@ -57,7 +57,7 @@ See `README.md`'s Available Scripts section for the complete list, including `np
 ## 🔀 Git Workflow
 
 This repository follows [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/); see `AGENTS.md`'s Git
-Workflow section for the full branching model, merge rules, and rationale. In short:
+Workflow section for the full branching model, merge rules and rationale. In short:
 
 - Branch from, and open your PR against, **`develop`** — not `main`. Use `feature/<short-description>` for day-to-day
   work.
@@ -75,6 +75,8 @@ See `AGENTS.md`'s Documentation Conventions section for the full rules. The esse
 
 - All documentation prose and code comments use **British English** spelling (e.g. "licence", "colour", "initialise"),
   not American English.
+- Lists of three or more items don't take a comma before the final `and`/`or` (e.g. "clone, install and run", not
+  "clone, install, and run").
 - Doc comments must be syntactically valid **TSDoc**, not JSDoc-only syntax (`eslint-plugin-tsdoc`'s `tsdoc/syntax` rule
   is enforced).
 - Wrap prose lines in Markdown files to between 100 and 120 characters; tables are exempt and stay on a single line per
@@ -112,12 +114,12 @@ Before opening a pull request, confirm:
   match — see `AGENTS.md`'s Reverse Sync rule.
 - [ ] The branch follows the GitFlow naming and merge-target conventions above.
 - [ ] Commit messages are plain, imperative-mood, with no Conventional Commits prefix.
-- [ ] New or changed prose uses British English spelling.
+- [ ] New or changed prose uses British English spelling and skips the serial comma.
 
 ---
 
 ## 💬 Questions & Support
 
-Feature requests, suggestions, and bug reports are tracked on this
+Feature requests, suggestions and bug reports are tracked on this
 project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page. For anything else, see `README.md`'s Author
 section for contact details.
