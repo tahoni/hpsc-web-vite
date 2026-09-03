@@ -104,6 +104,9 @@ account of the project's full evolution, including that era.
   (514 kB before the fix, 242 kB after); also corrected a `manualChunks` case that matched the non-existent
   `react-google-recaptcha` package name instead of the installed `react-google-recaptcha-v3`, which meant that library
   was never actually being split out
+- Fixed `scaffold-unit-tests`/`scaffold-integration-tests` skills missing the `## 🔍 Gather current state` section
+  every other `.claude/skills/*.md` file has before its `## 🚀 Instructions`; converted their existing "Read
+  `AGENTS.md` in full before starting" line into that section for structural consistency across all eight skills
 
 ##### Components
 

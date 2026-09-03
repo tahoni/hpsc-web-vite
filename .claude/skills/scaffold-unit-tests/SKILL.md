@@ -18,7 +18,9 @@ allowed-tools:
 The target component/hook/util/helper/model name(s) or file path(s) to scaffold tests for (one or more, space- or
 comma-separated) are passed as `args`.
 
-Read `AGENTS.md` in full before starting.
+## 🔍 Gather current state
+
+1. Read `AGENTS.md` in full for conventions.
 
 ## 🚀 Instructions
 

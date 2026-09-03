@@ -18,7 +18,9 @@ allowed-tools:
 The target route/page name(s) (one or more, space- or comma-separated — as they appear in
 `src/shared/routes/BaseRoutes.ts`, or feature folder names under `src/features/`) are passed as `args`.
 
-Read `AGENTS.md` in full before starting.
+## 🔍 Gather current state
+
+1. Read `AGENTS.md` in full for conventions.
 
 ## 🚀 Instructions
 
