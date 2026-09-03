@@ -76,6 +76,9 @@ account of the project's full evolution, including that era.
   `AGENTS.md`, synced from the more recently updated sibling `hpsc-web-springboot` repository; updated
   `ARCHITECTURE.md`'s Project Structure tree to include the previously-missing `.claude`/`.github` tooling directories
   per the new rule, and extended `CONTRIBUTING.md`'s Documentation Conventions and Pull Request Checklist to match
+- Added a new Claude Code Skills section to `AGENTS.md`, listing all eight `.claude/skills/` and their purpose, and a
+  shorter pointer to it from `CONTRIBUTING.md`'s new Claude Code Skills section, so both docs stay in sync with the
+  skills each of them already relies on
 
 #### 🐛 Fixed
 

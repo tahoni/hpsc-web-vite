@@ -14,6 +14,7 @@ restated in both this file and the per-file docs it governs, since not every age
 - [🧰 Build & Run Commands](#-build--run-commands)
 - [🔧 Environment Variables](#-environment-variables)
 - [🔍 Code Quality & CI](#-code-quality--ci)
+- [🛠️ Claude Code Skills](#-claude-code-skills)
 - [📝 Documentation Conventions](#-documentation-conventions)
 - [🗺️ Documentation File Map](#-documentation-file-map)
 - [🧪 Test Conventions](#-test-conventions)
@@ -153,6 +154,29 @@ See `README.md`'s Available Scripts section for the complete script list, includ
   a legacy mirror kept for tooling that hasn't migrated to flat config; keep the two in sync when changing lint rules.
 - There is currently no CI workflow that runs `npm run lint`, `npm run build` or `npm test` — only CodeQL runs
   automatically. Run these locally before opening a PR.
+
+---
+
+## 🛠️ Claude Code Skills
+
+`.claude/skills/` holds project-specific Claude Code skills that turn this file's conventions into ready-to-invoke
+workflows, available to any Claude Code session in this repository:
+
+| Skill                          | Purpose                                                                              |
+|---------------------------------|--------------------------------------------------------------------------------------|
+| `generate-commit-message`      | Draft a commit message and matching `CHANGELOG.md` entry for the current working tree changes |
+| `generate-pr-summary`          | Condense a version's `PR_DESCRIPTION.md`/`RELEASE_NOTES.md` into a short Bitbucket-style PR summary |
+| `prep-version-release`         | Prepare a new version release — `RELEASE_NOTES.md`, `CHANGELOG.md`, `HISTORY.md`, reverse-synced docs and a draft PR description, following the Release Checklist below |
+| `scaffold-integration-tests`   | Scaffold full-tree route/page rendering tests for a feature page                     |
+| `scaffold-unit-tests`          | Scaffold Vitest unit tests for a component, layout, hook, util, helper or model      |
+| `sync-improvement-plan-gaps`   | Check the current branch's changes against `improvement-plan.md`'s tracked gaps and mark any closed/progressed |
+| `sync-unreleased-changes`      | Audit the current branch's diff and ensure every notable change is reflected in `CHANGELOG.md`'s Unreleased section |
+| `update-improvement-plan-gaps` | Audit the codebase against `improvement-plan.md`/`improvement-plan-tasks.md` and record any newly identified gaps |
+
+Every skill reads this file in full before acting and treats it as the single source of truth for the conventions it
+automates — a skill's own instructions must never drift from what's documented here; fix this file first, then update
+the skill to match. AI coding agents without Claude Code's skill support should follow this file's conventions
+directly rather than relying on the skills existing.
 
 ---
 

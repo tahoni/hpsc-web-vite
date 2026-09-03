@@ -8,6 +8,7 @@ project, follow this repository's workflow and submit a pull request.
 - [📖 Introduction](#-introduction)
 - [🚀 Getting Started](#-getting-started)
 - [🧰 Development Scripts](#-development-scripts)
+- [🛠️ Claude Code Skills](#-claude-code-skills)
 - [🔀 Git Workflow](#-git-workflow)
 - [📝 Documentation Conventions](#-documentation-conventions)
 - [🧪 Testing](#-testing)
@@ -51,6 +52,16 @@ The following scripts are most relevant while contributing:
 | `npm run preview` | Preview the production build locally          |
 
 See `README.md`'s Available Scripts section for the complete list, including `npm run docs` and `npm run sitemap`.
+
+---
+
+## 🛠️ Claude Code Skills
+
+If you're using [Claude Code](https://claude.com/claude-code), this repository ships skills under `.claude/skills/`
+that automate parts of the workflow below — `generate-commit-message` before committing, `scaffold-unit-tests`/
+`scaffold-integration-tests` when adding tests and `sync-unreleased-changes` to check `CHANGELOG.md`'s Unreleased
+section before opening a PR. See `AGENTS.md`'s Claude Code Skills section for the full list; every skill follows the
+conventions documented there and summarised in this file, so using one doesn't skip any of the steps below.
 
 ---
 
