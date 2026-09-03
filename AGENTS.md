@@ -1,22 +1,24 @@
 # AGENTS.md
 
-Conventions for any AI coding agent working in this repository — project overview, tech stack, architecture, build/run
-commands, environment variables, code quality & CI, documentation conventions, testing, git workflow and the release
-checklist all live here. [`CLAUDE.md`](CLAUDE.md) is a thin pointer to this file, kept only because Claude Code
-specifically looks for a file by that name. Some content (documentation conventions, icon reuse) is intentionally
-restated in both this file and the per-file docs it governs, since not every agent tool reads `AGENTS.md`.
+Conventions for any AI coding agent working in this repository — project overview, tech stack, build/run commands,
+environment variables, architecture, code quality & CI, documentation conventions, roadmap planning, Claude Code
+skills, testing, git workflow and the release checklist all live here. [`CLAUDE.md`](CLAUDE.md) is a thin pointer to
+this file, kept only because Claude Code specifically looks for a file by that name. Some content (documentation
+conventions, icon reuse) is intentionally restated in both this file and the per-file docs it governs, since not
+every agent tool reads `AGENTS.md`.
 
 ## Table of Contents
 
 - [📖 Project Overview](#-project-overview)
 - [⚙️ Tech Stack](#-tech-stack)
-- [🏛️ Architecture Overview](#-architecture-overview)
 - [🧰 Build & Run Commands](#-build--run-commands)
 - [🔧 Environment Variables](#-environment-variables)
+- [🏛️ Architecture Overview](#-architecture-overview)
 - [🔍 Code Quality & CI](#-code-quality--ci)
-- [🛠️ Claude Code Skills](#-claude-code-skills)
 - [📝 Documentation Conventions](#-documentation-conventions)
 - [🗺️ Documentation File Map](#-documentation-file-map)
+- [🗺️ Roadmap Planning](#-roadmap-planning)
+- [🛠️ Claude Code Skills](#-claude-code-skills)
 - [🧪 Test Conventions](#-test-conventions)
 - [📁 Directory Tree Maintenance](#-directory-tree-maintenance)
 - [🔀 Git Workflow](#-git-workflow)
@@ -62,6 +64,39 @@ dependencies, both handled by third-party services called directly from the clie
 
 Exact pinned versions are not listed here — they drift with every dependency bump. Check `package.json` for the
 versions currently in use.
+
+---
+
+## 🧰 Build & Run Commands
+
+```bash
+# Install dependencies (requires NPM_TOKEN_READ — see Environment Variables below)
+npm install
+
+# Run the dev server bound to hpsc.local instead of localhost
+npm run host
+
+# Generate TypeDoc API documentation (outputs to /target/docs/)
+npm run docs
+
+# Regenerate public/sitemap.xml from route metadata
+npm run sitemap
+```
+
+See `README.md`'s Available Scripts section for the complete script list, including the standard `dev`/`build`/
+`preview`/`lint`/`test` scripts.
+
+---
+
+## 🔧 Environment Variables
+
+| Variable                | Used in                                     | Purpose                                                                             |
+|-------------------------|----------------------------------------------|-------------------------------------------------------------------------------------|
+| `NPM_TOKEN_READ`        | `.npmrc`                                    | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
+| `GOOGLE_MAPS_API_KEY`   | `.env.local` → `VITE_GOOGLE_MAPS_API_KEY`   | Google Maps API key; without it the venue map does not render                       |
+| `RECAPTCHA_V2_SITE_KEY` | `.env.local` → `VITE_RECAPTCHA_V2_SITE_KEY` | reCAPTCHA v2 site key for the Contact Us form's `Captcha` component                 |
+
+`.env.production` only sets `VITE_SHOW_BREAKPOINTS=false` (a debug overlay toggle); it carries no secrets.
 
 ---
 
@@ -114,39 +149,6 @@ Header/
 
 ---
 
-## 🧰 Build & Run Commands
-
-```bash
-# Install dependencies (requires NPM_TOKEN_READ — see Environment Variables below)
-npm install
-
-# Run the dev server bound to hpsc.local instead of localhost
-npm run host
-
-# Generate TypeDoc API documentation (outputs to /target/docs/)
-npm run docs
-
-# Regenerate public/sitemap.xml from route metadata
-npm run sitemap
-```
-
-See `README.md`'s Available Scripts section for the complete script list, including the standard `dev`/`build`/
-`preview`/`lint`/`test` scripts.
-
----
-
-## 🔧 Environment Variables
-
-| Variable                | Used in                                     | Purpose                                                                             |
-|-------------------------|---------------------------------------------|-------------------------------------------------------------------------------------|
-| `NPM_TOKEN_READ`        | `.npmrc`                                    | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
-| `GOOGLE_MAPS_API_KEY`   | `.env.local` → `VITE_GOOGLE_MAPS_API_KEY`   | Google Maps API key; without it the venue map does not render                       |
-| `RECAPTCHA_V2_SITE_KEY` | `.env.local` → `VITE_RECAPTCHA_V2_SITE_KEY` | reCAPTCHA v2 site key for the Contact Us form's `Captcha` component                 |
-
-`.env.production` only sets `VITE_SHOW_BREAKPOINTS=false` (a debug overlay toggle); it carries no secrets.
-
----
-
 ## 🔍 Code Quality & CI
 
 - **CodeQL**: security analysis, runs on push/PR to `main` and weekly. Config: `.github/workflows/codeql.yml`.
@@ -154,29 +156,6 @@ See `README.md`'s Available Scripts section for the complete script list, includ
   a legacy mirror kept for tooling that hasn't migrated to flat config; keep the two in sync when changing lint rules.
 - There is currently no CI workflow that runs `npm run lint`, `npm run build` or `npm test` — only CodeQL runs
   automatically. Run these locally before opening a PR.
-
----
-
-## 🛠️ Claude Code Skills
-
-`.claude/skills/` holds project-specific Claude Code skills that turn this file's conventions into ready-to-invoke
-workflows, available to any Claude Code session in this repository:
-
-| Skill                          | Purpose                                                                                                                                                                 |
-|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `generate-commit-message`      | Draft a commit message and matching `CHANGELOG.md` entry for the current working tree changes                                                                           |
-| `generate-pr-summary`          | Condense a version's `PR_DESCRIPTION.md`/`RELEASE_NOTES.md` into a short Bitbucket-style PR summary                                                                     |
-| `prep-version-release`         | Prepare a new version release — `RELEASE_NOTES.md`, `CHANGELOG.md`, `HISTORY.md`, reverse-synced docs and a draft PR description, following the Release Checklist below |
-| `scaffold-integration-tests`   | Scaffold full-tree route/page rendering tests for a feature page                                                                                                        |
-| `scaffold-unit-tests`          | Scaffold Vitest unit tests for a component, layout, hook, util, helper or model                                                                                         |
-| `sync-improvement-plan-gaps`   | Check the current branch's changes against `improvement-plan.md`'s tracked gaps and mark any closed/progressed                                                          |
-| `sync-unreleased-changes`      | Audit the current branch's diff and ensure every notable change is reflected in `CHANGELOG.md`'s Unreleased section                                                     |
-| `update-improvement-plan-gaps` | Audit the codebase against `improvement-plan.md`/`improvement-plan-tasks.md` and record any newly identified gaps                                                       |
-
-Every skill reads this file in full before acting and treats it as the single source of truth for the conventions it
-automates — a skill's own instructions must never drift from what's documented here; fix this file first, then update
-the skill to match. AI coding agents without Claude Code's skill support should follow this file's conventions
-directly rather than relying on the skills existing.
 
 ---
 
@@ -343,14 +322,16 @@ These documentation-only folders supplement it:
   is finalised:
 
   | File                       | Purpose                                                    |
-  |----------------------------|------------------------------------------------------------|
+    |----------------------------|------------------------------------------------------------|
   | `RELEASE_NOTES_vX.Y.Z.md`  | Archived snapshot of `RELEASE_NOTES.md` at release time    |
   | `PR_DESCRIPTION_vX.Y.Z.md` | The release pull request's body, archived for that version |
 - **`documentation/recommendations/`** holds general React/TypeScript convention reference notes (naming, directory
   structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions —
   read alongside `ARCHITECTURE.md`, not as a replacement for it.
 
-### Roadmap Planning
+---
+
+## 🗺️ Roadmap Planning
 
 Unlike the folders above, `documentation/roadmap/` isn't reference material — it's the project's active improvement
 backlog, kept separate from the standard documentation files:
@@ -362,6 +343,29 @@ backlog, kept separate from the standard documentation files:
 
 Check both files before assuming a gap (missing CI pipeline, no tests, no `CONTRIBUTING.md`) is unintentional; it may
 already be tracked there.
+
+---
+
+## 🛠️ Claude Code Skills
+
+`.claude/skills/` holds project-specific Claude Code skills that turn this file's conventions into ready-to-invoke
+workflows, available to any Claude Code session in this repository:
+
+| Skill                          | Purpose                                                                                                                                                                 |
+|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `generate-commit-message`      | Draft a commit message and matching `CHANGELOG.md` entry for the current working tree changes                                                                           |
+| `generate-pr-summary`          | Condense a version's `PR_DESCRIPTION.md`/`RELEASE_NOTES.md` into a short Bitbucket-style PR summary                                                                     |
+| `prep-version-release`         | Prepare a new version release — `RELEASE_NOTES.md`, `CHANGELOG.md`, `HISTORY.md`, reverse-synced docs and a draft PR description, following the Release Checklist below |
+| `scaffold-integration-tests`   | Scaffold full-tree route/page rendering tests for a feature page                                                                                                        |
+| `scaffold-unit-tests`          | Scaffold Vitest unit tests for a component, layout, hook, util, helper or model                                                                                         |
+| `sync-improvement-plan-gaps`   | Check the current branch's changes against `improvement-plan.md`'s tracked gaps and mark any closed/progressed                                                          |
+| `sync-unreleased-changes`      | Audit the current branch's diff and ensure every notable change is reflected in `CHANGELOG.md`'s Unreleased section                                                     |
+| `update-improvement-plan-gaps` | Audit the codebase against `improvement-plan.md`/`improvement-plan-tasks.md` and record any newly identified gaps                                                       |
+
+Every skill reads this file in full before acting and treats it as the single source of truth for the conventions it
+automates — a skill's own instructions must never drift from what's documented here; fix this file first, then update
+the skill to match. AI coding agents without Claude Code's skill support should follow this file's conventions
+directly rather than relying on the skills existing.
 
 ---
 

@@ -3,8 +3,7 @@
 ## 🧾 Change Log
 
 All notable changes to the HPSC Website project are documented in this file. The format is based
-on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
-to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTORY.md](HISTORY.md) for a narrative
 account of the project's full evolution, including that era.
@@ -166,6 +165,16 @@ account of the project's full evolution, including that era.
   (`project-css-naming.md`'s Global Styles section) and `🧵` for the "Shared / cross-feature infrastructure" concept
   `🏗️` used to cover (`project-directory-structure.md`'s `src/shared/` section); left Java/Spring-specific additions
   (data model/DTOs, request-response flow, roadmap status markers, etc.) out of this project's icon table
+- Restructured `AGENTS.md` and `CONTRIBUTING.md` to match `hpsc-web-springboot`'s section skeleton: reordered
+  `AGENTS.md` to Overview → Tech Stack → Build & Run Commands → Environment Variables → Architecture → Code Quality
+  & CI → Documentation Conventions → Documentation File Map → Roadmap Planning → Claude Code Skills → Test
+  Conventions → Directory Tree Maintenance → Git Workflow → Release Checklist → Evergreen Documentation, and
+  promoted its "Roadmap Planning" subsection to a full `##` section (reusing the already-established `🗺️` icon, not
+  springboot's `🎯`, since that already means something else here); added `CONTRIBUTING.md`'s missing Prerequisites,
+  Architecture at a Glance, Roadmap, CI/CD & Quality Gates and Cutting a Release sections (all brief pointers to
+  `AGENTS.md`, matching this project's existing thin-summary approach) and folded its redundant Introduction section
+  into the pre-ToC intro paragraph, matching springboot's leaner shape; springboot's Database Profiles section has
+  no equivalent here, so it wasn't added
 
 #### ⚠️ Deprecated
 

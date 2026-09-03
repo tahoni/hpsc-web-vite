@@ -1,41 +1,46 @@
 # Contributing
 
-Thank you for your interest in contributing to the HPSC website. This guide covers everything you need to set up the
-project, follow this repository's workflow and submit a pull request.
+This guide covers everything you need to set up the HPSC Website — the React/TypeScript frontend for the
+Hartbeespoortdam Practical Shooting Club (HPSC) — and start contributing. See [`README.md`](README.md) for a project
+overview and [`ARCHITECTURE.md`](ARCHITECTURE.md) for the detailed design; for the full set of conventions AI coding
+agents (and, by extension, contributors) follow in this repository, see [`AGENTS.md`](AGENTS.md) — this file
+summarises the parts most relevant to opening a pull request.
 
 ## Table of Contents
 
-- [📖 Introduction](#-introduction)
+- [📋 Prerequisites](#-prerequisites)
 - [🚀 Getting Started](#-getting-started)
 - [🧰 Development Scripts](#-development-scripts)
-- [🛠️ Claude Code Skills](#-claude-code-skills)
-- [🔀 Git Workflow](#-git-workflow)
-- [📝 Documentation Conventions](#-documentation-conventions)
 - [🧪 Testing](#-testing)
+- [🏛️ Architecture at a Glance](#-architecture-at-a-glance)
+- [🛠️ Claude Code Skills](#-claude-code-skills)
+- [📝 Documentation Conventions](#-documentation-conventions)
+- [🗺️ Roadmap](#-roadmap)
+- [🔀 Git Workflow](#-git-workflow)
+- [🔍 CI/CD & Quality Gates](#-cicd--quality-gates)
 - [☑️ Pull Request Checklist](#-pull-request-checklist)
+- [🚢 Cutting a Release](#-cutting-a-release)
 - [💬 Questions & Support](#-questions--support)
 
 ---
 
-## 📖 Introduction
+## 📋 Prerequisites
 
-This project is the React/TypeScript frontend for the Hartbeespoortdam Practical Shooting Club (HPSC) website — see [
-`README.md`](README.md) for a project overview and [`ARCHITECTURE.md`](ARCHITECTURE.md) for the detailed design.
-
-For the full set of conventions AI coding agents (and, by extension, contributors) follow in this repository, see [
-`AGENTS.md`](AGENTS.md); this file summarises the parts most relevant to opening a pull request.
+- **Node.js** — download from [nodejs.org](https://nodejs.org/)
+- **NPM registry access** — a read-only npm token for the `@tahoni` GitHub Packages scope, set in the
+  `NPM_TOKEN_READ` environment variable (see `AGENTS.md`'s Environment Variables table for the full list;
+  `GOOGLE_MAPS_API_KEY` and `RECAPTCHA_V2_SITE_KEY` are optional locally but needed for the venue map and Contact Us
+  captcha to render)
+- **Git**
 
 ---
 
 ## 🚀 Getting Started
 
-1. Install [Node.js](https://nodejs.org/).
-2. Clone the repository from [GitHub](https://github.com/tahoni/hpsc-web-vite).
-3. Set the environment variables the project needs — see `AGENTS.md`'s Environment Variables table for the full list
-   (`NPM_TOKEN_READ` is required just to install dependencies; `GOOGLE_MAPS_API_KEY` and `RECAPTCHA_V2_SITE_KEY` are
-   optional locally but needed for the venue map and Contact Us captcha to render).
-4. Install dependencies: `npm install`.
-5. Start the dev server: `npm run dev` (or `npm run host` to bind to `http://hpsc.local/` instead of `localhost`).
+1. Clone the repository from [GitHub](https://github.com/tahoni/hpsc-web-vite).
+2. Set the environment variables listed under Prerequisites above.
+3. Install dependencies: `npm install`.
+4. Start the dev server: `npm run dev` (or `npm run host` to bind to `http://hpsc.local/` instead of `localhost`).
 
 ---
 
@@ -55,6 +60,40 @@ See `README.md`'s Available Scripts section for the complete list, including `np
 
 ---
 
+## 🧪 Testing
+
+Vitest is configured (`npm test`) but this project currently has no test files — see
+`documentation/roadmap/improvement-plan-tasks.md` for the tracked task on establishing initial coverage. When adding
+tests, per `AGENTS.md`'s Test Conventions:
+
+- Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
+- For component tests, use `@testing-library/react` with a `jsdom` environment.
+- Prefer testing behaviour and rendered output over implementation details; avoid snapshot tests of large component
+  trees.
+- Don't write tests whose sole purpose is verifying that TypeScript's type system or a trivial pass-through prop works.
+
+---
+
+## 🏛️ Architecture at a Glance
+
+The application is organised by feature, with shared infrastructure centralised under `src/shared/` — see
+`ARCHITECTURE.md` for full detail:
+
+```
+Route (React Router)
+    → Feature page → Feature content → Shared components / layouts
+```
+
+**Conventions enforced by review, not the compiler:**
+
+- Each non-trivial component or layout gets its own PascalCase folder — see `AGENTS.md`'s Component/layout folder
+  shape subsection.
+- Routing is data-driven via `PageMapping` instances (`BaseRoutes.ts`), not static JSX route trees.
+- Framework-agnostic pure functions belong in `utils/`; anything with routing/UI context belongs in `helpers/` — see
+  `documentation/recommendations/standard-utils-vs-helpers.md` for the split this project follows.
+
+---
+
 ## 🛠️ Claude Code Skills
 
 If you're using [Claude Code](https://claude.com/claude-code), this repository ships skills under `.claude/skills/`
@@ -62,21 +101,6 @@ that automate parts of the workflow below — `generate-commit-message` before c
 `scaffold-integration-tests` when adding tests and `sync-unreleased-changes` to check `CHANGELOG.md`'s Unreleased
 section before opening a PR. See `AGENTS.md`'s Claude Code Skills section for the full list; every skill follows the
 conventions documented there and summarised in this file, so using one doesn't skip any of the steps below.
-
----
-
-## 🔀 Git Workflow
-
-This repository follows [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/); see `AGENTS.md`'s Git
-Workflow section for the full branching model, merge rules and rationale. In short:
-
-- Branch from, and open your PR against, **`develop`** — not `main`. Use `feature/<short-description>` for day-to-day
-  work.
-- Only urgent production fixes use `hotfix/<short-description>`, branched from and PR'd into `main` directly.
-- Commit in logical chunks — one concern per commit — and write plain, imperative-mood commit messages (e.g. "Fix venue
-  map marker not rendering on Safari"). This project does not use Conventional Commits prefixes (`feat:`, `fix:`, etc.).
-- Update `CHANGELOG.md` in the same change that makes the change, under `### 🧪 [Unreleased]`, in the matching category
-  and `##### <Area>` sub-heading.
 
 ---
 
@@ -97,17 +121,41 @@ See `AGENTS.md`'s Documentation Conventions section for the full rules. The esse
 
 ---
 
-## 🧪 Testing
+## 🗺️ Roadmap
 
-Vitest is configured (`npm test`) but this project currently has no test files — see
-`documentation/roadmap/improvement-plan-tasks.md` for the tracked task on establishing initial coverage. When adding
-tests, per `AGENTS.md`'s Test Conventions:
+Full detail lives in `AGENTS.md`'s Roadmap Planning section.
 
-- Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
-- For component tests, use `@testing-library/react` with a `jsdom` environment.
-- Prefer testing behaviour and rendered output over implementation details; avoid snapshot tests of large component
-  trees.
-- Don't write tests whose sole purpose is verifying that TypeScript's type system or a trivial pass-through prop works.
+| File                        | Purpose                                                                                                          |
+|-----------------------------|--------------------------------------------------------------------------------------------------------------------|
+| `improvement-plan.md`       | Synthesised goals/constraints from this project's own docs and configuration, and the resulting gaps and roadmap |
+| `improvement-plan-tasks.md` | Concrete, checkbox-level task list broken out from `improvement-plan.md`'s gaps                                  |
+
+Both live in `documentation/roadmap/`, kept separate from the standard documentation set. Unlike `README.md`/
+`ARCHITECTURE.md`, these files are explicitly **not evergreen** — a point-in-time reading of the project, revisited
+only when a gap closes, progresses or a new one is identified.
+
+---
+
+## 🔀 Git Workflow
+
+This repository follows [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/); see `AGENTS.md`'s Git
+Workflow section for the full branching model, merge rules and rationale. In short:
+
+- Branch from, and open your PR against, **`develop`** — not `main`. Use `feature/<short-description>` for day-to-day
+  work.
+- Only urgent production fixes use `hotfix/<short-description>`, branched from and PR'd into `main` directly.
+- Commit in logical chunks — one concern per commit — and write plain, imperative-mood commit messages (e.g. "Fix venue
+  map marker not rendering on Safari"). This project does not use Conventional Commits prefixes (`feat:`, `fix:`, etc.).
+- Update `CHANGELOG.md` in the same change that makes the change, under `### 🧪 [Unreleased]`, in the matching category
+  and `##### <Area>` sub-heading.
+
+---
+
+## 🔍 CI/CD & Quality Gates
+
+See `AGENTS.md`'s Code Quality & CI section for the current CodeQL/ESLint setup. There is no CI workflow that runs
+`npm run lint`, `npm run build` or `npm test` automatically yet — run them locally before opening a PR (tracked as a
+gap in `documentation/roadmap/improvement-plan-tasks.md`).
 
 ---
 
@@ -126,6 +174,14 @@ Before opening a pull request, confirm:
 - [ ] The branch follows the GitFlow naming and merge-target conventions above.
 - [ ] Commit messages are plain, imperative-mood, with no Conventional Commits prefix.
 - [ ] New or changed prose uses British English spelling and skips the serial comma.
+
+---
+
+## 🚢 Cutting a Release
+
+Releasing a new version follows a fixed, ordered checklist (roadmap check → version bump → CHANGELOG → RELEASE_NOTES
+→ HISTORY → CONTRIBUTING/ARCHITECTURE verification → archive → PR description) — see `AGENTS.md`'s Release Checklist
+for the full, current procedure rather than duplicating it here, so the two never drift out of sync.
 
 ---
 
