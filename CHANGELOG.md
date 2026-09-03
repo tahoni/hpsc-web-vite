@@ -40,6 +40,16 @@ account of the project's full evolution, including that era.
 
 #### ➕ Added
 
+##### Tooling
+
+- Added eight Claude Code skills under `.claude/skills/` (`generate-commit-message`, `generate-pr-summary`,
+  `prep-version-release`, `scaffold-integration-tests`, `scaffold-unit-tests`, `sync-improvement-plan-gaps`,
+  `sync-unreleased-changes`, `update-improvement-plan-gaps`), synced from the sibling `hpsc-web-springboot`
+  repository and localised for this project: replaced Spring Boot/Java-specific content (Maven version bumps,
+  Mockito/JUnit, `@SpringBootTest`) with this project's own npm/Vitest equivalents, fixed `CHANGELOG.md` heading
+  levels and bullet style to match this repo's actual structure and added the missing `UI.md` reverse-sync and
+  `ARCHITECTURE.md` tree-verification steps
+
 #### 🔄 Changed
 
 ##### Documentation
