@@ -253,13 +253,13 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 🧰   | Available scripts / tooling             |
 | 📁   | Project / directory structure           |
 | 🎯   | Core concepts / theme overview          |
-| 🧭   | Routing / navigation                    |
+| 🛣️   | Routing / navigation                    |
 | 🗂️   | Feature-based organisation              |
 | 📝   | Content strategy / documentation        |
 | 🎨   | Styling and theming / design            |
 | 🛠️   | Development guidelines                  |
 | 👤   | Author / changes by                     |
-| 🗺️   | Documentation map                       |
+| 🗺️   | Documentation map / roadmap             |
 | 📋   | Version policy / prerequisites          |
 | 📚   | Documentation / key learnings           |
 | 🏛️   | Architecture                            |
@@ -301,8 +301,11 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 📤   | Output                                  |
 | 👍   | Recommendation / best practices         |
 | ✅   | Quality attributes                      |
-| 🌐   | Global scope                            |
-| 🏗️   | Shared / cross-feature infrastructure   |
+| 🌐   | Presentation / API layer                |
+| 🏗️   | Layered architecture                    |
+| 🧭   | Design notes                            |
+| 🌊   | Global scope / cascading styles         |
+| 🧵   | Shared / cross-feature infrastructure   |
 | 🧱   | Component/layout folder shape           |
 | 🌳   | Decision tree / quick reference         |
 | 🏆   | Most popular / prevailing convention    |

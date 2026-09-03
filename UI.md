@@ -10,7 +10,7 @@ website.
     - [🔝 Header](#-header)
     - [📄 Body](#-body)
     - [⬇️ Footer](#-footer)
-- [🧭 Navigation](#-navigation)
+- [🛣️ Navigation](#-navigation)
 - [📱 Responsive Design](#-responsive-design)
 - [💻 Technical Implementation](#-technical-implementation)
 - [👤 Designers](#-designers)
@@ -61,7 +61,7 @@ The Footer provides essential information and links:
 
 ---
 
-## 🧭 Navigation
+## 🛣️ Navigation
 
 The primary navigation menu includes the following routes:
 

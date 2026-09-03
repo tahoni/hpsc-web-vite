@@ -3,13 +3,13 @@
 ## Table of Contents
 
 - [🗂️ `src/features/<Feature>/`: One Folder per Page/Domain](#-srcfeaturesfeature-one-folder-per-pagedomain)
-- [🏗️ `src/shared/`: Cross-Feature Infrastructure](#-srcshared-cross-feature-infrastructure)
+- [🧵 `src/shared/`: Cross-Feature Infrastructure](#-srcshared-cross-feature-infrastructure)
 - [🧱 Component/Layout Folder Shape](#-componentlayout-folder-shape)
 - [🗂️ `src/models/`, `src/constants/`, `src/enums/`: Grouped by Domain](#-srcmodels-srcconstants-srcenums-grouped-by-domain)
 - [⚖️ `src/helpers/` vs `src/utils/`: The Split Is Actually Enforced Here](#-srchelpers-vs-srcutils-the-split-is-actually-enforced-here)
 - [📦 `src/vendors/<library>/`: Overrides, Not Forks](#-srcvendorslibrary-overrides-not-forks)
 - [🔧 `builders/`: Build-Time Scripts, Outside `src/`](#-builders-build-time-scripts-outside-src)
-- [🧭 Path Aliases Mirror This Structure](#-path-aliases-mirror-this-structure)
+- [🛣️ Path Aliases Mirror This Structure](#-path-aliases-mirror-this-structure)
 - [👍 Recommendation](#-recommendation)
 
 ---
@@ -41,7 +41,7 @@ means hunting across three top-level directories for its parts.
 
 ---
 
-## 🏗️ `src/shared/`: Cross-Feature Infrastructure
+## 🧵 `src/shared/`: Cross-Feature Infrastructure
 
 Everything more than one feature depends on lives under `src/shared/`, itself split by role rather than dumped into one
 flat `components/`:
@@ -147,7 +147,7 @@ client build.
 
 ---
 
-## 🧭 Path Aliases Mirror This Structure
+## 🛣️ Path Aliases Mirror This Structure
 
 Every folder decision above has a matching alias, configured in both `vite.config.ts` (runtime resolution) and
 `tsconfig.app.json` (type-checking):

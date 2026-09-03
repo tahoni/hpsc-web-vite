@@ -8,7 +8,7 @@ Practical Shooting Club (HPSC) website.
 - [⚙️ Technology Stack](#-technology-stack)
 - [📁 Project Structure](#-project-structure)
 - [🎯 Core Concepts](#-core-concepts)
-    - [🧭 Data-Driven Routing](#-data-driven-routing)
+    - [🛣️ Data-Driven Routing](#-data-driven-routing)
     - [🗂️ Feature-Based Organisation](#-feature-based-organisation)
     - [📝 Content Strategy (MDX)](#-content-strategy-mdx)
     - [🎨 Styling and Theming](#-styling-and-theming)
@@ -64,7 +64,7 @@ The project follows a modular structure, separating shared infrastructure from f
 
 ## 🎯 Core Concepts
 
-### 🧭 Data-Driven Routing
+### 🛣️ Data-Driven Routing
 
 Routing is handled through a data-driven approach rather than static JSX routes. This allows the same route definitions
 to be used for both the React application and the sitemap builder.

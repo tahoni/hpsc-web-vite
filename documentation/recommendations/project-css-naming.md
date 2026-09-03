@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [🌐 Global Styles: `App.scss`](#-global-styles-appscss)
+- [🌊 Global Styles: `App.scss`](#-global-styles-appscss)
 - [🎨 Shared/Personal Styles: `src/assets/styles/`](#-sharedpersonal-styles-srcassetsstyles)
 - [📦 Vendor Overrides: `src/vendors/bootstrap/styles/`](#-vendor-overrides-srcvendorsbootstrapstyles)
 - [🗂️ Component/Layout Styles: CSS Modules](#-componentlayout-styles-css-modules)
@@ -19,7 +19,7 @@ generic convention.
 
 ---
 
-## 🌐 Global Styles: `App.scss`
+## 🌊 Global Styles: `App.scss`
 
 `src/App.scss` is the single global stylesheet, imported once by `src/App.tsx`. It uses Sass `@use` to pull in
 everything global, grouped by origin:

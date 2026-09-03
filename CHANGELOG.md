@@ -151,11 +151,18 @@ account of the project's full evolution, including that era.
   `🔗` (Repository/links), `📊` (Statistics) and `📋` (Version policy/prerequisites) were each reused for unrelated
   headings in six files, and the roadmap's Next/Later/Ongoing phases duplicated `🏗️`/an undocumented `🔬`/`🔄`
   (Changed items) rather than having their own icons; reassigned the misused headings to an already-established
-  matching icon (`⚖️`, `🧭`, `🎓` or `📚`) and gave the roadmap phases their own `⏭️`/`⏳`/`🔁`. Also added eleven
-  previously undocumented or newly introduced icons to `AGENTS.md`'s icon table: `🌐`, `🏗️`, `🧱`, `🌳`, `🏆`, `🗝️`,
-  `🏷️`, `⚖️` and the three roadmap phase icons above
-- Fixed `RELEASE_NOTES.md`'s "Design Notes" section using `🧭` (Routing/navigation) instead of `💡`
-  (Philosophy/insight), found while auditing the rest of the repository's docs for the same kind of icon reuse
+  matching icon (`⚖️`, `🛣️`, `🎓` or `📚`) and gave the roadmap phases their own `⏭️`/`⏳`/`🔁`. Also added nine
+  previously undocumented or newly introduced icons to `AGENTS.md`'s icon table: `🧱`, `🌳`, `🏆`, `🗝️`, `🏷️`, `⚖️`
+  and the three roadmap phase icons above
+- Reconciled three more icon meanings against the sibling `hpsc-web-springboot` repository's `AGENTS.md`, which had
+  grown substantially since the last sync: `🧭` now means "Design notes" (matching `RELEASE_NOTES.md`'s own existing
+  usage, which needed no change), `🏗️` now means "Layered architecture" and `🌐` now means "Presentation / API
+  layer" — none of which apply to this project, so both are left unused here for now. Introduced `🛣️` for the
+  "Routing / navigation" concept `🧭` used to cover (`ARCHITECTURE.md`, `UI.md` and two Path Aliases headings in
+  `documentation/recommendations/`), `🌊` for the "Global scope" concept `🌐` used to cover
+  (`project-css-naming.md`'s Global Styles section) and `🧵` for the "Shared / cross-feature infrastructure" concept
+  `🏗️` used to cover (`project-directory-structure.md`'s `src/shared/` section); left Java/Spring-specific additions
+  (data model/DTOs, request-response flow, roadmap status markers, etc.) out of this project's icon table
 
 #### ⚠️ Deprecated
 
