@@ -239,14 +239,15 @@ line regardless of length, since wrapping breaks GFM table syntax.
 
 Every heading listed in a Table of Contents is prefixed with an emoji, and its ToC entry uses the same emoji. Reuse an
 icon already established for a concept rather than inventing a new one; only pick a new emoji when introducing a
-genuinely new concept. Icons already established in this repository's documentation:
+genuinely new concept. Icons already established in this repository's documentation, ordered by where each is first
+used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then `CHANGELOG.md`/`HISTORY.md`, then
+`RELEASE_NOTES.md`/`PR_DESCRIPTION_vX.Y.Z.md` — with icons used only elsewhere in the repository listed last:
 
 | Icon | Concept                                 |
 |------|-----------------------------------------|
 | 📖   | Introduction / overview                 |
 | 🔗   | Repository / links                      |
 | ⚙️   | Technology / configuration              |
-| ✨   | Features / enhancements                 |
 | 🚀   | Instructions / getting started          |
 | 🔧   | Installation / setup / technical change |
 | 🧰   | Available scripts / tooling             |
@@ -254,51 +255,52 @@ genuinely new concept. Icons already established in this repository's documentat
 | 🎯   | Core concepts / theme overview          |
 | 🧭   | Routing / navigation                    |
 | 🗂️   | Feature-based organisation              |
-| 🧩   | Tooling / automation                    |
 | 📝   | Content strategy / documentation        |
 | 🎨   | Styling and theming / design            |
 | 🛠️   | Development guidelines                  |
+| 👤   | Author / changes by                     |
+| 🗺️   | Documentation map                       |
+| 📋   | Version policy / prerequisites          |
+| 📚   | Documentation / key learnings           |
+| 🏛️   | Architecture                            |
+| 🧪   | Testing                                 |
+| 🔀   | Git workflow                            |
+| 🚢   | Release process                         |
+| 🌲   | Evergreen documentation                 |
+| 🔍   | Current state / inspection              |
+| ☑️   | Checklist                               |
+| 💬   | Support                                 |
+| ✨   | Features / enhancements                 |
+| 🧾   | Change log / release notes              |
+| 🐛   | Bug fixes / known issues                |
+| ➕   | Added items                             |
+| 🔄   | Changed items                           |
+| ⚠️   | Deprecated items                        |
+| 🗑️   | Removed items                           |
+| 🔐   | Security                                |
+| 🤝   | Contributing                            |
+| 📅   | Historical timeline / dates             |
+| 💡   | Philosophy / insight                    |
+| 🎓   | Conclusion / retrospective              |
+| 📦   | Dependencies / what's new               |
+| ⭐   | Key highlights                          |
+| 📊   | Statistics                              |
+| 🔮   | Future enhancements                     |
+| 👥   | Contributors                            |
+| 🧩   | Tooling / automation                    |
 | 📐   | Layout structure                        |
 | 🔝   | Header                                  |
 | 📄   | Body / page content                     |
 | ⬇️   | Footer                                  |
 | 📱   | Responsive design                       |
 | 💻   | Technical implementation                |
-| 🏛️   | Architecture                            |
 | 🖥️   | User interface                          |
 | 📜   | License / licence and documentation     |
-| 👤   | Author / changes by                     |
-| 🧾   | Change log / release notes              |
-| 🐛   | Bug fixes / known issues                |
 | ♻️   | General code improvements               |
-| 📦   | Dependencies / what's new               |
 | 💰   | Funding / sponsorship                   |
-| 🧪   | Testing                                 |
-| 🔀   | Git workflow                            |
-| 🚢   | Release process                         |
-| 🗺️   | Documentation map                       |
-| 🌲   | Evergreen documentation                 |
-| 🔍   | Current state / inspection              |
 | 📤   | Output                                  |
-| ➕   | Added items                             |
-| 🔄   | Changed items                           |
-| ⚠️   | Deprecated items                        |
-| 🗑️   | Removed items                           |
-| 🔐   | Security                                |
-| 📋   | Version policy / prerequisites          |
-| 🤝   | Contributing                            |
-| ☑️   | Checklist                               |
 | 👍   | Recommendation / best practices         |
 | ✅   | Quality attributes                      |
-| 💬   | Support                                 |
-| 📅   | Historical timeline / dates             |
-| 💡   | Philosophy / insight                    |
-| 📚   | Documentation / key learnings           |
-| 🎓   | Conclusion / retrospective              |
-| ⭐   | Key highlights                          |
-| 📊   | Statistics                              |
-| 🔮   | Future enhancements                     |
-| 👥   | Contributors                            |
 
 ---
 

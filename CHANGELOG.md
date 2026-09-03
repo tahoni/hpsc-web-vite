@@ -87,6 +87,9 @@ account of the project's full evolution, including that era.
   `improvement-plan.md`'s Success Criteria) and `👍` Recommendation / best practices (nine headings across
   `documentation/recommendations/`); also fixed three American spellings ("Organizational", "Organization" ×2) found
   in `standard-directory-structure.md` along the way
+- Reordered `AGENTS.md`'s icon table by where each icon is first used — `README.md`/`ARCHITECTURE.md`, then
+  `AGENTS.md`/`CONTRIBUTING.md`, then `CHANGELOG.md`/`HISTORY.md`, then `RELEASE_NOTES.md`/`PR_DESCRIPTION_vX.Y.Z.md`,
+  with icons used only elsewhere in the repository listed last; the icon-to-concept mappings themselves are unchanged
 
 #### 🐛 Fixed
 
