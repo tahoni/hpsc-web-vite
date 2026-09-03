@@ -176,6 +176,10 @@ account of the project's full evolution, including that era.
   `AGENTS.md`, matching this project's existing thin-summary approach) and folded its redundant Introduction section
   into the pre-ToC intro paragraph, matching springboot's leaner shape; springboot's Database Profiles section has
   no equivalent here, so it wasn't added
+- Added a "reserved" table to `AGENTS.md`'s icon registry for ten `hpsc-web-springboot` icons genuinely specific to
+  that project's Java/Spring Boot backend (`⚡`, `📈`, `📥`, `🔓`, `🔢`, `🔬`, `🗄️`, `🛡️`, `🤔`, `🧬`) — kept out of
+  the main table since they're unused here, but reserved so they're never accidentally repurposed for an unrelated
+  concept in this project
 
 #### ⚠️ Deprecated
 

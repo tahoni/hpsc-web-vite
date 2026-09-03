@@ -295,6 +295,23 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 🏷️   | Naming conventions                      |
 | ⚖️   | Comparison / trade-offs                 |
 
+Icons reserved from the sibling `hpsc-web-springboot` repository's registry for concepts specific to that project (a
+Java/Spring Boot backend) — not used here, kept reserved so they're never accidentally repurposed for an unrelated
+concept in this project:
+
+| Icon | Reserved for (springboot)                             |
+|------|--------------------------------------------------------|
+| ⚡   | Service layer                                          |
+| 📈   | Request-response flow                                  |
+| 📥   | Inbound / import flow                                  |
+| 🔓   | Optional / relaxed constraint                          |
+| 🔢   | Numbering / sequence                                   |
+| 🔬   | CI/CD & quality gates — this project uses 🔍 instead   |
+| 🗄️   | Database / persistence                                 |
+| 🛡️   | Robustness / validation hardening                      |
+| 🤔   | Reasoning                                               |
+| 🧬   | Data model / DTOs                                      |
+
 ---
 
 ## 🗺️ Documentation File Map
