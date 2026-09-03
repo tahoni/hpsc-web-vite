@@ -10,7 +10,7 @@ Practical Shooting Club (HPSC) website.
 - [🎯 Core Concepts](#-core-concepts)
     - [🛣️ Data-Driven Routing](#-data-driven-routing)
     - [🗂️ Feature-Based Organisation](#-feature-based-organisation)
-    - [📝 Content Strategy (MDX)](#-content-strategy-mdx)
+    - [✍️ Content Strategy (MDX)](#-content-strategy-mdx)
     - [🎨 Styling and Theming](#-styling-and-theming)
 - [🧰 Build and Tooling](#-build-and-tooling)
 - [🛠️ Development Guidelines](#-development-guidelines)
@@ -85,7 +85,7 @@ Code is organised by "features" under `src/features`. Each feature folder is sel
 - Feature-specific styles (Sass Modules).
 - An `index.ts` for clean exports.
 
-### 📝 Content Strategy (MDX)
+### ✍️ Content Strategy (MDX)
 
 For pages with significant text content (like History or Home), the project uses **MDX**. This allows writing content in
 Markdown while embedding React components where necessary.

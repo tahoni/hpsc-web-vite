@@ -189,6 +189,12 @@ account of the project's full evolution, including that era.
   `sync-improvement-plan-gaps`/`update-improvement-plan-gaps` skills already describe a
   ✅ Completed/🟡 Partially Completed/⚪ Open status system for `improvement-plan.md`; added `🟡` and `⚪` as real
   registry entries for that same reason, rather than reserving them as irrelevant
+- Resolved a `📝` conflict with `hpsc-web-springboot`'s icon table by adopting its "Notes" meaning as-is —
+  `RELEASE_NOTES.md`'s own `## 📝 Notes` section already matched it and needed no change — and introducing a new
+  `✍️` icon for the displaced "Content strategy / documentation conventions" concept across `AGENTS.md`'s and
+  `CONTRIBUTING.md`'s Documentation Conventions sections, `ARCHITECTURE.md`'s Content Strategy (MDX) section and
+  `RELEASE_NOTES.md`'s Documentation Clean-up subsection; left the frozen
+  `documentation/history/RELEASE_NOTES_v5.0.0.md`/`v5.1.0.md` archives untouched per the byte-for-byte archive rule
 
 #### ⚠️ Deprecated
 

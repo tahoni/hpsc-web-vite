@@ -14,7 +14,7 @@ summarises the parts most relevant to opening a pull request.
 - [🧪 Testing](#-testing)
 - [🏛️ Architecture at a Glance](#-architecture-at-a-glance)
 - [🛠️ Claude Code Skills](#-claude-code-skills)
-- [📝 Documentation Conventions](#-documentation-conventions)
+- [✍️ Documentation Conventions](#-documentation-conventions)
 - [🗺️ Roadmap](#-roadmap)
 - [🔀 Git Workflow](#-git-workflow)
 - [🔍 CI/CD & Quality Gates](#-cicd--quality-gates)
@@ -104,7 +104,7 @@ conventions documented there and summarised in this file, so using one doesn't s
 
 ---
 
-## 📝 Documentation Conventions
+## ✍️ Documentation Conventions
 
 See `AGENTS.md`'s Documentation Conventions section for the full rules. The essentials:
 

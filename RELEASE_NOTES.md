@@ -38,7 +38,7 @@ and archive-sync issues.
 - Added a `/sync-unreleased-changes` Claude Code command and an `.aiignore` file; expanded `AGENTS.md`'s Release
   Checklist template for `RELEASE_NOTES.md`
 
-### 📝 Documentation Clean-up
+### ✍️ Documentation Clean-up
 
 - Fixed hard-wrapped paragraphs across `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md` and two
   `documentation/recommendations/` files, and resynced `documentation/history/RELEASE_NOTES_v5.0.0.md`'s stale archive

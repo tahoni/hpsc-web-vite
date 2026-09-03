@@ -15,7 +15,7 @@ every agent tool reads `AGENTS.md`.
 - [🔧 Environment Variables](#-environment-variables)
 - [🏛️ Architecture Overview](#-architecture-overview)
 - [🔍 Code Quality & CI](#-code-quality--ci)
-- [📝 Documentation Conventions](#-documentation-conventions)
+- [✍️ Documentation Conventions](#-documentation-conventions)
 - [🗺️ Documentation File Map](#-documentation-file-map)
 - [🛤️ Roadmap Planning](#-roadmap-planning)
 - [🛠️ Claude Code Skills](#-claude-code-skills)
@@ -159,7 +159,7 @@ Header/
 
 ---
 
-## 📝 Documentation Conventions
+## ✍️ Documentation Conventions
 
 ### British English
 
@@ -234,7 +234,7 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 🎯   | Core concepts / theme overview          |
 | 🛣️   | Routing / navigation                    |
 | 🗂️   | Feature-based organisation              |
-| 📝   | Content strategy / documentation        |
+| ✍️   | Content strategy / documentation conventions |
 | 🎨   | Styling and theming / design            |
 | 🛠️   | Development guidelines                  |
 | 👤   | Author / changes by                     |
@@ -267,6 +267,7 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 📊   | Statistics                              |
 | 🔮   | Future enhancements                     |
 | 👥   | Contributors                            |
+| 📝   | Notes                                   |
 | 🧩   | Tooling / automation                    |
 | 📐   | Layout structure                        |
 | 🔝   | Header                                  |
