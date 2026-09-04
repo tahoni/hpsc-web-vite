@@ -1,4 +1,4 @@
-# Contributing
+# Contributing to HPSC Website
 
 This guide covers everything you need to set up the HPSC Website — the React/TypeScript frontend for the
 Hartbeespoortdam Practical Shooting Club (HPSC) — and start contributing. See [`README.md`](README.md) for a project
