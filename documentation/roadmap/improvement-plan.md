@@ -200,12 +200,12 @@ Version Goals" to the Release Checklist's thread-through list either way.
 
 ## 🚀 Roadmap
 
-| Phase       | Focus                                                                                                                                                                                                                                                      |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Add the CI lint/build/test gate (#1) — lowest effort, closes a gap the project's own docs already flag — and fix the two shipped route-metadata bugs (#2)                                                                                                  |
-| **Next**    | Stand up initial test coverage (#3) and a top-level error boundary (#4), so the CI gate added in Now has something real to enforce                                                                                                                         |
+| Phase       | Focus                                                                                                                                                                                                                                                     |
+|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Now**     | Add the CI lint/build/test gate (#1) — lowest effort, closes a gap the project's own docs already flag — and fix the two shipped route-metadata bugs (#2)                                                                                                 |
+| **Next**    | Stand up initial test coverage (#3) and a top-level error boundary (#4), so the CI gate added in Now has something real to enforce                                                                                                                        |
 | **Later**   | Accessibility baseline (#5), the styling-convention cleanup (#6), the remaining `.env.example`/`baseUrl` work on the partially-completed environment-variable gap (#7) and the `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) |
-| **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                                                                                                                                     |
+| **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                                                                                                                                    |
 
 ---
 

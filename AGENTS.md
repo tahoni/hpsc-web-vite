@@ -304,7 +304,7 @@ Icons reserved from the sibling `hpsc-web-springboot` repository's registry for 
 Java/Spring Boot backend) — not used here, kept reserved so they're never accidentally repurposed for an unrelated
 concept in this project:
 
-| Icon | Reserved for (springboot)         |
+| Icon | Reserved for (Spring Boot)        |
 |------|-----------------------------------|
 | ⚡   | Service layer                     |
 | 📈   | Request-response flow             |
