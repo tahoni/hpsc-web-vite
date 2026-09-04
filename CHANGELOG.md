@@ -81,6 +81,8 @@ notes.
   alongside `HISTORY.md`
 - Added `documentation/archive/ARCHIVE.md` to `README.md`'s Documentation section, matching the existing
   `documentation/history/`/`documentation/recommendations/` entries
+- Expanded `CONTRIBUTING.md`'s intro paragraph to state explicitly that `AGENTS.md` is this repository's ultimate
+  source of truth — if any other documentation ever contradicts it, `AGENTS.md` wins
 
 #### 🐛 Fixed
 
