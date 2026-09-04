@@ -23,6 +23,24 @@ the legacy Version 3.x line that predates it.
 
 ## 📅 Historical Timeline
 
+### Version 5.1.1 (September 4, 2026)
+
+**Theme:** Documentation Conformance, Claude Code Skills Migration & TSDoc Enforcement
+
+**Key Focus:**
+
+- Replaced all six `.claude/commands/` slash commands with eight `.claude/skills/` equivalents, synced and localised
+  from the sibling `hpsc-web-springboot` repository
+- Reconciled `AGENTS.md`'s section skeleton and icon registry against `hpsc-web-springboot`'s more recently updated
+  copy; added a Serial Commas convention, applied retroactively repo-wide
+- Fixed `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule being silently inert under ESLint 9's flat config, surfacing 264
+  pre-existing warnings tracked as a new roadmap gap rather than fixed outright
+- Restructured `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md` into a status-based grouping;
+  found and closed a stale `LICENSE.md` description in `AGENTS.md`
+- Fixed a Bootstrap theming regression, an `npm run build` chunk-size warning, the unresolved `@routes` alias, a dead
+  `src/index.css` import, an inconsistent `Layout/` folder shape and several relative imports that should have used
+  the project's own path aliases
+
 ### Version 5.1.0 (August 26, 2026)
 
 **Theme:** Dependency Modernisation Completion & @rjsf v6 Migration
@@ -721,8 +739,8 @@ dependency stack — groundwork ahead concerning a planned visual/structural red
   `@mdx-js/*`, `@rjsf/*` (a major-version migration), `@vis.gl/react-google-maps`, `bootstrap`/`react-bootstrap`,
   `react-router`/`react-router-dom`, `sweetalert2` and `typescript` (v5.1.0)
 - Correct internal structural and build issues surfaced by that modernisation — path-alias drift, an unthemed
-  duplicate Bootstrap compile, inconsistent component/layout folder shapes and oversized production JS chunks; — so
-  the codebase is on solid footing before the redesign begins (v5.2.0, in progress)
+  duplicate Bootstrap compile, inconsistent component/layout folder shapes and oversized production JS chunks — so
+  the codebase is on solid footing before the redesign begins (v5.1.1)
 
 **Status:** In progress — establishing this foundation is the stated precondition for the redesign the release branch
 is named for, not the redesign itself; see
