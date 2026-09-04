@@ -6,7 +6,7 @@
 
 **Documentation Conformance, Claude Code Skills Migration & TSDoc Enforcement**
 
-Version 5.1.1 is 1a documentation- and tooling-focused release. The six `.claude/commands/` slash commands are fully
+Version 5.1.1 is a documentation- and tooling-focused release. The six `.claude/commands/` slash commands are fully
 superseded by eight `.claude/skills/`, synced and localised from the sibling `hpsc-web-springboot` repository, which
 had also drifted ahead on `AGENTS.md`'s section skeleton, icon registry and Serial Commas convention — this release
 reconciles both repositories' conventions and threads the resulting rules through `CONTRIBUTING.md`. Along the way,

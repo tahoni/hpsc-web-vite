@@ -27,9 +27,9 @@ export default defineConfig({
       "@vendors": path.resolve(__dirname, "./src/vendors"),
       "@bootstrap": path.resolve(__dirname, "./src/vendors/bootstrap"),
       "@features": path.resolve(__dirname, "./src/features"),
-      "@routes": path.resolve(__dirname, "./src/routes"),
       "@shared": path.resolve(__dirname, "./src/shared"),
       "@helpers": path.resolve(__dirname, "./src/helpers"),
+      "@routes": path.resolve(__dirname, "./src/shared/routes"),
       "@components": path.resolve(__dirname, "./src/shared/components"),
       "@layouts": path.resolve(__dirname, "./src/shared/layouts"),
       "@pages": path.resolve(__dirname, "./src/shared/pages"),
@@ -63,10 +63,24 @@ export default defineConfig({
                 return "rjsf";
               case "@fullcalendar":
                 return "fullcalendar";
-              case "react-google-recaptcha":
+              case "react-google-recaptcha-v3":
                 return "react-google";
               case "@vis.gl":
                 return "vis.gl";
+              case "react":
+              case "react-dom":
+              case "scheduler":
+                return "react-vendor";
+              case "react-router":
+                return "react-router";
+              case "bootstrap":
+              case "react-bootstrap":
+              case "bootstrap-icons":
+                return "bootstrap";
+              case "sweetalert2":
+                return "sweetalert2";
+              case "@tahoni":
+                return "tahoni";
             }
           }
         },

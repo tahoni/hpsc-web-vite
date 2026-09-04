@@ -1,20 +1,33 @@
 # Difference Between `helpers/` and `utils/`
 
-While the terms are often used interchangeably, there are semantic differences in how they're typically organised in React projects:
+## Table of Contents
+
+- [🧰 `utils/` (Utilities)](#-utils-utilities)
+- [🗂️ `helpers/` (Helpers)](#-helpers-helpers)
+- [🎓 Key Differences Summary](#-key-differences-summary)
+- [🗂️ Common Organisation Patterns](#-common-organisation-patterns)
+- [👍 Recommendation](#-recommendation)
+- [🎯 Practical Rule of Thumb](#-practical-rule-of-thumb)
 
 ---
 
-## **`utils/` (Utilities)**
+While the terms are often used interchangeably, there are semantic differences in how they're typically organised in
+React projects.
 
-**Purpose:** Pure, generic utility functions that are **framework-agnostic** and have no dependencies on React or application-specific logic.
+---
+
+## 🧰 `utils/` (Utilities)
+
+**Purpose:** Pure, generic utility functions that are framework-agnostic and have no dependencies on React or
+application-specific logic.
 
 **Characteristics:**
 
-- ✅ Pure functions (same input → same output)
-- ✅ No side effects
-- ✅ No React dependencies
-- ✅ Could be extracted to a npm package
-- ✅ General-purpose, reusable across any project
+- Pure functions (same input → same output)
+- No side effects
+- No React dependencies
+- Could be extracted to a npm package
+- General-purpose, reusable across any project
 
 **Examples:**
 
@@ -65,17 +78,18 @@ export const chunk = <T>(array: T[], size: number): T[][] => {
 
 ---
 
-## **`helpers/` (Helpers)**
+## 🗂️ `helpers/` (Helpers)
 
-**Purpose:** Application-specific functions that **support business logic** and may have dependencies on React, app context, or domain models.
+**Purpose:** Application-specific functions that support business logic and may have dependencies on React, app context
+or domain models.
 
 **Characteristics:**
 
-- ✅ Application/domain-specific
-- ✅ May use React hooks, context, or state
-- ✅ May have side effects (API calls, localStorage)
-- ✅ Business logic orchestration
-- ✅ Tightly coupled to your application
+- Application/domain-specific
+- May use React hooks, context or state
+- May have side effects (API calls, localStorage)
+- Business logic orchestration
+- Tightly coupled to your application
 
 **Examples:**
 
@@ -143,24 +157,24 @@ export const transformApiPost = (data: ApiResponse): Post => {
 
 ---
 
-## **Key Differences Summary**
+## 🎓 Key Differences Summary
 
-| Aspect           | **`utils/`**                         | **`helpers/`**                      |
-|------------------|--------------------------------------|-------------------------------------|
-| **Scope**        | Generic, framework-agnostic          | Application-specific                |
-| **Dependencies** | No React/app dependencies            | May use React, models, services     |
-| **Reusability**  | Any project                          | This project only                   |
-| **Side Effects** | Pure functions                       | May have side effects               |
-| **Examples**     | String manipulation, date formatting | Business logic, data transformation |
-| **Testing**      | Simple unit tests                    | May need mocks/context              |
+| Aspect       | `utils/`                             | `helpers/`                          |
+|--------------|--------------------------------------|-------------------------------------|
+| Scope        | Generic, framework-agnostic          | Application-specific                |
+| Dependencies | No React/app dependencies            | May use React, models, services     |
+| Reusability  | Any project                          | This project only                   |
+| Side Effects | Pure functions                       | May have side effects               |
+| Examples     | String manipulation, date formatting | Business logic, data transformation |
+| Testing      | Simple unit tests                    | May need mocks/context              |
 
 ---
 
-## **Common Organisation Patterns**
+## 🗂️ Common Organisation Patterns
 
-### **Pattern 1: Separate Folders**
+**Pattern 1 — Separate folders:**
 
-```
+```text
 src/
 ├── utils/                  # Pure utilities
 │   ├── formatters.ts
@@ -173,9 +187,9 @@ src/
     └── formHelper.ts
 ```
 
-### **Pattern 2: Single `utils/` Folder** (Simpler)
+**Pattern 2 — Single `utils/` folder (simpler):**
 
-```
+```text
 src/
 └── utils/
     ├── formatters.ts       # Pure utilities
@@ -184,9 +198,9 @@ src/
     └── routeHelper.ts      # App-specific helpers
 ```
 
-### **Pattern 3: Feature-Based**
+**Pattern 3 — Feature-based:**
 
-```
+```text
 src/
 ├── features/
 │   └── auth/
@@ -198,13 +212,11 @@ src/
 
 ---
 
-## **Recommendation**
+## 👍 Recommendation
 
-### **For Most Projects:**
+**For most projects:** use one folder (`utils/`) and organise by category:
 
-Use **one folder** (`utils/`) and organise by category:
-
-```
+```text
 src/utils/
 ├── format/
 │   ├── currency.ts
@@ -218,11 +230,9 @@ src/utils/
     └── breadcrumbs.ts
 ```
 
-### **For Large Projects:**
+**For large projects:** keep them separate:
 
-Keep them separate:
-
-```
+```text
 src/
 ├── utils/                  # Generic, reusable utilities
 └── helpers/                # Business logic helpers
@@ -230,11 +240,12 @@ src/
 
 ---
 
-## **Practical Rule of Thumb**
+## 🎯 Practical Rule of Thumb
 
-**Ask yourself:** *"Could I copy this function into a completely different project and use it as-is?"*
+Ask yourself: *"Could I copy this function into a completely different project and use it as-is?"*
 
-- **Yes** → `utils/`
-- **No** (needs app context/models) → `helpers/`
+- Yes → `utils/`
+- No (needs app context/models) → `helpers/`
 
-However, many teams simply use `utils/` for everything to avoid confusion. Choose consistency over strict semantic separation.
+However, many teams simply use `utils/` for everything to avoid confusion. Choose consistency over strict semantic
+separation.

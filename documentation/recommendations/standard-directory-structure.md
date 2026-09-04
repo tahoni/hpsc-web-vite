@@ -1,8 +1,24 @@
 # Standard Directory Structure for React Applications
 
-Here's a recommended directory structure for modern React applications (React 18+, TypeScript, Vite):
+## Table of Contents
 
-```
+- [📁 Recommended Structure](#-recommended-structure)
+- [🗝️ Key Organisational Principles](#-key-organisational-principles)
+    - [🗂️ Feature-Based Organisation (Alternative)](#-feature-based-organisation-alternative)
+    - [🧱 Component Organisation](#-component-organisation)
+    - [📚 Common Folder Purposes](#-common-folder-purposes)
+    - [👍 Best Practices](#-best-practices)
+    - [🛣️ Configuration for Path Aliases](#-configuration-for-path-aliases)
+
+---
+
+Here's a recommended directory structure for modern React applications (React 18+, TypeScript, Vite).
+
+---
+
+## 📁 Recommended Structure
+
+```text
 my-react-app/
 ├── public/                      # Static assets served as-is
 │   ├── favicon.ico
@@ -48,44 +64,47 @@ my-react-app/
 │   │   ├── api.types.ts
 │   │   └── common.types.ts
 │   │
-│   ├── constants/               # Application constants
+│   ├── constants/                # Application constants
 │   │   ├── routes.ts
 │   │   └── config.ts
 │   │
-│   ├── context/                 # React Context providers
+│   ├── context/                  # React Context providers
 │   │   ├── AuthContext.tsx
 │   │   └── ThemeContext.tsx
 │   │
-│   ├── routes/                  # Routing configuration
+│   ├── routes/                   # Routing configuration
 │   │   └── index.tsx
 │   │
-│   ├── App.tsx                  # Root component
-│   ├── main.tsx                 # Entry point
-│   └── vite-env.d.ts           # Vite type declarations
+│   ├── App.tsx                   # Root component
+│   ├── main.tsx                  # Entry point
+│   └── vite-env.d.ts            # Vite type declarations
 │
-├── tests/                       # Test files (or co-located with components)
+├── tests/                        # Test files (or co-located with components)
 │   ├── unit/
 │   ├── integration/
 │   └── e2e/
 │
-├── .env.local                   # Environment variables (local)
-├── .env.production              # Environment variables (production)
+├── .env.local                    # Environment variables (local)
+├── .env.production                # Environment variables (production)
 ├── .gitignore
-├── eslint.config.js             # ESLint configuration
-├── index.html                   # HTML entry point
+├── eslint.config.js               # ESLint configuration
+├── index.html                     # HTML entry point
 ├── package.json
-├── tsconfig.json                # TypeScript configuration
+├── tsconfig.json                  # TypeScript configuration
 ├── tsconfig.app.json
 ├── tsconfig.node.json
-└── vite.config.ts               # Vite configuration
+└── vite.config.ts                 # Vite configuration
 ```
 
+---
 
-## Key Organizational Principles
+## 🗝️ Key Organisational Principles
 
-### **1. Feature-Based Organization (Alternative)**
+### 🗂️ Feature-Based Organisation (Alternative)
+
 For larger applications, consider organizing by feature:
-```
+
+```text
 src/
 ├── features/
 │   ├── auth/
@@ -102,9 +121,9 @@ src/
 │   └── utils/
 ```
 
+### 🧱 Component Organisation
 
-### **2. Component Organization**
-```
+```text
 components/
 ├── Button/
 │   ├── Button.tsx
@@ -113,59 +132,65 @@ components/
 │   └── index.ts                 # Re-export
 ```
 
+### 📚 Common Folder Purposes
 
-### **3. Common Folder Purposes**
+- **`assets/`** — Images, fonts, global styles processed by bundler
+- **`components/`** — Reusable, presentational components
+- **`pages/`** — Route-level components
+- **`hooks/`** — Custom React hooks for reusable logic
+- **`services/`** — API calls, external integrations
+- **`utils/`** — Pure utility functions (not React-specific)
+- **`types/`** or **`models/`** — TypeScript interfaces/types
+- **`constants/`** — Configuration and constant values
+- **`context/`** — React Context providers
+- **`store/`** — Global state management
 
-- **`assets/`** - Images, fonts, global styles processed by bundler
-- **`components/`** - Reusable, presentational components
-- **`pages/`** - Route-level components
-- **`hooks/`** - Custom React hooks for reusable logic
-- **`services/`** - API calls, external integrations
-- **`utils/`** - Pure utility functions (not React-specific)
-- **`types/`** or **`models/`** - TypeScript interfaces/types
-- **`constants/`** - Configuration and constant values
-- **`context/`** - React Context providers
-- **`store/`** - Global state management
+### 👍 Best Practices
 
-### **4. Best Practices**
+- Keep components small and focused.
+- Co-locate related files (component + styles + tests).
+- Use `index.ts` for clean imports.
+- Separate business logic from UI components.
+- Keep the `src/` root clean (only essential files).
+- Use absolute imports with path aliases (`@/components`, `@/utils`).
 
-- ✅ Keep components small and focused
-- ✅ Co-locate related files (component + styles + tests)
-- ✅ Use index.ts for clean imports
-- ✅ Separate business logic from UI components
-- ✅ Keep the src/ root clean (only essential files)
-- ✅ Use absolute imports with path aliases (@/components, @/utils)
-
-### **5. Configuration for Path Aliases**
+### 🛣️ Configuration for Path Aliases
 
 Add to `tsconfig.json`:
+
 ```json
 {
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@utils/*": ["src/utils/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
     }
   }
 }
 ```
 
-
 Add to `vite.config.ts`:
+
 ```typescript
 import path from 'path';
 
 export default {
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@components': path.resolve(__dirname, './src/components')
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src'),
+            '@components': path.resolve(__dirname, './src/components')
+        }
     }
-  }
 }
 ```
 
-
-This structure scales well from small projects to large enterprise applications while maintaining clarity and organization.
+This structure scales well from small projects to large enterprise applications while maintaining clarity and
+organization.

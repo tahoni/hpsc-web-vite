@@ -1,25 +1,45 @@
 # Naming Structure for React `.ts` and `.tsx` Files
 
-## **File Extension Rules**
+## Table of Contents
 
-### **`.tsx` - TypeScript + JSX**
+- [📄 File Extension Rules](#-file-extension-rules)
+- [🏷️ Naming Conventions](#-naming-conventions)
+    - [1. React Components](#1-react-components)
+    - [2. Pages/Routes](#2-pagesroutes)
+    - [3. Hooks](#3-hooks)
+    - [4. Utilities & Helpers](#4-utilities--helpers)
+    - [5. Types & Interfaces](#5-types--interfaces)
+    - [6. Services & API](#6-services--api)
+    - [7. Context Providers](#7-context-providers)
+    - [8. Constants & Configuration](#8-constants--configuration)
+    - [9. Models & Schemas](#9-models--schemas)
+    - [10. Test Files](#10-test-files)
+- [📚 Complete Naming Reference](#-complete-naming-reference)
+- [👍 Best Practices](#-best-practices)
+- [🌳 Quick Decision Tree](#-quick-decision-tree)
+- [🎯 Recommended Standard](#-recommended-standard)
 
-Use for files that contain **JSX/React components**:
+---
+
+This document lays out the standard file-extension and naming conventions used across a typical React/TypeScript codebase.
+
+---
+
+## 📄 File Extension Rules
+
+`.tsx` is for files that contain JSX/React components:
 
 ```typescript jsx
-// Button.tsx ✅
+// Button.tsx
 export const Button = () => {
-    return <button>Click
-        me < /button>;
+    return <button>Click me</button>;
 };
 ```
 
-### **`.ts` - TypeScript Only**
-
-Use for files with **no JSX** (pure TypeScript):
+`.ts` is for files with no JSX (pure TypeScript):
 
 ```typescript
-// validators.ts ✅
+// validators.ts
 export const isValidEmail = (email: string): boolean => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
@@ -27,13 +47,13 @@ export const isValidEmail = (email: string): boolean => {
 
 ---
 
-## **Naming Conventions**
+## 🏷️ Naming Conventions
 
-### **1. React Components**
+### 1. React Components
 
-#### **PascalCase for Component Files**
+**PascalCase for component files:**
 
-```
+```text
 src/components/
 ├── Button.tsx              ✅ Component
 ├── UserProfile.tsx         ✅ Component
@@ -41,9 +61,9 @@ src/components/
 └── DataTable.tsx           ✅ Component
 ```
 
-#### **Component with Related Files**
+**Component with related files:**
 
-```
+```text
 src/components/Button/
 ├── Button.tsx              # Component (PascalCase)
 ├── Button.module.scss      # Styles
@@ -52,13 +72,11 @@ src/components/Button/
 └── index.ts                # Barrel export
 ```
 
----
+### 2. Pages/Routes
 
-### **2. Pages/Routes**
+**PascalCase for page components:**
 
-#### **PascalCase for Page Components**
-
-```
+```text
 src/pages/
 ├── Home.tsx               ✅ Page component
 ├── About.tsx              ✅ Page component
@@ -66,9 +84,9 @@ src/pages/
 └── NotFound.tsx           ✅ Page component
 ```
 
-#### **Or Organised by Folder**
+**Or organised by folder:**
 
-```
+```text
 src/pages/
 ├── Home/
 │   ├── Home.tsx           # Page component
@@ -79,13 +97,11 @@ src/pages/
     └── index.ts
 ```
 
----
+### 3. Hooks
 
-### **3. Hooks**
+**camelCase with `use` prefix:**
 
-#### **camelCase with `use` Prefix**
-
-```
+```text
 src/hooks/
 ├── useAuth.ts             ✅ Custom hook
 ├── useLocalStorage.ts     ✅ Custom hook
@@ -93,9 +109,9 @@ src/hooks/
 └── useDebounce.ts         ✅ Custom hook
 ```
 
-**With Types:**
+With types:
 
-```
+```text
 src/hooks/
 ├── useAuth/
 │   ├── useAuth.ts         # Hook implementation
@@ -103,13 +119,11 @@ src/hooks/
 │   └── index.ts
 ```
 
----
+### 4. Utilities & Helpers
 
-### **4. Utilities & Helpers**
+**camelCase for utility files:**
 
-#### **camelCase for Utility Files**
-
-```
+```text
 src/utils/
 ├── formatters.ts          ✅ Utility functions
 ├── validators.ts          ✅ Utility functions
@@ -117,9 +131,9 @@ src/utils/
 └── stringHelpers.ts       ✅ Utility functions
 ```
 
-#### **Or Group by Category**
+Or group by category:
 
-```
+```text
 src/utils/
 ├── format/
 │   ├── currency.ts
@@ -131,13 +145,11 @@ src/utils/
     └── index.ts
 ```
 
----
+### 5. Types & Interfaces
 
-### **5. Types & Interfaces**
+**PascalCase for type files:**
 
-#### **PascalCase for Type Files**
-
-```
+```text
 src/types/
 ├── User.ts                ✅ or User.types.ts
 ├── Api.types.ts           ✅
@@ -145,18 +157,10 @@ src/types/
 └── index.ts
 ```
 
-#### **Co-located Types**
-
-```
-src/components/Button/
-├── Button.tsx
-└── Button.types.ts        ✅ or ButtonProps.ts
-```
-
-**Example:**
+Co-located types:
 
 ```typescript jsx
-// Button.models.ts
+// Button.types.ts
 export interface ButtonProps {
     variant?: 'primary' | 'secondary';
     size?: 'small' | 'medium' | 'large';
@@ -166,13 +170,11 @@ export interface ButtonProps {
 export type ButtonVariant = ButtonProps['variant'];
 ```
 
----
+### 6. Services & API
 
-### **6. Services & API**
+**camelCase for service files:**
 
-#### **camelCase for Service Files**
-
-```
+```text
 src/services/
 ├── authService.ts         ✅
 ├── apiClient.ts           ✅
@@ -180,29 +182,25 @@ src/services/
 └── analyticsService.ts    ✅
 ```
 
-#### **Or PascalCase (Alternative)**
+Or PascalCase (alternative):
 
-```
+```text
 src/services/
 ├── AuthService.ts         ✅ (Alternative)
 ├── ApiClient.ts           ✅ (Alternative)
 └── UserService.ts         ✅ (Alternative)
 ```
 
----
+### 7. Context Providers
 
-### **7. Context Providers**
+**PascalCase with `Context` suffix:**
 
-#### **PascalCase with `Context` Suffix**
-
-```
+```text
 src/context/
 ├── AuthContext.tsx        ✅
 ├── ThemeContext.tsx       ✅
 └── UserContext.tsx        ✅
 ```
-
-**Example:**
 
 ```typescript jsx
 // AuthContext.tsx
@@ -218,24 +216,20 @@ export const AuthContext = createContext<AuthContextValue | undefined>(undefined
 
 export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     // ... implementation
-    return <AuthContext.Provider value={value}> {children} < /AuthContext.Provider>;
+    return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 ```
 
----
+### 8. Constants & Configuration
 
-### **8. Constants & Configuration**
+**camelCase or UPPER_SNAKE_CASE:**
 
-#### **camelCase or UPPER_SNAKE_CASE**
-
-```
+```text
 src/constants/
 ├── apiEndpoints.ts        ✅ File: camelCase
 ├── routes.ts              ✅ File: camelCase
 └── config.ts              ✅ File: camelCase
 ```
-
-**File Content:**
 
 ```typescript
 // apiEndpoints.ts
@@ -250,21 +244,17 @@ export const ROUTES = {                                  // ✅ Object: UPPER_SN
 } as const;
 ```
 
----
+### 9. Models & Schemas
 
-### **9. Models & Schemas**
+**PascalCase for model files:**
 
-#### **PascalCase for Model Files**
-
-```
+```text
 src/models/
 ├── User.ts                ✅
 ├── Post.ts                ✅
 ├── Comment.ts             ✅
 └── index.ts
 ```
-
-**Example:**
 
 ```typescript
 // User.ts
@@ -284,13 +274,11 @@ export class UserModel {
 }
 ```
 
----
+### 10. Test Files
 
-### **10. Test Files**
+**Match source file name with `.test` or `.spec`:**
 
-#### **Match Source File Name with `.test` or `.spec`**
-
-```
+```text
 src/components/Button/
 ├── Button.tsx
 ├── Button.test.tsx        ✅ Test file
@@ -303,37 +291,29 @@ src/utils/
 
 ---
 
-## **Complete Naming Reference**
+## 📚 Complete Naming Reference
 
-| File Type            | Extension      | Naming Convention       | Example           |
-|----------------------|----------------|-------------------------|-------------------|
-| **React Component**  | `.tsx`         | PascalCase              | `Button.tsx`      |
-| **Page Component**   | `.tsx`         | PascalCase              | `HomePage.tsx`    |
-| **Custom Hook**      | `.ts`          | camelCase with `use`    | `useAuth.ts`      |
-| **Utility Function** | `.ts`          | camelCase               | `formatters.ts`   |
-| **Service**          | `.ts`          | camelCase or PascalCase | `authService.ts`  |
-| **Context**          | `.tsx`         | PascalCase + `Context`  | `AuthContext.tsx` |
-| **Type Definitions** | `.ts`          | PascalCase + `.types`   | `User.types.ts`   |
-| **Constants**        | `.ts`          | camelCase               | `config.ts`       |
-| **Model/Schema**     | `.ts`          | PascalCase              | `User.ts`         |
-| **Test File**        | `.test.tsx/ts` | Match source + `.test`  | `Button.test.tsx` |
-| **Barrel Export**    | `.ts`          | Always `index`          | `index.ts`        |
+| File Type        | Extension      | Naming Convention       | Example           |
+|------------------|----------------|-------------------------|-------------------|
+| React Component  | `.tsx`         | PascalCase              | `Button.tsx`      |
+| Page Component   | `.tsx`         | PascalCase              | `HomePage.tsx`    |
+| Custom Hook      | `.ts`          | camelCase with `use`    | `useAuth.ts`      |
+| Utility Function | `.ts`          | camelCase               | `formatters.ts`   |
+| Service          | `.ts`          | camelCase or PascalCase | `authService.ts`  |
+| Context          | `.tsx`         | PascalCase + `Context`  | `AuthContext.tsx` |
+| Type Definitions | `.ts`          | PascalCase + `.types`   | `User.types.ts`   |
+| Constants        | `.ts`          | camelCase               | `config.ts`       |
+| Model/Schema     | `.ts`          | PascalCase              | `User.ts`         |
+| Test File        | `.test.tsx/ts` | Match source + `.test`  | `Button.test.tsx` |
+| Barrel Export    | `.ts`          | Always `index`          | `index.ts`        |
 
 ---
 
-## **Best Practices**
+## 👍 Best Practices
 
-### **1. Consistency is Key**
+**Consistency is key.** Choose a convention and stick to it across your project — all components PascalCase, all utilities camelCase, all services camelCase or PascalCase (pick one).
 
-Choose a convention and stick to it across your project:
-
-```
-✅ All components: PascalCase
-✅ All utilities: camelCase
-✅ All services: camelCase or PascalCase (pick one)
-```
-
-### **2. Use Index Files for Clean Imports**
+**Use index files for clean imports:**
 
 ```typescript jsx
 // src/components/Button/index.ts
@@ -344,34 +324,24 @@ export type {ButtonProps} from './Button.models';
 import {Button} from '@/components/Button';
 ```
 
-### **3. Avoid Generic Names**
+**Avoid generic names** — `utils.ts`, `helpers.ts` and `component.tsx` don't say what they contain; prefer `dateFormatters.ts`, `authHelpers.ts`, `UserProfile.tsx`.
 
-```
-❌ utils.ts
-❌ helpers.ts
-❌ component.tsx
-
-✅ dateFormatters.ts
-✅ authHelpers.ts
-✅ UserProfile.tsx
-```
-
-### **4. Match File Name to Primary Export**
+**Match the file name to its primary export:**
 
 ```typescript jsx
 // Button.tsx
-// Correct: ✅
+// Correct:
 export const Button = () => { /* ... */
-};  
+};
 
-// Not: ❌
+// Not:
 export const MyButton = () => { /* ... */
-};  
+};
 ```
 
-### **5. Separate Concerns with Multiple Files**
+**Separate concerns with multiple files:**
 
-```
+```text
 Button/
 ├── Button.tsx           # Component implementation
 ├── Button.types.ts      # Type definitions
@@ -383,9 +353,9 @@ Button/
 
 ---
 
-## **Quick Decision Tree**
+## 🌳 Quick Decision Tree
 
-```
+```text
 Does the file contain JSX?
 ├─ Yes → Use .tsx
 │   ├─ Is it a component? → PascalCase (Button.tsx)
@@ -400,9 +370,9 @@ Does the file contain JSX?
 
 ---
 
-## **Recommended Standard**
+## 🎯 Recommended Standard
 
-```
+```text
 src/
 ├── components/
 │   └── Button/

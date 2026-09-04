@@ -18,7 +18,7 @@
 - [x] `npm run lint` (0 errors; pre-existing warnings only)
 - [x] `npm run build` (was broken by `@rjsf/core` v6's `exports` map; passes after the fix)
 - [x] `npx tsc --noEmit` (passes, including under the `typescript` 6.0.3 upgrade)
-- [x] `npm test` (no test files exist yet in this repository — tracked in `documentation/roadmap/TASKS.md`)
+- [x] `npm test` (no test files exist yet in this repository — tracked in `../roadmap/improvement-plan-tasks.md`)
 - [ ] Manual: smoke-test the runtime packages bumped across a major version (`@fortawesome/*` icons, `@fullcalendar/*` on the Events page, `sweetalert2` dialogs, `@vis.gl/react-google-maps`, and the Contact Us form's CAPTCHA/e-mail flow) in a browser
 - [ ] Manual: confirm no version-specific detail leaked into `README.md`/`ARCHITECTURE.md`/`UI.md`
 
