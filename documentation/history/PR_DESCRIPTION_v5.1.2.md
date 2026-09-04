@@ -6,6 +6,7 @@
   notes for the Version 3.x line (`3.0.0`–`3.6.9`), with `1.0.0`–`2.1.0` summarised from commit history since no
   release notes were ever generated for those three
 - Fixes a stale `AGENTS.md` instruction pointing to the outdated `version-X.Y.Z` tag format
+- States explicitly in `CONTRIBUTING.md` that `AGENTS.md` is this repository's ultimate source of truth
 - Pure documentation and archival work — no source code, configuration or dependency changes
 
 ## 📦 Key Changes
@@ -19,6 +20,7 @@
 
 - `CHANGELOG.md`'s legacy-Version-3.x-line note now also points to `documentation/archive/ARCHIVE.md`
 - `README.md`'s Documentation section now lists `documentation/archive/ARCHIVE.md`
+- `CONTRIBUTING.md`'s intro states explicitly that `AGENTS.md` wins if any other documentation contradicts it
 
 ### 🐛 Fixed
 
