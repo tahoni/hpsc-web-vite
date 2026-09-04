@@ -50,6 +50,12 @@ account of the project's full evolution, including that era.
   levels and bullet style to match this repo's actual structure and added the missing `UI.md` reverse-sync and
   `ARCHITECTURE.md` tree-verification steps
 
+##### Documentation
+
+- **`AGENTS.md`:** `🧬` (Data model / DTOs) added to the "Reserved" sub-table under "Icons in headings", claimed in
+  the sibling `hpsc-web-springboot` repository's own icon registry since the reserved table was last synced, so it
+  isn't accidentally repurposed here for an unrelated concept
+
 #### 🔄 Changed
 
 ##### Documentation

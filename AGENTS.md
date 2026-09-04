@@ -307,11 +307,12 @@ concept in this project:
 | Icon | Reserved for (springboot)                             |
 |------|--------------------------------------------------------|
 | ⚡   | Service layer                                          |
+| 🗄️   | Database / persistence                                 |
+| 🧬   | Data model / DTOs                                      |
 | 📈   | Request-response flow                                  |
 | 📥   | Inbound / import flow                                  |
 | 🔓   | Optional / relaxed constraint                          |
 | 🔢   | Numbering / sequence                                   |
-| 🗄️   | Database / persistence                                 |
 | 🛡️   | Robustness / validation hardening                      |
 | 🤔   | Reasoning                                               |
 | 🧬   | Data model / DTOs                                      |
