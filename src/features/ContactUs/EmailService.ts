@@ -1,4 +1,4 @@
-import { EmailMessage } from "../../models/email/EmailMessage";
+import { EmailMessage } from "@models/email/EmailMessage.ts";
 import { Email } from "@/models/email/Email";
 import { contactUsEmail, noReplyEmail } from "@/constants/about/clubConstants";
 
