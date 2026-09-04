@@ -96,6 +96,15 @@ account of the project's full evolution, including that era.
 - Reordered `AGENTS.md`'s icon table by where each icon is first used — `README.md`/`ARCHITECTURE.md`, then
   `AGENTS.md`/`CONTRIBUTING.md`, then `CHANGELOG.md`/`HISTORY.md`, then `RELEASE_NOTES.md`/`PR_DESCRIPTION_vX.Y.Z.md`,
   with icons used only elsewhere in the repository listed last; the icon-to-concept mappings themselves are unchanged
+- Restructured `documentation/roadmap/improvement-plan.md`'s Gaps & Improvement Opportunities section, and mirrored
+  the change into `improvement-plan-tasks.md`, into the ✅ Completed / 🟡 Partially Completed / ⚪ Open status
+  grouping the `update-improvement-plan-gaps`/`sync-improvement-plan-gaps` skills already assume and the sibling
+  `hpsc-web-springboot` repository's own `improvement-plan.md` uses, replacing `improvement-plan-tasks.md`'s old
+  Now/Next/Later/Ongoing layout; added a new Gap #9 (`HISTORY.md`'s "Future Roadmap Implications" section, referenced
+  by this plan's Purpose & Scope and `AGENTS.md`'s Release Checklist step 6, doesn't actually exist) and moved Gap #7
+  to Partially Completed, since `README.md` already documents the three environment variables its Evidence had
+  claimed it didn't; corrected Gap #1's stale CodeQL-trigger-branches evidence and the Goals & Constraints table's
+  stale Vite 6/TypeScript 5/React Router 7 versions to Vite 8/TypeScript 6/React Router 8
 
 #### 🐛 Fixed
 

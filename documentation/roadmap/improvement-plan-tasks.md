@@ -1,21 +1,42 @@
 # Roadmap Task List
 
-A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s eight gaps, organised by that
-document's Now/Next/Later/Ongoing phasing. Each section names its originating gap number for traceability back to the
-evidence and reasoning there.
+A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s nine gaps, grouped by that
+document's completion status — ✅ Completed, 🟡 Partially Completed, ⚪ Open — matching its own "🔍 Gaps &
+Improvement Opportunities" grouping. Each block names its originating gap number for traceability back to the
+evidence and reasoning there; within each section, gaps stay in ascending number order.
 
 ## Table of Contents
 
-- [🚀 Now](#-now)
-- [⏭️ Next](#-next)
-- [⏳ Later](#-later)
-- [🔁 Ongoing](#-ongoing)
+- [✅ Completed](#-completed)
+- [🟡 Partially Completed](#-partially-completed)
+- [⚪ Open](#-open)
 
 ---
 
-## 🚀 Now
+## ✅ Completed
 
-**No automatic lint/build/test gate on pull requests** *(IMPROVEMENT_PLAN.md → Gap #1)*
+*No gaps are currently closed.* A gap moves here once every item under it is checked and
+[`improvement-plan.md`](improvement-plan.md)'s matching gap header carries a "✅ Closed" suffix.
+
+---
+
+## 🟡 Partially Completed
+
+**Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl`
+is hardcoded** *(improvement-plan.md → Gap #7)*
+
+- [ ] Add a secret-free `.env.example`
+- [x] Document `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and `RECAPTCHA_V2_SITE_KEY` in `README.md` itself, not only
+  `AGENTS.md` — already done; `README.md`'s own Environment Variables subsection documents all three, and has done
+  since before this gap was first written
+- [ ] Source `baseUrl` in `src/constants/commonConstants.ts` from an environment variable with a safe production
+  default
+
+---
+
+## ⚪ Open
+
+**No automatic lint/build/test gate on pull requests** *(improvement-plan.md → Gap #1)*
 
 - [ ] Add `.github/workflows/build.yml`, triggered on push/PR to `develop` and `main`, mirroring `codeql.yml`'s trigger
   branches
@@ -24,7 +45,7 @@ evidence and reasoning there.
 - [ ] Confirm the workflow fails the PR check on a lint, build or test failure — not just a compile error
 - [ ] Once live, update `AGENTS.md`'s Code Quality & CI section to drop the "run these locally" caveat
 
-**Two route-metadata defects** *(IMPROVEMENT_PLAN.md → Gap #2)*
+**Two route-metadata defects** *(improvement-plan.md → Gap #2)*
 
 - [ ] Wire `src/features/News` into `coreRoutes` (`BaseRoutes.ts`) and `RouteAliases.tsx`/`AppRoutes.tsx`, or delete the
   folder if the feature isn't ready to ship
@@ -35,28 +56,20 @@ evidence and reasoning there.
 - [ ] Regenerate `public/sitemap.xml` via `npm run sitemap` once the above are fixed and confirm the malformed first
   `<loc>` entry is resolved
 
----
-
-## ⏭️ Next
-
-**Zero test coverage despite a configured test runner** *(IMPROVEMENT_PLAN.md → Gap #3)*
+**Zero test coverage despite a configured test runner** *(improvement-plan.md → Gap #3)*
 
 - [ ] Add `vitest.config.ts` with `test.environment = 'jsdom'`
 - [ ] Add `@testing-library/react`/`@testing-library/user-event` as dev dependencies
 - [ ] Add unit/smoke tests for `src/utils/htmlUtils.ts` and `builders/RoutesSitemap.ts` first (pure logic, no rendering)
 - [ ] Add a CI-friendly `test:run` script (`vitest run`) and document its usage
 
-**No error boundary or production error handling** *(IMPROVEMENT_PLAN.md → Gap #4)*
+**No error boundary or production error handling** *(improvement-plan.md → Gap #4)*
 
 - [ ] Add a top-level React error boundary component around the route tree, with a friendly fallback UI
 - [ ] Evaluate lightweight client-side logging (console suppression in prod, optional remote logging); enable hidden
   sourcemaps if adopted
 
----
-
-## ⏳ Later
-
-**Accessibility has no lint enforcement or documented baseline** *(IMPROVEMENT_PLAN.md → Gap #5)*
+**Accessibility has no lint enforcement or documented baseline** *(improvement-plan.md → Gap #5)*
 
 - [ ] Add `eslint-plugin-jsx-a11y` to `eslint.config.js`
 - [ ] Define a WCAG AA baseline checklist (semantic headings, focus outlines, colour contrast, ARIA landmarks, link
@@ -64,31 +77,32 @@ evidence and reasoning there.
 - [ ] Ensure every page has a unique title, meta-description and canonical URL
 - [ ] Validate `robots.txt`/`sitemap.xml` generation and document the `public/sitemap.xml` write step
 
-**A documented styling convention is violated in one known place** *(IMPROVEMENT_PLAN.md → Gap #6)*
+**A documented styling convention is violated in one known place** *(improvement-plan.md → Gap #6)*
 
 - [ ] Replace the legacy `@import` in `src/vendors/bootstrap/styles/index.scss` with `@use`
 - [ ] Provide a palette token map and usage examples in the docs for `src/assets/stylesheets`'s colours/variables
 
-**Environment variables undocumented in `README.md`; `baseUrl` hardcoded** *(IMPROVEMENT_PLAN.md → Gap #7)*
+**Dependency surface has no ongoing audit discipline** *(improvement-plan.md → Gap #8)*
 
-- [ ] Add a secret-free `.env.example`
-- [ ] Document `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and `RECAPTCHA_V2_SITE_KEY` in `README.md` itself, not only
-  `AGENTS.md`
-- [ ] Source `baseUrl` in `src/constants/commonConstants.ts` from an environment variable with a safe production default
-
----
-
-## 🔁 Ongoing
-
-**Dependency surface has no ongoing audit discipline** *(IMPROVEMENT_PLAN.md → Gap #8)*
-
-- [ ] Run `npm audit` (advisory-only initially) in the CI gate added in the Now phase
+- [ ] Run `npm audit` (advisory-only initially) in the CI gate added in Gap #1
 - [ ] Document a periodic (e.g. monthly) dependency-update cadence in `AGENTS.md`
 - [ ] Track heavy or risky packages (e.g. `sanitize-html`, `react-google-recaptcha-v3`) and pin versions thoughtfully at
   each review
 
+**`HISTORY.md`'s "Future Roadmap Implications" section, referenced by both `improvement-plan.md` and the Release
+Checklist, doesn't exist** *(improvement-plan.md → Gap #9)*
+
+- [ ] Decide whether to add a "Future Roadmap Implications" section to `HISTORY.md`, or update
+  `improvement-plan.md`'s Purpose & Scope and `AGENTS.md`'s Release Checklist step 6 to stop referencing one that
+  doesn't exist
+- [ ] If adding it: thread a "Future Roadmap Implications" section through `HISTORY.md`'s past Historical Timeline
+  entries retroactively, not only future ones
+- [ ] Either way, add "Major Version Goals" to the Release Checklist step 6's thread-through list, since that
+  section already exists in `HISTORY.md` but isn't mentioned there
+
 ---
 
-Check items off in place as work lands; don't delete a task outright. Once every item under a gap is checked, fold a
-short summary into `HISTORY.md`'s next per-version Future Roadmap notes and mark the gap closed here (e.g. strike it
-through with a "✅ Closed in vX.Y.Z" note), per `improvement-plan.md`'s Success Criteria.
+Check items off in place as work lands; don't delete a task outright. When a gap's first item gets checked, move its
+whole block from ⚪ Open into 🟡 Partially Completed; once every item under it is checked, move the block again into
+✅ Completed and mark the gap closed there (e.g. strike it through with a "✅ Closed in vX.Y.Z" note) — matching
+whatever change was made to its section in `improvement-plan.md`, per that document's Success Criteria.
