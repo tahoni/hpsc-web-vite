@@ -86,7 +86,8 @@ Route (React Router)
 
 - Each non-trivial component or layout gets its own PascalCase folder — see
   [`AGENTS.md`'s Component/layout folder shape subsection](AGENTS.md#componentlayout-folder-shape).
-- Routing is data-driven via `PageMapping` instances (`BaseRoutes.ts`), not static JSX route trees.
+- Routing is data-driven via `PageMapping` instances (`BaseRoutes.ts`), not static JSX route trees — see
+  [`AGENTS.md`'s Project Overview](AGENTS.md#-project-overview).
 - Framework-agnostic pure functions belong in `utils/`; anything with routing/UI context belongs in `helpers/` — see
   [`standard-utils-vs-helpers.md`](documentation/recommendations/standard-utils-vs-helpers.md) for the split this
   project follows.

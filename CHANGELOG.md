@@ -121,6 +121,8 @@ account of the project's full evolution, including that era.
 - **`AGENTS.md`:** Three more unlinked references, found while re-checking beyond `CONTRIBUTING.md` — the Tech
   Stack's routing bullet and the Architecture Overview's summary line now link to `ARCHITECTURE.md`, and the Build
   & Run Commands section's script-list pointer now links to `README.md`'s specific Available Scripts anchor
+- **`CONTRIBUTING.md`:** Architecture at a Glance's "Routing is data-driven..." bullet restates `AGENTS.md`'s
+  Project Overview bullet without citing it — now links to `AGENTS.md#-project-overview`
 
 #### 🐛 Fixed
 
