@@ -13,6 +13,7 @@ summarises the parts most relevant to opening a pull request.
 - [🧰 Development Scripts](#-development-scripts)
 - [🧪 Testing](#-testing)
 - [🏛️ Architecture at a Glance](#-architecture-at-a-glance)
+- [📁 Directory Tree Maintenance](#-directory-tree-maintenance)
 - [🛠️ Claude Code Skills](#-claude-code-skills)
 - [✍️ Documentation Conventions](#-documentation-conventions)
 - [🗺️ Roadmap](#-roadmap)
@@ -94,6 +95,21 @@ Route (React Router)
 
 ---
 
+## 📁 Directory Tree Maintenance
+
+See `AGENTS.md`'s Directory Tree Maintenance section for the full rules. In short:
+
+- Adding or removing a root-level or top-level `src/` directory? Update `ARCHITECTURE.md`'s Project Structure tree in
+  the same change.
+- Directories covered by `.gitignore` (e.g. `node_modules/`, `dist/`, `target/`) must never appear in that tree;
+  tracked tooling directories (`.claude/`, `.github/`) do belong, since they hold version-controlled configuration
+  rather than local machine state.
+- Directory comments in the tree describe purpose generically — never enumerate individual features or files, since
+  those change far more often than the directories that hold them.
+- Adding a path alias to `vite.config.ts`? Add the matching entry to `tsconfig.app.json`'s `paths` in the same change.
+
+---
+
 ## 🛠️ Claude Code Skills
 
 If you're using [Claude Code](https://claude.com/claude-code), this repository ships skills under `.claude/skills/`
@@ -118,6 +134,12 @@ See `AGENTS.md`'s Documentation Conventions section for the full rules. The esse
   row.
 - When crediting contributors or authors in documentation, source the list from actual git/GitHub history rather than
   assuming — see `AGENTS.md`'s Contributors convention.
+- Every heading listed in a Table of Contents gets an emoji prefix, matched in its ToC entry. Reuse an icon already
+  established for a concept — see `AGENTS.md`'s Icons in headings table — rather than inventing a new one; only pick a
+  new emoji for a genuinely new concept.
+- `README.md`, `ARCHITECTURE.md` and `UI.md` are evergreen: never add specific version numbers/ranges or counts that
+  drift as the codebase grows (list items by name instead), and keep version-specific narrative in `CHANGELOG.md`/
+  `RELEASE_NOTES.md` — see `AGENTS.md`'s Evergreen Documentation section.
 
 ---
 
@@ -171,9 +193,12 @@ Before opening a pull request, confirm:
   `##### <Area>` sub-heading.
 - [ ] Any affected documentation (`README.md`, `ARCHITECTURE.md`, `UI.md`, `CLAUDE.md`, `AGENTS.md`) has been updated to
   match — see `AGENTS.md`'s Reverse Sync rule.
+- [ ] Added/removed a root or `src/` directory, or a `vite.config.ts` path alias? `ARCHITECTURE.md`'s tree and/or
+  `tsconfig.app.json`'s `paths` updated to match.
 - [ ] The branch follows the GitFlow naming and merge-target conventions above.
 - [ ] Commit messages are plain, imperative-mood, with no Conventional Commits prefix.
 - [ ] New or changed prose uses British English spelling and skips the serial comma.
+- [ ] New Markdown headings reuse an established icon (or the ToC entry) where one exists for the concept.
 
 ---
 

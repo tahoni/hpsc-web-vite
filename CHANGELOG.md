@@ -105,6 +105,9 @@ account of the project's full evolution, including that era.
   to Partially Completed, since `README.md` already documents the three environment variables its Evidence had
   claimed it didn't; corrected Gap #1's stale CodeQL-trigger-branches evidence and the Goals & Constraints table's
   stale Vite 6/TypeScript 5/React Router 7 versions to Vite 8/TypeScript 6/React Router 8
+- Added a new `CONTRIBUTING.md` Directory Tree Maintenance section and icon-reuse/evergreen-doc bullets to its
+  Documentation Conventions section, extracted from `AGENTS.md`'s equivalent sections which had no contributor-facing
+  summary yet; added matching Pull Request Checklist items
 
 #### 🐛 Fixed
 
