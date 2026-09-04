@@ -7,7 +7,9 @@ on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project ad
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTORY.md](HISTORY.md) for a narrative
-account of the project's full evolution, including that era.
+account of the project's full evolution, including that era, and the read-only
+[documentation/archive/ARCHIVE.md](documentation/archive/ARCHIVE.md) for those versions' original GitHub release
+notes.
 
 ---
 
