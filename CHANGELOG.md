@@ -14,7 +14,8 @@ account of the project's full evolution, including that era.
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.1.0](#-510---2026-08-26) ← Current
+- [🧾 Version 5.1.1](#-511---2026-09-04) ← Current
+- [🧾 Version 5.1.0](#-510---2026-08-26)
 - [🧾 Version 5.0.0](#-500---2026-08-25)
 - [🧾 Version 4.2.3](#-423---2026-05-04)
 - [🧾 Version 4.2.2](#-422---2026-02-10)
@@ -37,6 +38,22 @@ account of the project's full evolution, including that era.
 ---
 
 ### 🧪 [Unreleased]
+
+#### ➕ Added
+
+#### 🔄 Changed
+
+#### 🐛 Fixed
+
+#### ⚠️ Deprecated
+
+#### 🗑️ Removed
+
+#### 🔐 Security
+
+---
+
+### 🧾 [5.1.1] - 2026-09-04
 
 #### ➕ Added
 
@@ -123,6 +140,14 @@ account of the project's full evolution, including that era.
   & Run Commands section's script-list pointer now links to `README.md`'s specific Available Scripts anchor
 - **`CONTRIBUTING.md`:** Architecture at a Glance's "Routing is data-driven..." bullet restates `AGENTS.md`'s
   Project Overview bullet without citing it — now links to `AGENTS.md#-project-overview`
+- **`CONTRIBUTING.md`:** Testing section repeated `AGENTS.md`'s Test Conventions bullets almost verbatim instead of
+  summarising and linking, unlike every other shared section in the file — replaced with a pointer to
+  `AGENTS.md#-test-conventions`
+- Added two new gaps to `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md`: Gap #10
+  (`AGENTS.md`'s Documentation File Map still describing `LICENSE.md` as "MIT License", despite an earlier fix in
+  this same `[Unreleased]` section claiming it was already corrected — closed in the same pass, see Fixed below) and
+  Gap #11 (264 pre-existing `tsdoc/syntax` warnings, surfaced by the `eslint.config.js` fix below but not yet
+  cleaned up since the rule is `"warn"`, not `"error"`)
 
 #### 🐛 Fixed
 
@@ -145,6 +170,9 @@ account of the project's full evolution, including that era.
   actually had the rule, so `npm run lint` was silently skipping all TSDoc validation. Added the plugin and rule to
   `eslint.config.js` to match, surfacing 288 pre-existing `tsdoc/syntax` warnings across the codebase; also fixed
   `AGENTS.md`'s TSDoc convention to cite `eslint.config.js` instead of the now-stale `.eslintrc.cjs`
+- Fixed `EmailService.ts`, `HeaderMenu.tsx` and `AppRoutes.tsx` importing via relative `../../`-style paths instead of
+  the `@models`/`@helpers` aliases already configured in `vite.config.ts`/`tsconfig.app.json` and used elsewhere in
+  these same files
 
 ##### Components
 
@@ -152,6 +180,8 @@ account of the project's full evolution, including that era.
   folder-per-component shape every sibling layout (`Header/`, `Footer/`, `Body/`, `Content/`, `Breakpoints/`) already
   follows; fixed the resulting broken `LayoutProps` import in `Body.tsx` and the `@use "../Layout.module"` Sass imports
   in `Header.module.scss`/`Footer.module.scss`
+- Fixed `SanitizedBaseInputTemplate.tsx`'s doc comment using the American spelling "sanitized" instead of "sanitised",
+  per `AGENTS.md`'s British English convention
 
 ##### Styling
 
@@ -241,8 +271,6 @@ account of the project's full evolution, including that era.
   `RELEASE_NOTES.md`'s own v5.1.0 Migration Guide already documents Vite-8-specific behaviour that release shipped
   around
 
-#### ⚠️ Deprecated
-
 #### 🗑️ Removed
 
 ##### Build & Tooling
@@ -265,8 +293,6 @@ account of the project's full evolution, including that era.
   `src/main.tsx`'s `BrowserRouter` import and `Header.tsx`'s `Link` import to `react-router`, removed the now-unneeded
   `react-router-dom` case from `vite.config.ts`'s `manualChunks` and updated `AGENTS.md`/`CLAUDE.md`'s Tech Stack entry
   from "React Router 7" to "React Router 8"
-
-#### 🔐 Security
 
 ---
 
