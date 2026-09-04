@@ -170,8 +170,8 @@ All documentation prose and code comments use British English spelling (e.g. "li
 **Exceptions:**
 
 - Standard legal or licence boilerplate. The `LICENSE.md` file itself (name and content) is a fixed legal term in
-  American English and must not be altered; any other doc that names or links to it (headings, tables, ToC entries) also
-  spells it "License" for consistency.
+  American English and must not be altered; every other doc that names or links to it (headings, tables, ToC entries)
+  spells it "Licence" instead, per the British English convention above.
 - Third-party product, library and API names.
 - Code identifiers (component, function and variable names) — these follow the codebase's existing naming, not
   spelling conventions.
@@ -278,7 +278,7 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 📱   | Responsive design                                   |
 | 💻   | Technical implementation                            |
 | 🖥️   | User interface                                      |
-| 📜   | License / licence and documentation                 |
+| 📜   | Licence and documentation                           |
 | ♻️   | General code improvements                           |
 | 💰   | Funding / sponsorship                               |
 | 📤   | Output                                              |
