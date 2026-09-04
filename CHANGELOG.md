@@ -114,6 +114,10 @@ account of the project's full evolution, including that era.
   Documentation, Roadmap Planning, Git Workflow, Code Quality & CI ×2, Release Checklist), instead of unlinked plain
   text — matching the sibling `hpsc-web-springboot` repository's `CONTRIBUTING.md`, where the same pattern was
   already followed
+- **`CONTRIBUTING.md`:** Six more unlinked references caught on a second pass now link properly too —
+  `README.md`'s Available Scripts and Author sections, `ARCHITECTURE.md`'s Architecture at a Glance mention and
+  two separate `documentation/roadmap/improvement-plan-tasks.md` mentions, and
+  `documentation/recommendations/standard-utils-vs-helpers.md`
 
 #### 🐛 Fixed
 

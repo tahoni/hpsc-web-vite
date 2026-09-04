@@ -58,15 +58,16 @@ The following scripts are most relevant while contributing:
 | `npm run build`   | Type-check and build for production (`dist/`) |
 | `npm run preview` | Preview the production build locally          |
 
-See `README.md`'s Available Scripts section for the complete list, including `npm run docs` and `npm run sitemap`.
+See [`README.md`'s Available Scripts section](README.md#-available-scripts) for the complete list, including
+`npm run docs` and `npm run sitemap`.
 
 ---
 
 ## 🧪 Testing
 
 Vitest is configured (`npm test`) but this project currently has no test files — see
-`documentation/roadmap/improvement-plan-tasks.md` for the tracked task on establishing initial coverage. When adding
-tests, per [`AGENTS.md`'s Test Conventions](AGENTS.md#-test-conventions):
+[`improvement-plan-tasks.md`](documentation/roadmap/improvement-plan-tasks.md) for the tracked task on establishing
+initial coverage. When adding tests, per [`AGENTS.md`'s Test Conventions](AGENTS.md#-test-conventions):
 
 - Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
 - For component tests, use `@testing-library/react` with a `jsdom` environment.
@@ -79,7 +80,7 @@ tests, per [`AGENTS.md`'s Test Conventions](AGENTS.md#-test-conventions):
 ## 🏛️ Architecture at a Glance
 
 The application is organised by feature, with shared infrastructure centralised under `src/shared/` — see
-`ARCHITECTURE.md` for full detail:
+[`ARCHITECTURE.md`](ARCHITECTURE.md) for full detail:
 
 ```
 Route (React Router)
@@ -92,7 +93,8 @@ Route (React Router)
   [`AGENTS.md`'s Component/layout folder shape subsection](AGENTS.md#component-layout-folder-shape).
 - Routing is data-driven via `PageMapping` instances (`BaseRoutes.ts`), not static JSX route trees.
 - Framework-agnostic pure functions belong in `utils/`; anything with routing/UI context belongs in `helpers/` — see
-  `documentation/recommendations/standard-utils-vs-helpers.md` for the split this project follows.
+  [`standard-utils-vs-helpers.md`](documentation/recommendations/standard-utils-vs-helpers.md) for the split this
+  project follows.
 
 ---
 
@@ -183,7 +185,8 @@ rationale. In short:
 
 See [`AGENTS.md`'s Code Quality & CI section](AGENTS.md#-code-quality--ci) for the current CodeQL/ESLint setup. There
 is no CI workflow that runs `npm run lint`, `npm run build` or `npm test` automatically yet — run them locally before
-opening a PR (tracked as a gap in `documentation/roadmap/improvement-plan-tasks.md`).
+opening a PR (tracked as a gap in
+[`improvement-plan-tasks.md`](documentation/roadmap/improvement-plan-tasks.md)).
 
 ---
 
@@ -221,5 +224,5 @@ duplicating it here, so the two never drift out of sync.
 ## 💬 Questions & Support
 
 Feature requests, suggestions and bug reports are tracked on this
-project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page. For anything else, see `README.md`'s Author
-section for contact details.
+project's [Issues](https://github.com/tahoni/hpsc-web-vite/issues) page. For anything else, see
+[`README.md`'s Author section](README.md#-author) for contact details.
