@@ -449,7 +449,7 @@ account of the project's full evolution, including that era.
 
 - Fixed broken `src/helpers/routeHelpers.tsx`/`menuHelpers.tsx` imports left as unresolvable bare `src/...` specifiers
   after the helpers relocation, which only type-checked (via `tsc`'s `baseUrl`) but broke `npm run build`; corrected
-  them to the `@/` and `@shared` path aliases already used elsewhere, and fixed the `@helpers`/`@models`/`@utils`/
+  them to the `@/` and `@shared` path aliases already used elsewhere and fixed the `@helpers`/`@models`/`@utils`/
   `@constants` alias mappings in `vite.config.ts`/`tsconfig.app.json`, which still pointed at their pre-relocation
   `src/shared/*` locations
 
