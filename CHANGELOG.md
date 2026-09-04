@@ -118,6 +118,9 @@ account of the project's full evolution, including that era.
   `README.md`'s Available Scripts and Author sections, `ARCHITECTURE.md`'s Architecture at a Glance mention and
   two separate `documentation/roadmap/improvement-plan-tasks.md` mentions, and
   `documentation/recommendations/standard-utils-vs-helpers.md`
+- **`AGENTS.md`:** Three more unlinked references, found while re-checking beyond `CONTRIBUTING.md` — the Tech
+  Stack's routing bullet and the Architecture Overview's summary line now link to `ARCHITECTURE.md`, and the Build
+  & Run Commands section's script-list pointer now links to `README.md`'s specific Available Scripts anchor
 
 #### 🐛 Fixed
 

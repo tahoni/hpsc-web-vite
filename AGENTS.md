@@ -44,7 +44,7 @@ dependencies, both handled by third-party services called directly from the clie
 - **Language:** TypeScript (strict mode)
 - **Framework:** React 19
 - **Build tool:** Vite 8, via `npm run build` / `npm run dev`
-- **Routing:** React Router 8 (data-driven — see `ARCHITECTURE.md`)
+- **Routing:** React Router 8 (data-driven — see [`ARCHITECTURE.md`](ARCHITECTURE.md))
 - **UI components:** React Bootstrap 2 (Bootstrap 5)
 - **Styling:** SCSS (Sass) with Sass Modules and `@use`-based global styles
 - **Content:** MDX for content-heavy pages (`@mdx-js/rollup`, `@mdx-js/react`)
@@ -83,8 +83,8 @@ npm run docs
 npm run sitemap
 ```
 
-See `README.md`'s Available Scripts section for the complete script list, including the standard `dev`/`build`/
-`preview`/`lint`/`test` scripts.
+See [`README.md`'s Available Scripts section](README.md#-available-scripts) for the complete script list, including
+the standard `dev`/`build`/`preview`/`lint`/`test` scripts.
 
 ---
 
@@ -111,7 +111,8 @@ Route (React Router)
     → Shared components / layouts (src/shared/components/, src/shared/layouts/)
 ```
 
-See `ARCHITECTURE.md` for the full architectural design; the summary below orients an agent quickly.
+See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the full architectural design; the summary below orients an agent
+quickly.
 
 ### Key directories (`src/`)
 
