@@ -23,6 +23,20 @@ the legacy Version 3.x line that predates it.
 
 ## 📅 Historical Timeline
 
+### Version 5.1.2 (September 4, 2026)
+
+**Theme:** Release-History Backfill & the Legacy `ARCHIVE.md`
+
+**Key Focus:**
+
+- Backfilled `documentation/history/RELEASE_NOTES_vX.Y.Z.md` archives for versions `4.0.0` through `4.2.2`, closing
+  the gap left when `documentation/history/` was introduced in `5.0.0` with only `4.2.3` backfilled
+- Added `documentation/archive/ARCHIVE.md`, a read-only legacy release archive reproducing GitHub's own release
+  notes for the Version 3.x line (`3.0.0` through `3.6.9`), with `1.0.0` through `2.1.0` summarised from their
+  commit history since no release notes were ever generated for those three
+- Fixed `AGENTS.md`'s Merging section stating the release tag format is `version-X.Y.Z`, two majors behind actual
+  practice since `4.2.3`, which tags as `vX.Y.Z`
+
 ### Version 5.1.1 (September 4, 2026)
 
 **Theme:** Documentation Conformance, Claude Code Skills Migration & TSDoc Enforcement
@@ -741,6 +755,9 @@ dependency stack — groundwork ahead concerning a planned visual/structural red
 - Correct internal structural and build issues surfaced by that modernisation — path-alias drift, an unthemed
   duplicate Bootstrap compile, inconsistent component/layout folder shapes and oversized production JS chunks — so
   the codebase is on solid footing before the redesign begins (v5.1.1)
+- Complete the release-history record ahead of the redesign — backfill `documentation/history/`'s missing
+  `4.0.0`–`4.2.2` archives and add a `documentation/archive/ARCHIVE.md` for the pre-`CHANGELOG.md` era, so every
+  version back to the project's first commit has a documented home (v5.1.2)
 
 **Status:** In progress — establishing this foundation is the stated precondition for the redesign the release branch
 is named for, not the redesign itself; see

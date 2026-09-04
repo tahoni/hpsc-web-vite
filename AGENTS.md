@@ -461,8 +461,9 @@ even then the same fix still lands on `develop` immediately afterwards (see Merg
 - **`release/vX.Y.Z` → `develop`:** merge once the Release Checklist below is complete and all tests pass, with a
   standard merge commit and delete the branch afterwards.
 - **`develop` → `main`:** immediately after, open a second PR promoting `develop` into `main` and merge it; tag the
-  resulting commit on `main` as `version-X.Y.Z` (this project's tag format — not `vX.Y.Z`, matching the links already
-  used in `CHANGELOG.md`/`HISTORY.md`).
+  resulting commit on `main` as `vX.Y.Z` — this project's current tag format for every release from `4.2.3` onward
+  (the legacy Version 3.x/early 4.x line used `version-X.Y.Z`; see `documentation/archive/ARCHIVE.md`'s and
+  `documentation/history/`'s own tag links for that distinction).
 
 ### Conventions
 

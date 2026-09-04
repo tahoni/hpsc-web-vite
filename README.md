@@ -169,6 +169,9 @@ releases stay individually referenceable as `RELEASE_NOTES.md` and the release P
 notes (naming, directory structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's
 own conventions — read alongside `ARCHITECTURE.md`, not as a replacement for it.
 
+[`documentation/archive/ARCHIVE.md`](documentation/archive/ARCHIVE.md) is a read-only legacy release archive covering
+every version predating `CHANGELOG.md`/`HISTORY.md`'s Keep a Changelog structure — `1.0.0` through `3.6.9`.
+
 ### 🛤️ Roadmap
 
 [`documentation/roadmap/`](documentation/roadmap) holds in-progress planning documents — not part of the standard

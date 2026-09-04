@@ -16,7 +16,8 @@ notes.
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.1.1](#-511---2026-09-04) ← Current
+- [🧾 Version 5.1.2](#-512---2026-09-04) ← Current
+- [🧾 Version 5.1.1](#-511---2026-09-04)
 - [🧾 Version 5.1.0](#-510---2026-08-26)
 - [🧾 Version 5.0.0](#-500---2026-08-25)
 - [🧾 Version 4.2.3](#-423---2026-05-04)
@@ -43,6 +44,22 @@ notes.
 
 #### ➕ Added
 
+#### 🔄 Changed
+
+#### 🐛 Fixed
+
+#### ⚠️ Deprecated
+
+#### 🗑️ Removed
+
+#### 🔐 Security
+
+---
+
+### 🧾 [5.1.2] - 2026-09-04
+
+#### ➕ Added
+
 ##### Release Process
 
 - Backfilled `documentation/history/RELEASE_NOTES_vX.Y.Z.md` archives for versions `4.0.0` through `4.2.2`
@@ -53,7 +70,8 @@ notes.
   `3.0.0` onward reproduce GitHub's own release notes for the legacy Version 3.x line; `1.0.0` through `2.1.0`
   predate any release notes being generated, so those three are instead summarised from their commit history (the
   project's first Vite/React scaffold, the migration onto the `tahoni` component library and follow-up polish).
-  Documented in `AGENTS.md`'s Documentation File Map
+  Notes that `1.0.0`–`2.1.0` used a legacy, non-semantic versioning scheme, while `3.0.0` onward already followed
+  SemVer, per `CHANGELOG.md`'s own Version Policy. Documented in `AGENTS.md`'s Documentation File Map
 
 #### 🔄 Changed
 
@@ -61,14 +79,16 @@ notes.
 
 - `CHANGELOG.md`'s legacy-Version-3.x-line note now also points to the new `documentation/archive/ARCHIVE.md`
   alongside `HISTORY.md`
+- Added `documentation/archive/ARCHIVE.md` to `README.md`'s Documentation section, matching the existing
+  `documentation/history/`/`documentation/recommendations/` entries
 
 #### 🐛 Fixed
 
-#### ⚠️ Deprecated
+##### Documentation
 
-#### 🗑️ Removed
-
-#### 🔐 Security
+- Fixed `AGENTS.md`'s Merging section stating the release tag format is `version-X.Y.Z`, two majors behind actual
+  practice: every release from `4.2.3` onward has tagged as `vX.Y.Z` (confirmed against this repository's GitHub
+  releases), with `version-X.Y.Z` only used for the legacy Version 3.x/early 4.x line
 
 ---
 
