@@ -336,7 +336,7 @@ section — `README.md` is the canonical version if the two ever drift):
 | `HISTORY.md`       | Narrative history of the project's evolution across all versions               |
 | `RELEASE_NOTES.md` | Detailed release notes for the current/latest version only                     |
 | `PACKAGES.md`      | Generated funding-tree manifest listing dependencies seeking sponsorship       |
-| `LICENSE.md`       | MIT License                                                                    |
+| `LICENSE.md`       | All Rights Reserved                                                            |
 
 These documentation-only folders supplement it:
 

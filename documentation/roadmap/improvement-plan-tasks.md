@@ -15,8 +15,13 @@ evidence and reasoning there; within each section, gaps stay in ascending number
 
 ## ✅ Completed
 
-*No gaps are currently closed.* A gap moves here once every item under it is checked and
-[`improvement-plan.md`](improvement-plan.md)'s matching gap header carries a "✅ Closed" suffix.
+**`AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `README.md` and
+`LICENSE.md` itself — ✅ Closed in v5.1.1** *(improvement-plan.md → Gap #10)*
+
+- [x] Correct `AGENTS.md`'s Documentation File Map entry for `LICENSE.md` to "All Rights Reserved", matching
+  `README.md` and the file's actual content
+- [x] Correct the `CHANGELOG.md` `[Unreleased]` entry that currently (and incorrectly) claims this fix was already
+  made to `AGENTS.md`, once the actual fix lands — no wording change needed; the existing entry is now accurate
 
 ---
 
@@ -99,14 +104,6 @@ Checklist, doesn't exist** *(improvement-plan.md → Gap #9)*
   entries retroactively, not only future ones
 - [ ] Either way, add "Major Version Goals" to the Release Checklist step 6's thread-through list, since that
   section already exists in `HISTORY.md` but isn't mentioned there
-
-**`AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `README.md` and
-`LICENSE.md` itself** *(improvement-plan.md → Gap #10)*
-
-- [ ] Correct `AGENTS.md`'s Documentation File Map entry for `LICENSE.md` to "All Rights Reserved", matching
-  `README.md` and the file's actual content
-- [ ] Correct the `CHANGELOG.md` `[Unreleased]` entry that currently (and incorrectly) claims this fix was already
-  made to `AGENTS.md`, once the actual fix lands
 
 **264 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed** *(improvement-plan.md → Gap #11)*
 
