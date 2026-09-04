@@ -13,7 +13,8 @@ step further with a new `documentation/archive/ARCHIVE.md` — a read-only legac
 GitHub's own release notes for the Version 3.x line (`3.0.0` through `3.6.9`), plus commit-history summaries for
 the three pre-`3.0.0` tags (`1.0.0` through `2.1.0`) that never had release notes generated at all. Along the way,
 a stale `AGENTS.md` instruction claiming this project still tags releases as `version-X.Y.Z` (true only through
-`4.2.2`) is corrected to the `vX.Y.Z` format actually used since `4.2.3`.
+`4.2.2`) is corrected to the `vX.Y.Z` format actually used since `4.2.3`, and `CONTRIBUTING.md` now states
+explicitly what was previously only implied — that `AGENTS.md` is this repository's ultimate source of truth.
 
 ## ⭐ Key Highlights
 
@@ -34,6 +35,11 @@ a stale `AGENTS.md` instruction claiming this project still tags releases as `ve
 
 - Fixed `AGENTS.md`'s Merging section pointing to the outdated `version-X.Y.Z` tag format; every release from
   `4.2.3` onward actually tags as `vX.Y.Z`
+
+### ✍️ `AGENTS.md` as Ultimate Source of Truth
+
+- `CONTRIBUTING.md`'s intro now states explicitly that `AGENTS.md` wins if any other documentation ever
+  contradicts it
 
 ## 📦 What's New
 
@@ -60,6 +66,8 @@ a stale `AGENTS.md` instruction claiming this project still tags releases as `ve
   alongside `HISTORY.md`
 - Added `documentation/archive/ARCHIVE.md` to `README.md`'s Documentation section, matching the existing
   `documentation/history/`/`documentation/recommendations/` entries
+- Expanded `CONTRIBUTING.md`'s intro paragraph to state explicitly that `AGENTS.md` is this repository's ultimate
+  source of truth — if any other documentation ever contradicts it, `AGENTS.md` wins
 
 ### 🐛 Fixed
 
@@ -84,8 +92,8 @@ a stale `AGENTS.md` instruction claiming this project still tags releases as `ve
 
 ## 📊 Statistics
 
-- **Total Commits:** 12
-- **Files Changed:** 20 (+1,693 / −152 lines)
+- **Total Commits:** 14
+- **Files Changed:** 22 (+1,852 / −151 lines)
 
 ## 🧭 Design Notes
 
