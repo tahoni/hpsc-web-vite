@@ -196,15 +196,57 @@ Purpose & Scope and `../../AGENTS.md`'s Release Checklist step 6 to stop referen
 `../../HISTORY.md`'s actual structure — whichever this project decides is the intended design — and add "Major
 Version Goals" to the Release Checklist's thread-through list either way.
 
+#### 10. `../../AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `../../README.md` and `../../LICENSE.md` itself
+
+**Evidence:** `../../AGENTS.md`'s Documentation File Map lists `LICENSE.md` as "MIT License". `../../LICENSE.md`
+itself is a plain "Copyright © 2026 Hartbeespoortdam Practical Shooting Club. All Rights Reserved." notice, and
+`../../README.md`'s own Documentation table already correctly describes it as "All Rights Reserved". This project's
+`../../CHANGELOG.md`, under its current `### 🧪 [Unreleased]` section, even claims this was already fixed ("Fixed
+`README.md`'s Documentation table and `AGENTS.md`'s Documentation File Map describing `LICENSE.md` as 'MIT
+License' ... both now describe it accurately") — but only `../../README.md` was actually corrected;
+`../../AGENTS.md` still reads "MIT License".
+
+**Why it matters:** `../../AGENTS.md` is this project's documented single source of truth for cross-tool agent
+conventions, and it now contradicts both `../../README.md` and the licence file it's describing — exactly the kind
+of doc-vs-doc drift this plan exists to catch. It also means the current `../../CHANGELOG.md` `[Unreleased]` entry
+is itself inaccurate about what was actually done, risking a release note that overstates the fix once promoted to a
+dated version entry.
+
+**Proposed improvement:** Correct `../../AGENTS.md`'s Documentation File Map entry for `LICENSE.md` to "All Rights
+Reserved", matching `../../README.md` and the file's actual content.
+
+#### 11. 264 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed
+
+**Evidence:** `../../eslint.config.js:48` sets `"tsdoc/syntax": "warn"`, enabled per the `../../CHANGELOG.md`
+`[Unreleased]` fix that wired `eslint-plugin-tsdoc` into the flat config (it had only ever been active in the legacy,
+now-superseded `.eslintrc.cjs` mirror). Running `npm run lint` currently reports 264 `tsdoc/syntax` warnings across 65
+files — `tsdoc-undefined-tag` (69), `tsdoc-malformed-inline-tag` (62) and `tsdoc-escape-right-brace` (62) account for
+most of them, largely from JSDoc-style `@param {type}` annotations and unescaped `{`/`}` characters in doc comments
+that predate the rule's enforcement. `npm run lint`'s own summary line reports "288 problems (0 errors, 288
+warnings)" — the other 24 are pre-existing `no-unused-vars`/`react-refresh` warnings unrelated to this rule; the
+`../../CHANGELOG.md` entry's "288 pre-existing `tsdoc/syntax` warnings" figure conflates the two.
+
+**Why it matters:** `../../AGENTS.md`'s TSDoc convention states doc comments "must be syntactically valid TSDoc, not
+JSDoc-only syntax" — with the rule now actually wired up (per Gap #1's related CI-gate proposal), 65 files currently
+violate that documented convention. Because the rule is `"warn"`, not `"error"`, `npm run lint` still exits `0`, so
+these warnings don't fail a local lint run or (once Gap #1 lands) a CI gate — they're easy to miss and can keep
+accumulating rather than being caught at the point a doc comment is written or changed.
+
+**Proposed improvement:** Work through the 264 warnings in batches by rule type across the 65 affected files,
+starting with the highest-count patterns (`tsdoc-undefined-tag`, `tsdoc-malformed-inline-tag`/
+`tsdoc-escape-right-brace` from JSDoc-style `{type}` annotations) — converting `@param {type} name` to plain TSDoc's
+`@param name`. Once clean, escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in `../../eslint.config.js` so a
+regression is caught immediately rather than silently re-accumulating.
+
 ---
 
 ## 🚀 Roadmap
 
 | Phase       | Focus                                                                                                                                                                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Add the CI lint/build/test gate (#1) — lowest effort, closes a gap the project's own docs already flag — and fix the two shipped route-metadata bugs (#2)                                                                                                 |
+| **Now**     | Add the CI lint/build/test gate (#1) — lowest effort, closes a gap the project's own docs already flag — fix the two shipped route-metadata bugs (#2), and correct `AGENTS.md`'s stale `LICENSE.md` description (#10)                                    |
 | **Next**    | Stand up initial test coverage (#3) and a top-level error boundary (#4), so the CI gate added in Now has something real to enforce                                                                                                                        |
-| **Later**   | Accessibility baseline (#5), the styling-convention cleanup (#6), the remaining `.env.example`/`baseUrl` work on the partially-completed environment-variable gap (#7) and the `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) |
+| **Later**   | Accessibility baseline (#5), the styling-convention cleanup (#6), the remaining `.env.example`/`baseUrl` work on the partially-completed environment-variable gap (#7), the `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11) |
 | **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                                                                                                                                    |
 
 ---
@@ -221,6 +263,10 @@ Version Goals" to the Release Checklist's thread-through list either way.
   variables is already in place.
 - `../../HISTORY.md` either gains a "Future Roadmap Implications" section or this plan's Purpose & Scope and
   `../../AGENTS.md`'s Release Checklist stop referencing one that doesn't exist (#9).
+- `../../AGENTS.md`'s Documentation File Map describes `../../LICENSE.md` as "All Rights Reserved", matching
+  `../../README.md` and the file's actual content (#10).
+- `npm run lint` reports zero `tsdoc/syntax` warnings, and the rule is escalated from `"warn"` to `"error"` in
+  `../../eslint.config.js` once clean (#11).
 - This document's Gaps section shrinks over time as items close — closed items should move into `../../HISTORY.md`'s
   per-version Future Roadmap notes rather than being deleted silently from here.
 

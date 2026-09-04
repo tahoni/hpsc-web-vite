@@ -1,6 +1,6 @@
 # Roadmap Task List
 
-A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s nine gaps, grouped by that
+A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s eleven gaps, grouped by that
 document's completion status — ✅ Completed, 🟡 Partially Completed, ⚪ Open — matching its own "🔍 Gaps &
 Improvement Opportunities" grouping. Each block names its originating gap number for traceability back to the
 evidence and reasoning there; within each section, gaps stay in ascending number order.
@@ -99,6 +99,24 @@ Checklist, doesn't exist** *(improvement-plan.md → Gap #9)*
   entries retroactively, not only future ones
 - [ ] Either way, add "Major Version Goals" to the Release Checklist step 6's thread-through list, since that
   section already exists in `HISTORY.md` but isn't mentioned there
+
+**`AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `README.md` and
+`LICENSE.md` itself** *(improvement-plan.md → Gap #10)*
+
+- [ ] Correct `AGENTS.md`'s Documentation File Map entry for `LICENSE.md` to "All Rights Reserved", matching
+  `README.md` and the file's actual content
+- [ ] Correct the `CHANGELOG.md` `[Unreleased]` entry that currently (and incorrectly) claims this fix was already
+  made to `AGENTS.md`, once the actual fix lands
+
+**264 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed** *(improvement-plan.md → Gap #11)*
+
+- [ ] Fix the `tsdoc-undefined-tag` warnings (69, the largest group)
+- [ ] Fix the `tsdoc-malformed-inline-tag`/`tsdoc-escape-right-brace` warnings (62 each), mostly JSDoc-style
+  `@param {type}` annotations that need converting to plain TSDoc's `@param name`
+- [ ] Fix the remaining `tsdoc-escape-greater-than` (34), `tsdoc-malformed-html-name` (17),
+  `tsdoc-param-tag-with-invalid-type` (14) and smaller one-off warnings
+- [ ] Escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in `eslint.config.js` once `npm run lint` reports zero
+  `tsdoc/syntax` warnings
 
 ---
 
