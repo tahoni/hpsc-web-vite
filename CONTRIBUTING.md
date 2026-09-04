@@ -17,7 +17,7 @@ summarises the parts most relevant to opening a pull request.
 - [✍️ Documentation Conventions](#-documentation-conventions)
 - [🗺️ Roadmap](#-roadmap)
 - [🔀 Git Workflow](#-git-workflow)
-- [🔍 CI/CD & Quality Gates](#-cicd--quality-gates)
+- [🔬 CI/CD & Quality Gates](#-cicd--quality-gates)
 - [☑️ Pull Request Checklist](#-pull-request-checklist)
 - [🚢 Cutting a Release](#-cutting-a-release)
 - [💬 Questions & Support](#-questions--support)
@@ -151,7 +151,7 @@ Workflow section for the full branching model, merge rules and rationale. In sho
 
 ---
 
-## 🔍 CI/CD & Quality Gates
+## 🔬 CI/CD & Quality Gates
 
 See `AGENTS.md`'s Code Quality & CI section for the current CodeQL/ESLint setup. There is no CI workflow that runs
 `npm run lint`, `npm run build` or `npm test` automatically yet — run them locally before opening a PR (tracked as a

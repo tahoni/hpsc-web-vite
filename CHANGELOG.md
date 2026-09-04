@@ -195,6 +195,10 @@ account of the project's full evolution, including that era.
   `CONTRIBUTING.md`'s Documentation Conventions sections, `ARCHITECTURE.md`'s Content Strategy (MDX) section and
   `RELEASE_NOTES.md`'s Documentation Clean-up subsection; left the frozen
   `documentation/history/RELEASE_NOTES_v5.0.0.md`/`v5.1.0.md` archives untouched per the byte-for-byte archive rule
+- Adopted `hpsc-web-springboot`'s `🔬` icon for `AGENTS.md`'s Code Quality & CI section and `CONTRIBUTING.md`'s CI/CD &
+  Quality Gates section, freeing `🔍` to mean only "Current state / inspection" — the concept it already carries in
+  every `.claude/skills/*/SKILL.md` "Gather current state" section and `improvement-plan.md`'s Gaps & Improvement
+  Opportunities section — and removing the now-obsolete "this project uses 🔍 instead" reservation note on `🔬`
 
 #### ⚠️ Deprecated
 

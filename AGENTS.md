@@ -14,7 +14,7 @@ every agent tool reads `AGENTS.md`.
 - [🧰 Build & Run Commands](#-build--run-commands)
 - [🔧 Environment Variables](#-environment-variables)
 - [🏛️ Architecture Overview](#-architecture-overview)
-- [🔍 Code Quality & CI](#-code-quality--ci)
+- [🔬 Code Quality & CI](#-code-quality--ci)
 - [✍️ Documentation Conventions](#-documentation-conventions)
 - [🗺️ Documentation File Map](#-documentation-file-map)
 - [🛤️ Roadmap Planning](#-roadmap-planning)
@@ -149,7 +149,7 @@ Header/
 
 ---
 
-## 🔍 Code Quality & CI
+## 🔬 Code Quality & CI
 
 - **CodeQL**: security analysis, runs on push/PR to `main` and weekly. Config: `.github/workflows/codeql.yml`.
 - **ESLint**: flat config (`eslint.config.js`) — TypeScript, React Hooks and `react-refresh` rules. `.eslintrc.cjs` is
@@ -248,6 +248,7 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 🚢   | Release process                         |
 | 🌲   | Evergreen documentation                 |
 | 🔍   | Current state / inspection              |
+| 🔬   | CI/CD & quality gates                   |
 | ☑️   | Checklist                               |
 | 💬   | Support                                 |
 | ✨   | Features / enhancements                 |
@@ -310,7 +311,6 @@ concept in this project:
 | 📥   | Inbound / import flow                                  |
 | 🔓   | Optional / relaxed constraint                          |
 | 🔢   | Numbering / sequence                                   |
-| 🔬   | CI/CD & quality gates — this project uses 🔍 instead   |
 | 🗄️   | Database / persistence                                 |
 | 🛡️   | Robustness / validation hardening                      |
 | 🤔   | Reasoning                                               |
