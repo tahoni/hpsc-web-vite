@@ -43,7 +43,21 @@ notes.
 
 #### ➕ Added
 
+##### Release Process
+
+- Backfilled `documentation/history/RELEASE_NOTES_vX.Y.Z.md` archives for versions `4.0.0` through `4.2.2`
+  (`4.2.3` onward already had theirs), derived from `CHANGELOG.md`'s existing entries and matching
+  `RELEASE_NOTES_v4.2.3.md`'s Theme/Key Highlights lead-in format
+- Added `documentation/archive/ARCHIVE.md`, a read-only legacy release archive covering the Version 3.x line
+  (`3.0.0` through `3.6.9`) compiled from GitHub's own release notes, predating `CHANGELOG.md`/`HISTORY.md`'s Keep a
+  Changelog structure introduced in `4.0.0`; documented in `AGENTS.md`'s Documentation File Map
+
 #### 🔄 Changed
+
+##### Documentation
+
+- `CHANGELOG.md`'s legacy-Version-3.x-line note now also points to the new `documentation/archive/ARCHIVE.md`
+  alongside `HISTORY.md`
 
 #### 🐛 Fixed
 
