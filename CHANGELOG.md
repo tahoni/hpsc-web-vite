@@ -108,6 +108,12 @@ account of the project's full evolution, including that era.
 - Added a new `CONTRIBUTING.md` Directory Tree Maintenance section and icon-reuse/evergreen-doc bullets to its
   Documentation Conventions section, extracted from `AGENTS.md`'s equivalent sections which had no contributor-facing
   summary yet; added matching Pull Request Checklist items
+- **`CONTRIBUTING.md`:** All ~15 "see `AGENTS.md`'s X section" cross-references now link to the specific `AGENTS.md`
+  anchor they name (Environment Variables, Test Conventions, Component/layout folder shape, Directory Tree
+  Maintenance, Claude Code Skills, Documentation Conventions, Contributors, Icons in headings, Evergreen
+  Documentation, Roadmap Planning, Git Workflow, Code Quality & CI ×2, Release Checklist), instead of unlinked plain
+  text — matching the sibling `hpsc-web-springboot` repository's `CONTRIBUTING.md`, where the same pattern was
+  already followed
 
 #### 🐛 Fixed
 

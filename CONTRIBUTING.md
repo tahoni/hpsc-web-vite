@@ -29,7 +29,8 @@ summarises the parts most relevant to opening a pull request.
 
 - **Node.js** — download from [nodejs.org](https://nodejs.org/)
 - **NPM registry access** — a read-only npm token for the `@tahoni` GitHub Packages scope, set in the
-  `NPM_TOKEN_READ` environment variable (see `AGENTS.md`'s Environment Variables table for the full list;
+  `NPM_TOKEN_READ` environment variable (see
+  [`AGENTS.md`'s Environment Variables table](AGENTS.md#-environment-variables) for the full list;
   `GOOGLE_MAPS_API_KEY` and `RECAPTCHA_V2_SITE_KEY` are optional locally but needed for the venue map and Contact Us
   captcha to render)
 - **Git**
@@ -65,7 +66,7 @@ See `README.md`'s Available Scripts section for the complete list, including `np
 
 Vitest is configured (`npm test`) but this project currently has no test files — see
 `documentation/roadmap/improvement-plan-tasks.md` for the tracked task on establishing initial coverage. When adding
-tests, per `AGENTS.md`'s Test Conventions:
+tests, per [`AGENTS.md`'s Test Conventions](AGENTS.md#-test-conventions):
 
 - Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
 - For component tests, use `@testing-library/react` with a `jsdom` environment.
@@ -87,8 +88,8 @@ Route (React Router)
 
 **Conventions enforced by review, not the compiler:**
 
-- Each non-trivial component or layout gets its own PascalCase folder — see `AGENTS.md`'s Component/layout folder
-  shape subsection.
+- Each non-trivial component or layout gets its own PascalCase folder — see
+  [`AGENTS.md`'s Component/layout folder shape subsection](AGENTS.md#component-layout-folder-shape).
 - Routing is data-driven via `PageMapping` instances (`BaseRoutes.ts`), not static JSX route trees.
 - Framework-agnostic pure functions belong in `utils/`; anything with routing/UI context belongs in `helpers/` — see
   `documentation/recommendations/standard-utils-vs-helpers.md` for the split this project follows.
@@ -97,7 +98,8 @@ Route (React Router)
 
 ## 📁 Directory Tree Maintenance
 
-See `AGENTS.md`'s Directory Tree Maintenance section for the full rules. In short:
+See [`AGENTS.md`'s Directory Tree Maintenance section](AGENTS.md#-directory-tree-maintenance) for the full rules. In
+short:
 
 - Adding or removing a root-level or top-level `src/` directory? Update `ARCHITECTURE.md`'s Project Structure tree in
   the same change.
@@ -115,14 +117,16 @@ See `AGENTS.md`'s Directory Tree Maintenance section for the full rules. In shor
 If you're using [Claude Code](https://claude.com/claude-code), this repository ships skills under `.claude/skills/`
 that automate parts of the workflow below — `generate-commit-message` before committing, `scaffold-unit-tests`/
 `scaffold-integration-tests` when adding tests and `sync-unreleased-changes` to check `CHANGELOG.md`'s Unreleased
-section before opening a PR. See `AGENTS.md`'s Claude Code Skills section for the full list; every skill follows the
-conventions documented there and summarised in this file, so using one doesn't skip any of the steps below.
+section before opening a PR. See [`AGENTS.md`'s Claude Code Skills section](AGENTS.md#-claude-code-skills) for the
+full list; every skill follows the conventions documented there and summarised in this file, so using one doesn't
+skip any of the steps below.
 
 ---
 
 ## ✍️ Documentation Conventions
 
-See `AGENTS.md`'s Documentation Conventions section for the full rules. The essentials:
+See [`AGENTS.md`'s Documentation Conventions section](AGENTS.md#-documentation-conventions) for the full rules. The
+essentials:
 
 - All documentation prose and code comments use **British English** spelling (e.g. "licence", "colour", "initialise"),
   not American English.
@@ -133,19 +137,20 @@ See `AGENTS.md`'s Documentation Conventions section for the full rules. The esse
 - Wrap prose lines in Markdown files to between 100 and 120 characters; tables are exempt and stay on a single line per
   row.
 - When crediting contributors or authors in documentation, source the list from actual git/GitHub history rather than
-  assuming — see `AGENTS.md`'s Contributors convention.
+  assuming — see [`AGENTS.md`'s Contributors convention](AGENTS.md#contributors).
 - Every heading listed in a Table of Contents gets an emoji prefix, matched in its ToC entry. Reuse an icon already
-  established for a concept — see `AGENTS.md`'s Icons in headings table — rather than inventing a new one; only pick a
-  new emoji for a genuinely new concept.
+  established for a concept — see [`AGENTS.md`'s Icons in headings table](AGENTS.md#icons-in-headings) — rather than
+  inventing a new one; only pick a new emoji for a genuinely new concept.
 - `README.md`, `ARCHITECTURE.md` and `UI.md` are evergreen: never add specific version numbers/ranges or counts that
   drift as the codebase grows (list items by name instead), and keep version-specific narrative in `CHANGELOG.md`/
-  `RELEASE_NOTES.md` — see `AGENTS.md`'s Evergreen Documentation section.
+  `RELEASE_NOTES.md` — see
+  [`AGENTS.md`'s Evergreen Documentation section](AGENTS.md#-evergreen-documentation-readmemd--architecturemd).
 
 ---
 
 ## 🗺️ Roadmap
 
-Full detail lives in `AGENTS.md`'s Roadmap Planning section.
+Full detail lives in [`AGENTS.md`'s Roadmap Planning section](AGENTS.md#-roadmap-planning).
 
 | File                        | Purpose                                                                                                          |
 |-----------------------------|------------------------------------------------------------------------------------------------------------------|
@@ -160,8 +165,9 @@ only when a gap closes, progresses or a new one is identified.
 
 ## 🔀 Git Workflow
 
-This repository follows [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/); see `AGENTS.md`'s Git
-Workflow section for the full branching model, merge rules and rationale. In short:
+This repository follows [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/); see
+[`AGENTS.md`'s Git Workflow section](AGENTS.md#-git-workflow) for the full branching model, merge rules and
+rationale. In short:
 
 - Branch from, and open your PR against, **`develop`** — not `main`. Use `feature/<short-description>` for day-to-day
   work.
@@ -175,9 +181,9 @@ Workflow section for the full branching model, merge rules and rationale. In sho
 
 ## 🔬 CI/CD & Quality Gates
 
-See `AGENTS.md`'s Code Quality & CI section for the current CodeQL/ESLint setup. There is no CI workflow that runs
-`npm run lint`, `npm run build` or `npm test` automatically yet — run them locally before opening a PR (tracked as a
-gap in `documentation/roadmap/improvement-plan-tasks.md`).
+See [`AGENTS.md`'s Code Quality & CI section](AGENTS.md#-code-quality--ci) for the current CodeQL/ESLint setup. There
+is no CI workflow that runs `npm run lint`, `npm run build` or `npm test` automatically yet — run them locally before
+opening a PR (tracked as a gap in `documentation/roadmap/improvement-plan-tasks.md`).
 
 ---
 
@@ -186,13 +192,14 @@ gap in `documentation/roadmap/improvement-plan-tasks.md`).
 Before opening a pull request, confirm:
 
 - [ ] `npm run lint` passes with no errors.
-- [ ] `npm run build` succeeds (this project has no CI workflow that runs it automatically — see `AGENTS.md`'s Code
-  Quality & CI section).
+- [ ] `npm run build` succeeds (this project has no CI workflow that runs it automatically — see
+  [`AGENTS.md`'s Code Quality & CI section](AGENTS.md#-code-quality--ci)).
 - [ ] `npm test` passes, and any new logic has co-located tests where applicable.
 - [ ] A `CHANGELOG.md` entry has been added under `### 🧪 [Unreleased]`, in the correct Keep a Changelog category and
   `##### <Area>` sub-heading.
 - [ ] Any affected documentation (`README.md`, `ARCHITECTURE.md`, `UI.md`, `CLAUDE.md`, `AGENTS.md`) has been updated to
-  match — see `AGENTS.md`'s Reverse Sync rule.
+  match — see the Reverse sync rule in
+  [`AGENTS.md`'s Evergreen Documentation section](AGENTS.md#-evergreen-documentation-readmemd--architecturemd).
 - [ ] Added/removed a root or `src/` directory, or a `vite.config.ts` path alias? `ARCHITECTURE.md`'s tree and/or
   `tsconfig.app.json`'s `paths` updated to match.
 - [ ] The branch follows the GitFlow naming and merge-target conventions above.
@@ -205,8 +212,9 @@ Before opening a pull request, confirm:
 ## 🚢 Cutting a Release
 
 Releasing a new version follows a fixed, ordered checklist (roadmap check → version bump → CHANGELOG → RELEASE_NOTES
-→ HISTORY → CONTRIBUTING/ARCHITECTURE verification → archive → PR description) — see `AGENTS.md`'s Release Checklist
-for the full, current procedure rather than duplicating it here, so the two never drift out of sync.
+→ HISTORY → CONTRIBUTING/ARCHITECTURE verification → archive → PR description) — see
+[`AGENTS.md`'s Release Checklist](AGENTS.md#-release-checklist) for the full, current procedure rather than
+duplicating it here, so the two never drift out of sync.
 
 ---
 
