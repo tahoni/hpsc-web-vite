@@ -1,6 +1,7 @@
 # HPSC Website User Interface
 
-This document provides an overview of the user interface (UI) for the Hartbeespoortdam Practical Shooting Club (HPSC) website.
+This document provides an overview of the user interface (UI) for the Hartbeespoortdam Practical Shooting Club (HPSC)
+website.
 
 ## Table of Contents
 
@@ -9,7 +10,7 @@ This document provides an overview of the user interface (UI) for the Hartbeespo
     - [🔝 Header](#-header)
     - [📄 Body](#-body)
     - [⬇️ Footer](#-footer)
-- [🧭 Navigation](#-navigation)
+- [🛣️ Navigation](#-navigation)
 - [📱 Responsive Design](#-responsive-design)
 - [💻 Technical Implementation](#-technical-implementation)
 - [👤 Designers](#-designers)
@@ -18,7 +19,8 @@ This document provides an overview of the user interface (UI) for the Hartbeespo
 
 ## 🎨 Design Philosophy
 
-The HPSC website is designed to be informative, accessible, and user-friendly. It follows a clean and modern aesthetic, using a consistent layout across all pages to ensure ease of navigation for both members and visitors.
+The HPSC website is designed to be informative, accessible and user-friendly. It follows a clean and modern aesthetic,
+using a consistent layout across all pages to ensure ease of navigation for both members and visitors.
 
 ---
 
@@ -26,9 +28,9 @@ The HPSC website is designed to be informative, accessible, and user-friendly. I
 
 The application uses a standard three-part layout structure, managed by the `Layout` component:
 
-1. **Header**: Contains branding, logos, and the primary navigation menu.
+1. **Header**: Contains branding, logos and the primary navigation menu.
 2. **Body**: The main content area, which may include sidebars for additional imagery or context.
-3. **Footer**: Contains contact information, social media links, a venue map, and copyright details.
+3. **Footer**: Contains contact information, social media links, a venue map and copyright details.
 
 ### 🔝 Header
 
@@ -43,9 +45,9 @@ The Header is consistent across all pages and consists of:
 
 The Body component is flexible and adapts to the content being displayed. It features:
 
-- **Main Content Area**: Centered and contained within a Bootstrap `Container`.
-- **Sidebars**: Optional left and right sidebars used for displaying theme-related images (`ImageSidebar`),
-  enhancing the visual experience of the page.
+- **Main Content Area**: Centred and contained within a Bootstrap `Container`.
+- **Sidebars**: Optional left and right sidebars used for displaying theme-related images (`ImageSidebar`), enhancing
+  the visual experience of the page.
 
 ### ⬇️ Footer
 
@@ -59,7 +61,7 @@ The Footer provides essential information and links:
 
 ---
 
-## 🧭 Navigation
+## 🛣️ Navigation
 
 The primary navigation menu includes the following routes:
 
@@ -76,15 +78,17 @@ The primary navigation menu includes the following routes:
 
 ## 📱 Responsive Design
 
-The UI is built using **Bootstrap 5**, ensuring that the website is fully responsive and works seamlessly across various devices and screen sizes (desktops, tablets, and smartphones). The navigation menu automatically collapses into a "hamburger" menu on smaller screens.
+The UI is built using **Bootstrap 5**, ensuring that the website is fully responsive and works seamlessly across various
+devices and screen sizes (desktops, tablets and smartphones). The navigation menu automatically collapses into a
+"hamburger" menu on smaller screens.
 
 ---
 
 ## 💻 Technical Implementation
 
 - **Framework**: [React 19](https://react.dev/)
-- **Styling**: [SCSS (Sass)](https://sass-lang.com/) for custom styles
-  and [Bootstrap 5](https://getbootstrap.com/) for the component framework.
+- **Styling**: [SCSS (Sass)](https://sass-lang.com/) for custom styles and [Bootstrap 5](https://getbootstrap.com/) for
+  the component framework.
 - **Icons**: [FontAwesome](https://fontawesome.com/) for social media and contact icons.
 - **Content**: A mix of TSX components and **MDX** for content-heavy pages.
 - **Routing**: [React Router](https://reactrouter.com/) for client-side navigation.

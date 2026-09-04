@@ -4,11 +4,5 @@
 // Default variable overrides
 @import "custom";
 
-// Required Bootstrap components
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark";
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/root";
-
-// Optional Bootstrap components
+// Bootstrap, themed with the overrides above
+@import "bootstrap/scss/bootstrap";

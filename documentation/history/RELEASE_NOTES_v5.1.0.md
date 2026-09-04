@@ -73,7 +73,7 @@ Version 5.1.0 completes the dependency-modernisation effort carried over from 5.
 
 #### Documentation
 
-- Fixed hard-wrapped paragraphs in `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md`, `documentation/recommendations/standard-css.md`, and `documentation/recommendations/standard-utils-vs-helpers.md` that broke mid-sentence or mid-clause instead of matching the rest of the repo's one-paragraph-per-line convention; also converted `PACKAGES.md` from UTF-16 to UTF-8, matching every other Markdown file in the repo
+- Fixed hard-wrapped paragraphs in `ARCHITECTURE.md`, `README.md`, `UI.md`, `PACKAGES.md`, `../recommendations/project-css-naming.md`, and `documentation/recommendations/standard-utils-vs-helpers.md` that broke mid-sentence or mid-clause instead of matching the rest of the repo's one-paragraph-per-line convention; also converted `PACKAGES.md` from UTF-16 to UTF-8, matching every other Markdown file in the repo
 - Fixed additional hard-wrapped list-item descriptions in `ARCHITECTURE.md` (the `RouteAliases.tsx`/`AppRoutes.tsx`, Sass Modules/Bootstrap Overrides, and Build and Tooling bullets) missed by the earlier paragraph rewrap
 - Fixed `documentation/history/RELEASE_NOTES_v5.0.0.md`'s stale archive snapshot, which had fallen out of sync with `RELEASE_NOTES.md`'s expanded Migration Guide/Statistics/Design Notes/Testing/Known Issues/Future Enhancements/Contributors/Notes template — resynced it byte-for-byte per AGENTS.md's Release Checklist archive rule
 - Fixed `ARCHITECTURE.md`'s Project Structure tree missing the `src/enums/` directory, which had been added without updating the tree
@@ -106,15 +106,15 @@ Version 5.1.0 completes the dependency-modernisation effort carried over from 5.
 - `npm run lint` — 0 errors (pre-existing warnings only)
 - `npm run build` — was broken by `@rjsf/core` v6's package `exports` map rejecting `SanitizedWidget.tsx`'s deep imports; passes after the fix
 - `npx tsc --noEmit` — passes, including under the `typescript` 6.0.3 upgrade
-- `npm test` — no test files exist yet in this repository (tracked in `documentation/roadmap/TASKS.md`)
+- `npm test` — no test files exist yet in this repository (tracked in `../roadmap/improvement-plan-tasks.md`)
 - **Not performed:** a manual browser smoke test of the runtime packages bumped across a major version in this release (`@fortawesome/*` icon rendering, `@fullcalendar/*` on the Events page, `react-router`/`react-router-dom`'s split versions, `sweetalert2` dialogs, `@vis.gl/react-google-maps`, and the Contact Us form's CAPTCHA/e-mail flow under the new `@rjsf` validator) — recommended before merging to `main`
 
 ## 🐛 Known Issues
 
-- No CI workflow runs `npm run lint`/`npm run build`/`npm test` automatically — only CodeQL runs on push/PR (`documentation/roadmap/TASKS.md` → Gap #1)
+- No CI workflow runs `npm run lint`/`npm run build`/`npm test` automatically — only CodeQL runs on push/PR (`../roadmap/improvement-plan-tasks.md` → Gap #1)
 - The runtime dependencies bumped across a major version in this release have not been manually smoke-tested in a browser — see Testing above
-- `News` isn't wired into routing, and the Contact Us route's `dateCreated`/`dateUpdated` metadata is inverted (`documentation/roadmap/TASKS.md` → Gap #2)
-- No automated test coverage exists yet — `npm test` has no test files (`documentation/roadmap/TASKS.md` → Gap #3)
+- `News` isn't wired into routing, and the Contact Us route's `dateCreated`/`dateUpdated` metadata is inverted (`../roadmap/improvement-plan-tasks.md` → Gap #2)
+- No automated test coverage exists yet — `npm test` has no test files (`../roadmap/improvement-plan-tasks.md` → Gap #3)
 
 ## 🔮 Future Enhancements
 

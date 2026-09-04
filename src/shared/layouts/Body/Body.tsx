@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { Container } from "react-bootstrap";
 import { ImageSidebar } from "@components/Sidebar";
 import { Content } from "../Content";
-import { BodyProps } from "../LayoutProps";
+import { BodyProps } from "../Layout/LayoutProps";
 import classes from "./Body.module.scss";
 
 export const Body = React.memo((props: BodyProps): ReactElement => {

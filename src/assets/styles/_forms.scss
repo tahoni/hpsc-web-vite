@@ -7,7 +7,7 @@
  * Bootstrap's base styles with additional visual enhancements for focus states,
  * hover effects, and validation feedback.
  */
-@use "bootstrap/scss/bootstrap" as *;
+@use "@bootstrap/styles/index" as *;
 @use "theme" as hpsc-theme;
 
 /**

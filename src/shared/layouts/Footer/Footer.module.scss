@@ -1,5 +1,5 @@
 @use "bootstrap/scss/bootstrap-grid" as bootstrap-grid;
-@use "../Layout.module";
+@use "../Layout/Layout.module";
 
 $map-width: 100%;
 $map-height: 12em;
