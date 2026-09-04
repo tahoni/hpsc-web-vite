@@ -43,7 +43,7 @@ dependencies, both handled by third-party services called directly from the clie
 
 - **Language:** TypeScript (strict mode)
 - **Framework:** React 19
-- **Build tool:** Vite 6, via `npm run build` / `npm run dev`
+- **Build tool:** Vite 8, via `npm run build` / `npm run dev`
 - **Routing:** React Router 8 (data-driven — see `ARCHITECTURE.md`)
 - **UI components:** React Bootstrap 2 (Bootstrap 5)
 - **Styling:** SCSS (Sass) with Sass Modules and `@use`-based global styles
@@ -91,7 +91,7 @@ See `README.md`'s Available Scripts section for the complete script list, includ
 ## 🔧 Environment Variables
 
 | Variable                | Used in                                     | Purpose                                                                             |
-|-------------------------|----------------------------------------------|-------------------------------------------------------------------------------------|
+|-------------------------|---------------------------------------------|-------------------------------------------------------------------------------------|
 | `NPM_TOKEN_READ`        | `.npmrc`                                    | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
 | `GOOGLE_MAPS_API_KEY`   | `.env.local` → `VITE_GOOGLE_MAPS_API_KEY`   | Google Maps API key; without it the venue map does not render                       |
 | `RECAPTCHA_V2_SITE_KEY` | `.env.local` → `VITE_RECAPTCHA_V2_SITE_KEY` | reCAPTCHA v2 site key for the Contact Us form's `Captcha` component                 |
@@ -222,100 +222,99 @@ genuinely new concept. Icons already established in this repository's documentat
 used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then `CHANGELOG.md`/`HISTORY.md`, then
 `RELEASE_NOTES.md`/`PR_DESCRIPTION_vX.Y.Z.md` — with icons used only elsewhere in the repository listed last:
 
-| Icon | Concept                                 |
-|------|-----------------------------------------|
-| 📖   | Introduction / overview                 |
-| 🔗   | Repository / links                      |
-| ⚙️   | Technology / configuration              |
-| 🚀   | Instructions / getting started          |
-| 🔧   | Installation / setup / technical change |
-| 🧰   | Available scripts / tooling             |
-| 📁   | Project / directory structure           |
-| 🎯   | Core concepts / theme overview          |
-| 🛣️   | Routing / navigation                    |
-| 🗂️   | Feature-based organisation              |
-| ✍️   | Content strategy / documentation conventions |
-| 🎨   | Styling and theming / design            |
-| 🛠️   | Development guidelines                  |
-| 👤   | Author / changes by                     |
-| 🗺️   | Documentation map                       |
-| 🛤️   | Roadmap                                 |
-| 📋   | Version policy / prerequisites          |
-| 📚   | Documentation / key learnings           |
-| 🏛️   | Architecture                            |
-| 🧪   | Testing                                 |
-| 🔀   | Git workflow                            |
-| 🚢   | Release process                         |
-| 🌲   | Evergreen documentation                 |
-| 🔍   | Current state / inspection              |
-| 🔬   | CI/CD & quality gates                   |
-| ☑️   | Checklist                               |
-| 💬   | Support                                 |
-| ✨   | Features / enhancements                 |
-| 🧾   | Change log / release notes              |
-| 🐛   | Bug fixes / known issues                |
-| ➕   | Added items                             |
-| 🔄   | Changed items                           |
-| ⚠️   | Deprecated items                        |
-| 🗑️   | Removed items                           |
-| 🔐   | Security                                |
-| 🤝   | Contributing                            |
-| 📅   | Historical timeline / dates             |
-| 💡   | Philosophy / insight                    |
-| 🎓   | Conclusion / retrospective              |
-| 📦   | Dependencies / what's new               |
-| ⭐   | Key highlights                          |
-| 📊   | Statistics                              |
-| 🔮   | Future enhancements                     |
-| 👥   | Contributors                            |
-| 📝   | Notes                                   |
-| 🧩   | Tooling / automation                    |
-| 📐   | Layout structure                        |
-| 🔝   | Header                                  |
-| 📄   | Body / page content                     |
-| ⬇️   | Footer                                  |
-| 📱   | Responsive design                       |
-| 💻   | Technical implementation                |
-| 🖥️   | User interface                          |
-| 📜   | License / licence and documentation     |
-| ♻️   | General code improvements               |
-| 💰   | Funding / sponsorship                   |
-| 📤   | Output                                  |
-| 👍   | Recommendation / best practices         |
+| Icon | Concept                                             |
+|------|-----------------------------------------------------|
+| 📖   | Introduction / overview                             |
+| 🔗   | Repository / links                                  |
+| ⚙️   | Technology / configuration                          |
+| 🚀   | Instructions / getting started                      |
+| 🔧   | Installation / setup / technical change             |
+| 🧰   | Available scripts / tooling                         |
+| 📁   | Project / directory structure                       |
+| 🎯   | Core concepts / theme overview                      |
+| 🛣️   | Routing / navigation                                |
+| 🗂️   | Feature-based organisation                          |
+| ✍️   | Content strategy / documentation conventions        |
+| 🎨   | Styling and theming / design                        |
+| 🛠️   | Development guidelines                              |
+| 👤   | Author / changes by                                 |
+| 🗺️   | Documentation map                                   |
+| 🛤️   | Roadmap                                             |
+| 📋   | Version policy / prerequisites                      |
+| 📚   | Documentation / key learnings                       |
+| 🏛️   | Architecture                                        |
+| 🧪   | Testing                                             |
+| 🔀   | Git workflow                                        |
+| 🚢   | Release process                                     |
+| 🌲   | Evergreen documentation                             |
+| 🔍   | Current state / inspection                          |
+| 🔬   | CI/CD & quality gates                               |
+| ☑️   | Checklist                                           |
+| 💬   | Support                                             |
+| ✨   | Features / enhancements                             |
+| 🧾   | Change log / release notes                          |
+| 🐛   | Bug fixes / known issues                            |
+| ➕   | Added items                                         |
+| 🔄   | Changed items                                       |
+| ⚠️   | Deprecated items                                    |
+| 🗑️   | Removed items                                       |
+| 🔐   | Security                                            |
+| 🤝   | Contributing                                        |
+| 📅   | Historical timeline / dates                         |
+| 💡   | Philosophy / insight                                |
+| 🎓   | Conclusion / retrospective                          |
+| 📦   | Dependencies / what's new                           |
+| ⭐   | Key highlights                                      |
+| 📊   | Statistics                                          |
+| 🔮   | Future enhancements                                 |
+| 👥   | Contributors                                        |
+| 📝   | Notes                                               |
+| 🧩   | Tooling / automation                                |
+| 📐   | Layout structure                                    |
+| 🔝   | Header                                              |
+| 📄   | Body / page content                                 |
+| ⬇️   | Footer                                              |
+| 📱   | Responsive design                                   |
+| 💻   | Technical implementation                            |
+| 🖥️   | User interface                                      |
+| 📜   | License / licence and documentation                 |
+| ♻️   | General code improvements                           |
+| 💰   | Funding / sponsorship                               |
+| 📤   | Output                                              |
+| 👍   | Recommendation / best practices                     |
 | ✅   | Quality attributes / completed (roadmap gap status) |
-| 🟡   | Partially completed (roadmap gap status) |
-| ⚪   | Open / not started (roadmap gap status) |
-| 🌐   | Presentation / API layer                |
-| 🏗️   | Layered architecture                    |
-| 🧭   | Design notes                            |
-| 🌊   | Global scope / cascading styles         |
-| 🧵   | Shared / cross-feature infrastructure   |
-| 🧱   | Component/layout folder shape           |
-| 🌳   | Decision tree / quick reference         |
-| 🏆   | Most popular / prevailing convention    |
-| 🗝️   | Key principles                          |
-| ⏭️   | Next / upcoming                         |
-| ⏳   | Later / pending                         |
-| 🔁   | Ongoing / recurring                     |
-| 🏷️   | Naming conventions                      |
-| ⚖️   | Comparison / trade-offs                 |
+| 🟡   | Partially completed (roadmap gap status)            |
+| ⚪   | Open / not started (roadmap gap status)             |
+| 🌐   | Presentation / API layer                            |
+| 🏗️   | Layered architecture                                |
+| 🧭   | Design notes                                        |
+| 🌊   | Global scope / cascading styles                     |
+| 🧵   | Shared / cross-feature infrastructure               |
+| 🧱   | Component/layout folder shape                       |
+| 🌳   | Decision tree / quick reference                     |
+| 🏆   | Most popular / prevailing convention                |
+| 🗝️   | Key principles                                      |
+| ⏭️    | Next / upcoming                                     |
+| ⏳   | Later / pending                                     |
+| 🔁   | Ongoing / recurring                                 |
+| 🏷️   | Naming conventions                                  |
+| ⚖️   | Comparison / trade-offs                             |
 
 Icons reserved from the sibling `hpsc-web-springboot` repository's registry for concepts specific to that project (a
 Java/Spring Boot backend) — not used here, kept reserved so they're never accidentally repurposed for an unrelated
 concept in this project:
 
-| Icon | Reserved for (springboot)                             |
-|------|--------------------------------------------------------|
-| ⚡   | Service layer                                          |
-| 🗄️   | Database / persistence                                 |
-| 🧬   | Data model / DTOs                                      |
-| 📈   | Request-response flow                                  |
-| 📥   | Inbound / import flow                                  |
-| 🔓   | Optional / relaxed constraint                          |
-| 🔢   | Numbering / sequence                                   |
-| 🛡️   | Robustness / validation hardening                      |
-| 🤔   | Reasoning                                               |
-| 🧬   | Data model / DTOs                                      |
+| Icon | Reserved for (springboot)         |
+|------|-----------------------------------|
+| ⚡   | Service layer                     |
+| 📈   | Request-response flow             |
+| 📥   | Inbound / import flow             |
+| 🔓   | Optional / relaxed constraint     |
+| 🔢   | Numbering / sequence              |
+| 🗄️   | Database / persistence            |
+| 🛡️   | Robustness / validation hardening |
+| 🤔   | Reasoning                         |
+| 🧬   | Data model / DTOs                 |
 
 ---
 
@@ -374,7 +373,7 @@ already be tracked there.
 workflows, available to any Claude Code session in this repository:
 
 | Skill                          | Purpose                                                                                                                                                                 |
-|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `generate-commit-message`      | Draft a commit message and matching `CHANGELOG.md` entry for the current working tree changes                                                                           |
 | `generate-pr-summary`          | Condense a version's `PR_DESCRIPTION.md`/`RELEASE_NOTES.md` into a short Bitbucket-style PR summary                                                                     |
 | `prep-version-release`         | Prepare a new version release — `RELEASE_NOTES.md`, `CHANGELOG.md`, `HISTORY.md`, reverse-synced docs and a draft PR description, following the Release Checklist below |

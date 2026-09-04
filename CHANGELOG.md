@@ -214,6 +214,9 @@ account of the project's full evolution, including that era.
   Quality Gates section, freeing `🔍` to mean only "Current state / inspection" — the concept it already carries in
   every `.claude/skills/*/SKILL.md` "Gather current state" section and `improvement-plan.md`'s Gaps & Improvement
   Opportunities section — and removing the now-obsolete "this project uses 🔍 instead" reservation note on `🔬`
+- Fixed `AGENTS.md`'s Tech Stack section stating "Vite 6", two majors behind `package.json`'s actual `vite@^8.2.2` —
+  `RELEASE_NOTES.md`'s own v5.1.0 Migration Guide already documents Vite-8-specific behaviour that release shipped
+  around
 
 #### ⚠️ Deprecated
 

@@ -126,7 +126,7 @@ See `AGENTS.md`'s Documentation Conventions section for the full rules. The esse
 Full detail lives in `AGENTS.md`'s Roadmap Planning section.
 
 | File                        | Purpose                                                                                                          |
-|-----------------------------|--------------------------------------------------------------------------------------------------------------------|
+|-----------------------------|------------------------------------------------------------------------------------------------------------------|
 | `improvement-plan.md`       | Synthesised goals/constraints from this project's own docs and configuration, and the resulting gaps and roadmap |
 | `improvement-plan-tasks.md` | Concrete, checkbox-level task list broken out from `improvement-plan.md`'s gaps                                  |
 
