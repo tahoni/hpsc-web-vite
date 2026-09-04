@@ -6,13 +6,13 @@
 
 > **Note:** This archive holds release records for every version predating this project's `CHANGELOG.md`/`HISTORY.md`
 > Keep a Changelog structure — `1.0.0` through `3.6.9`.
-
-> **Note:** Versions `3.0.0` onward reproduce the original GitHub Release notes for the legacy Version 3.x line. See
+> <br/>
+> Versions `3.0.0` onward reproduce the original GitHub Release notes for the legacy Version 3.x line. See
 > [`HISTORY.md`](../../HISTORY.md) for this project's narrative account of the Version 3.x line, and
 > [`CHANGELOG.md`](../../CHANGELOG.md) for `4.0.0` onward in the current format.
-
-> **Note:** No Release notes were ever generated for `1.0.0` through `2.1.0`, so those three entries are instead
-> summarised from their commit history.
+> <br/>
+> No Release notes were ever generated for `1.0.0` through `2.1.0`, so those three entries are instead summarised
+> from their commit history.
 
 > **The v1.x.x to v3.x.x release notes below are historical records only.**
 
