@@ -67,13 +67,8 @@ See [`README.md`'s Available Scripts section](README.md#-available-scripts) for 
 
 Vitest is configured (`npm test`) but this project currently has no test files — see
 [`improvement-plan-tasks.md`](documentation/roadmap/improvement-plan-tasks.md) for the tracked task on establishing
-initial coverage. When adding tests, per [`AGENTS.md`'s Test Conventions](AGENTS.md#-test-conventions):
-
-- Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
-- For component tests, use `@testing-library/react` with a `jsdom` environment.
-- Prefer testing behaviour and rendered output over implementation details; avoid snapshot tests of large component
-  trees.
-- Don't write tests whose sole purpose is verifying that TypeScript's type system or a trivial pass-through prop works.
+initial coverage. See [`AGENTS.md`'s Test Conventions section](AGENTS.md#-test-conventions) for the full conventions
+to follow when adding tests.
 
 ---
 
