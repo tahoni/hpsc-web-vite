@@ -1,10 +1,12 @@
 # HPSC Website – Legacy Release Archive
 
-> **Note:** This archive holds the GitHub Release notes for the legacy Version 3.x line — every version from `3.0.0`
-> up to `3.6.9` — which predates this project's `CHANGELOG.md`/`HISTORY.md` Keep a Changelog structure, introduced in
-> `4.0.0`. It is a historical record only and is not maintained going forward. See
-> [`HISTORY.md`](../../HISTORY.md) for this project's narrative account of the same versions, and
-> [`CHANGELOG.md`](../../CHANGELOG.md) for `4.0.0` onward in the current format.
+> **Note:** This archive holds release records for every version predating this project's `CHANGELOG.md`/`HISTORY.md`
+> Keep a Changelog structure, introduced in `4.0.0` — `1.0.0` through `3.6.9`. Versions `3.0.0` onward reproduce the
+> original GitHub Release notes for the legacy Version 3.x line; no Release notes were ever generated for `1.0.0`
+> through `2.1.0`, so those three entries are instead summarised from their commit history. It is a historical
+> record only and is not maintained going forward. See [`HISTORY.md`](../../HISTORY.md) for this project's
+> narrative account of the Version 3.x line, and [`CHANGELOG.md`](../../CHANGELOG.md) for `4.0.0` onward in the
+> current format.
 
 ## Releases
 
@@ -53,6 +55,9 @@
 - [Version 3.0.2](#version-302---_2024-08-27_)
 - [Version 3.0.1](#version-301---_2024-08-27_)
 - [Version 3.0.0](#version-300---_2024-08-18_)
+- [Version 2.1.0](#version-210---_2024-07-20_)
+- [Version 2.0.0](#version-200---_2024-07-16_)
+- [Version 1.0.0](#version-100---_2024-07-11_)
 
 ### [Version 3.6.9](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.9) - _2025-07-12_
 
@@ -959,3 +964,96 @@ Created a homepage with an under-construction carousel.
 @tahoni
 @dependabot
 @ImgBotApp
+
+### [Version 2.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-2.1.0) - _2024-07-20_
+
+No `RELEASE_NOTES` were generated for this version — summarised here from its commit history. Follow-up polish after
+the `tahoni` library migration in `2.0.0`: renamed components for clarity, fixed the page layout and updated to the
+latest library/dependency versions.
+
+#### Changed
+
+- Renamed components and a model class for better readability
+- Renamed the overridden CSS variables to align with the `tahoni` library's own naming
+- Fixed the page layout
+- Updated to the latest versions of the `tahoni` library and other dependencies
+
+#### Assets
+
+- Added the Noto Sans font family
+- Decreased the size of images
+
+#### Build & Tooling
+
+- Excluded `.env` files from git
+- Added more ESLint rules
+
+#### Changes by
+
+@tahoni
+
+### [Version 2.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-2.0.0) - _2024-07-16_
+
+No `RELEASE_NOTES` were generated for this version — summarised here from its commit history. Migrated the project
+onto the new `tahoni` React component library, replacing local components and re-theming via CSS variables.
+
+#### Changed
+
+- Migrated to the new `tahoni` React component library, removing local components now provided by it and overriding
+  its styles via CSS variables
+- Switched SCSS variables to CSS variables to correctly display the library's theme; removed the now-unused SVG
+  image files
+- Synced with upstream class/type changes in the `tahoni` library, importing all types from its root
+
+#### Assets
+
+- Optimised images
+
+#### Build & Tooling
+
+- Added `.npmrc`, with the registry auth token sourced from an environment variable
+
+#### Dependencies
+
+- Added the `tahoni` React library
+
+#### Changes by
+
+@tahoni
+@ImgBotApp
+
+### [Version 1.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-1.0.0) - _2024-07-11_
+
+No `RELEASE_NOTES` were generated for this version — summarised here from its commit history. The project's first
+scaffold: an "Under Construction" placeholder site built directly on Vite and React, before later versions adopted
+the `tahoni` component library.
+
+#### Enhancements and Updates
+
+- Scaffolded the initial React application using Vite, with an "Under Construction" cover/carousel component on the
+  home page
+- Added a colour palette and breakpoint-based styling for the cover text, plus breakpoint indicators
+- Added routes for alternative Under Construction cover options, later consolidated into a single carousel
+- Added a redirects file for Netlify, and React Router to the project
+
+#### General Code Improvements
+
+- Made the Under Construction component configurable via `source`/`alt` props
+- Renamed all classes to camelCase; added return types to functional components; switched to SCSS stylesheets
+- Fixed alignment and vertical-scrollbar issues in the carousel and cover components
+
+#### Assets
+
+- Added and minified images and logos; decreased the size of the cover images
+
+#### Licence and Documentation
+
+- Added a standard `README.md` file and restructured the project into a standard structure
+
+#### Build & Tooling
+
+- Added a CodeQL analysis workflow
+
+#### Changes by
+
+@tahoni

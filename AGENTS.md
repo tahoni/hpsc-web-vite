@@ -350,9 +350,11 @@ These documentation-only folders supplement it:
 - **`documentation/recommendations/`** holds general React/TypeScript convention reference notes (naming, directory
   structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions —
   read alongside `ARCHITECTURE.md`, not as a replacement for it.
-- **`documentation/archive/ARCHIVE.md`** is the legacy release archive covering the Version 3.x line — `3.0.0`
-  through `3.6.9` — compiled from GitHub's own release notes, predating the `CHANGELOG.md`/`HISTORY.md` Keep a
-  Changelog structure introduced in `4.0.0`. It is a historical record only and is not maintained going forward.
+- **`documentation/archive/ARCHIVE.md`** is the legacy release archive covering every version predating the
+  `CHANGELOG.md`/`HISTORY.md` Keep a Changelog structure introduced in `4.0.0` — `1.0.0` through `3.6.9`. Versions
+  `3.0.0` onward are compiled from GitHub's own release notes for the legacy Version 3.x line; `1.0.0` through
+  `2.1.0` predate any release notes being generated, so those entries are placeholders. It is a historical record
+  only and is not maintained going forward.
 
 ---
 
