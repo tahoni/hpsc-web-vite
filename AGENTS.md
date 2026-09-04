@@ -350,6 +350,11 @@ These documentation-only folders supplement it:
 - **`documentation/recommendations/`** holds general React/TypeScript convention reference notes (naming, directory
   structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions —
   read alongside `ARCHITECTURE.md`, not as a replacement for it.
+- **`documentation/archive/ARCHIVE.md`** is the legacy release archive covering every version predating the
+  `CHANGELOG.md`/`HISTORY.md` Keep a Changelog structure introduced in `4.0.0` — `1.0.0` through `3.6.9`. Versions
+  `3.0.0` onward reproduce GitHub's own release notes for the legacy Version 3.x line; `1.0.0` through `2.1.0`
+  predate any release notes being generated, so those three are instead summarised from their commit history. It is
+  a historical record only and is not maintained going forward.
 
 ---
 
@@ -456,8 +461,9 @@ even then the same fix still lands on `develop` immediately afterwards (see Merg
 - **`release/vX.Y.Z` → `develop`:** merge once the Release Checklist below is complete and all tests pass, with a
   standard merge commit and delete the branch afterwards.
 - **`develop` → `main`:** immediately after, open a second PR promoting `develop` into `main` and merge it; tag the
-  resulting commit on `main` as `version-X.Y.Z` (this project's tag format — not `vX.Y.Z`, matching the links already
-  used in `CHANGELOG.md`/`HISTORY.md`).
+  resulting commit on `main` as `vX.Y.Z` — this project's current tag format for every release from `4.2.3` onward
+  (the legacy Version 3.x/early 4.x line used `version-X.Y.Z`; see `documentation/archive/ARCHIVE.md`'s and
+  `documentation/history/`'s own tag links for that distinction).
 
 ### Conventions
 

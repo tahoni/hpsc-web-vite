@@ -1,10 +1,12 @@
-# Contributing
+# Contributing to HPSC Website
 
 This guide covers everything you need to set up the HPSC Website — the React/TypeScript frontend for the
 Hartbeespoortdam Practical Shooting Club (HPSC) — and start contributing. See [`README.md`](README.md) for a project
 overview and [`ARCHITECTURE.md`](ARCHITECTURE.md) for the detailed design; for the full set of conventions AI coding
 agents (and, by extension, contributors) follow in this repository, see [`AGENTS.md`](AGENTS.md) — this file
-summarises the parts most relevant to opening a pull request.
+summarises the parts most relevant to opening a pull request. **`AGENTS.md` is this repository's ultimate source of
+truth:** if anything in this file, or any other documentation, ever contradicts it, `AGENTS.md` wins — fix the
+drift there first, then update whichever file had fallen out of sync.
 
 ## Table of Contents
 

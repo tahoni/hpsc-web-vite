@@ -7,14 +7,17 @@ on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project ad
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 The legacy Version 3.x line predates this Keep a Changelog structure; see [HISTORY.md](HISTORY.md) for a narrative
-account of the project's full evolution, including that era.
+account of the project's full evolution, including that era, and the read-only
+[documentation/archive/ARCHIVE.md](documentation/archive/ARCHIVE.md) for those versions' original GitHub release
+notes.
 
 ---
 
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.1.1](#-511---2026-09-04) ← Current
+- [🧾 Version 5.1.2](#-512---2026-09-04) ← Current
+- [🧾 Version 5.1.1](#-511---2026-09-04)
 - [🧾 Version 5.1.0](#-510---2026-08-26)
 - [🧾 Version 5.0.0](#-500---2026-08-25)
 - [🧾 Version 4.2.3](#-423---2026-05-04)
@@ -50,6 +53,44 @@ account of the project's full evolution, including that era.
 #### 🗑️ Removed
 
 #### 🔐 Security
+
+---
+
+### 🧾 [5.1.2] - 2026-09-04
+
+#### ➕ Added
+
+##### Release Process
+
+- Backfilled `documentation/history/RELEASE_NOTES_vX.Y.Z.md` archives for versions `4.0.0` through `4.2.2`
+  (`4.2.3` onward already had theirs), derived from `CHANGELOG.md`'s existing entries and matching
+  `RELEASE_NOTES_v4.2.3.md`'s Theme/Key Highlights lead-in format
+- Added `documentation/archive/ARCHIVE.md`, a read-only legacy release archive covering every version predating
+  `CHANGELOG.md`/`HISTORY.md`'s Keep a Changelog structure introduced in `4.0.0` — `1.0.0` through `3.6.9`. Versions
+  `3.0.0` onward reproduce GitHub's own release notes for the legacy Version 3.x line; `1.0.0` through `2.1.0`
+  predate any release notes being generated, so those three are instead summarised from their commit history (the
+  project's first Vite/React scaffold, the migration onto the `tahoni` component library and follow-up polish).
+  Notes that `1.0.0`–`2.1.0` used a legacy, non-semantic versioning scheme, while `3.0.0` onward already followed
+  SemVer, per `CHANGELOG.md`'s own Version Policy. Documented in `AGENTS.md`'s Documentation File Map
+
+#### 🔄 Changed
+
+##### Documentation
+
+- `CHANGELOG.md`'s legacy-Version-3.x-line note now also points to the new `documentation/archive/ARCHIVE.md`
+  alongside `HISTORY.md`
+- Added `documentation/archive/ARCHIVE.md` to `README.md`'s Documentation section, matching the existing
+  `documentation/history/`/`documentation/recommendations/` entries
+- Expanded `CONTRIBUTING.md`'s intro paragraph to state explicitly that `AGENTS.md` is this repository's ultimate
+  source of truth — if any other documentation ever contradicts it, `AGENTS.md` wins
+
+#### 🐛 Fixed
+
+##### Documentation
+
+- Fixed `AGENTS.md`'s Merging section stating the release tag format is `version-X.Y.Z`, two majors behind actual
+  practice: every release from `4.2.3` onward has tagged as `vX.Y.Z` (confirmed against this repository's GitHub
+  releases), with `version-X.Y.Z` only used for the legacy Version 3.x/early 4.x line
 
 ---
 

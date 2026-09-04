@@ -1,0 +1,1067 @@
+# HPSC Website – Legacy Release Archive
+
+> **Note:** Versions `1.0.0` through `2.1.0` used a legacy, non-semantic versioning scheme; versions `3.0.0` onward
+> already followed [Semantic Versioning (SemVer)](https://semver.org/) (`MAJOR.MINOR.PATCH`), per `CHANGELOG.md`'s
+> own Version Policy.
+
+> **Note:** This archive holds release records for every version predating this project's `CHANGELOG.md`/`HISTORY.md`
+> Keep a Changelog structure — `1.0.0` through `3.6.9`.
+> <br/>
+> Versions `3.0.0` onward reproduce the original GitHub Release notes for the legacy Version 3.x line. See
+> [`HISTORY.md`](../../HISTORY.md) for this project's narrative account of the Version 3.x line, and
+> [`CHANGELOG.md`](../../CHANGELOG.md) for `4.0.0` onward in the current format.
+> <br/>
+> No Release notes were ever generated for `1.0.0` through `2.1.0`, so those three entries are instead summarised
+> from their commit history.
+
+> **The v1.x.x to v3.x.x release notes below are historical records only.**
+
+## Releases
+
+### Table of Contents
+
+- [Version 3.6.9](#version-369---_2025-07-12_)
+- [Version 3.6.8](#version-368---_2025-06-02_)
+- [Version 3.6.7](#version-367---_2025-06-01_)
+- [Version 3.6.6](#version-366---_2025-06-01_)
+- [Version 3.6.5](#version-365---_2025-05-15_)
+- [Version 3.6.4](#version-364---_2025-05-14_)
+- [Version 3.6.3](#version-363---_2025-05-14_)
+- [Version 3.6.2](#version-362---_2025-05-04_)
+- [Version 3.6.1](#version-361---_2025-05-02_)
+- [Version 3.6.0](#version-360---_2025-05-01_)
+- [Version 3.5.2](#version-352---_2025-04-30_)
+- [Version 3.5.1](#version-351---_2025-04-26_)
+- [Version 3.5.0](#version-350---_2025-04-26_)
+- [Version 3.4.1](#version-341---_2025-03-28_)
+- [Version 3.4.0](#version-340---_2025-02-25_)
+- [Version 3.3.9](#version-339---_2025-02-15_)
+- [Version 3.3.8](#version-338---_2025-02-09_)
+- [Version 3.3.7](#version-337---_2025-01-08_)
+- [Version 3.3.6](#version-336---_2025-01-07_)
+- [Version 3.3.5](#version-335---_2025-01-06_)
+- [Version 3.3.4](#version-334---_2025-01-05_)
+- [Version 3.3.3](#version-333---_2025-01-05_)
+- [Version 3.3.2](#version-332---_2025-01-04_)
+- [Version 3.3.1](#version-331---_2025-01-02_)
+- [Version 3.3.0](#version-330---_2025-01-02_)
+- [Version 3.2.6](#version-326---_2024-12-26_)
+- [Version 3.2.5](#version-325---_2024-12-25_)
+- [Version 3.2.4](#version-324---_2024-12-24_)
+- [Version 3.2.3](#version-323---_2024-12-22_)
+- [Version 3.2.2](#version-322---_2024-12-18_)
+- [Version 3.2.1](#version-321---_2024-12-17_)
+- [Version 3.2.0](#version-320---_2024-12-17_)
+- [Version 3.1.4](#version-314---_2024-12-16_)
+- [Version 3.1.3](#version-313---_2024-12-16_)
+- [Version 3.1.2](#version-312---_2024-12-16_)
+- [Version 3.1.1](#version-311---_2024-12-15_)
+- [Version 3.1.0](#version-310---_2024-12-14_)
+- [Version 3.0.5](#version-305---_2024-12-06_)
+- [Version 3.0.4](#version-304---_2024-11-02_)
+- [Version 3.0.3](#version-303---_2024-10-29_)
+- [Version 3.0.2](#version-302---_2024-08-27_)
+- [Version 3.0.1](#version-301---_2024-08-27_)
+- [Version 3.0.0](#version-300---_2024-08-18_)
+- [Version 2.1.0](#version-210---_2024-07-20_)
+- [Version 2.0.0](#version-200---_2024-07-16_)
+- [Version 1.0.0](#version-100---_2024-07-11_)
+
+### [Version 3.6.9](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.9) - _2025-07-12_
+
+Mitigate vulnerable dependencies.
+
+#### Dependencies
+
+- Update the vulnerable `brace-expansion` transitive dependency.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.6.8](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.8) - _2025-06-02_
+
+Added a YouTube video to the Frontier shooting range.
+
+#### Enhancements and Updates
+
+- Added an iframe with the YouTube video for the Frontier shooting range.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.6.7](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.7) - _2025-06-01_
+
+Added a link to the World Shoot 2025 apparel at Bosninja. Added an architecture README document.
+
+#### Enhancements and Updates
+
+- Added a link to the Bosninja IPSC Handgun World Shoot 2025 apparel for the 2025 World Shoot Handgun post.
+- Added the link to the Bosninja webpage to the constants.
+
+#### Licence and Documentation
+
+- Added an `ARCHITECTURE.md` file and copied the content of the `README.md` file there.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.6.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.6) - _2025-06-01_
+
+Created a sitemap of the website.
+
+#### Enhancements and Updates
+
+- Added a sitemap builder to the `builder` directory that generates a sitemap and logs it to the console.
+- Created a new model class for the sitemap builder to use.
+- Split off the page info needed by the sitemap builder into a separate TypeScript file.
+- Added metadata to the pages for the sitemap, like date last updated.
+
+#### General Technical Changes
+
+- Generated a `sitemap.xml` file with all the pages of the website.
+- Referred to this file in the `robots.txt` file.
+
+#### Dependencies
+
+- Added the `sitemap` dependency.
+- Added the `tsx` dependency as a dev dependency.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.6.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.5) - _2025-05-15_
+
+Changed the canonical URL to just the domain name, since it is served like that by the web server. Fixed all the pages
+being redirected to the home page on refresh.
+
+#### Enhancements and Updates
+
+- Updated the canonical URL in `index.html` to just [https://hpsc.co.za](https://hpsc.co.za), without the `www`
+  prefix.
+
+#### General Technical Changes
+
+- Removed the permanent redirect (HTTP status 301) from the `.htaccess` rules that was redirecting all pages to the
+  home page on manual refresh.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.6.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.4) - _2025-05-14_
+
+Removed the redirect to the `www` root domain, since it is always redirected without it by the web server.
+
+#### General Technical Changes
+
+- Modified the `.htaccess` file to remove the redirect to the `www` root domain.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.6.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.3) - _2025-05-14_
+
+Redirected all URLs, without valid subdomains, to the `www` root domain.
+
+#### General Technical Changes
+
+- Modified the `.htaccess` file to correct all the current erroneous regular expressions.
+- Modified the `.htaccess` file to redirect hosts not starting with a `www`, `api` or `members` subdomain to the `www`
+  root domain.
+- Modified the `.htaccess` rules to do a permanent (HTTP status 301) redirect.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.6.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.2) - _2025-05-04_
+
+Fixed the redirect of pages on the website.
+
+#### General Technical Changes
+
+- Modified the `.htaccess` file to redirect HTTP requests to HTTPS.
+- Modified the `.htaccess` file to correctly redirect only full valid path names.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.6.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.1) - _2025-05-02_
+
+Don't display a 404 error for the Events page. Display the World Shoot 2025 logo on the Events page.
+
+#### General Technical Changes
+
+- Modified the `.htaccess` file to allow the Events and Venues pages.
+- Modified the `.htaccess` file to not rewrite image paths.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.6.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.6.0) - _2025-05-01_
+
+Created the Events page. Added a new post for the "World Shoot" event on this page.
+
+#### Enhancements and Updates
+
+- Created an Events page.
+- Created a Venue Event class to handle all Event properties.
+- Created a World Shoot component.
+
+#### General Code Improvements
+
+- Fixed an accessibility issue with the dropdown menu.
+
+#### Dependencies
+
+- Bumped `vite` from version 6.3.3 to 6.3.4 to include the latest updates and bug fixes.
+
+#### Changes by
+
+@tahoni
+@dependabot
+
+### [Version 3.5.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.2) - _2025-04-30_
+
+Fixed the overlapping elements in the header and footer.
+
+#### Enhancements and Updates
+
+- Updated the JSX code to prevent the elements in the header and footer overlapping.
+- Updated the CSS stylesheets to prevent the elements in the header and footer overlapping.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.5.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.1) - _2025-04-26_
+
+Actually return HTTP status 404 for pages not found.
+
+#### General Code Improvements
+
+- Changed the `.htaccess` file to only allow known routes, other routes will automatically return a 404 HTTP status.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.5.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.5.0) - _2025-04-26_
+
+Used a better library for Google Maps. Return HTTP status 404 for pages not found.
+
+#### Enhancements and Updates
+
+- Removed the Not Found component.
+- Removed the Page Not Found page.
+
+#### General Code Improvements
+
+- Changed the `.htaccess` file to only allow known routes and return 404 for all other routes.
+
+#### General Technical Changes
+
+- Removed the IntelliJ config files.
+- Added the Visual Studio Code files.
+- Created environment variables for sensitive configs for all environments.
+
+#### Dependencies
+
+- Removed the Google Maps dependencies from `@react-google-maps`.
+- Added the Google Maps library from `@vis.gl/react-google-map`.
+- Mitigated vulnerable dependencies.
+
+#### Changes by
+
+@tahoni
+@dependabot
+
+### [Version 3.4.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.1) - _2025-03-28_
+
+Added a maximum width to the web content. Added sections and articles to the pages. Finished the Contact Us page. An
+email is sent upon submission of the Contact Us form.
+
+#### Enhancements and Updates
+
+- Limit the width of the web content in the global stylesheet.
+- Added a section element to all pages to group related content.
+- Added article elements for all independent content.
+- Clean all user inputs when an element loses focus or a form is submitted.
+- Created an email to send with the Contact Us message.
+
+#### General Technical Changes
+
+- Split the code into sensible bundles.
+
+#### Dependencies
+
+- A dependency was added to help split bundles by displaying the bundles' composition after each build.
+- Mitigated vulnerable dependencies.
+
+#### Changes by
+
+@dependabot
+@tahoni
+
+### [Version 3.4.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.4.0) - _2025-02-25_
+
+Added lazy loading of pages. Fixed the form styling.
+
+#### Enhancements and Updates
+
+- Created a page component for the common elements of all pages.
+- Added lazy loading of pages in the page component.
+- Added a `styles-classes.scss` stylesheet to create generic form control styles.
+- Added these styles to the `style.scss` stylesheet to style all forms consistently.
+- Added a variable to change the colour of the loader.
+
+#### General Code Improvements
+
+- Components are exported by default instead of by name in preparation for lazy loading.
+- Built the menu and routes dynamically from a single source.
+- Renamed all stylesheets starting with `style-` to start with `styles-`.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.3.9](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.9) - _2025-02-15_
+
+Added icons to the contact details in the footer.
+
+#### Enhancements and Updates
+
+- Added icons to the contact details in the Footer component.
+
+#### General Code Improvements
+
+- Included `index.css` from `tahoni-lib-react`, not `styles.css`.
+
+#### Dependencies
+
+- Updated the `esbuild` dependency to mitigate a moderate security vulnerability.
+- Updated the `@tahoni/tahoni-lib-react` dependency.
+- Updated all other outdated dependencies.
+
+#### Changes by
+
+@dependabot
+@tahoni
+
+### [Version 3.3.8](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.8) - _2025-02-09_
+
+Mitigated a critical severity security vulnerability. Removed the Contact Us menu option for now.
+
+#### Enhancements and Updates
+
+- Removed the Contact Us menu option.
+
+#### General Code Improvements
+
+- Updated the `favicon` images and web manifest.
+
+#### General Technical Changes
+
+- A setting was removed from `vite.config.ts` to roll back the changes to build the project with smaller chunks.
+
+#### Dependencies
+
+- Updated the `vitest` dependency to version 3 to mitigate a critical security vulnerability.
+- Updated the `vite` dependency to version 6 to mitigate a moderate security vulnerability.
+- Updated the Font Awesome `@fortawesome` dependencies.
+
+#### Changes by
+
+@dependabot
+@tahoni
+
+### [Version 3.3.7](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.7) - _2025-01-08_
+
+Improved the documentation. Synced with the hpsc-template-react project.
+
+#### Enhancements and Updates
+
+- Improved the naming of the web font glyphs.
+
+#### General Code Improvements
+
+- Added some more options to the `tsconfig.json` files.
+
+#### Licence and Documentation
+
+- Improved the directory structure in the readme file.
+- Documented the Google reCAPTCHA site key environment variable in the readme.
+
+#### General Technical Changes
+
+- Removed .xcf files from the Webfont directory.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.3.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.6) - _2025-01-07_
+
+Implemented the reCAPTCHA component with a safe library. Improved accessibility.
+
+#### Enhancements and Updates
+
+- Implemented the reCAPTCHA component using the `ReCAPTCHA` class.
+- Gave the CAPTCHA component a valid language attribute.
+
+#### Bug Fixes
+
+- Modified the menu items causing nested hyperlinks.
+
+#### General Technical Changes
+
+- Changed the `@import` directive in the SCSS pages to `@use` where possible.
+- The elements in the head of the HTML page were re-ordered.
+
+#### Dependencies
+
+- Upgraded to React 19.
+- Added the `react-google-recaptcha` dependency.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.3.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.5) - _2025-01-06_
+
+Improved accessibility.
+
+#### Enhancements and Updates
+
+- Displayed all content in two lines where the screen is too small to display it together.
+
+#### Bug Fixes
+
+- Removed the section elements causing paragraphs-in-paragraph errors.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.3.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.4) - _2025-01-05_
+
+Added a dropdown menu. Added a page not found page.
+
+#### Enhancements and Updates
+
+- Added a hamburger menu styled using theme colours.
+- Added a page not found page.
+- Redirected any unknown pages to that page.
+
+#### General Code Improvements
+
+- Moved the `icomoon` webfonts to a separate directory under the `fonts` directory.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.3.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.3) - _2025-01-05_
+
+Removed the CAPTCHA library as it was injecting suspicious code into the HTML.
+
+#### Dependencies
+
+- Removed the `react-recaptcha-x` dependency.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.3.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.2) - _2025-01-04_
+
+Created a Links page. Created a Members page.
+
+#### Enhancements and Updates
+
+- Created a Links page with links to NGPSA, SAPSA and IPSC.
+- Created a Member page with a photo of the club shirts.
+- Modified the key of the map pin component.
+- Moved the logo files to the public directory.
+- Store the names of the logo files as constants.
+- Removed all low-resolution logo files.
+- Removed all links to uncompleted pages from the website.
+- Moved all page contents to the content directory.
+- Don't add content to the page; add content components instead.
+- Populate the member's page with an array of components.
+
+#### General Code Improvements
+
+- Only run CodeQL analysis on the `develop` and `main` branches.
+- Wrap all components with `React.memo`.
+- Added `index.ts` or `index.tsx` files for all components, including content.
+
+#### Dependencies
+
+- Removed the `js-md5` dependency.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.3.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.1) - _2025-01-02_
+
+Created an About Us page.
+
+#### Enhancements and Updates
+
+- A mode property was added to the map component.
+- A centre property was added to the map component.
+- Created an About Us page with contact details and a satellite map of the shooting range.
+
+#### Dependencies
+
+- Added the Google Maps info window library from `@react-google-maps`.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.3.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.3.0) - _2025-01-02_
+
+Created a Contact Us page.
+
+#### Enhancements and Updates
+
+- Created a page title component.
+- Created a CAPTCHA component for Google reCAPTCHA.
+- Created a CAPTCHA field for the JSON schema form using the above component.
+- Validated the CAPTCHA field with a custom validator function.
+- A JSON schema with validations for the Contact Us page was created.
+- Added the CAPTCHA field to the JSON schema.
+- Created a Contact Us page using this JSON schema with a CAPTCHA puzzle.
+- Sanitised all input before submitting it to the service.
+- A message is displayed when the request is successfully sent.
+- The back-end is not working yet.
+
+#### General Code Improvements
+
+- Overrode some of the Bootstrap SASS variables and simplified the custom styles.
+- Change all CSS classes to camel case.
+
+#### General Technical Changes
+
+- Format the source code using the Prettier formatter.
+
+#### Dependencies
+
+- Added the JSON schema form dependencies from `@rjsf`.
+- Added the Google reCAPTCHA dependency from `react-recaptcha-x`.
+- Added the `sanitize-html` dependency.
+- Added the SweetAlert2 dependency.
+- Added the Prettier dependency to format the source code.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.2.6](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.6) - _2024-12-26_
+
+Improved the documentation.
+
+#### Licence and Documentation
+
+- Brought the readme file up to date.
+- Brought the licence file up to date.
+- Added release notes.
+- Added a change log.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.2.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.5) - _2024-12-25_
+
+Moved all common static content to global constants.
+
+#### General Code Improvements
+
+- Moved all common static content to global constants.
+- Used these constants in:
+  - the header.
+  - the footer.
+  - the About page.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.2.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.4) - _2024-12-24_
+
+Made the About page the homepage. Finished the website layout by completing the footer. Completed the footer by adding
+contact details and copyright. Improved the responsiveness of the website. Added more keywords for SEO purposes.
+
+#### Enhancements and Updates
+
+- Made the About page the homepage.
+- Added contact details in the footer, including an e-mail and links to Facebook.
+- Added copyright in the footer.
+- Changed the styling of the footer to include the new content and make it more responsive.
+- Improved the responsiveness of the website.
+- Added more keywords for SEO on the base page.
+
+#### Bug Fixes
+
+- Fixed the hover colour of the hyperlinks.
+
+#### General Code Improvements
+
+- The styling of the icon image was moved to the CSS layout component.
+- Removed styling and JavaScript from the website preamble.
+- Decreased the maximum size of the generated chunks by chunking the tahoni React library in its own chunk.
+
+#### Dependencies
+
+- Updated the Vite React libraries.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.2.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.3) - _2024-12-22_
+
+Added the SAPSA and IPSC logos to the footer. Completed the map to the shooting range in the footer.
+
+#### Enhancements and Updates
+
+- A working map of the club shooting range was added to the footer.
+- Changed the styling of the footer to include the map component.
+- Ordered the footer content to make it responsive.
+- Removed uncompleted shooting range map components and replaced them with the new generic map components.
+- Created map components with simple and clustered markers using the standard Google Maps components.
+- Improved the text and background contrast, including the background gradient.
+- Add the image of the IPSC target with bullet holes to the `public\assets` directory.
+
+#### General Code Improvements
+
+- Wrapped all components in a React memo.
+- Moved icon styling to the layout component CSS.
+- MD5 hashes were used as keys for the map component markers.
+- Renamed all CSS classes to camel case.
+- Added CSS variables.
+
+#### Dependencies
+
+- Added the Google Maps clustered marker library from `@react-google-maps`.
+
+#### Security
+
+- Removed the Google Maps API key included in the last commit.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.2.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.2) - _2024-12-18_
+
+Allowed React to handle page routing.
+
+#### General Technical Changes
+
+- Added a `.htaccess` file to allow React to handle the page routing.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.2.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.1) - _2024-12-17_
+
+Added an About page with the club's history. Added hyperlinks to the About component. A map of the shooting range was
+added in the footer.
+
+#### Enhancements and Updates
+
+- A range map component was added to the footer.
+- Basic styling for the footer component was added.
+- Added an About page with the About component.
+- Added hyperlinks in the About component.
+- Added hyperlink styling.
+
+#### General Code Improvements
+
+- Removed the page component and called the content components directly.
+- Moved the sidebar component to the `components` directory.
+
+#### General Technical Changes
+
+- Created a `_redirects` file to allow React to handle the page routing in Netlify.
+
+#### Dependencies
+
+- Added the React Google Maps library from `@react-google-maps`.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.2.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.2.0) - _2024-12-17_
+
+Read all page content from Markdown components.
+
+#### Enhancements and Updates
+
+- Added React MDX Markdown components.
+- Read all page content from the Markdown components.
+- Removed the home page with HTML content and replaced it with content from an MDX component.
+- Removed all simple Markdown files and replaced them with MDX Markdown components.
+- Added an About page.
+- Added a page component.
+- A content component was added to the body component.
+- Open the NGPSA hyperlink in a new window.
+
+#### General Code Improvements
+
+- Added sidebar component properties to the template page.
+
+#### General Technical Changes
+
+- Pre-process MDX components in vite.config.ts.
+
+#### Dependencies
+
+- Added support for MDX with new dependencies from `@mdx-js`.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.1.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.4) - _2024-12-16_
+
+Optimised the images.
+
+#### Enhancements and Updates
+
+- Optimised all images.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.1.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.3) - _2024-12-16_
+
+Made the sidebars sticky.
+
+#### Enhancements and Updates
+
+- Styled the sidebar component to make them sticky.
+
+#### Changes by
+
+@tahoni
+@ImgBotApp
+
+### [Version 3.1.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.2) - _2024-12-16_
+
+Made the logos in the header hyperlinks. Created the sidebar component and added it to the homepage.
+
+#### Enhancements and Updates
+
+- A Markdown file containing the About Us content was added.
+- Made the NGPSA logo a hyperlink to the NGPSA website.
+- Changed the HPSC logo redirects to the homepage.
+- Added the sidebar component and added it directly to the homepage.
+- Added the semi-transparent sidebar images of two shooters.
+- Added content to the homepage.
+
+#### General Code Improvements
+
+- Renamed the global stylesheets to `style-` from `styles-` to conform to standard practice.
+- Added a `styles-icon.scss` stylesheet.
+- Removed unused components.
+- Removed unused images.
+
+#### Licence and Documentation
+
+- Changed the licence to "All rights reserved".
+- Added the homepage to the readme file.
+
+#### Dependencies
+
+- Removed unused dependencies.
+
+#### Changes by
+
+@tahoni
+@ImgBotApp
+
+### [Version 3.1.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.1) - _2024-12-15_
+
+Added a gradient background. Made the header responsive.
+
+#### Enhancements and Updates
+
+- A gradient background was added to the layout.
+- Aligned the heading with the logos.
+- Made the header responsive.
+- Aligned the body content between the logos.
+
+#### Dependencies
+
+- Removed the unused Slick Carousel library.
+
+#### Changes by
+
+@tahoni
+
+### [Version 3.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.1.0) - _2024-12-14_
+
+Created an SVG favicon. Added the HPSC and SAPSA logos to the header. Added content to the homepage.
+
+#### Enhancements and Updates
+
+- Added pages from the old website without making any changes.
+- Updated the index page for better metadata and manifest linkage.
+- Updated the index page with more keywords.
+- Replaced the ICO favicon with an SVG one.
+- Added new icon fonts to the `public/assets` directory.
+- Replaced outdated images and icons in the `public/assets` directory with up-to-date ones.
+- Deleted unused images from the `public/assets` directory
+- A layout skeleton with a header, footer and body was created.
+- A header with the HPSC and NGPSA logos was added.
+- A new homepage was created to replace the under-construction page.
+- Populated the homepage content.
+
+#### General Code Improvements
+
+- Replaced CSS variables with SCSS variables.
+
+#### General Technical Changes
+
+- The `_redirects` file was no longer needed and was deleted.
+
+#### Dependencies
+
+- Upgraded several dependencies to their latest versions.
+
+#### Changes by
+
+@tahoni
+@ImgBotApp
+
+### [Version 3.0.5](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.5) - _2024-12-06_
+
+Fixed the spelling of the "_Hartbeespoortdam Practical Shooting Club_" properly.
+
+#### Enhancements and Updates
+
+- Corrected the name of the club everywhere.
+
+#### Changes by
+
+@tahoni
+@ImgBotApp
+
+### [Version 3.0.4](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.4) - _2024-11-02_
+
+Changed the website's title to "_Hartebeespoortdam Practical Shooting Club_".
+
+#### Enhancements and Updates
+
+- Changed the title of the index page to the club's name.
+
+#### Changes by
+
+@tahoni
+@dependabot
+@ImgBotApp
+
+### [Version 3.0.3](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.3) - _2024-10-29_
+
+Fixed the spelling of the "_Hartebeespoortdam Practical Shooting Club_".
+
+#### Bug Fixes
+
+- Fixed the spelling of the club everywhere
+
+#### Dependencies
+
+- Bumped the Vite library to get rid of vulnerabilities.
+
+#### Changes by
+
+@tahoni
+@dependabot
+@ImgBotApp
+
+### [Version 3.0.2](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.2) - _2024-08-27_
+
+Removed the background image to improve the look and feel.
+
+#### Enhancements and Updates
+
+- Removed the background image.
+
+#### Changes by
+
+@tahoni
+@dependabot
+@ImgBotApp
+
+### [Version 3.0.1](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.1) - _2024-08-27_
+
+Tried to improve the styling of the background.
+
+#### Enhancements and Updates
+
+- A header and a body were added to the layout component.
+- Attempted to improve the background styling.
+- Allowed the under-construction carousel to autoplay.
+- Added small, black-and-white and small black-and-white logos.
+
+#### Dependencies
+
+- Updated the Vite libraries.
+- Updated the Slick Carousel library.
+
+#### Changes by
+
+@tahoni
+@dependabot
+
+### [Version 3.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-3.0.0) - _2024-08-18_
+
+Created a homepage with an under-construction carousel.
+
+#### Enhancements and Updates
+
+- Scaffolded the initial React application using Vite.
+- Added icons and logos.
+- Resized the icon and logo images to make them smaller.
+- Added an image with an IPSC target with bullet holes.
+- Added another image to be displayed in the under-construction carousel.
+- Optimised the images displayed in the carousel.
+- Use the tahoni React library for standard components like the carousel.
+- Use the tahoni React library for data structures.
+
+#### Licence and Documentation
+
+- Created a readme file with a detailed project description, structure, technology stack, instructions, screenshots,
+  licence, author and support information.
+- Added a licence file.
+
+#### General Technical Changes
+
+- Modified `.gitignore` to exclude additional files and directories.
+- Modified `tsconfig.app.json` to add more linting rules.
+- Added `.env.local` and `.env.production` files.
+- Added `.npmrc` configuration for GitHub NPM registry.
+- Created GitHub Actions workflow for CodeQL analysis (`.github/workflows/codeql.yml`).
+- Created a `_redirects` file to allow React to handle the page routing in Netlify.
+
+#### Dependencies
+
+- The standard Vite and React libraries were added.
+- Added Font Awesome libraries.
+- Added Bootstrap and React Bootstrap libraries.
+- Added the tahoni React library.
+
+#### Changes by
+
+@tahoni
+@dependabot
+@ImgBotApp
+
+### [Version 2.1.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-2.1.0) - _2024-07-20_
+
+No `RELEASE_NOTES` were generated for this version — summarised here from its commit history. Follow-up polish after
+the `tahoni` library migration in `2.0.0`: renamed components for clarity, fixed the page layout and updated to the
+latest library/dependency versions.
+
+#### Changed
+
+- Renamed components and a model class for better readability
+- Renamed the overridden CSS variables to align with the `tahoni` library's own naming
+- Fixed the page layout
+- Updated to the latest versions of the `tahoni` library and other dependencies
+
+#### Assets
+
+- Added the Noto Sans font family
+- Decreased the size of images
+
+#### Build & Tooling
+
+- Excluded `.env` files from git
+- Added more ESLint rules
+
+#### Changes by
+
+@tahoni
+
+### [Version 2.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-2.0.0) - _2024-07-16_
+
+No `RELEASE_NOTES` were generated for this version — summarised here from its commit history. Migrated the project
+onto the new `tahoni` React component library, replacing local components and re-theming via CSS variables.
+
+#### Changed
+
+- Migrated to the new `tahoni` React component library, removing local components now provided by it and overriding
+  its styles via CSS variables
+- Switched SCSS variables to CSS variables to correctly display the library's theme; removed the now-unused SVG
+  image files
+- Synced with upstream class/type changes in the `tahoni` library, importing all types from its root
+
+#### Assets
+
+- Optimised images
+
+#### Build & Tooling
+
+- Added `.npmrc`, with the registry auth token sourced from an environment variable
+
+#### Dependencies
+
+- Added the `tahoni` React library
+
+#### Changes by
+
+@tahoni
+@ImgBotApp
+
+### [Version 1.0.0](https://github.com/tahoni/hpsc-web-vite/releases/tag/version-1.0.0) - _2024-07-11_
+
+No `RELEASE_NOTES` were generated for this version — summarised here from its commit history. The project's first
+scaffold: an "Under Construction" placeholder site built directly on Vite and React, before later versions adopted
+the `tahoni` component library.
+
+#### Enhancements and Updates
+
+- Scaffolded the initial React application using Vite, with an "Under Construction" cover/carousel component on the
+  home page
+- Added a colour palette and breakpoint-based styling for the cover text, plus breakpoint indicators
+- Added routes for alternative Under Construction cover options, later consolidated into a single carousel
+- Added a redirects file for Netlify, and React Router to the project
+
+#### General Code Improvements
+
+- Made the Under Construction component configurable via `source`/`alt` props
+- Renamed all classes to camelCase; added return types to functional components; switched to SCSS stylesheets
+- Fixed alignment and vertical-scrollbar issues in the carousel and cover components
+
+#### Assets
+
+- Added and minified images and logos; decreased the size of the cover images
+
+#### Licence and Documentation
+
+- Added a standard `README.md` file and restructured the project into a standard structure
+
+#### Build & Tooling
+
+- Added a CodeQL analysis workflow
+
+#### Changes by
+
+@tahoni
