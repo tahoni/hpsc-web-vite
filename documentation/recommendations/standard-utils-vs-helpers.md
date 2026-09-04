@@ -80,7 +80,7 @@ export const chunk = <T>(array: T[], size: number): T[][] => {
 
 ## 🗂️ `helpers/` (Helpers)
 
-**Purpose:** Application-specific functions that support business logic and may have dependencies on React, app context,
+**Purpose:** Application-specific functions that support business logic and may have dependencies on React, app context
 or domain models.
 
 **Characteristics:**
