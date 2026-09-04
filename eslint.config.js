@@ -6,6 +6,7 @@ import tseslint from "typescript-eslint";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactPlugin from "eslint-plugin-react";
 import reactRefresh from "eslint-plugin-react-refresh";
+import tsdoc from "eslint-plugin-tsdoc";
 
 export default [
   // Ignore build artifacts and externals
@@ -26,6 +27,7 @@ export default [
       "react-hooks": reactHooks,
       react: reactPlugin,
       "react-refresh": reactRefresh,
+      tsdoc,
     },
     settings: {
       react: { version: "detect" },
@@ -43,6 +45,7 @@ export default [
         { allowConstantExport: true },
       ],
       "no-unused-vars": "warn",
+      "tsdoc/syntax": "warn",
     },
   },
 ];

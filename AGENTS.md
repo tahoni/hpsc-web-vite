@@ -186,8 +186,8 @@ joining two independent clauses (e.g. "the build passed, and the release was tag
 
 - Use British English conventions (spelling, grammar, punctuation), consistent with the rest of this project's
   documentation — not American English.
-- `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule is enabled (see `.eslintrc.cjs`); doc comments must be syntactically valid
-  TSDoc, not JSDoc-only syntax.
+- `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule is enabled (see `eslint.config.js`); doc comments must be syntactically
+  valid TSDoc, not JSDoc-only syntax.
 - Document exported components, hooks and utility functions with a summary line and `@param`/`@returns` where the
   signature isn't self-explanatory from its types.
 - Don't restate what strict TypeScript types already make obvious (e.g. don't write `@param name - The name` for

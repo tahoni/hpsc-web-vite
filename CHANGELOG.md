@@ -138,6 +138,11 @@ account of the project's full evolution, including that era.
 - Fixed `scaffold-unit-tests`/`scaffold-integration-tests` skills missing the `## 🔍 Gather current state` section
   every other `.claude/skills/*.md` file has before its `## 🚀 Instructions`; converted their existing "Read
   `AGENTS.md` in full before starting" line into that section for structural consistency across all eight skills
+- Fixed `eslint.config.js` missing `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule, despite `AGENTS.md`/`CONTRIBUTING.md`
+  documenting it as enabled: ESLint 9's flat config takes precedence over the legacy `.eslintrc.cjs` mirror that
+  actually had the rule, so `npm run lint` was silently skipping all TSDoc validation. Added the plugin and rule to
+  `eslint.config.js` to match, surfacing 288 pre-existing `tsdoc/syntax` warnings across the codebase; also fixed
+  `AGENTS.md`'s TSDoc convention to cite `eslint.config.js` instead of the now-stale `.eslintrc.cjs`
 
 ##### Components
 
