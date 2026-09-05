@@ -4,7 +4,9 @@ import { Breakpoints as TahoniBreakpoints } from "@tahoni/tahoni-lib-react/dist"
 export const Breakpoints = React.memo((): ReactElement => {
   return (
     <article>
-      {import.meta.env.VITE_SHOW_BREAKPOINTS == "true" && <TahoniBreakpoints />}
+      {import.meta.env.VITE_SHOW_BREAKPOINTS === "true" && (
+        <TahoniBreakpoints />
+      )}
     </article>
   );
 });

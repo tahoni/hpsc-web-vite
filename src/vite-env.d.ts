@@ -49,8 +49,8 @@ declare module "*.module.scss" {
 interface ImportMetaEnv {
   /** The URL of the website. */
   readonly VITE_SITE_URL: string;
-  /** Whether to show breakpoints in the UI. */
-  readonly VITE_SHOW_BREAKPOINTS: boolean;
+  /** Whether to show breakpoints in the UI; compare against the string `"true"`. */
+  readonly VITE_SHOW_BREAKPOINTS: string;
   /** reCAPTCHA v2 site key for the Contact Us form's Captcha component. */
   readonly VITE_RECAPTCHA_V2_SITE_KEY: string;
   /** Google Maps API key; without it the venue map does not render. */
