@@ -51,6 +51,12 @@ notes.
   `VITE_GOOGLE_MAPS_API_KEY`/`VITE_RECAPTCHA_V2_SITE_KEY` style, and added JSDoc to `vite-env.d.ts`'s
   `ImportMetaEnv`/`ImportMeta` interfaces with per-property comments synced to `.env.example`'s descriptions
 
+##### Build & Tooling
+
+- Added `.github/workflows/build.yml`, running `npm run lint`, `npm run build` and `npm test` on push/PR to `main`
+  and `develop` (mirroring `codeql.yml`'s trigger branches), so lint/build/test failures now gate merges instead of
+  relying entirely on contributor discipline
+
 #### 🔄 Changed
 
 #### 🐛 Fixed

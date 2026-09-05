@@ -154,8 +154,8 @@ Header/
 - **CodeQL**: security analysis, runs on push/PR to `main` and weekly. Config: `.github/workflows/codeql.yml`.
 - **ESLint**: flat config (`eslint.config.js`) — TypeScript, React Hooks and `react-refresh` rules. `.eslintrc.cjs` is
   a legacy mirror kept for tooling that hasn't migrated to flat config; keep the two in sync when changing lint rules.
-- There is currently no CI workflow that runs `npm run lint`, `npm run build` or `npm test` — only CodeQL runs
-  automatically. Run these locally before opening a PR.
+- **Build**: `.github/workflows/build.yml` runs `npm run lint`, `npm run build` and `npm test` on push/PR to `main`
+  and `develop`, gating merges on all three passing.
 
 ---
 
