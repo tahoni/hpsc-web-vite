@@ -134,6 +134,31 @@ priority). `../../builders/RoutesSitemap.ts`'s module-level `generateRoutesSitem
 run automatically on import — was guarded behind an "is this file being run directly" check so importing it for tests
 no longer triggers a real sitemap generation as a side effect.
 
+#### 4. No error boundary or production error handling — ✅ Closed in v5.2.0
+
+**Evidence:** No `ErrorBoundary` component exists anywhere under `../../src`; a rendering error in any route currently
+produces a blank or broken page with no fallback UI.
+
+**Why it matters:** The site has no backend and no logging/monitoring integration (per `../../AGENTS.md`'s Project
+Overview) — an unhandled render error is currently invisible to both the visitor and the maintainer.
+
+**Proposed improvement:** Add a top-level React error boundary around the route tree with a friendly fallback; evaluate
+lightweight client-side logging alongside it once the boundary exists.
+
+**Outcome:** In `5.2.0`, `../../src/shared/layouts/ErrorBoundary/ErrorBoundary.tsx` was added — a class component
+(error boundaries can't yet be written as hooks) wrapping `../../src/App.tsx`'s `<Suspense>`/`<AppRoutes />` tree,
+rendering a friendly, dependency-free fallback (a reload button and a plain link home, deliberately not composed
+from anything that could itself be part of what broke) instead of a blank page. Verified with a unit test
+(`ErrorBoundary.test.tsx`, rendering a throwing child via `@testing-library/react`) and, live, by temporarily making
+a real page throw in a running `npm run dev` session and confirming the fallback renders with zero uncaught page
+errors, then reverting the temporary throw. On the "evaluate lightweight client-side logging" half: `componentDidCatch`
+logs the caught error via `console.error` unconditionally (dev and production alike), since that's the only
+diagnostic channel available without adding a third-party dependency this pass didn't seek approval for. Blanket
+production console suppression and remote error monitoring (e.g. Sentry) were evaluated and deliberately deferred —
+the former would risk silencing this very logging, and the latter needs a maintainer decision on adopting an external
+service; hidden sourcemaps (`../../vite.config.ts`'s `build.sourcemap`) are correspondingly left off, since that was
+conditioned on adopting real remote logging.
+
 #### 6. A documented styling convention is violated in one known place — ✅ Closed in v5.2.0
 
 **Evidence:** `../../AGENTS.md`'s and `../../ARCHITECTURE.md`'s styling conventions require `@use`-only Sass, but
@@ -221,17 +246,6 @@ and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]`
 
 ### ⚪ Open
 
-#### 4. No error boundary or production error handling
-
-**Evidence:** No `ErrorBoundary` component exists anywhere under `../../src`; a rendering error in any route currently
-produces a blank or broken page with no fallback UI.
-
-**Why it matters:** The site has no backend and no logging/monitoring integration (per `../../AGENTS.md`'s Project
-Overview) — an unhandled render error is currently invisible to both the visitor and the maintainer.
-
-**Proposed improvement:** Add a top-level React error boundary around the route tree with a friendly fallback; evaluate
-lightweight client-side logging alongside it once the boundary exists.
-
 #### 5. Accessibility has no lint enforcement or documented baseline
 
 **Evidence:** `../../eslint.config.js` has no `eslint-plugin-jsx-a11y` (or equivalent) rule set configured; no
@@ -305,9 +319,9 @@ regression is caught immediately rather than silently re-accumulating.
 
 | Phase       | Focus                                                                                                                                        |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Add a top-level error boundary (#4), now that the CI gate and initial test coverage added in `5.2.0` have something real to protect          |
-| **Next**    | Accessibility baseline (#5)                                                                                                                  |
-| **Later**   | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)            |
+| **Now**     | Accessibility baseline (#5)                                                                                                                  |
+| **Next**    | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)            |
+| **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                |
 | **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                       |
 
 ---

@@ -29,6 +29,17 @@ evidence and reasoning there; within each section, gaps stay in ascending number
 - [x] Once live, update `AGENTS.md`'s Code Quality & CI section to drop the "run these locally" caveat — done in
   `5.2.0`
 
+**No error boundary or production error handling — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #4)*
+
+- [x] Add a top-level React error boundary component around the route tree, with a friendly fallback UI — added in
+  `5.2.0`: `src/shared/layouts/ErrorBoundary/ErrorBoundary.tsx`, wrapping `App.tsx`'s `<Suspense>`/`<AppRoutes />`
+  tree; verified with a unit test and, live, in a running `npm run dev` session
+- [x] Evaluate lightweight client-side logging (console suppression in prod, optional remote logging); enable hidden
+  sourcemaps if adopted — evaluated in `5.2.0`: `componentDidCatch` logs via `console.error` unconditionally;
+  blanket console suppression and remote monitoring (e.g. Sentry) were deliberately deferred (the former risks
+  silencing this logging, the latter needs a maintainer decision on an external service), so hidden sourcemaps
+  weren't enabled either
+
 **Two route-metadata defects — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #2)*
 
 - [x] Wire `src/features/News` into `coreRoutes` (`BaseRoutes.ts`) and `RouteAliases.tsx`/`AppRoutes.tsx`, or delete the
@@ -97,12 +108,6 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 ---
 
 ## ⚪ Open
-
-**No error boundary or production error handling** *(improvement-plan.md → Gap #4)*
-
-- [ ] Add a top-level React error boundary component around the route tree, with a friendly fallback UI
-- [ ] Evaluate lightweight client-side logging (console suppression in prod, optional remote logging); enable hidden
-  sourcemaps if adopted
 
 **Accessibility has no lint enforcement or documented baseline** *(improvement-plan.md → Gap #5)*
 
