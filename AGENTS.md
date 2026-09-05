@@ -58,7 +58,9 @@ dependencies, both handled by third-party services called directly from the clie
 - **Alerts/dialogs:** `sweetalert2`
 - **Testing:** Vitest with `@testing-library/react` and a `jsdom` environment (see [🧪 Test Conventions](#-test-conventions))
 - **Linting:** ESLint 9 (flat config), `typescript-eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`,
-  `eslint-plugin-tsdoc`
+  `eslint-plugin-tsdoc`, `eslint-plugin-jsx-a11y` (see
+  [`documentation/recommendations/project-accessibility-checklist.md`](documentation/recommendations/project-accessibility-checklist.md)
+  for the manual WCAG AA checks it can't catch)
 - **API documentation:** TypeDoc (`npm run docs`, output to `/target/docs`)
 - **Sitemap generation:** custom `builders/RoutesSitemap.ts` script, run via `tsx`
 
@@ -154,8 +156,8 @@ Header/
 - **CodeQL**: security analysis, runs on push/PR to `main` and weekly. Config: `.github/workflows/codeql.yml`.
 - **ESLint**: flat config (`eslint.config.js`) — TypeScript, React Hooks and `react-refresh` rules. `.eslintrc.cjs` is
   a legacy mirror kept for tooling that hasn't migrated to flat config; keep the two in sync when changing lint rules.
-- **Build**: `.github/workflows/build.yml` runs `npm run lint`, `npm run build` and `npm test` on push/PR to `main`
-  and `develop`, gating merges on all three passing.
+- **Build**: `.github/workflows/build.yml` runs `npm run lint`, `npm run build` and `npm run test:run` on push/PR to
+  `main` and `develop`, gating merges on all three passing.
 
 ---
 
@@ -347,7 +349,8 @@ These documentation-only folders supplement it:
   | `RELEASE_NOTES_vX.Y.Z.md`  | Archived snapshot of `RELEASE_NOTES.md` at release time    |
   | `PR_DESCRIPTION_vX.Y.Z.md` | The release pull request's body, archived for that version |
 - **`documentation/recommendations/`** holds general React/TypeScript convention reference notes (naming, directory
-  structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions —
+  structure, CSS, MDX placement, templates, `utils/` vs `helpers/`, accessibility) used to steer this project's own
+  conventions —
   read alongside `ARCHITECTURE.md`, not as a replacement for it.
 - **`documentation/archive/ARCHIVE.md`** is the legacy release archive covering every version predating the
   `CHANGELOG.md`/`HISTORY.md` Keep a Changelog structure introduced in `4.0.0` — `1.0.0` through `3.6.9`. Versions

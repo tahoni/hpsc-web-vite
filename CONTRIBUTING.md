@@ -193,10 +193,13 @@ opening a PR (tracked as a gap in
 
 Before opening a pull request, confirm:
 
-- [ ] `npm run lint` passes with no errors.
-- [ ] `npm run build` succeeds (this project has no CI workflow that runs it automatically — see
+- [ ] `npm run lint` passes with no errors (also runs automatically in CI — see
   [`AGENTS.md`'s Code Quality & CI section](AGENTS.md#-code-quality--ci)).
-- [ ] `npm test` passes, and any new logic has co-located tests where applicable.
+- [ ] `npm run build` succeeds (also runs automatically in CI).
+- [ ] `npm test` passes (also runs automatically in CI), and any new logic has co-located tests where applicable.
+- [ ] UI changes checked against
+  [`documentation/recommendations/project-accessibility-checklist.md`](documentation/recommendations/project-accessibility-checklist.md)'s
+  manual WCAG AA baseline (`eslint-plugin-jsx-a11y` only catches part of it).
 - [ ] A `CHANGELOG.md` entry has been added under `### 🧪 [Unreleased]`, in the correct Keep a Changelog category and
   `##### <Area>` sub-heading.
 - [ ] Any affected documentation (`README.md`, `ARCHITECTURE.md`, `UI.md`, `CLAUDE.md`, `AGENTS.md`) has been updated to
