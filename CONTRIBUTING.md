@@ -32,9 +32,9 @@ drift there first, then update whichever file had fallen out of sync.
 - **Node.js** — download from [nodejs.org](https://nodejs.org/)
 - **NPM registry access** — a read-only npm token for the `@tahoni` GitHub Packages scope, set in the
   `NPM_TOKEN_READ` environment variable (see
-  [`AGENTS.md`'s Environment Variables table](AGENTS.md#-environment-variables) for the full list;
-  `GOOGLE_MAPS_API_KEY` and `RECAPTCHA_V2_SITE_KEY` are optional locally but needed for the venue map and Contact Us
-  captcha to render)
+  [`AGENTS.md`'s Environment Variables table](AGENTS.md#-environment-variables)). `.env.local` also holds optional
+  API keys the venue map and Contact Us captcha need to render — see [`.env.example`](.env.example) for the exact
+  `VITE_`-prefixed variable names
 - **Git**
 
 ---
