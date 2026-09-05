@@ -96,8 +96,12 @@ itself, not only `../../AGENTS.md`. Source `baseUrl` from an environment variabl
 **Progress:** `../../README.md`'s own Environment Variables subsection already documents all three variables
 (`NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY`, `RECAPTCHA_V2_SITE_KEY`) — true since well before this gap was first
 written, not new work done since; the Evidence and Proposed improvement above have been corrected to stop claiming
-`../../README.md` doesn't cover them. The remaining two items — a secret-free `.env.example` and sourcing `baseUrl`
-from an environment variable — are still open.
+`../../README.md` doesn't cover them. In `5.1.3`: `../../index.html`'s static `<link rel="canonical">` (which had
+drifted to the bare `https://hpsc.co.za`, missing the `www` subdomain `baseUrl` already uses), `../../public/robots.txt`'s
+`Sitemap` line and `../../README.md`'s introductory link were all corrected to match `baseUrl` — closing the
+immediate symptom this gap's Why-it-matters warned about; and a secret-free `../../.env.example` was added,
+documenting all three variables and linked from `../../README.md`/`../../AGENTS.md`. The remaining ask — sourcing
+`baseUrl` itself from an environment variable with a safe production default — is still open.
 
 ### ⚪ Open
 
