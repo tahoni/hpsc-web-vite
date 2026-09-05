@@ -15,12 +15,27 @@ evidence and reasoning there; within each section, gaps stay in ascending number
 
 ## ✅ Completed
 
+**No automatic lint/build/test gate on pull requests — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #1)*
+
+- [x] Add `.github/workflows/build.yml`, triggered on push/PR to `develop` and `main`, mirroring `codeql.yml`'s trigger
+  branches
+- [x] Run `npm ci`, `npm run lint`, `npm run build` and `npm test` as the workflow's steps
+- [x] Gate `rollup-plugin-visualizer`'s auto-open behind the CI environment (e.g. `open: !process.env.CI`) — done in
+  `5.2.0` via `open: !process.env.CI` in `vite.config.ts`
+- [x] Confirm the workflow fails the PR check on a lint, build or test failure — not just a compile error — verified
+  locally with `CI=true`: `npm run lint` exits non-zero on a real ESLint error, and `npm test` exits non-zero when no
+  test files match (`vitest`'s "No test files found, exiting with code 1"); `npm run build` failing on a type error
+  is `tsc -b`'s established behaviour
+- [x] Once live, update `AGENTS.md`'s Code Quality & CI section to drop the "run these locally" caveat — done in
+  `5.2.0`
+
 **Two route-metadata defects — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #2)*
 
 - [x] Wire `src/features/News` into `coreRoutes` (`BaseRoutes.ts`) and `RouteAliases.tsx`/`AppRoutes.tsx`, or delete the
-  folder if the feature isn't ready to ship — wired in `5.2.0`: `coreNewsRoute` added to `coreRoutes`, `RouteAliases.tsx`
-  now `React.lazy`-loads it like every other feature page, and `routeHelpers.tsx`'s `routes` array includes it so
-  `/news` is actually reachable, not just defined; `public/.htaccess` also gained a `/news` rewrite condition
+  folder if the feature isn't ready to ship — wired in `5.2.0`: `coreNewsRoute` added to `coreRoutes`,
+  `RouteAliases.tsx` now `React.lazy`-loads it like every other feature page, and `routeHelpers.tsx`'s `routes` array
+  includes it so `/news` is actually reachable, not just defined; `public/.htaccess` gained a `/news` rewrite
+  condition
 - [x] Fix `coreContactUsRoute`'s inverted dates in `BaseRoutes.ts` — `dateCreated` (2025-12-26) currently postdates
   `dateUpdated` (2025-03-03) — swapped in `5.2.0` so `dateCreated` (2025-03-03) precedes `dateUpdated` (2025-12-26)
 - [ ] Add a lightweight script or unit test that scans route metadata and warns on missing/invalid `dateCreated`/
@@ -61,26 +76,6 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 ---
 
 ## ⚪ Open
-
-**No automatic lint/build/test gate on pull requests** *(improvement-plan.md → Gap #1)*
-
-- [ ] Add `.github/workflows/build.yml`, triggered on push/PR to `develop` and `main`, mirroring `codeql.yml`'s trigger
-  branches
-- [ ] Run `npm ci`, `npm run lint`, `npm run build` and `npm test` as the workflow's steps
-- [ ] Gate `rollup-plugin-visualizer`'s auto-open behind the CI environment (e.g. `open: !process.env.CI`)
-- [ ] Confirm the workflow fails the PR check on a lint, build or test failure — not just a compile error
-- [ ] Once live, update `AGENTS.md`'s Code Quality & CI section to drop the "run these locally" caveat
-
-**Two route-metadata defects** *(improvement-plan.md → Gap #2)*
-
-- [ ] Wire `src/features/News` into `coreRoutes` (`BaseRoutes.ts`) and `RouteAliases.tsx`/`AppRoutes.tsx`, or delete the
-  folder if the feature isn't ready to ship
-- [ ] Fix `coreContactUsRoute`'s inverted dates in `BaseRoutes.ts` — `dateCreated` (2025-12-26) currently postdates
-  `dateUpdated` (2025-03-03)
-- [ ] Add a lightweight script or unit test that scans route metadata and warns on missing/invalid `dateCreated`/
-  `dateUpdated`
-- [ ] Regenerate `public/sitemap.xml` via `npm run sitemap` once the above are fixed and confirm the malformed first
-  `<loc>` entry is resolved
 
 **Zero test coverage despite a configured test runner** *(improvement-plan.md → Gap #3)*
 

@@ -15,7 +15,7 @@ export default defineConfig({
         /* jsxImportSource: …, otherOptions… */
       }),
     },
-    visualizer({ open: true, filename: "target/bundle-visualization.html" }),
+    visualizer({ open: !process.env.CI, filename: "target/bundle-visualization.html" }),
     react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
   ],
   resolve: {

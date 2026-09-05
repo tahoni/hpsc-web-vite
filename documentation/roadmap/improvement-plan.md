@@ -1,7 +1,7 @@
 # HPSC Website Improvement Plan
 
 This document synthesises the goals and constraints stated across this repository's documentation and configuration into
-a single set of prioritised improvement opportunities. Unlike [`../../README.md`](../../README.md) and 
+a single set of prioritised improvement opportunities. Unlike [`../../README.md`](../../README.md) and
 [`../../ARCHITECTURE.md`](../../ARCHITECTURE.md), it is not evergreen — it reflects a point-in-time reading of the
 project and should be revisited whenever a major gap it names is closed or a new one is identified.
 
@@ -32,17 +32,17 @@ project's stated intent and its current state.
 
 ## ⚙️ Goals & Constraints (Synthesised)
 
-| Source                                               | Goal / constraint                                                                                                                                                                                                                                               |
-|------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `../../README.md`, `../../AGENTS.md`                 | Deliver an informative, content-driven club website; there is no backend in this repository — contact-form email delivery and reCAPTCHA verification are the only server-side dependencies, both third-party, called directly from the client                   |
-| `../../ARCHITECTURE.md` (Data-Driven Routing)        | Routing is driven by `PageMapping` instances (`BaseRoutes.ts` → `RouteAliases.tsx` → `AppRoutes.tsx`), reused as-is by the sitemap builder — not static JSX route trees                                                                                         |
-| `../../ARCHITECTURE.md` (Feature-Based Organization) | Code is organised by feature under `../../src/features`, each self-contained with a page component, content component(s), MDX, styles and a barrel `index.ts`                                                                                                   |
-| `../../AGENTS.md` (Code Quality & CI)                | Only CodeQL runs automatically (push/PR to `main`, and weekly); `npm run lint`/`build`/`test` must be run locally before opening a PR — no automated build/test gate exists yet                                                                                 |
-| `../../AGENTS.md` (Documentation Conventions)        | British English spelling throughout prose; every ToC-listed heading carries a reused or deliberately new emoji; `../../README.md`/`../../ARCHITECTURE.md`/`../../UI.md` stay version-agnostic (reverse-synced from release docs, not the other way round)       |
-| `../../AGENTS.md` (Git Workflow, Release Checklist)  | GitFlow branching (`develop` → `release/vX.Y.Z` → `main`, `hotfix/*` direct to `main`), and a fixed, ordered Release Checklist covering `../../package.json`, `../../CHANGELOG.md`, `../../RELEASE_NOTES.md`, `../../HISTORY.md` and archived per-version docs  |
-| `../../AGENTS.md` (Test Conventions)                 | Vitest is configured but no test files exist yet; when added, co-locate `*.test.ts`/`*.test.tsx`, use `@testing-library/react` with a `jsdom` environment and don't test the type system or trivial pass-through props                                          |
-| `../../package.json`, `../../vite.config.ts`         | React 19, Vite 8, TypeScript 6 strict mode, React Router 8 — a fixed stack; `../../vite.config.ts`'s `manualChunks` already splits FontAwesome/MDX/RJSF/FullCalendar/react-google/vis.gl into separate vendor chunks                                            |
-| `../../CONTRIBUTING.md`                              | New contributors need `NPM_TOKEN_READ` just to `npm install`; `GOOGLE_MAPS_API_KEY`/`RECAPTCHA_V2_SITE_KEY` are optional locally but needed for the venue map and Contact Us captcha to render                                                                  |
+| Source                                               | Goal / constraint                                                                                                                                                                                                                                              |
+|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `../../README.md`, `../../AGENTS.md`                 | Deliver an informative, content-driven club website; there is no backend in this repository — contact-form email delivery and reCAPTCHA verification are the only server-side dependencies, both third-party, called directly from the client                  |
+| `../../ARCHITECTURE.md` (Data-Driven Routing)        | Routing is driven by `PageMapping` instances (`BaseRoutes.ts` → `RouteAliases.tsx` → `AppRoutes.tsx`), reused as-is by the sitemap builder — not static JSX route trees                                                                                        |
+| `../../ARCHITECTURE.md` (Feature-Based Organization) | Code is organised by feature under `../../src/features`, each self-contained with a page component, content component(s), MDX, styles and a barrel `index.ts`                                                                                                  |
+| `../../AGENTS.md` (Code Quality & CI)                | Only CodeQL runs automatically (push/PR to `main`, and weekly); `npm run lint`/`build`/`test` must be run locally before opening a PR — no automated build/test gate exists yet                                                                                |
+| `../../AGENTS.md` (Documentation Conventions)        | British English spelling throughout prose; every ToC-listed heading carries a reused or deliberately new emoji; `../../README.md`/`../../ARCHITECTURE.md`/`../../UI.md` stay version-agnostic (reverse-synced from release docs, not the other way round)      |
+| `../../AGENTS.md` (Git Workflow, Release Checklist)  | GitFlow branching (`develop` → `release/vX.Y.Z` → `main`, `hotfix/*` direct to `main`), and a fixed, ordered Release Checklist covering `../../package.json`, `../../CHANGELOG.md`, `../../RELEASE_NOTES.md`, `../../HISTORY.md` and archived per-version docs |
+| `../../AGENTS.md` (Test Conventions)                 | Vitest is configured but no test files exist yet; when added, co-locate `*.test.ts`/`*.test.tsx`, use `@testing-library/react` with a `jsdom` environment and don't test the type system or trivial pass-through props                                         |
+| `../../package.json`, `../../vite.config.ts`         | React 19, Vite 8, TypeScript 6 strict mode, React Router 8 — a fixed stack; `../../vite.config.ts`'s `manualChunks` already splits FontAwesome/MDX/RJSF/FullCalendar/react-google/vis.gl into separate vendor chunks                                           |
+| `../../CONTRIBUTING.md`                              | New contributors need `NPM_TOKEN_READ` just to `npm install`; `GOOGLE_MAPS_API_KEY`/`RECAPTCHA_V2_SITE_KEY` are optional locally but needed for the venue map and Contact Us captcha to render                                                                 |
 
 ---
 
@@ -54,6 +54,34 @@ identifier even after it moves between sections as its status changes (e.g. Open
 Within each section, gaps stay in ascending number order.
 
 ### ✅ Completed
+
+#### 1. No automatic lint/build/test gate on pull requests — ✅ Closed in v5.2.0
+
+**Evidence:** `../../.github/workflows` contains only `codeql.yml` (security analysis, on push/PR to `main`/`develop`
+and weekly). `../../AGENTS.md`'s Code Quality & CI section states plainly: "There is currently no CI workflow that
+runs `npm run lint`, `npm run build` or `npm test` — only CodeQL runs automatically. Run these locally before opening
+a PR." `../../CONTRIBUTING.md`'s Pull Request Checklist relies entirely on the contributor remembering to run all
+three.
+
+**Why it matters:** GitFlow's `feature/*` → `develop` → `release/*` → `main` promotion (per `../../AGENTS.md`'s Git
+Workflow) depends on lint/build/test genuinely passing at each merge; today that depends entirely on reviewer and
+contributor discipline, with nothing enforcing it automatically.
+
+**Proposed improvement:** Add a workflow (e.g. `build.yml`) triggered on push/PR to `develop` and `main`, mirroring
+`codeql.yml`'s trigger branches, running `npm ci`, `npm run lint`, `npm run build` and `npm test`. Gate the bundle
+visualiser's auto-open behind the same CI check — `../../vite.config.ts`'s `rollup-plugin-visualizer` currently always
+opens (`open: true`), which would be disruptive in a headless runner.
+
+**Outcome:** In `5.2.0`, `../../.github/workflows/build.yml` was added, mirroring `codeql.yml`'s trigger branches
+(`main`, `develop`) and running `npm ci`, `npm run lint`, `npm run build` and `npm test`; `npm ci` authenticates
+against the `@tahoni` GitHub Packages scope via the `NPM_TOKEN_READ` secret, per `../../.npmrc`.
+`../../vite.config.ts`'s `rollup-plugin-visualizer` now opens conditionally (`open: !process.env.CI`) instead of
+always, so it still pops up for a local `npm run build` but stays silent in the headless runner.
+`../../AGENTS.md`'s Code Quality & CI section was updated to describe the new workflow instead of stating no CI gate
+exists. Locally confirmed (with `CI=true`) that `npm run lint` and `npm test` both exit non-zero on a real failure —
+a probe ESLint error and, separately, `npm test` against zero test files (`vitest`'s "No test files found, exiting
+with code 1") — so the workflow genuinely gates rather than silently succeeding; `npm run build` failing on a type
+error is `tsc -b`'s well-established behaviour.
 
 #### 2. Two concrete route-metadata defects, one already visible in production output — ✅ Closed in v5.2.0
 
@@ -145,23 +173,6 @@ and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]`
 *No gaps are currently partially completed.*
 
 ### ⚪ Open
-
-#### 1. No automatic lint/build/test gate on pull requests
-
-**Evidence:** `../../.github/workflows` contains only `codeql.yml` (security analysis, on push/PR to `main`/`develop`
-and weekly). `../../AGENTS.md`'s Code Quality & CI section states plainly: "There is currently no CI workflow that
-runs `npm run lint`, `npm run build` or `npm test` — only CodeQL runs automatically. Run these locally before opening
-a PR." `../../CONTRIBUTING.md`'s Pull Request Checklist relies entirely on the contributor remembering to run all
-three.
-
-**Why it matters:** GitFlow's `feature/*` → `develop` → `release/*` → `main` promotion (per `../../AGENTS.md`'s Git
-Workflow) depends on lint/build/test genuinely passing at each merge; today that depends entirely on reviewer and
-contributor discipline, with nothing enforcing it automatically.
-
-**Proposed improvement:** Add a workflow (e.g. `build.yml`) triggered on push/PR to `develop` and `main`, mirroring
-`codeql.yml`'s trigger branches, running `npm ci`, `npm run lint`, `npm run build` and `npm test`. Gate the bundle
-visualiser's auto-open behind the same CI check — `../../vite.config.ts`'s `rollup-plugin-visualizer` currently always
-opens (`open: true`), which would be disruptive in a headless runner.
 
 #### 3. Zero test coverage despite a configured test runner
 
@@ -270,19 +281,19 @@ regression is caught immediately rather than silently re-accumulating.
 
 ## 🚀 Roadmap
 
-| Phase       | Focus                                                                                                                                                                                                                                                                                                     |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Add the CI lint/build/test gate (#1) — lowest effort, closes a gap the project's own docs already flag                                                                                                                                                                                                   |
-| **Next**    | Stand up initial test coverage (#3) and a top-level error boundary (#4), so the CI gate added in Now has something real to enforce                                                                                                                                                                        |
-| **Later**   | Accessibility baseline (#5), the styling-convention cleanup (#6), the `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)                                                                                                     |
-| **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                                                                                                                                                                                    |
+| Phase       | Focus                                                                                                                                        |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| **Now**     | Stand up initial test coverage (#3) and a top-level error boundary (#4), now that the CI gate added in `5.2.0` has something real to enforce |
+| **Next**    | Accessibility baseline (#5) and the styling-convention cleanup (#6)                                                                          |
+| **Later**   | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)            |
+| **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                       |
 
 ---
 
 ## ☑️ Success Criteria
 
 - A CI workflow runs `npm run lint`, `npm run build` and `npm test` automatically on PRs to `develop`/`main`, so
-  `../../AGENTS.md`'s Code Quality & CI section can drop its "run these locally" caveat.
+  `../../AGENTS.md`'s Code Quality & CI section can drop its "run these locally" caveat (#1) — ✅ Met in v5.2.0.
 - `News` is either reachable through a real route or the folder is removed; `coreContactUsRoute`'s dates are internally
   consistent; `../../public/sitemap.xml` is regenerated and no longer malformed (#2) — ✅ Met in v5.2.0.
 - At least one test file exists under `../../src` and passes in CI.
