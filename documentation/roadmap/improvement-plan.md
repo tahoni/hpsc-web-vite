@@ -53,6 +53,23 @@ across the whole document; a number is assigned once and never reused or reseque
 identifier even after it moves between sections as its status changes (e.g. Open → Partially Completed → Completed).
 Within each section, gaps stay in ascending number order.
 
+### 📋 At a Glance
+
+- **✅ Completed (9):**
+  - #1 No automatic lint/build/test gate on pull requests
+  - #2 Two concrete route-metadata defects
+  - #3 Zero test coverage despite a configured test runner
+  - #4 No error boundary or production error handling
+  - #5 Accessibility has no lint enforcement or documented baseline
+  - #6 A documented styling convention is violated in one known place
+  - #7 Required environment variables undocumented, `baseUrl` hardcoded
+  - #8 Dependency surface has no ongoing audit discipline
+  - #10 `AGENTS.md`'s stale "MIT License" description for `LICENSE.md`
+- **🟡 Partially Completed (0):** none currently.
+- **⚪ Open (2):**
+  - #9 `HISTORY.md`'s "Future Roadmap Implications" section doesn't exist
+  - #11 264 pre-existing `tsdoc/syntax` lint warnings, not yet fixed
+
 ### ✅ Completed
 
 #### 1. No automatic lint/build/test gate on pull requests — ✅ Closed in v5.2.0
