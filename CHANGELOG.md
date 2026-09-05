@@ -16,7 +16,8 @@ notes.
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.1.2](#-512---2026-09-04) ← Current
+- [🧾 Version 5.1.3](#-513---2026-09-05) ← Current
+- [🧾 Version 5.1.2](#-512---2026-09-04)
 - [🧾 Version 5.1.1](#-511---2026-09-04)
 - [🧾 Version 5.1.0](#-510---2026-08-26)
 - [🧾 Version 5.0.0](#-500---2026-08-25)
@@ -48,16 +49,46 @@ notes.
 
 #### 🐛 Fixed
 
-##### SEO
-
-- Fixed `index.html`'s `<link rel="canonical">` to point to `https://www.hpsc.co.za` instead of the bare
-  `https://hpsc.co.za`, matching the site's actual served domain
-
 #### ⚠️ Deprecated
 
 #### 🗑️ Removed
 
 #### 🔐 Security
+
+---
+
+### 🧾 [5.1.3] - 2026-09-05
+
+#### ➕ Added
+
+##### Developer Experience
+
+- Added a secret-free `.env.example` documenting `NPM_TOKEN_READ`, `VITE_GOOGLE_MAPS_API_KEY` and
+  `VITE_RECAPTCHA_V2_SITE_KEY`, so a new contributor can see every required environment variable in one place
+  without reading `AGENTS.md`/`README.md` first
+
+#### 🔄 Changed
+
+##### Documentation
+
+- `README.md`'s Environment Variables subsection, `AGENTS.md`'s Environment Variables section and
+  `CONTRIBUTING.md`'s Getting Started step now all point to the new `.env.example`
+
+#### 🐛 Fixed
+
+##### Documentation
+
+- Fixed `AGENTS.md`'s British English exceptions note and icon table, which told every other doc linking to
+  `LICENSE.md` to spell it "License" for consistency and labelled the 📜 icon "License / licence" — both now
+  correctly say "Licence", per the British English convention; the `LICENSE.md` file's own name and content remain
+  the fixed American-English legal term
+
+##### SEO
+
+- Fixed `index.html`'s `<link rel="canonical">`, `public/robots.txt`'s `Sitemap` line and `README.md`'s
+  introductory link, all still pointing to the bare `https://hpsc.co.za` (a deliberate choice as of `3.6.5`, per
+  `documentation/archive/ARCHIVE.md`), to `https://www.hpsc.co.za` instead — confirmed the bare domain now
+  301-redirects there, matching the `baseUrl` constant already used elsewhere (e.g. the sitemap builder)
 
 ---
 
