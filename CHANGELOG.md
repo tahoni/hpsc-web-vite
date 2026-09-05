@@ -48,6 +48,11 @@ notes.
 
 #### 🐛 Fixed
 
+##### SEO
+
+- Fixed `index.html`'s `<link rel="canonical">` to point to `https://www.hpsc.co.za` instead of the bare
+  `https://hpsc.co.za`, matching the site's actual served domain
+
 #### ⚠️ Deprecated
 
 #### 🗑️ Removed
