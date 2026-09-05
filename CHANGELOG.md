@@ -53,13 +53,110 @@ notes.
 
 ##### Build & Tooling
 
-- Added `.github/workflows/build.yml`, running `npm run lint`, `npm run build` and `npm test` on push/PR to `main`
-  and `develop` (mirroring `codeql.yml`'s trigger branches), so lint/build/test failures now gate merges instead of
-  relying entirely on contributor discipline
+- Added `.github/workflows/build.yml`, running `npm run lint`, `npm run build` and `npm run test:run` on push/PR to
+  `main` and `develop` (mirroring `codeql.yml`'s trigger branches), so lint/build/test failures now gate merges
+  instead of relying entirely on contributor discipline
+- Added an advisory-only `npm audit` step to `build.yml` (`continue-on-error: true`, so findings are reported
+  without blocking merges); `npm audit` currently finds 0 vulnerabilities
+- Added `eslint-plugin-jsx-a11y`'s `recommended` rule set to `eslint.config.js`/`.eslintrc.cjs` at its native
+  (mostly `"error"`) severity — the codebase was already clean against it, so no `"warn"`-first transition (like
+  `tsdoc/syntax`'s) was needed
+- Added `*.mdx` to `.prettierignore`, since Prettier doesn't format MDX well
+
+##### Testing
+
+- Added `vitest.config.ts`, `mergeConfig`-ing `vite.config.ts` (so path aliases stay in sync) with
+  `test.environment: "jsdom"`, and `jsdom` as a dev dependency
+- Added a `test:run` script (`vitest run`) for a single CI-friendly run, used by `build.yml`'s Test step and
+  documented in `README.md`/`AGENTS.md`
+- Added the project's first tests: unit tests for `src/utils/htmlUtils.ts` (`sanitizeValue`, `nonBreakingHyphens`,
+  `nonBreakingSpaces`) and a smoke test for `builders/RoutesSitemap.ts`'s `generateRoutesSitemap`
+
+##### Routing & Sitemap
+
+- Wired the `News` feature into the app's live routes (`coreRoutes` in `BaseRoutes.ts`, `RouteAliases.tsx`,
+  `routeHelpers.tsx`'s `routes` array), lazy-loaded like every other page — `/news` was previously defined but
+  unreachable; added a matching `/news` rewrite condition to `public/.htaccess`
+
+##### Components
+
+- Added a top-level `ErrorBoundary` (`src/shared/layouts/ErrorBoundary/`) wrapping `App.tsx`'s
+  `<Suspense>`/`<AppRoutes />` tree, rendering a friendly, dependency-free fallback (reload button, link home)
+  instead of a blank page on an unhandled render error; logs the caught error via `console.error`
+
+##### Documentation
+
+- Added `documentation/recommendations/project-accessibility-checklist.md`, a manual WCAG AA baseline checklist
+  covering what `eslint-plugin-jsx-a11y` can't check statically (colour contrast, heading structure, focus order,
+  link purpose), linked from `AGENTS.md`'s Linting bullet and `CONTRIBUTING.md`'s Pull Request Checklist
+- Added a palette token map and a `@use`-based usage example to `src/assets/styles/_colors.scss`'s header docblock
+
+##### SEO
+
+- Gave every page a unique `document.title`, `<meta name="description">` and `<link rel="canonical">`
+  (`src/shared/pages/Page.tsx`, sourced from a new `PageMapping.description` field populated per route in
+  `BaseRoutes.ts`), instead of every route sharing `index.html`'s one static set of tags
+
+##### Release Process
+
+- Documented a monthly dependency-update cadence in `AGENTS.md`'s Code Quality & CI section (run
+  `npm outdated`/`npm audit` locally, triage Dependabot alerts, bump patch/minor versions routinely, extra scrutiny
+  for `sanitize-html`/`react-google-recaptcha-v3`), and added a new Release Checklist step, "Review dependencies",
+  so it's actually run at each release instead of only whenever someone remembers
 
 #### 🔄 Changed
 
+##### Styling
+
+- Migrated `src/vendors/bootstrap/styles/index.scss` from the legacy `@import` to `@use`/`@forward` —
+  `bootstrap/scss/functions`/`custom` are now `@use`d, and `bootstrap/scss/bootstrap` is `@forward`ed with a
+  `with (...)` map configuring its variables from `_custom.scss`, so `@use "@bootstrap/styles/index" as *`
+  consumers (`App.scss`, `_forms.scss`) still see Bootstrap's forwarded variables/mixins; verified the compiled CSS
+  is unaffected (byte-identical bundle vs. the pre-migration `@import` output)
+
 #### 🐛 Fixed
+
+##### Developer Experience
+
+- Fixed `baseUrl` in `src/constants/commonConstants.ts` being a hardcoded string literal instead of sourced from an
+  environment variable: it now reads `import.meta.env?.VITE_SITE_URL ?? process.env.VITE_SITE_URL` (the
+  `process.env` fallback keeps `builders/RoutesSitemap.ts` working when run standalone via `tsx`, outside Vite),
+  defaulting to `https://www.hpsc.co.za` via `.env.production`; `index.html`'s canonical link now uses the same
+  `%VITE_SITE_URL%` build-time substitution instead of a static href, so it can't drift from `baseUrl` again
+
+##### Routing & Sitemap
+
+- Fixed `coreContactUsRoute`'s inverted `dateCreated`/`dateUpdated` in `BaseRoutes.ts` (`dateCreated` postdated
+  `dateUpdated` by over nine months) and `public/sitemap.xml`'s malformed first `<loc>` entry
+  (`https: www.hpsc.co.za`, missing slashes); regenerated the sitemap via `npm run sitemap`, now including
+  `/contact` and `/news` (9 URLs total)
+
+##### Build & Tooling
+
+- Fixed two `'process' is not defined` ESLint errors (`commonConstants.ts`, `vite.config.ts`) by adding
+  `globals.node`/`env: { node: true }` to `eslint.config.js`/`.eslintrc.cjs`, which previously only declared browser
+  globals despite this project's Node-side build scripts
+
+##### Testing
+
+- Guarded `builders/RoutesSitemap.ts`'s module-level `generateRoutesSitemap().then(...)` call behind an
+  is-run-as-script check, so importing it for tests no longer triggers a real sitemap generation as a side effect
+
+##### Components
+
+- Fixed `Breakpoints.tsx` comparing `import.meta.env.VITE_SHOW_BREAKPOINTS` truthily instead of against the string
+  `"true"` — a literal `VITE_SHOW_BREAKPOINTS=false` would have shown breakpoints instead of hiding them, since only
+  an empty/unset value is falsy for a non-empty string; corrected `vite-env.d.ts`'s `ImportMetaEnv` typing for it
+  from `boolean` to `string` to match
+
+##### Documentation
+
+- Fixed `CONTRIBUTING.md`'s Pull Request Checklist and `AGENTS.md`'s Code Quality & CI section still claiming no CI
+  workflow runs `npm run build` automatically, and naming `npm test` instead of the actual `npm run test:run`
+  `build.yml` uses
+- Removed the non-standard `@module` JSDoc tag (invalid TSDoc syntax, one of the sources behind Gap #11's 264
+  `tsdoc/syntax` warnings) from `builders/RoutesSitemap.ts`, `menuHelpers.tsx`, `main.tsx`, `BaseRoutes.ts`,
+  `RouteAliases.tsx` and `htmlUtils.ts`
 
 #### ⚠️ Deprecated
 
