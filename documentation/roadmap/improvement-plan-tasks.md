@@ -29,17 +29,6 @@ evidence and reasoning there; within each section, gaps stay in ascending number
 - [x] Once live, update `AGENTS.md`'s Code Quality & CI section to drop the "run these locally" caveat — done in
   `5.2.0`
 
-**No error boundary or production error handling — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #4)*
-
-- [x] Add a top-level React error boundary component around the route tree, with a friendly fallback UI — added in
-  `5.2.0`: `src/shared/layouts/ErrorBoundary/ErrorBoundary.tsx`, wrapping `App.tsx`'s `<Suspense>`/`<AppRoutes />`
-  tree; verified with a unit test and, live, in a running `npm run dev` session
-- [x] Evaluate lightweight client-side logging (console suppression in prod, optional remote logging); enable hidden
-  sourcemaps if adopted — evaluated in `5.2.0`: `componentDidCatch` logs via `console.error` unconditionally;
-  blanket console suppression and remote monitoring (e.g. Sentry) were deliberately deferred (the former risks
-  silencing this logging, the latter needs a maintainer decision on an external service), so hidden sourcemaps
-  weren't enabled either
-
 **Two route-metadata defects — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #2)*
 
 - [x] Wire `src/features/News` into `coreRoutes` (`BaseRoutes.ts`) and `RouteAliases.tsx`/`AppRoutes.tsx`, or delete the
@@ -66,6 +55,32 @@ evidence and reasoning there; within each section, gaps stay in ascending number
   tests doesn't trigger a real sitemap generation
 - [x] Add a CI-friendly `test:run` script (`vitest run`) and document its usage — added in `5.2.0`, used by
   `build.yml`'s Test step, documented in `README.md`/`AGENTS.md`
+
+**No error boundary or production error handling — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #4)*
+
+- [x] Add a top-level React error boundary component around the route tree, with a friendly fallback UI — added in
+  `5.2.0`: `src/shared/layouts/ErrorBoundary/ErrorBoundary.tsx`, wrapping `App.tsx`'s `<Suspense>`/`<AppRoutes />`
+  tree; verified with a unit test and, live, in a running `npm run dev` session
+- [x] Evaluate lightweight client-side logging (console suppression in prod, optional remote logging); enable hidden
+  sourcemaps if adopted — evaluated in `5.2.0`: `componentDidCatch` logs via `console.error` unconditionally;
+  blanket console suppression and remote monitoring (e.g. Sentry) were deliberately deferred (the former risks
+  silencing this logging, the latter needs a maintainer decision on an external service), so hidden sourcemaps
+  weren't enabled either
+
+**Accessibility has no lint enforcement or documented baseline — ✅ Closed in v5.2.0**
+*(improvement-plan.md → Gap #5)*
+
+- [x] Add `eslint-plugin-jsx-a11y` to `eslint.config.js` — added in `5.2.0` at its native (mostly `"error"`)
+  severity to both `eslint.config.js` and `.eslintrc.cjs`; the codebase was already clean against it
+- [x] Define a WCAG AA baseline checklist (semantic headings, focus outlines, colour contrast, ARIA landmarks, link
+  purpose) — added in `5.2.0`:
+  `documentation/recommendations/project-accessibility-checklist.md`, linked from `AGENTS.md`/`CONTRIBUTING.md`
+- [x] Ensure every page has a unique title, meta-description and canonical URL — done in `5.2.0`: `PageMapping`
+  gained a `description` field, populated per route in `BaseRoutes.ts`; `Page.tsx` now sets `document.title`,
+  the meta description and the canonical link per route instead of sharing `index.html`'s static tags
+- [x] Validate `robots.txt`/`sitemap.xml` generation and document the `public/sitemap.xml` write step — validated
+  in `5.2.0`: both are correct; the manual `npm run sitemap` regeneration step is now documented in the new
+  accessibility checklist doc
 
 **A documented styling convention is violated in one known place — ✅ Closed in v5.2.0**
 *(improvement-plan.md → Gap #6)*
@@ -108,14 +123,6 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 ---
 
 ## ⚪ Open
-
-**Accessibility has no lint enforcement or documented baseline** *(improvement-plan.md → Gap #5)*
-
-- [ ] Add `eslint-plugin-jsx-a11y` to `eslint.config.js`
-- [ ] Define a WCAG AA baseline checklist (semantic headings, focus outlines, colour contrast, ARIA landmarks, link
-  purpose)
-- [ ] Ensure every page has a unique title, meta-description and canonical URL
-- [ ] Validate `robots.txt`/`sitemap.xml` generation and document the `public/sitemap.xml` write step
 
 **Dependency surface has no ongoing audit discipline** *(improvement-plan.md → Gap #8)*
 

@@ -159,6 +159,31 @@ the former would risk silencing this very logging, and the latter needs a mainta
 service; hidden sourcemaps (`../../vite.config.ts`'s `build.sourcemap`) are correspondingly left off, since that was
 conditioned on adopting real remote logging.
 
+#### 5. Accessibility has no lint enforcement or documented baseline — ✅ Closed in v5.2.0
+
+**Evidence:** `../../eslint.config.js` has no `eslint-plugin-jsx-a11y` (or equivalent) rule set configured; no
+accessibility checklist or colour-contrast review exists in any doc.
+
+**Why it matters:** The site is public-facing and content-driven — accessibility gaps here (colour contrast, focus
+order, ARIA landmarks) directly affect real visitors, not just internal code quality.
+
+**Proposed improvement:** Add `eslint-plugin-jsx-a11y` to `../../eslint.config.js`; define a WCAG AA baseline checklist;
+validate unique page titles/meta-descriptions/canonical URLs alongside it as a combined a11y-and-SEO pass.
+
+**Outcome:** In `5.2.0`, `eslint-plugin-jsx-a11y` was added to `../../eslint.config.js`/`../../.eslintrc.cjs` at its
+native (mostly `"error"`) severity — the codebase was already clean against its `recommended` rule set, so no
+`"warn"`-first transition was needed, unlike `tsdoc/syntax` (Gap #11). Added
+[`../../documentation/recommendations/project-accessibility-checklist.md`](../../documentation/recommendations/project-accessibility-checklist.md),
+the manual WCAG AA baseline covering what static analysis can't (contrast, heading structure, focus order, link
+purpose), linked from `../../AGENTS.md` and `../../CONTRIBUTING.md`'s Pull Request Checklist. `PageMapping` gained an
+optional `description` field, populated for every route in `../../src/shared/routes/BaseRoutes.ts`;
+`../../src/shared/pages/Page.tsx` now sets `document.title`, `<meta name="description">` and
+`<link rel="canonical">` per route instead of every page sharing `../../index.html`'s one static set of tags —
+verified with a unit test and, live, by checking four different routes in a running `npm run dev` session all
+resolved distinct title/description/canonical values. `../../public/robots.txt`/`../../public/sitemap.xml` were
+confirmed valid, and the `npm run sitemap` regeneration step (not automatic at build time) is now documented in the
+new checklist doc.
+
 #### 6. A documented styling convention is violated in one known place — ✅ Closed in v5.2.0
 
 **Evidence:** `../../AGENTS.md`'s and `../../ARCHITECTURE.md`'s styling conventions require `@use`-only Sass, but
@@ -246,17 +271,6 @@ and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]`
 
 ### ⚪ Open
 
-#### 5. Accessibility has no lint enforcement or documented baseline
-
-**Evidence:** `../../eslint.config.js` has no `eslint-plugin-jsx-a11y` (or equivalent) rule set configured; no
-accessibility checklist or colour-contrast review exists in any doc.
-
-**Why it matters:** The site is public-facing and content-driven — accessibility gaps here (colour contrast, focus
-order, ARIA landmarks) directly affect real visitors, not just internal code quality.
-
-**Proposed improvement:** Add `eslint-plugin-jsx-a11y` to `../../eslint.config.js`; define a WCAG AA baseline checklist;
-validate unique page titles/meta-descriptions/canonical URLs alongside it as a combined a11y-and-SEO pass.
-
 #### 8. Dependency surface has no ongoing audit discipline
 
 **Evidence:** `../../package.json` currently pins around 30 runtime and 21 dev dependencies; there is no `npm audit`
@@ -319,8 +333,8 @@ regression is caught immediately rather than silently re-accumulating.
 
 | Phase       | Focus                                                                                                                                        |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Accessibility baseline (#5)                                                                                                                  |
-| **Next**    | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)            |
+| **Now**     | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)            |
+| **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                |
 | **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                       |
 
