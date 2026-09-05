@@ -30,7 +30,8 @@ evidence and reasoning there; within each section, gaps stay in ascending number
 **Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl`
 is hardcoded** *(improvement-plan.md → Gap #7)*
 
-- [ ] Add a secret-free `.env.example`
+- [x] Add a secret-free `.env.example` — done in `5.1.3`, documenting all three variables and linked from
+  `README.md`/`AGENTS.md`
 - [x] Document `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and `RECAPTCHA_V2_SITE_KEY` in `README.md` itself, not only
   `AGENTS.md` — already done; `README.md`'s own Environment Variables subsection documents all three, and has done
   since before this gap was first written

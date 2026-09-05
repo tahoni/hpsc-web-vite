@@ -90,13 +90,12 @@ the standard `dev`/`build`/`preview`/`lint`/`test` scripts.
 
 ## 🔧 Environment Variables
 
-| Variable                | Used in                                     | Purpose                                                                             |
-|-------------------------|---------------------------------------------|-------------------------------------------------------------------------------------|
-| `NPM_TOKEN_READ`        | `.npmrc`                                    | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
-| `GOOGLE_MAPS_API_KEY`   | `.env.local` → `VITE_GOOGLE_MAPS_API_KEY`   | Google Maps API key; without it the venue map does not render                       |
-| `RECAPTCHA_V2_SITE_KEY` | `.env.local` → `VITE_RECAPTCHA_V2_SITE_KEY` | reCAPTCHA v2 site key for the Contact Us form's `Captcha` component                 |
+| Variable         | Used in  | Purpose                                                                             |
+|------------------|----------|---------------------------------------------------------------------------------------|
+| `NPM_TOKEN_READ` | `.npmrc` | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
 
-`.env.production` only sets `VITE_SHOW_BREAKPOINTS=false` (a debug overlay toggle); it carries no secrets.
+`.env.local` also holds API keys the venue map and the Contact Us form's captcha need to render — see the
+secret-free `.env.example` for the exact `VITE_`-prefixed variable names, as a copy-to-`.env.local` starting point.
 
 ---
 
@@ -170,8 +169,8 @@ All documentation prose and code comments use British English spelling (e.g. "li
 **Exceptions:**
 
 - Standard legal or licence boilerplate. The `LICENSE.md` file itself (name and content) is a fixed legal term in
-  American English and must not be altered; any other doc that names or links to it (headings, tables, ToC entries) also
-  spells it "License" for consistency.
+  American English and must not be altered; every other doc that names or links to it (headings, tables, ToC entries)
+  spells it "Licence" instead, per the British English convention above.
 - Third-party product, library and API names.
 - Code identifiers (component, function and variable names) — these follow the codebase's existing naming, not
   spelling conventions.
@@ -278,7 +277,7 @@ used — `README.md`/`ARCHITECTURE.md`, then `AGENTS.md`/`CONTRIBUTING.md`, then
 | 📱   | Responsive design                                   |
 | 💻   | Technical implementation                            |
 | 🖥️   | User interface                                      |
-| 📜   | License / licence and documentation                 |
+| 📜   | Licence and documentation                           |
 | ♻️   | General code improvements                           |
 | 💰   | Funding / sponsorship                               |
 | 📤   | Output                                              |
