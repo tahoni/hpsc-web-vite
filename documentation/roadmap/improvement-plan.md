@@ -37,10 +37,10 @@ project's stated intent and its current state.
 | `../../README.md`, `../../AGENTS.md`                 | Deliver an informative, content-driven club website; there is no backend in this repository — contact-form email delivery and reCAPTCHA verification are the only server-side dependencies, both third-party, called directly from the client                  |
 | `../../ARCHITECTURE.md` (Data-Driven Routing)        | Routing is driven by `PageMapping` instances (`BaseRoutes.ts` → `RouteAliases.tsx` → `AppRoutes.tsx`), reused as-is by the sitemap builder — not static JSX route trees                                                                                        |
 | `../../ARCHITECTURE.md` (Feature-Based Organization) | Code is organised by feature under `../../src/features`, each self-contained with a page component, content component(s), MDX, styles and a barrel `index.ts`                                                                                                  |
-| `../../AGENTS.md` (Code Quality & CI)                | Only CodeQL runs automatically (push/PR to `main`, and weekly); `npm run lint`/`build`/`test` must be run locally before opening a PR — no automated build/test gate exists yet                                                                                |
+| `../../AGENTS.md` (Code Quality & CI)                | CodeQL runs on push/PR to `main` and weekly; `../../.github/workflows/build.yml` also gates merges to `main`/`develop` on `npm run lint`/`build`/`test:run`, plus an advisory-only `npm audit` step, with dependencies reviewed monthly and at each release       |
 | `../../AGENTS.md` (Documentation Conventions)        | British English spelling throughout prose; every ToC-listed heading carries a reused or deliberately new emoji; `../../README.md`/`../../ARCHITECTURE.md`/`../../UI.md` stay version-agnostic (reverse-synced from release docs, not the other way round)      |
 | `../../AGENTS.md` (Git Workflow, Release Checklist)  | GitFlow branching (`develop` → `release/vX.Y.Z` → `main`, `hotfix/*` direct to `main`), and a fixed, ordered Release Checklist covering `../../package.json`, `../../CHANGELOG.md`, `../../RELEASE_NOTES.md`, `../../HISTORY.md` and archived per-version docs |
-| `../../AGENTS.md` (Test Conventions)                 | Vitest is configured but no test files exist yet; when added, co-locate `*.test.ts`/`*.test.tsx`, use `@testing-library/react` with a `jsdom` environment and don't test the type system or trivial pass-through props                                         |
+| `../../AGENTS.md` (Test Conventions)                 | Vitest is configured, with initial coverage co-located as `*.test.ts`/`*.test.tsx`, using `@testing-library/react` with a `jsdom` environment; don't test the type system or trivial pass-through props                                                         |
 | `../../package.json`, `../../vite.config.ts`         | React 19, Vite 8, TypeScript 6 strict mode, React Router 8 — a fixed stack; `../../vite.config.ts`'s `manualChunks` already splits FontAwesome/MDX/RJSF/FullCalendar/react-google/vis.gl into separate vendor chunks                                           |
 | `../../CONTRIBUTING.md`                              | New contributors need `NPM_TOKEN_READ` just to `npm install`; `GOOGLE_MAPS_API_KEY`/`RECAPTCHA_V2_SITE_KEY` are optional locally but needed for the venue map and Contact Us captcha to render                                                                 |
 
@@ -55,7 +55,7 @@ Within each section, gaps stay in ascending number order.
 
 ### 📋 At a Glance
 
-- **✅ Completed (9):**
+- **✅ Completed (11):**
   - #1 No automatic lint/build/test gate on pull requests
   - #2 Two concrete route-metadata defects
   - #3 Zero test coverage despite a configured test runner
@@ -65,10 +65,12 @@ Within each section, gaps stay in ascending number order.
   - #7 Required environment variables undocumented, `baseUrl` hardcoded
   - #8 Dependency surface has no ongoing audit discipline
   - #10 `AGENTS.md`'s stale "MIT License" description for `LICENSE.md`
+  - #12 `/contact` and `/venues` were indexed and rewrite-whitelisted but never actually routed
+  - #13 `CONTRIBUTING.md`'s CI/CD and Testing sections described a pre-Gap-#1/#3 state
 - **🟡 Partially Completed (0):** none currently.
 - **⚪ Open (2):**
   - #9 `HISTORY.md`'s "Future Roadmap Implications" section doesn't exist
-  - #11 264 pre-existing `tsdoc/syntax` lint warnings, not yet fixed
+  - #11 258 pre-existing `tsdoc/syntax` lint warnings, not yet fixed
 
 ### ✅ Completed
 
@@ -306,6 +308,69 @@ Reserved", matching `../../README.md` and the file's actual content.
 **Outcome:** `../../AGENTS.md`'s Documentation File Map now reads "All Rights Reserved", matching `../../README.md`
 and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]` entry's claim is now accurate.
 
+#### 12. `/contact` and `/venues` are indexed and rewrite-whitelisted but never actually reach the app's route table — ✅ Closed in v5.2.0
+
+**Evidence:** `../../src/helpers/routeHelpers.tsx`'s exported `routes` array — the sole array
+`../../src/shared/routes/AppRoutes.tsx` iterates to render `<Route>` elements, with no catch-all (`"*"`) route as a
+fallback — has `{ mapping: contactUs }`/`{ path: "/contact_us", mapping: contactUs }` and `{ mapping: venues }`
+commented out; both predate this release branch (the `venues` line was already commented when `routeHelpers.tsx` was
+first added, at `6f37700`). `../../src/helpers/menuHelpers.tsx`'s `menuItems` array comments out the same two.
+Neither `ContactUsPage` nor `VenuesPage` is rendered anywhere else in `../../src` —
+`../../src/shared/layouts/Footer/FooterContent.tsx` embeds only a `SimpleVenueMap`, not the full `VenuesPage`, and
+nothing renders `ContactUsPage`. Yet `../../public/sitemap.xml` — regenerated as part of Gap #2's `5.2.0` closure —
+lists both `https://www.hpsc.co.za/contact` and `https://www.hpsc.co.za/venues` as real, indexable URLs, and
+`../../public/.htaccess`'s rewrite whitelist (lines 17–19) treats `venues`, `contact`/`contact_us` and `news`
+identically, as equally live paths.
+
+**Why it matters:** `../../AGENTS.md`'s Project Overview states that "contact-form email delivery... [is] the only
+server-side dependenc[y]" the site has, implying Contact Us is a functioning, central feature; `../../UI.md`'s
+Navigation section likewise lists "Contact Us" and "Shooting Ranges" as part of the site's primary navigation. In
+reality, a visitor following a search result for `/contact` (indexed by the sitemap) or `/venues` currently lands on
+a blank page inside the site chrome — no route matches, and there's no fallback. This is the same category of defect
+Gap #2 already fixed for `News` (a fully built `PageMapping`/`React.lazy` component/`Page` wrapper that never reached
+`AppRoutes.tsx`'s rendered table), just previously undetected for these two, and longer-standing.
+
+**Proposed improvement:** Uncomment `{ mapping: contactUs }` and `{ mapping: venues }` (and, if still desired, the
+`/contact_us` alias) in `../../src/helpers/routeHelpers.tsx`'s `routes` array and `../../src/helpers/menuHelpers.tsx`'s
+`menuItems` array, matching how `news` was wired in Gap #2 — or, if either page is deliberately not ready to ship,
+remove it from `../../public/sitemap.xml`/`../../public/.htaccess`'s whitelist and
+`../../src/shared/routes/BaseRoutes.ts`'s `coreRoutes` instead, so the site stops advertising a page it doesn't serve.
+
+**Outcome:** In `5.2.0`, `{ mapping: contactUs }`/`{ path: "/contact_us", mapping: contactUs }` and
+`{ mapping: venues }` were uncommented in `../../src/helpers/routeHelpers.tsx`'s `routes` array, and the matching
+`contactUs`/`venues` entries were uncommented in `../../src/helpers/menuHelpers.tsx`'s `menuItems` array, so both
+pages are now reachable by direct URL and from the primary navigation menu, not just indexed by the sitemap.
+`npm run lint`, `npm run build` and `npm run test:run` all pass unchanged; `npm run sitemap` was re-run and produced
+no diff, confirming `../../public/sitemap.xml` already matched. Verified live in a running `npm run dev` session that
+both `/contact` and `/venues` return `200` and render inside the site chrome instead of a blank page.
+
+#### 13. `CONTRIBUTING.md`'s CI/CD and Testing sections still described a pre-Gap-#1/#3 state — ✅ Closed in v5.2.0
+
+**Evidence:** `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" section read: "There is no CI workflow that runs
+`npm run lint`, `npm run build` or `npm test` automatically yet — run them locally before opening a PR (tracked as a
+gap in `improvement-plan-tasks.md`)." Its "🧪 Testing" section similarly read: "Vitest is configured (`npm test`)
+but this project currently has no test files — see `improvement-plan-tasks.md` for the tracked task on establishing
+initial coverage." Both were false: `../../.github/workflows/build.yml` (Gap #1) and initial Vitest coverage
+(Gap #3) were both closed in `5.2.0`, and neither is tracked as open in this plan any more — yet
+`../../CONTRIBUTING.md`'s own Pull Request Checklist already correctly said `npm run lint`/`build`/`test` "also runs
+automatically in CI", so the file contradicted itself within a few sections.
+
+**Why it matters:** `../../AGENTS.md`'s Release Checklist step 8 calls for updating `../../CONTRIBUTING.md` "if this
+version's changes affect developer setup, environment variables, development scripts, git workflow or testing
+conventions documented there" — precisely what Gaps #1 and #3 did — but that step hadn't run yet for `5.2.0`. A new
+contributor reading `../../CONTRIBUTING.md` top-to-bottom was told twice that no CI or tests exist, then told a few
+sections later that CI already checks their PR.
+
+**Proposed improvement:** Update `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" section to describe
+`build.yml`'s lint/build/test/audit gate (matching `../../AGENTS.md`'s Code Quality & CI section), and its
+"🧪 Testing" section to drop the "currently has no test files" claim — as part of finishing the `5.2.0` Release
+Checklist's step 8.
+
+**Outcome:** In `5.2.0`, `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" section now describes `build.yml`'s
+lint/build/test/audit gate instead of claiming no CI workflow exists, and its "🧪 Testing" section now says initial
+coverage exists and is growing instead of claiming no test files exist — both now consistent with the file's own
+Pull Request Checklist, which already described the CI gate correctly.
+
 ### 🟡 Partially Completed
 
 *No gaps are currently partially completed.*
@@ -332,24 +397,27 @@ Purpose & Scope and `../../AGENTS.md`'s Release Checklist step 7 to stop referen
 `../../HISTORY.md`'s actual structure — whichever this project decides is the intended design — and add "Major
 Version Goals" to the Release Checklist's thread-through list either way.
 
-#### 11. 264 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed
+#### 11. 258 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed
 
 **Evidence:** `../../eslint.config.js:48` sets `"tsdoc/syntax": "warn"`, enabled per the `../../CHANGELOG.md`
 `[Unreleased]` fix that wired `eslint-plugin-tsdoc` into the flat config (it had only ever been active in the legacy,
-now-superseded `.eslintrc.cjs` mirror). Running `npm run lint` currently reports 264 `tsdoc/syntax` warnings across 65
-files — `tsdoc-undefined-tag` (69), `tsdoc-malformed-inline-tag` (62) and `tsdoc-escape-right-brace` (62) account for
-most of them, largely from JSDoc-style `@param {type}` annotations and unescaped `{`/`}` characters in doc comments
-that predate the rule's enforcement. `npm run lint`'s own summary line reports "288 problems (0 errors, 288
-warnings)" — the other 24 are pre-existing `no-unused-vars`/`react-refresh` warnings unrelated to this rule; the
-`../../CHANGELOG.md` entry's "288 pre-existing `tsdoc/syntax` warnings" figure conflates the two.
+now-superseded `.eslintrc.cjs` mirror). Running `npm run lint` now reports 258 `tsdoc/syntax` warnings across 58
+files (down from 264 across 65 when this gap was first written) — `tsdoc-undefined-tag` (63, down from 69),
+`tsdoc-malformed-inline-tag` (62) and `tsdoc-escape-right-brace` (62) account for most of them, largely from
+JSDoc-style `@param {type}` annotations and unescaped `{`/`}` characters in doc comments that predate the rule's
+enforcement. The `tsdoc-undefined-tag`/file-count drop is an incidental side effect of `5.2.0`'s "Remove non-standard
+`@module` JSDoc tags from touched files" commit, not deliberate work on this gap — most `@module` tags elsewhere in
+the codebase remain. `npm run lint`'s own summary line now reports "284 problems (0 errors, 284 warnings)" — the
+other 26 are pre-existing `no-unused-vars`/`react-refresh` warnings unrelated to this rule.
 
 **Why it matters:** `../../AGENTS.md`'s TSDoc convention states doc comments "must be syntactically valid TSDoc, not
-JSDoc-only syntax" — with the rule now actually wired up (per Gap #1's related CI-gate proposal), 65 files currently
-violate that documented convention. Because the rule is `"warn"`, not `"error"`, `npm run lint` still exits `0`, so
-these warnings don't fail a local lint run or (once Gap #1 lands) a CI gate — they're easy to miss and can keep
-accumulating rather than being caught at the point a doc comment is written or changed.
+JSDoc-only syntax" — with the rule now actually wired up (and, per Gap #1's closure, actually gating CI via
+`../../.github/workflows/build.yml`, since `"warn"` still exits `0`), 58 files currently violate that documented
+convention. Because the rule is `"warn"`, not `"error"`, these warnings don't fail `npm run lint` or the CI gate —
+they're easy to miss and can keep accumulating rather than being caught at the point a doc comment is written or
+changed.
 
-**Proposed improvement:** Work through the 264 warnings in batches by rule type across the 65 affected files,
+**Proposed improvement:** Work through the 258 warnings in batches by rule type across the 58 affected files,
 starting with the highest-count patterns (`tsdoc-undefined-tag`, `tsdoc-malformed-inline-tag`/
 `tsdoc-escape-right-brace` from JSDoc-style `{type}` annotations) — converting `@param {type} name` to plain TSDoc's
 `@param name`. Once clean, escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in `../../eslint.config.js` so a
@@ -361,7 +429,7 @@ regression is caught immediately rather than silently re-accumulating.
 
 | Phase       | Focus                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)              |
+| **Now**     | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 258 `tsdoc/syntax` warnings (#11)              |
 | **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
@@ -380,6 +448,11 @@ regression is caught immediately rather than silently re-accumulating.
   `../../AGENTS.md`'s Release Checklist stop referencing one that doesn't exist (#9).
 - `npm run lint` reports zero `tsdoc/syntax` warnings, and the rule is escalated from `"warn"` to `"error"` in
   `../../eslint.config.js` once clean (#11).
+- `/contact` and `/venues` either render through `AppRoutes.tsx` like every other core route, or are removed from
+  `../../public/sitemap.xml`/`../../public/.htaccess` so the site stops advertising pages it doesn't serve
+  (#12) — ✅ Met in v5.2.0.
+- `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" and "🧪 Testing" sections describe the CI gate and initial
+  test coverage `5.2.0` actually shipped, instead of the pre-Gap-#1/#3 state (#13) — ✅ Met in v5.2.0.
 - This document's Gaps section shrinks over time as items close — closed items should move into `../../HISTORY.md`'s
   per-version Future Roadmap notes rather than being deleted silently from here.
 

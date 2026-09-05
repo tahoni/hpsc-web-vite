@@ -1,6 +1,6 @@
 # Roadmap Task List
 
-A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s eleven gaps, grouped by that
+A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s thirteen gaps, grouped by that
 document's completion status — ✅ Completed, 🟡 Partially Completed, ⚪ Open — matching its own "🔍 Gaps &
 Improvement Opportunities" grouping. Each block names its originating gap number for traceability back to the
 evidence and reasoning there; within each section, gaps stay in ascending number order.
@@ -38,8 +38,8 @@ evidence and reasoning there; within each section, gaps stay in ascending number
   condition
 - [x] Fix `coreContactUsRoute`'s inverted dates in `BaseRoutes.ts` — `dateCreated` (2025-12-26) currently postdates
   `dateUpdated` (2025-03-03) — swapped in `5.2.0` so `dateCreated` (2025-03-03) precedes `dateUpdated` (2025-12-26)
-- [ ] Add a lightweight script or unit test that scans route metadata and warns on missing/invalid `dateCreated`/
-  `dateUpdated` — not part of this gap's original Proposed improvement; left open as a nice-to-have, not required
+- [ ] _Add a lightweight script or unit test that scans route metadata and warns on missing/invalid `dateCreated`/
+  `dateUpdated`_ — not part of this gap's original Proposed improvement; left open as a nice-to-have, not required
   for closure
 - [x] Regenerate `public/sitemap.xml` via `npm run sitemap` once the above are fixed and confirm the malformed first
   `<loc>` entry is resolved — regenerated in `5.2.0`; the malformed `https: www.hpsc.co.za` entry is fixed and
@@ -124,6 +124,24 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 - [x] Correct the `CHANGELOG.md` `[Unreleased]` entry that currently (and incorrectly) claims this fix was already
   made to `AGENTS.md`, once the actual fix lands — no wording change needed; the existing entry is now accurate
 
+**`/contact` and `/venues` are indexed and rewrite-whitelisted but never actually reach the app's route table —
+✅ Closed in v5.2.0** *(improvement-plan.md → Gap #12)*
+
+- [x] Uncomment `{ mapping: contactUs }` (and its `/contact_us` alias) and `{ mapping: venues }` in
+  `routeHelpers.tsx`'s `routes` array — done in `5.2.0`
+- [x] Uncomment the matching `contactUs`/`venues` entries in `menuHelpers.tsx`'s `menuItems` array so they're
+  reachable from the primary navigation menu, not just by direct URL — done in `5.2.0`
+- [x] Regenerate `public/sitemap.xml` via `npm run sitemap` — run in `5.2.0`; produced no diff, confirming it already
+  matched
+
+**`CONTRIBUTING.md`'s CI/CD and Testing sections still described a pre-Gap-#1/#3 state — ✅ Closed in v5.2.0**
+*(improvement-plan.md → Gap #13)*
+
+- [x] Update `CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" section to describe `build.yml`'s lint/build/test/audit
+  gate, matching `AGENTS.md`'s Code Quality & CI section — done in `5.2.0`
+- [x] Update `CONTRIBUTING.md`'s "🧪 Testing" section to drop the "currently has no test files" claim — done in
+  `5.2.0`
+
 ---
 
 ## 🟡 Partially Completed
@@ -145,9 +163,10 @@ Checklist, doesn't exist** *(improvement-plan.md → Gap #9)*
 - [ ] Either way, add "Major Version Goals" to the Release Checklist step 7's thread-through list, since that
   section already exists in `HISTORY.md` but isn't mentioned there
 
-**264 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed** *(improvement-plan.md → Gap #11)*
+**258 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed** *(improvement-plan.md → Gap #11)*
 
-- [ ] Fix the `tsdoc-undefined-tag` warnings (69, the largest group)
+- [ ] Fix the `tsdoc-undefined-tag` warnings (63, the largest group, down from 69 as an incidental side effect of
+  `5.2.0`'s `@module`-tag cleanup on touched files — most remain elsewhere)
 - [ ] Fix the `tsdoc-malformed-inline-tag`/`tsdoc-escape-right-brace` warnings (62 each), mostly JSDoc-style
   `@param {type}` annotations that need converting to plain TSDoc's `@param name`
 - [ ] Fix the remaining `tsdoc-escape-greater-than` (34), `tsdoc-malformed-html-name` (17),
