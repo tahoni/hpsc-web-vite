@@ -3,7 +3,7 @@
  * Club colour system and theming variables.
  *
  * This stylesheet defines the colour palette for the application, organized into:
- * 
+ *
  * - Club primary colours: The main brand colours.
  * - Club shaded colours: Variations of primary colours at different opacity levels.
  * - International colours: colours for international-themed components.
@@ -12,6 +12,42 @@
  *
  * Colours are defined both as CSS variables (in :root) for use in CSS and as SCSS
  * variables ($name) for use in SCSS imports and functions.
+ *
+ * @styles usage-example Usage Example
+ * `@use` this module with the project convention alias, `hpsc-colors`, then reference tokens
+ * with dot notation — never copy a hex value directly, so the palette stays the single source of
+ * truth:
+ *
+ * ```scss
+ * @use "@styles/_colors.scss" as hpsc-colors;
+ *
+ * .badge {
+ *   background-color: hpsc-colors.$club-primary-blue;
+ *   border-color: hpsc-colors.$club-primary-yellow;
+ * }
+ * ```
+ *
+ * `src/vendors/bootstrap/styles/_custom.scss` follows the same pattern to derive Bootstrap's
+ * variable overrides from these tokens.
+ *
+ * @styles palette-token-map Palette Token Map
+ * | Token                        | Value                        | Typical use                              |
+ * |------------------------------|-------------------------------|-------------------------------------------|
+ * | `$club-primary-butterscotch` | `#ba7645`                     | Secondary brand accent                    |
+ * | `$club-primary-blue`         | `#0a07fbff`                   | Primary brand colour (buttons, links)     |
+ * | `$club-primary-white-smoke`  | `#f5f4f4ff`                   | Light neutral background                  |
+ * | `$club-primary-black`        | `#000000ff`                   | Text and other high-contrast elements     |
+ * | `$club-primary-yellow`       | `var(--club-primary-yellow)`  | Accent/highlight, focus states            |
+ * | `$club-butterscotch-5`       | `#130c07`                     | Darkest butterscotch shade (body text)    |
+ * | `$club-butterscotch-20`      | `#4a2f1c`                     | Dark butterscotch shade (link colour)     |
+ * | `$club-blue-95`              | `#e6e6ff`                     | Lightest blue tint (menu backgrounds)     |
+ * | `$club-blue-80`              | `#9c9bfd`                     | Light blue tint (focus rings, hover)      |
+ * | `$club-blue-40`              | `#0603c9`                     | Darker blue shade (active/pressed states) |
+ * | `$club-yellow-95`            | `#fefee7`                     | Lightest yellow tint                      |
+ * | `$club-yellow-5`             | `#181801`                     | Darkest yellow shade (link hover)         |
+ *
+ * The international/gradient/social-media tokens further down this file are lower-traffic and are
+ * documented inline at their own `@styles` sections instead of duplicated here.
  */
 
 /* Imported from Coolors.co palette: https://coolors.co/ca9148-0a07fb-f5f4f4-000000-f4f421 */

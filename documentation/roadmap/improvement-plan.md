@@ -134,6 +134,28 @@ priority). `../../builders/RoutesSitemap.ts`'s module-level `generateRoutesSitem
 run automatically on import — was guarded behind an "is this file being run directly" check so importing it for tests
 no longer triggers a real sitemap generation as a side effect.
 
+#### 6. A documented styling convention is violated in one known place — ✅ Closed in v5.2.0
+
+**Evidence:** `../../AGENTS.md`'s and `../../ARCHITECTURE.md`'s styling conventions require `@use`-only Sass, but
+`../../src/vendors/bootstrap/styles/index.scss` still uses the legacy `@import`.
+
+**Why it matters:** It's the one place in the codebase actively contradicting a documented, otherwise-followed
+convention — every other stylesheet already uses `@use`.
+
+**Proposed improvement:** Migrate `styles.scss` to `@use` with proper namespacing; use the same pass to add a palette
+token map and usage examples for `src/assets/stylesheets`'s colours/variables.
+
+**Outcome:** In `5.2.0`, `../../src/vendors/bootstrap/styles/index.scss`'s three `@import`s were replaced.
+`bootstrap/scss/functions` and `custom` are now `@use`d, and `bootstrap/scss/bootstrap` is now `@forward`ed with a
+`with (...)` map configuring Bootstrap's `!default` variables (`$primary`, `$font-family-sans-serif`, etc.) from
+`../../src/vendors/bootstrap/styles/_custom.scss`'s values — `@forward` (rather than plain `@use`) so consumers that
+still do `@use "@bootstrap/styles/index" as *` (`../../src/App.scss`, `../../src/assets/styles/_forms.scss`) keep
+seeing Bootstrap's variables/mixins. Verified the compiled CSS is unaffected (byte-identical bundle size and colour
+occurrence counts against the pre-migration `@import` output) and, in a running `npm run dev` session, that
+`.text-primary` computes to the club's actual override colour (`rgb(10, 7, 251)`) with no console errors. A palette
+token map and a `@use`-based usage example were added to `../../src/assets/styles/_colors.scss`'s header docblock,
+covering the primary/shaded colour tokens that feed both Bootstrap's overrides and the rest of the UI.
+
 #### 7. Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl` is hardcoded — ✅ Closed in v5.2.0
 
 **Evidence:** `../../AGENTS.md`'s Environment Variables table documents `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and
@@ -221,17 +243,6 @@ order, ARIA landmarks) directly affect real visitors, not just internal code qua
 **Proposed improvement:** Add `eslint-plugin-jsx-a11y` to `../../eslint.config.js`; define a WCAG AA baseline checklist;
 validate unique page titles/meta-descriptions/canonical URLs alongside it as a combined a11y-and-SEO pass.
 
-#### 6. A documented styling convention is violated in one known place
-
-**Evidence:** `../../AGENTS.md`'s and `../../ARCHITECTURE.md`'s styling conventions require `@use`-only Sass, but
-`../../src/vendors/bootstrap/styles/index.scss` still uses the legacy `@import`.
-
-**Why it matters:** It's the one place in the codebase actively contradicting a documented, otherwise-followed
-convention — every other stylesheet already uses `@use`.
-
-**Proposed improvement:** Migrate `styles.scss` to `@use` with proper namespacing; use the same pass to add a palette
-token map and usage examples for `src/assets/stylesheets`'s colours/variables.
-
 #### 8. Dependency surface has no ongoing audit discipline
 
 **Evidence:** `../../package.json` currently pins around 30 runtime and 21 dev dependencies; there is no `npm audit`
@@ -295,7 +306,7 @@ regression is caught immediately rather than silently re-accumulating.
 | Phase       | Focus                                                                                                                                        |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | **Now**     | Add a top-level error boundary (#4), now that the CI gate and initial test coverage added in `5.2.0` have something real to protect          |
-| **Next**    | Accessibility baseline (#5) and the styling-convention cleanup (#6)                                                                          |
+| **Next**    | Accessibility baseline (#5)                                                                                                                  |
 | **Later**   | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)            |
 | **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                       |
 

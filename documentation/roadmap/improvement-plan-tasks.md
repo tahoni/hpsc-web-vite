@@ -56,6 +56,16 @@ evidence and reasoning there; within each section, gaps stay in ascending number
 - [x] Add a CI-friendly `test:run` script (`vitest run`) and document its usage — added in `5.2.0`, used by
   `build.yml`'s Test step, documented in `README.md`/`AGENTS.md`
 
+**A documented styling convention is violated in one known place — ✅ Closed in v5.2.0**
+*(improvement-plan.md → Gap #6)*
+
+- [x] Replace the legacy `@import` in `src/vendors/bootstrap/styles/index.scss` with `@use` — done in `5.2.0`:
+  `bootstrap/scss/functions`/`custom` are now `@use`d, and `bootstrap/scss/bootstrap` is `@forward`ed with a
+  `with (...)` map (so `@use "@bootstrap/styles/index" as *` consumers still see Bootstrap's forwarded members)
+  configuring its variables from `_custom.scss`
+- [x] Provide a palette token map and usage examples in the docs for `src/assets/stylesheets`'s colours/variables —
+  done in `5.2.0`: added to `src/assets/styles/_colors.scss`'s header docblock
+
 **Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl`
 is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 
@@ -101,11 +111,6 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
   purpose)
 - [ ] Ensure every page has a unique title, meta-description and canonical URL
 - [ ] Validate `robots.txt`/`sitemap.xml` generation and document the `public/sitemap.xml` write step
-
-**A documented styling convention is violated in one known place** *(improvement-plan.md → Gap #6)*
-
-- [ ] Replace the legacy `@import` in `src/vendors/bootstrap/styles/index.scss` with `@use`
-- [ ] Provide a palette token map and usage examples in the docs for `src/assets/stylesheets`'s colours/variables
 
 **Dependency surface has no ongoing audit discipline** *(improvement-plan.md → Gap #8)*
 
