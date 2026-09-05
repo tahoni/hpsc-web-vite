@@ -5,8 +5,6 @@
  * used across the application.
  * Other modules import these base mappings to compose full route configurations
  * and UI elements.
- *
- * @module
  */
 
 import { PageMapping } from "@/models/pages/PageMapping.ts";
@@ -63,6 +61,8 @@ export const coreEventsRoute: PageMapping = new PageMapping({
 export const coreVenuesRoute = new PageMapping({
   name: "Shooting Ranges",
   path: "/venues",
+  dateCreated: new Date("2025-01-03"),
+  dateUpdated: new Date("2025-01-04"),
 });
 
 export const coreNewsRoute = new PageMapping({

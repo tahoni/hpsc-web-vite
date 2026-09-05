@@ -4,14 +4,12 @@
  * Executed via `npm run sitemap`, this module generates an XML sitemap from the
  * app's static route metadata. Output is printed to stdout so callers can
  * redirect to a file (e.g. `npm run sitemap > target/sitemap.xml`).
- *
- * @module
  */
 
-import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { SitemapStream, streamToPromise } from "sitemap";
 import { SitemapMapping } from "@/models/sitemap/SitemapMappings";
 import { baseUrl } from "@/constants/commonConstants.ts";
 import { coreRoutes } from "@shared/routes/BaseRoutes";

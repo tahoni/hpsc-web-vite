@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
+import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
 import { visualizer } from "rollup-plugin-visualizer";
-import * as path from "node:path";
-import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -11,11 +11,12 @@ export default defineConfig({
   plugins: [
     {
       enforce: "pre",
-      ...mdx({
-        /* jsxImportSource: …, otherOptions… */
-      }),
+      ...mdx({/* jsxImportSource: …, otherOptions… */}),
     },
-    visualizer({ open: !process.env.CI, filename: "target/bundle-visualization.html" }),
+    visualizer({
+      open: !process.env.CI,
+      filename: "target/bundle-visualization.html",
+    }),
     react({ include: /\.(jsx|js|mdx|tsx|ts)$/ }),
   ],
   resolve: {

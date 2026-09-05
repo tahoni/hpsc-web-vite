@@ -2,12 +2,10 @@
  * Provides a mapping between abstract route definitions and their concrete React implementations.
  *
  * This module is responsible for:
- * 1. Associating `BaseRoutes`  with specific feature components.
+ * 1. Associating `BaseRoutes` with specific feature components.
  * 2. Implementing code-splitting via `React.lazy`.
  * 3. Wrapping components in the {@link Page} container to provide consistent layout and
  *   metadata (keys, titles).
- *
- * @module
  */
 
 import React from "react";
