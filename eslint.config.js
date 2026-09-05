@@ -16,7 +16,7 @@ export default [
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: "module",
-      globals: { ...globals.browser, ...globals.es2021 },
+      globals: { ...globals.browser, ...globals.node, ...globals.es2021 },
       parser: tseslint.parser,
       parserOptions: {
         ecmaFeatures: { jsx: true },

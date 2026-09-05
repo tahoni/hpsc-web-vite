@@ -15,6 +15,21 @@ evidence and reasoning there; within each section, gaps stay in ascending number
 
 ## ✅ Completed
 
+**Two route-metadata defects — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #2)*
+
+- [x] Wire `src/features/News` into `coreRoutes` (`BaseRoutes.ts`) and `RouteAliases.tsx`/`AppRoutes.tsx`, or delete the
+  folder if the feature isn't ready to ship — wired in `5.2.0`: `coreNewsRoute` added to `coreRoutes`, `RouteAliases.tsx`
+  now `React.lazy`-loads it like every other feature page, and `routeHelpers.tsx`'s `routes` array includes it so
+  `/news` is actually reachable, not just defined; `public/.htaccess` also gained a `/news` rewrite condition
+- [x] Fix `coreContactUsRoute`'s inverted dates in `BaseRoutes.ts` — `dateCreated` (2025-12-26) currently postdates
+  `dateUpdated` (2025-03-03) — swapped in `5.2.0` so `dateCreated` (2025-03-03) precedes `dateUpdated` (2025-12-26)
+- [ ] Add a lightweight script or unit test that scans route metadata and warns on missing/invalid `dateCreated`/
+  `dateUpdated` — not part of this gap's original Proposed improvement; left open as a nice-to-have, not required
+  for closure
+- [x] Regenerate `public/sitemap.xml` via `npm run sitemap` once the above are fixed and confirm the malformed first
+  `<loc>` entry is resolved — regenerated in `5.2.0`; the malformed `https: www.hpsc.co.za` entry is fixed and
+  `/contact`/`/news` are now included (9 URLs total)
+
 **Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl`
 is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 

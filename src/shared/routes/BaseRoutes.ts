@@ -49,8 +49,8 @@ export const coreAboutUsRoute = new PageMapping({
 export const coreContactUsRoute = new PageMapping({
   name: "Contact Us",
   path: "/contact",
-  dateCreated: new Date("2025-12-26"),
-  dateUpdated: new Date("2025-03-03"),
+  dateCreated: new Date("2025-03-03"),
+  dateUpdated: new Date("2025-12-26"),
 });
 
 export const coreEventsRoute: PageMapping = new PageMapping({
@@ -65,6 +65,13 @@ export const coreVenuesRoute = new PageMapping({
   path: "/venues",
 });
 
+export const coreNewsRoute = new PageMapping({
+  name: "News",
+  path: "/news",
+  dateCreated: new Date("2026-09-05"),
+  dateUpdated: new Date("2026-09-05"),
+});
+
 export const coreRoutes: PageMapping[] = [
   coreHomeRoute,
   coreMembersRoute,
@@ -74,4 +81,5 @@ export const coreRoutes: PageMapping[] = [
   coreContactUsRoute,
   coreEventsRoute,
   coreVenuesRoute,
+  coreNewsRoute,
 ];

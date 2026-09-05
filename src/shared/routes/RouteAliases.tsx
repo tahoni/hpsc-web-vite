@@ -22,6 +22,7 @@ import {
   coreHomeRoute,
   coreLinksRoute,
   coreMembersRoute,
+  coreNewsRoute,
   coreVenuesRoute,
 } from "./BaseRoutes.ts";
 
@@ -40,6 +41,8 @@ const AboutUsPage = React.lazy(() => import("@features/AboutUs"));
 const EventsPage = React.lazy(() => import("@features/Events"));
 
 const VenuesPage = React.lazy(() => import("@features/Venues"));
+
+const NewsPage = React.lazy(() => import("@features/News"));
 
 export const home: PageMapping = new PageMapping({
   ...coreHomeRoute,
@@ -109,6 +112,15 @@ export const venues: PageMapping = {
   element: (
     <Page keyValue={"venuesPage"} title={"Shooting Ranges"}>
       <VenuesPage />
+    </Page>
+  ),
+};
+
+export const news: PageMapping = {
+  ...coreNewsRoute,
+  element: (
+    <Page keyValue={"newsPage"} title={"News"}>
+      <NewsPage />
     </Page>
   ),
 };

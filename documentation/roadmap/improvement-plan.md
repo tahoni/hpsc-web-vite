@@ -55,6 +55,32 @@ Within each section, gaps stay in ascending number order.
 
 ### ✅ Completed
 
+#### 2. Two concrete route-metadata defects, one already visible in production output — ✅ Closed in v5.2.0
+
+**Evidence:** `../../src/features/News` exists as a complete feature folder but is referenced by no route mapping —
+absent from `BaseRoutes.ts`'s `coreRoutes`, `RouteAliases.tsx` and consequently the generated sitemap. Separately,
+`coreContactUsRoute` in `BaseRoutes.ts` sets `dateCreated: new Date("2025-12-26")` after its own
+`dateUpdated: new Date("2025-03-03")` — an internally inconsistent pair that also feeds
+`../../builders/RoutesSitemap.ts`'s `lastmod` output.
+
+**Why it matters:** `../../builders/RoutesSitemap.ts` and its output, `../../public/sitemap.xml`, are the site's only
+mechanism for surfacing content freshness and priority to search engines; the checked-in `../../public/sitemap.xml` is
+already visibly stale — its first `<loc>` entry is malformed (`https: www.hpsc.co.za`, missing slashes) and the file
+predates the Events route entirely.
+
+**Proposed improvement:** Wire `News` into `coreRoutes`/`RouteAliases.tsx`/`AppRoutes.tsx`, or delete the folder if the
+feature isn't ready to ship. Fix the inverted Contact Us dates. Regenerate `../../public/sitemap.xml` via
+`npm run sitemap` once both are fixed.
+
+**Outcome:** In `5.2.0`, `coreNewsRoute` (dated `2026-09-05`) was added to `../../src/shared/routes/BaseRoutes.ts`'s
+`coreRoutes` and wired all the way through: `../../src/shared/routes/RouteAliases.tsx` now `React.lazy`-loads
+`NewsPage` (matching every other feature page, instead of the static import it started with) and exports a `news`
+mapping, `../../src/helpers/routeHelpers.tsx`'s `routes` array includes `{ mapping: news }` so `/news` is actually
+reachable rather than merely defined, and `../../public/.htaccess`'s rewrite whitelist gained a `/news` condition so
+a direct hit doesn't 404. `coreContactUsRoute`'s `dateCreated`/`dateUpdated` were swapped into chronological order.
+`../../public/sitemap.xml` was regenerated via `npm run sitemap`, fixing the malformed first `<loc>` entry and
+adding the `/contact` and `/news` URLs — 9 entries in total.
+
 #### 7. Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl` is hardcoded — ✅ Closed in v5.2.0
 
 **Evidence:** `../../AGENTS.md`'s Environment Variables table documents `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and
@@ -136,23 +162,6 @@ contributor discipline, with nothing enforcing it automatically.
 `codeql.yml`'s trigger branches, running `npm ci`, `npm run lint`, `npm run build` and `npm test`. Gate the bundle
 visualiser's auto-open behind the same CI check — `../../vite.config.ts`'s `rollup-plugin-visualizer` currently always
 opens (`open: true`), which would be disruptive in a headless runner.
-
-#### 2. Two concrete route-metadata defects, one already visible in production output
-
-**Evidence:** `../../src/features/News` exists as a complete feature folder but is referenced by no route mapping —
-absent from `BaseRoutes.ts`'s `coreRoutes`, `RouteAliases.tsx` and consequently the generated sitemap. Separately,
-`coreContactUsRoute` in `BaseRoutes.ts` sets `dateCreated: new Date("2025-12-26")` after its own
-`dateUpdated: new Date("2025-03-03")` — an internally inconsistent pair that also feeds
-`../../builders/RoutesSitemap.ts`'s `lastmod` output.
-
-**Why it matters:** `../../builders/RoutesSitemap.ts` and its output, `../../public/sitemap.xml`, are the site's only
-mechanism for surfacing content freshness and priority to search engines; the checked-in `../../public/sitemap.xml` is
-already visibly stale — its first `<loc>` entry is malformed (`https: www.hpsc.co.za`, missing slashes) and the file
-predates the Events route entirely.
-
-**Proposed improvement:** Wire `News` into `coreRoutes`/`RouteAliases.tsx`/`AppRoutes.tsx`, or delete the folder if the
-feature isn't ready to ship. Fix the inverted Contact Us dates. Regenerate `../../public/sitemap.xml` via
-`npm run sitemap` once both are fixed.
 
 #### 3. Zero test coverage despite a configured test runner
 
@@ -263,7 +272,7 @@ regression is caught immediately rather than silently re-accumulating.
 
 | Phase       | Focus                                                                                                                                                                                                                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Add the CI lint/build/test gate (#1) — lowest effort, closes a gap the project's own docs already flag — and fix the two shipped route-metadata bugs (#2)                                                                                                                                                 |
+| **Now**     | Add the CI lint/build/test gate (#1) — lowest effort, closes a gap the project's own docs already flag                                                                                                                                                                                                   |
 | **Next**    | Stand up initial test coverage (#3) and a top-level error boundary (#4), so the CI gate added in Now has something real to enforce                                                                                                                                                                        |
 | **Later**   | Accessibility baseline (#5), the styling-convention cleanup (#6), the `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)                                                                                                     |
 | **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                                                                                                                                                                                    |
@@ -275,7 +284,7 @@ regression is caught immediately rather than silently re-accumulating.
 - A CI workflow runs `npm run lint`, `npm run build` and `npm test` automatically on PRs to `develop`/`main`, so
   `../../AGENTS.md`'s Code Quality & CI section can drop its "run these locally" caveat.
 - `News` is either reachable through a real route or the folder is removed; `coreContactUsRoute`'s dates are internally
-  consistent; `../../public/sitemap.xml` is regenerated and no longer malformed.
+  consistent; `../../public/sitemap.xml` is regenerated and no longer malformed (#2) — ✅ Met in v5.2.0.
 - At least one test file exists under `../../src` and passes in CI.
 - A secret-free `.env.example` exists and `baseUrl` is sourced from an environment variable (#7) — ✅ Met in v5.2.0.
 - `../../HISTORY.md` either gains a "Future Roadmap Implications" section or this plan's Purpose & Scope and

@@ -5,9 +5,9 @@
  * @module
  */
 
-import {Navigate} from "react-router";
-import {PageAlias} from "@/models/pages/PageAlias.ts";
-import {aboutUs, events, history, home, links, members} from "@shared/routes/RouteAliases.tsx";
+import { Navigate } from "react-router";
+import { PageAlias } from "@/models/pages/PageAlias.ts";
+import { aboutUs, events, history, home, links, members, news } from "@shared/routes/RouteAliases.tsx";
 
 /**
  * Represents an array of route configurations for the application.
@@ -35,4 +35,6 @@ export const routes: PageAlias[] = [
 
   { mapping: events },
   // { mapping: venues },
+
+  { mapping: news },
 ];
