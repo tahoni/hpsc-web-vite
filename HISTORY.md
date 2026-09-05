@@ -35,8 +35,9 @@ the legacy Version 3.x line that predates it.
   redirect check)
 - Corrected `AGENTS.md`'s British English exceptions note and icon table, which had the `LICENSE.md` naming
   convention backwards — every other doc linking to it now correctly spells it "Licence", not "License"
-- Added a secret-free `.env.example`, linked from `README.md`/`AGENTS.md`, documenting `NPM_TOKEN_READ`,
-  `VITE_GOOGLE_MAPS_API_KEY` and `VITE_RECAPTCHA_V2_SITE_KEY`
+- Added a secret-free `.env.example` documenting `.env.local`'s exact `VITE_`-prefixed variable names;
+  `AGENTS.md`/`README.md`/`CONTRIBUTING.md` now point to it instead of duplicating its content, and
+  `.env.local`/`.env.production` themselves are no longer tracked in version control
 
 ### Version 5.1.2 (September 4, 2026)
 

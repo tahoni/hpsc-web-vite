@@ -14,7 +14,9 @@ used elsewhere (the sitemap builder) since `5.1.0`. All three now point straight
 redirect hop. Separately, `AGENTS.md`'s British English exceptions note and icon table had the `LICENSE.md` naming
 convention backwards, instructing every other doc that links to it to spell it "License" for consistency when the
 project's own British English convention calls for "Licence". Finally, a secret-free `.env.example` now gives a new
-contributor every required environment variable in one place, without reading `AGENTS.md`/`README.md` first.
+contributor every required environment variable in one place: `AGENTS.md`, `README.md` and `CONTRIBUTING.md` no
+longer duplicate `.env.local`'s/`.env.production`'s exact variable names or values, and the two files themselves —
+tracked from before `.gitignore`'s `.env`/`.env.*` rule existed — are now untracked in favour of `.env.example`.
 
 ## ⭐ Key Highlights
 
@@ -30,8 +32,9 @@ contributor every required environment variable in one place, without reading `A
 
 ### 🔧 Environment Variable Onboarding
 
-- Added a secret-free `.env.example`, linked from `README.md`/`AGENTS.md`, documenting `NPM_TOKEN_READ`,
-  `VITE_GOOGLE_MAPS_API_KEY` and `VITE_RECAPTCHA_V2_SITE_KEY`
+- Added a secret-free `.env.example` documenting the exact `VITE_`-prefixed variable names `.env.local` expects;
+  `AGENTS.md`/`README.md`/`CONTRIBUTING.md` now point to it instead of duplicating its content, and
+  `.env.local`/`.env.production` themselves are no longer tracked in version control
 
 ## 📦 What's New
 
@@ -39,16 +42,26 @@ contributor every required environment variable in one place, without reading `A
 
 #### Developer Experience
 
-- Added a secret-free `.env.example` documenting `NPM_TOKEN_READ`, `VITE_GOOGLE_MAPS_API_KEY` and
-  `VITE_RECAPTCHA_V2_SITE_KEY`, so a new contributor can see every required environment variable in one place
-  without reading `AGENTS.md`/`README.md` first
+- Added a secret-free `.env.example` documenting `VITE_GOOGLE_MAPS_API_KEY` and `VITE_RECAPTCHA_V2_SITE_KEY` (plus
+  guidance for `NPM_TOKEN_READ`, which isn't read from a `.env` file), so a new contributor can see every required
+  environment variable in one place without reading `AGENTS.md`/`README.md` first
 
 ### 🔄 Changed
 
 #### Documentation
 
-- `README.md`'s Environment Variables subsection, `AGENTS.md`'s Environment Variables section and
-  `CONTRIBUTING.md`'s Getting Started step now all point to the new `.env.example`
+- `AGENTS.md`'s Environment Variables table, `README.md`'s Environment Variables subsection and
+  `CONTRIBUTING.md`'s Prerequisites/Getting Started steps no longer name `.env.local`'s/`.env.production`'s exact
+  `VITE_`-prefixed variable names or values — all three now point to the new `.env.example` as the single source
+  of truth, instead of duplicating (and risking drifting from) its content
+
+### 🗑️ Removed
+
+#### Version Control
+
+- Removed `.env.local` and `.env.production` from version control — both are covered by `.gitignore`'s
+  `.env`/`.env.*` rule (with only `.env.example` excluded from it) but had been tracked from before that rule
+  existed; `.env.example` now documents every variable they held, secret-free
 
 ### 🐛 Fixed
 
@@ -76,12 +89,15 @@ contributor every required environment variable in one place, without reading `A
 
 - **No code changes beyond the one-line `index.html` fix.** `npm install` is not required beyond what you already
   have.
-- **New:** copy `.env.example` to `.env.local` and fill in real values as a starting point for local setup.
+- **`.env.local`/`.env.production` are no longer tracked in version control.** If you relied on the committed
+  copies, copy `.env.example` to `.env.local` and fill in real values instead — it documents every `VITE_`-prefixed
+  variable name you need. `.env.production` only ever held a build-time debug toggle default; no action needed
+  unless you had customised it locally.
 
 ## 📊 Statistics
 
-- **Total Commits:** 4
-- **Files Changed:** 11 (+114 / −96 lines)
+- **Total Commits:** 13
+- **Files Changed:** 16 (+337 / −105 lines)
 
 ## 🧭 Design Notes
 
@@ -92,6 +108,9 @@ contributor every required environment variable in one place, without reading `A
   decision to prefer the bare domain "since it is served like that by the web server" — before applying the `www`
   fix here, a live check (`curl -I`) confirmed the bare domain now 301-redirects to `www`, so that historical
   rationale no longer holds.
+- **One documented source of truth beats three duplicated ones.** Once `.env.example` existed, restating
+  `.env.local`'s exact variable names in `AGENTS.md`, `README.md` and `CONTRIBUTING.md` too was redundant and a
+  future drift risk — all three now just point to it.
 
 ## 🧪 Testing
 
@@ -102,6 +121,8 @@ contributor every required environment variable in one place, without reading `A
 - Manually verified `index.html`/`public/robots.txt`/`README.md`'s canonical domain now matches
   `src/constants/commonConstants.ts`'s `baseUrl`, and confirmed via `curl -I` that `https://hpsc.co.za` 301-redirects
   to `https://www.hpsc.co.za`
+- Manually verified `npm install` still succeeds against the `@tahoni` registry after restoring `.npmrc` (briefly
+  and accidentally removed mid-release-prep, caught before merge)
 
 ## 🐛 Known Issues
 
@@ -133,7 +154,8 @@ Leoni Lubbinge
 
 This release is a small documentation-and-SEO patch — no features, no dependency changes, one line of production
 code touched. It closes out a family of small drifts between the site's actual configuration/server behaviour and
-what its own documentation/markup claimed, and gives new contributors a secret-free environment variable template.
+what its own documentation/markup claimed, and gives new contributors a single secret-free environment variable
+template instead of three duplicated descriptions of it.
 
 ---
 

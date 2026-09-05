@@ -63,16 +63,26 @@ notes.
 
 ##### Developer Experience
 
-- Added a secret-free `.env.example` documenting `NPM_TOKEN_READ`, `VITE_GOOGLE_MAPS_API_KEY` and
-  `VITE_RECAPTCHA_V2_SITE_KEY`, so a new contributor can see every required environment variable in one place
-  without reading `AGENTS.md`/`README.md` first
+- Added a secret-free `.env.example` documenting `VITE_GOOGLE_MAPS_API_KEY` and `VITE_RECAPTCHA_V2_SITE_KEY` (plus
+  guidance for `NPM_TOKEN_READ`, which isn't read from a `.env` file), so a new contributor can see every required
+  environment variable in one place without reading `AGENTS.md`/`README.md` first
 
 #### 🔄 Changed
 
 ##### Documentation
 
-- `README.md`'s Environment Variables subsection, `AGENTS.md`'s Environment Variables section and
-  `CONTRIBUTING.md`'s Getting Started step now all point to the new `.env.example`
+- `AGENTS.md`'s Environment Variables table, `README.md`'s Environment Variables subsection and
+  `CONTRIBUTING.md`'s Prerequisites/Getting Started steps no longer name `.env.local`'s/`.env.production`'s exact
+  `VITE_`-prefixed variable names or values — all three now point to the new `.env.example` as the single source
+  of truth, instead of duplicating (and risking drifting from) its content
+
+#### 🗑️ Removed
+
+##### Version Control
+
+- Removed `.env.local` and `.env.production` from version control — both are covered by `.gitignore`'s
+  `.env`/`.env.*` rule (with only `.env.example` excluded from it) but had been tracked from before that rule
+  existed; `.env.example` now documents every variable they held, secret-free
 
 #### 🐛 Fixed
 
