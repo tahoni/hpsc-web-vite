@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://hpsc.co.za/sitemap.xml
+Sitemap: https://www.hpsc.co.za/sitemap.xml

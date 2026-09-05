@@ -20,7 +20,7 @@ The official repository for the Hartbeespoortdam Practical Shooting Club (HPSC) 
 
 ## 📖 Introduction
 
-The [HPSC website](https://hpsc.co.za) uses modern web technologies to provide an informative and user-friendly platform
+The [HPSC website](https://www.hpsc.co.za) uses modern web technologies to provide an informative and user-friendly platform
 for members and visitors.
 
 The primary technologies used in this project include TypeScript, SCSS and MDX.
