@@ -243,6 +243,30 @@ default the Proposed improvement asked for, while `../../.env.local` overrides i
 `%VITE_SITE_URL%`, the build-time substitution Vite performs on `index.html`, so it now tracks the same source of
 truth as `baseUrl` instead of risking independent drift again. This closes the gap's last remaining item.
 
+#### 8. Dependency surface has no ongoing audit discipline — ✅ Closed in v5.2.0
+
+**Evidence:** `../../package.json` currently pins around 30 runtime and 21 dev dependencies; there is no `npm audit`
+step anywhere (CI or documented local practice), and GitHub's own Dependabot alerts on this repository aren't tied to a
+documented remediation cadence beyond ad hoc commits.
+
+**Why it matters:** `sanitize-html` and `react-google-recaptcha-v3` in particular sit on a security-sensitive boundary
+(user-submitted content, bot protection) — an unaudited dependency surface is the highest-leverage place a real
+vulnerability could land undetected.
+
+**Proposed improvement:** Run `npm audit` (advisory-only initially) in the CI gate proposed in Gap 1; document a
+periodic (e.g. monthly) dependency-update cadence in `../../AGENTS.md`.
+
+**Outcome:** In `5.2.0`, `../../.github/workflows/build.yml` gained an `npm audit` step, `continue-on-error: true`
+so it reports without blocking merges (advisory-only, as asked — `npm audit` currently finds 0 vulnerabilities).
+`../../AGENTS.md`'s Code Quality & CI section documents a monthly cadence: run `npm outdated`/`npm audit` locally,
+triage open Dependabot alerts, bump patch/minor versions routinely, and give `sanitize-html`/
+`react-google-recaptcha-v3` extra scrutiny (changelog read, not just an automatic bump) given their
+security-sensitive position. The Release Checklist also gained a new step 2, "Review dependencies", so this
+happens at every release, not only whenever someone remembers — matching the Roadmap's own "re-checked at each
+release" framing for this gap. That renumbered the checklist's subsequent steps (old step 6 → 7, etc.); Gap #9's
+Evidence/Why-it-matters/Proposed-improvement text below, which cites "Release Checklist step 6", was updated to
+"step 7" to match.
+
 #### 10. `../../AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `../../README.md` and `../../LICENSE.md` itself — ✅ Closed in v5.1.1
 
 **Evidence:** `../../AGENTS.md`'s Documentation File Map lists `LICENSE.md` as "MIT License". `../../LICENSE.md`
@@ -271,36 +295,23 @@ and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]`
 
 ### ⚪ Open
 
-#### 8. Dependency surface has no ongoing audit discipline
-
-**Evidence:** `../../package.json` currently pins around 30 runtime and 21 dev dependencies; there is no `npm audit`
-step anywhere (CI or documented local practice), and GitHub's own Dependabot alerts on this repository aren't tied to a
-documented remediation cadence beyond ad hoc commits.
-
-**Why it matters:** `sanitize-html` and `react-google-recaptcha-v3` in particular sit on a security-sensitive boundary
-(user-submitted content, bot protection) — an unaudited dependency surface is the highest-leverage place a real
-vulnerability could land undetected.
-
-**Proposed improvement:** Run `npm audit` (advisory-only initially) in the CI gate proposed in Gap 1; document a
-periodic (e.g. monthly) dependency-update cadence in `../../AGENTS.md`.
-
 #### 9. `HISTORY.md`'s "Future Roadmap Implications" section, referenced by both this plan and the Release Checklist, doesn't exist
 
 **Evidence:** This plan's own 🎯 Purpose & Scope section above states it "complements... `../../HISTORY.md`'s
-per-release '🚀 Future Roadmap Implications' section", and `../../AGENTS.md`'s Release Checklist step 6 lists
+per-release '🚀 Future Roadmap Implications' section", and `../../AGENTS.md`'s Release Checklist step 7 lists
 "Future Roadmap Implications" among the sections a significant release should thread new content through. No such
 section, heading or even a passing mention exists anywhere in `../../HISTORY.md`; its actual Table of Contents runs
 Historical Timeline → Evolution Overview → Major Version Goals → Major Milestones → Architectural Evolution →
 Feature Timeline → Project Philosophy Evolution → Key Learnings → Conclusion. The Release Checklist's own
 thread-through list also predates and omits "Major Version Goals" — a section `../../HISTORY.md` does have.
 
-**Why it matters:** A contributor following the Release Checklist at step 6, or reading this plan's Purpose & Scope,
+**Why it matters:** A contributor following the Release Checklist at step 7, or reading this plan's Purpose & Scope,
 would look in `../../HISTORY.md` for a section that was never built — the two documents describe a structure
 `../../HISTORY.md` doesn't actually have.
 
 **Proposed improvement:** Either add a "🚀 Future Roadmap Implications" section to `../../HISTORY.md` (per-version,
 alongside its Historical Timeline entries) and thread it through past releases retroactively, or update this plan's
-Purpose & Scope and `../../AGENTS.md`'s Release Checklist step 6 to stop referencing a section that isn't part of
+Purpose & Scope and `../../AGENTS.md`'s Release Checklist step 7 to stop referencing a section that isn't part of
 `../../HISTORY.md`'s actual structure — whichever this project decides is the intended design — and add "Major
 Version Goals" to the Release Checklist's thread-through list either way.
 
@@ -331,12 +342,12 @@ regression is caught immediately rather than silently re-accumulating.
 
 ## 🚀 Roadmap
 
-| Phase       | Focus                                                                                                                                        |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)            |
-| **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                |
-| **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                |
-| **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                       |
+| Phase       | Focus                                                                                                                                          |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Now**     | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)              |
+| **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
+| **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
+| **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
 
 ---
 

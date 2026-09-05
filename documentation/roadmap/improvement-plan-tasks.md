@@ -106,6 +106,16 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
   `.env.production`; `index.html`'s canonical link was switched to the same `%VITE_SITE_URL%` build-time
   substitution so it can't drift from `baseUrl` again
 
+**Dependency surface has no ongoing audit discipline — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #8)*
+
+- [x] Run `npm audit` (advisory-only initially) in the CI gate added in Gap #1 — added in `5.2.0`:
+  `build.yml`'s Audit step runs `npm audit` with `continue-on-error: true`
+- [x] Document a periodic (e.g. monthly) dependency-update cadence in `AGENTS.md` — added in `5.2.0`, plus a new
+  "Review dependencies" step 2 in the Release Checklist so it's actually run at each release, not just documented
+- [x] Track heavy or risky packages (e.g. `sanitize-html`, `react-google-recaptcha-v3`) and pin versions thoughtfully at
+  each review — done in `5.2.0`: both named in `AGENTS.md`'s cadence note and the Release Checklist's new step, with
+  a changelog read expected before upgrading either
+
 **`AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `README.md` and
 `LICENSE.md` itself — ✅ Closed in v5.1.1** *(improvement-plan.md → Gap #10)*
 
@@ -124,22 +134,15 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 
 ## ⚪ Open
 
-**Dependency surface has no ongoing audit discipline** *(improvement-plan.md → Gap #8)*
-
-- [ ] Run `npm audit` (advisory-only initially) in the CI gate added in Gap #1
-- [ ] Document a periodic (e.g. monthly) dependency-update cadence in `AGENTS.md`
-- [ ] Track heavy or risky packages (e.g. `sanitize-html`, `react-google-recaptcha-v3`) and pin versions thoughtfully at
-  each review
-
 **`HISTORY.md`'s "Future Roadmap Implications" section, referenced by both `improvement-plan.md` and the Release
 Checklist, doesn't exist** *(improvement-plan.md → Gap #9)*
 
 - [ ] Decide whether to add a "Future Roadmap Implications" section to `HISTORY.md`, or update
-  `improvement-plan.md`'s Purpose & Scope and `AGENTS.md`'s Release Checklist step 6 to stop referencing one that
+  `improvement-plan.md`'s Purpose & Scope and `AGENTS.md`'s Release Checklist step 7 to stop referencing one that
   doesn't exist
 - [ ] If adding it: thread a "Future Roadmap Implications" section through `HISTORY.md`'s past Historical Timeline
   entries retroactively, not only future ones
-- [ ] Either way, add "Major Version Goals" to the Release Checklist step 6's thread-through list, since that
+- [ ] Either way, add "Major Version Goals" to the Release Checklist step 7's thread-through list, since that
   section already exists in `HISTORY.md` but isn't mentioned there
 
 **264 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed** *(improvement-plan.md → Gap #11)*
