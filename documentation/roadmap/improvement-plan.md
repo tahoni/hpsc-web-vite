@@ -93,11 +93,18 @@ ever deployed to a staging domain.
 **Proposed improvement:** Add a secret-free `.env.example`, and document the three variables in `../../README.md`
 itself, not only `../../AGENTS.md`. Source `baseUrl` from an environment variable with a safe production default.
 
-**Progress:** `../../README.md`'s own Environment Variables subsection already documents all three variables
+**Progress:** `../../README.md`'s own Environment Variables subsection already documented all three variables
 (`NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY`, `RECAPTCHA_V2_SITE_KEY`) — true since well before this gap was first
-written, not new work done since; the Evidence and Proposed improvement above have been corrected to stop claiming
-`../../README.md` doesn't cover them. The remaining two items — a secret-free `.env.example` and sourcing `baseUrl`
-from an environment variable — are still open.
+written, not new work done since. In `5.1.3`: `../../index.html`'s static `<link rel="canonical">` (which had
+drifted to the bare `https://hpsc.co.za`, missing the `www` subdomain `baseUrl` already uses),
+`../../public/robots.txt`'s `Sitemap` line and `../../README.md`'s introductory link were all corrected to match
+`baseUrl` — closing the immediate symptom this gap's Why-it-matters warned about. A secret-free
+`../../.env.example` was added, documenting `.env.local`'s exact `VITE_`-prefixed variable names; `../../AGENTS.md`,
+`../../README.md` and `../../CONTRIBUTING.md` were then simplified to point to it instead of each separately
+naming `GOOGLE_MAPS_API_KEY`/`RECAPTCHA_V2_SITE_KEY` (the Evidence above is now stale on that point — `AGENTS.md`
+no longer names them individually, by design), and `.env.local`/`.env.production` themselves were removed from
+version control in favour of it. The remaining ask — sourcing `baseUrl` itself from an environment variable with a
+safe production default — is still open.
 
 ### ⚪ Open
 

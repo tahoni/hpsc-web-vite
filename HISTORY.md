@@ -23,6 +23,22 @@ the legacy Version 3.x line that predates it.
 
 ## 📅 Historical Timeline
 
+### Version 5.1.3 (September 5, 2026)
+
+**Theme:** Canonical Domain Cleanup & Environment Variable Onboarding
+
+**Key Focus:**
+
+- Fixed `index.html`, `public/robots.txt` and `README.md` to point at the site's actual served domain,
+  `https://www.hpsc.co.za`, and the `baseUrl` constant already used elsewhere (e.g. the sitemap builder), instead of
+  the bare `https://hpsc.co.za` — a `3.6.5`-era choice the site's server no longer honours (confirmed via a live
+  redirect check)
+- Corrected `AGENTS.md`'s British English exceptions note and icon table, which had the `LICENSE.md` naming
+  convention backwards — every other doc linking to it now correctly spells it "Licence", not "License"
+- Added a secret-free `.env.example` documenting `.env.local`'s exact `VITE_`-prefixed variable names;
+  `AGENTS.md`/`README.md`/`CONTRIBUTING.md` now point to it instead of duplicating its content, and
+  `.env.local`/`.env.production` themselves are no longer tracked in version control
+
 ### Version 5.1.2 (September 4, 2026)
 
 **Theme:** Release-History Backfill & the Legacy `ARCHIVE.md`
