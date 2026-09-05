@@ -109,6 +109,31 @@ a direct hit doesn't 404. `coreContactUsRoute`'s `dateCreated`/`dateUpdated` wer
 `../../public/sitemap.xml` was regenerated via `npm run sitemap`, fixing the malformed first `<loc>` entry and
 adding the `/contact` and `/news` URLs — 9 entries in total.
 
+#### 3. Zero test coverage despite a configured test runner — ✅ Closed in v5.2.0
+
+**Evidence:** `../../package.json` has a working `test` script (`vitest`) and `vitest` as a dependency, but no
+`*.test.ts`/`*.test.tsx` file exists anywhere under `../../src`. There is no `vitest.config.ts`, no `jsdom` environment,
+and `@testing-library/react`/`@testing-library/user-event` aren't dev dependencies.
+
+**Why it matters:** Every route, the Contact Us forms RJSF schema/validation and the data-driven route mappings
+(`PageMapping`) currently ship with no regression safety net. `EmailService.sendEmail()` is still a
+`// TODO: call back-end` stub that unconditionally returns `true` — its eventual real implementation will have nothing
+to test against unless test infrastructure exists first.
+
+**Proposed improvement:** Add `vitest.config.ts` (`test.environment = 'jsdom'`) and the missing dev dependencies, then
+start with unit/smoke tests for pure logic (`htmlUtils.ts`, `RoutesSitemap.ts`) before component tests.
+
+**Outcome:** In `5.2.0`, `../../vitest.config.ts` was added, `mergeConfig`-ing `../../vite.config.ts` (so path aliases
+stay in sync) with `test.environment: "jsdom"`; `jsdom` was added as a dev dependency (`@testing-library/react`/
+`@testing-library/user-event` were already present). A `test:run` script (`vitest run`) was added for a single
+CI-friendly run — `../../.github/workflows/build.yml`'s Test step now uses it instead of `npm test`'s watch-mode
+default — and documented in `../../README.md`'s Available Scripts and `../../AGENTS.md`'s Test Conventions. Unit/smoke
+tests were added for `../../src/utils/htmlUtils.ts` (`sanitizeValue`, `nonBreakingHyphens`, `nonBreakingSpaces`) and
+`../../builders/RoutesSitemap.ts` (`generateRoutesSitemap`'s XML structure, one `<url>` per core route, Home's higher
+priority). `../../builders/RoutesSitemap.ts`'s module-level `generateRoutesSitemap().then(...)` call — which used to
+run automatically on import — was guarded behind an "is this file being run directly" check so importing it for tests
+no longer triggers a real sitemap generation as a side effect.
+
 #### 7. Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl` is hardcoded — ✅ Closed in v5.2.0
 
 **Evidence:** `../../AGENTS.md`'s Environment Variables table documents `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and
@@ -173,20 +198,6 @@ and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]`
 *No gaps are currently partially completed.*
 
 ### ⚪ Open
-
-#### 3. Zero test coverage despite a configured test runner
-
-**Evidence:** `../../package.json` has a working `test` script (`vitest`) and `vitest` as a dependency, but no
-`*.test.ts`/`*.test.tsx` file exists anywhere under `../../src`. There is no `vitest.config.ts`, no `jsdom` environment,
-and `@testing-library/react`/`@testing-library/user-event` aren't dev dependencies.
-
-**Why it matters:** Every route, the Contact Us forms RJSF schema/validation and the data-driven route mappings
-(`PageMapping`) currently ship with no regression safety net. `EmailService.sendEmail()` is still a
-`// TODO: call back-end` stub that unconditionally returns `true` — its eventual real implementation will have nothing
-to test against unless test infrastructure exists first.
-
-**Proposed improvement:** Add `vitest.config.ts` (`test.environment = 'jsdom'`) and the missing dev dependencies, then
-start with unit/smoke tests for pure logic (`htmlUtils.ts`, `RoutesSitemap.ts`) before component tests.
 
 #### 4. No error boundary or production error handling
 
@@ -283,7 +294,7 @@ regression is caught immediately rather than silently re-accumulating.
 
 | Phase       | Focus                                                                                                                                        |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Stand up initial test coverage (#3) and a top-level error boundary (#4), now that the CI gate added in `5.2.0` has something real to enforce |
+| **Now**     | Add a top-level error boundary (#4), now that the CI gate and initial test coverage added in `5.2.0` have something real to protect          |
 | **Next**    | Accessibility baseline (#5) and the styling-convention cleanup (#6)                                                                          |
 | **Later**   | The `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)            |
 | **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                       |
@@ -296,7 +307,7 @@ regression is caught immediately rather than silently re-accumulating.
   `../../AGENTS.md`'s Code Quality & CI section can drop its "run these locally" caveat (#1) — ✅ Met in v5.2.0.
 - `News` is either reachable through a real route or the folder is removed; `coreContactUsRoute`'s dates are internally
   consistent; `../../public/sitemap.xml` is regenerated and no longer malformed (#2) — ✅ Met in v5.2.0.
-- At least one test file exists under `../../src` and passes in CI.
+- At least one test file exists under `../../src` and passes in CI (#3) — ✅ Met in v5.2.0.
 - A secret-free `.env.example` exists and `baseUrl` is sourced from an environment variable (#7) — ✅ Met in v5.2.0.
 - `../../HISTORY.md` either gains a "Future Roadmap Implications" section or this plan's Purpose & Scope and
   `../../AGENTS.md`'s Release Checklist stop referencing one that doesn't exist (#9).

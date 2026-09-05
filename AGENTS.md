@@ -56,7 +56,7 @@ dependencies, both handled by third-party services called directly from the clie
 - **Sanitisation:** `sanitize-html`
 - **Bot protection:** `react-google-recaptcha-v3`
 - **Alerts/dialogs:** `sweetalert2`
-- **Testing:** Vitest (configured; no tests written yet — see [🧪 Test Conventions](#-test-conventions))
+- **Testing:** Vitest with `@testing-library/react` and a `jsdom` environment (see [🧪 Test Conventions](#-test-conventions))
 - **Linting:** ESLint 9 (flat config), `typescript-eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`,
   `eslint-plugin-tsdoc`
 - **API documentation:** TypeDoc (`npm run docs`, output to `/target/docs`)
@@ -397,12 +397,13 @@ directly rather than relying on the skills existing.
 
 ## 🧪 Test Conventions
 
-Vitest is configured (`npm test`) but no test files exist yet in this repository — see
-`documentation/roadmap/improvement-plan-tasks.md` items on establishing CI and initial test coverage. When adding tests:
+Vitest is configured, with `vitest.config.ts` setting `test.environment` to `jsdom` and `@testing-library/react`/
+`@testing-library/user-event` available as dev dependencies. Run `npm test` for watch mode locally, or
+`npm run test:run` (used by [`.github/workflows/build.yml`](.github/workflows/build.yml)) for a single CI-friendly run.
+Coverage is still thin — see `documentation/roadmap/improvement-plan-tasks.md` for what's next. When adding tests:
 
 - Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
-- For component tests, use `@testing-library/react` with a `jsdom` environment (add as a dev dependency and configure
-  `test.environment` in a `vitest.config.ts` — neither exists yet).
+- For component tests, use `@testing-library/react` with the configured `jsdom` environment.
 - Prefer testing behaviour and rendered output over implementation details; avoid snapshot tests of large component
   trees.
 - Don't write tests whose sole purpose is verifying that TypeScript's type system or a trivial pass-through prop

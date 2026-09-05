@@ -116,7 +116,12 @@ Runs ESLint to check for code quality issues.
 
 #### `npm test`
 
-Runs the Vitest test suite.
+Runs the Vitest test suite in watch mode.
+
+#### `npm run test:run`
+
+Runs the Vitest test suite once and exits — the CI-friendly form of `npm test`, used by
+[`.github/workflows/build.yml`](.github/workflows/build.yml).
 
 #### `npm run docs`
 

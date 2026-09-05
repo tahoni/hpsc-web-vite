@@ -45,6 +45,17 @@ evidence and reasoning there; within each section, gaps stay in ascending number
   `<loc>` entry is resolved — regenerated in `5.2.0`; the malformed `https: www.hpsc.co.za` entry is fixed and
   `/contact`/`/news` are now included (9 URLs total)
 
+**Zero test coverage despite a configured test runner — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #3)*
+
+- [x] Add `vitest.config.ts` with `test.environment = 'jsdom'` — added in `5.2.0`, `mergeConfig`-ing `vite.config.ts`
+  so path aliases stay in sync
+- [x] Add `@testing-library/react`/`@testing-library/user-event` as dev dependencies — already present
+- [x] Add unit/smoke tests for `src/utils/htmlUtils.ts` and `builders/RoutesSitemap.ts` first (pure logic, no
+  rendering) — added in `5.2.0`; `RoutesSitemap.ts`'s module-level side effect was also guarded so importing it for
+  tests doesn't trigger a real sitemap generation
+- [x] Add a CI-friendly `test:run` script (`vitest run`) and document its usage — added in `5.2.0`, used by
+  `build.yml`'s Test step, documented in `README.md`/`AGENTS.md`
+
 **Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl`
 is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 
@@ -76,13 +87,6 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 ---
 
 ## ⚪ Open
-
-**Zero test coverage despite a configured test runner** *(improvement-plan.md → Gap #3)*
-
-- [ ] Add `vitest.config.ts` with `test.environment = 'jsdom'`
-- [ ] Add `@testing-library/react`/`@testing-library/user-event` as dev dependencies
-- [ ] Add unit/smoke tests for `src/utils/htmlUtils.ts` and `builders/RoutesSitemap.ts` first (pure logic, no rendering)
-- [ ] Add a CI-friendly `test:run` script (`vitest run`) and document its usage
 
 **No error boundary or production error handling** *(improvement-plan.md → Gap #4)*
 

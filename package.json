@@ -12,8 +12,9 @@
     "preview": "vite preview",
     "docs": "typedoc",
     "test": "vitest",
+    "test:run": "vitest run",
     "host": "vite --host hpsc.local",
-    "sitemap": "tsx --tsconfig tsconfig.app.json builders/RoutesSitemap"
+    "sitemap": "tsx --env-file=.env.production --tsconfig tsconfig.app.json builders/RoutesSitemap"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
@@ -49,6 +50,8 @@
   "devDependencies": {
     "@eslint/js": "^9.39.5",
     "@rollup/plugin-babel": "^7.1.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "@types/react": "~19.2.18",
     "@types/react-dom": "~19.2.5",
     "@types/react-google-recaptcha": "^2.1.9",
@@ -59,6 +62,7 @@
     "eslint-plugin-react-refresh": "^0.5.5",
     "eslint-plugin-tsdoc": "^0.5.2",
     "globals": "^17.11.0",
+    "jsdom": "^30.0.1",
     "rollup-plugin-visualizer": "^7.1.1",
     "sass": "^1.103.1",
     "sitemap": "^9.0.1",
