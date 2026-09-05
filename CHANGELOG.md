@@ -45,6 +45,12 @@ notes.
 
 #### ➕ Added
 
+##### Developer Experience
+
+- Documented `VITE_SITE_URL` and `VITE_SHOW_BREAKPOINTS` in `.env.example`, matching the existing
+  `VITE_GOOGLE_MAPS_API_KEY`/`VITE_RECAPTCHA_V2_SITE_KEY` style, and added JSDoc to `vite-env.d.ts`'s
+  `ImportMetaEnv`/`ImportMeta` interfaces with per-property comments synced to `.env.example`'s descriptions
+
 #### 🔄 Changed
 
 #### 🐛 Fixed

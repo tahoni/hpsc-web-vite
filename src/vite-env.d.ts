@@ -38,3 +38,32 @@ declare module "*.module.scss" {
   export const content: { [className: string]: string };
   export default content;
 }
+
+/**
+ * Type definitions for this project's Vite env variables (`VITE_`-prefixed, exposed via
+ * `import.meta.env`). Keep this in sync with `.env.example`, which documents each variable's
+ * purpose and where to obtain a real value.
+ *
+ * @module ImportMetaEnv
+ */
+interface ImportMetaEnv {
+  /** The URL of the website. */
+  readonly VITE_SITE_URL: string;
+  /** Whether to show breakpoints in the UI. */
+  readonly VITE_SHOW_BREAKPOINTS: boolean;
+  /** reCAPTCHA v2 site key for the Contact Us form's Captcha component. */
+  readonly VITE_RECAPTCHA_V2_SITE_KEY: string;
+  /** Google Maps API key; without it the venue map does not render. */
+  readonly VITE_GOOGLE_MAPS_API_KEY: string;
+  // Add other env variables here as needed...
+}
+
+/**
+ * Augments Vite's built-in `ImportMeta` (from `vite/client`) so that `import.meta.env` is typed
+ * against this project's {@link ImportMetaEnv} instead of the generic `Record<string, string>`.
+ *
+ * @module ImportMeta
+ */
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
