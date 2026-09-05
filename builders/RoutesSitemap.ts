@@ -7,8 +7,8 @@
  */
 
 import { Readable } from "stream";
-import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { SitemapStream, streamToPromise } from "sitemap";
 import { SitemapMapping } from "@/models/sitemap/SitemapMappings";
 import { baseUrl } from "@/constants/commonConstants.ts";
