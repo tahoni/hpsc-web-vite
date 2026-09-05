@@ -90,14 +90,12 @@ the standard `dev`/`build`/`preview`/`lint`/`test` scripts.
 
 ## 🔧 Environment Variables
 
-| Variable                | Used in      | Purpose                                                                             |
-|-------------------------|--------------|---------------------------------------------------------------------------------------|
-| `NPM_TOKEN_READ`        | `.npmrc`     | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
-| `GOOGLE_MAPS_API_KEY`   | `.env.local` | Google Maps API key; without it the venue map does not render                      |
-| `RECAPTCHA_V2_SITE_KEY` | `.env.local` | reCAPTCHA v2 site key for the Contact Us form's `Captcha` component                 |
+| Variable         | Used in  | Purpose                                                                             |
+|------------------|----------|---------------------------------------------------------------------------------------|
+| `NPM_TOKEN_READ` | `.npmrc` | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
 
-A secret-free `.env.example` documents the exact `VITE_`-prefixed variable names `.env.local` expects, as a
-copy-to-`.env.local` starting point.
+`.env.local` also holds API keys the venue map and the Contact Us form's captcha need to render — see the
+secret-free `.env.example` for the exact `VITE_`-prefixed variable names, as a copy-to-`.env.local` starting point.
 
 ---
 
