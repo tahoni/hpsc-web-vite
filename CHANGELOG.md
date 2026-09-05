@@ -130,6 +130,10 @@ notes.
   `dateUpdated` by over nine months) and `public/sitemap.xml`'s malformed first `<loc>` entry
   (`https: www.hpsc.co.za`, missing slashes); regenerated the sitemap via `npm run sitemap`, now including
   `/contact` and `/news` (9 URLs total)
+- Fixed `/contact` and `/venues` being commented out of `routeHelpers.tsx`'s `routes` array and
+  `menuHelpers.tsx`'s `menuItems`, despite both already being indexed in `public/sitemap.xml` and whitelisted in
+  `public/.htaccess` — either URL previously rendered a blank page inside the site chrome; both pages are now
+  reachable by direct URL and from the primary navigation menu
 
 ##### Build & Tooling
 
@@ -154,6 +158,8 @@ notes.
 - Fixed `CONTRIBUTING.md`'s Pull Request Checklist and `AGENTS.md`'s Code Quality & CI section still claiming no CI
   workflow runs `npm run build` automatically, and naming `npm test` instead of the actual `npm run test:run`
   `build.yml` uses
+- Fixed `CONTRIBUTING.md`'s "CI/CD & Quality Gates" and "Testing" sections still claiming no CI workflow or test
+  files exist, both closed earlier in this release by `build.yml` and the initial Vitest coverage
 - Removed the non-standard `@module` JSDoc tag (invalid TSDoc syntax, one of the sources behind Gap #11's 264
   `tsdoc/syntax` warnings) from `builders/RoutesSitemap.ts`, `menuHelpers.tsx`, `main.tsx`, `BaseRoutes.ts`,
   `RouteAliases.tsx` and `htmlUtils.ts`
