@@ -45,7 +45,12 @@ const NewsPage = React.lazy(() => import("@features/News"));
 export const home: PageMapping = new PageMapping({
   ...coreHomeRoute,
   element: (
-    <Page keyValue={"homePage"} title={""}>
+    <Page
+      keyValue={"homePage"}
+      title={""}
+      path={coreHomeRoute.path}
+      description={coreHomeRoute.description}
+    >
       <HomePage />
     </Page>
   ),
@@ -54,7 +59,12 @@ export const home: PageMapping = new PageMapping({
 export const members: PageMapping = {
   ...coreMembersRoute,
   element: (
-    <Page keyValue={"membersPage"} title={"Members"}>
+    <Page
+      keyValue={"membersPage"}
+      title={"Members"}
+      path={coreMembersRoute.path}
+      description={coreMembersRoute.description}
+    >
       <MembersPage />
     </Page>
   ),
@@ -63,7 +73,12 @@ export const members: PageMapping = {
 export const links: PageMapping = {
   ...coreLinksRoute,
   element: (
-    <Page keyValue={"linksPage"} title={"Links"}>
+    <Page
+      keyValue={"linksPage"}
+      title={"Links"}
+      path={coreLinksRoute.path}
+      description={coreLinksRoute.description}
+    >
       <LinksPage />
     </Page>
   ),
@@ -72,7 +87,12 @@ export const links: PageMapping = {
 export const history: PageMapping = {
   ...coreHistoryRoute,
   element: (
-    <Page keyValue={"historyPage"} title={"History"}>
+    <Page
+      keyValue={"historyPage"}
+      title={"History"}
+      path={coreHistoryRoute.path}
+      description={coreHistoryRoute.description}
+    >
       <HistoryPage />
     </Page>
   ),
@@ -81,7 +101,12 @@ export const history: PageMapping = {
 export const aboutUs: PageMapping = {
   ...coreAboutUsRoute,
   element: (
-    <Page keyValue={"aboutUsPage"} title={"About Us"}>
+    <Page
+      keyValue={"aboutUsPage"}
+      title={"About Us"}
+      path={coreAboutUsRoute.path}
+      description={coreAboutUsRoute.description}
+    >
       <AboutUsPage />
     </Page>
   ),
@@ -90,7 +115,12 @@ export const aboutUs: PageMapping = {
 export const contactUs: PageMapping = {
   ...coreContactUsRoute,
   element: (
-    <Page keyValue={"contactUsPage"} title={"Contact Us"}>
+    <Page
+      keyValue={"contactUsPage"}
+      title={"Contact Us"}
+      path={coreContactUsRoute.path}
+      description={coreContactUsRoute.description}
+    >
       <ContactUsPage />
     </Page>
   ),
@@ -99,7 +129,12 @@ export const contactUs: PageMapping = {
 export const events: PageMapping = {
   ...coreEventsRoute,
   element: (
-    <Page keyValue={"eventsPage"} title={"Events"}>
+    <Page
+      keyValue={"eventsPage"}
+      title={"Events"}
+      path={coreEventsRoute.path}
+      description={coreEventsRoute.description}
+    >
       <EventsPage />
     </Page>
   ),
@@ -108,7 +143,12 @@ export const events: PageMapping = {
 export const venues: PageMapping = {
   ...coreVenuesRoute,
   element: (
-    <Page keyValue={"venuesPage"} title={"Shooting Ranges"}>
+    <Page
+      keyValue={"venuesPage"}
+      title={"Shooting Ranges"}
+      path={coreVenuesRoute.path}
+      description={coreVenuesRoute.description}
+    >
       <VenuesPage />
     </Page>
   ),
@@ -117,7 +157,12 @@ export const venues: PageMapping = {
 export const news: PageMapping = {
   ...coreNewsRoute,
   element: (
-    <Page keyValue={"newsPage"} title={"News"}>
+    <Page
+      keyValue={"newsPage"}
+      title={"News"}
+      path={coreNewsRoute.path}
+      description={coreNewsRoute.description}
+    >
       <NewsPage />
     </Page>
   ),

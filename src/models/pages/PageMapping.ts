@@ -13,6 +13,7 @@ export class PageMapping {
   element?: JSX.Element;
   dateCreated?: Date;
   dateUpdated?: Date;
+  description?: string;
 
   /**
    * Creates a new PageMapping instance with the specified details.
@@ -25,11 +26,13 @@ export class PageMapping {
     element?: JSX.Element;
     dateCreated?: Date;
     dateUpdated?: Date;
+    description?: string;
   }) {
     this.name = mapping.name;
     this.path = mapping.path;
     this.element = mapping.element;
     this.dateCreated = mapping.dateCreated;
     this.dateUpdated = mapping.dateUpdated;
+    this.description = mapping.description;
   }
 }
