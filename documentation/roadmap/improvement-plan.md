@@ -55,31 +55,7 @@ Within each section, gaps stay in ascending number order.
 
 ### ✅ Completed
 
-#### 10. `../../AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `../../README.md` and `../../LICENSE.md` itself — ✅ Closed in v5.1.1
-
-**Evidence:** `../../AGENTS.md`'s Documentation File Map lists `LICENSE.md` as "MIT License". `../../LICENSE.md`
-itself is a plain "Copyright © 2026 Hartbeespoortdam Practical Shooting Club. All Rights Reserved." notice, and
-`../../README.md`'s own Documentation table already correctly describes it as "All Rights Reserved". This project's
-`../../CHANGELOG.md`, under its current `### 🧪 [Unreleased]` section, even claims this was already fixed ("Fixed
-`README.md`'s Documentation table and `AGENTS.md`'s Documentation File Map describing `LICENSE.md` as 'MIT
-License' ... both now describe it accurately") — but only `../../README.md` was actually corrected;
-`../../AGENTS.md` still reads "MIT License".
-
-**Why it matters:** `../../AGENTS.md` is this project's documented single source of truth for cross-tool agent
-conventions, and it now contradicts both `../../README.md` and the licence file it's describing — exactly the kind
-of doc-vs-doc drift this plan exists to catch. It also means the current `../../CHANGELOG.md` `[Unreleased]` entry
-is itself inaccurate about what was actually done, risking a release note that overstates the fix once promoted to a
-dated version entry.
-
-**Proposed improvement:** Correct `../../AGENTS.md`'s Documentation File Map entry for `LICENSE.md` to "All Rights
-Reserved", matching `../../README.md` and the file's actual content.
-
-**Outcome:** `../../AGENTS.md`'s Documentation File Map now reads "All Rights Reserved", matching `../../README.md`
-and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]` entry's claim is now accurate.
-
-### 🟡 Partially Completed
-
-#### 7. Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl` is hardcoded
+#### 7. Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl` is hardcoded — ✅ Closed in v5.2.0
 
 **Evidence:** `../../AGENTS.md`'s Environment Variables table documents `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and
 `RECAPTCHA_V2_SITE_KEY`. Separately, `baseUrl` in `../../src/constants/commonConstants.ts` is a hardcoded string
@@ -105,6 +81,42 @@ naming `GOOGLE_MAPS_API_KEY`/`RECAPTCHA_V2_SITE_KEY` (the Evidence above is now 
 no longer names them individually, by design), and `.env.local`/`.env.production` themselves were removed from
 version control in favour of it. The remaining ask — sourcing `baseUrl` itself from an environment variable with a
 safe production default — is still open.
+
+**Outcome:** In `5.2.0`, `../../src/constants/commonConstants.ts`'s `baseUrl` was changed from the hardcoded
+`"https://www.hpsc.co.za"` literal to `import.meta.env.VITE_SITE_URL`. A new `VITE_SITE_URL` variable was added to
+`../../.env.example` (documented alongside the existing three) and typed as a required, non-optional entry on
+`../../src/vite-env.d.ts`'s `ImportMetaEnv` interface, which itself gained JSDoc explaining it's kept in sync with
+`../../.env.example`. `../../.env.production` sets `VITE_SITE_URL=https://www.hpsc.co.za`, the safe production
+default the Proposed improvement asked for, while `../../.env.local` overrides it for local/preview use
+(`http://localhost:4173`). `../../index.html`'s `<link rel="canonical">` was also switched from its static href to
+`%VITE_SITE_URL%`, the build-time substitution Vite performs on `index.html`, so it now tracks the same source of
+truth as `baseUrl` instead of risking independent drift again. This closes the gap's last remaining item.
+
+#### 10. `../../AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `../../README.md` and `../../LICENSE.md` itself — ✅ Closed in v5.1.1
+
+**Evidence:** `../../AGENTS.md`'s Documentation File Map lists `LICENSE.md` as "MIT License". `../../LICENSE.md`
+itself is a plain "Copyright © 2026 Hartbeespoortdam Practical Shooting Club. All Rights Reserved." notice, and
+`../../README.md`'s own Documentation table already correctly describes it as "All Rights Reserved". This project's
+`../../CHANGELOG.md`, under its current `### 🧪 [Unreleased]` section, even claims this was already fixed ("Fixed
+`README.md`'s Documentation table and `AGENTS.md`'s Documentation File Map describing `LICENSE.md` as 'MIT
+License' ... both now describe it accurately") — but only `../../README.md` was actually corrected;
+`../../AGENTS.md` still reads "MIT License".
+
+**Why it matters:** `../../AGENTS.md` is this project's documented single source of truth for cross-tool agent
+conventions, and it now contradicts both `../../README.md` and the licence file it's describing — exactly the kind
+of doc-vs-doc drift this plan exists to catch. It also means the current `../../CHANGELOG.md` `[Unreleased]` entry
+is itself inaccurate about what was actually done, risking a release note that overstates the fix once promoted to a
+dated version entry.
+
+**Proposed improvement:** Correct `../../AGENTS.md`'s Documentation File Map entry for `LICENSE.md` to "All Rights
+Reserved", matching `../../README.md` and the file's actual content.
+
+**Outcome:** `../../AGENTS.md`'s Documentation File Map now reads "All Rights Reserved", matching `../../README.md`
+and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]` entry's claim is now accurate.
+
+### 🟡 Partially Completed
+
+*No gaps are currently partially completed.*
 
 ### ⚪ Open
 
@@ -253,7 +265,7 @@ regression is caught immediately rather than silently re-accumulating.
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Now**     | Add the CI lint/build/test gate (#1) — lowest effort, closes a gap the project's own docs already flag — and fix the two shipped route-metadata bugs (#2)                                                                                                                                                 |
 | **Next**    | Stand up initial test coverage (#3) and a top-level error boundary (#4), so the CI gate added in Now has something real to enforce                                                                                                                                                                        |
-| **Later**   | Accessibility baseline (#5), the styling-convention cleanup (#6), the remaining `.env.example`/`baseUrl` work on the partially-completed environment-variable gap (#7), the `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11) |
+| **Later**   | Accessibility baseline (#5), the styling-convention cleanup (#6), the `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11)                                                                                                     |
 | **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                                                                                                                                                                                    |
 
 ---
@@ -265,9 +277,7 @@ regression is caught immediately rather than silently re-accumulating.
 - `News` is either reachable through a real route or the folder is removed; `coreContactUsRoute`'s dates are internally
   consistent; `../../public/sitemap.xml` is regenerated and no longer malformed.
 - At least one test file exists under `../../src` and passes in CI.
-- A secret-free `.env.example` exists and `baseUrl` is sourced from an environment variable, closing the remainder of
-  the partially completed environment-variable gap (#7) — `../../README.md`'s own documentation of the three
-  variables is already in place.
+- A secret-free `.env.example` exists and `baseUrl` is sourced from an environment variable (#7) — ✅ Met in v5.2.0.
 - `../../HISTORY.md` either gains a "Future Roadmap Implications" section or this plan's Purpose & Scope and
   `../../AGENTS.md`'s Release Checklist stop referencing one that doesn't exist (#9).
 - `npm run lint` reports zero `tsdoc/syntax` warnings, and the rule is escalated from `"warn"` to `"error"` in

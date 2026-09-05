@@ -15,6 +15,20 @@ evidence and reasoning there; within each section, gaps stay in ascending number
 
 ## ✅ Completed
 
+**Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl`
+is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
+
+- [x] Add a secret-free `.env.example` — done in `5.1.3`, documenting all three variables and linked from
+  `README.md`/`AGENTS.md`
+- [x] Document `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and `RECAPTCHA_V2_SITE_KEY` in `README.md` itself, not only
+  `AGENTS.md` — already done; `README.md`'s own Environment Variables subsection documents all three, and has done
+  since before this gap was first written
+- [x] Source `baseUrl` in `src/constants/commonConstants.ts` from an environment variable with a safe production
+  default — done in `5.2.0`: `baseUrl` now reads `import.meta.env.VITE_SITE_URL`, a new variable documented in
+  `.env.example`, typed on `vite-env.d.ts`'s `ImportMetaEnv`, and defaulted to `https://www.hpsc.co.za` in
+  `.env.production`; `index.html`'s canonical link was switched to the same `%VITE_SITE_URL%` build-time
+  substitution so it can't drift from `baseUrl` again
+
 **`AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `README.md` and
 `LICENSE.md` itself — ✅ Closed in v5.1.1** *(improvement-plan.md → Gap #10)*
 
@@ -27,16 +41,7 @@ evidence and reasoning there; within each section, gaps stay in ascending number
 
 ## 🟡 Partially Completed
 
-**Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl`
-is hardcoded** *(improvement-plan.md → Gap #7)*
-
-- [x] Add a secret-free `.env.example` — done in `5.1.3`, documenting all three variables and linked from
-  `README.md`/`AGENTS.md`
-- [x] Document `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and `RECAPTCHA_V2_SITE_KEY` in `README.md` itself, not only
-  `AGENTS.md` — already done; `README.md`'s own Environment Variables subsection documents all three, and has done
-  since before this gap was first written
-- [ ] Source `baseUrl` in `src/constants/commonConstants.ts` from an environment variable with a safe production
-  default
+*No gaps are currently partially completed.*
 
 ---
 
