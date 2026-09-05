@@ -93,7 +93,7 @@ the standard `dev`/`build`/`preview`/`lint`/`test` scripts.
 ## 🔧 Environment Variables
 
 | Variable         | Used in  | Purpose                                                                             |
-|------------------|----------|---------------------------------------------------------------------------------------|
+|------------------|----------|-------------------------------------------------------------------------------------|
 | `NPM_TOKEN_READ` | `.npmrc` | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
 
 `.env.local` also holds API keys the venue map and the Contact Us form's captcha need to render — see the
