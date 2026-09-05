@@ -137,6 +137,9 @@ variable, otherwise, the map will not be available.
 The reCAPTCHA v2 site key needs to be set in the `RECAPTCHA_V2_SITE_KEY` environment variable, otherwise, the
 Contact Us form's captcha will not be available.
 
+Copy [`.env.example`](.env.example) to `.env.local` and fill in real values as a starting point — it documents
+every variable above, secret-free.
+
 ---
 
 ## 📚 Documentation

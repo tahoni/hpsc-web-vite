@@ -98,6 +98,8 @@ the standard `dev`/`build`/`preview`/`lint`/`test` scripts.
 
 `.env.production` only sets `VITE_SHOW_BREAKPOINTS=false` (a debug overlay toggle); it carries no secrets.
 
+A secret-free `.env.example` documents all three variables above as a copy-to-`.env.local` starting point.
+
 ---
 
 ## 🏛️ Architecture Overview

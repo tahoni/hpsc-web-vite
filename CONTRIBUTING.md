@@ -42,7 +42,8 @@ drift there first, then update whichever file had fallen out of sync.
 ## 🚀 Getting Started
 
 1. Clone the repository from [GitHub](https://github.com/tahoni/hpsc-web-vite).
-2. Set the environment variables listed under Prerequisites above.
+2. Set the environment variables listed under Prerequisites above — copy [`.env.example`](.env.example) to
+   `.env.local` and fill in real values as a starting point.
 3. Install dependencies: `npm install`.
 4. Start the dev server: `npm run dev` (or `npm run host` to bind to `http://hpsc.local/` instead of `localhost`).
 
