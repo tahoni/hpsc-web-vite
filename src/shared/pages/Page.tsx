@@ -45,7 +45,7 @@ const upsertHeadTag = (
  * It displays an optional page title and provides support for suspense-based loading
  * of child components.
  *
- * Also keeps the browser tab title, the meta description and the canonical link in sync with the
+ * Also keeps the browser tab title, the meta-description and the canonical link in sync with the
  * route being rendered, so each page is genuinely unique to search engines and assistive
  * technology, rather than sharing `index.html`'s single static set of tags across every route.
  *
