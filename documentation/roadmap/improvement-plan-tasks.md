@@ -145,7 +145,9 @@ Checklist, doesn't exist — ✅ Closed in v5.2.0** *(improvement-plan.md → Ga
 - [x] Uncomment `{ mapping: contactUs }` (and its `/contact_us` alias) and `{ mapping: venues }` in
   `routeHelpers.tsx`'s `routes` array — done in `5.2.0`
 - [x] Uncomment the matching `contactUs`/`venues` entries in `menuHelpers.tsx`'s `menuItems` array so they're
-  reachable from the primary navigation menu, not just by direct URL — done in `5.2.0`
+  reachable from the primary navigation menu, not just by direct URL — briefly done, then deliberately reverted
+  later in `5.2.0`: both pages are intentionally direct-URL/sitemap-only, not linked from the primary navigation
+  menu; `UI.md`'s Navigation section was reverse-synced to match in the same release
 - [x] Regenerate `public/sitemap.xml` via `npm run sitemap` — run in `5.2.0`; produced no diff, confirming it already
   matched
 

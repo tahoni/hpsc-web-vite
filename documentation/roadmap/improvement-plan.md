@@ -369,12 +369,17 @@ remove it from `../../public/sitemap.xml`/`../../public/.htaccess`'s whitelist a
 `../../src/shared/routes/BaseRoutes.ts`'s `coreRoutes` instead, so the site stops advertising a page it doesn't serve.
 
 **Outcome:** In `5.2.0`, `{ mapping: contactUs }`/`{ path: "/contact_us", mapping: contactUs }` and
-`{ mapping: venues }` were uncommented in `../../src/helpers/routeHelpers.tsx`'s `routes` array, and the matching
-`contactUs`/`venues` entries were uncommented in `../../src/helpers/menuHelpers.tsx`'s `menuItems` array, so both
-pages are now reachable by direct URL and from the primary navigation menu, not just indexed by the sitemap.
-`npm run lint`, `npm run build` and `npm run test:run` all pass unchanged; `npm run sitemap` was re-run and produced
-no diff, confirming `../../public/sitemap.xml` already matched. Verified live in a running `npm run dev` session that
-both `/contact` and `/venues` return `200` and render inside the site chrome instead of a blank page.
+`{ mapping: venues }` were uncommented in `../../src/helpers/routeHelpers.tsx`'s `routes` array, so both pages are
+now reachable by direct URL instead of a blank page inside the site chrome — closing this gap's core defect.
+`../../src/helpers/menuHelpers.tsx`'s `menuItems` entries were briefly uncommented too, then deliberately removed
+again later in the same release ("Remove Contact Us from the primary navigation menu", "Remove Venues from the
+primary navigation menu"): both pages are intentionally direct-URL/sitemap-only, not linked from the primary
+navigation menu. `npm run lint`, `npm run build` and `npm run test:run` all pass unchanged; `npm run sitemap` was
+re-run and produced no diff, confirming `../../public/sitemap.xml` already matched. Verified live in a running
+`npm run dev` session that both `/contact` and `/venues` return `200` and render inside the site chrome instead of a
+blank page. `../../UI.md`'s Navigation section, which listed "Contact Us" and "Shooting Ranges" as primary-navigation
+items, was corrected in the same release's reverse-sync pass to list only the six routes actually in
+`menuHelpers.tsx`'s `menuItems`, with a note that Contact Us/Venues are direct-URL/sitemap-only.
 
 #### 13. `CONTRIBUTING.md`'s CI/CD and Testing sections still described a pre-Gap-#1/#3 state — ✅ Closed in v5.2.0
 
@@ -462,7 +467,8 @@ regression is caught immediately rather than silently re-accumulating.
   `../../eslint.config.js` once clean (#11).
 - `/contact` and `/venues` either render through `AppRoutes.tsx` like every other core route, or are removed from
   `../../public/sitemap.xml`/`../../public/.htaccess` so the site stops advertising pages it doesn't serve
-  (#12) — ✅ Met in v5.2.0.
+  (#12) — ✅ Met in v5.2.0 (both render through `AppRoutes.tsx`; both were deliberately left out of the primary
+  navigation menu, and `../../UI.md`'s Navigation section was reverse-synced to match).
 - `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" and "🧪 Testing" sections describe the CI gate and initial
   test coverage `5.2.0` actually shipped, instead of the pre-Gap-#1/#3 state (#13) — ✅ Met in v5.2.0.
 - This document's Gaps section shrinks over time as items close — closed items should move into `../../HISTORY.md`'s
