@@ -11,7 +11,6 @@ import {
   home,
   links,
   members,
-  venues,
 } from "@shared/routes/RouteAliases.tsx";
 
 /**
@@ -25,7 +24,6 @@ export const menuItems: PageMapping[] = [
   home,
   members,
   links,
-  venues,
   events,
   history,
   aboutUs,

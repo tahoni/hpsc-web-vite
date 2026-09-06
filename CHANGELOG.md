@@ -132,8 +132,8 @@ notes.
   `/contact` and `/news` (9 URLs total)
 - Fixed `/contact` and `/venues` being commented out of `routeHelpers.tsx`'s `routes` array, despite both already
   being indexed in `public/sitemap.xml` and whitelisted in `public/.htaccess` — either URL previously rendered a
-  blank page inside the site chrome; both pages are now reachable by direct URL. `/venues` was also restored to
-  `menuHelpers.tsx`'s `menuItems`; `/contact` was intentionally left out of the primary navigation menu
+  blank page inside the site chrome; both pages are now reachable by direct URL. Both were intentionally left out
+  of `menuHelpers.tsx`'s `menuItems` (the primary navigation menu)
 
 ##### Build & Tooling
 
