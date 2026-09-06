@@ -24,9 +24,9 @@ sections, `../../package.json` and `../../vite.config.ts` — rather than introd
 and the configuration disagree, or where a stated goal has no corresponding work item yet, that gap is called out below
 as an improvement opportunity.
 
-It complements, rather than duplicates, `../../HISTORY.md`'s per-release "🚀 Future Roadmap Implications" section: that
-section tracks what changed release-to-release, while this document tracks the standing, cross-release gaps between the
-project's stated intent and its current state.
+It complements, rather than duplicates, `../../HISTORY.md`'s "🚀 Future Roadmap Implications" section: that section
+synthesises what this project's history implies for its forward roadmap, while this document tracks the standing,
+cross-release gaps between the project's stated intent and its current state.
 
 ---
 
@@ -55,7 +55,7 @@ Within each section, gaps stay in ascending number order.
 
 ### 📋 At a Glance
 
-- **✅ Completed (11):**
+- **✅ Completed (12):**
   - #1 No automatic lint/build/test gate on pull requests
   - #2 Two concrete route-metadata defects
   - #3 Zero test coverage despite a configured test runner
@@ -64,11 +64,11 @@ Within each section, gaps stay in ascending number order.
   - #6 A documented styling convention is violated in one known place
   - #7 Required environment variables undocumented, `baseUrl` hardcoded
   - #8 Dependency surface has no ongoing audit discipline
+  - #9 `HISTORY.md`'s "Future Roadmap Implications" section doesn't exist
   - #10 `AGENTS.md`'s stale "MIT License" description for `LICENSE.md`
   - #12 `/contact` and `/venues` were indexed and rewrite-whitelisted but never actually routed
   - #13 `CONTRIBUTING.md`'s CI/CD and Testing sections described a pre-Gap-#1/#3 state
-- **🟡 Partially Completed (1):**
-  - #9 `HISTORY.md`'s "Future Roadmap Implications" section doesn't exist
+- **🟡 Partially Completed (0):** none currently.
 - **⚪ Open (1):**
   - #11 258 pre-existing `tsdoc/syntax` lint warnings, not yet fixed
 
@@ -286,6 +286,38 @@ release" framing for this gap. That renumbered the checklist's subsequent steps 
 Evidence/Why-it-matters/Proposed-improvement text below, which cites "Release Checklist step 6", was updated to
 "step 7" to match.
 
+#### 9. `HISTORY.md`'s "Future Roadmap Implications" section, referenced by both this plan and the Release Checklist, doesn't exist — ✅ Closed in v5.2.0
+
+**Evidence:** This plan's own 🎯 Purpose & Scope section above states it "complements... `../../HISTORY.md`'s
+'🚀 Future Roadmap Implications' section", and `../../AGENTS.md`'s Release Checklist step 7 lists "Future Roadmap
+Implications" among the sections a significant release should thread new content through. No such section, heading
+or even a passing mention exists anywhere in `../../HISTORY.md`; its actual Table of Contents runs Historical
+Timeline → Evolution Overview → Major Version Goals → Major Milestones → Architectural Evolution → Feature Timeline
+→ Project Philosophy Evolution → Key Learnings → Conclusion. The Release Checklist's own thread-through list also
+predates and omits "Major Version Goals" — a section `../../HISTORY.md` does have.
+
+**Why it matters:** A contributor following the Release Checklist at step 7, or reading this plan's Purpose & Scope,
+would look in `../../HISTORY.md` for a section that was never built — the two documents describe a structure
+`../../HISTORY.md` doesn't actually have.
+
+**Proposed improvement:** Either add a "🚀 Future Roadmap Implications" section to `../../HISTORY.md` (per-version,
+alongside its Historical Timeline entries) and thread it through past releases retroactively, or update this plan's
+Purpose & Scope and `../../AGENTS.md`'s Release Checklist step 7 to stop referencing a section that isn't part of
+`../../HISTORY.md`'s actual structure — whichever this project decides is the intended design — and add "Major
+Version Goals" to the Release Checklist's thread-through list either way.
+
+**Outcome:** In `5.2.0`, a "🚀 Future Roadmap Implications" `##` section was added to `../../HISTORY.md`, positioned
+between Key Learnings and Conclusion per the Release Checklist's own thread-through ordering, and linked from the
+Table of Contents. The project decided against the "per-version, alongside Historical Timeline" design: like Key
+Learnings itself (three thematic subsections that reference specific versions in passing rather than one entry per
+release), Future Roadmap Implications is a synthesised, forward-looking read of the whole history rather than a
+release-by-release log — it cites specific past versions (e.g. v3.3.3, v4.0.0, v5.0.0) where they support a given
+implication, matching how the sections around it already work. `../../AGENTS.md`'s Release Checklist step 7
+thread-through list was corrected to include "Major Version Goals". This plan's Purpose & Scope and 📚 Related
+Documentation sections were updated to drop the "per-release" framing that never matched the section's actual,
+synthesised design — closing the doc-vs-doc mismatch this gap was about, rather than building out a per-release
+structure the surrounding sections don't use either.
+
 #### 10. `../../AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `../../README.md` and `../../LICENSE.md` itself — ✅ Closed in v5.1.1
 
 **Evidence:** `../../AGENTS.md`'s Documentation File Map lists `LICENSE.md` as "MIT License". `../../LICENSE.md`
@@ -373,33 +405,7 @@ Pull Request Checklist, which already described the CI gate correctly.
 
 ### 🟡 Partially Completed
 
-#### 9. `HISTORY.md`'s "Future Roadmap Implications" section, referenced by both this plan and the Release Checklist, doesn't exist — 🟡 Partially completed in v5.2.0
-
-**Evidence:** This plan's own 🎯 Purpose & Scope section above states it "complements... `../../HISTORY.md`'s
-per-release '🚀 Future Roadmap Implications' section", and `../../AGENTS.md`'s Release Checklist step 7 lists
-"Future Roadmap Implications" among the sections a significant release should thread new content through. No such
-section, heading or even a passing mention exists anywhere in `../../HISTORY.md`; its actual Table of Contents runs
-Historical Timeline → Evolution Overview → Major Version Goals → Major Milestones → Architectural Evolution →
-Feature Timeline → Project Philosophy Evolution → Key Learnings → Conclusion. The Release Checklist's own
-thread-through list also predates and omits "Major Version Goals" — a section `../../HISTORY.md` does have.
-
-**Why it matters:** A contributor following the Release Checklist at step 7, or reading this plan's Purpose & Scope,
-would look in `../../HISTORY.md` for a section that was never built — the two documents describe a structure
-`../../HISTORY.md` doesn't actually have.
-
-**Proposed improvement:** Either add a "🚀 Future Roadmap Implications" section to `../../HISTORY.md` (per-version,
-alongside its Historical Timeline entries) and thread it through past releases retroactively, or update this plan's
-Purpose & Scope and `../../AGENTS.md`'s Release Checklist step 7 to stop referencing a section that isn't part of
-`../../HISTORY.md`'s actual structure — whichever this project decides is the intended design — and add "Major
-Version Goals" to the Release Checklist's thread-through list either way.
-
-**Progress:** In `5.2.0`, a "🚀 Future Roadmap Implications" `##` section was added to `../../HISTORY.md`, positioned
-between Key Learnings and Conclusion per the Release Checklist's own thread-through ordering, and added to the Table
-of Contents. It synthesises five forward-looking implications this project's history carries for Major Version 5's
-planned redesign, rather than one entry per past release. `../../AGENTS.md`'s Release Checklist step 7 thread-through
-list was also corrected to include "Major Version Goals". Still outstanding: the section has not been threaded
-retroactively through past Historical Timeline entries version-by-version, and this plan's Purpose & Scope above still
-describes the section as "per-release", which no longer matches its synthesised design — both remain open follow-ups.
+*No gaps are currently partially completed.*
 
 ### ⚪ Open
 
@@ -435,7 +441,7 @@ regression is caught immediately rather than silently re-accumulating.
 
 | Phase       | Focus                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Threading `HISTORY.md`'s new "Future Roadmap Implications" section retroactively through past releases and fixing this plan's stale "per-release" wording (#9, partial), and clearing the 258 `tsdoc/syntax` warnings (#11) |
+| **Now**     | Clearing the 258 `tsdoc/syntax` warnings (#11)                                                                                                  |
 | **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
@@ -451,9 +457,7 @@ regression is caught immediately rather than silently re-accumulating.
 - At least one test file exists under `../../src` and passes in CI (#3) — ✅ Met in v5.2.0.
 - A secret-free `.env.example` exists and `baseUrl` is sourced from an environment variable (#7) — ✅ Met in v5.2.0.
 - `../../HISTORY.md` either gains a "Future Roadmap Implications" section or this plan's Purpose & Scope and
-  `../../AGENTS.md`'s Release Checklist stop referencing one that doesn't exist (#9) — 🟡 Section added in `5.2.0`;
-  still outstanding: retroactive per-release threading, and reconciling this plan's Purpose & Scope "per-release"
-  wording with the section's actual synthesised design.
+  `../../AGENTS.md`'s Release Checklist stop referencing one that doesn't exist (#9) — ✅ Met in v5.2.0.
 - `npm run lint` reports zero `tsdoc/syntax` warnings, and the rule is escalated from `"warn"` to `"error"` in
   `../../eslint.config.js` once clean (#11).
 - `/contact` and `/venues` either render through `AppRoutes.tsx` like every other core route, or are removed from
@@ -462,7 +466,8 @@ regression is caught immediately rather than silently re-accumulating.
 - `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" and "🧪 Testing" sections describe the CI gate and initial
   test coverage `5.2.0` actually shipped, instead of the pre-Gap-#1/#3 state (#13) — ✅ Met in v5.2.0.
 - This document's Gaps section shrinks over time as items close — closed items should move into `../../HISTORY.md`'s
-  per-version Future Roadmap notes rather than being deleted silently from here.
+  Future Roadmap Implications section (or its Historical Timeline entries) rather than being deleted silently from
+  here.
 
 ---
 
@@ -472,7 +477,7 @@ regression is caught immediately rather than silently re-accumulating.
   builds on.
 - [`../../AGENTS.md`](../../AGENTS.md) — the Git Workflow, Release Checklist and Test Conventions referenced
   throughout.
-- [`../../HISTORY.md`](../../HISTORY.md) — per-release "🚀 Future Roadmap Implications" sections this plan complements.
+- [`../../HISTORY.md`](../../HISTORY.md) — the "🚀 Future Roadmap Implications" section this plan complements.
 - [`../../CONTRIBUTING.md`](../../CONTRIBUTING.md) — contributor-facing setup and pull request checklist.
 - [`improvement-plan-tasks.md`](improvement-plan-tasks.md) — the checkbox-level task breakdown derived from this plan's
   gaps.

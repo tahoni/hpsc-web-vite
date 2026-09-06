@@ -116,6 +116,21 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
   each review — done in `5.2.0`: both named in `AGENTS.md`'s cadence note and the Release Checklist's new step, with
   a changelog read expected before upgrading either
 
+**`HISTORY.md`'s "Future Roadmap Implications" section, referenced by both `improvement-plan.md` and the Release
+Checklist, doesn't exist — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #9)*
+
+- [x] Decide whether to add a "Future Roadmap Implications" section to `HISTORY.md`, or update
+  `improvement-plan.md`'s Purpose & Scope and `AGENTS.md`'s Release Checklist step 7 to stop referencing one that
+  doesn't exist — decided to add it; a `##` section now exists in `HISTORY.md`, between Key Learnings and Conclusion
+- [x] If adding it: thread a "Future Roadmap Implications" section through `HISTORY.md`'s past Historical Timeline
+  entries retroactively, not only future ones — decided against a per-version thread-through; the section is a
+  synthesised, forward-looking read of the whole history (citing specific versions where relevant), matching how
+  Key Learnings itself already works rather than Historical Timeline's one-entry-per-release format
+- [x] Either way, add "Major Version Goals" to the Release Checklist step 7's thread-through list, since that
+  section already exists in `HISTORY.md` but isn't mentioned there — added in `5.2.0`
+- [x] Reconcile `improvement-plan.md`'s Purpose & Scope and Related Documentation wording, which still described the
+  section as "per-release", with its actual synthesised design — both updated in `5.2.0`
+
 **`AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `README.md` and
 `LICENSE.md` itself — ✅ Closed in v5.1.1** *(improvement-plan.md → Gap #10)*
 
@@ -146,19 +161,7 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 
 ## 🟡 Partially Completed
 
-**`HISTORY.md`'s "Future Roadmap Implications" section, referenced by both `improvement-plan.md` and the Release
-Checklist, doesn't exist — 🟡 Partially completed in v5.2.0** *(improvement-plan.md → Gap #9)*
-
-- [x] Decide whether to add a "Future Roadmap Implications" section to `HISTORY.md`, or update
-  `improvement-plan.md`'s Purpose & Scope and `AGENTS.md`'s Release Checklist step 7 to stop referencing one that
-  doesn't exist — decided to add it; a `##` section now exists in `HISTORY.md`, between Key Learnings and Conclusion
-- [ ] If adding it: thread a "Future Roadmap Implications" section through `HISTORY.md`'s past Historical Timeline
-  entries retroactively, not only future ones — not done; `5.2.0`'s section is a single synthesised, forward-looking
-  section rather than one entry per past release
-- [x] Either way, add "Major Version Goals" to the Release Checklist step 7's thread-through list, since that
-  section already exists in `HISTORY.md` but isn't mentioned there — added in `5.2.0`
-- [ ] Reconcile `improvement-plan.md`'s Purpose & Scope and Related Documentation wording, which still describes the
-  section as "per-release", with its actual synthesised design
+*No gaps are currently partially completed.*
 
 ---
 

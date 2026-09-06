@@ -92,8 +92,8 @@ notes.
 - Added a palette token map and a `@use`-based usage example to `src/assets/styles/_colors.scss`'s header docblock
 - Added a "🚀 Future Roadmap Implications" section to `HISTORY.md`, between Key Learnings and Conclusion per
   `AGENTS.md`'s Release Checklist step 7 ordering, synthesising five forward-looking implications this project's
-  history carries for Major Version 5's planned redesign and the standing roadmap gaps that precede it; partially
-  closes improvement-plan.md's Gap #9
+  history carries for Major Version 5's planned redesign and the standing roadmap gaps that precede it; closes
+  improvement-plan.md's Gap #9
 
 ##### SEO
 
@@ -169,6 +169,8 @@ notes.
   `RouteAliases.tsx` and `htmlUtils.ts`
 - Fixed `AGENTS.md`'s Release Checklist step 7 thread-through list omitting "Major Version Goals", a `HISTORY.md`
   section it never mentioned despite the section existing since `5.0.0`
+- Fixed `improvement-plan.md`'s Purpose & Scope and 📚 Related Documentation sections describing `HISTORY.md`'s
+  "🚀 Future Roadmap Implications" section as "per-release", which never matched its actual synthesised design
 
 #### ⚠️ Deprecated
 
