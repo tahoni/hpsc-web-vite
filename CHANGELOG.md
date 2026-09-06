@@ -16,7 +16,8 @@ notes.
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.1.3](#-513---2026-09-05) ← Current
+- [🧾 Version 5.2.0](#-520---2026-09-06) ← Current
+- [🧾 Version 5.1.3](#-513---2026-09-05)
 - [🧾 Version 5.1.2](#-512---2026-09-04)
 - [🧾 Version 5.1.1](#-511---2026-09-04)
 - [🧾 Version 5.1.0](#-510---2026-08-26)
@@ -42,6 +43,22 @@ notes.
 ---
 
 ### 🧪 [Unreleased]
+
+#### ➕ Added
+
+#### 🔄 Changed
+
+#### 🐛 Fixed
+
+#### ⚠️ Deprecated
+
+#### 🗑️ Removed
+
+#### 🔐 Security
+
+---
+
+### 🧾 [5.2.0] - 2026-09-06
 
 #### ➕ Added
 
@@ -171,12 +188,6 @@ notes.
   section it never mentioned despite the section existing since `5.0.0`
 - Fixed `improvement-plan.md`'s Purpose & Scope and 📚 Related Documentation sections describing `HISTORY.md`'s
   "🚀 Future Roadmap Implications" section as "per-release", which never matched its actual synthesised design
-
-#### ⚠️ Deprecated
-
-#### 🗑️ Removed
-
-#### 🔐 Security
 
 ---
 
