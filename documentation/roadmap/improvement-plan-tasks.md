@@ -146,22 +146,23 @@ is hardcoded — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #7)*
 
 ## 🟡 Partially Completed
 
-*No gaps are currently partially completed.*
+**`HISTORY.md`'s "Future Roadmap Implications" section, referenced by both `improvement-plan.md` and the Release
+Checklist, doesn't exist — 🟡 Partially completed in v5.2.0** *(improvement-plan.md → Gap #9)*
+
+- [x] Decide whether to add a "Future Roadmap Implications" section to `HISTORY.md`, or update
+  `improvement-plan.md`'s Purpose & Scope and `AGENTS.md`'s Release Checklist step 7 to stop referencing one that
+  doesn't exist — decided to add it; a `##` section now exists in `HISTORY.md`, between Key Learnings and Conclusion
+- [ ] If adding it: thread a "Future Roadmap Implications" section through `HISTORY.md`'s past Historical Timeline
+  entries retroactively, not only future ones — not done; `5.2.0`'s section is a single synthesised, forward-looking
+  section rather than one entry per past release
+- [x] Either way, add "Major Version Goals" to the Release Checklist step 7's thread-through list, since that
+  section already exists in `HISTORY.md` but isn't mentioned there — added in `5.2.0`
+- [ ] Reconcile `improvement-plan.md`'s Purpose & Scope and Related Documentation wording, which still describes the
+  section as "per-release", with its actual synthesised design
 
 ---
 
 ## ⚪ Open
-
-**`HISTORY.md`'s "Future Roadmap Implications" section, referenced by both `improvement-plan.md` and the Release
-Checklist, doesn't exist** *(improvement-plan.md → Gap #9)*
-
-- [ ] Decide whether to add a "Future Roadmap Implications" section to `HISTORY.md`, or update
-  `improvement-plan.md`'s Purpose & Scope and `AGENTS.md`'s Release Checklist step 7 to stop referencing one that
-  doesn't exist
-- [ ] If adding it: thread a "Future Roadmap Implications" section through `HISTORY.md`'s past Historical Timeline
-  entries retroactively, not only future ones
-- [ ] Either way, add "Major Version Goals" to the Release Checklist step 7's thread-through list, since that
-  section already exists in `HISTORY.md` but isn't mentioned there
 
 **258 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed** *(improvement-plan.md → Gap #11)*
 

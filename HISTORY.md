@@ -17,6 +17,7 @@ the legacy Version 3.x line that predates it.
 - [✨ Feature Timeline](#-feature-timeline)
 - [💡 Project Philosophy Evolution](#-project-philosophy-evolution)
 - [📚 Key Learnings](#-key-learnings)
+- [🚀 Future Roadmap Implications](#-future-roadmap-implications)
 - [🎓 Conclusion](#-conclusion)
 
 ---
@@ -1103,6 +1104,35 @@ Route (React Router, data-driven)
    v4.2.3) rather than large, infrequent upgrade batches
 3. **Recurring-Content Pattern:** Year-namespaced directories for `WorldShoot2025`/`ClubShirts` (v4.1.2 – v4.2.1)
    establish a repeatable structure for future years' equivalent content, rather than a one-off fix
+
+---
+
+## 🚀 Future Roadmap Implications
+
+Forward-looking implications this project's own history carries for Major Version 5's planned visual/structural
+redesign and the standing work that precedes it:
+
+1. **The Redesign Should Extend, Not Replace, the Content Model:** Per Key Learnings' Content Model Longevity insight,
+   the Page → Content → MDX pattern has absorbed eight major/minor phases of change without a structural rewrite. The
+   redesign should keep this contract intact and confine itself to layout and presentation, rather than re-litigating
+   how content is authored
+2. **Establish Redesign-Era Conventions from the Start:** Key Learnings' Structural Debt Compounds insight shows that
+   deferring `@`-alias/directory-standards work until v4.0.0 forced a dedicated restructuring phase later. Any new
+   code the redesign introduces should follow this project's existing feature-organised, path-aliased conventions from
+   its first commit, not retrofit them afterwards
+3. **Finish the Standing Foundation Gaps Before the Redesign Proper Begins:** Major Version 5's stated goal is to make
+   the project legible to human and AI coding agents and modernise its dependency stack as groundwork ahead of the
+   redesign — see [`documentation/roadmap/improvement-plan.md`](documentation/roadmap/improvement-plan.md) for the
+   standing gaps (e.g. pre-existing `tsdoc/syntax` lint warnings) still being worked through before that redesign
+   itself starts
+4. **Keep the Security Response Pattern Ready:** The willingness to cut and replace a compromised dependency outright
+   (v3.3.3) rather than patch around it, and the steady cadence of focused vulnerability fixes since, should carry
+   into the redesign — a structural overhaul is exactly when a stale or newly-vulnerable dependency is easiest to
+   silently carry forward unnoticed
+5. **Keep Documentation Reverse-Synced as the Redesign Lands:** The `CHANGELOG.md`/`HISTORY.md` split (v4.0.0) and the
+   tool-agnostic `AGENTS.md`/`CLAUDE.md` conventions (v5.0.0) only stay useful if every release keeps threading its
+   changes through them — a redesign spanning several releases is exactly the scenario where that discipline is most
+   at risk of lapsing
 
 ---
 

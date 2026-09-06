@@ -527,9 +527,10 @@ anything downstream references them:
 7. **Extend `HISTORY.md`.** Add a new entry to the Historical Timeline (Theme and Key Focus bullets, at the same depth
    as the existing entries, placed at the top to keep reverse chronological order). If the release is significant enough
    to have shifted the project's trajectory, also thread it through the other sections that track version-by-version
-   state: (Evolution Overview's Phases, Major Milestones, Architectural Evolution, Feature Timeline, Project Philosophy
-   Evolution, Key Learnings, Future Roadmap Implications, Conclusion). Use how the immediately preceding version was
-   woven into those sections as the template. A routine patch release may only need the Historical Timeline entry.
+   state: (Evolution Overview's Phases, Major Version Goals, Major Milestones, Architectural Evolution, Feature
+   Timeline, Project Philosophy Evolution, Key Learnings, Future Roadmap Implications, Conclusion). Use how the
+   immediately preceding version was woven into those sections as the template. A routine patch release may only need
+   the Historical Timeline entry.
 8. **Update `CONTRIBUTING.md`** only if this version's changes affect developer setup, environment variables,
    development scripts, git workflow or testing conventions documented there.
 9. **Verify `ARCHITECTURE.md`'s Project Structure tree against disk.** Per-change Directory Tree Maintenance (above)
