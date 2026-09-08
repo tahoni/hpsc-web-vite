@@ -9,8 +9,7 @@ export type YouTubeVideoProps = VideoProps;
  * By default, the width is set to "100%" and the height is set to "100%".
  *
  * @param props - The properties to configure the YouTube video iframe.
- * @param props.url - The URL of the YouTube video to embed.
- * @*/
+ */
 export const YouTubeVideo = (props: YouTubeVideoProps) => {
   return (
     <iframe

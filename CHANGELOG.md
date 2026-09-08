@@ -61,6 +61,10 @@ notes.
   `isValid` method and `src/App.tsx`'s `App` component
 - Fixed a mismatched quote/backtick around `React.memo` in `AboutUsPage.tsx`'s TSDoc comment
 - Fixed a missing hyphen between the `@param` name and description in `EmailAttachment.ts`
+- Fixed the JSDoc-style `@param [name]` optional-name brackets (invalid TSDoc syntax) to plain `@param name` in
+  `MapUtils.ts`'s `generateMapVenueKey`/`generateMapKey`
+- Fixed `YouTubeVideo.tsx`'s corrupted `@*/` comment terminator (should have been a plain `*/`) and removed its
+  invalid `@param props.url` tag (TSDoc doesn't support dotted parameter names)
 
 #### ⚠️ Deprecated
 
