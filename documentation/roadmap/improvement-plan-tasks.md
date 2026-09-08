@@ -77,7 +77,7 @@ evidence and reasoning there; within each section, gaps stay in ascending number
   `documentation/recommendations/project-accessibility-checklist.md`, linked from `AGENTS.md`/`CONTRIBUTING.md`
 - [x] Ensure every page has a unique title, meta-description and canonical URL — done in `5.2.0`: `PageMapping`
   gained a `description` field, populated per route in `BaseRoutes.ts`; `Page.tsx` now sets `document.title`,
-  the meta description and the canonical link per route instead of sharing `index.html`'s static tags
+  the meta-description and the canonical link per route instead of sharing `index.html`'s static tags
 - [x] Validate `robots.txt`/`sitemap.xml` generation and document the `public/sitemap.xml` write step — validated
   in `5.2.0`: both are correct; the manual `npm run sitemap` regeneration step is now documented in the new
   accessibility checklist doc

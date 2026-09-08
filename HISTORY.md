@@ -34,7 +34,7 @@ the legacy Version 3.x line that predates it.
   `npm run test:run`, plus an advisory-only `npm audit` step, and the project's first Vitest infrastructure and
   test coverage (`htmlUtils.ts`, `builders/RoutesSitemap.ts`)
 - Added `eslint-plugin-jsx-a11y`'s `recommended` rule set and a manual WCAG AA baseline checklist, and gave every
-  page a unique `document.title`, meta description and canonical link instead of sharing `index.html`'s static tags
+  page a unique `document.title`, meta-description and canonical link instead of sharing `index.html`'s static tags
 - Added a top-level `ErrorBoundary` with a friendly fallback, completed `src/vendors/bootstrap/styles/index.scss`'s
   migration to `@use`/`@forward`, and sourced `baseUrl` from `VITE_SITE_URL` instead of a hardcoded string literal
 - Wired `News` into live routing, fixed `/contact`/`/venues` being unreachable and `public/sitemap.xml`'s malformed

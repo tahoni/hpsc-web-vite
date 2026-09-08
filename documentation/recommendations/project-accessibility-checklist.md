@@ -20,7 +20,7 @@ order and heading structure need a human or a browser check, not just static ana
 
 `eslint.config.js`/`.eslintrc.cjs` enable `eslint-plugin-jsx-a11y`'s `recommended` rule set at its native severity
 (mostly `"error"`, not downgraded to `"warn"` — the codebase was already clean against it when added). `npm run
-lint` catches the mechanically-checkable half of this baseline automatically: missing `alt` text, invalid ARIA
+lint` catches the mechanically checkable half of this baseline automatically: missing `alt` text, invalid ARIA
 attributes/roles, non-interactive elements with click handlers and no keyboard equivalent, and similar.
 
 What it **can't** catch — the manual checklist below covers these instead:
@@ -60,7 +60,7 @@ Run through this list when adding or substantially changing a page, and periodic
 
 ## 🔍 SEO-Adjacent Checks
 
-Closely related to accessibility, and validated as part of the same pass (per the improvement plan's Gap #5):
+Closely related to accessibility and validated as part of the same pass (per the improvement plan's Gap #5):
 
 - [x] **Unique page titles/descriptions/canonical URLs** — `src/shared/pages/Page.tsx` sets `document.title`, the
   `<meta name="description">` tag and the `<link rel="canonical">` tag per route (sourced from each route's

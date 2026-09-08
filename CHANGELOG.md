@@ -78,6 +78,10 @@ notes.
   `ContactUsSchema.ts`, `center`→`centre` in `MapUtils.ts`'s `generateMapKey` — and minor grammar: a missing article
   in `LinkWithLogoAndDescription.tsx`, a doubled space in `venueConstants.ts`, and a plain-text `console.error`
   reference in `ErrorBoundary.tsx`'s comment now code-formatted
+- Fixed remaining Oxford commas and American-English spellings (`meta description`→`meta-description`,
+  `mechanically-checkable`→`mechanically checkable`, `artifacts`→`artefacts`) in `HISTORY.md`, `RELEASE_NOTES.md`,
+  `improvement-plan-tasks.md`, `project-accessibility-checklist.md`, `eslint.config.js`'s ignore-patterns comment
+  and `.claude/skills/generate-pr-summary/SKILL.md`, per `AGENTS.md`'s British English/list-comma convention
 
 #### ⚠️ Deprecated
 

@@ -10,7 +10,7 @@ import tsdoc from "eslint-plugin-tsdoc";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 
 export default [
-  // Ignore build artifacts and externals
+  // Ignore build artefacts and externals
   { ignores: ["dist/**", "target/**", "node_modules/**"] },
   {
     files: ["**/*.{js,jsx,ts,tsx}"],

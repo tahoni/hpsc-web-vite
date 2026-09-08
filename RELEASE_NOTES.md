@@ -37,7 +37,7 @@ a WCAG AA baseline checklist round out the release's process improvements.
 
 - Added `eslint-plugin-jsx-a11y`'s `recommended` rule set (the codebase was already clean against it) and a manual
   WCAG AA baseline checklist for what it can't catch statically
-- Gave every page a unique `document.title`, meta description and canonical link, sourced from a new
+- Gave every page a unique `document.title`, meta-description and canonical link, sourced from a new
   `PageMapping.description` field, instead of every route sharing one static set of tags
 
 ### 🛡️ Resilience & Styling
