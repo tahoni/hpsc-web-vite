@@ -15,12 +15,8 @@ function App(): ReactElement {
   return (
     <ErrorBoundary>
       <Suspense fallback={<Loader isLoading={true} key={"app"} />}>
-        {/*<APIProvider apiKey={googleMapApiKey}>*/}
-        {/*  <GoogleReCaptchaProvider reCaptchaKey={reCaptchaV2SiteKey}>*/}
         <AppRoutes />
         <Breakpoints />
-        {/*  </GoogleReCaptchaProvider>*/}
-        {/*</APIProvider>*/}
       </Suspense>
     </ErrorBoundary>
   );

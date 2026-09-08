@@ -68,6 +68,10 @@ notes.
 - Removed the `@interface` and `@property` TSDoc tags from `ContactUsSchema.ts`'s exported fields/widgets/schema
   constants, `ContactUsEmailTemplateProps` and `VenueMapProps`
 
+##### Components
+
+- Removed dead, commented-out `APIProvider`/`GoogleReCaptchaProvider` wrapper markup from `App.tsx`
+
 #### 🔐 Security
 
 ---
