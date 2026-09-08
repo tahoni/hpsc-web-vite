@@ -10,8 +10,6 @@
  * using relative paths. The transparent PNG format is used for elements that need to be overlaid
  * on different backgrounds. When adding new images, follow the existing pattern to maintain
  * consistency.
- *
- * @module
  */
 
 import { ImageWithSourceAndDescription } from "@tahoni/tahoni-lib-react";

@@ -15,7 +15,6 @@ import { ContactUsFormData } from "./ContactUsFormData";
  * for email addresses, along with required field specifications. The UI schema defines
  * field ordering, autocomplete behaviour, and connects specialised components like
  * the sanitised text area and CAPTCHA verification field.
- * @module ContactUsSchema
  */
 
 /**
