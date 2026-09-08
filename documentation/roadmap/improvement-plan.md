@@ -37,10 +37,10 @@ cross-release gaps between the project's stated intent and its current state.
 | `../../README.md`, `../../AGENTS.md`                 | Deliver an informative, content-driven club website; there is no backend in this repository — contact-form email delivery and reCAPTCHA verification are the only server-side dependencies, both third-party, called directly from the client                  |
 | `../../ARCHITECTURE.md` (Data-Driven Routing)        | Routing is driven by `PageMapping` instances (`BaseRoutes.ts` → `RouteAliases.tsx` → `AppRoutes.tsx`), reused as-is by the sitemap builder — not static JSX route trees                                                                                        |
 | `../../ARCHITECTURE.md` (Feature-Based Organization) | Code is organised by feature under `../../src/features`, each self-contained with a page component, content component(s), MDX, styles and a barrel `index.ts`                                                                                                  |
-| `../../AGENTS.md` (Code Quality & CI)                | CodeQL runs on push/PR to `main` and weekly; `../../.github/workflows/build.yml` also gates merges to `main`/`develop` on `npm run lint`/`build`/`test:run`, plus an advisory-only `npm audit` step, with dependencies reviewed monthly and at each release       |
+| `../../AGENTS.md` (Code Quality & CI)                | CodeQL runs on push/PR to `main` and weekly; `../../.github/workflows/build.yml` also gates merges to `main`/`develop` on `npm run lint`/`build`/`test:run`, plus an advisory-only `npm audit` step, with dependencies reviewed monthly and at each release    |
 | `../../AGENTS.md` (Documentation Conventions)        | British English spelling throughout prose; every ToC-listed heading carries a reused or deliberately new emoji; `../../README.md`/`../../ARCHITECTURE.md`/`../../UI.md` stay version-agnostic (reverse-synced from release docs, not the other way round)      |
 | `../../AGENTS.md` (Git Workflow, Release Checklist)  | GitFlow branching (`develop` → `release/vX.Y.Z` → `main`, `hotfix/*` direct to `main`), and a fixed, ordered Release Checklist covering `../../package.json`, `../../CHANGELOG.md`, `../../RELEASE_NOTES.md`, `../../HISTORY.md` and archived per-version docs |
-| `../../AGENTS.md` (Test Conventions)                 | Vitest is configured, with initial coverage co-located as `*.test.ts`/`*.test.tsx`, using `@testing-library/react` with a `jsdom` environment; don't test the type system or trivial pass-through props                                                         |
+| `../../AGENTS.md` (Test Conventions)                 | Vitest is configured, with initial coverage co-located as `*.test.ts`/`*.test.tsx`, using `@testing-library/react` with a `jsdom` environment; don't test the type system or trivial pass-through props                                                        |
 | `../../package.json`, `../../vite.config.ts`         | React 19, Vite 8, TypeScript 6 strict mode, React Router 8 — a fixed stack; `../../vite.config.ts`'s `manualChunks` already splits FontAwesome/MDX/RJSF/FullCalendar/react-google/vis.gl into separate vendor chunks                                           |
 | `../../CONTRIBUTING.md`                              | New contributors need `NPM_TOKEN_READ` just to `npm install`; `GOOGLE_MAPS_API_KEY`/`RECAPTCHA_V2_SITE_KEY` are optional locally but needed for the venue map and Contact Us captcha to render                                                                 |
 
@@ -68,9 +68,9 @@ Within each section, gaps stay in ascending number order.
   - #10 `AGENTS.md`'s stale "MIT License" description for `LICENSE.md`
   - #12 `/contact` and `/venues` were indexed and rewrite-whitelisted but never actually routed
   - #13 `CONTRIBUTING.md`'s CI/CD and Testing sections described a pre-Gap-#1/#3 state
-- **🟡 Partially Completed (0):** none currently.
-- **⚪ Open (1):**
-  - #11 258 pre-existing `tsdoc/syntax` lint warnings, not yet fixed
+- **🟡 Partially Completed (1):**
+  - #11 258 pre-existing `tsdoc/syntax` lint warnings — all fixed; only the `"warn"` → `"error"` escalation remains
+- **⚪ Open (0):** none currently.
 
 ### ✅ Completed
 
@@ -410,11 +410,7 @@ Pull Request Checklist, which already described the CI gate correctly.
 
 ### 🟡 Partially Completed
 
-*No gaps are currently partially completed.*
-
-### ⚪ Open
-
-#### 11. 258 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed
+#### 11. 258 pre-existing `tsdoc/syntax` lint warnings — 🟡 Partially completed in v5.2.0
 
 **Evidence:** `../../eslint.config.js:48` sets `"tsdoc/syntax": "warn"`, enabled per the `../../CHANGELOG.md`
 `[Unreleased]` fix that wired `eslint-plugin-tsdoc` into the flat config (it had only ever been active in the legacy,
@@ -440,13 +436,36 @@ starting with the highest-count patterns (`tsdoc-undefined-tag`, `tsdoc-malforme
 `@param name`. Once clean, escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in `../../eslint.config.js` so a
 regression is caught immediately rather than silently re-accumulating.
 
+**Progress:** In `5.2.0`, further TSDoc cleanup landed after this gap was first written. The non-standard `@type`
+(`../../src/vite-env.d.ts`, the memoised feature page/content components and other constants files), `@interface`/
+`@property` (`ContactUsSchema.ts`'s exported fields/widgets/schema constants, `ContactUsEmailTemplateProps` and
+`VenueMapProps`) and `@prop` (`ContactUsFormData.ts`) tags were all removed, and the non-standard `@return` tag was
+corrected to `@returns` in `../../src/models/email/EmailMessage.ts` and `../../src/App.tsx`. Most significantly for
+this gap's own Proposed improvement, the `{type}` annotation was stripped from every `@param`/`@returns` tag — the
+exact `@param {type} name` → `@param name` conversion this gap called for — across 23 files (the feature page
+components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`, `MapUtils.ts`, `VenuesContent.tsx`, and the
+shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components); a `{@link ReactElement}`/`{@see ReactElement}`
+tag introduced mid-cleanup on two `@returns` lines was itself removed in the same pass rather than left behind.
+A final trio of stragglers was then also cleaned up: `../../src/features/Venues/MapUtils.ts`'s `@param [venue]`/
+`@param [center]` (JSDoc-style optional-name brackets) both became plain `@param venue`/`@param center`, and
+`../../src/shared/components/Video/YouTubeVideo.tsx`'s `@param props.url` (a dotted identifier TSDoc's parser
+rejects) and the stray `@*/` immediately below it (a corrupted closing-comment marker, not a real tag) were removed.
+`npm run lint` now reports **zero** `tsdoc/syntax` warnings, down from 258, and its summary line reads "26 problems
+(0 errors, 26 warnings)", down from 284 — the remaining 26 are pre-existing `no-unused-vars`/`react-refresh`
+warnings unrelated to this rule. Still outstanding: escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in
+`../../eslint.config.js`, per this gap's Proposed improvement — the only remaining step before this gap can close.
+
+### ⚪ Open
+
+*No gaps are currently open.*
+
 ---
 
 ## 🚀 Roadmap
 
 | Phase       | Focus                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Clearing the 258 `tsdoc/syntax` warnings (#11)                                                                                                  |
+| **Now**     | Escalating `"tsdoc/syntax"` from `"warn"` to `"error"` now that `npm run lint` reports zero such warnings (#11)                                |
 | **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
@@ -464,7 +483,7 @@ regression is caught immediately rather than silently re-accumulating.
 - `../../HISTORY.md` either gains a "Future Roadmap Implications" section or this plan's Purpose & Scope and
   `../../AGENTS.md`'s Release Checklist stop referencing one that doesn't exist (#9) — ✅ Met in v5.2.0.
 - `npm run lint` reports zero `tsdoc/syntax` warnings, and the rule is escalated from `"warn"` to `"error"` in
-  `../../eslint.config.js` once clean (#11).
+  `../../eslint.config.js` once clean (#11) — 🟡 the warning count is zero as of `5.2.0`; escalation is still open.
 - `/contact` and `/venues` either render through `AppRoutes.tsx` like every other core route, or are removed from
   `../../public/sitemap.xml`/`../../public/.htaccess` so the site stops advertising pages it doesn't serve
   (#12) — ✅ Met in v5.2.0 (both render through `AppRoutes.tsx`; both were deliberately left out of the primary

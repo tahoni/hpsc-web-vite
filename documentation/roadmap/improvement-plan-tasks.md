@@ -163,22 +163,30 @@ Checklist, doesn't exist — ✅ Closed in v5.2.0** *(improvement-plan.md → Ga
 
 ## 🟡 Partially Completed
 
-*No gaps are currently partially completed.*
+**258 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed — 🟡 Partially completed in v5.2.0**
+*(improvement-plan.md → Gap #11)*
+
+- [x] Fix the `tsdoc-undefined-tag` warnings (63, the largest group, down from 69 as an incidental side effect of
+  `5.2.0`'s `@module`-tag cleanup on touched files — most remain elsewhere) — resolved later in `5.2.0` once the
+  `@type`/`@interface`/`@property`/`@prop` non-standard tags were also removed across the branch; `npm run lint` now
+  reports 0 `tsdoc-undefined-tag` warnings
+- [x] Fix the `tsdoc-malformed-inline-tag`/`tsdoc-escape-right-brace` warnings (62 each), mostly JSDoc-style
+  `@param {type}` annotations that need converting to plain TSDoc's `@param name` — done in `5.2.0`: the `{type}`
+  annotation was removed from every `@param`/`@returns` tag across 23 files (see `improvement-plan.md`'s Gap #11
+  Progress note); `npm run lint` now reports 0 warnings of either rule
+- [x] Fix the remaining `tsdoc-escape-greater-than` (34), `tsdoc-malformed-html-name` (17),
+  `tsdoc-param-tag-with-invalid-type` (14) and smaller one-off warnings — done in `5.2.0`, including the last
+  stragglers: `MapUtils.ts`'s `@param [venue]`/`@param [center]` (JSDoc-style optional-name brackets) and
+  `YouTubeVideo.tsx`'s `@param props.url` (dotted identifier) and stray `@*/`; `npm run lint` now reports 0
+  `tsdoc/syntax` warnings
+- [ ] Escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in `eslint.config.js` once `npm run lint` reports zero
+  `tsdoc/syntax` warnings — the count is now 0; this last step is still outstanding
 
 ---
 
 ## ⚪ Open
 
-**258 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed** *(improvement-plan.md → Gap #11)*
-
-- [ ] Fix the `tsdoc-undefined-tag` warnings (63, the largest group, down from 69 as an incidental side effect of
-  `5.2.0`'s `@module`-tag cleanup on touched files — most remain elsewhere)
-- [ ] Fix the `tsdoc-malformed-inline-tag`/`tsdoc-escape-right-brace` warnings (62 each), mostly JSDoc-style
-  `@param {type}` annotations that need converting to plain TSDoc's `@param name`
-- [ ] Fix the remaining `tsdoc-escape-greater-than` (34), `tsdoc-malformed-html-name` (17),
-  `tsdoc-param-tag-with-invalid-type` (14) and smaller one-off warnings
-- [ ] Escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in `eslint.config.js` once `npm run lint` reports zero
-  `tsdoc/syntax` warnings
+*No gaps are currently open.*
 
 ---
 
