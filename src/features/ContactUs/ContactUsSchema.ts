@@ -19,8 +19,6 @@ import { ContactUsFormData } from "./ContactUsFormData";
 
 /**
  * An object representing the fields required for the "Contact Us" form in JSON format.
- *
- * @property {CaptchaField} captchaField - Represents the CAPTCHA field used for validating the form submission to prevent automated spam.
  */
 export const contactUsJsonFields: RegistryFieldsType<ContactUsFormData> = {
   captchaField: CaptchaField,
@@ -29,8 +27,6 @@ export const contactUsJsonFields: RegistryFieldsType<ContactUsFormData> = {
  * A collection of widgets used in the "Contact Us" feature.
  * These widgets are structured as key-value pairs where each key represents
  * a specific widget name and the value represents its corresponding functionality or implementation.
- *
- * @property {SanitizedTextareaWidget} sanitizedTextareaWidget - A widget for sanitized textarea input in the contact form.
  */
 export const contactUsJsonWidgets: RegistryWidgetsType<ContactUsFormData> = {
   sanitizedTextareaWidget: SanitizedTextareaWidget,
@@ -40,15 +36,6 @@ export const contactUsJsonWidgets: RegistryWidgetsType<ContactUsFormData> = {
  * Represents the JSON schema for the "Contact Us" form.
  *
  * This schema defines the structure, validation rules, and constraints for the fields in the form.
- *
- * @property {string} type The root type of the schema, set to "object".
- * @property {Object} properties Defines the fields of the schema with their attributes:
- *    - `name`: A string field representing the user's name, with specific length constraints.
- *    - `email`: A string field for the user's email address, with pattern and length validation.
- *    - `subject`: A string field for the message subject, with enumerated options and default value.
- *    - `content`: A string field for the message content, with defined length limits.
- *    - `captcha`: A boolean field to indicate whether the captcha is checked or verified.
- * @property {string[]} required Specifies the list of fields that must be provided in the form.
  */
 export const contactUsJsonSchema: RJSFSchema = {
   type: "object",

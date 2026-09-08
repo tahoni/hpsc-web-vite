@@ -65,6 +65,8 @@ notes.
   files and the feature `index.ts`/`ContactUsSchema.ts` files
 - Removed the `@type` TSDoc tag (and its preceding blank comment line where it was the sole tag) from the memoised
   feature page/content components and other constants files
+- Removed the `@interface` and `@property` TSDoc tags from `ContactUsSchema.ts`'s exported fields/widgets/schema
+  constants, `ContactUsEmailTemplateProps` and `VenueMapProps`
 
 #### 🔐 Security
 

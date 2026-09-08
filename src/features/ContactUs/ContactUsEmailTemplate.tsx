@@ -7,10 +7,6 @@ import {EmailMessage} from "@/models/email/EmailMessage.ts";
  * Represents the properties required for the Contact Us email template.
  * This interface is used to define the structure of the data needed
  * to populate a Contact Us email.
- *
- * @interface ContactUsEmailTemplateProps
- * @property {EmailMessage} emailMessage - The content of the email message
- * passed to the template. It typically includes text and other email-specific data.
  */
 export interface ContactUsEmailTemplateProps {
     emailMessage: EmailMessage;
