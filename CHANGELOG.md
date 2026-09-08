@@ -54,6 +54,11 @@ notes.
 
 #### 🗑️ Removed
 
+##### Documentation
+
+- Removed the `@module` TSDoc tag (and its preceding blank comment line) from `src/vite-env.d.ts`, the `constants`
+  files and the feature `index.ts`/`ContactUsSchema.ts` files
+
 #### 🔐 Security
 
 ---
