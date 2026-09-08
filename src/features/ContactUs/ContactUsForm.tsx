@@ -42,7 +42,7 @@ const validator = customizeValidator<ContactUsFormData>();
  * This component does not handle navigation or external side effects, relying on props and
  * external services like Swal and EmailService for enhanced functionality.
  *
- * @returns {ReactElement} The rendered output of the ContactUsPage component, which includes the ContactUsContent component.
+ * @returns {@see ReactElement} The rendered output of the ContactUsPage component, which includes the ContactUsContent component.
  */
 const ContactUsForm: React.MemoExoticComponent<() => ReactElement> = React.memo(
     (): ReactElement => {

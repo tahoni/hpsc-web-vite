@@ -48,6 +48,11 @@ notes.
 
 #### 🔄 Changed
 
+##### Documentation
+
+- Changed the `{@link ReactElement}` TSDoc tag to `{@see ReactElement}` in `AboutUsPage.tsx` and `ContactUsForm.tsx`'s
+  `@returns` lines
+
 #### 🐛 Fixed
 
 ##### Documentation

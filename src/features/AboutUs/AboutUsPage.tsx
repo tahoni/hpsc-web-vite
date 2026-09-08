@@ -17,7 +17,7 @@ const AboutUsContent = React.lazy(
  * Uses `React.memo` for performance optimisation by memoising the component and preventing unnecessary re-renders.
  * This component serves as a wrapper for the AboutUsContent component that contains the main content of the page.
  *
- * @returns {ReactElement} The rendered output of the AboutUsPage component, which includes the AboutUsContent component.
+ * @returns {@see ReactElement} The rendered output of the AboutUsPage component, which includes the AboutUsContent component.
  */
 const AboutUsPage = React.memo(() => {
   return (
