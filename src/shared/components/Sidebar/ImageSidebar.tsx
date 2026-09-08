@@ -14,7 +14,7 @@ export interface SidebarProps {
  * The component displays an image passed through the `source` property of the `props` object.
  * It uses React-Bootstrap components for layout and styling.
  *
- * @param props - The properties object containing configuration for the sidebar.
+ * @param props - The property object containing configuration for the sidebar.
  * @returns The rendered sidebar component containing the image.
  */
 const ImageSidebar = React.memo((props: SidebarProps): ReactElement => {

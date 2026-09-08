@@ -9,7 +9,7 @@ import SanitizedWidget from "./SanitizedWidget";
 
 /**
  * SanitizedBaseInputTemplate is a functional component that acts as a base input template.
- * It utilizes SanitizedWidget with the type set to TEMPLATE and passes all received props
+ * It utilizes {@link SanitizedWidget} with the type set to TEMPLATE and passes all received props
  * to the SanitizedWidget component to render the sanitised input template.
  *
  * @param props - The properties to be passed to the SanitizedWidget component.

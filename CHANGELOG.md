@@ -59,6 +59,8 @@ notes.
 
 - Changed the `{@link ReactElement}` TSDoc tag to `{@see ReactElement}` in `AboutUsPage.tsx` and `ContactUsForm.tsx`'s
   `@returns` lines
+- Added a `{@link SanitizedWidget}` cross-reference to `SanitizedBaseInputTemplate.tsx`'s TSDoc comment
+- Reworded `ImageSidebar.tsx`'s `@param` line from "The properties object" to "The property object"
 
 #### 🐛 Fixed
 
