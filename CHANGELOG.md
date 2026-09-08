@@ -60,6 +60,7 @@ notes.
 - Fixed the non-standard `@return` TSDoc tag to the standard `@returns` in `src/models/email/EmailMessage.ts`'s
   `isValid` method and `src/App.tsx`'s `App` component
 - Fixed a mismatched quote/backtick around `React.memo` in `AboutUsPage.tsx`'s TSDoc comment
+- Fixed a missing hyphen between the `@param` name and description in `EmailAttachment.ts`
 
 #### ⚠️ Deprecated
 
