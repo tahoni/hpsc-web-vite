@@ -12,7 +12,6 @@ import VenuesContent from "./VenuesContent";
  * The content of the VenuesPage is composed of the VenuesContent component,
  * which encapsulates the specific details and layout of the venues section.
  *
- * @type {React.MemoExoticComponent<() => ReactElement>}
  * @returns {ReactElement} The rendered output of the VenuesPage component, which includes the VenuesContent component.
  */
 const VenuesPage: React.MemoExoticComponent<() => ReactElement> = React.memo(

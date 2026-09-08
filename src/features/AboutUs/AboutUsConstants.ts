@@ -10,8 +10,6 @@ import { VenueType } from "@/models/venues/VenueType";
  *
  * The variable is assigned a value that correlates with the range being
  * classified specifically within the shooting range category for clubs.
- *
- * @type {VenueType}
  */
 export const eufeesShootingRange: VenueType = clubShootingRangeVenue;
 

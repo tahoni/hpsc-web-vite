@@ -10,7 +10,6 @@ const LinksContent = React.lazy(() => import("./LinksContent"));
  * The use of React.memo ensures that the LinksPage component only re-renders
  * when its props change, optimising rendering performance in React applications.
  *
- * @type {React.MemoExoticComponent<() => ReactElement>}
  * @returns {ReactElement} The rendered output of the LinksPage component, which includes the LinksContent component.
  */
 const LinksPage: React.MemoExoticComponent<() => ReactElement> = React.memo(

@@ -20,7 +20,6 @@ import { ContactUsFormData } from "./ContactUsFormData";
 /**
  * An object representing the fields required for the "Contact Us" form in JSON format.
  *
- * @type {Object}
  * @property {CaptchaField} captchaField - Represents the CAPTCHA field used for validating the form submission to prevent automated spam.
  */
 export const contactUsJsonFields: RegistryFieldsType<ContactUsFormData> = {
@@ -31,7 +30,6 @@ export const contactUsJsonFields: RegistryFieldsType<ContactUsFormData> = {
  * These widgets are structured as key-value pairs where each key represents
  * a specific widget name and the value represents its corresponding functionality or implementation.
  *
- * @type {Object}
  * @property {SanitizedTextareaWidget} sanitizedTextareaWidget - A widget for sanitized textarea input in the contact form.
  */
 export const contactUsJsonWidgets: RegistryWidgetsType<ContactUsFormData> = {
@@ -43,7 +41,6 @@ export const contactUsJsonWidgets: RegistryWidgetsType<ContactUsFormData> = {
  *
  * This schema defines the structure, validation rules, and constraints for the fields in the form.
  *
- * @type {RJSFSchema}
  * @property {string} type The root type of the schema, set to "object".
  * @property {Object} properties Defines the fields of the schema with their attributes:
  *    - `name`: A string field representing the user's name, with specific length constraints.

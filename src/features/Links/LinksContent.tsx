@@ -33,8 +33,6 @@ import {
  *
  * The component uses the `LinkWithLogoAndDescription` component to display individual links,
  * requiring various props such as the website URL, logo image, name, and other descriptive details.
- *
- * @type {React.MemoExoticComponent<()=>React.ReactElement>}
  */
 const LinksContent: React.MemoExoticComponent<() => React.ReactElement> =
   React.memo((): ReactElement => {

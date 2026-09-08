@@ -8,7 +8,6 @@ import EventsContent from "./EventsContent";
  *
  * This component does not accept any props.
  *
- * @type {React.MemoExoticComponent<() => ReactElement>}
  * @returns {ReactElement} The rendered JSX for the EventsPage, which includes the EventsContent component.
  */
 const EventsPage: React.MemoExoticComponent<() => ReactElement> = React.memo(

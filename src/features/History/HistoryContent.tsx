@@ -7,8 +7,6 @@ import History from "./History.mdx";
  *
  * The memoisation ensures that the component only re-renders when its props change,
  * optimising performance in React applications.
- *
- * @type {React.MemoExoticComponent<() => ReactElement>}
  */
 const HistoryContent: React.MemoExoticComponent<() => ReactElement> =
   React.memo((): ReactElement => {

@@ -24,8 +24,6 @@ import classes from "./AboutUs.module.scss";
  *
  * The component makes use of responsive grid layout for better presentation and is styled
  * using CSS classes.
- *
- * @type {React.MemoExoticComponent<() => ReactElement>}
  */
 const AboutUsContent: React.MemoExoticComponent<() => ReactElement> =
   React.memo((): ReactElement => {

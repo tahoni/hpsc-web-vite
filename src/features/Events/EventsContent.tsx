@@ -16,8 +16,6 @@ import { WorldShootsContent } from "./content/2025";
  *
  * The memoised nature of EventsContent ensures that it does not re-render unnecessarily,
  * improving performance when the props or state have not changed.
- *
- * @type {React.MemoExoticComponent<() => React.ReactElement>}
  */
 const EventsContent: React.MemoExoticComponent<() => React.ReactElement> =
   React.memo((): ReactElement => {
