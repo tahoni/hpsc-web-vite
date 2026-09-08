@@ -23,10 +23,10 @@ export const generateMapVenueKey = (venue?: Venue): string => {
 };
 
 /**
- * Generates a unique map key string based on a random UUID and optional center latitude and longitude.
+ * Generates a unique map key string based on a random UUID and optional centre latitude and longitude.
  *
- * @param center - An optional object containing the latitude (`lat`) and longitude (`lng`) of the map center.
- * @returns A string composed of a "map_" prefix, followed by a randomly generated UUID and the latitude and longitude coordinates from the center, if provided.
+ * @param center - An optional object containing the latitude (`lat`) and longitude (`lng`) of the map centre.
+ * @returns A string composed of a "map_" prefix, followed by a randomly generated UUID and the latitude and longitude coordinates from the centre, if provided.
  */
 export const generateMapKey = (center?: VenueMapLatLngType): string => {
   return "map_" + crypto.randomUUID + ":" + center?.lat + "," + center?.lng;

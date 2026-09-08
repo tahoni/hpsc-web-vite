@@ -2,8 +2,7 @@ import {sanitizeValue} from "@/utils/htmlUtils.ts";
 import {EmailAttachment} from "./EmailAttachment.ts";
 
 /**
- * Represents an email message with sender details, subject, consent, preview
- * and optional attachments.
+ * Represents an email message with sender details, subject, consent, preview and optional attachments.
  */
 export class EmailMessage {
     private _name: string;

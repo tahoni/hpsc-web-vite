@@ -77,13 +77,13 @@ export const contactUsJsonSchema: RJSFSchema = {
 /**
  * Represents the UI schema configuration for the Contact Us form.
  *
- * This object defines the UI-specific behavior and layout for the form fields.
+ * This object defines the UI-specific behaviour and layout for the form fields.
  *
  * Properties:
  * - `ui:classNames`: A string specifying the CSS class name(s) applied to the root element of the form for styling.
- * - `name`: An object defining UI properties specific to the "name" field, such as autofocus and autocomplete behavior.
+ * - `name`: An object defining UI properties specific to the "name" field, such as autofocus and autocomplete behaviour.
  * - `email`: An object defining UI properties for the "email" field including autocomplete and input type options.
- * - `content`: An object specifying UI properties for the "content" field, using a sanitized textarea widget and configuration for rows.
+ * - `content`: An object specifying UI properties for the "content" field, using a sanitised textarea widget and configuration for rows.
  * - `captcha`: An object defining a custom UI field for the "captcha" element.
  * - `ui:order`: Specifies the order in which the fields appear in the form.
  */

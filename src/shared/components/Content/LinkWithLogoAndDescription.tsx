@@ -17,7 +17,7 @@ export interface LinkWithLogoAndDescriptionProps {
  * This component is memoised using `React.memo` to optimise rendering and prevent unnecessary re-renders.
  *
  * The component accepts the following properties to render a structured layout:
- * - A linked logo image, with specified source, alternative text, and dimensions.
+ * - A linked logo image, with the specified source, alternative text, and dimensions.
  * - A textual description, including name, details, and an optional abbreviation.
  *
  * The layout consists of two main sections:

@@ -72,6 +72,10 @@ notes.
   `MapUtils.ts`'s `generateMapVenueKey`/`generateMapKey`
 - Fixed `YouTubeVideo.tsx`'s corrupted `@*/` comment terminator (should have been a plain `*/`) and removed its
   invalid `@param props.url` tag (TSDoc doesn't support dotted parameter names)
+- Fixed American-English spellings in TSDoc comments — `behavior`→`behaviour` and `sanitized`→`sanitised` in
+  `ContactUsSchema.ts`, `center`→`centre` in `MapUtils.ts`'s `generateMapKey` — and minor grammar: a missing article
+  in `LinkWithLogoAndDescription.tsx`, a doubled space in `venueConstants.ts`, and a plain-text `console.error`
+  reference in `ErrorBoundary.tsx`'s comment now code-formatted
 
 #### ⚠️ Deprecated
 

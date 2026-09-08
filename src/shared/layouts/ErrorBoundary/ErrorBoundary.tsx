@@ -14,7 +14,7 @@ interface ErrorBoundaryState {
  *
  * Catches any otherwise-unhandled error thrown while rendering its children and, instead of
  * leaving the visitor with a blank or broken page, renders a friendly fallback with a way to
- * recover. The caught error is still logged via console.error so it isn't invisible to anyone
+ * recover. The caught error is still logged via `console.error` so it isn't invisible to anyone
  * inspecting the browser console, since this site has no backend or remote error monitoring to
  * report to instead.
  */
