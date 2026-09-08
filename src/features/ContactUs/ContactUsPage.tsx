@@ -9,7 +9,7 @@ const ContactUsForm = React.lazy(() => import("./ContactUsForm"));
  * The component is designed to render a standalone form for user inquiries
  * and feedback within the Contact Us section of the application.
  *
- * @returns {ReactElement} The rendered JSX for the ContactUsPage, which includes the ContactUsContent component.
+ * @returns The rendered JSX for the ContactUsPage, which includes the ContactUsContent component.
  */
 const ContactUsPage: React.MemoExoticComponent<() => ReactElement> = React.memo(
   (): ReactElement => {

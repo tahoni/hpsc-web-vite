@@ -24,7 +24,7 @@ export interface LinkWithLogoAndDescriptionProps {
  * - The logo rendered as an image within a hyperlink.
  * - The description rendered as a styled paragraph.
  *
- * @param {LinkWithLogoAndDescriptionProps} props - The props required to customise the logo, description, and hyperlink.
+ * @param props - The props required to customise the logo, description, and hyperlink.
  */
 const LinkWithLogoAndDescription = React.memo(
   (props: LinkWithLogoAndDescriptionProps) => {

@@ -13,8 +13,8 @@ import { VenueMapLatLngType } from "@/models/venues/VenueType.ts";
  * The key is generated in the format: `venue_<club>:<latitude>,<longitude>`.
  * If the venue or its properties are undefined, the resulting string may include `undefined`.
  *
- * @param {Venue} [venue] - The venue object containing club and location details.
- * @returns {string} The generated key representing the venue.
+ * @param [venue] - The venue object containing club and location details.
+ * @returns The generated key representing the venue.
  */
 export const generateMapVenueKey = (venue?: Venue): string => {
   return (
@@ -25,8 +25,8 @@ export const generateMapVenueKey = (venue?: Venue): string => {
 /**
  * Generates a unique map key string based on a random UUID and optional center latitude and longitude.
  *
- * @param {VenueMapLatLngType} [center] - An optional object containing the latitude (`lat`) and longitude (`lng`) of the map center.
- * @returns {string} A string composed of a "map_" prefix, followed by a randomly generated UUID and the latitude and longitude coordinates from the center, if provided.
+ * @param [center] - An optional object containing the latitude (`lat`) and longitude (`lng`) of the map center.
+ * @returns A string composed of a "map_" prefix, followed by a randomly generated UUID and the latitude and longitude coordinates from the center, if provided.
  */
 export const generateMapKey = (center?: VenueMapLatLngType): string => {
   return "map_" + crypto.randomUUID + ":" + center?.lat + "," + center?.lng;

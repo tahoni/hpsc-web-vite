@@ -6,7 +6,7 @@ import NewsContent from "./NewsContent";
  * It renders the NewsContent component as part of its JSX structure.
  * React.memo ensures that the component only re-renders when its props change.
  *
- * @returns {ReactElement} The rendered output of the NewsPage component, which includes the NewsContent component.
+ * @returns The rendered output of the NewsPage component, which includes the NewsContent component.
  */
 const NewsPage: React.MemoExoticComponent<() => ReactElement> = React.memo(
   () => {

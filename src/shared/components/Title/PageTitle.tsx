@@ -10,8 +10,8 @@ export interface PageTitleProps {
  * It renders a stylised div containing a level 2 heading for the title text and a horizontal rule.
  * The component is memoised using React.memo for performance optimisation to prevent unnecessary re-renders.
  *
- * @param {PageTitleProps} props - The property object containing necessary data for the component.
- * @returns {ReactElement} The rendered JSX representation of the page title.
+ * @param props - The property object containing necessary data for the component.
+ * @returns The rendered JSX representation of the page title.
  */
 const PageTitle = React.memo((props: PageTitleProps): ReactElement => {
   return (

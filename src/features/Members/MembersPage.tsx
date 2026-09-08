@@ -10,7 +10,7 @@ const MembersContent = React.lazy(() => import("./MembersContent"));
  * This component is useful for displaying `MembersContent` and ensures a stable output
  * unless the props passed to it (if any in future extension) change.
  *
- * @returns {ReactElement} The rendered output of the MembersPage component, which includes the MembersContent component.
+ * @returns The rendered output of the MembersPage component, which includes the MembersContent component.
  */
 const MembersPage: React.MemoExoticComponent<() => ReactElement> = React.memo(
   (): ReactElement => {

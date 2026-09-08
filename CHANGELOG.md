@@ -73,6 +73,9 @@ notes.
   feature page/content components and other constants files
 - Removed the `@interface` and `@property` TSDoc tags from `ContactUsSchema.ts`'s exported fields/widgets/schema
   constants, `ContactUsEmailTemplateProps` and `VenueMapProps`
+- Removed the `{...}` type annotation (including the `{@see ReactElement}` tags added above) from every `@param`/
+  `@returns` TSDoc tag across the feature page components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`,
+  `MapUtils.ts`, `VenuesContent.tsx`, and the shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components
 
 ##### Components
 

@@ -12,8 +12,8 @@ import SanitizedWidget from "./SanitizedWidget";
  * It utilizes SanitizedWidget with the type set to TEMPLATE and passes all received props
  * to the SanitizedWidget component to render the sanitised input template.
  *
- * @param {BaseInputTemplateProps} props - The properties to be passed to the SanitizedWidget component.
- * @returns {JSX.Element} A rendered SanitizedWidget with the type TEMPLATE and provided properties.
+ * @param props - The properties to be passed to the SanitizedWidget component.
+ * @returns A rendered SanitizedWidget with the type TEMPLATE and provided properties.
  */
 const SanitizedBaseInputTemplate = <
   T = any,

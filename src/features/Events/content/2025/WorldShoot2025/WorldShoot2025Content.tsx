@@ -17,8 +17,8 @@ export interface WorldShootContentProps {
  * This component renders event-specific information such as descriptions, dates, location,
  * images, links to external resources, and a map with venue details.
  *
- * @param {PropsWithChildren<WorldShootContentProps>} props - The properties passed to this component.
- * @returns {ReactElement} A React element representing the World Shoot event content, or an empty fragment if no event is found for the provided year.
+ * @param props - The properties passed to this component.
+ * @returns A React element representing the World Shoot event content, or an empty fragment if no event is found for the provided year.
  */
 const WorldShoot2025Content = React.memo(
   (props: PropsWithChildren<WorldShootContentProps>): ReactElement => {

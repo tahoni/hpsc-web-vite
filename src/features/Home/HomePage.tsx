@@ -7,7 +7,7 @@ import HistoryContent from "../History/HistoryContent";
  *
  * It ensures that the component only re-renders if its props change, improving performance in certain scenarios.
  *
- * @returns {ReactElement} The rendered output of the HomePage component, which includes the HomeContent component.
+ * @returns The rendered output of the HomePage component, which includes the HomeContent component.
  */
 const HomePage: React.MemoExoticComponent<() => ReactElement> = React.memo(
   () => {

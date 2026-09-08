@@ -17,9 +17,9 @@ export interface ContactUsEmailTemplateProps {
  * This template displays the sender's information (name and email) and
  * the details of the message (subject and content).
  *
- * @param {ContactUsEmailTemplateProps} props - The properties required to generate the email content,
+ * @param props - The properties required to generate the email content,
  * including the sender's details and message information.
- * @returns {ReactElement} The rendered HTML content for the "Contact Us" email template.
+ * @returns The rendered HTML content for the "Contact Us" email template.
  */
 const ContactUsEmailTemplate = (
     props: ContactUsEmailTemplateProps,

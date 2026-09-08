@@ -8,7 +8,7 @@ import { shootingRangeVenues } from "@/constants/about/venueConstants";
  *
  * This component loops through the `shootingRangeVenues` array and populates the `venues` array with its elements.
  *
- * @returns {ReactElement} A React fragment containing the structured render elements.
+ * @returns A React fragment containing the structured render elements.
  */
 const VenuesContent = React.memo((): ReactElement => {
   const venues: Venue[] = [];
