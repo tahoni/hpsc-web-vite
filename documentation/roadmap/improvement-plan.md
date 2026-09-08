@@ -55,7 +55,7 @@ Within each section, gaps stay in ascending number order.
 
 ### 📋 At a Glance
 
-- **✅ Completed (12):**
+- **✅ Completed (13):**
   - #1 No automatic lint/build/test gate on pull requests
   - #2 Two concrete route-metadata defects
   - #3 Zero test coverage despite a configured test runner
@@ -66,10 +66,10 @@ Within each section, gaps stay in ascending number order.
   - #8 Dependency surface has no ongoing audit discipline
   - #9 `HISTORY.md`'s "Future Roadmap Implications" section doesn't exist
   - #10 `AGENTS.md`'s stale "MIT License" description for `LICENSE.md`
+  - #11 258 pre-existing `tsdoc/syntax` lint warnings
   - #12 `/contact` and `/venues` were indexed and rewrite-whitelisted but never actually routed
   - #13 `CONTRIBUTING.md`'s CI/CD and Testing sections described a pre-Gap-#1/#3 state
-- **🟡 Partially Completed (1):**
-  - #11 258 pre-existing `tsdoc/syntax` lint warnings — all fixed; only the `"warn"` → `"error"` escalation remains
+- **🟡 Partially Completed (0):** none currently.
 - **⚪ Open (0):** none currently.
 
 ### ✅ Completed
@@ -312,7 +312,7 @@ Table of Contents. The project decided against the "per-version, alongside Histo
 Learnings itself (three thematic subsections that reference specific versions in passing rather than one entry per
 release), Future Roadmap Implications is a synthesised, forward-looking read of the whole history rather than a
 release-by-release log — it cites specific past versions (e.g. v3.3.3, v4.0.0, v5.0.0) where they support a given
-implication, matching how the sections around it already work. `../../AGENTS.md`'s Release Checklist step 7
+implication, matching how the surrounding sections already work. `../../AGENTS.md`'s Release Checklist step 7
 thread-through list was corrected to include "Major Version Goals". This plan's Purpose & Scope and 📚 Related
 Documentation sections were updated to drop the "per-release" framing that never matched the section's actual,
 synthesised design — closing the doc-vs-doc mismatch this gap was about, rather than building out a per-release
@@ -339,6 +339,57 @@ Reserved", matching `../../README.md` and the file's actual content.
 
 **Outcome:** `../../AGENTS.md`'s Documentation File Map now reads "All Rights Reserved", matching `../../README.md`
 and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]` entry's claim is now accurate.
+
+#### 11. 258 pre-existing `tsdoc/syntax` lint warnings — ✅ Closed in v5.2.0
+
+**Evidence:** `../../eslint.config.js:48` sets `"tsdoc/syntax": "warn"`, enabled per the `../../CHANGELOG.md`
+`[Unreleased]` fix that wired `eslint-plugin-tsdoc` into the flat config (it had only ever been active in the legacy,
+now-superseded `.eslintrc.cjs` mirror). Running `npm run lint` now reports 258 `tsdoc/syntax` warnings across 58
+files (down from 264 across 65 when this gap was first written) — `tsdoc-undefined-tag` (63, down from 69),
+`tsdoc-malformed-inline-tag` (62) and `tsdoc-escape-right-brace` (62) account for most of them, largely from
+JSDoc-style `@param {type}` annotations and unescaped `{`/`}` characters in doc comments that predate the rule's
+enforcement. The `tsdoc-undefined-tag`/file-count drop is an incidental side effect of `5.2.0`'s "Remove non-standard
+`@module` JSDoc tags from touched files" commit, not deliberate work on this gap — most `@module` tags elsewhere in
+the codebase remain. `npm run lint`'s own summary line now reports "284 problems (0 errors, 284 warnings)" — the
+other 26 are pre-existing `no-unused-vars`/`react-refresh` warnings unrelated to this rule.
+
+**Why it matters:** `../../AGENTS.md`'s TSDoc convention states doc comments "must be syntactically valid TSDoc, not
+JSDoc-only syntax" — with the rule now actually wired up (and, per Gap #1's closure, actually gating CI via
+`../../.github/workflows/build.yml`, since `"warn"` still exits `0`), 58 files currently violate that documented
+convention. Because the rule is `"warn"`, not `"error"`, these warnings don't fail `npm run lint` or the CI gate —
+they're easy to miss and can keep accumulating rather than being caught at the point a doc comment is written or
+changed.
+
+**Proposed improvement:** Work through the 258 warnings in batches by rule type across the 58 affected files,
+starting with the highest-count patterns (`tsdoc-undefined-tag`, `tsdoc-malformed-inline-tag`/
+`tsdoc-escape-right-brace` from JSDoc-style `{type}` annotations) — converting `@param {type} name` to plain TSDoc's
+`@param name`. Once clean, escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in `../../eslint.config.js` so a
+regression is caught immediately rather than silently re-accumulating.
+
+**Progress:** In `5.2.0`, further TSDoc cleanup landed after this gap was first written. The non-standard `@type`
+(`../../src/vite-env.d.ts`, the memoised feature page/content components and other constants files), `@interface`/
+`@property` (`ContactUsSchema.ts`'s exported fields/widgets/schema constants, `ContactUsEmailTemplateProps` and
+`VenueMapProps`) and `@prop` (`ContactUsFormData.ts`) tags were all removed, and the non-standard `@return` tag was
+corrected to `@returns` in `../../src/models/email/EmailMessage.ts` and `../../src/App.tsx`. Most significantly for
+this gap's own Proposed improvement, the `{type}` annotation was stripped from every `@param`/`@returns` tag — the
+exact `@param {type} name` → `@param name` conversion this gap called for — across 23 files (the feature page
+components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`, `MapUtils.ts`, `VenuesContent.tsx`, and the
+shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components); a `{@link ReactElement}`/`{@see ReactElement}`
+tag introduced mid-cleanup on two `@returns` lines was itself removed in the same pass rather than left behind.
+A final trio of stragglers was then also cleaned up: `../../src/features/Venues/MapUtils.ts`'s `@param [venue]`/
+`@param [center]` (JSDoc-style optional-name brackets) both became plain `@param venue`/`@param center`, and
+`../../src/shared/components/Video/YouTubeVideo.tsx`'s `@param props.url` (a dotted identifier TSDoc's parser
+rejects) and the stray `@*/` immediately below it (a corrupted closing-comment marker, not a real tag) were removed.
+`npm run lint` now reports **zero** `tsdoc/syntax` warnings, down from 258, and its summary line reads "26 problems
+(0 errors, 26 warnings)", down from 284 — the remaining 26 are pre-existing `no-unused-vars`/`react-refresh`
+warnings unrelated to this rule.
+
+**Outcome:** In `5.2.0`, with `npm run lint` reporting zero `tsdoc/syntax` warnings (per the Progress note above),
+`"tsdoc/syntax"` was escalated from `"warn"` to `"error"` in both `../../eslint.config.js` and its legacy
+`../../.eslintrc.cjs` mirror (kept in sync per `../../AGENTS.md`'s Code Quality & CI section), completing this gap's
+Proposed improvement. `npm run lint` re-run afterwards still exits `0` (26 problems, 0 errors), confirming the
+escalation doesn't newly fail the build — any future TSDoc syntax regression will now fail `npm run lint` and,
+per Gap #1's CI gate, the PR check itself, instead of silently accumulating as an easy-to-miss warning.
 
 #### 12. `/contact` and `/venues` are indexed and rewrite-whitelisted but never actually reach the app's route table — ✅ Closed in v5.2.0
 
@@ -410,50 +461,7 @@ Pull Request Checklist, which already described the CI gate correctly.
 
 ### 🟡 Partially Completed
 
-#### 11. 258 pre-existing `tsdoc/syntax` lint warnings — 🟡 Partially completed in v5.2.0
-
-**Evidence:** `../../eslint.config.js:48` sets `"tsdoc/syntax": "warn"`, enabled per the `../../CHANGELOG.md`
-`[Unreleased]` fix that wired `eslint-plugin-tsdoc` into the flat config (it had only ever been active in the legacy,
-now-superseded `.eslintrc.cjs` mirror). Running `npm run lint` now reports 258 `tsdoc/syntax` warnings across 58
-files (down from 264 across 65 when this gap was first written) — `tsdoc-undefined-tag` (63, down from 69),
-`tsdoc-malformed-inline-tag` (62) and `tsdoc-escape-right-brace` (62) account for most of them, largely from
-JSDoc-style `@param {type}` annotations and unescaped `{`/`}` characters in doc comments that predate the rule's
-enforcement. The `tsdoc-undefined-tag`/file-count drop is an incidental side effect of `5.2.0`'s "Remove non-standard
-`@module` JSDoc tags from touched files" commit, not deliberate work on this gap — most `@module` tags elsewhere in
-the codebase remain. `npm run lint`'s own summary line now reports "284 problems (0 errors, 284 warnings)" — the
-other 26 are pre-existing `no-unused-vars`/`react-refresh` warnings unrelated to this rule.
-
-**Why it matters:** `../../AGENTS.md`'s TSDoc convention states doc comments "must be syntactically valid TSDoc, not
-JSDoc-only syntax" — with the rule now actually wired up (and, per Gap #1's closure, actually gating CI via
-`../../.github/workflows/build.yml`, since `"warn"` still exits `0`), 58 files currently violate that documented
-convention. Because the rule is `"warn"`, not `"error"`, these warnings don't fail `npm run lint` or the CI gate —
-they're easy to miss and can keep accumulating rather than being caught at the point a doc comment is written or
-changed.
-
-**Proposed improvement:** Work through the 258 warnings in batches by rule type across the 58 affected files,
-starting with the highest-count patterns (`tsdoc-undefined-tag`, `tsdoc-malformed-inline-tag`/
-`tsdoc-escape-right-brace` from JSDoc-style `{type}` annotations) — converting `@param {type} name` to plain TSDoc's
-`@param name`. Once clean, escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in `../../eslint.config.js` so a
-regression is caught immediately rather than silently re-accumulating.
-
-**Progress:** In `5.2.0`, further TSDoc cleanup landed after this gap was first written. The non-standard `@type`
-(`../../src/vite-env.d.ts`, the memoised feature page/content components and other constants files), `@interface`/
-`@property` (`ContactUsSchema.ts`'s exported fields/widgets/schema constants, `ContactUsEmailTemplateProps` and
-`VenueMapProps`) and `@prop` (`ContactUsFormData.ts`) tags were all removed, and the non-standard `@return` tag was
-corrected to `@returns` in `../../src/models/email/EmailMessage.ts` and `../../src/App.tsx`. Most significantly for
-this gap's own Proposed improvement, the `{type}` annotation was stripped from every `@param`/`@returns` tag — the
-exact `@param {type} name` → `@param name` conversion this gap called for — across 23 files (the feature page
-components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`, `MapUtils.ts`, `VenuesContent.tsx`, and the
-shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components); a `{@link ReactElement}`/`{@see ReactElement}`
-tag introduced mid-cleanup on two `@returns` lines was itself removed in the same pass rather than left behind.
-A final trio of stragglers was then also cleaned up: `../../src/features/Venues/MapUtils.ts`'s `@param [venue]`/
-`@param [center]` (JSDoc-style optional-name brackets) both became plain `@param venue`/`@param center`, and
-`../../src/shared/components/Video/YouTubeVideo.tsx`'s `@param props.url` (a dotted identifier TSDoc's parser
-rejects) and the stray `@*/` immediately below it (a corrupted closing-comment marker, not a real tag) were removed.
-`npm run lint` now reports **zero** `tsdoc/syntax` warnings, down from 258, and its summary line reads "26 problems
-(0 errors, 26 warnings)", down from 284 — the remaining 26 are pre-existing `no-unused-vars`/`react-refresh`
-warnings unrelated to this rule. Still outstanding: escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in
-`../../eslint.config.js`, per this gap's Proposed improvement — the only remaining step before this gap can close.
+*No gaps are currently partially completed.*
 
 ### ⚪ Open
 
@@ -465,7 +473,7 @@ warnings unrelated to this rule. Still outstanding: escalate `"tsdoc/syntax"` fr
 
 | Phase       | Focus                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Escalating `"tsdoc/syntax"` from `"warn"` to `"error"` now that `npm run lint` reports zero such warnings (#11)                                |
+| **Now**     | Nothing currently queued — all thirteen tracked gaps are closed; see Success Criteria for the current baseline  |
 | **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
@@ -483,7 +491,7 @@ warnings unrelated to this rule. Still outstanding: escalate `"tsdoc/syntax"` fr
 - `../../HISTORY.md` either gains a "Future Roadmap Implications" section or this plan's Purpose & Scope and
   `../../AGENTS.md`'s Release Checklist stop referencing one that doesn't exist (#9) — ✅ Met in v5.2.0.
 - `npm run lint` reports zero `tsdoc/syntax` warnings, and the rule is escalated from `"warn"` to `"error"` in
-  `../../eslint.config.js` once clean (#11) — 🟡 the warning count is zero as of `5.2.0`; escalation is still open.
+  `../../eslint.config.js` once clean (#11) — ✅ Met in v5.2.0.
 - `/contact` and `/venues` either render through `AppRoutes.tsx` like every other core route, or are removed from
   `../../public/sitemap.xml`/`../../public/.htaccess` so the site stops advertising pages it doesn't serve
   (#12) — ✅ Met in v5.2.0 (both render through `AppRoutes.tsx`; both were deliberately left out of the primary
