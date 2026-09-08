@@ -76,6 +76,7 @@ notes.
 - Removed the `{...}` type annotation (including the `{@see ReactElement}` tags added above) from every `@param`/
   `@returns` TSDoc tag across the feature page components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`,
   `MapUtils.ts`, `VenuesContent.tsx`, and the shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components
+- Removed the `@prop` TSDoc tags (and their preceding blank comment line) from `ContactUsFormData.ts`
 
 ##### Components
 
