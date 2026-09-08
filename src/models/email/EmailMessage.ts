@@ -41,7 +41,7 @@ export class EmailMessage {
      * Checks if the necessary properties: name, email, subject, preview, and content
      * are valid and non-empty.
      *
-     * @return Returns true if all required properties are non-empty, otherwise false.
+     * @returns Returns true if all required properties are non-empty, otherwise false.
      */
     isValid(): boolean {
         return (

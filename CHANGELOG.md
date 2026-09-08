@@ -50,6 +50,11 @@ notes.
 
 #### 🐛 Fixed
 
+##### Documentation
+
+- Fixed the non-standard `@return` TSDoc tag to the standard `@returns` in `src/models/email/EmailMessage.ts`'s
+  `isValid` method
+
 #### ⚠️ Deprecated
 
 #### 🗑️ Removed
