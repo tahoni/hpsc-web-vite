@@ -50,7 +50,7 @@ export default [
         { allowConstantExport: true },
       ],
       "no-unused-vars": "warn",
-      "tsdoc/syntax": "warn",
+      "tsdoc/syntax": "error",
     },
   },
 ];

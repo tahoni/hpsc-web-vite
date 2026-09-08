@@ -48,6 +48,13 @@ notes.
 
 #### 🔄 Changed
 
+##### Build & Tooling
+
+- Escalated `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule from `"warn"` to `"error"` in `eslint.config.js` and its
+  legacy `.eslintrc.cjs` mirror, now that `npm run lint` reports zero `tsdoc/syntax` warnings — closing Gap #11 in
+  `documentation/roadmap/improvement-plan.md`; a future TSDoc syntax regression now fails `npm run lint` and the CI
+  gate instead of silently accumulating as a warning
+
 ##### Documentation
 
 - Changed the `{@link ReactElement}` TSDoc tag to `{@see ReactElement}` in `AboutUsPage.tsx` and `ContactUsForm.tsx`'s

@@ -15,6 +15,6 @@ module.exports = {
       "warn",
       { allowConstantExport: true },
     ],
-    "tsdoc/syntax": "warn",
+    "tsdoc/syntax": "error",
   },
 };
