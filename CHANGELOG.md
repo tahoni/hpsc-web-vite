@@ -53,7 +53,7 @@ notes.
 ##### Documentation
 
 - Fixed the non-standard `@return` TSDoc tag to the standard `@returns` in `src/models/email/EmailMessage.ts`'s
-  `isValid` method
+  `isValid` method and `src/App.tsx`'s `App` component
 
 #### ⚠️ Deprecated
 
