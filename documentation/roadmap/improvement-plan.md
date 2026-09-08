@@ -473,7 +473,7 @@ Pull Request Checklist, which already described the CI gate correctly.
 
 | Phase       | Focus                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Nothing currently queued — all thirteen tracked gaps are closed; see Success Criteria for the current baseline  |
+| **Now**     | Nothing currently queued — all thirteen tracked gaps are closed; see Success Criteria for the current baseline                                 |
 | **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |

@@ -82,6 +82,8 @@ notes.
   `mechanically-checkable`→`mechanically checkable`, `artifacts`→`artefacts`) in `HISTORY.md`, `RELEASE_NOTES.md`,
   `improvement-plan-tasks.md`, `project-accessibility-checklist.md`, `eslint.config.js`'s ignore-patterns comment
   and `.claude/skills/generate-pr-summary/SKILL.md`, per `AGENTS.md`'s British English/list-comma convention
+- Fixed a stray digit corrupting a bullet list item (`3- #3` instead of `- #3`) in `improvement-plan.md`'s
+  At a Glance summary
 
 #### ⚠️ Deprecated
 
