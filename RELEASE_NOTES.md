@@ -1,6 +1,6 @@
 # Release Notes – Version 5.2.0
 
-**Release Date:** September 6, 2026 **Status:** ✨ Stable
+**Release Date:** September 13, 2026 **Status:** ✨ Stable
 
 ## 🎯 Theme
 
@@ -16,7 +16,10 @@ on an unhandled render error. Alongside that, `src/vendors/bootstrap/styles/inde
 `@use`/`@forward`, `baseUrl` is finally sourced from `VITE_SITE_URL` instead of a hardcoded literal, `News` is wired
 into live routing, and `Contact Us`/`Venues` are reachable again (by direct URL — both were deliberately kept off the
 primary navigation menu, which now lists only the site's core sections). A new monthly dependency-review cadence and
-a WCAG AA baseline checklist round out the release's process improvements.
+a WCAG AA baseline checklist round out the release's process improvements. The release branch then went on to fully
+clear the project's `tsdoc/syntax` backlog (escalating the rule to `"error"`), add Claude Code GitHub Action
+integration for automated PR review and `@claude` mentions, and update the attribution footer used by this project's
+own release-prep skills.
 
 ## ⭐ Key Highlights
 
@@ -25,6 +28,8 @@ a WCAG AA baseline checklist round out the release's process improvements.
 - Added `.github/workflows/build.yml`, running `npm run lint`, `npm run build` and `npm run test:run` on push/PR to
   `main` and `develop`, so failures now gate merges instead of relying on contributor discipline
 - Added an advisory-only `npm audit` step (`continue-on-error: true`); currently 0 vulnerabilities
+- Added `.github/workflows/claude.yml`/`claude-code-review.yml`, so `@claude` mentions get a response and every pull
+  request gets automated Claude Code review, both authenticated via repository secrets/variables
 
 ### 🧪 Testing Foundations
 
@@ -62,8 +67,17 @@ a WCAG AA baseline checklist round out the release's process improvements.
   Checklist
 - Added `HISTORY.md`'s "🚀 Future Roadmap Implications" section, synthesising forward-looking implications for
   Major Version 5's planned redesign
-- Removed the non-standard `@module` JSDoc tag from six files, progressing (not yet closing) Gap #11's `tsdoc/syntax`
-  warning cleanup
+- Fully cleared Gap #11's `tsdoc/syntax` warning backlog — every doc comment across the codebase is now valid
+  TSDoc — and escalated the ESLint rule from `"warn"` to `"error"` so a regression fails the build
+
+### 🤖 Claude Code Integration
+
+- Added `.github/workflows/claude.yml`, which runs Claude Code when `@claude` is mentioned in an issue, issue
+  comment, or pull request review/review comment
+- Added `.github/workflows/claude-code-review.yml`, which runs the `code-review` plugin automatically on every
+  opened or updated pull request and posts findings as inline comments
+- Updated the `generate-pr-summary` and `prep-version-release` skills to end their drafted PR descriptions with the
+  standard Claude Code attribution footer
 
 ## 📦 What's New
 
@@ -86,6 +100,16 @@ a WCAG AA baseline checklist round out the release's process improvements.
   (mostly `"error"`) severity — the codebase was already clean against it, so no `"warn"`-first transition (like
   `tsdoc/syntax`'s) was needed
 - Added `*.mdx` to `.prettierignore`, since Prettier doesn't format MDX well
+- Added `.github/workflows/claude.yml`, which runs Claude Code when `@claude` is mentioned in an issue, issue
+  comment, or pull request review/review comment
+- Added `.github/workflows/claude-code-review.yml`, which runs the `code-review` plugin automatically on every
+  opened or updated pull request and posts findings as inline comments
+- Both workflows authenticate via a `CLAUDE_CODE_OAUTH_TOKEN` repository secret; `claude-code-review.yml` also passes
+  the `NPM_TOKEN_READ` secret through to its `Run Claude Code Review` step so `.npmrc`'s `@tahoni` scope can
+  authenticate when Claude runs `npm install`/`npm ci` against a pull request, and the `VITE_GOOGLE_MAPS_API_KEY`/
+  `VITE_RECAPTCHA_V2_SITE_KEY` secrets so the venue map and Contact Us captcha can render if Claude runs/builds the
+  app while reviewing; `claude-code-review.yml` also sets the non-sensitive `VITE_SITE_URL` from a repository
+  variable (Settings > Actions > Variables) rather than a secret
 
 #### Testing
 
@@ -142,6 +166,22 @@ a WCAG AA baseline checklist round out the release's process improvements.
   consumers (`App.scss`, `_forms.scss`) still see Bootstrap's forwarded variables/mixins; verified the compiled CSS
   is unaffected (byte-identical bundle vs. the pre-migration `@import` output)
 
+#### Build & Tooling
+
+- Escalated `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule from `"warn"` to `"error"` in `eslint.config.js` and its
+  legacy `.eslintrc.cjs` mirror, now that `npm run lint` reports zero `tsdoc/syntax` warnings — closing Gap #11 in
+  `documentation/roadmap/improvement-plan.md`; a future TSDoc syntax regression now fails `npm run lint` and the CI
+  gate instead of silently accumulating as a warning
+- Updated the `generate-pr-summary` and `prep-version-release` skills to end their drafted PR descriptions with the
+  standard Claude Code attribution footer, consistent with any other PR description it opens
+
+#### Documentation
+
+- Changed the `{@link ReactElement}` TSDoc tag to `{@see ReactElement}` in `AboutUsPage.tsx` and `ContactUsForm.tsx`'s
+  `@returns` lines
+- Added a `{@link SanitizedWidget}` cross-reference to `SanitizedBaseInputTemplate.tsx`'s TSDoc comment
+- Reworded `ImageSidebar.tsx`'s `@param` line from "The properties object" to "The property object"
+
 ### 🐛 Fixed
 
 #### Developer Experience
@@ -195,6 +235,43 @@ a WCAG AA baseline checklist round out the release's process improvements.
   section it never mentioned despite the section existing since `5.0.0`
 - Fixed `improvement-plan.md`'s Purpose & Scope and 📚 Related Documentation sections describing `HISTORY.md`'s
   "🚀 Future Roadmap Implications" section as "per-release", which never matched its actual synthesised design
+- Fixed the non-standard `@return` TSDoc tag to the standard `@returns` in `src/models/email/EmailMessage.ts`'s
+  `isValid` method and `src/App.tsx`'s `App` component
+- Fixed a mismatched quote/backtick around `React.memo` in `AboutUsPage.tsx`'s TSDoc comment
+- Fixed a missing hyphen between the `@param` name and description in `EmailAttachment.ts`
+- Fixed the JSDoc-style `@param [name]` optional-name brackets (invalid TSDoc syntax) to plain `@param name` in
+  `MapUtils.ts`'s `generateMapVenueKey`/`generateMapKey`
+- Fixed `YouTubeVideo.tsx`'s corrupted `@*/` comment terminator (should have been a plain `*/`) and removed its
+  invalid `@param props.url` tag (TSDoc doesn't support dotted parameter names)
+- Fixed American-English spellings in TSDoc comments — `behavior`→`behaviour` and `sanitized`→`sanitised` in
+  `ContactUsSchema.ts`, `center`→`centre` in `MapUtils.ts`'s `generateMapKey` — and minor grammar: a missing article
+  in `LinkWithLogoAndDescription.tsx`, a doubled space in `venueConstants.ts` and in `ContactUsForm.tsx`'s `@returns`
+  line, and a plain-text `console.error` reference in `ErrorBoundary.tsx`'s comment now code-formatted
+- Fixed remaining Oxford commas and American-English spellings (`meta description`→`meta-description`,
+  `mechanically-checkable`→`mechanically checkable`, `artifacts`→`artefacts`) in `HISTORY.md`, `RELEASE_NOTES.md`,
+  `improvement-plan-tasks.md`, `project-accessibility-checklist.md`, `eslint.config.js`'s ignore-patterns comment
+  and `.claude/skills/generate-pr-summary/SKILL.md`, per `AGENTS.md`'s British English/list-comma convention
+- Fixed a stray digit corrupting a bullet list item (`3- #3` instead of `- #3`) in `improvement-plan.md`'s
+  At a Glance summary
+
+### 🗑️ Removed
+
+#### Documentation
+
+- Removed the `@module` TSDoc tag (and its preceding blank comment line) from `src/vite-env.d.ts`, the `constants`
+  files and the feature `index.ts`/`ContactUsSchema.ts` files
+- Removed the `@type` TSDoc tag (and its preceding blank comment line where it was the sole tag) from the memoised
+  feature page/content components and other constants files
+- Removed the `@interface` and `@property` TSDoc tags from `ContactUsSchema.ts`'s exported fields/widgets/schema
+  constants, `ContactUsEmailTemplateProps` and `VenueMapProps`
+- Removed the `{...}` type annotation (including the `{@see ReactElement}` tags added above) from every `@param`/
+  `@returns` TSDoc tag across the feature page components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`,
+  `MapUtils.ts`, `VenuesContent.tsx`, and the shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components
+- Removed the `@prop` TSDoc tags (and their preceding blank comment line) from `ContactUsFormData.ts`
+
+#### Components
+
+- Removed dead, commented-out `APIProvider`/`GoogleReCaptchaProvider` wrapper markup from `App.tsx`
 
 ## 🔄 Migration Guide
 
@@ -213,11 +290,17 @@ a WCAG AA baseline checklist round out the release's process improvements.
 - **`Contact Us`/`Venues` are off the primary navigation menu** but still reachable by direct URL and indexed in
   the sitemap — update any internal links or expectations that assumed they were unreachable rather than merely
   unlinked.
+- **`tsdoc/syntax` is now an error, not a warning.** Any new doc comment with invalid TSDoc syntax now fails
+  `npm run lint` and the CI gate; there's no remaining backlog to blame it on.
+- **`@claude`/automated PR review requires repository configuration.** `claude.yml`/`claude-code-review.yml` need a
+  `CLAUDE_CODE_OAUTH_TOKEN` secret, `claude-code-review.yml` additionally needs `NPM_TOKEN_READ`,
+  `VITE_GOOGLE_MAPS_API_KEY` and `VITE_RECAPTCHA_V2_SITE_KEY` secrets and a `VITE_SITE_URL` repository variable — see
+  `.github/workflows/claude-code-review.yml` for the exact names.
 
 ## 📊 Statistics
 
-- **Total Commits:** 33
-- **Files Changed:** 41 (+2,150 / −297 lines)
+- **Total Commits:** 67
+- **Files Changed:** 102 (+3,032 / −571 lines)
 
 ## 🧭 Design Notes
 
@@ -228,13 +311,18 @@ a WCAG AA baseline checklist round out the release's process improvements.
   routes, sitemap entries and `.htaccess` rewrites for both stay in place.
 - **Advisory before enforced.** `npm audit`'s new CI step is `continue-on-error: true` by design — it surfaces
   findings without blocking merges until the project has a documented triage process for acting on them.
+- **Warn before error.** `tsdoc/syntax` shipped as `"warn"` while the backlog was cleared, then escalated to
+  `"error"` only once `npm run lint` was genuinely clean — the same staged approach `eslint-plugin-jsx-a11y` didn't
+  need, because that rule set started clean.
 
 ## 🧪 Testing
 
-- `npm run lint` — 0 errors; 284 pre-existing `tsdoc/syntax`/`react-refresh` warnings unchanged by this release
-  (tracked as Gap #11)
+- `npm run lint` — 0 errors, 26 warnings (`no-unused-vars`, `react-refresh/only-export-components`); 0
+  `tsdoc/syntax` warnings, down from 284 at the start of this release, now enforced as an error
 - `npm run build` — passes
-- `npm run test:run` — 3 test files, 14 tests, all passing (this release's first test coverage)
+- `npm run test:run` — 3 test files, 14 tests; 11 passing, 3 failing in `builders/RoutesSitemap.test.ts` when run
+  without `VITE_SITE_URL` set in the shell (see Known Issues — Gap #15; confirmed this isn't a regression from this
+  release's own commits)
 - Manually verified `public/sitemap.xml` regenerates correctly via `npm run sitemap` and includes `/contact` and
   `/news`
 - Manually verified `/contact`, `/venues` and `/news` render correctly by direct URL, and that neither `Contact Us`
@@ -244,15 +332,21 @@ a WCAG AA baseline checklist round out the release's process improvements.
 
 ## 🐛 Known Issues
 
-- 284 `tsdoc/syntax`/`react-refresh` warnings remain unfixed — the rules are `"warn"`, not `"error"`, so they don't
-  fail a lint run (`documentation/roadmap/improvement-plan-tasks.md` → Gap #11)
+- **`builders/RoutesSitemap.test.ts` fails without `VITE_SITE_URL` exported** (`TypeError: Invalid URL`), and
+  `build.yml`'s CI "Test" step never sets it — so this may already be failing in CI on every push/PR to
+  `main`/`develop` (tracked as Gap #15; confirmed this reproduces identically at this release's original prep
+  commit, so it's not something this release's later commits introduced)
+- 26 non-`tsdoc/syntax` lint warnings remain (`no-unused-vars`, `react-refresh/only-export-components`); the rules
+  are `"warn"`, not `"error"`, so they don't fail a lint run
 - Test coverage is still thin — three test files covering `htmlUtils.ts` and `RoutesSitemap.ts` only; most
   components, hooks and helpers remain untested
+- An unexplained `TODO: missing imports` comment was added to `_forms.scss` with no accompanying import or
+  explanation (tracked as Gap #14)
 
 ## 🔮 Future Enhancements
 
-- Continue clearing Gap #11's remaining `tsdoc/syntax`/`react-refresh` warnings and escalate the rules from
-  `"warn"` to `"error"`
+- Fix `build.yml`'s Test step so `RoutesSitemap.test.ts` passes in a clean CI checkout (Gap #15)
+- Resolve or remove `_forms.scss`'s `TODO: missing imports` comment (Gap #14)
 - Expand Vitest coverage beyond the initial `htmlUtils.ts`/`RoutesSitemap.ts` tests to components, hooks and
   helpers
 - Run the newly documented monthly dependency-review cadence for the first time
@@ -266,8 +360,11 @@ Leoni Lubbinge
 This release closes out most of the improvement plan's "Now" phase in a single branch: a CI quality gate, initial
 test coverage, automated accessibility linting, per-page SEO metadata, a top-level error boundary, a completed
 Bootstrap `@use` migration and an environment-sourced `baseUrl`. It also fixes a batch of routing/sitemap defects
-uncovered along the way and formalises a recurring dependency-review process, leaving the roadmap's "Next" phase
-(further test coverage, the remaining `tsdoc/syntax` warnings) as the clear focus for the next release.
+uncovered along the way and formalises a recurring dependency-review process. Before wrapping up, the branch also
+fully cleared the `tsdoc/syntax` backlog (escalating the rule to `"error"`) and added Claude Code GitHub Action
+integration for automated PR review — but that same wrap-up work also surfaced two new gaps (an unexplained
+`_forms.scss` TODO, and a CI test that depends on an environment variable `build.yml` never sets), leaving both as
+the clear starting point for the next release.
 
 ---
 

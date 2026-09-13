@@ -16,7 +16,7 @@ notes.
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.2.0](#-520---2026-09-06) ← Current
+- [🧾 Version 5.2.0](#-520---2026-09-13) ← Current
 - [🧾 Version 5.1.3](#-513---2026-09-05)
 - [🧾 Version 5.1.2](#-512---2026-09-04)
 - [🧾 Version 5.1.1](#-511---2026-09-04)
@@ -46,86 +46,19 @@ notes.
 
 #### ➕ Added
 
-##### Build & Tooling
-
-- Added `.github/workflows/claude.yml`, which runs Claude Code when `@claude` is mentioned in an issue, issue
-  comment, or pull request review/review comment
-- Added `.github/workflows/claude-code-review.yml`, which runs the `code-review` plugin automatically on every
-  opened or updated pull request and posts findings as inline comments
-- Both workflows authenticate via a `CLAUDE_CODE_OAUTH_TOKEN` repository secret; `claude-code-review.yml` also passes
-  the `NPM_TOKEN_READ` secret through to its `Run Claude Code Review` step so `.npmrc`'s `@tahoni` scope can
-  authenticate when Claude runs `npm install`/`npm ci` against a pull request, and the `VITE_GOOGLE_MAPS_API_KEY`/
-  `VITE_RECAPTCHA_V2_SITE_KEY` secrets so the venue map and Contact Us captcha can render if Claude runs/builds the
-  app while reviewing; `claude-code-review.yml` also sets the non-sensitive `VITE_SITE_URL` from a repository
-  variable (Settings > Actions > Variables) rather than a secret
-
 #### 🔄 Changed
 
-##### Build & Tooling
-
-- Escalated `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule from `"warn"` to `"error"` in `eslint.config.js` and its
-  legacy `.eslintrc.cjs` mirror, now that `npm run lint` reports zero `tsdoc/syntax` warnings — closing Gap #11 in
-  `documentation/roadmap/improvement-plan.md`; a future TSDoc syntax regression now fails `npm run lint` and the CI
-  gate instead of silently accumulating as a warning
-- Updated the `generate-pr-summary` and `prep-version-release` skills to end their drafted PR descriptions with the
-  standard Claude Code attribution footer, consistent with any other PR description it opens
-
-##### Documentation
-
-- Changed the `{@link ReactElement}` TSDoc tag to `{@see ReactElement}` in `AboutUsPage.tsx` and `ContactUsForm.tsx`'s
-  `@returns` lines
-- Added a `{@link SanitizedWidget}` cross-reference to `SanitizedBaseInputTemplate.tsx`'s TSDoc comment
-- Reworded `ImageSidebar.tsx`'s `@param` line from "The properties object" to "The property object"
-
 #### 🐛 Fixed
-
-##### Documentation
-
-- Fixed the non-standard `@return` TSDoc tag to the standard `@returns` in `src/models/email/EmailMessage.ts`'s
-  `isValid` method and `src/App.tsx`'s `App` component
-- Fixed a mismatched quote/backtick around `React.memo` in `AboutUsPage.tsx`'s TSDoc comment
-- Fixed a missing hyphen between the `@param` name and description in `EmailAttachment.ts`
-- Fixed the JSDoc-style `@param [name]` optional-name brackets (invalid TSDoc syntax) to plain `@param name` in
-  `MapUtils.ts`'s `generateMapVenueKey`/`generateMapKey`
-- Fixed `YouTubeVideo.tsx`'s corrupted `@*/` comment terminator (should have been a plain `*/`) and removed its
-  invalid `@param props.url` tag (TSDoc doesn't support dotted parameter names)
-- Fixed American-English spellings in TSDoc comments — `behavior`→`behaviour` and `sanitized`→`sanitised` in
-  `ContactUsSchema.ts`, `center`→`centre` in `MapUtils.ts`'s `generateMapKey` — and minor grammar: a missing article
-  in `LinkWithLogoAndDescription.tsx`, a doubled space in `venueConstants.ts`, and a plain-text `console.error`
-  reference in `ErrorBoundary.tsx`'s comment now code-formatted
-- Fixed remaining Oxford commas and American-English spellings (`meta description`→`meta-description`,
-  `mechanically-checkable`→`mechanically checkable`, `artifacts`→`artefacts`) in `HISTORY.md`, `RELEASE_NOTES.md`,
-  `improvement-plan-tasks.md`, `project-accessibility-checklist.md`, `eslint.config.js`'s ignore-patterns comment
-  and `.claude/skills/generate-pr-summary/SKILL.md`, per `AGENTS.md`'s British English/list-comma convention
-- Fixed a stray digit corrupting a bullet list item (`3- #3` instead of `- #3`) in `improvement-plan.md`'s
-  At a Glance summary
 
 #### ⚠️ Deprecated
 
 #### 🗑️ Removed
 
-##### Documentation
-
-- Removed the `@module` TSDoc tag (and its preceding blank comment line) from `src/vite-env.d.ts`, the `constants`
-  files and the feature `index.ts`/`ContactUsSchema.ts` files
-- Removed the `@type` TSDoc tag (and its preceding blank comment line where it was the sole tag) from the memoised
-  feature page/content components and other constants files
-- Removed the `@interface` and `@property` TSDoc tags from `ContactUsSchema.ts`'s exported fields/widgets/schema
-  constants, `ContactUsEmailTemplateProps` and `VenueMapProps`
-- Removed the `{...}` type annotation (including the `{@see ReactElement}` tags added above) from every `@param`/
-  `@returns` TSDoc tag across the feature page components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`,
-  `MapUtils.ts`, `VenuesContent.tsx`, and the shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components
-- Removed the `@prop` TSDoc tags (and their preceding blank comment line) from `ContactUsFormData.ts`
-
-##### Components
-
-- Removed dead, commented-out `APIProvider`/`GoogleReCaptchaProvider` wrapper markup from `App.tsx`
-
 #### 🔐 Security
 
 ---
 
-### 🧾 [5.2.0] - 2026-09-06
+### 🧾 [5.2.0] - 2026-09-13
 
 #### ➕ Added
 
@@ -146,6 +79,16 @@ notes.
   (mostly `"error"`) severity — the codebase was already clean against it, so no `"warn"`-first transition (like
   `tsdoc/syntax`'s) was needed
 - Added `*.mdx` to `.prettierignore`, since Prettier doesn't format MDX well
+- Added `.github/workflows/claude.yml`, which runs Claude Code when `@claude` is mentioned in an issue, issue
+  comment, or pull request review/review comment
+- Added `.github/workflows/claude-code-review.yml`, which runs the `code-review` plugin automatically on every
+  opened or updated pull request and posts findings as inline comments
+- Both workflows authenticate via a `CLAUDE_CODE_OAUTH_TOKEN` repository secret; `claude-code-review.yml` also passes
+  the `NPM_TOKEN_READ` secret through to its `Run Claude Code Review` step so `.npmrc`'s `@tahoni` scope can
+  authenticate when Claude runs `npm install`/`npm ci` against a pull request, and the `VITE_GOOGLE_MAPS_API_KEY`/
+  `VITE_RECAPTCHA_V2_SITE_KEY` secrets so the venue map and Contact Us captcha can render if Claude runs/builds the
+  app while reviewing; `claude-code-review.yml` also sets the non-sensitive `VITE_SITE_URL` from a repository
+  variable (Settings > Actions > Variables) rather than a secret
 
 ##### Testing
 
@@ -202,6 +145,22 @@ notes.
   consumers (`App.scss`, `_forms.scss`) still see Bootstrap's forwarded variables/mixins; verified the compiled CSS
   is unaffected (byte-identical bundle vs. the pre-migration `@import` output)
 
+##### Build & Tooling
+
+- Escalated `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule from `"warn"` to `"error"` in `eslint.config.js` and its
+  legacy `.eslintrc.cjs` mirror, now that `npm run lint` reports zero `tsdoc/syntax` warnings — closing Gap #11 in
+  `documentation/roadmap/improvement-plan.md`; a future TSDoc syntax regression now fails `npm run lint` and the CI
+  gate instead of silently accumulating as a warning
+- Updated the `generate-pr-summary` and `prep-version-release` skills to end their drafted PR descriptions with the
+  standard Claude Code attribution footer, consistent with any other PR description it opens
+
+##### Documentation
+
+- Changed the `{@link ReactElement}` TSDoc tag to `{@see ReactElement}` in `AboutUsPage.tsx` and `ContactUsForm.tsx`'s
+  `@returns` lines
+- Added a `{@link SanitizedWidget}` cross-reference to `SanitizedBaseInputTemplate.tsx`'s TSDoc comment
+- Reworded `ImageSidebar.tsx`'s `@param` line from "The properties object" to "The property object"
+
 #### 🐛 Fixed
 
 ##### Developer Experience
@@ -255,6 +214,43 @@ notes.
   section it never mentioned despite the section existing since `5.0.0`
 - Fixed `improvement-plan.md`'s Purpose & Scope and 📚 Related Documentation sections describing `HISTORY.md`'s
   "🚀 Future Roadmap Implications" section as "per-release", which never matched its actual synthesised design
+- Fixed the non-standard `@return` TSDoc tag to the standard `@returns` in `src/models/email/EmailMessage.ts`'s
+  `isValid` method and `src/App.tsx`'s `App` component
+- Fixed a mismatched quote/backtick around `React.memo` in `AboutUsPage.tsx`'s TSDoc comment
+- Fixed a missing hyphen between the `@param` name and description in `EmailAttachment.ts`
+- Fixed the JSDoc-style `@param [name]` optional-name brackets (invalid TSDoc syntax) to plain `@param name` in
+  `MapUtils.ts`'s `generateMapVenueKey`/`generateMapKey`
+- Fixed `YouTubeVideo.tsx`'s corrupted `@*/` comment terminator (should have been a plain `*/`) and removed its
+  invalid `@param props.url` tag (TSDoc doesn't support dotted parameter names)
+- Fixed American-English spellings in TSDoc comments — `behavior`→`behaviour` and `sanitized`→`sanitised` in
+  `ContactUsSchema.ts`, `center`→`centre` in `MapUtils.ts`'s `generateMapKey` — and minor grammar: a missing article
+  in `LinkWithLogoAndDescription.tsx`, a doubled space in `venueConstants.ts` and in `ContactUsForm.tsx`'s `@returns`
+  line, and a plain-text `console.error` reference in `ErrorBoundary.tsx`'s comment now code-formatted
+- Fixed remaining Oxford commas and American-English spellings (`meta description`→`meta-description`,
+  `mechanically-checkable`→`mechanically checkable`, `artifacts`→`artefacts`) in `HISTORY.md`, `RELEASE_NOTES.md`,
+  `improvement-plan-tasks.md`, `project-accessibility-checklist.md`, `eslint.config.js`'s ignore-patterns comment
+  and `.claude/skills/generate-pr-summary/SKILL.md`, per `AGENTS.md`'s British English/list-comma convention
+- Fixed a stray digit corrupting a bullet list item (`3- #3` instead of `- #3`) in `improvement-plan.md`'s
+  At a Glance summary
+
+#### 🗑️ Removed
+
+##### Documentation
+
+- Removed the `@module` TSDoc tag (and its preceding blank comment line) from `src/vite-env.d.ts`, the `constants`
+  files and the feature `index.ts`/`ContactUsSchema.ts` files
+- Removed the `@type` TSDoc tag (and its preceding blank comment line where it was the sole tag) from the memoised
+  feature page/content components and other constants files
+- Removed the `@interface` and `@property` TSDoc tags from `ContactUsSchema.ts`'s exported fields/widgets/schema
+  constants, `ContactUsEmailTemplateProps` and `VenueMapProps`
+- Removed the `{...}` type annotation (including the `{@see ReactElement}` tags added above) from every `@param`/
+  `@returns` TSDoc tag across the feature page components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`,
+  `MapUtils.ts`, `VenuesContent.tsx`, and the shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components
+- Removed the `@prop` TSDoc tags (and their preceding blank comment line) from `ContactUsFormData.ts`
+
+##### Components
+
+- Removed dead, commented-out `APIProvider`/`GoogleReCaptchaProvider` wrapper markup from `App.tsx`
 
 ---
 

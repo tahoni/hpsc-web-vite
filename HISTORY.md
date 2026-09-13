@@ -24,7 +24,7 @@ the legacy Version 3.x line that predates it.
 
 ## 📅 Historical Timeline
 
-### Version 5.2.0 (September 6, 2026)
+### Version 5.2.0 (September 13, 2026)
 
 **Theme:** Quality Gate Foundations: CI, Testing, Accessibility & SEO
 
@@ -42,6 +42,13 @@ the legacy Version 3.x line that predates it.
   the site's core sections
 - Documented a monthly dependency-update cadence and added `HISTORY.md`'s "🚀 Future Roadmap Implications" section,
   closing improvement-plan.md's Gaps #1 through #9 and #12/#13
+- Escalated `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule from `"warn"` to `"error"` once a full pass fixed every
+  remaining TSDoc syntax/British-English issue across the codebase, closing Gap #11
+- Added `.github/workflows/claude.yml`/`claude-code-review.yml`, giving the repository `@claude`-mention responses
+  and automated Claude Code PR review, gated on the same repository secrets/variables the existing workflows use
+- Identified two further gaps while finishing this release's own documentation: an unexplained `TODO` comment in
+  `_forms.scss` (#14), and `RoutesSitemap.test.ts` failing without `VITE_SITE_URL` set — including in `build.yml`'s
+  own CI "Test" step, which never sets it (#15)
 
 ### Version 5.1.3 (September 5, 2026)
 
@@ -896,6 +903,8 @@ named for.
 - `.github/workflows/build.yml`'s lint/build/test CI gate, the project's first Vitest infrastructure and test
   coverage, `eslint-plugin-jsx-a11y`, per-page SEO metadata, a top-level `ErrorBoundary`, the completed Bootstrap
   `@use` migration and an environment-sourced `baseUrl`
+- A full `tsdoc/syntax` cleanup escalated the rule to `"error"`, and `.github/workflows/claude.yml`/
+  `claude-code-review.yml` added automated Claude Code assistance and PR review to the CI surface
 
 **Achievement:** Closed the roadmap's "Now"-phase gaps in a single release — a merge-blocking quality gate,
 initial automated test and accessibility coverage, and the last of the pre-redesign structural cleanup — turning
@@ -1149,6 +1158,10 @@ Route (React Router, data-driven)
    v4.2.3) rather than large, infrequent upgrade batches
 3. **Recurring-Content Pattern:** Year-namespaced directories for `WorldShoot2025`/`ClubShirts` (v4.1.2 – v4.2.1)
    establish a repeatable structure for future years' equivalent content, rather than a one-off fix
+4. **A Test Passing Locally Doesn't Mean It Passes in CI:** v5.2.0's `RoutesSitemap.test.ts` depends on
+   `VITE_SITE_URL` being set, which happens to be true in a developer's shell but was never wired into `build.yml`'s
+   own "Test" step (found while finishing the release documentation, tracked as Gap #15) — a reminder to verify a
+   new CI-gating test from a genuinely clean checkout, not just a local run
 
 ---
 
