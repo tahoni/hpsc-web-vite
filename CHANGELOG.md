@@ -54,7 +54,9 @@ notes.
   opened or updated pull request and posts findings as inline comments
 - Both workflows authenticate via a `CLAUDE_CODE_OAUTH_TOKEN` repository secret; `claude-code-review.yml` also passes
   the `NPM_TOKEN_READ` secret through to its `Run Claude Code Review` step so `.npmrc`'s `@tahoni` scope can
-  authenticate when Claude runs `npm install`/`npm ci` against a pull request
+  authenticate when Claude runs `npm install`/`npm ci` against a pull request, and the `VITE_GOOGLE_MAPS_API_KEY`/
+  `VITE_RECAPTCHA_V2_SITE_KEY` secrets so the venue map and Contact Us captcha can render if Claude runs/builds the
+  app while reviewing
 
 #### 🔄 Changed
 

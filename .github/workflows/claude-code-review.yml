@@ -45,4 +45,7 @@ jobs:
         env:
           # Required to authenticate .npmrc's @tahoni scope when Claude runs npm install/ci to build or test the PR
           NPM_TOKEN_READ: ${{ secrets.NPM_TOKEN_READ }}
+          # Needed for the venue map and Contact Us captcha to render if Claude runs/builds the app while reviewing
+          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
+          VITE_RECAPTCHA_V2_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_V2_SITE_KEY }}
 
