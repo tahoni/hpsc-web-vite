@@ -52,7 +52,9 @@ notes.
   comment, or pull request review/review comment
 - Added `.github/workflows/claude-code-review.yml`, which runs the `code-review` plugin automatically on every
   opened or updated pull request and posts findings as inline comments
-- Both workflows authenticate via a `CLAUDE_CODE_OAUTH_TOKEN` repository secret
+- Both workflows authenticate via a `CLAUDE_CODE_OAUTH_TOKEN` repository secret; `claude-code-review.yml` also passes
+  the `NPM_TOKEN_READ` secret through to its `Run Claude Code Review` step so `.npmrc`'s `@tahoni` scope can
+  authenticate when Claude runs `npm install`/`npm ci` against a pull request
 
 #### 🔄 Changed
 
