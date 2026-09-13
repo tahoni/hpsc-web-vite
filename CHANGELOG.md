@@ -262,6 +262,17 @@ notes.
 
 - Removed dead, commented-out `APIProvider`/`GoogleReCaptchaProvider` wrapper markup from `App.tsx`
 
+#### 🔐 Security
+
+##### Dependencies
+
+- Bumped the transitive `js-yaml` dependency (via `eslint` → `@eslint/eslintrc`) from `4.3.1` to `4.3.2`, resolving a
+  GitHub Dependabot high-severity advisory (`maxTotalMergeKeys` not limiting CPU use for empty merge sources,
+  [GHSA-2883-xcg3-v3hh](https://github.com/advisories/GHSA-2883-xcg3-v3hh)) via `npm audit fix`; `js-yaml` is a
+  dev-only dependency used to parse ESLint's own config, never bundled into the shipped app. `npm audit` now reports
+  0 vulnerabilities. `package-lock.json`'s stale top-level `version` field (`5.1.3`) was also refreshed to `5.2.0`
+  as an incidental side effect of the same `npm audit fix` run
+
 ---
 
 ### 🧾 [5.1.3] - 2026-09-05

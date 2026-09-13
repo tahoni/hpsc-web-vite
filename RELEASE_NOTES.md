@@ -286,6 +286,16 @@ actual tag format.
 
 - Removed dead, commented-out `APIProvider`/`GoogleReCaptchaProvider` wrapper markup from `App.tsx`
 
+### 🔐 Security
+
+#### Dependencies
+
+- Bumped the transitive `js-yaml` dependency (via `eslint` → `@eslint/eslintrc`) from `4.3.1` to `4.3.2`, resolving a
+  GitHub Dependabot high-severity advisory (`maxTotalMergeKeys` not limiting CPU use for empty merge sources,
+  [GHSA-2883-xcg3-v3hh](https://github.com/advisories/GHSA-2883-xcg3-v3hh)) via `npm audit fix`; `js-yaml` is a
+  dev-only dependency used to parse ESLint's own config, never bundled into the shipped app. `npm audit` now reports
+  0 vulnerabilities
+
 ## 🔄 Migration Guide
 
 ### For Deployers
@@ -312,8 +322,8 @@ actual tag format.
 
 ## 📊 Statistics
 
-- **Total Commits:** 74
-- **Files Changed:** 102 (+3,368 / −574 lines)
+- **Total Commits:** 75
+- **Files Changed:** 102 (+3,392 / −577 lines)
 
 ## 🧭 Design Notes
 

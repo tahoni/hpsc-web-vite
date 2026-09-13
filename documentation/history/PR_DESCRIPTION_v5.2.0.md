@@ -49,6 +49,11 @@
 - Non-standard `@module`/`@type`/`@interface`/`@property`/`@prop` TSDoc tags and dead, commented-out
   `APIProvider`/`GoogleReCaptchaProvider` markup in `App.tsx`
 
+**Security**
+
+- Bumped the transitive `js-yaml` dependency (via `eslint` → `@eslint/eslintrc`) from `4.3.1` to `4.3.2` via
+  `npm audit fix`, resolving a high-severity GitHub Dependabot alert; dev-only, never bundled into the shipped app
+
 ## 🧪 Test Plan
 
 - [x] `npm run lint` — 0 errors, 26 pre-existing non-`tsdoc/syntax` warnings (down from 284 including
@@ -56,6 +61,7 @@
 - [x] `npm run build` — passes
 - [x] `npm run test:run` — 3 test files, 14 tests, all passing, including from a clean checkout with no ambient
   `VITE_SITE_URL` set (Gap #15, closed by giving `baseUrl` a hardcoded ultimate fallback)
+- [x] `npm audit` — 0 vulnerabilities (previously 1 high-severity `js-yaml` advisory)
 - [x] Manually verified `/contact`, `/venues` and `/news` render correctly by direct URL, and are absent from the
   primary navigation menu
 - [x] Manually verified `npm run sitemap` regenerates `public/sitemap.xml` correctly
