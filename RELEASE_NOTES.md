@@ -18,8 +18,9 @@ into live routing, and `Contact Us`/`Venues` are reachable again (by direct URL 
 primary navigation menu, which now lists only the site's core sections). A new monthly dependency-review cadence and
 a WCAG AA baseline checklist round out the release's process improvements. The release branch then went on to fully
 clear the project's `tsdoc/syntax` backlog (escalating the rule to `"error"`), add Claude Code GitHub Action
-integration for automated PR review and `@claude` mentions, and update the attribution footer used by this project's
-own release-prep skills.
+integration for automated PR review and `@claude` mentions, update the attribution footer used by this project's
+own release-prep skills, and fix the `prep-version-release` skill's release-tag guidance to match this repository's
+actual tag format.
 
 ## ⭐ Key Highlights
 
@@ -78,6 +79,8 @@ own release-prep skills.
   opened or updated pull request and posts findings as inline comments
 - Updated the `generate-pr-summary` and `prep-version-release` skills to end their drafted PR descriptions with the
   standard Claude Code attribution footer
+- Fixed `prep-version-release`'s Output section telling users to tag releases `version-$VERSION`, matching
+  `AGENTS.md`'s Merging section and this repository's actual `v$VERSION` tag history instead
 
 ## 📦 What's New
 
@@ -208,6 +211,10 @@ own release-prep skills.
 - Fixed two `'process' is not defined` ESLint errors (`commonConstants.ts`, `vite.config.ts`) by adding
   `globals.node`/`env: { node: true }` to `eslint.config.js`/`.eslintrc.cjs`, which previously only declared browser
   globals despite this project's Node-side build scripts
+- Fixed the `prep-version-release` skill telling the user to tag releases as `version-$VERSION`, contradicting
+  `AGENTS.md`'s Merging section and this repository's actual tag history (`v5.0.0`–`v5.1.3`), both of which say the
+  tag format since `4.2.3` is `v$VERSION`; `version-X.Y.Z` was only ever used for the legacy Version 3.x/early 4.x
+  line
 
 #### Testing
 
@@ -299,8 +306,8 @@ own release-prep skills.
 
 ## 📊 Statistics
 
-- **Total Commits:** 67
-- **Files Changed:** 102 (+3,032 / −571 lines)
+- **Total Commits:** 72
+- **Files Changed:** 102 (+3,334 / −572 lines)
 
 ## 🧭 Design Notes
 
