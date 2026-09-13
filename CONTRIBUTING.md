@@ -68,10 +68,10 @@ See [`README.md`'s Available Scripts section](README.md#-available-scripts) for 
 
 ## 🧪 Testing
 
-Vitest is configured (`npm test`) but this project currently has no test files — see
-[`improvement-plan-tasks.md`](documentation/roadmap/improvement-plan-tasks.md) for the tracked task on establishing
-initial coverage. See [`AGENTS.md`'s Test Conventions section](AGENTS.md#-test-conventions) for the full conventions
-to follow when adding tests.
+Vitest is configured, with initial coverage in place and growing — coverage is still thin, so see
+[`improvement-plan-tasks.md`](documentation/roadmap/improvement-plan-tasks.md) for what's tracked next. See
+[`AGENTS.md`'s Test Conventions section](AGENTS.md#-test-conventions) for the full conventions to follow when adding
+tests.
 
 ---
 
@@ -182,10 +182,14 @@ rationale. In short:
 
 ## 🔬 CI/CD & Quality Gates
 
-See [`AGENTS.md`'s Code Quality & CI section](AGENTS.md#-code-quality--ci) for the current CodeQL/ESLint setup. There
-is no CI workflow that runs `npm run lint`, `npm run build` or `npm test` automatically yet — run them locally before
-opening a PR (tracked as a gap in
-[`improvement-plan-tasks.md`](documentation/roadmap/improvement-plan-tasks.md)).
+See [`AGENTS.md`'s Code Quality & CI section](AGENTS.md#-code-quality--ci) for the full CodeQL/ESLint setup.
+[`.github/workflows/build.yml`](.github/workflows/build.yml) runs `npm run lint`, `npm run build` and
+`npm run test:run` on push/PR to `main` and `develop`, gating merges on all three passing, plus an advisory-only
+`npm audit` step. Still run them locally before opening a PR so failures surface before CI does.
+[`.github/workflows/claude-code-review.yml`](.github/workflows/claude-code-review.yml) also runs automatically on
+every opened or updated pull request, posting Claude Code review findings as inline comments; mentioning `@claude`
+in an issue, issue comment, or pull request review/review comment triggers
+[`.github/workflows/claude.yml`](.github/workflows/claude.yml) for an on-demand response.
 
 ---
 
@@ -193,10 +197,13 @@ opening a PR (tracked as a gap in
 
 Before opening a pull request, confirm:
 
-- [ ] `npm run lint` passes with no errors.
-- [ ] `npm run build` succeeds (this project has no CI workflow that runs it automatically — see
+- [ ] `npm run lint` passes with no errors (also runs automatically in CI — see
   [`AGENTS.md`'s Code Quality & CI section](AGENTS.md#-code-quality--ci)).
-- [ ] `npm test` passes, and any new logic has co-located tests where applicable.
+- [ ] `npm run build` succeeds (also runs automatically in CI).
+- [ ] `npm test` passes (also runs automatically in CI), and any new logic has co-located tests where applicable.
+- [ ] UI changes checked against
+  [`documentation/recommendations/project-accessibility-checklist.md`](documentation/recommendations/project-accessibility-checklist.md)'s
+  manual WCAG AA baseline (`eslint-plugin-jsx-a11y` only catches part of it).
 - [ ] A `CHANGELOG.md` entry has been added under `### 🧪 [Unreleased]`, in the correct Keep a Changelog category and
   `##### <Area>` sub-heading.
 - [ ] Any affected documentation (`README.md`, `ARCHITECTURE.md`, `UI.md`, `CLAUDE.md`, `AGENTS.md`) has been updated to

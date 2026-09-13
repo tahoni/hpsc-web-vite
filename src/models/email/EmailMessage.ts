@@ -2,8 +2,7 @@ import {sanitizeValue} from "@/utils/htmlUtils.ts";
 import {EmailAttachment} from "./EmailAttachment.ts";
 
 /**
- * Represents an email message with sender details, subject, consent, preview
- * and optional attachments.
+ * Represents an email message with sender details, subject, consent, preview and optional attachments.
  */
 export class EmailMessage {
     private _name: string;
@@ -41,7 +40,7 @@ export class EmailMessage {
      * Checks if the necessary properties: name, email, subject, preview, and content
      * are valid and non-empty.
      *
-     * @return Returns true if all required properties are non-empty, otherwise false.
+     * @returns Returns true if all required properties are non-empty, otherwise false.
      */
     isValid(): boolean {
         return (

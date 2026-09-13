@@ -1,13 +1,21 @@
 /**
  * Helper functions and constants for application routing.
  * Defines the structure and content of the main router paths.
- *
- * @module
  */
 
-import {Navigate} from "react-router";
-import {PageAlias} from "@/models/pages/PageAlias.ts";
-import {aboutUs, events, history, home, links, members} from "@shared/routes/RouteAliases.tsx";
+import { Navigate } from "react-router";
+import { PageAlias } from "@/models/pages/PageAlias.ts";
+import {
+  aboutUs,
+  contactUs,
+  events,
+  history,
+  home,
+  links,
+  members,
+  news,
+  venues,
+} from "@shared/routes/RouteAliases.tsx";
 
 /**
  * Represents an array of route configurations for the application.
@@ -28,11 +36,13 @@ export const routes: PageAlias[] = [
   { mapping: links },
   { mapping: history },
 
-  // { mapping: contactUs },
-  // { path: "/contact_us", mapping: contactUs },
+  { mapping: contactUs },
+  { path: "/contact_us", mapping: contactUs },
   { mapping: aboutUs },
   { path: "/about_us", mapping: aboutUs },
 
   { mapping: events },
-  // { mapping: venues },
+  { mapping: venues },
+
+  { mapping: news },
 ];

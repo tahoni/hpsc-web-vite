@@ -21,8 +21,8 @@ export interface VenuePinsProps {
  *
  * The component is wrapped with `React.memo` to optimise rendering by avoiding unnecessary re-renders when the props do not change.
  *
- * @param {VenuePinsProps} props - The properties required by the VenuePins component, including a list of venues.
- * @returns {ReactElement} A React fragment containing a list of `VenuePin` components or an empty fragment if no valid venues exist.
+ * @param props - The properties required by the VenuePins component, including a list of venues.
+ * @returns A React fragment containing a list of `VenuePin` components or an empty fragment if no valid venues exist.
  */
 const VenuePins = React.memo((props: VenuePinsProps): ReactElement => {
   if (!props.venues || props.venues.length == 0) {

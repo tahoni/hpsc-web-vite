@@ -16,5 +16,6 @@ RewriteCond %{REQUEST_URI} ^\/(history)\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/(events)\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/(venues)\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/((contact)|(contact_us))\/?$ [OR]
+RewriteCond %{REQUEST_URI} ^\/(news)\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/((about)|(about_us))\/?$
 RewriteRule . index.html [L]

@@ -17,11 +17,38 @@ the legacy Version 3.x line that predates it.
 - [✨ Feature Timeline](#-feature-timeline)
 - [💡 Project Philosophy Evolution](#-project-philosophy-evolution)
 - [📚 Key Learnings](#-key-learnings)
+- [🚀 Future Roadmap Implications](#-future-roadmap-implications)
 - [🎓 Conclusion](#-conclusion)
 
 ---
 
 ## 📅 Historical Timeline
+
+### Version 5.2.0 (September 13, 2026)
+
+**Theme:** Quality Gate Foundations: CI, Testing, Accessibility & SEO
+
+**Key Focus:**
+
+- Added `.github/workflows/build.yml`, gating `main`/`develop` pull requests on `npm run lint`, `npm run build` and
+  `npm run test:run`, plus an advisory-only `npm audit` step, and the project's first Vitest infrastructure and
+  test coverage (`htmlUtils.ts`, `builders/RoutesSitemap.ts`)
+- Added `eslint-plugin-jsx-a11y`'s `recommended` rule set and a manual WCAG AA baseline checklist, and gave every
+  page a unique `document.title`, meta-description and canonical link instead of sharing `index.html`'s static tags
+- Added a top-level `ErrorBoundary` with a friendly fallback, completed `src/vendors/bootstrap/styles/index.scss`'s
+  migration to `@use`/`@forward`, and sourced `baseUrl` from `VITE_SITE_URL` instead of a hardcoded string literal
+- Wired `News` into live routing, fixed `/contact`/`/venues` being unreachable and `public/sitemap.xml`'s malformed
+  entry, then deliberately removed `Contact Us`/`Venues` from the primary navigation menu, leaving it focused on
+  the site's core sections
+- Documented a monthly dependency-update cadence and added `HISTORY.md`'s "🚀 Future Roadmap Implications" section,
+  closing improvement-plan.md's Gaps #1 through #9 and #12/#13
+- Escalated `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule from `"warn"` to `"error"` once a full pass fixed every
+  remaining TSDoc syntax/British-English issue across the codebase, closing Gap #11
+- Added `.github/workflows/claude.yml`/`claude-code-review.yml`, giving the repository `@claude`-mention responses
+  and automated Claude Code PR review, gated on the same repository secrets/variables the existing workflows use
+- Identified two further gaps while finishing this release's own documentation: an unexplained `TODO` comment in
+  `_forms.scss` (#14, still open), and `RoutesSitemap.test.ts` failing without `VITE_SITE_URL` set (#15) — closed
+  within the same release by giving `baseUrl` a hardcoded ultimate fallback
 
 ### Version 5.1.3 (September 5, 2026)
 
@@ -774,6 +801,10 @@ dependency stack — groundwork ahead concerning a planned visual/structural red
 - Complete the release-history record ahead of the redesign — backfill `documentation/history/`'s missing
   `4.0.0`–`4.2.2` archives and add a `documentation/archive/ARCHIVE.md` for the pre-`CHANGELOG.md` era, so every
   version back to the project's first commit has a documented home (v5.1.2)
+- Close out the roadmap's "Now"-phase gaps: a CI quality gate, initial Vitest coverage, automated accessibility
+  linting, per-page SEO metadata, a top-level error boundary, the completed Bootstrap `@use` migration and an
+  environment-sourced `baseUrl` — the concrete quality-infrastructure precondition the redesign itself depends on
+  (v5.2.0)
 
 **Status:** In progress — establishing this foundation is the stated precondition for the redesign the release branch
 is named for, not the redesign itself; see
@@ -866,6 +897,18 @@ club-shirt updates.
 **Achievement:** Established a durable, cross-tool contract for how AI coding agents and human contributors work in this
 repository — documentation conventions, git workflow and a Release Checklist — ahead of the redesign the branch is
 named for.
+
+### Milestone 10: Quality Gate Foundations (v5.2.0)
+
+- `.github/workflows/build.yml`'s lint/build/test CI gate, the project's first Vitest infrastructure and test
+  coverage, `eslint-plugin-jsx-a11y`, per-page SEO metadata, a top-level `ErrorBoundary`, the completed Bootstrap
+  `@use` migration and an environment-sourced `baseUrl`
+- A full `tsdoc/syntax` cleanup escalated the rule to `"error"`, and `.github/workflows/claude.yml`/
+  `claude-code-review.yml` added automated Claude Code assistance and PR review to the CI surface
+
+**Achievement:** Closed the roadmap's "Now"-phase gaps in a single release — a merge-blocking quality gate,
+initial automated test and accessibility coverage, and the last of the pre-redesign structural cleanup — turning
+the improvement plan's evidence-backed backlog into shipped infrastructure ahead of Major Version 5's redesign.
 
 ---
 
@@ -978,6 +1021,8 @@ Route (React Router, data-driven)
 - **v3.2.2:** `.htaccess` added for client-side routing support
 - **v3.5.1 – v3.6.5:** Real 404s, canonical URL, HTTPS and subdomain redirect corrections
 - **v3.6.6:** `sitemap.xml` builder driven by route metadata, referenced from `robots.txt`
+- **v5.2.0:** `News` wired into live routing; per-page `document.title`/meta description/canonical link; `baseUrl`
+  sourced from `VITE_SITE_URL`; `sitemap.xml` malformed-entry and inverted-date fixes
 
 ### Styling & Layout
 
@@ -986,6 +1031,8 @@ Route (React Router, data-driven)
 - **v4.0.0:** `@use`/`@forward` SCSS standards, `vendors/` directory for Bootstrap overrides
 - **v4.1.0 – v4.1.1:** Responsive sidebar ordering hardened across breakpoints; `Header` consolidated
 - **v4.1.3:** `HeaderMenu` collapse breakpoint moved from `xl` to `lg`
+- **v5.2.0:** `vendors/bootstrap/styles/index.scss` completed its migration from `@import` to `@use`/`@forward`;
+  top-level `ErrorBoundary` added for a friendly fallback on unhandled render errors
 
 ### Build, Tooling & Dependencies
 
@@ -997,6 +1044,8 @@ Route (React Router, data-driven)
 - **v4.2.0:** Images converted to `webp`
 - **v5.0.0:** Five Claude Code slash commands added for release prep and test scaffolding; all open GitHub Dependabot
   alerts closed
+- **v5.2.0:** `.github/workflows/build.yml` CI quality gate (lint/build/test on PR to `main`/`develop`) with an
+  advisory `npm audit` step; first Vitest infrastructure and test coverage; `eslint-plugin-jsx-a11y` added
 
 ### Documentation
 
@@ -1008,6 +1057,9 @@ Route (React Router, data-driven)
 - **v5.0.0:** `AGENTS.md`/`CLAUDE.md` cross-tool AI agent conventions and `CONTRIBUTING.md` added;
   `documentation/roadmap/` planning docs (`improvement-plan.md`, `improvement-plan-tasks.md`) and a
   `documentation/history/` per-version archive introduced
+- **v5.2.0:** `documentation/recommendations/project-accessibility-checklist.md` WCAG AA baseline checklist added;
+  a monthly dependency-update cadence documented in `AGENTS.md`'s Release Checklist; `HISTORY.md`'s "🚀 Future
+  Roadmap Implications" section added
 
 ---
 
@@ -1093,6 +1145,9 @@ Route (React Router, data-driven)
 4. **Tool-Agnostic Agent Conventions:** `AGENTS.md` was introduced in v5.0.0 as the cross-tool source of truth, with
    `CLAUDE.md` kept as a Claude-Code-specific quick reference — so conventions hold regardless of which AI coding tool
    is in use
+5. **Gate Before You Grow Coverage:** v5.2.0 added `build.yml`'s CI quality gate before a large test suite existed,
+   so lint/build/test failures start blocking merges immediately rather than after a bigger, harder-to-enforce
+   backlog accumulates
 
 ### Technical Evolution
 
@@ -1100,9 +1155,44 @@ Route (React Router, data-driven)
    from-scratch reimplementation in v3.3.6, shows a willingness to cut a dependency rather than work around a security
    problem
 2. **Dependency Currency:** Regular, focused security-vulnerability patches (v3.3.8, v3.6.9, v4.0.1, v4.0.2, v4.2.2,
-   v4.2.3) rather than large, infrequent upgrade batches
+   v4.2.3, v5.2.0) rather than large, infrequent upgrade batches
 3. **Recurring-Content Pattern:** Year-namespaced directories for `WorldShoot2025`/`ClubShirts` (v4.1.2 – v4.2.1)
    establish a repeatable structure for future years' equivalent content, rather than a one-off fix
+4. **A Test Passing Locally Doesn't Mean It Passes in CI:** v5.2.0's `RoutesSitemap.test.ts` depended on
+   `VITE_SITE_URL` being set, which happened to be true in a developer's shell but was never wired into `build.yml`'s
+   own "Test" step (found while finishing the release documentation, tracked and closed as Gap #15 within the same
+   release by giving `baseUrl` a hardcoded ultimate fallback) — a reminder to verify a new CI-gating test from a
+   genuinely clean checkout, not just a local run
+
+---
+
+## 🚀 Future Roadmap Implications
+
+Forward-looking implications this project's own history carries for Major Version 5's planned visual/structural
+redesign and the standing work that precedes it:
+
+1. **The Redesign Should Extend, Not Replace, the Content Model:** Per Key Learnings' Content Model Longevity insight,
+   the Page → Content → MDX pattern has absorbed eight major/minor phases of change without a structural rewrite. The
+   redesign should keep this contract intact and confine itself to layout and presentation, rather than re-litigating
+   how content is authored
+2. **Establish Redesign-Era Conventions from the Start:** Key Learnings' Structural Debt Compounds insight shows that
+   deferring `@`-alias/directory-standards work until v4.0.0 forced a dedicated restructuring phase later. Any new
+   code the redesign introduces should follow this project's existing feature-organised, path-aliased conventions from
+   its first commit, not retrofit them afterwards
+3. **Finish the Standing Foundation Gaps Before the Redesign Proper Begins:** Major Version 5's stated goal is to make
+   the project legible to human and AI coding agents and modernise its dependency stack as groundwork ahead of the
+   redesign. v5.2.0 closed most of this backlog in one release (CI quality gate, initial test coverage, accessibility
+   linting, SEO metadata, error resilience) — see
+   [`documentation/roadmap/improvement-plan.md`](documentation/roadmap/improvement-plan.md) for the remaining gaps
+   (e.g. pre-existing `tsdoc/syntax` lint warnings) still being worked through before the redesign itself starts
+4. **Keep the Security Response Pattern Ready:** The willingness to cut and replace a compromised dependency outright
+   (v3.3.3) rather than patch around it, and the steady cadence of focused vulnerability fixes since, should carry
+   into the redesign — a structural overhaul is exactly when a stale or newly-vulnerable dependency is easiest to
+   silently carry forward unnoticed
+5. **Keep Documentation Reverse-Synced as the Redesign Lands:** The `CHANGELOG.md`/`HISTORY.md` split (v4.0.0) and the
+   tool-agnostic `AGENTS.md`/`CLAUDE.md` conventions (v5.0.0) only stay useful if every release keeps threading its
+   changes through them — a redesign spanning several releases is exactly the scenario where that discipline is most
+   at risk of lapsing
 
 ---
 
@@ -1125,6 +1215,9 @@ content architecture since v3.2.0. This evolution demonstrates a commitment to:
   shirts) established in v4.1.2 and extended since
 - **Agent-Legible Process:** Formalising `AGENTS.md`/`CLAUDE.md` conventions and Claude Code slash commands in v5.0.0,
   so human and AI contributors alike follow the same documentation and release process
+- **Quality Infrastructure Ahead of the Redesign:** A CI quality gate, initial automated test coverage and
+  accessibility linting (v5.2.0), closing most of the improvement plan's foundation work before the planned
+  visual/structural redesign begins
 
 The architecture settled in v4.0.0 – v4.0.2 — feature-organised directories, path aliases and the Route → Page →
 Content → MDX pattern from v3.2.0 — remains the foundation the project builds on today.

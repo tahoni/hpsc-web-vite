@@ -1,8 +1,22 @@
 // Required Bootstrap functions
-@import "bootstrap/scss/functions";
+@use "bootstrap/scss/functions";
 
 // Default variable overrides
-@import "custom";
+@use "custom";
 
-// Bootstrap, themed with the overrides above
-@import "bootstrap/scss/bootstrap";
+// Bootstrap, themed with the overrides above, and forwarded so consumers of this module
+// (via `@use "@bootstrap/styles/index" as *`) still get Bootstrap's variables/mixins
+@forward "bootstrap/scss/bootstrap" with (
+  $font-family-sans-serif: custom.$font-family-sans-serif,
+  $font-family-monospace: custom.$font-family-monospace,
+  $headings-font-family: custom.$headings-font-family,
+  $primary: custom.$primary,
+  $info: custom.$info,
+  $focus-ring-color: custom.$focus-ring-color,
+  $body-color: custom.$body-color,
+  $headings-color: custom.$headings-color,
+  $border-color: custom.$border-color,
+  $link-color: custom.$link-color,
+  $link-hover-color: custom.$link-hover-color,
+  $input-focus-border-color: custom.$input-focus-border-color,
+);

@@ -15,8 +15,8 @@ export interface ContentWithStoriesProps {
  * The `React.memo` wrapper is used to optimise rendering by memoising the component's
  * output, preventing unnecessary re-renders when the input props remain unchanged.
  *
- * @param {ContentWithStoriesProps} props - The props for the component, including an array of components to render as `Contents`.
- * @returns {ReactElement} JSX element that renders the list of story content components.
+ * @param props - The props for the component, including an array of components to render as `Contents`.
+ * @returns JSX element that renders the list of story content components.
  */
 const ContentWithStories = React.memo(
   (props: ContentWithStoriesProps): ReactElement => {

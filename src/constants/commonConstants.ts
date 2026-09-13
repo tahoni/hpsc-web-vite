@@ -7,11 +7,12 @@
  * - Text alternatives for images and logos
  *
  * Constants defined here should be considered global and immutable across the application.
- *
- * @module
  */
 
-export const baseUrl: string = "https://www.hpsc.co.za";
+export const baseUrl: string =
+  import.meta.env?.VITE_SITE_URL ??
+  process.env.VITE_SITE_URL ??
+  "https://www.hpsc.co.za";
 export const copyrightYear: number = 2026;
 
 export const logoAlt = "Logo";

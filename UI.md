@@ -68,11 +68,12 @@ The primary navigation menu includes the following routes:
 - **Home**: The landing page with general club information.
 - **Members**: Information specifically for club members.
 - **Links**: Useful external links related to practical shooting.
+- **Events**: Information about upcoming and past events.
 - **History**: The history of the Hartbeespoortdam Practical Shooting Club.
 - **About Us**: General information about the club.
-- **Contact Us**: A page for getting in touch with the club.
-- **Events**: Information about upcoming and past events.
-- **Shooting Ranges**: Details and locations of shooting ranges.
+
+Contact Us and Venues (shooting ranges) are reachable by direct URL and indexed in the sitemap, but are deliberately
+excluded from the primary navigation menu.
 
 ---
 

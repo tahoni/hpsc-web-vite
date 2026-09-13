@@ -5,8 +5,6 @@
  * This module centralises association-related metadata such as the association name,
  * abbreviation, websites, and logo paths with their alternative text descriptions.
  * These values are used across the site for display and configuration.
- *
- * @module
  */
 
 import {

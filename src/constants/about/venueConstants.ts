@@ -3,8 +3,6 @@
  *
  * Contains enumerations and venue information including locations,
  * contact details, and geographic coordinates.
- *
- * @module
  */
 
 import { Venue } from "@/models/venues/Venue.ts";
@@ -27,7 +25,7 @@ export enum ShootingRanges {
  * A map containing information about various shooting range venues.
  *
  * The key is a unique identifier for the shooting range, typically defined
- * in the {@link ShootingRanges}  enum.
+ * in the {@link ShootingRanges} enum.
  * The value is an instance of the {@link Venue} class containing detailed information
  * about the venue, including its location.
  */

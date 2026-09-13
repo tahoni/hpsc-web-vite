@@ -98,7 +98,7 @@ Markdown while embedding React components where necessary.
 The project uses a combination of Bootstrap and custom SCSS:
 
 - **Sass Modules**: Used for component-specific styles (e.g., `Layout.module.scss`) to prevent selector collisions.
-- **Global Styles**: Defined in `src/assets/stylesheets`, using the `@use` syntax for modularity.
+- **Global Styles**: Defined in `src/assets/styles`, using the `@use` syntax for modularity.
 - **Bootstrap Overrides**: Custom variables and overrides are located in `src/vendors/bootstrap/styles/_custom.scss`.
   This allows the club's colour palette (Butterscotch, etc.) to be applied to standard Bootstrap components.
 
