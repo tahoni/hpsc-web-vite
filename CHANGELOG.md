@@ -46,6 +46,14 @@ notes.
 
 #### ➕ Added
 
+##### Build & Tooling
+
+- Added `.github/workflows/claude.yml`, which runs Claude Code when `@claude` is mentioned in an issue, issue
+  comment, or pull request review/review comment
+- Added `.github/workflows/claude-code-review.yml`, which runs the `code-review` plugin automatically on every
+  opened or updated pull request and posts findings as inline comments
+- Both workflows authenticate via a `CLAUDE_CODE_OAUTH_TOKEN` repository secret
+
 #### 🔄 Changed
 
 ##### Build & Tooling
