@@ -50,6 +50,13 @@ notes.
 
 #### 🐛 Fixed
 
+##### Build & Tooling
+
+- Fixed the `prep-version-release` skill telling the user to tag releases as `version-$VERSION`, contradicting
+  `AGENTS.md`'s Merging section and this repository's actual tag history (`v5.0.0`–`v5.1.3`), both of which say the
+  tag format since `4.2.3` is `v$VERSION`; `version-X.Y.Z` was only ever used for the legacy Version 3.x/early 4.x
+  line
+
 #### ⚠️ Deprecated
 
 #### 🗑️ Removed
