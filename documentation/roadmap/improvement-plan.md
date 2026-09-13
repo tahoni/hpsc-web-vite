@@ -529,7 +529,7 @@ the TODO if the imports already in place are sufficient.
 
 | Phase       | Focus                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Resolve or remove the `_forms.scss` `TODO: missing imports` comment (#14) |
+| **Now**     | Resolve or remove the `_forms.scss` `TODO: missing imports` comment (#14)                                                                      |
 | **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
