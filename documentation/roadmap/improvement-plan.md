@@ -51,7 +51,8 @@ cross-release gaps between the project's stated intent and its current state.
 Gaps are grouped by completion status — ✅ Completed, 🟡 Partially Completed, ⚪ Open — and numbered sequentially
 across the whole document; a number is assigned once and never reused or resequenced, so it stays a gap's stable
 identifier even after it moves between sections as its status changes (e.g. Open → Partially Completed → Completed).
-Within each section, gaps stay in ascending number order.
+Within each section, gaps stay in ascending number order. Gap #14 was newly identified after the `5.2.0` release
+branch was originally prepared — see its Evidence below.
 
 ### 📋 At a Glance
 
@@ -70,7 +71,9 @@ Within each section, gaps stay in ascending number order.
   - #12 `/contact` and `/venues` were indexed and rewrite-whitelisted but never actually routed
   - #13 `CONTRIBUTING.md`'s CI/CD and Testing sections described a pre-Gap-#1/#3 state
 - **🟡 Partially Completed (0):** none currently.
-- **⚪ Open (0):** none currently.
+- **⚪ Open (2):**
+  - #14 An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
+  - #15 `RoutesSitemap.test.ts` fails without `VITE_SITE_URL` set, and `build.yml`'s Test step never sets it
 
 ### ✅ Completed
 
@@ -465,7 +468,53 @@ Pull Request Checklist, which already described the CI gate correctly.
 
 ### ⚪ Open
 
-*No gaps are currently open.*
+#### 14. An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
+
+**Evidence:** `../../src/assets/styles/_forms.scss:13` reads `/* TODO: missing imports */`, added on its own by the
+"Add TODO for missing imports in `_forms.scss`" commit on this release branch, with no accompanying code change or
+explanation of which imports it means. The stylesheet currently only `@use`s `@bootstrap/styles/index` (for
+Bootstrap's forwarded variables — `$danger`, `$focus-ring-color`, `$focus-ring-opacity`, `$white`) and `theme` (for
+two `hpsc-theme.$btn-info-*` tokens); it never `@use`s `../../src/assets/styles/_colors.scss` directly, despite that
+file's own header docblock (added closing Gap #6) documenting exactly that pattern — `@use "@styles/_colors.scss" as
+hpsc-colors;` — as the project's established convention for referencing the club's palette tokens.
+
+**Why it matters:** An unexplained TODO with no tracked follow-up risks silently rotting in the codebase — precisely
+the "stated-but-unbuilt goal" category this plan exists to catch, matching how Gaps #1–#13 originated. Left alone,
+this comment gives a future contributor no way to tell whether it's actionable, already resolved, or safe to delete.
+
+**Proposed improvement:** Determine what "missing imports" refers to — most likely a missing
+`@use "@styles/_colors.scss" as hpsc-colors;` for direct palette-token usage, matching the convention Gap #6's
+outcome established — and either add the import(s) and update the relevant variable references to use it, or remove
+the TODO if the imports already in place are sufficient.
+
+#### 15. `builders/RoutesSitemap.test.ts` fails outside a shell that already has `VITE_SITE_URL` set, and `build.yml`'s
+CI "Test" step never sets it
+
+**Evidence:** Running `npm run test:run` without `VITE_SITE_URL` exported fails all three tests in
+`../../builders/RoutesSitemap.test.ts` with `TypeError: Invalid URL` (thrown from `sitemap`'s `normalizeURL`), because
+`../../src/constants/commonConstants.ts`'s `baseUrl` resolves to
+`import.meta.env?.VITE_SITE_URL ?? process.env.VITE_SITE_URL`, and Vitest (unlike Vite's own dev/build modes) doesn't
+load `.env.production` automatically — `.env.production` is also gitignored (per Gap #7's `5.1.3` outcome) and never
+present in a fresh checkout. Confirmed this reproduces identically at the `5.2.0` release-prep commit
+(`ddba08a`), so it predates this branch's later commits rather than being a regression they introduced.
+`../../.github/workflows/build.yml`'s "Test" step (`run: npm run test:run`) sets no `env:` block at all, unlike its
+"Install dependencies" step which does pass `NPM_TOKEN_READ` — so the same failure reproduces in CI on every push/PR
+to `main`/`develop`, not just locally. `documentation/history/RELEASE_NOTES_v5.2.0.md`'s "🧪 Testing" section claims
+"3 test files, 14 tests, all passing", which is not reproducible from a clean checkout without manually exporting
+`VITE_SITE_URL` first.
+
+**Why it matters:** Gap #1's whole premise was that `build.yml` should make lint/build/test failures genuinely gate
+merges instead of relying on contributor discipline; a test step that fails on every run in a clean CI checkout
+defeats that gate — either CI has actually been red on this repository since `RoutesSitemap.test.ts` was added, or
+some out-of-band configuration (a repository variable/secret wired into the job, or a contributor's local shell
+already exporting `VITE_SITE_URL`) is masking it, which is itself worth confirming rather than assuming.
+
+**Proposed improvement:** Set `VITE_SITE_URL` for `build.yml`'s "Test" step (e.g. from the same repository variable
+`claude-code-review.yml` already reads, per the `[Unreleased]`/`5.2.0` entry documenting that workflow), or make the
+test independent of the real value by asserting on route paths/priorities only rather than full absolute URLs, or
+give `commonConstants.ts`'s `baseUrl` a hardcoded ultimate fallback so an unset `VITE_SITE_URL` degrades to a valid
+placeholder URL instead of `undefined`. Confirm whether CI has actually been passing on this branch before deciding
+which fix is appropriate.
 
 ---
 
@@ -473,7 +522,7 @@ Pull Request Checklist, which already described the CI gate correctly.
 
 | Phase       | Focus                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Nothing currently queued — all thirteen tracked gaps are closed; see Success Criteria for the current baseline                                 |
+| **Now**     | Resolve or remove the `_forms.scss` `TODO: missing imports` comment (#14); fix `build.yml`'s Test step so `RoutesSitemap.test.ts` passes in a clean CI checkout (#15) |
 | **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
@@ -498,6 +547,10 @@ Pull Request Checklist, which already described the CI gate correctly.
   navigation menu, and `../../UI.md`'s Navigation section was reverse-synced to match).
 - `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" and "🧪 Testing" sections describe the CI gate and initial
   test coverage `5.2.0` actually shipped, instead of the pre-Gap-#1/#3 state (#13) — ✅ Met in v5.2.0.
+- `_forms.scss`'s `TODO: missing imports` comment is either resolved (the missing `@use` added and referenced) or
+  removed as unnecessary, so it no longer names unexplained work (#14).
+- `npm run test:run` passes from a clean checkout with no ambient `VITE_SITE_URL`, in CI and locally, so `build.yml`'s
+  Test step is a genuine gate rather than a step that fails regardless of the diff under review (#15).
 - This document's Gaps section shrinks over time as items close — closed items should move into `../../HISTORY.md`'s
   Future Roadmap Implications section (or its Historical Timeline entries) rather than being deleted silently from
   here.

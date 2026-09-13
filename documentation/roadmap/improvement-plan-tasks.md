@@ -1,6 +1,6 @@
 # Roadmap Task List
 
-A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s thirteen gaps, grouped by that
+A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s fourteen gaps, grouped by that
 document's completion status — ✅ Completed, 🟡 Partially Completed, ⚪ Open — matching its own "🔍 Gaps &
 Improvement Opportunities" grouping. Each block names its originating gap number for traceability back to the
 evidence and reasoning there; within each section, gaps stay in ascending number order.
@@ -189,7 +189,24 @@ Checklist, doesn't exist — ✅ Closed in v5.2.0** *(improvement-plan.md → Ga
 
 ## ⚪ Open
 
-*No gaps are currently open.*
+**An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work**
+*(improvement-plan.md → Gap #14)*
+
+- [ ] Determine what `src/assets/styles/_forms.scss`'s `TODO: missing imports` comment refers to
+- [ ] Most likely: add `@use "@styles/_colors.scss" as hpsc-colors;` and update the stylesheet's relevant variable
+  references to use it, matching the convention Gap #6's outcome established
+- [ ] If the imports already in place turn out to be sufficient, remove the TODO instead
+
+**`builders/RoutesSitemap.test.ts` fails outside a shell that already has `VITE_SITE_URL` set, and `build.yml`'s CI
+Test step never sets it**
+*(improvement-plan.md → Gap #15)*
+
+- [ ] Confirm whether `build.yml`'s CI runs have actually been passing on this repository, to rule out an existing
+  out-of-band `VITE_SITE_URL` source before assuming CI is currently red
+- [ ] Set `VITE_SITE_URL` for `build.yml`'s "Test" step (e.g. the same repository variable `claude-code-review.yml`
+  already reads), or make `RoutesSitemap.test.ts` independent of the real URL value, or give `commonConstants.ts`'s
+  `baseUrl` a hardcoded ultimate fallback
+- [ ] Re-run `npm run test:run` from a clean checkout with no ambient `VITE_SITE_URL` to confirm the fix
 
 ---
 
