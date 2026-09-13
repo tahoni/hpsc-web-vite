@@ -56,7 +56,8 @@ notes.
   the `NPM_TOKEN_READ` secret through to its `Run Claude Code Review` step so `.npmrc`'s `@tahoni` scope can
   authenticate when Claude runs `npm install`/`npm ci` against a pull request, and the `VITE_GOOGLE_MAPS_API_KEY`/
   `VITE_RECAPTCHA_V2_SITE_KEY` secrets so the venue map and Contact Us captcha can render if Claude runs/builds the
-  app while reviewing
+  app while reviewing; `claude-code-review.yml` also sets the non-sensitive `VITE_SITE_URL` directly (matching
+  `.env.production`'s value) rather than as a secret
 
 #### 🔄 Changed
 
