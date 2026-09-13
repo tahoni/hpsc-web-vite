@@ -10,7 +10,9 @@
  */
 
 export const baseUrl: string =
-  import.meta.env?.VITE_SITE_URL ?? process.env.VITE_SITE_URL;
+  import.meta.env?.VITE_SITE_URL ??
+  process.env.VITE_SITE_URL ??
+  "https://www.hpsc.co.za";
 export const copyrightYear: number = 2026;
 
 export const logoAlt = "Logo";

@@ -36,7 +36,8 @@
 
 **Fixed**
 
-- `baseUrl` now sourced from `VITE_SITE_URL` instead of a hardcoded string literal
+- `baseUrl` now sourced from `VITE_SITE_URL` instead of a hardcoded string literal, with a hardcoded fallback so
+  it never resolves to `undefined` in an environment (e.g. Vitest) that doesn't set it
 - `/contact`/`/venues` unreachable routes, `Contact Us`'s inverted dates, `public/sitemap.xml`'s malformed entry
 - Two `'process' is not defined` ESLint errors; a `RoutesSitemap.ts` test side-effect; `Breakpoints.tsx`'s
   `VITE_SHOW_BREAKPOINTS` truthiness check
@@ -53,9 +54,8 @@
 - [x] `npm run lint` — 0 errors, 26 pre-existing non-`tsdoc/syntax` warnings (down from 284 including
   `tsdoc/syntax`, now fully cleared and enforced as an error)
 - [x] `npm run build` — passes
-- [ ] `npm run test:run` — 3 test files, 14 tests; 11 passing, 3 failing (`builders/RoutesSitemap.test.ts`, when run
-  without `VITE_SITE_URL` set — confirmed pre-existing, not introduced by this branch; newly tracked as Gap #15,
-  since `build.yml`'s own CI "Test" step never sets that variable either)
+- [x] `npm run test:run` — 3 test files, 14 tests, all passing, including from a clean checkout with no ambient
+  `VITE_SITE_URL` set (Gap #15, closed by giving `baseUrl` a hardcoded ultimate fallback)
 - [x] Manually verified `/contact`, `/venues` and `/news` render correctly by direct URL, and are absent from the
   primary navigation menu
 - [x] Manually verified `npm run sitemap` regenerates `public/sitemap.xml` correctly

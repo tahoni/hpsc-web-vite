@@ -179,6 +179,19 @@ Checklist, doesn't exist — ✅ Closed in v5.2.0** *(improvement-plan.md → Ga
 - [x] Update `CONTRIBUTING.md`'s "🧪 Testing" section to drop the "currently has no test files" claim — done in
   `5.2.0`
 
+**`builders/RoutesSitemap.test.ts` fails outside a shell that already has `VITE_SITE_URL` set, and `build.yml`'s CI
+Test step never sets it — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #15)*
+
+- [x] Confirm whether `build.yml`'s CI runs have actually been passing on this repository, to rule out an existing
+  out-of-band `VITE_SITE_URL` source before assuming CI is currently red — superseded: the chosen fix (below) makes
+  this moot, since `baseUrl` no longer depends on `VITE_SITE_URL` being set anywhere
+- [x] Set `VITE_SITE_URL` for `build.yml`'s "Test" step (e.g. the same repository variable `claude-code-review.yml`
+  already reads), or make `RoutesSitemap.test.ts` independent of the real URL value, or give `commonConstants.ts`'s
+  `baseUrl` a hardcoded ultimate fallback — done in `5.2.0` via the third option: `baseUrl` now falls back to
+  `"https://www.hpsc.co.za"`, matching `.env.production`'s own default
+- [x] Re-run `npm run test:run` from a clean checkout with no ambient `VITE_SITE_URL` to confirm the fix — done in
+  `5.2.0`: all 3 test files/14 tests pass
+
 ---
 
 ## 🟡 Partially Completed
@@ -196,17 +209,6 @@ Checklist, doesn't exist — ✅ Closed in v5.2.0** *(improvement-plan.md → Ga
 - [ ] Most likely: add `@use "@styles/_colors.scss" as hpsc-colors;` and update the stylesheet's relevant variable
   references to use it, matching the convention Gap #6's outcome established
 - [ ] If the imports already in place turn out to be sufficient, remove the TODO instead
-
-**`builders/RoutesSitemap.test.ts` fails outside a shell that already has `VITE_SITE_URL` set, and `build.yml`'s CI
-Test step never sets it**
-*(improvement-plan.md → Gap #15)*
-
-- [ ] Confirm whether `build.yml`'s CI runs have actually been passing on this repository, to rule out an existing
-  out-of-band `VITE_SITE_URL` source before assuming CI is currently red
-- [ ] Set `VITE_SITE_URL` for `build.yml`'s "Test" step (e.g. the same repository variable `claude-code-review.yml`
-  already reads), or make `RoutesSitemap.test.ts` independent of the real URL value, or give `commonConstants.ts`'s
-  `baseUrl` a hardcoded ultimate fallback
-- [ ] Re-run `npm run test:run` from a clean checkout with no ambient `VITE_SITE_URL` to confirm the fix
 
 ---
 

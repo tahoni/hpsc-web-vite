@@ -194,6 +194,10 @@ actual tag format.
   `process.env` fallback keeps `builders/RoutesSitemap.ts` working when run standalone via `tsx`, outside Vite),
   defaulting to `https://www.hpsc.co.za` via `.env.production`; `index.html`'s canonical link now uses the same
   `%VITE_SITE_URL%` build-time substitution instead of a static href, so it can't drift from `baseUrl` again
+- Fixed `baseUrl` resolving to `undefined` (and crashing `builders/RoutesSitemap.test.ts` with `TypeError: Invalid
+  URL`) whenever `VITE_SITE_URL` isn't set — Vitest, unlike Vite's own dev/build modes, doesn't load
+  `.env.production` automatically — by giving `baseUrl` a third, hardcoded fallback of `https://www.hpsc.co.za`,
+  matching `.env.production`'s own default; closes Gap #15 in `documentation/roadmap/improvement-plan.md`
 
 #### Routing & Sitemap
 
@@ -220,6 +224,8 @@ actual tag format.
 
 - Guarded `builders/RoutesSitemap.ts`'s module-level `generateRoutesSitemap().then(...)` call behind an
   is-run-as-script check, so importing it for tests no longer triggers a real sitemap generation as a side effect
+- Fixed all 3 `RoutesSitemap.test.ts` tests failing when `VITE_SITE_URL` isn't set in the shell (see the `baseUrl`
+  fix above); `npm run test:run` now passes 14/14 tests from a clean checkout with no ambient `VITE_SITE_URL`
 
 #### Components
 
@@ -306,8 +312,8 @@ actual tag format.
 
 ## 📊 Statistics
 
-- **Total Commits:** 72
-- **Files Changed:** 102 (+3,334 / −572 lines)
+- **Total Commits:** 73
+- **Files Changed:** 102 (+3,366 / −574 lines)
 
 ## 🧭 Design Notes
 
@@ -327,9 +333,8 @@ actual tag format.
 - `npm run lint` — 0 errors, 26 warnings (`no-unused-vars`, `react-refresh/only-export-components`); 0
   `tsdoc/syntax` warnings, down from 284 at the start of this release, now enforced as an error
 - `npm run build` — passes
-- `npm run test:run` — 3 test files, 14 tests; 11 passing, 3 failing in `builders/RoutesSitemap.test.ts` when run
-  without `VITE_SITE_URL` set in the shell (see Known Issues — Gap #15; confirmed this isn't a regression from this
-  release's own commits)
+- `npm run test:run` — 3 test files, 14 tests, all passing, including from a clean checkout with no ambient
+  `VITE_SITE_URL` set (Gap #15, closed)
 - Manually verified `public/sitemap.xml` regenerates correctly via `npm run sitemap` and includes `/contact` and
   `/news`
 - Manually verified `/contact`, `/venues` and `/news` render correctly by direct URL, and that neither `Contact Us`
@@ -339,10 +344,6 @@ actual tag format.
 
 ## 🐛 Known Issues
 
-- **`builders/RoutesSitemap.test.ts` fails without `VITE_SITE_URL` exported** (`TypeError: Invalid URL`), and
-  `build.yml`'s CI "Test" step never sets it — so this may already be failing in CI on every push/PR to
-  `main`/`develop` (tracked as Gap #15; confirmed this reproduces identically at this release's original prep
-  commit, so it's not something this release's later commits introduced)
 - 26 non-`tsdoc/syntax` lint warnings remain (`no-unused-vars`, `react-refresh/only-export-components`); the rules
   are `"warn"`, not `"error"`, so they don't fail a lint run
 - Test coverage is still thin — three test files covering `htmlUtils.ts` and `RoutesSitemap.ts` only; most
@@ -352,7 +353,6 @@ actual tag format.
 
 ## 🔮 Future Enhancements
 
-- Fix `build.yml`'s Test step so `RoutesSitemap.test.ts` passes in a clean CI checkout (Gap #15)
 - Resolve or remove `_forms.scss`'s `TODO: missing imports` comment (Gap #14)
 - Expand Vitest coverage beyond the initial `htmlUtils.ts`/`RoutesSitemap.ts` tests to components, hooks and
   helpers
@@ -369,9 +369,10 @@ test coverage, automated accessibility linting, per-page SEO metadata, a top-lev
 Bootstrap `@use` migration and an environment-sourced `baseUrl`. It also fixes a batch of routing/sitemap defects
 uncovered along the way and formalises a recurring dependency-review process. Before wrapping up, the branch also
 fully cleared the `tsdoc/syntax` backlog (escalating the rule to `"error"`) and added Claude Code GitHub Action
-integration for automated PR review — but that same wrap-up work also surfaced two new gaps (an unexplained
-`_forms.scss` TODO, and a CI test that depends on an environment variable `build.yml` never sets), leaving both as
-the clear starting point for the next release.
+integration for automated PR review — that same wrap-up work also surfaced two new gaps, one of which (a
+`RoutesSitemap.test.ts` failure whenever `VITE_SITE_URL` isn't set) was closed before shipping by giving `baseUrl`
+a hardcoded ultimate fallback; an unexplained `_forms.scss` TODO (Gap #14) remains the clear starting point for the
+next release.
 
 ---
 

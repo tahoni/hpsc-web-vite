@@ -47,8 +47,8 @@ the legacy Version 3.x line that predates it.
 - Added `.github/workflows/claude.yml`/`claude-code-review.yml`, giving the repository `@claude`-mention responses
   and automated Claude Code PR review, gated on the same repository secrets/variables the existing workflows use
 - Identified two further gaps while finishing this release's own documentation: an unexplained `TODO` comment in
-  `_forms.scss` (#14), and `RoutesSitemap.test.ts` failing without `VITE_SITE_URL` set — including in `build.yml`'s
-  own CI "Test" step, which never sets it (#15)
+  `_forms.scss` (#14, still open), and `RoutesSitemap.test.ts` failing without `VITE_SITE_URL` set (#15) — closed
+  within the same release by giving `baseUrl` a hardcoded ultimate fallback
 
 ### Version 5.1.3 (September 5, 2026)
 
@@ -1158,10 +1158,11 @@ Route (React Router, data-driven)
    v4.2.3) rather than large, infrequent upgrade batches
 3. **Recurring-Content Pattern:** Year-namespaced directories for `WorldShoot2025`/`ClubShirts` (v4.1.2 – v4.2.1)
    establish a repeatable structure for future years' equivalent content, rather than a one-off fix
-4. **A Test Passing Locally Doesn't Mean It Passes in CI:** v5.2.0's `RoutesSitemap.test.ts` depends on
-   `VITE_SITE_URL` being set, which happens to be true in a developer's shell but was never wired into `build.yml`'s
-   own "Test" step (found while finishing the release documentation, tracked as Gap #15) — a reminder to verify a
-   new CI-gating test from a genuinely clean checkout, not just a local run
+4. **A Test Passing Locally Doesn't Mean It Passes in CI:** v5.2.0's `RoutesSitemap.test.ts` depended on
+   `VITE_SITE_URL` being set, which happened to be true in a developer's shell but was never wired into `build.yml`'s
+   own "Test" step (found while finishing the release documentation, tracked and closed as Gap #15 within the same
+   release by giving `baseUrl` a hardcoded ultimate fallback) — a reminder to verify a new CI-gating test from a
+   genuinely clean checkout, not just a local run
 
 ---
 

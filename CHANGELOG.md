@@ -170,6 +170,10 @@ notes.
   `process.env` fallback keeps `builders/RoutesSitemap.ts` working when run standalone via `tsx`, outside Vite),
   defaulting to `https://www.hpsc.co.za` via `.env.production`; `index.html`'s canonical link now uses the same
   `%VITE_SITE_URL%` build-time substitution instead of a static href, so it can't drift from `baseUrl` again
+- Fixed `baseUrl` resolving to `undefined` (and crashing `builders/RoutesSitemap.test.ts` with `TypeError: Invalid
+  URL`) whenever `VITE_SITE_URL` isn't set — Vitest, unlike Vite's own dev/build modes, doesn't load
+  `.env.production` automatically — by giving `baseUrl` a third, hardcoded fallback of `https://www.hpsc.co.za`,
+  matching `.env.production`'s own default; closes Gap #15 in `documentation/roadmap/improvement-plan.md`
 
 ##### Routing & Sitemap
 
@@ -196,6 +200,8 @@ notes.
 
 - Guarded `builders/RoutesSitemap.ts`'s module-level `generateRoutesSitemap().then(...)` call behind an
   is-run-as-script check, so importing it for tests no longer triggers a real sitemap generation as a side effect
+- Fixed all 3 `RoutesSitemap.test.ts` tests failing when `VITE_SITE_URL` isn't set in the shell (see the `baseUrl`
+  fix above); `npm run test:run` now passes 14/14 tests from a clean checkout with no ambient `VITE_SITE_URL`
 
 ##### Components
 

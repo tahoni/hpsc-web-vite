@@ -56,7 +56,7 @@ branch was originally prepared — see its Evidence below.
 
 ### 📋 At a Glance
 
-- **✅ Completed (13):**
+- **✅ Completed (14):**
   - #1 No automatic lint/build/test gate on pull requests
   - #2 Two concrete route-metadata defects
   - #3 Zero test coverage despite a configured test runner
@@ -70,10 +70,10 @@ branch was originally prepared — see its Evidence below.
   - #11 258 pre-existing `tsdoc/syntax` lint warnings
   - #12 `/contact` and `/venues` were indexed and rewrite-whitelisted but never actually routed
   - #13 `CONTRIBUTING.md`'s CI/CD and Testing sections described a pre-Gap-#1/#3 state
+  - #15 `RoutesSitemap.test.ts` failed without `VITE_SITE_URL` set, and `build.yml`'s Test step never set it
 - **🟡 Partially Completed (0):** none currently.
-- **⚪ Open (2):**
+- **⚪ Open (1):**
   - #14 An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
-  - #15 `RoutesSitemap.test.ts` fails without `VITE_SITE_URL` set, and `build.yml`'s Test step never sets it
 
 ### ✅ Completed
 
@@ -462,33 +462,8 @@ lint/build/test/audit gate instead of claiming no CI workflow exists, and its "�
 coverage exists and is growing instead of claiming no test files exist — both now consistent with the file's own
 Pull Request Checklist, which already described the CI gate correctly.
 
-### 🟡 Partially Completed
-
-*No gaps are currently partially completed.*
-
-### ⚪ Open
-
-#### 14. An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
-
-**Evidence:** `../../src/assets/styles/_forms.scss:13` reads `/* TODO: missing imports */`, added on its own by the
-"Add TODO for missing imports in `_forms.scss`" commit on this release branch, with no accompanying code change or
-explanation of which imports it means. The stylesheet currently only `@use`s `@bootstrap/styles/index` (for
-Bootstrap's forwarded variables — `$danger`, `$focus-ring-color`, `$focus-ring-opacity`, `$white`) and `theme` (for
-two `hpsc-theme.$btn-info-*` tokens); it never `@use`s `../../src/assets/styles/_colors.scss` directly, despite that
-file's own header docblock (added closing Gap #6) documenting exactly that pattern — `@use "@styles/_colors.scss" as
-hpsc-colors;` — as the project's established convention for referencing the club's palette tokens.
-
-**Why it matters:** An unexplained TODO with no tracked follow-up risks silently rotting in the codebase — precisely
-the "stated-but-unbuilt goal" category this plan exists to catch, matching how Gaps #1–#13 originated. Left alone,
-this comment gives a future contributor no way to tell whether it's actionable, already resolved, or safe to delete.
-
-**Proposed improvement:** Determine what "missing imports" refers to — most likely a missing
-`@use "@styles/_colors.scss" as hpsc-colors;` for direct palette-token usage, matching the convention Gap #6's
-outcome established — and either add the import(s) and update the relevant variable references to use it, or remove
-the TODO if the imports already in place are sufficient.
-
 #### 15. `builders/RoutesSitemap.test.ts` fails outside a shell that already has `VITE_SITE_URL` set, and `build.yml`'s
-CI "Test" step never sets it
+CI "Test" step never sets it — ✅ Closed in v5.2.0
 
 **Evidence:** Running `npm run test:run` without `VITE_SITE_URL` exported fails all three tests in
 `../../builders/RoutesSitemap.test.ts` with `TypeError: Invalid URL` (thrown from `sitemap`'s `normalizeURL`), because
@@ -516,13 +491,45 @@ give `commonConstants.ts`'s `baseUrl` a hardcoded ultimate fallback so an unset 
 placeholder URL instead of `undefined`. Confirm whether CI has actually been passing on this branch before deciding
 which fix is appropriate.
 
+**Outcome:** Gave `../../src/constants/commonConstants.ts`'s `baseUrl` a hardcoded ultimate fallback
+(`"https://www.hpsc.co.za"`, matching `.env.production`'s own default), so an unset `VITE_SITE_URL` degrades to a
+valid production URL instead of `undefined` in any environment — Vitest included — rather than depending on a
+repository variable being wired into `build.yml`'s "Test" step. Re-ran `npm run test:run` with `VITE_SITE_URL`
+unset from the shell: all 3 test files/14 tests now pass, confirming the fix without needing to determine whether
+CI had actually been red.
+
+### 🟡 Partially Completed
+
+*No gaps are currently partially completed.*
+
+### ⚪ Open
+
+#### 14. An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
+
+**Evidence:** `../../src/assets/styles/_forms.scss:13` reads `/* TODO: missing imports */`, added on its own by the
+"Add TODO for missing imports in `_forms.scss`" commit on this release branch, with no accompanying code change or
+explanation of which imports it means. The stylesheet currently only `@use`s `@bootstrap/styles/index` (for
+Bootstrap's forwarded variables — `$danger`, `$focus-ring-color`, `$focus-ring-opacity`, `$white`) and `theme` (for
+two `hpsc-theme.$btn-info-*` tokens); it never `@use`s `../../src/assets/styles/_colors.scss` directly, despite that
+file's own header docblock (added closing Gap #6) documenting exactly that pattern — `@use "@styles/_colors.scss" as
+hpsc-colors;` — as the project's established convention for referencing the club's palette tokens.
+
+**Why it matters:** An unexplained TODO with no tracked follow-up risks silently rotting in the codebase — precisely
+the "stated-but-unbuilt goal" category this plan exists to catch, matching how Gaps #1–#13 originated. Left alone,
+this comment gives a future contributor no way to tell whether it's actionable, already resolved, or safe to delete.
+
+**Proposed improvement:** Determine what "missing imports" refers to — most likely a missing
+`@use "@styles/_colors.scss" as hpsc-colors;` for direct palette-token usage, matching the convention Gap #6's
+outcome established — and either add the import(s) and update the relevant variable references to use it, or remove
+the TODO if the imports already in place are sufficient.
+
 ---
 
 ## 🚀 Roadmap
 
 | Phase       | Focus                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Resolve or remove the `_forms.scss` `TODO: missing imports` comment (#14); fix `build.yml`'s Test step so `RoutesSitemap.test.ts` passes in a clean CI checkout (#15) |
+| **Now**     | Resolve or remove the `_forms.scss` `TODO: missing imports` comment (#14) |
 | **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
@@ -550,7 +557,8 @@ which fix is appropriate.
 - `_forms.scss`'s `TODO: missing imports` comment is either resolved (the missing `@use` added and referenced) or
   removed as unnecessary, so it no longer names unexplained work (#14).
 - `npm run test:run` passes from a clean checkout with no ambient `VITE_SITE_URL`, in CI and locally, so `build.yml`'s
-  Test step is a genuine gate rather than a step that fails regardless of the diff under review (#15).
+  Test step is a genuine gate rather than a step that fails regardless of the diff under review
+  (#15) — ✅ Met in v5.2.0.
 - This document's Gaps section shrinks over time as items close — closed items should move into `../../HISTORY.md`'s
   Future Roadmap Implications section (or its Historical Timeline entries) rather than being deleted silently from
   here.
