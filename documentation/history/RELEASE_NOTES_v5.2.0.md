@@ -322,8 +322,8 @@ actual tag format.
 
 ## 📊 Statistics
 
-- **Total Commits:** 75
-- **Files Changed:** 102 (+3,392 / −577 lines)
+- **Total Commits:** 77
+- **Files Changed:** 102 (+3,408 / −577 lines)
 
 ## 🧭 Design Notes
 
@@ -382,7 +382,8 @@ fully cleared the `tsdoc/syntax` backlog (escalating the rule to `"error"`) and 
 integration for automated PR review — that same wrap-up work also surfaced two new gaps, one of which (a
 `RoutesSitemap.test.ts` failure whenever `VITE_SITE_URL` isn't set) was closed before shipping by giving `baseUrl`
 a hardcoded ultimate fallback; an unexplained `_forms.scss` TODO (Gap #14) remains the clear starting point for the
-next release.
+next release. A high-severity `js-yaml` Dependabot alert, surfaced by GitHub after this branch was pushed, was also
+resolved before merging via a routine `npm audit fix`.
 
 ---
 

@@ -1155,7 +1155,7 @@ Route (React Router, data-driven)
    from-scratch reimplementation in v3.3.6, shows a willingness to cut a dependency rather than work around a security
    problem
 2. **Dependency Currency:** Regular, focused security-vulnerability patches (v3.3.8, v3.6.9, v4.0.1, v4.0.2, v4.2.2,
-   v4.2.3) rather than large, infrequent upgrade batches
+   v4.2.3, v5.2.0) rather than large, infrequent upgrade batches
 3. **Recurring-Content Pattern:** Year-namespaced directories for `WorldShoot2025`/`ClubShirts` (v4.1.2 – v4.2.1)
    establish a repeatable structure for future years' equivalent content, rather than a one-off fix
 4. **A Test Passing Locally Doesn't Mean It Passes in CI:** v5.2.0's `RoutesSitemap.test.ts` depended on
