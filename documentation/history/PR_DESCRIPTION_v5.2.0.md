@@ -8,7 +8,8 @@
   back off the primary navigation menu once they were confirmed reachable by direct URL.
 - Completes the `src/vendors/bootstrap/styles/index.scss` `@use`/`@forward` migration and sources `baseUrl` from
   `VITE_SITE_URL` instead of a hardcoded literal.
-- Formalises a monthly dependency-review cadence and adds `HISTORY.md`'s "🚀 Future Roadmap Implications" section.
+- Formalises a monthly dependency-review cadence, adds `HISTORY.md`'s "🚀 Future Roadmap Implications" section, fully
+  clears the `tsdoc/syntax` lint backlog, and adds Claude Code GitHub Action integration for automated PR review.
 
 ## 📦 Key Changes
 
@@ -16,6 +17,8 @@
 
 - `.github/workflows/build.yml` — lint/build/test CI gate on PRs to `main`/`develop`, plus an advisory `npm audit`
   step
+- `.github/workflows/claude.yml`/`claude-code-review.yml` — `@claude`-mention responses and automated Claude Code
+  PR review
 - Vitest infrastructure (`vitest.config.ts`, `jsdom`) and the project's first tests, plus a `test:run` script
 - `eslint-plugin-jsx-a11y`'s recommended rule set and a manual WCAG AA baseline checklist
 - Per-page `document.title`/meta description/canonical link (`PageMapping.description`)
@@ -28,6 +31,8 @@
 
 - `src/vendors/bootstrap/styles/index.scss` migrated from `@import` to `@use`/`@forward` (verified byte-identical
   compiled CSS)
+- `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule escalated from `"warn"` to `"error"`, now that the codebase is fully
+  clean against it (closes Gap #11)
 
 **Fixed**
 
@@ -35,13 +40,22 @@
 - `/contact`/`/venues` unreachable routes, `Contact Us`'s inverted dates, `public/sitemap.xml`'s malformed entry
 - Two `'process' is not defined` ESLint errors; a `RoutesSitemap.ts` test side-effect; `Breakpoints.tsx`'s
   `VITE_SHOW_BREAKPOINTS` truthiness check
-- Several stale `CONTRIBUTING.md`/`AGENTS.md`/`improvement-plan.md` claims, and non-standard `@module` JSDoc tags
+- Several stale `CONTRIBUTING.md`/`AGENTS.md`/`improvement-plan.md` claims, and a large batch of non-standard
+  TSDoc tags/JSDoc syntax and American-English spellings across the codebase's doc comments
+
+**Removed**
+
+- Non-standard `@module`/`@type`/`@interface`/`@property`/`@prop` TSDoc tags and dead, commented-out
+  `APIProvider`/`GoogleReCaptchaProvider` markup in `App.tsx`
 
 ## 🧪 Test Plan
 
-- [x] `npm run lint` — 0 errors (284 pre-existing warnings, unchanged, tracked as Gap #11)
+- [x] `npm run lint` — 0 errors, 26 pre-existing non-`tsdoc/syntax` warnings (down from 284 including
+  `tsdoc/syntax`, now fully cleared and enforced as an error)
 - [x] `npm run build` — passes
-- [x] `npm run test:run` — 3 test files, 14 tests, all passing
+- [ ] `npm run test:run` — 3 test files, 14 tests; 11 passing, 3 failing (`builders/RoutesSitemap.test.ts`, when run
+  without `VITE_SITE_URL` set — confirmed pre-existing, not introduced by this branch; newly tracked as Gap #15,
+  since `build.yml`'s own CI "Test" step never sets that variable either)
 - [x] Manually verified `/contact`, `/venues` and `/news` render correctly by direct URL, and are absent from the
   primary navigation menu
 - [x] Manually verified `npm run sitemap` regenerates `public/sitemap.xml` correctly
@@ -50,5 +64,7 @@
 ## 🔗 Related Documentation
 
 - [RELEASE_NOTES.md](../../RELEASE_NOTES.md)
-- [CHANGELOG.md](../../CHANGELOG.md#-520---2026-09-06)
+- [CHANGELOG.md](../../CHANGELOG.md#-520---2026-09-13)
 - [HISTORY.md](../../HISTORY.md)
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
