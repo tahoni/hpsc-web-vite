@@ -186,6 +186,10 @@ See [`AGENTS.md`'s Code Quality & CI section](AGENTS.md#-code-quality--ci) for t
 [`.github/workflows/build.yml`](.github/workflows/build.yml) runs `npm run lint`, `npm run build` and
 `npm run test:run` on push/PR to `main` and `develop`, gating merges on all three passing, plus an advisory-only
 `npm audit` step. Still run them locally before opening a PR so failures surface before CI does.
+[`.github/workflows/claude-code-review.yml`](.github/workflows/claude-code-review.yml) also runs automatically on
+every opened or updated pull request, posting Claude Code review findings as inline comments; mentioning `@claude`
+in an issue, issue comment, or pull request review/review comment triggers
+[`.github/workflows/claude.yml`](.github/workflows/claude.yml) for an on-demand response.
 
 ---
 
