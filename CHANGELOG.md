@@ -54,6 +54,8 @@ notes.
   legacy `.eslintrc.cjs` mirror, now that `npm run lint` reports zero `tsdoc/syntax` warnings — closing Gap #11 in
   `documentation/roadmap/improvement-plan.md`; a future TSDoc syntax regression now fails `npm run lint` and the CI
   gate instead of silently accumulating as a warning
+- Updated the `generate-pr-summary` and `prep-version-release` skills to end their drafted PR descriptions with the
+  standard Claude Code attribution footer, consistent with any other PR description it opens
 
 ##### Documentation
 
