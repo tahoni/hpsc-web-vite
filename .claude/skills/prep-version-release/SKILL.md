@@ -73,7 +73,7 @@ Steps:
    --format='%an'` (or the equivalent GitHub "Contributors" view for the release's PRs), deduplicated — rather than a
    generic placeholder like "Development Team", and include every account found; bots (e.g. `dependabot[bot]`,
    `ImgBotApp`) included. Replace the previous version's content outright rather than appending to it.
-7. **Verify links and dates.** Confirm the `version-$VERSION` tag slug and the `YYYY-MM-DD` date match between
+7. **Verify links and dates.** Confirm the `v$VERSION` tag slug and the `YYYY-MM-DD` date match between
    `CHANGELOG.md` and `RELEASE_NOTES.md`.
 8. **Extend `HISTORY.md`.** Add a Historical Timeline entry, a Phase and a Milestone for `$VERSION`, at the same
    narrative depth and style as the existing entries, placed at the top (immediately below the Overview section) to keep
@@ -102,6 +102,9 @@ Steps:
       rather than exhaustive
     - `## 🧪 Test Plan` — checklist of what was verified (`npm run lint`, `npm run build`, `npm test`, manual checks)
     - `## 🔗 Related Documentation` — links to `RELEASE_NOTES.md`, `CHANGELOG.md`, `HISTORY.md`
+    - End the file with the standard Claude Code attribution footer (a blank line, then
+      `🤖 Generated with [Claude Code](https://claude.com/claude-code)`) — this is a PR description drafted by Claude
+      Code and should be marked as such, same as any other PR description it opens.
 
 Commit these in logical chunks per AGENTS.md's Git Workflow — the version bump, the CHANGELOG/HISTORY/RELEASE_NOTES
 documentation, any README/ARCHITECTURE/UI reverse-sync updates and the PR description are separate concerns unless
@@ -113,8 +116,9 @@ Once all files above are written, tell the user the release branch (`release/v$V
 against `develop` (per the GitFlow branching model in AGENTS.md), using
 `documentation/history/PR_DESCRIPTION_v$VERSION.md` as the PR body. Once that PR merges, remind them a second PR
 promoting `develop` into `main` is still needed to actually ship the release — tag the resulting commit on `main` as
-`version-$VERSION` (this project's tag format, matching the links used in `CHANGELOG.md`/`RELEASE_NOTES.md` — **not**
-`v$VERSION`).
+`v$VERSION` (this project's tag format for every release from `4.2.3` onward, matching the links used in
+`CHANGELOG.md`/`RELEASE_NOTES.md` — **not** `version-$VERSION`, which was only ever used for the legacy Version 3.x/
+early 4.x line).
 
 Remind the user to run `npm run lint`, `npm run build` and `npm test` before finishing, and confirm no
 version-specific info leaked into `README.md`/`ARCHITECTURE.md`/`UI.md`.

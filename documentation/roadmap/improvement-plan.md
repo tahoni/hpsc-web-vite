@@ -1,7 +1,7 @@
 # HPSC Website Improvement Plan
 
 This document synthesises the goals and constraints stated across this repository's documentation and configuration into
-a single set of prioritised improvement opportunities. Unlike [`../../README.md`](../../README.md) and 
+a single set of prioritised improvement opportunities. Unlike [`../../README.md`](../../README.md) and
 [`../../ARCHITECTURE.md`](../../ARCHITECTURE.md), it is not evergreen — it reflects a point-in-time reading of the
 project and should be revisited whenever a major gap it names is closed or a new one is identified.
 
@@ -24,25 +24,25 @@ sections, `../../package.json` and `../../vite.config.ts` — rather than introd
 and the configuration disagree, or where a stated goal has no corresponding work item yet, that gap is called out below
 as an improvement opportunity.
 
-It complements, rather than duplicates, `../../HISTORY.md`'s per-release "🚀 Future Roadmap Implications" section: that
-section tracks what changed release-to-release, while this document tracks the standing, cross-release gaps between the
-project's stated intent and its current state.
+It complements, rather than duplicates, `../../HISTORY.md`'s "🚀 Future Roadmap Implications" section: that section
+synthesises what this project's history implies for its forward roadmap, while this document tracks the standing,
+cross-release gaps between the project's stated intent and its current state.
 
 ---
 
 ## ⚙️ Goals & Constraints (Synthesised)
 
-| Source                                               | Goal / constraint                                                                                                                                                                                                                                               |
-|------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `../../README.md`, `../../AGENTS.md`                 | Deliver an informative, content-driven club website; there is no backend in this repository — contact-form email delivery and reCAPTCHA verification are the only server-side dependencies, both third-party, called directly from the client                   |
-| `../../ARCHITECTURE.md` (Data-Driven Routing)        | Routing is driven by `PageMapping` instances (`BaseRoutes.ts` → `RouteAliases.tsx` → `AppRoutes.tsx`), reused as-is by the sitemap builder — not static JSX route trees                                                                                         |
-| `../../ARCHITECTURE.md` (Feature-Based Organization) | Code is organised by feature under `../../src/features`, each self-contained with a page component, content component(s), MDX, styles and a barrel `index.ts`                                                                                                   |
-| `../../AGENTS.md` (Code Quality & CI)                | Only CodeQL runs automatically (push/PR to `main`, and weekly); `npm run lint`/`build`/`test` must be run locally before opening a PR — no automated build/test gate exists yet                                                                                 |
-| `../../AGENTS.md` (Documentation Conventions)        | British English spelling throughout prose; every ToC-listed heading carries a reused or deliberately new emoji; `../../README.md`/`../../ARCHITECTURE.md`/`../../UI.md` stay version-agnostic (reverse-synced from release docs, not the other way round)       |
-| `../../AGENTS.md` (Git Workflow, Release Checklist)  | GitFlow branching (`develop` → `release/vX.Y.Z` → `main`, `hotfix/*` direct to `main`), and a fixed, ordered Release Checklist covering `../../package.json`, `../../CHANGELOG.md`, `../../RELEASE_NOTES.md`, `../../HISTORY.md` and archived per-version docs  |
-| `../../AGENTS.md` (Test Conventions)                 | Vitest is configured but no test files exist yet; when added, co-locate `*.test.ts`/`*.test.tsx`, use `@testing-library/react` with a `jsdom` environment and don't test the type system or trivial pass-through props                                          |
-| `../../package.json`, `../../vite.config.ts`         | React 19, Vite 8, TypeScript 6 strict mode, React Router 8 — a fixed stack; `../../vite.config.ts`'s `manualChunks` already splits FontAwesome/MDX/RJSF/FullCalendar/react-google/vis.gl into separate vendor chunks                                            |
-| `../../CONTRIBUTING.md`                              | New contributors need `NPM_TOKEN_READ` just to `npm install`; `GOOGLE_MAPS_API_KEY`/`RECAPTCHA_V2_SITE_KEY` are optional locally but needed for the venue map and Contact Us captcha to render                                                                  |
+| Source                                               | Goal / constraint                                                                                                                                                                                                                                              |
+|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `../../README.md`, `../../AGENTS.md`                 | Deliver an informative, content-driven club website; there is no backend in this repository — contact-form email delivery and reCAPTCHA verification are the only server-side dependencies, both third-party, called directly from the client                  |
+| `../../ARCHITECTURE.md` (Data-Driven Routing)        | Routing is driven by `PageMapping` instances (`BaseRoutes.ts` → `RouteAliases.tsx` → `AppRoutes.tsx`), reused as-is by the sitemap builder — not static JSX route trees                                                                                        |
+| `../../ARCHITECTURE.md` (Feature-Based Organization) | Code is organised by feature under `../../src/features`, each self-contained with a page component, content component(s), MDX, styles and a barrel `index.ts`                                                                                                  |
+| `../../AGENTS.md` (Code Quality & CI)                | CodeQL runs on push/PR to `main` and weekly; `../../.github/workflows/build.yml` also gates merges to `main`/`develop` on `npm run lint`/`build`/`test:run`, plus an advisory-only `npm audit` step, with dependencies reviewed monthly and at each release    |
+| `../../AGENTS.md` (Documentation Conventions)        | British English spelling throughout prose; every ToC-listed heading carries a reused or deliberately new emoji; `../../README.md`/`../../ARCHITECTURE.md`/`../../UI.md` stay version-agnostic (reverse-synced from release docs, not the other way round)      |
+| `../../AGENTS.md` (Git Workflow, Release Checklist)  | GitFlow branching (`develop` → `release/vX.Y.Z` → `main`, `hotfix/*` direct to `main`), and a fixed, ordered Release Checklist covering `../../package.json`, `../../CHANGELOG.md`, `../../RELEASE_NOTES.md`, `../../HISTORY.md` and archived per-version docs |
+| `../../AGENTS.md` (Test Conventions)                 | Vitest is configured, with initial coverage co-located as `*.test.ts`/`*.test.tsx`, using `@testing-library/react` with a `jsdom` environment; don't test the type system or trivial pass-through props                                                        |
+| `../../package.json`, `../../vite.config.ts`         | React 19, Vite 8, TypeScript 6 strict mode, React Router 8 — a fixed stack; `../../vite.config.ts`'s `manualChunks` already splits FontAwesome/MDX/RJSF/FullCalendar/react-google/vis.gl into separate vendor chunks                                           |
+| `../../CONTRIBUTING.md`                              | New contributors need `NPM_TOKEN_READ` just to `npm install`; `GOOGLE_MAPS_API_KEY`/`RECAPTCHA_V2_SITE_KEY` are optional locally but needed for the venue map and Contact Us captcha to render                                                                 |
 
 ---
 
@@ -51,35 +51,184 @@ project's stated intent and its current state.
 Gaps are grouped by completion status — ✅ Completed, 🟡 Partially Completed, ⚪ Open — and numbered sequentially
 across the whole document; a number is assigned once and never reused or resequenced, so it stays a gap's stable
 identifier even after it moves between sections as its status changes (e.g. Open → Partially Completed → Completed).
-Within each section, gaps stay in ascending number order.
+Within each section, gaps stay in ascending number order. Gap #14 was newly identified after the `5.2.0` release
+branch was originally prepared — see its Evidence below.
+
+### 📋 At a Glance
+
+- **✅ Completed (14):**
+  - #1 No automatic lint/build/test gate on pull requests
+  - #2 Two concrete route-metadata defects
+  - #3 Zero test coverage despite a configured test runner
+  - #4 No error boundary or production error handling
+  - #5 Accessibility has no lint enforcement or documented baseline
+  - #6 A documented styling convention is violated in one known place
+  - #7 Required environment variables undocumented, `baseUrl` hardcoded
+  - #8 Dependency surface has no ongoing audit discipline
+  - #9 `HISTORY.md`'s "Future Roadmap Implications" section doesn't exist
+  - #10 `AGENTS.md`'s stale "MIT License" description for `LICENSE.md`
+  - #11 258 pre-existing `tsdoc/syntax` lint warnings
+  - #12 `/contact` and `/venues` were indexed and rewrite-whitelisted but never actually routed
+  - #13 `CONTRIBUTING.md`'s CI/CD and Testing sections described a pre-Gap-#1/#3 state
+  - #15 `RoutesSitemap.test.ts` failed without `VITE_SITE_URL` set, and `build.yml`'s Test step never set it
+- **🟡 Partially Completed (0):** none currently.
+- **⚪ Open (1):**
+  - #14 An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
 
 ### ✅ Completed
 
-#### 10. `../../AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `../../README.md` and `../../LICENSE.md` itself — ✅ Closed in v5.1.1
+#### 1. No automatic lint/build/test gate on pull requests — ✅ Closed in v5.2.0
 
-**Evidence:** `../../AGENTS.md`'s Documentation File Map lists `LICENSE.md` as "MIT License". `../../LICENSE.md`
-itself is a plain "Copyright © 2026 Hartbeespoortdam Practical Shooting Club. All Rights Reserved." notice, and
-`../../README.md`'s own Documentation table already correctly describes it as "All Rights Reserved". This project's
-`../../CHANGELOG.md`, under its current `### 🧪 [Unreleased]` section, even claims this was already fixed ("Fixed
-`README.md`'s Documentation table and `AGENTS.md`'s Documentation File Map describing `LICENSE.md` as 'MIT
-License' ... both now describe it accurately") — but only `../../README.md` was actually corrected;
-`../../AGENTS.md` still reads "MIT License".
+**Evidence:** `../../.github/workflows` contains only `codeql.yml` (security analysis, on push/PR to `main`/`develop`
+and weekly). `../../AGENTS.md`'s Code Quality & CI section states plainly: "There is currently no CI workflow that
+runs `npm run lint`, `npm run build` or `npm test` — only CodeQL runs automatically. Run these locally before opening
+a PR." `../../CONTRIBUTING.md`'s Pull Request Checklist relies entirely on the contributor remembering to run all
+three.
 
-**Why it matters:** `../../AGENTS.md` is this project's documented single source of truth for cross-tool agent
-conventions, and it now contradicts both `../../README.md` and the licence file it's describing — exactly the kind
-of doc-vs-doc drift this plan exists to catch. It also means the current `../../CHANGELOG.md` `[Unreleased]` entry
-is itself inaccurate about what was actually done, risking a release note that overstates the fix once promoted to a
-dated version entry.
+**Why it matters:** GitFlow's `feature/*` → `develop` → `release/*` → `main` promotion (per `../../AGENTS.md`'s Git
+Workflow) depends on lint/build/test genuinely passing at each merge; today that depends entirely on reviewer and
+contributor discipline, with nothing enforcing it automatically.
 
-**Proposed improvement:** Correct `../../AGENTS.md`'s Documentation File Map entry for `LICENSE.md` to "All Rights
-Reserved", matching `../../README.md` and the file's actual content.
+**Proposed improvement:** Add a workflow (e.g. `build.yml`) triggered on push/PR to `develop` and `main`, mirroring
+`codeql.yml`'s trigger branches, running `npm ci`, `npm run lint`, `npm run build` and `npm test`. Gate the bundle
+visualiser's auto-open behind the same CI check — `../../vite.config.ts`'s `rollup-plugin-visualizer` currently always
+opens (`open: true`), which would be disruptive in a headless runner.
 
-**Outcome:** `../../AGENTS.md`'s Documentation File Map now reads "All Rights Reserved", matching `../../README.md`
-and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]` entry's claim is now accurate.
+**Outcome:** In `5.2.0`, `../../.github/workflows/build.yml` was added, mirroring `codeql.yml`'s trigger branches
+(`main`, `develop`) and running `npm ci`, `npm run lint`, `npm run build` and `npm test`; `npm ci` authenticates
+against the `@tahoni` GitHub Packages scope via the `NPM_TOKEN_READ` secret, per `../../.npmrc`.
+`../../vite.config.ts`'s `rollup-plugin-visualizer` now opens conditionally (`open: !process.env.CI`) instead of
+always, so it still pops up for a local `npm run build` but stays silent in the headless runner.
+`../../AGENTS.md`'s Code Quality & CI section was updated to describe the new workflow instead of stating no CI gate
+exists. Locally confirmed (with `CI=true`) that `npm run lint` and `npm test` both exit non-zero on a real failure —
+a probe ESLint error and, separately, `npm test` against zero test files (`vitest`'s "No test files found, exiting
+with code 1") — so the workflow genuinely gates rather than silently succeeding; `npm run build` failing on a type
+error is `tsc -b`'s well-established behaviour.
 
-### 🟡 Partially Completed
+#### 2. Two concrete route-metadata defects, one already visible in production output — ✅ Closed in v5.2.0
 
-#### 7. Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl` is hardcoded
+**Evidence:** `../../src/features/News` exists as a complete feature folder but is referenced by no route mapping —
+absent from `BaseRoutes.ts`'s `coreRoutes`, `RouteAliases.tsx` and consequently the generated sitemap. Separately,
+`coreContactUsRoute` in `BaseRoutes.ts` sets `dateCreated: new Date("2025-12-26")` after its own
+`dateUpdated: new Date("2025-03-03")` — an internally inconsistent pair that also feeds
+`../../builders/RoutesSitemap.ts`'s `lastmod` output.
+
+**Why it matters:** `../../builders/RoutesSitemap.ts` and its output, `../../public/sitemap.xml`, are the site's only
+mechanism for surfacing content freshness and priority to search engines; the checked-in `../../public/sitemap.xml` is
+already visibly stale — its first `<loc>` entry is malformed (`https: www.hpsc.co.za`, missing slashes) and the file
+predates the Events route entirely.
+
+**Proposed improvement:** Wire `News` into `coreRoutes`/`RouteAliases.tsx`/`AppRoutes.tsx`, or delete the folder if the
+feature isn't ready to ship. Fix the inverted Contact Us dates. Regenerate `../../public/sitemap.xml` via
+`npm run sitemap` once both are fixed.
+
+**Outcome:** In `5.2.0`, `coreNewsRoute` (dated `2026-09-05`) was added to `../../src/shared/routes/BaseRoutes.ts`'s
+`coreRoutes` and wired all the way through: `../../src/shared/routes/RouteAliases.tsx` now `React.lazy`-loads
+`NewsPage` (matching every other feature page, instead of the static import it started with) and exports a `news`
+mapping, `../../src/helpers/routeHelpers.tsx`'s `routes` array includes `{ mapping: news }` so `/news` is actually
+reachable rather than merely defined, and `../../public/.htaccess`'s rewrite whitelist gained a `/news` condition so
+a direct hit doesn't 404. `coreContactUsRoute`'s `dateCreated`/`dateUpdated` were swapped into chronological order.
+`../../public/sitemap.xml` was regenerated via `npm run sitemap`, fixing the malformed first `<loc>` entry and
+adding the `/contact` and `/news` URLs — 9 entries in total.
+
+#### 3. Zero test coverage despite a configured test runner — ✅ Closed in v5.2.0
+
+**Evidence:** `../../package.json` has a working `test` script (`vitest`) and `vitest` as a dependency, but no
+`*.test.ts`/`*.test.tsx` file exists anywhere under `../../src`. There is no `vitest.config.ts`, no `jsdom` environment,
+and `@testing-library/react`/`@testing-library/user-event` aren't dev dependencies.
+
+**Why it matters:** Every route, the Contact Us forms RJSF schema/validation and the data-driven route mappings
+(`PageMapping`) currently ship with no regression safety net. `EmailService.sendEmail()` is still a
+`// TODO: call back-end` stub that unconditionally returns `true` — its eventual real implementation will have nothing
+to test against unless test infrastructure exists first.
+
+**Proposed improvement:** Add `vitest.config.ts` (`test.environment = 'jsdom'`) and the missing dev dependencies, then
+start with unit/smoke tests for pure logic (`htmlUtils.ts`, `RoutesSitemap.ts`) before component tests.
+
+**Outcome:** In `5.2.0`, `../../vitest.config.ts` was added, `mergeConfig`-ing `../../vite.config.ts` (so path aliases
+stay in sync) with `test.environment: "jsdom"`; `jsdom` was added as a dev dependency (`@testing-library/react`/
+`@testing-library/user-event` were already present). A `test:run` script (`vitest run`) was added for a single
+CI-friendly run — `../../.github/workflows/build.yml`'s Test step now uses it instead of `npm test`'s watch-mode
+default — and documented in `../../README.md`'s Available Scripts and `../../AGENTS.md`'s Test Conventions. Unit/smoke
+tests were added for `../../src/utils/htmlUtils.ts` (`sanitizeValue`, `nonBreakingHyphens`, `nonBreakingSpaces`) and
+`../../builders/RoutesSitemap.ts` (`generateRoutesSitemap`'s XML structure, one `<url>` per core route, Home's higher
+priority). `../../builders/RoutesSitemap.ts`'s module-level `generateRoutesSitemap().then(...)` call — which used to
+run automatically on import — was guarded behind an "is this file being run directly" check so importing it for tests
+no longer triggers a real sitemap generation as a side effect.
+
+#### 4. No error boundary or production error handling — ✅ Closed in v5.2.0
+
+**Evidence:** No `ErrorBoundary` component exists anywhere under `../../src`; a rendering error in any route currently
+produces a blank or broken page with no fallback UI.
+
+**Why it matters:** The site has no backend and no logging/monitoring integration (per `../../AGENTS.md`'s Project
+Overview) — an unhandled render error is currently invisible to both the visitor and the maintainer.
+
+**Proposed improvement:** Add a top-level React error boundary around the route tree with a friendly fallback; evaluate
+lightweight client-side logging alongside it once the boundary exists.
+
+**Outcome:** In `5.2.0`, `../../src/shared/layouts/ErrorBoundary/ErrorBoundary.tsx` was added — a class component
+(error boundaries can't yet be written as hooks) wrapping `../../src/App.tsx`'s `<Suspense>`/`<AppRoutes />` tree,
+rendering a friendly, dependency-free fallback (a reload button and a plain link home, deliberately not composed
+from anything that could itself be part of what broke) instead of a blank page. Verified with a unit test
+(`ErrorBoundary.test.tsx`, rendering a throwing child via `@testing-library/react`) and, live, by temporarily making
+a real page throw in a running `npm run dev` session and confirming the fallback renders with zero uncaught page
+errors, then reverting the temporary throw. On the "evaluate lightweight client-side logging" half: `componentDidCatch`
+logs the caught error via `console.error` unconditionally (dev and production alike), since that's the only
+diagnostic channel available without adding a third-party dependency this pass didn't seek approval for. Blanket
+production console suppression and remote error monitoring (e.g. Sentry) were evaluated and deliberately deferred —
+the former would risk silencing this very logging, and the latter needs a maintainer decision on adopting an external
+service; hidden sourcemaps (`../../vite.config.ts`'s `build.sourcemap`) are correspondingly left off, since that was
+conditioned on adopting real remote logging.
+
+#### 5. Accessibility has no lint enforcement or documented baseline — ✅ Closed in v5.2.0
+
+**Evidence:** `../../eslint.config.js` has no `eslint-plugin-jsx-a11y` (or equivalent) rule set configured; no
+accessibility checklist or colour-contrast review exists in any doc.
+
+**Why it matters:** The site is public-facing and content-driven — accessibility gaps here (colour contrast, focus
+order, ARIA landmarks) directly affect real visitors, not just internal code quality.
+
+**Proposed improvement:** Add `eslint-plugin-jsx-a11y` to `../../eslint.config.js`; define a WCAG AA baseline checklist;
+validate unique page titles/meta-descriptions/canonical URLs alongside it as a combined a11y-and-SEO pass.
+
+**Outcome:** In `5.2.0`, `eslint-plugin-jsx-a11y` was added to `../../eslint.config.js`/`../../.eslintrc.cjs` at its
+native (mostly `"error"`) severity — the codebase was already clean against its `recommended` rule set, so no
+`"warn"`-first transition was needed, unlike `tsdoc/syntax` (Gap #11). Added
+[`../../documentation/recommendations/project-accessibility-checklist.md`](../../documentation/recommendations/project-accessibility-checklist.md),
+the manual WCAG AA baseline covering what static analysis can't (contrast, heading structure, focus order, link
+purpose), linked from `../../AGENTS.md` and `../../CONTRIBUTING.md`'s Pull Request Checklist. `PageMapping` gained an
+optional `description` field, populated for every route in `../../src/shared/routes/BaseRoutes.ts`;
+`../../src/shared/pages/Page.tsx` now sets `document.title`, `<meta name="description">` and
+`<link rel="canonical">` per route instead of every page sharing `../../index.html`'s one static set of tags —
+verified with a unit test and, live, by checking four different routes in a running `npm run dev` session all
+resolved distinct title/description/canonical values. `../../public/robots.txt`/`../../public/sitemap.xml` were
+confirmed valid, and the `npm run sitemap` regeneration step (not automatic at build time) is now documented in the
+new checklist doc.
+
+#### 6. A documented styling convention is violated in one known place — ✅ Closed in v5.2.0
+
+**Evidence:** `../../AGENTS.md`'s and `../../ARCHITECTURE.md`'s styling conventions require `@use`-only Sass, but
+`../../src/vendors/bootstrap/styles/index.scss` still uses the legacy `@import`.
+
+**Why it matters:** It's the one place in the codebase actively contradicting a documented, otherwise-followed
+convention — every other stylesheet already uses `@use`.
+
+**Proposed improvement:** Migrate `styles.scss` to `@use` with proper namespacing; use the same pass to add a palette
+token map and usage examples for `src/assets/stylesheets`'s colours/variables.
+
+**Outcome:** In `5.2.0`, `../../src/vendors/bootstrap/styles/index.scss`'s three `@import`s were replaced.
+`bootstrap/scss/functions` and `custom` are now `@use`d, and `bootstrap/scss/bootstrap` is now `@forward`ed with a
+`with (...)` map configuring Bootstrap's `!default` variables (`$primary`, `$font-family-sans-serif`, etc.) from
+`../../src/vendors/bootstrap/styles/_custom.scss`'s values — `@forward` (rather than plain `@use`) so consumers that
+still do `@use "@bootstrap/styles/index" as *` (`../../src/App.scss`, `../../src/assets/styles/_forms.scss`) keep
+seeing Bootstrap's variables/mixins. Verified the compiled CSS is unaffected (byte-identical bundle size and colour
+occurrence counts against the pre-migration `@import` output) and, in a running `npm run dev` session, that
+`.text-primary` computes to the club's actual override colour (`rgb(10, 7, 251)`) with no console errors. A palette
+token map and a `@use`-based usage example were added to `../../src/assets/styles/_colors.scss`'s header docblock,
+covering the primary/shaded colour tokens that feed both Bootstrap's overrides and the rest of the UI.
+
+#### 7. Required environment variables aren't documented where a new contributor is likely to look first, and `baseUrl` is hardcoded — ✅ Closed in v5.2.0
 
 **Evidence:** `../../AGENTS.md`'s Environment Variables table documents `NPM_TOKEN_READ`, `GOOGLE_MAPS_API_KEY` and
 `RECAPTCHA_V2_SITE_KEY`. Separately, `baseUrl` in `../../src/constants/commonConstants.ts` is a hardcoded string
@@ -106,90 +255,17 @@ no longer names them individually, by design), and `.env.local`/`.env.production
 version control in favour of it. The remaining ask — sourcing `baseUrl` itself from an environment variable with a
 safe production default — is still open.
 
-### ⚪ Open
+**Outcome:** In `5.2.0`, `../../src/constants/commonConstants.ts`'s `baseUrl` was changed from the hardcoded
+`"https://www.hpsc.co.za"` literal to `import.meta.env.VITE_SITE_URL`. A new `VITE_SITE_URL` variable was added to
+`../../.env.example` (documented alongside the existing three) and typed as a required, non-optional entry on
+`../../src/vite-env.d.ts`'s `ImportMetaEnv` interface, which itself gained JSDoc explaining it's kept in sync with
+`../../.env.example`. `../../.env.production` sets `VITE_SITE_URL=https://www.hpsc.co.za`, the safe production
+default the Proposed improvement asked for, while `../../.env.local` overrides it for local/preview use
+(`http://localhost:4173`). `../../index.html`'s `<link rel="canonical">` was also switched from its static href to
+`%VITE_SITE_URL%`, the build-time substitution Vite performs on `index.html`, so it now tracks the same source of
+truth as `baseUrl` instead of risking independent drift again. This closes the gap's last remaining item.
 
-#### 1. No automatic lint/build/test gate on pull requests
-
-**Evidence:** `../../.github/workflows` contains only `codeql.yml` (security analysis, on push/PR to `main`/`develop`
-and weekly). `../../AGENTS.md`'s Code Quality & CI section states plainly: "There is currently no CI workflow that
-runs `npm run lint`, `npm run build` or `npm test` — only CodeQL runs automatically. Run these locally before opening
-a PR." `../../CONTRIBUTING.md`'s Pull Request Checklist relies entirely on the contributor remembering to run all
-three.
-
-**Why it matters:** GitFlow's `feature/*` → `develop` → `release/*` → `main` promotion (per `../../AGENTS.md`'s Git
-Workflow) depends on lint/build/test genuinely passing at each merge; today that depends entirely on reviewer and
-contributor discipline, with nothing enforcing it automatically.
-
-**Proposed improvement:** Add a workflow (e.g. `build.yml`) triggered on push/PR to `develop` and `main`, mirroring
-`codeql.yml`'s trigger branches, running `npm ci`, `npm run lint`, `npm run build` and `npm test`. Gate the bundle
-visualiser's auto-open behind the same CI check — `../../vite.config.ts`'s `rollup-plugin-visualizer` currently always
-opens (`open: true`), which would be disruptive in a headless runner.
-
-#### 2. Two concrete route-metadata defects, one already visible in production output
-
-**Evidence:** `../../src/features/News` exists as a complete feature folder but is referenced by no route mapping —
-absent from `BaseRoutes.ts`'s `coreRoutes`, `RouteAliases.tsx` and consequently the generated sitemap. Separately,
-`coreContactUsRoute` in `BaseRoutes.ts` sets `dateCreated: new Date("2025-12-26")` after its own
-`dateUpdated: new Date("2025-03-03")` — an internally inconsistent pair that also feeds
-`../../builders/RoutesSitemap.ts`'s `lastmod` output.
-
-**Why it matters:** `../../builders/RoutesSitemap.ts` and its output, `../../public/sitemap.xml`, are the site's only
-mechanism for surfacing content freshness and priority to search engines; the checked-in `../../public/sitemap.xml` is
-already visibly stale — its first `<loc>` entry is malformed (`https: www.hpsc.co.za`, missing slashes) and the file
-predates the Events route entirely.
-
-**Proposed improvement:** Wire `News` into `coreRoutes`/`RouteAliases.tsx`/`AppRoutes.tsx`, or delete the folder if the
-feature isn't ready to ship. Fix the inverted Contact Us dates. Regenerate `../../public/sitemap.xml` via
-`npm run sitemap` once both are fixed.
-
-#### 3. Zero test coverage despite a configured test runner
-
-**Evidence:** `../../package.json` has a working `test` script (`vitest`) and `vitest` as a dependency, but no
-`*.test.ts`/`*.test.tsx` file exists anywhere under `../../src`. There is no `vitest.config.ts`, no `jsdom` environment,
-and `@testing-library/react`/`@testing-library/user-event` aren't dev dependencies.
-
-**Why it matters:** Every route, the Contact Us forms RJSF schema/validation and the data-driven route mappings
-(`PageMapping`) currently ship with no regression safety net. `EmailService.sendEmail()` is still a
-`// TODO: call back-end` stub that unconditionally returns `true` — its eventual real implementation will have nothing
-to test against unless test infrastructure exists first.
-
-**Proposed improvement:** Add `vitest.config.ts` (`test.environment = 'jsdom'`) and the missing dev dependencies, then
-start with unit/smoke tests for pure logic (`htmlUtils.ts`, `RoutesSitemap.ts`) before component tests.
-
-#### 4. No error boundary or production error handling
-
-**Evidence:** No `ErrorBoundary` component exists anywhere under `../../src`; a rendering error in any route currently
-produces a blank or broken page with no fallback UI.
-
-**Why it matters:** The site has no backend and no logging/monitoring integration (per `../../AGENTS.md`'s Project
-Overview) — an unhandled render error is currently invisible to both the visitor and the maintainer.
-
-**Proposed improvement:** Add a top-level React error boundary around the route tree with a friendly fallback; evaluate
-lightweight client-side logging alongside it once the boundary exists.
-
-#### 5. Accessibility has no lint enforcement or documented baseline
-
-**Evidence:** `../../eslint.config.js` has no `eslint-plugin-jsx-a11y` (or equivalent) rule set configured; no
-accessibility checklist or colour-contrast review exists in any doc.
-
-**Why it matters:** The site is public-facing and content-driven — accessibility gaps here (colour contrast, focus
-order, ARIA landmarks) directly affect real visitors, not just internal code quality.
-
-**Proposed improvement:** Add `eslint-plugin-jsx-a11y` to `../../eslint.config.js`; define a WCAG AA baseline checklist;
-validate unique page titles/meta-descriptions/canonical URLs alongside it as a combined a11y-and-SEO pass.
-
-#### 6. A documented styling convention is violated in one known place
-
-**Evidence:** `../../AGENTS.md`'s and `../../ARCHITECTURE.md`'s styling conventions require `@use`-only Sass, but
-`../../src/vendors/bootstrap/styles/index.scss` still uses the legacy `@import`.
-
-**Why it matters:** It's the one place in the codebase actively contradicting a documented, otherwise-followed
-convention — every other stylesheet already uses `@use`.
-
-**Proposed improvement:** Migrate `styles.scss` to `@use` with proper namespacing; use the same pass to add a palette
-token map and usage examples for `src/assets/stylesheets`'s colours/variables.
-
-#### 8. Dependency surface has no ongoing audit discipline
+#### 8. Dependency surface has no ongoing audit discipline — ✅ Closed in v5.2.0
 
 **Evidence:** `../../package.json` currently pins around 30 runtime and 21 dev dependencies; there is no `npm audit`
 step anywhere (CI or documented local practice), and GitHub's own Dependabot alerts on this repository aren't tied to a
@@ -202,78 +278,290 @@ vulnerability could land undetected.
 **Proposed improvement:** Run `npm audit` (advisory-only initially) in the CI gate proposed in Gap 1; document a
 periodic (e.g. monthly) dependency-update cadence in `../../AGENTS.md`.
 
-#### 9. `HISTORY.md`'s "Future Roadmap Implications" section, referenced by both this plan and the Release Checklist, doesn't exist
+**Outcome:** In `5.2.0`, `../../.github/workflows/build.yml` gained an `npm audit` step, `continue-on-error: true`
+so it reports without blocking merges (advisory-only, as asked — `npm audit` currently finds 0 vulnerabilities).
+`../../AGENTS.md`'s Code Quality & CI section documents a monthly cadence: run `npm outdated`/`npm audit` locally,
+triage open Dependabot alerts, bump patch/minor versions routinely, and give `sanitize-html`/
+`react-google-recaptcha-v3` extra scrutiny (changelog read, not just an automatic bump) given their
+security-sensitive position. The Release Checklist also gained a new step 2, "Review dependencies", so this
+happens at every release, not only whenever someone remembers — matching the Roadmap's own "re-checked at each
+release" framing for this gap. That renumbered the checklist's subsequent steps (old step 6 → 7, etc.); Gap #9's
+Evidence/Why-it-matters/Proposed-improvement text below, which cites "Release Checklist step 6", was updated to
+"step 7" to match.
+
+#### 9. `HISTORY.md`'s "Future Roadmap Implications" section, referenced by both this plan and the Release Checklist, doesn't exist — ✅ Closed in v5.2.0
 
 **Evidence:** This plan's own 🎯 Purpose & Scope section above states it "complements... `../../HISTORY.md`'s
-per-release '🚀 Future Roadmap Implications' section", and `../../AGENTS.md`'s Release Checklist step 6 lists
-"Future Roadmap Implications" among the sections a significant release should thread new content through. No such
-section, heading or even a passing mention exists anywhere in `../../HISTORY.md`; its actual Table of Contents runs
-Historical Timeline → Evolution Overview → Major Version Goals → Major Milestones → Architectural Evolution →
-Feature Timeline → Project Philosophy Evolution → Key Learnings → Conclusion. The Release Checklist's own
-thread-through list also predates and omits "Major Version Goals" — a section `../../HISTORY.md` does have.
+'🚀 Future Roadmap Implications' section", and `../../AGENTS.md`'s Release Checklist step 7 lists "Future Roadmap
+Implications" among the sections a significant release should thread new content through. No such section, heading
+or even a passing mention exists anywhere in `../../HISTORY.md`; its actual Table of Contents runs Historical
+Timeline → Evolution Overview → Major Version Goals → Major Milestones → Architectural Evolution → Feature Timeline
+→ Project Philosophy Evolution → Key Learnings → Conclusion. The Release Checklist's own thread-through list also
+predates and omits "Major Version Goals" — a section `../../HISTORY.md` does have.
 
-**Why it matters:** A contributor following the Release Checklist at step 6, or reading this plan's Purpose & Scope,
+**Why it matters:** A contributor following the Release Checklist at step 7, or reading this plan's Purpose & Scope,
 would look in `../../HISTORY.md` for a section that was never built — the two documents describe a structure
 `../../HISTORY.md` doesn't actually have.
 
 **Proposed improvement:** Either add a "🚀 Future Roadmap Implications" section to `../../HISTORY.md` (per-version,
 alongside its Historical Timeline entries) and thread it through past releases retroactively, or update this plan's
-Purpose & Scope and `../../AGENTS.md`'s Release Checklist step 6 to stop referencing a section that isn't part of
+Purpose & Scope and `../../AGENTS.md`'s Release Checklist step 7 to stop referencing a section that isn't part of
 `../../HISTORY.md`'s actual structure — whichever this project decides is the intended design — and add "Major
 Version Goals" to the Release Checklist's thread-through list either way.
 
-#### 11. 264 pre-existing `tsdoc/syntax` lint warnings, now surfaced but not yet fixed
+**Outcome:** In `5.2.0`, a "🚀 Future Roadmap Implications" `##` section was added to `../../HISTORY.md`, positioned
+between Key Learnings and Conclusion per the Release Checklist's own thread-through ordering, and linked from the
+Table of Contents. The project decided against the "per-version, alongside Historical Timeline" design: like Key
+Learnings itself (three thematic subsections that reference specific versions in passing rather than one entry per
+release), Future Roadmap Implications is a synthesised, forward-looking read of the whole history rather than a
+release-by-release log — it cites specific past versions (e.g. v3.3.3, v4.0.0, v5.0.0) where they support a given
+implication, matching how the surrounding sections already work. `../../AGENTS.md`'s Release Checklist step 7
+thread-through list was corrected to include "Major Version Goals". This plan's Purpose & Scope and 📚 Related
+Documentation sections were updated to drop the "per-release" framing that never matched the section's actual,
+synthesised design — closing the doc-vs-doc mismatch this gap was about, rather than building out a per-release
+structure the surrounding sections don't use either.
+
+#### 10. `../../AGENTS.md`'s Documentation File Map still describes `LICENSE.md` as "MIT License", contradicting `../../README.md` and `../../LICENSE.md` itself — ✅ Closed in v5.1.1
+
+**Evidence:** `../../AGENTS.md`'s Documentation File Map lists `LICENSE.md` as "MIT License". `../../LICENSE.md`
+itself is a plain "Copyright © 2026 Hartbeespoortdam Practical Shooting Club. All Rights Reserved." notice, and
+`../../README.md`'s own Documentation table already correctly describes it as "All Rights Reserved". This project's
+`../../CHANGELOG.md`, under its current `### 🧪 [Unreleased]` section, even claims this was already fixed ("Fixed
+`README.md`'s Documentation table and `AGENTS.md`'s Documentation File Map describing `LICENSE.md` as 'MIT
+License' ... both now describe it accurately") — but only `../../README.md` was actually corrected;
+`../../AGENTS.md` still reads "MIT License".
+
+**Why it matters:** `../../AGENTS.md` is this project's documented single source of truth for cross-tool agent
+conventions, and it now contradicts both `../../README.md` and the licence file it's describing — exactly the kind
+of doc-vs-doc drift this plan exists to catch. It also means the current `../../CHANGELOG.md` `[Unreleased]` entry
+is itself inaccurate about what was actually done, risking a release note that overstates the fix once promoted to a
+dated version entry.
+
+**Proposed improvement:** Correct `../../AGENTS.md`'s Documentation File Map entry for `LICENSE.md` to "All Rights
+Reserved", matching `../../README.md` and the file's actual content.
+
+**Outcome:** `../../AGENTS.md`'s Documentation File Map now reads "All Rights Reserved", matching `../../README.md`
+and `../../LICENSE.md`'s actual content; the `../../CHANGELOG.md` `[Unreleased]` entry's claim is now accurate.
+
+#### 11. 258 pre-existing `tsdoc/syntax` lint warnings — ✅ Closed in v5.2.0
 
 **Evidence:** `../../eslint.config.js:48` sets `"tsdoc/syntax": "warn"`, enabled per the `../../CHANGELOG.md`
 `[Unreleased]` fix that wired `eslint-plugin-tsdoc` into the flat config (it had only ever been active in the legacy,
-now-superseded `.eslintrc.cjs` mirror). Running `npm run lint` currently reports 264 `tsdoc/syntax` warnings across 65
-files — `tsdoc-undefined-tag` (69), `tsdoc-malformed-inline-tag` (62) and `tsdoc-escape-right-brace` (62) account for
-most of them, largely from JSDoc-style `@param {type}` annotations and unescaped `{`/`}` characters in doc comments
-that predate the rule's enforcement. `npm run lint`'s own summary line reports "288 problems (0 errors, 288
-warnings)" — the other 24 are pre-existing `no-unused-vars`/`react-refresh` warnings unrelated to this rule; the
-`../../CHANGELOG.md` entry's "288 pre-existing `tsdoc/syntax` warnings" figure conflates the two.
+now-superseded `.eslintrc.cjs` mirror). Running `npm run lint` now reports 258 `tsdoc/syntax` warnings across 58
+files (down from 264 across 65 when this gap was first written) — `tsdoc-undefined-tag` (63, down from 69),
+`tsdoc-malformed-inline-tag` (62) and `tsdoc-escape-right-brace` (62) account for most of them, largely from
+JSDoc-style `@param {type}` annotations and unescaped `{`/`}` characters in doc comments that predate the rule's
+enforcement. The `tsdoc-undefined-tag`/file-count drop is an incidental side effect of `5.2.0`'s "Remove non-standard
+`@module` JSDoc tags from touched files" commit, not deliberate work on this gap — most `@module` tags elsewhere in
+the codebase remain. `npm run lint`'s own summary line now reports "284 problems (0 errors, 284 warnings)" — the
+other 26 are pre-existing `no-unused-vars`/`react-refresh` warnings unrelated to this rule.
 
 **Why it matters:** `../../AGENTS.md`'s TSDoc convention states doc comments "must be syntactically valid TSDoc, not
-JSDoc-only syntax" — with the rule now actually wired up (per Gap #1's related CI-gate proposal), 65 files currently
-violate that documented convention. Because the rule is `"warn"`, not `"error"`, `npm run lint` still exits `0`, so
-these warnings don't fail a local lint run or (once Gap #1 lands) a CI gate — they're easy to miss and can keep
-accumulating rather than being caught at the point a doc comment is written or changed.
+JSDoc-only syntax" — with the rule now actually wired up (and, per Gap #1's closure, actually gating CI via
+`../../.github/workflows/build.yml`, since `"warn"` still exits `0`), 58 files currently violate that documented
+convention. Because the rule is `"warn"`, not `"error"`, these warnings don't fail `npm run lint` or the CI gate —
+they're easy to miss and can keep accumulating rather than being caught at the point a doc comment is written or
+changed.
 
-**Proposed improvement:** Work through the 264 warnings in batches by rule type across the 65 affected files,
+**Proposed improvement:** Work through the 258 warnings in batches by rule type across the 58 affected files,
 starting with the highest-count patterns (`tsdoc-undefined-tag`, `tsdoc-malformed-inline-tag`/
 `tsdoc-escape-right-brace` from JSDoc-style `{type}` annotations) — converting `@param {type} name` to plain TSDoc's
 `@param name`. Once clean, escalate `"tsdoc/syntax"` from `"warn"` to `"error"` in `../../eslint.config.js` so a
 regression is caught immediately rather than silently re-accumulating.
 
+**Progress:** In `5.2.0`, further TSDoc cleanup landed after this gap was first written. The non-standard `@type`
+(`../../src/vite-env.d.ts`, the memoised feature page/content components and other constants files), `@interface`/
+`@property` (`ContactUsSchema.ts`'s exported fields/widgets/schema constants, `ContactUsEmailTemplateProps` and
+`VenueMapProps`) and `@prop` (`ContactUsFormData.ts`) tags were all removed, and the non-standard `@return` tag was
+corrected to `@returns` in `../../src/models/email/EmailMessage.ts` and `../../src/App.tsx`. Most significantly for
+this gap's own Proposed improvement, the `{type}` annotation was stripped from every `@param`/`@returns` tag — the
+exact `@param {type} name` → `@param name` conversion this gap called for — across 23 files (the feature page
+components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`, `MapUtils.ts`, `VenuesContent.tsx`, and the
+shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components); a `{@link ReactElement}`/`{@see ReactElement}`
+tag introduced mid-cleanup on two `@returns` lines was itself removed in the same pass rather than left behind.
+A final trio of stragglers was then also cleaned up: `../../src/features/Venues/MapUtils.ts`'s `@param [venue]`/
+`@param [center]` (JSDoc-style optional-name brackets) both became plain `@param venue`/`@param center`, and
+`../../src/shared/components/Video/YouTubeVideo.tsx`'s `@param props.url` (a dotted identifier TSDoc's parser
+rejects) and the stray `@*/` immediately below it (a corrupted closing-comment marker, not a real tag) were removed.
+`npm run lint` now reports **zero** `tsdoc/syntax` warnings, down from 258, and its summary line reads "26 problems
+(0 errors, 26 warnings)", down from 284 — the remaining 26 are pre-existing `no-unused-vars`/`react-refresh`
+warnings unrelated to this rule.
+
+**Outcome:** In `5.2.0`, with `npm run lint` reporting zero `tsdoc/syntax` warnings (per the Progress note above),
+`"tsdoc/syntax"` was escalated from `"warn"` to `"error"` in both `../../eslint.config.js` and its legacy
+`../../.eslintrc.cjs` mirror (kept in sync per `../../AGENTS.md`'s Code Quality & CI section), completing this gap's
+Proposed improvement. `npm run lint` re-run afterwards still exits `0` (26 problems, 0 errors), confirming the
+escalation doesn't newly fail the build — any future TSDoc syntax regression will now fail `npm run lint` and,
+per Gap #1's CI gate, the PR check itself, instead of silently accumulating as an easy-to-miss warning.
+
+#### 12. `/contact` and `/venues` are indexed and rewrite-whitelisted but never actually reach the app's route table — ✅ Closed in v5.2.0
+
+**Evidence:** `../../src/helpers/routeHelpers.tsx`'s exported `routes` array — the sole array
+`../../src/shared/routes/AppRoutes.tsx` iterates to render `<Route>` elements, with no catch-all (`"*"`) route as a
+fallback — has `{ mapping: contactUs }`/`{ path: "/contact_us", mapping: contactUs }` and `{ mapping: venues }`
+commented out; both predate this release branch (the `venues` line was already commented when `routeHelpers.tsx` was
+first added, at `6f37700`). `../../src/helpers/menuHelpers.tsx`'s `menuItems` array comments out the same two.
+Neither `ContactUsPage` nor `VenuesPage` is rendered anywhere else in `../../src` —
+`../../src/shared/layouts/Footer/FooterContent.tsx` embeds only a `SimpleVenueMap`, not the full `VenuesPage`, and
+nothing renders `ContactUsPage`. Yet `../../public/sitemap.xml` — regenerated as part of Gap #2's `5.2.0` closure —
+lists both `https://www.hpsc.co.za/contact` and `https://www.hpsc.co.za/venues` as real, indexable URLs, and
+`../../public/.htaccess`'s rewrite whitelist (lines 17–19) treats `venues`, `contact`/`contact_us` and `news`
+identically, as equally live paths.
+
+**Why it matters:** `../../AGENTS.md`'s Project Overview states that "contact-form email delivery... [is] the only
+server-side dependenc[y]" the site has, implying Contact Us is a functioning, central feature; `../../UI.md`'s
+Navigation section likewise lists "Contact Us" and "Shooting Ranges" as part of the site's primary navigation. In
+reality, a visitor following a search result for `/contact` (indexed by the sitemap) or `/venues` currently lands on
+a blank page inside the site chrome — no route matches, and there's no fallback. This is the same category of defect
+Gap #2 already fixed for `News` (a fully built `PageMapping`/`React.lazy` component/`Page` wrapper that never reached
+`AppRoutes.tsx`'s rendered table), just previously undetected for these two, and longer-standing.
+
+**Proposed improvement:** Uncomment `{ mapping: contactUs }` and `{ mapping: venues }` (and, if still desired, the
+`/contact_us` alias) in `../../src/helpers/routeHelpers.tsx`'s `routes` array and `../../src/helpers/menuHelpers.tsx`'s
+`menuItems` array, matching how `news` was wired in Gap #2 — or, if either page is deliberately not ready to ship,
+remove it from `../../public/sitemap.xml`/`../../public/.htaccess`'s whitelist and
+`../../src/shared/routes/BaseRoutes.ts`'s `coreRoutes` instead, so the site stops advertising a page it doesn't serve.
+
+**Outcome:** In `5.2.0`, `{ mapping: contactUs }`/`{ path: "/contact_us", mapping: contactUs }` and
+`{ mapping: venues }` were uncommented in `../../src/helpers/routeHelpers.tsx`'s `routes` array, so both pages are
+now reachable by direct URL instead of a blank page inside the site chrome — closing this gap's core defect.
+`../../src/helpers/menuHelpers.tsx`'s `menuItems` entries were briefly uncommented too, then deliberately removed
+again later in the same release ("Remove Contact Us from the primary navigation menu", "Remove Venues from the
+primary navigation menu"): both pages are intentionally direct-URL/sitemap-only, not linked from the primary
+navigation menu. `npm run lint`, `npm run build` and `npm run test:run` all pass unchanged; `npm run sitemap` was
+re-run and produced no diff, confirming `../../public/sitemap.xml` already matched. Verified live in a running
+`npm run dev` session that both `/contact` and `/venues` return `200` and render inside the site chrome instead of a
+blank page. `../../UI.md`'s Navigation section, which listed "Contact Us" and "Shooting Ranges" as primary-navigation
+items, was corrected in the same release's reverse-sync pass to list only the six routes actually in
+`menuHelpers.tsx`'s `menuItems`, with a note that Contact Us/Venues are direct-URL/sitemap-only.
+
+#### 13. `CONTRIBUTING.md`'s CI/CD and Testing sections still described a pre-Gap-#1/#3 state — ✅ Closed in v5.2.0
+
+**Evidence:** `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" section read: "There is no CI workflow that runs
+`npm run lint`, `npm run build` or `npm test` automatically yet — run them locally before opening a PR (tracked as a
+gap in `improvement-plan-tasks.md`)." Its "🧪 Testing" section similarly read: "Vitest is configured (`npm test`)
+but this project currently has no test files — see `improvement-plan-tasks.md` for the tracked task on establishing
+initial coverage." Both were false: `../../.github/workflows/build.yml` (Gap #1) and initial Vitest coverage
+(Gap #3) were both closed in `5.2.0`, and neither is tracked as open in this plan any more — yet
+`../../CONTRIBUTING.md`'s own Pull Request Checklist already correctly said `npm run lint`/`build`/`test` "also runs
+automatically in CI", so the file contradicted itself within a few sections.
+
+**Why it matters:** `../../AGENTS.md`'s Release Checklist step 8 calls for updating `../../CONTRIBUTING.md` "if this
+version's changes affect developer setup, environment variables, development scripts, git workflow or testing
+conventions documented there" — precisely what Gaps #1 and #3 did — but that step hadn't run yet for `5.2.0`. A new
+contributor reading `../../CONTRIBUTING.md` top-to-bottom was told twice that no CI or tests exist, then told a few
+sections later that CI already checks their PR.
+
+**Proposed improvement:** Update `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" section to describe
+`build.yml`'s lint/build/test/audit gate (matching `../../AGENTS.md`'s Code Quality & CI section), and its
+"🧪 Testing" section to drop the "currently has no test files" claim — as part of finishing the `5.2.0` Release
+Checklist's step 8.
+
+**Outcome:** In `5.2.0`, `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" section now describes `build.yml`'s
+lint/build/test/audit gate instead of claiming no CI workflow exists, and its "🧪 Testing" section now says initial
+coverage exists and is growing instead of claiming no test files exist — both now consistent with the file's own
+Pull Request Checklist, which already described the CI gate correctly.
+
+#### 15. `builders/RoutesSitemap.test.ts` fails outside a shell that already has `VITE_SITE_URL` set, and `build.yml`'s
+CI "Test" step never sets it — ✅ Closed in v5.2.0
+
+**Evidence:** Running `npm run test:run` without `VITE_SITE_URL` exported fails all three tests in
+`../../builders/RoutesSitemap.test.ts` with `TypeError: Invalid URL` (thrown from `sitemap`'s `normalizeURL`), because
+`../../src/constants/commonConstants.ts`'s `baseUrl` resolves to
+`import.meta.env?.VITE_SITE_URL ?? process.env.VITE_SITE_URL`, and Vitest (unlike Vite's own dev/build modes) doesn't
+load `.env.production` automatically — `.env.production` is also gitignored (per Gap #7's `5.1.3` outcome) and never
+present in a fresh checkout. Confirmed this reproduces identically at the `5.2.0` release-prep commit
+(`ddba08a`), so it predates this branch's later commits rather than being a regression they introduced.
+`../../.github/workflows/build.yml`'s "Test" step (`run: npm run test:run`) sets no `env:` block at all, unlike its
+"Install dependencies" step which does pass `NPM_TOKEN_READ` — so the same failure reproduces in CI on every push/PR
+to `main`/`develop`, not just locally. `documentation/history/RELEASE_NOTES_v5.2.0.md`'s "🧪 Testing" section claims
+"3 test files, 14 tests, all passing", which is not reproducible from a clean checkout without manually exporting
+`VITE_SITE_URL` first.
+
+**Why it matters:** Gap #1's whole premise was that `build.yml` should make lint/build/test failures genuinely gate
+merges instead of relying on contributor discipline; a test step that fails on every run in a clean CI checkout
+defeats that gate — either CI has actually been red on this repository since `RoutesSitemap.test.ts` was added, or
+some out-of-band configuration (a repository variable/secret wired into the job, or a contributor's local shell
+already exporting `VITE_SITE_URL`) is masking it, which is itself worth confirming rather than assuming.
+
+**Proposed improvement:** Set `VITE_SITE_URL` for `build.yml`'s "Test" step (e.g. from the same repository variable
+`claude-code-review.yml` already reads, per the `[Unreleased]`/`5.2.0` entry documenting that workflow), or make the
+test independent of the real value by asserting on route paths/priorities only rather than full absolute URLs, or
+give `commonConstants.ts`'s `baseUrl` a hardcoded ultimate fallback so an unset `VITE_SITE_URL` degrades to a valid
+placeholder URL instead of `undefined`. Confirm whether CI has actually been passing on this branch before deciding
+which fix is appropriate.
+
+**Outcome:** Gave `../../src/constants/commonConstants.ts`'s `baseUrl` a hardcoded ultimate fallback
+(`"https://www.hpsc.co.za"`, matching `.env.production`'s own default), so an unset `VITE_SITE_URL` degrades to a
+valid production URL instead of `undefined` in any environment — Vitest included — rather than depending on a
+repository variable being wired into `build.yml`'s "Test" step. Re-ran `npm run test:run` with `VITE_SITE_URL`
+unset from the shell: all 3 test files/14 tests now pass, confirming the fix without needing to determine whether
+CI had actually been red.
+
+### 🟡 Partially Completed
+
+*No gaps are currently partially completed.*
+
+### ⚪ Open
+
+#### 14. An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
+
+**Evidence:** `../../src/assets/styles/_forms.scss:13` reads `/* TODO: missing imports */`, added on its own by the
+"Add TODO for missing imports in `_forms.scss`" commit on this release branch, with no accompanying code change or
+explanation of which imports it means. The stylesheet currently only `@use`s `@bootstrap/styles/index` (for
+Bootstrap's forwarded variables — `$danger`, `$focus-ring-color`, `$focus-ring-opacity`, `$white`) and `theme` (for
+two `hpsc-theme.$btn-info-*` tokens); it never `@use`s `../../src/assets/styles/_colors.scss` directly, despite that
+file's own header docblock (added closing Gap #6) documenting exactly that pattern — `@use "@styles/_colors.scss" as
+hpsc-colors;` — as the project's established convention for referencing the club's palette tokens.
+
+**Why it matters:** An unexplained TODO with no tracked follow-up risks silently rotting in the codebase — precisely
+the "stated-but-unbuilt goal" category this plan exists to catch, matching how Gaps #1–#13 originated. Left alone,
+this comment gives a future contributor no way to tell whether it's actionable, already resolved, or safe to delete.
+
+**Proposed improvement:** Determine what "missing imports" refers to — most likely a missing
+`@use "@styles/_colors.scss" as hpsc-colors;` for direct palette-token usage, matching the convention Gap #6's
+outcome established — and either add the import(s) and update the relevant variable references to use it, or remove
+the TODO if the imports already in place are sufficient.
+
 ---
 
 ## 🚀 Roadmap
 
-| Phase       | Focus                                                                                                                                                                                                                                                                                                     |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Add the CI lint/build/test gate (#1) — lowest effort, closes a gap the project's own docs already flag — and fix the two shipped route-metadata bugs (#2)                                                                                                                                                 |
-| **Next**    | Stand up initial test coverage (#3) and a top-level error boundary (#4), so the CI gate added in Now has something real to enforce                                                                                                                                                                        |
-| **Later**   | Accessibility baseline (#5), the styling-convention cleanup (#6), the remaining `.env.example`/`baseUrl` work on the partially-completed environment-variable gap (#7), the `HISTORY.md`/Release Checklist "Future Roadmap Implications" mismatch (#9) and clearing the 264 `tsdoc/syntax` warnings (#11) |
-| **Ongoing** | Dependency-audit discipline (#8), re-checked at each release per the Release Checklist                                                                                                                                                                                                                    |
+| Phase       | Focus                                                                                                                                          |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Now**     | Resolve or remove the `_forms.scss` `TODO: missing imports` comment (#14)                                                                      |
+| **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
+| **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
+| **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
 
 ---
 
 ## ☑️ Success Criteria
 
 - A CI workflow runs `npm run lint`, `npm run build` and `npm test` automatically on PRs to `develop`/`main`, so
-  `../../AGENTS.md`'s Code Quality & CI section can drop its "run these locally" caveat.
+  `../../AGENTS.md`'s Code Quality & CI section can drop its "run these locally" caveat (#1) — ✅ Met in v5.2.0.
 - `News` is either reachable through a real route or the folder is removed; `coreContactUsRoute`'s dates are internally
-  consistent; `../../public/sitemap.xml` is regenerated and no longer malformed.
-- At least one test file exists under `../../src` and passes in CI.
-- A secret-free `.env.example` exists and `baseUrl` is sourced from an environment variable, closing the remainder of
-  the partially completed environment-variable gap (#7) — `../../README.md`'s own documentation of the three
-  variables is already in place.
+  consistent; `../../public/sitemap.xml` is regenerated and no longer malformed (#2) — ✅ Met in v5.2.0.
+- At least one test file exists under `../../src` and passes in CI (#3) — ✅ Met in v5.2.0.
+- A secret-free `.env.example` exists and `baseUrl` is sourced from an environment variable (#7) — ✅ Met in v5.2.0.
 - `../../HISTORY.md` either gains a "Future Roadmap Implications" section or this plan's Purpose & Scope and
-  `../../AGENTS.md`'s Release Checklist stop referencing one that doesn't exist (#9).
+  `../../AGENTS.md`'s Release Checklist stop referencing one that doesn't exist (#9) — ✅ Met in v5.2.0.
 - `npm run lint` reports zero `tsdoc/syntax` warnings, and the rule is escalated from `"warn"` to `"error"` in
-  `../../eslint.config.js` once clean (#11).
+  `../../eslint.config.js` once clean (#11) — ✅ Met in v5.2.0.
+- `/contact` and `/venues` either render through `AppRoutes.tsx` like every other core route, or are removed from
+  `../../public/sitemap.xml`/`../../public/.htaccess` so the site stops advertising pages it doesn't serve
+  (#12) — ✅ Met in v5.2.0 (both render through `AppRoutes.tsx`; both were deliberately left out of the primary
+  navigation menu, and `../../UI.md`'s Navigation section was reverse-synced to match).
+- `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" and "🧪 Testing" sections describe the CI gate and initial
+  test coverage `5.2.0` actually shipped, instead of the pre-Gap-#1/#3 state (#13) — ✅ Met in v5.2.0.
+- `_forms.scss`'s `TODO: missing imports` comment is either resolved (the missing `@use` added and referenced) or
+  removed as unnecessary, so it no longer names unexplained work (#14).
+- `npm run test:run` passes from a clean checkout with no ambient `VITE_SITE_URL`, in CI and locally, so `build.yml`'s
+  Test step is a genuine gate rather than a step that fails regardless of the diff under review
+  (#15) — ✅ Met in v5.2.0.
 - This document's Gaps section shrinks over time as items close — closed items should move into `../../HISTORY.md`'s
-  per-version Future Roadmap notes rather than being deleted silently from here.
+  Future Roadmap Implications section (or its Historical Timeline entries) rather than being deleted silently from
+  here.
 
 ---
 
@@ -283,7 +571,7 @@ regression is caught immediately rather than silently re-accumulating.
   builds on.
 - [`../../AGENTS.md`](../../AGENTS.md) — the Git Workflow, Release Checklist and Test Conventions referenced
   throughout.
-- [`../../HISTORY.md`](../../HISTORY.md) — per-release "🚀 Future Roadmap Implications" sections this plan complements.
+- [`../../HISTORY.md`](../../HISTORY.md) — the "🚀 Future Roadmap Implications" section this plan complements.
 - [`../../CONTRIBUTING.md`](../../CONTRIBUTING.md) — contributor-facing setup and pull request checklist.
 - [`improvement-plan-tasks.md`](improvement-plan-tasks.md) — the checkbox-level task breakdown derived from this plan's
   gaps.

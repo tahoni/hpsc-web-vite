@@ -8,8 +8,6 @@ import WorldShoot2025Content from "./WorldShoot2025Content.tsx";
  * This component maps through an array of years (`worldShootEventYears`) and constructs individual child components, passing the year and its corresponding components from a map (`worldShootComponents`) as props.
  *
  * The `key` for each child is dynamically generated using the year, its index, and a specific naming pattern to ensure unique identification for React's reconciliation process.
- *
- * @type {React.MemoExoticComponent<() => ReactElement>}
  */
 const WorldShootsContent = React.memo((): ReactElement => {
   return (

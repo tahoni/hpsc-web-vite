@@ -36,10 +36,10 @@ export interface SanitizedWidgetProps<
  * SanitizedWidget provides a seamless way to enforce input cleanliness and prevent
  * invalid or poorly formatted data from being propagated downstream.
  *
- * @param {SanitizedWidgetProps} props - The properties for configuring the widget,
+ * @param props - The properties for configuring the widget,
  * including `onChange`, `onBlur`, and `type`, which determines the widget type.
  *
- * @returns {JSX.Element} A sanitized input widget determined by the `type` property,
+ * @returns A sanitized input widget determined by the `type` property,
  * incorporating custom `onChange` and `onBlur` behaviour.
  */
 const SanitizedWidget = <

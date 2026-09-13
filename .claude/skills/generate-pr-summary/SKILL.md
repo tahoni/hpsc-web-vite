@@ -14,7 +14,7 @@ than guessing.
 ## 🔍 Gather current state
 
 1. Read `documentation/history/PR_DESCRIPTION_v<version>.md`. If it doesn't exist, tell the user to run the
-   `prep-version-release` skill for that version first, and stop.
+   `prep-version-release` skill for that version first and stop.
 2. Read `documentation/history/RELEASE_NOTES_v<version>.md`. If it doesn't exist, same as above.
 3. Read `AGENTS.md` for conventions.
 
@@ -40,6 +40,9 @@ reproduce this repo's own emoji-heavy documentation style or `RELEASE_NOTES.md`'
    the content is short enough to stand alone) — never the emoji-prefixed headings used in `RELEASE_NOTES.md`/
    `CHANGELOG.md`.
 5. **British English** spelling and grammar throughout, per AGENTS.md's Documentation Conventions.
+6. **End with the standard Claude Code attribution footer** — a blank line, then
+   `🤖 Generated with [Claude Code](https://claude.com/claude-code)`. This summary is itself a PR description drafted by
+   Claude Code and should be marked as such, same as any other PR description it opens.
 
 ## 📤 Output
 

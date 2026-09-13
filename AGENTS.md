@@ -56,9 +56,11 @@ dependencies, both handled by third-party services called directly from the clie
 - **Sanitisation:** `sanitize-html`
 - **Bot protection:** `react-google-recaptcha-v3`
 - **Alerts/dialogs:** `sweetalert2`
-- **Testing:** Vitest (configured; no tests written yet — see [🧪 Test Conventions](#-test-conventions))
+- **Testing:** Vitest with `@testing-library/react` and a `jsdom` environment (see [🧪 Test Conventions](#-test-conventions))
 - **Linting:** ESLint 9 (flat config), `typescript-eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`,
-  `eslint-plugin-tsdoc`
+  `eslint-plugin-tsdoc`, `eslint-plugin-jsx-a11y` (see
+  [`documentation/recommendations/project-accessibility-checklist.md`](documentation/recommendations/project-accessibility-checklist.md)
+  for the manual WCAG AA checks it can't catch)
 - **API documentation:** TypeDoc (`npm run docs`, output to `/target/docs`)
 - **Sitemap generation:** custom `builders/RoutesSitemap.ts` script, run via `tsx`
 
@@ -91,7 +93,7 @@ the standard `dev`/`build`/`preview`/`lint`/`test` scripts.
 ## 🔧 Environment Variables
 
 | Variable         | Used in  | Purpose                                                                             |
-|------------------|----------|---------------------------------------------------------------------------------------|
+|------------------|----------|-------------------------------------------------------------------------------------|
 | `NPM_TOKEN_READ` | `.npmrc` | Read-only GitHub Packages token to install the `@tahoni` scope (`tahoni-lib-react`) |
 
 `.env.local` also holds API keys the venue map and the Contact Us form's captcha need to render — see the
@@ -154,8 +156,14 @@ Header/
 - **CodeQL**: security analysis, runs on push/PR to `main` and weekly. Config: `.github/workflows/codeql.yml`.
 - **ESLint**: flat config (`eslint.config.js`) — TypeScript, React Hooks and `react-refresh` rules. `.eslintrc.cjs` is
   a legacy mirror kept for tooling that hasn't migrated to flat config; keep the two in sync when changing lint rules.
-- There is currently no CI workflow that runs `npm run lint`, `npm run build` or `npm test` — only CodeQL runs
-  automatically. Run these locally before opening a PR.
+- **Build**: `.github/workflows/build.yml` runs `npm run lint`, `npm run build` and `npm run test:run` on push/PR to
+  `main` and `develop`, gating merges on all three passing.
+- **Dependency audit**: the same workflow also runs `npm audit`, advisory-only (`continue-on-error: true` — it
+  reports findings without blocking merges). Review dependencies on a monthly cadence: run `npm outdated`/`npm audit`
+  locally, triage any open GitHub Dependabot alerts, and bump patch/minor versions in a routine PR. Give
+  `sanitize-html` and `react-google-recaptcha-v3` extra scrutiny on any version bump — both sit on a
+  security-sensitive boundary (user-submitted content, bot protection) — reading the changelog before upgrading,
+  not just accepting an automatic bump.
 
 ---
 
@@ -347,7 +355,8 @@ These documentation-only folders supplement it:
   | `RELEASE_NOTES_vX.Y.Z.md`  | Archived snapshot of `RELEASE_NOTES.md` at release time    |
   | `PR_DESCRIPTION_vX.Y.Z.md` | The release pull request's body, archived for that version |
 - **`documentation/recommendations/`** holds general React/TypeScript convention reference notes (naming, directory
-  structure, CSS, MDX placement, templates, `utils/` vs `helpers/`) used to steer this project's own conventions —
+  structure, CSS, MDX placement, templates, `utils/` vs `helpers/`, accessibility) used to steer this project's own
+  conventions —
   read alongside `ARCHITECTURE.md`, not as a replacement for it.
 - **`documentation/archive/ARCHIVE.md`** is the legacy release archive covering every version predating the
   `CHANGELOG.md`/`HISTORY.md` Keep a Changelog structure introduced in `4.0.0` — `1.0.0` through `3.6.9`. Versions
@@ -397,12 +406,13 @@ directly rather than relying on the skills existing.
 
 ## 🧪 Test Conventions
 
-Vitest is configured (`npm test`) but no test files exist yet in this repository — see
-`documentation/roadmap/improvement-plan-tasks.md` items on establishing CI and initial test coverage. When adding tests:
+Vitest is configured, with `vitest.config.ts` setting `test.environment` to `jsdom` and `@testing-library/react`/
+`@testing-library/user-event` available as dev dependencies. Run `npm test` for watch mode locally, or
+`npm run test:run` (used by [`.github/workflows/build.yml`](.github/workflows/build.yml)) for a single CI-friendly run.
+Coverage is still thin — see `documentation/roadmap/improvement-plan-tasks.md` for what's next. When adding tests:
 
 - Co-locate `<Name>.test.ts` / `<Name>.test.tsx` next to the file under test.
-- For component tests, use `@testing-library/react` with a `jsdom` environment (add as a dev dependency and configure
-  `test.environment` in a `vitest.config.ts` — neither exists yet).
+- For component tests, use `@testing-library/react` with the configured `jsdom` environment.
 - Prefer testing behaviour and rendered output over implementation details; avoid snapshot tests of large component
   trees.
 - Don't write tests whose sole purpose is verifying that TypeScript's type system or a trivial pass-through prop
@@ -488,15 +498,19 @@ anything downstream references them:
 1. **Check `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md`.** Before starting any
    version-specific work, check whether this release has closed, progressed or newly revealed any of the gaps
    tracked there, and update them accordingly.
-2. **Bump `package.json`.** Update the `version` field to the new `X.Y.Z`.
-3. **Promote `### 🧪 [Unreleased]` to a dated version entry.** Cross-check every commit and any uncommitted diff on the
+2. **Review dependencies.** Run `npm outdated` and `npm audit` locally, and triage any open GitHub Dependabot alerts.
+   Bump patch/minor versions where it's low-risk; give `sanitize-html` and `react-google-recaptcha-v3` extra
+   scrutiny (security-sensitive boundary — user-submitted content, bot protection) and read their changelogs before
+   upgrading either.
+3. **Bump `package.json`.** Update the `version` field to the new `X.Y.Z`.
+4. **Promote `### 🧪 [Unreleased]` to a dated version entry.** Cross-check every commit and any uncommitted diff on the
    release branch against its entries first — don't assume it's already accurate just because entries were added along
    the way; fill in anything missing. Then rename it `### 🧾 [X.Y.Z] - YYYY-MM-DD`, keeping only the Keep a Changelog
    categories that actually have entries (`➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`,
    `🔐 Security` — omit any that are empty) and their `##### <Area>` subheadings. Add the new version to the Table of
    Contents, move the "← Current" marker onto it, then start a fresh, fully-empty `### 🧪 [Unreleased]` section above
    it (six empty category headings: `➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security`).
-4. **Replace `RELEASE_NOTES.md`.** Unlike `CHANGELOG.md`, this file holds only the *current* release. Follow this
+5. **Replace `RELEASE_NOTES.md`.** Unlike `CHANGELOG.md`, this file holds only the *current* release. Follow this
    section order: **Theme** (a one-line focus, expanded into a short paragraph, matching the Theme that will go into
    `HISTORY.md`'s Historical Timeline entry for this version) → **Key Highlights** (grouped under a few named `###`
    subheadings, each with a short bullet list, matching that entry's Key Focus bullets) → **What's New** (the
@@ -508,23 +522,24 @@ anything downstream references them:
    **everything** that changed for this version, not just the most recent commit — diff the release branch against the
    previous release tag (`git log <prev-tag>..HEAD`, `git diff --stat <prev-tag>...HEAD`) to confirm full coverage
    before finalising. Replace the previous version's content outright rather than appending to it.
-5. **Verify links and dates.** Confirm the `version-X.Y.Z` tag slug and the `YYYY-MM-DD` date match between
+6. **Verify links and dates.** Confirm the `version-X.Y.Z` tag slug and the `YYYY-MM-DD` date match between
    `CHANGELOG.md` and `RELEASE_NOTES.md`.
-6. **Extend `HISTORY.md`.** Add a new entry to the Historical Timeline (Theme and Key Focus bullets, at the same depth
+7. **Extend `HISTORY.md`.** Add a new entry to the Historical Timeline (Theme and Key Focus bullets, at the same depth
    as the existing entries, placed at the top to keep reverse chronological order). If the release is significant enough
    to have shifted the project's trajectory, also thread it through the other sections that track version-by-version
-   state: (Evolution Overview's Phases, Major Milestones, Architectural Evolution, Feature Timeline, Project Philosophy
-   Evolution, Key Learnings, Future Roadmap Implications, Conclusion). Use how the immediately preceding version was
-   woven into those sections as the template. A routine patch release may only need the Historical Timeline entry.
-7. **Update `CONTRIBUTING.md`** only if this version's changes affect developer setup, environment variables,
+   state: (Evolution Overview's Phases, Major Version Goals, Major Milestones, Architectural Evolution, Feature
+   Timeline, Project Philosophy Evolution, Key Learnings, Future Roadmap Implications, Conclusion). Use how the
+   immediately preceding version was woven into those sections as the template. A routine patch release may only need
+   the Historical Timeline entry.
+8. **Update `CONTRIBUTING.md`** only if this version's changes affect developer setup, environment variables,
    development scripts, git workflow or testing conventions documented there.
-8. **Verify `ARCHITECTURE.md`'s Project Structure tree against disk.** Per-change Directory Tree Maintenance (above)
+9. **Verify `ARCHITECTURE.md`'s Project Structure tree against disk.** Per-change Directory Tree Maintenance (above)
    still lets drift slip through, so treat every release as a backstop: cross-check the tree against the actual
    repository structure and correct any directory that's missing, renamed or gone stale, including tracked tooling
    directories (`.claude/`, `.github/`) — not just `src/`.
-9. **Archive `RELEASE_NOTES.md`.** Once finalised, copy it byte-for-byte (no edits, no trimming) to
+10. **Archive `RELEASE_NOTES.md`.** Once finalised, copy it byte-for-byte (no edits, no trimming) to
    `documentation/history/RELEASE_NOTES_vX.Y.Z.md`.
-10. **Write `documentation/history/PR_DESCRIPTION_vX.Y.Z.md`.** The body text for the release pull request. Keep it
+11. **Write `documentation/history/PR_DESCRIPTION_vX.Y.Z.md`.** The body text for the release pull request. Keep it
    small — a PR body, not a second `RELEASE_NOTES.md`: a few bullets per section, high-level only, no line-by-line
    detail. Structure:
     - `## 🎯 Summary` — two to four bullets on what the release is and why

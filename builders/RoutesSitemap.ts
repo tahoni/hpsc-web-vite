@@ -4,15 +4,18 @@
  * Executed via `npm run sitemap`, this module generates an XML sitemap from the
  * app's static route metadata. Output is printed to stdout so callers can
  * redirect to a file (e.g. `npm run sitemap > target/sitemap.xml`).
- *
- * @module
  */
 
-import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "stream";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { SitemapStream, streamToPromise } from "sitemap";
 import { SitemapMapping } from "@/models/sitemap/SitemapMappings";
 import { baseUrl } from "@/constants/commonConstants.ts";
 import { coreRoutes } from "@shared/routes/BaseRoutes";
+
+const stripExtension = (filePath: string): string =>
+  filePath.replace(/\.[tj]sx?$/, "");
 
 /**
  * Generates an XML sitemap containing URLs, priorities, and modification dates
@@ -50,6 +53,13 @@ export const generateRoutesSitemap = async (): Promise<string> => {
   return data.toString();
 };
 
-generateRoutesSitemap().then((xml: string) => {
-  console.log(xml);
-});
+const isRunAsScript =
+  process.argv[1] != null &&
+  stripExtension(path.resolve(process.argv[1])) ===
+    stripExtension(fileURLToPath(import.meta.url));
+
+if (isRunAsScript) {
+  generateRoutesSitemap().then((xml: string) => {
+    console.log(xml);
+  });
+}

@@ -9,7 +9,7 @@ export class EmailAttachment {
   /**
    * Creates a new EmailAttachment instance with the specified details.
    *
-   * @param attachment Initialisation object for the attachment.
+   * @param attachment - Initialisation object for the attachment.
    */
   constructor(attachment: { fileName: string; path: string; cid?: string }) {
     this._fileName = attachment.fileName;

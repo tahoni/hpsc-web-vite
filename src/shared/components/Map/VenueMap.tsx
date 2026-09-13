@@ -6,23 +6,6 @@ import { generateMapKey } from "@features/Venues/MapUtils.ts";
 
 /**
  * Represents the properties required to configure and render a venue map component.
- *
- * @interface VenueMapProps
- *
- * @property {CSSProperties} mapStyle
- * The styling applied to the map container.
- *
- * @property {string} [mapId]
- * Optional identifier for the map. Used to differentiate between multiple maps or reference specific configurations.
- *
- * @property {VenueMapLatLngType} [center]
- * Optional latitude and longitude coordinates specifying the initial center of the map.
- *
- * @property {number} [zoom]
- * Optional zoom level for the map. Determines the initial scale of the map view.
- *
- * @property {string} [mapMode]
- * Optional mode for the map. Can be used to set specific rendering behaviors or configuration modes.
  */
 export interface VenueMapProps {
   mapStyle: CSSProperties;

@@ -10,8 +10,6 @@
  * single sources of truth for commonly used values. When making adjustments to the
  * application's appearance, modifying these constants is preferable to hardcoding values
  * in individual components.
- *
- * @module
  */
 
 export const linkWithLogoIconDefaultHeight: string = "60px";

@@ -16,7 +16,8 @@ notes.
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.1.3](#-513---2026-09-05) ← Current
+- [🧾 Version 5.2.0](#-520---2026-09-13) ← Current
+- [🧾 Version 5.1.3](#-513---2026-09-05)
 - [🧾 Version 5.1.2](#-512---2026-09-04)
 - [🧾 Version 5.1.1](#-511---2026-09-04)
 - [🧾 Version 5.1.0](#-510---2026-08-26)
@@ -54,6 +55,223 @@ notes.
 #### 🗑️ Removed
 
 #### 🔐 Security
+
+---
+
+### 🧾 [5.2.0] - 2026-09-13
+
+#### ➕ Added
+
+##### Developer Experience
+
+- Documented `VITE_SITE_URL` and `VITE_SHOW_BREAKPOINTS` in `.env.example`, matching the existing
+  `VITE_GOOGLE_MAPS_API_KEY`/`VITE_RECAPTCHA_V2_SITE_KEY` style, and added JSDoc to `vite-env.d.ts`'s
+  `ImportMetaEnv`/`ImportMeta` interfaces with per-property comments synced to `.env.example`'s descriptions
+
+##### Build & Tooling
+
+- Added `.github/workflows/build.yml`, running `npm run lint`, `npm run build` and `npm run test:run` on push/PR to
+  `main` and `develop` (mirroring `codeql.yml`'s trigger branches), so lint/build/test failures now gate merges
+  instead of relying entirely on contributor discipline
+- Added an advisory-only `npm audit` step to `build.yml` (`continue-on-error: true`, so findings are reported
+  without blocking merges); `npm audit` currently finds 0 vulnerabilities
+- Added `eslint-plugin-jsx-a11y`'s `recommended` rule set to `eslint.config.js`/`.eslintrc.cjs` at its native
+  (mostly `"error"`) severity — the codebase was already clean against it, so no `"warn"`-first transition (like
+  `tsdoc/syntax`'s) was needed
+- Added `*.mdx` to `.prettierignore`, since Prettier doesn't format MDX well
+- Added `.github/workflows/claude.yml`, which runs Claude Code when `@claude` is mentioned in an issue, issue
+  comment, or pull request review/review comment
+- Added `.github/workflows/claude-code-review.yml`, which runs the `code-review` plugin automatically on every
+  opened or updated pull request and posts findings as inline comments
+- Both workflows authenticate via a `CLAUDE_CODE_OAUTH_TOKEN` repository secret; `claude-code-review.yml` also passes
+  the `NPM_TOKEN_READ` secret through to its `Run Claude Code Review` step so `.npmrc`'s `@tahoni` scope can
+  authenticate when Claude runs `npm install`/`npm ci` against a pull request, and the `VITE_GOOGLE_MAPS_API_KEY`/
+  `VITE_RECAPTCHA_V2_SITE_KEY` secrets so the venue map and Contact Us captcha can render if Claude runs/builds the
+  app while reviewing; `claude-code-review.yml` also sets the non-sensitive `VITE_SITE_URL` from a repository
+  variable (Settings > Actions > Variables) rather than a secret
+
+##### Testing
+
+- Added `vitest.config.ts`, `mergeConfig`-ing `vite.config.ts` (so path aliases stay in sync) with
+  `test.environment: "jsdom"`, and `jsdom` as a dev dependency
+- Added a `test:run` script (`vitest run`) for a single CI-friendly run, used by `build.yml`'s Test step and
+  documented in `README.md`/`AGENTS.md`
+- Added the project's first tests: unit tests for `src/utils/htmlUtils.ts` (`sanitizeValue`, `nonBreakingHyphens`,
+  `nonBreakingSpaces`) and a smoke test for `builders/RoutesSitemap.ts`'s `generateRoutesSitemap`
+
+##### Routing & Sitemap
+
+- Wired the `News` feature into the app's live routes (`coreRoutes` in `BaseRoutes.ts`, `RouteAliases.tsx`,
+  `routeHelpers.tsx`'s `routes` array), lazy-loaded like every other page — `/news` was previously defined but
+  unreachable; added a matching `/news` rewrite condition to `public/.htaccess`
+
+##### Components
+
+- Added a top-level `ErrorBoundary` (`src/shared/layouts/ErrorBoundary/`) wrapping `App.tsx`'s
+  `<Suspense>`/`<AppRoutes />` tree, rendering a friendly, dependency-free fallback (reload button, link home)
+  instead of a blank page on an unhandled render error; logs the caught error via `console.error`
+
+##### Documentation
+
+- Added `documentation/recommendations/project-accessibility-checklist.md`, a manual WCAG AA baseline checklist
+  covering what `eslint-plugin-jsx-a11y` can't check statically (colour contrast, heading structure, focus order,
+  link purpose), linked from `AGENTS.md`'s Linting bullet and `CONTRIBUTING.md`'s Pull Request Checklist
+- Added a palette token map and a `@use`-based usage example to `src/assets/styles/_colors.scss`'s header docblock
+- Added a "🚀 Future Roadmap Implications" section to `HISTORY.md`, between Key Learnings and Conclusion per
+  `AGENTS.md`'s Release Checklist step 7 ordering, synthesising five forward-looking implications this project's
+  history carries for Major Version 5's planned redesign and the standing roadmap gaps that precede it; closes
+  improvement-plan.md's Gap #9
+
+##### SEO
+
+- Gave every page a unique `document.title`, `<meta name="description">` and `<link rel="canonical">`
+  (`src/shared/pages/Page.tsx`, sourced from a new `PageMapping.description` field populated per route in
+  `BaseRoutes.ts`), instead of every route sharing `index.html`'s one static set of tags
+
+##### Release Process
+
+- Documented a monthly dependency-update cadence in `AGENTS.md`'s Code Quality & CI section (run
+  `npm outdated`/`npm audit` locally, triage Dependabot alerts, bump patch/minor versions routinely, extra scrutiny
+  for `sanitize-html`/`react-google-recaptcha-v3`), and added a new Release Checklist step, "Review dependencies",
+  so it's actually run at each release instead of only whenever someone remembers
+
+#### 🔄 Changed
+
+##### Styling
+
+- Migrated `src/vendors/bootstrap/styles/index.scss` from the legacy `@import` to `@use`/`@forward` —
+  `bootstrap/scss/functions`/`custom` are now `@use`d, and `bootstrap/scss/bootstrap` is `@forward`ed with a
+  `with (...)` map configuring its variables from `_custom.scss`, so `@use "@bootstrap/styles/index" as *`
+  consumers (`App.scss`, `_forms.scss`) still see Bootstrap's forwarded variables/mixins; verified the compiled CSS
+  is unaffected (byte-identical bundle vs. the pre-migration `@import` output)
+
+##### Build & Tooling
+
+- Escalated `eslint-plugin-tsdoc`'s `tsdoc/syntax` rule from `"warn"` to `"error"` in `eslint.config.js` and its
+  legacy `.eslintrc.cjs` mirror, now that `npm run lint` reports zero `tsdoc/syntax` warnings — closing Gap #11 in
+  `documentation/roadmap/improvement-plan.md`; a future TSDoc syntax regression now fails `npm run lint` and the CI
+  gate instead of silently accumulating as a warning
+- Updated the `generate-pr-summary` and `prep-version-release` skills to end their drafted PR descriptions with the
+  standard Claude Code attribution footer, consistent with any other PR description it opens
+
+##### Documentation
+
+- Changed the `{@link ReactElement}` TSDoc tag to `{@see ReactElement}` in `AboutUsPage.tsx` and `ContactUsForm.tsx`'s
+  `@returns` lines
+- Added a `{@link SanitizedWidget}` cross-reference to `SanitizedBaseInputTemplate.tsx`'s TSDoc comment
+- Reworded `ImageSidebar.tsx`'s `@param` line from "The properties object" to "The property object"
+
+#### 🐛 Fixed
+
+##### Developer Experience
+
+- Fixed `baseUrl` in `src/constants/commonConstants.ts` being a hardcoded string literal instead of sourced from an
+  environment variable: it now reads `import.meta.env?.VITE_SITE_URL ?? process.env.VITE_SITE_URL` (the
+  `process.env` fallback keeps `builders/RoutesSitemap.ts` working when run standalone via `tsx`, outside Vite),
+  defaulting to `https://www.hpsc.co.za` via `.env.production`; `index.html`'s canonical link now uses the same
+  `%VITE_SITE_URL%` build-time substitution instead of a static href, so it can't drift from `baseUrl` again
+- Fixed `baseUrl` resolving to `undefined` (and crashing `builders/RoutesSitemap.test.ts` with `TypeError: Invalid
+  URL`) whenever `VITE_SITE_URL` isn't set — Vitest, unlike Vite's own dev/build modes, doesn't load
+  `.env.production` automatically — by giving `baseUrl` a third, hardcoded fallback of `https://www.hpsc.co.za`,
+  matching `.env.production`'s own default; closes Gap #15 in `documentation/roadmap/improvement-plan.md`
+
+##### Routing & Sitemap
+
+- Fixed `coreContactUsRoute`'s inverted `dateCreated`/`dateUpdated` in `BaseRoutes.ts` (`dateCreated` postdated
+  `dateUpdated` by over nine months) and `public/sitemap.xml`'s malformed first `<loc>` entry
+  (`https: www.hpsc.co.za`, missing slashes); regenerated the sitemap via `npm run sitemap`, now including
+  `/contact` and `/news` (9 URLs total)
+- Fixed `/contact` and `/venues` being commented out of `routeHelpers.tsx`'s `routes` array, despite both already
+  being indexed in `public/sitemap.xml` and whitelisted in `public/.htaccess` — either URL previously rendered a
+  blank page inside the site chrome; both pages are now reachable by direct URL. Both were intentionally left out
+  of `menuHelpers.tsx`'s `menuItems` (the primary navigation menu)
+
+##### Build & Tooling
+
+- Fixed two `'process' is not defined` ESLint errors (`commonConstants.ts`, `vite.config.ts`) by adding
+  `globals.node`/`env: { node: true }` to `eslint.config.js`/`.eslintrc.cjs`, which previously only declared browser
+  globals despite this project's Node-side build scripts
+- Fixed the `prep-version-release` skill telling the user to tag releases as `version-$VERSION`, contradicting
+  `AGENTS.md`'s Merging section and this repository's actual tag history (`v5.0.0`–`v5.1.3`), both of which say the
+  tag format since `4.2.3` is `v$VERSION`; `version-X.Y.Z` was only ever used for the legacy Version 3.x/early 4.x
+  line
+
+##### Testing
+
+- Guarded `builders/RoutesSitemap.ts`'s module-level `generateRoutesSitemap().then(...)` call behind an
+  is-run-as-script check, so importing it for tests no longer triggers a real sitemap generation as a side effect
+- Fixed all 3 `RoutesSitemap.test.ts` tests failing when `VITE_SITE_URL` isn't set in the shell (see the `baseUrl`
+  fix above); `npm run test:run` now passes 14/14 tests from a clean checkout with no ambient `VITE_SITE_URL`
+
+##### Components
+
+- Fixed `Breakpoints.tsx` comparing `import.meta.env.VITE_SHOW_BREAKPOINTS` truthily instead of against the string
+  `"true"` — a literal `VITE_SHOW_BREAKPOINTS=false` would have shown breakpoints instead of hiding them, since only
+  an empty/unset value is falsy for a non-empty string; corrected `vite-env.d.ts`'s `ImportMetaEnv` typing for it
+  from `boolean` to `string` to match
+
+##### Documentation
+
+- Fixed `CONTRIBUTING.md`'s Pull Request Checklist and `AGENTS.md`'s Code Quality & CI section still claiming no CI
+  workflow runs `npm run build` automatically, and naming `npm test` instead of the actual `npm run test:run`
+  `build.yml` uses
+- Fixed `CONTRIBUTING.md`'s "CI/CD & Quality Gates" and "Testing" sections still claiming no CI workflow or test
+  files exist, both closed earlier in this release by `build.yml` and the initial Vitest coverage
+- Removed the non-standard `@module` JSDoc tag (invalid TSDoc syntax, one of the sources behind Gap #11's 264
+  `tsdoc/syntax` warnings) from `builders/RoutesSitemap.ts`, `menuHelpers.tsx`, `main.tsx`, `BaseRoutes.ts`,
+  `RouteAliases.tsx` and `htmlUtils.ts`
+- Fixed `AGENTS.md`'s Release Checklist step 7 thread-through list omitting "Major Version Goals", a `HISTORY.md`
+  section it never mentioned despite the section existing since `5.0.0`
+- Fixed `improvement-plan.md`'s Purpose & Scope and 📚 Related Documentation sections describing `HISTORY.md`'s
+  "🚀 Future Roadmap Implications" section as "per-release", which never matched its actual synthesised design
+- Fixed the non-standard `@return` TSDoc tag to the standard `@returns` in `src/models/email/EmailMessage.ts`'s
+  `isValid` method and `src/App.tsx`'s `App` component
+- Fixed a mismatched quote/backtick around `React.memo` in `AboutUsPage.tsx`'s TSDoc comment
+- Fixed a missing hyphen between the `@param` name and description in `EmailAttachment.ts`
+- Fixed the JSDoc-style `@param [name]` optional-name brackets (invalid TSDoc syntax) to plain `@param name` in
+  `MapUtils.ts`'s `generateMapVenueKey`/`generateMapKey`
+- Fixed `YouTubeVideo.tsx`'s corrupted `@*/` comment terminator (should have been a plain `*/`) and removed its
+  invalid `@param props.url` tag (TSDoc doesn't support dotted parameter names)
+- Fixed American-English spellings in TSDoc comments — `behavior`→`behaviour` and `sanitized`→`sanitised` in
+  `ContactUsSchema.ts`, `center`→`centre` in `MapUtils.ts`'s `generateMapKey` — and minor grammar: a missing article
+  in `LinkWithLogoAndDescription.tsx`, a doubled space in `venueConstants.ts` and in `ContactUsForm.tsx`'s `@returns`
+  line, and a plain-text `console.error` reference in `ErrorBoundary.tsx`'s comment now code-formatted
+- Fixed remaining Oxford commas and American-English spellings (`meta description`→`meta-description`,
+  `mechanically-checkable`→`mechanically checkable`, `artifacts`→`artefacts`) in `HISTORY.md`, `RELEASE_NOTES.md`,
+  `improvement-plan-tasks.md`, `project-accessibility-checklist.md`, `eslint.config.js`'s ignore-patterns comment
+  and `.claude/skills/generate-pr-summary/SKILL.md`, per `AGENTS.md`'s British English/list-comma convention
+- Fixed a stray digit corrupting a bullet list item (`3- #3` instead of `- #3`) in `improvement-plan.md`'s
+  At a Glance summary
+
+#### 🗑️ Removed
+
+##### Documentation
+
+- Removed the `@module` TSDoc tag (and its preceding blank comment line) from `src/vite-env.d.ts`, the `constants`
+  files and the feature `index.ts`/`ContactUsSchema.ts` files
+- Removed the `@type` TSDoc tag (and its preceding blank comment line where it was the sole tag) from the memoised
+  feature page/content components and other constants files
+- Removed the `@interface` and `@property` TSDoc tags from `ContactUsSchema.ts`'s exported fields/widgets/schema
+  constants, `ContactUsEmailTemplateProps` and `VenueMapProps`
+- Removed the `{...}` type annotation (including the `{@see ReactElement}` tags added above) from every `@param`/
+  `@returns` TSDoc tag across the feature page components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`,
+  `MapUtils.ts`, `VenuesContent.tsx`, and the shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components
+- Removed the `@prop` TSDoc tags (and their preceding blank comment line) from `ContactUsFormData.ts`
+
+##### Components
+
+- Removed dead, commented-out `APIProvider`/`GoogleReCaptchaProvider` wrapper markup from `App.tsx`
+
+#### 🔐 Security
+
+##### Dependencies
+
+- Bumped the transitive `js-yaml` dependency (via `eslint` → `@eslint/eslintrc`) from `4.3.1` to `4.3.2`, resolving a
+  GitHub Dependabot high-severity advisory (`maxTotalMergeKeys` not limiting CPU use for empty merge sources,
+  [GHSA-2883-xcg3-v3hh](https://github.com/advisories/GHSA-2883-xcg3-v3hh)) via `npm audit fix`; `js-yaml` is a
+  dev-only dependency used to parse ESLint's own config, never bundled into the shipped app. `npm audit` now reports
+  0 vulnerabilities. `package-lock.json`'s stale top-level `version` field (`5.1.3`) was also refreshed to `5.2.0`
+  as an incidental side effect of the same `npm audit fix` run
 
 ---
 
