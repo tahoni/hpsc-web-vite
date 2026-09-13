@@ -39,7 +39,7 @@
 - `baseUrl` now sourced from `VITE_SITE_URL` instead of a hardcoded string literal, with a hardcoded fallback so
   it never resolves to `undefined` in an environment (e.g. Vitest) that doesn't set it
 - `/contact`/`/venues` unreachable routes, `Contact Us`'s inverted dates, `public/sitemap.xml`'s malformed entry
-- Two `'process' is not defined` ESLint errors; a `RoutesSitemap.ts` test side-effect; `Breakpoints.tsx`'s
+- Two `'process' is not defined` ESLint errors; a `RoutesSitemap.ts` test side effect; `Breakpoints.tsx`'s
   `VITE_SHOW_BREAKPOINTS` truthiness check
 - Several stale `CONTRIBUTING.md`/`AGENTS.md`/`improvement-plan.md` claims, and a large batch of non-standard
   TSDoc tags/JSDoc syntax and American-English spellings across the codebase's doc comments
