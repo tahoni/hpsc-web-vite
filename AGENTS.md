@@ -449,7 +449,11 @@ This repository follows the [GitFlow](https://nvie.com/posts/a-successful-git-br
   and PR back into, `develop`.
 - **`release/vX.Y.Z`** branches are cut from `develop` once it's ready to ship — they carry the release-prep changes
   (version bump, `CHANGELOG.md`/`RELEASE_NOTES.md`, etc.; see the Release Checklist below) and are opened as a PR
-  against `develop`. Once that merges, a second PR promotes `develop` into `main` (see Merging below).
+  against `develop`. Once that merges, a second PR promotes `develop` into `main` (see Merging below). **Diff a
+  `release/vX.Y.Z` branch against `main`, not `develop`, to see everything it actually ships** — a diff against
+  `develop` only shows the branch's own release-prep commits, since the release's feature work already landed there
+  via earlier `feature/*` PRs. This is independent of where the branch's PR is opened: the PR still targets
+  `develop`, as above.
 - **`hotfix/<short-description>`** — urgent fixes for a defect already in production. Branch from, and PR directly
   into, `main`, bypassing `develop` and any in-progress `release/vX.Y.Z` branch so the fix ships immediately. Also,
   merge/PR the same fix into `develop` so it isn't lost when the next release is cut.

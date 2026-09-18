@@ -53,13 +53,14 @@ Steps:
    This satisfies AGENTS.md's Release Checklist step of checking the roadmap docs before starting version-specific
    work.
 3. **Bump `package.json`.** If its `version` field doesn't already equal `$VERSION`, update it now.
-4. **Run the `sync-unreleased-changes` skill before touching CHANGELOG.md.** Release branches are cut from `develop`
-   (per AGENTS.md's Branching Model), so invoke it with its default base (`develop`) — never skip this even if
-   `[Unreleased]` looks complete: it cross-checks every commit and any uncommitted diff against the actual
-   `[Unreleased]` entries, fills in anything missing, flags drifted entries and consolidates duplicate `##### <Area>`
-   sub-headers. The next step renames `[Unreleased]` wholesale, so it must be fully accurate first. If it flags any
-   entries as drifted, resolve those with the user before continuing — don't fold a flagged entry into the new version
-   section unresolved.
+4. **Run the `sync-unreleased-changes` skill before touching CHANGELOG.md.** On a `release/vX.Y.Z` branch it
+   auto-detects and diffs against `main` (per AGENTS.md's Git Workflow — the branch's PR still targets `develop`, but
+   `develop` alone would only show its own release-prep commits, not everything the release ships), so just invoke it
+   with no override. Never skip this even if `[Unreleased]` looks complete: it cross-checks every commit and any
+   uncommitted diff against the actual `[Unreleased]` entries, fills in anything missing, flags drifted entries and
+   consolidates duplicate `##### <Area>` sub-headers. The next step renames `[Unreleased]` wholesale, so it must be
+   fully accurate first. If it flags any entries as drifted, resolve those with the user before continuing — don't
+   fold a flagged entry into the new version section unresolved.
 5. **Promote `### 🧪 [Unreleased]` to a dated version entry.** Rename it `### 🧾 [$VERSION] - YYYY-MM-DD` (its
    entries now synced in the previous step), keeping only the categories that apply (`➕ Added`, `🔄 Changed`,
    `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security`) and their `##### <Area>` subheadings. Update the Table of
