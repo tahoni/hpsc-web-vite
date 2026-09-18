@@ -14,7 +14,7 @@ import SanitizedWidget from "./SanitizedWidget";
  * This widget inherits its properties from the BaseInputTemplateProps and passes them to the SanitizedWidget.
  *
  * @param props - The properties passed to the component.
- * @returns - A JSX element representing a sanitized textarea widget.
+ * @returns - A JSX element representing a sanitised textarea widget.
  */
 const TrimmedTextareaWidget = <
   T = any,
