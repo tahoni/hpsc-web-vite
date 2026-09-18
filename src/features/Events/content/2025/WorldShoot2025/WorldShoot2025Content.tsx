@@ -86,7 +86,7 @@ const WorldShoot2025Content = React.memo(
             mapStyle={mapStyle}
             mapMode={worldShootEvent.mapMode}
             zoom={worldShootEvent.mapZoom}
-            center={
+            centre={
               worldShootEvent.shootingRange?.center ??
               worldShootEvent.shootingRange?.latLng
             }

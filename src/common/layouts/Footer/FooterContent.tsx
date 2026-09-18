@@ -33,7 +33,7 @@ export const FooterContent = React.memo((): ReactElement => {
             <SimpleVenueMap
               mapStyle={mapStyle}
               mapId={footerMapId}
-              center={footerMapPins[0].center ?? footerMapPins[0].latLng}
+              centre={footerMapPins[0].center ?? footerMapPins[0].latLng}
               venues={footerMapPins}
             />
           )}

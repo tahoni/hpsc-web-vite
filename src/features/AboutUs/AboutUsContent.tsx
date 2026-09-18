@@ -82,7 +82,7 @@ const AboutUsContent: React.MemoExoticComponent<() => ReactElement> =
                   mapId={aboutUsMapId}
                   mapMode={aboutUsMapMode}
                   zoom={aboutUsMapZoom}
-                  center={
+                  centre={
                     eufeesShootingRange?.center ?? eufeesShootingRange.latLng
                   }
                   venues={shootingRangePins}

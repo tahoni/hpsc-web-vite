@@ -49,6 +49,12 @@ notes.
 
 #### 🔄 Changed
 
+##### Components
+
+- Renamed `VenueMapProps`'s `center` prop to `centre` (`VenueMap.tsx`), updating every caller
+  (`FooterContent.tsx`, `AboutUsContent.tsx`, `WorldShoot2025Content.tsx`) — British English spelling for a
+  component's public prop name; the underlying `Venue`/`venueConstants.ts` model field stays `center`, unchanged
+
 #### 🐛 Fixed
 
 #### ⚠️ Deprecated
