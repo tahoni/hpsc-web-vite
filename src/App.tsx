@@ -2,7 +2,7 @@ import { ReactElement, Suspense } from "react";
 import { Loader } from "@tahoni/tahoni-lib-react";
 import { Breakpoints } from "@layouts/Breakpoints";
 import { ErrorBoundary } from "@layouts/ErrorBoundary";
-import AppRoutes from "@shared/routes/AppRoutes";
+import AppRoutes from "@common/routes/AppRoutes";
 import "./App.scss";
 
 /**

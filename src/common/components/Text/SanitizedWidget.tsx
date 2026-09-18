@@ -25,12 +25,12 @@ export interface SanitizedWidgetProps<
  *
  * The component supports multiple input models such as `TEXT_AREA`, `TEXT`, and
  * a default or custom template. Based on the specified input type, SanitizedWidget
- * renders the appropriate widget while maintaining consistency and ensuring sanitized values.
+ * renders the appropriate widget while maintaining consistency and ensuring sanitised values.
  *
  * The `handleChange` method trims leading whitespaces from the input value and
- * passes the sanitized value to the `onChange` handler.
+ * passes the sanitised value to the `onChange` handler.
  *
- * The `handleBlur` method performs additional sanitization by trimming the entire
+ * The `handleBlur` method performs additional sanitisation by trimming the entire
  * value, ensuring that it is clean before invoking the `onBlur` handler.
  *
  * SanitizedWidget provides a seamless way to enforce input cleanliness and prevent

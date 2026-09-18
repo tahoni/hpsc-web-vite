@@ -1,7 +1,7 @@
 import React, { CSSProperties, ReactElement } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { SimpleVenueMap } from "@components/Map";
-import { VenueType } from "@/models/venues/VenueType";
+import { VenueType } from "@/model/venues/VenueType";
 import {
   adminEmail,
   chairmanEmail,
@@ -82,7 +82,7 @@ const AboutUsContent: React.MemoExoticComponent<() => ReactElement> =
                   mapId={aboutUsMapId}
                   mapMode={aboutUsMapMode}
                   zoom={aboutUsMapZoom}
-                  center={
+                  centre={
                     eufeesShootingRange?.center ?? eufeesShootingRange.latLng
                   }
                   venues={shootingRangePins}

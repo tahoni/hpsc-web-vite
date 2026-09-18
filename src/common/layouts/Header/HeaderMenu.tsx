@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { PageMapping } from "@/models/pages/PageMapping";
+import { PageMapping } from "@/model/pages/PageMapping";
 import { menuItems } from "@helpers/menuHelpers.tsx";
 
 export const HeaderMenu = React.memo((): ReactElement => {

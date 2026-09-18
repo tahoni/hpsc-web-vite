@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import VenueMap, { VenueMapProps } from "./VenueMap";
 import VenuePins from "./VenuePins";
-import { VenueType } from "@/models/venues/VenueType";
+import { VenueType } from "@/model/venues/VenueType";
 
 export interface SimpleVenueMapProps extends VenueMapProps {
   venues: VenueType[];

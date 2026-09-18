@@ -1,9 +1,9 @@
 import { ReactElement } from "react";
 import { Route, Routes } from "react-router";
 import { leftShooter, rightShooter } from "@/constants/images/layoutImageConstants.ts";
-import { PageAlias } from "@/models/pages/PageAlias.ts";
+import { PageAlias } from "@/model/pages/PageAlias.ts";
 import { routes } from "@helpers/routeHelpers.tsx";
-import { Layout } from "@shared/layouts";
+import { Layout } from "@common/layouts";
 
 /**
  * AppRoutes is a React functional component responsible for rendering

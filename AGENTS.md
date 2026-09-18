@@ -103,13 +103,13 @@ secret-free `.env.example` for the exact `VITE_`-prefixed variable names, as a c
 
 ## 🏛️ Architecture Overview
 
-The application is organised by feature, with shared infrastructure centralised under `src/shared/`:
+The application is organised by feature, with common infrastructure centralised under `src/common/`:
 
 ```
 Route (React Router)
     → Feature page   (src/features/<Feature>/<Feature>Page.tsx)
     → Feature content (…Content.tsx and .mdx for content-heavy pages)
-    → Shared components / layouts (src/shared/components/, src/shared/layouts/)
+    → Common components / layouts (src/common/components/, src/common/layouts/)
 ```
 
 See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the full architectural design; the summary below orients an agent
@@ -120,11 +120,10 @@ quickly.
 | Directory            | Role                                                                                                                                                                                                                                                                                    |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `features/`          | One folder per page/domain (`Home`, `AboutUs`, `ContactUs`, `Events`, `History`, `Links`, `Members`, `News`, `Venues`), each self-contained with a `…Page.tsx`, content component(s), optional `.mdx`, styles and a barrel `index.ts`                                                   |
-| `shared/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata as `PageMapping`s), `RouteAliases.tsx` (maps mappings to lazy-loaded components), `AppRoutes.tsx` (renders `Routes`/`Route` from the mappings)                                                                                     |
-| `shared/layouts/`    | `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints` — the page chrome every route renders inside                                                                                                                                                                             |
-| `shared/components/` | Reusable UI: `Captcha`, `Map`, `Sidebar`, `Section`, `Text`, `Title`, `Video`, `Content`                                                                                                                                                                                                |
-| `shared/pages/`      | `Page` — the base wrapper feature pages compose                                                                                                                                                                                                                                         |
-| `models/`            | TypeScript interfaces/classes grouped by domain: `email/`, `pages/`, `sitemap/`, `venues/`                                                                                                                                                                                              |
+| `common/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata as `PageMapping`s), `RouteAliases.tsx` (maps mappings to lazy-loaded components), `AppRoutes.tsx` (renders `Routes`/`Route` from the mappings)                                                                                     |
+| `common/layouts/`    | `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints` — the page chrome every route renders inside                                                                                                                                                                             |
+| `common/components/` | Reusable UI: `Captcha`, `Map`, `Page` (the base wrapper feature pages compose), `Sidebar`, `Section`, `Text`, `Title`, `Video`, `Content`                                                                                                                                               |
+| `model/`             | TypeScript interfaces/classes grouped by domain: `email/`, `pages/`, `sitemap/`, `venues/`                                                                                                                                                                                              |
 | `helpers/`           | Application-specific helpers with routing/UI context (`routeHelpers.tsx`, `menuHelpers.tsx`) — see [`documentation/recommendations/standard-utils-vs-helpers.md`](documentation/recommendations/standard-utils-vs-helpers.md) for the `utils/` vs `helpers/` split this project follows |
 | `utils/`             | Framework-agnostic pure functions (`htmlUtils.ts`)                                                                                                                                                                                                                                      |
 | `constants/`         | Grouped by domain (`about/`, `content/`, `images/`) plus `commonConstants.ts`                                                                                                                                                                                                           |
@@ -450,7 +449,11 @@ This repository follows the [GitFlow](https://nvie.com/posts/a-successful-git-br
   and PR back into, `develop`.
 - **`release/vX.Y.Z`** branches are cut from `develop` once it's ready to ship — they carry the release-prep changes
   (version bump, `CHANGELOG.md`/`RELEASE_NOTES.md`, etc.; see the Release Checklist below) and are opened as a PR
-  against `develop`. Once that merges, a second PR promotes `develop` into `main` (see Merging below).
+  against `develop`. Once that merges, a second PR promotes `develop` into `main` (see Merging below). **Diff a
+  `release/vX.Y.Z` branch against `main`, not `develop`, to see everything it actually ships** — a diff against
+  `develop` only shows the branch's own release-prep commits, since the release's feature work already landed there
+  via earlier `feature/*` PRs. This is independent of where the branch's PR is opened: the PR still targets
+  `develop`, as above.
 - **`hotfix/<short-description>`** — urgent fixes for a defect already in production. Branch from, and PR directly
   into, `main`, bypassing `develop` and any in-progress `release/vX.Y.Z` branch so the fix ships immediately. Also,
   merge/PR the same fix into `develop` so it isn't lost when the next release is cut.
@@ -484,6 +487,13 @@ even then the same fix still lands on `develop` immediately afterwards (see Merg
   matching Keep a Changelog category (`➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security`)
   and, within it, the relevant `##### <Area>` sub-heading — as part of the change that makes it, not batched into a
   later, separate change.
+- **Update `BaseRoutes.ts`'s `dateUpdated` in the same change.** When a commit changes files under a
+  `src/features/<Feature>/` directory, bump that route's `PageMapping.dateUpdated` in
+  `src/common/routes/BaseRoutes.ts` to the change's date, and regenerate `public/sitemap.xml` via `npm run sitemap` —
+  `dateUpdated` feeds the sitemap's `<lastmod>` (`builders/RoutesSitemap.ts`), so a stale value misrepresents the
+  page's actual freshness to search engines. `coreHomeRoute` is the one exception to the direct folder mapping:
+  `HomePage.tsx` renders `HistoryContent` directly, so a `src/features/History/` change bumps `coreHomeRoute`'s
+  `dateUpdated` too, not just `coreHistoryRoute`'s.
 - Commit messages are plain, imperative-mood descriptions of the change (e.g. "Refactor email-related models: remove
   `EmailContent`, merge functionality into `EmailMessage`"); this repository does not use a Conventional Commits prefix
   (`feat:`, `fix:`, etc.).

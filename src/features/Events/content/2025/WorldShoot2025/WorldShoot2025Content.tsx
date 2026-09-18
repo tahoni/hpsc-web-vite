@@ -2,8 +2,8 @@ import React, { CSSProperties, PropsWithChildren, ReactElement } from "react";
 import { Image } from "react-bootstrap";
 import { SimpleVenueMap } from "@components/Map";
 import { YouTubeVideo } from "@components/Video";
-import { VenueEvent } from "@/models/venues/VenueEvent.ts";
-import { VenueType } from "@/models/venues/VenueType.ts";
+import { VenueEvent } from "@/model/venues/VenueEvent.ts";
+import { VenueType } from "@/model/venues/VenueType.ts";
 import { worldShootEvents } from "./WorldShootConstants.tsx";
 import classes from "./WorldShoot.module.scss";
 
@@ -86,7 +86,7 @@ const WorldShoot2025Content = React.memo(
             mapStyle={mapStyle}
             mapMode={worldShootEvent.mapMode}
             zoom={worldShootEvent.mapZoom}
-            center={
+            centre={
               worldShootEvent.shootingRange?.center ??
               worldShootEvent.shootingRange?.latLng
             }

@@ -10,7 +10,7 @@ import {
   ShootingRanges,
   shootingRangeVenues,
 } from "@/constants/about/venueConstants.ts";
-import { VenueType } from "@/models/venues/VenueType.ts";
+import { VenueType } from "@/model/venues/VenueType.ts";
 import {
   defaultImageExtension,
   defaultImagePath,

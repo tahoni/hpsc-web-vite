@@ -5,7 +5,7 @@
  * contact details, and geographic coordinates.
  */
 
-import { Venue } from "@/models/venues/Venue.ts";
+import { Venue } from "@/model/venues/Venue.ts";
 
 /**
  * Enumeration representing various shooting ranges.

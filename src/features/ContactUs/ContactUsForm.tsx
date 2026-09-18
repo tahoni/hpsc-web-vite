@@ -4,7 +4,7 @@ import Form, {IChangeEvent} from "@rjsf/core";
 import {FormValidation, RJSFValidationError, StrictRJSFSchema} from "@rjsf/utils";
 import { customizeValidator } from "@rjsf/validator-ajv8";
 import Swal from "sweetalert2";
-import {EmailMessage} from "@/models/email/EmailMessage.ts";
+import {EmailMessage} from "@/model/email/EmailMessage.ts";
 import {ContactUsFormData} from "./ContactUsFormData";
 import {EmailService} from "./EmailService";
 import {
@@ -16,7 +16,7 @@ import {
 import {SanitizedBaseInputTemplate} from "@components/Text";
 import ContactUsEmailTemplate from "./ContactUsEmailTemplate";
 import {clubLogoFilename, clubLogoPath} from "@/constants/about/clubConstants";
-import {EmailAttachment} from "@/models/email/EmailAttachment";
+import {EmailAttachment} from "@/model/email/EmailAttachment";
 
 const validator = customizeValidator<ContactUsFormData>();
 

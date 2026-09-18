@@ -9,8 +9,8 @@
  */
 
 import React from "react";
-import { PageMapping } from "@/models/pages/PageMapping.ts";
-import { Page } from "@shared/pages";
+import { PageMapping } from "@/model/pages/PageMapping.ts";
+import { Page } from "@components/Page";
 import HomePage from "@features/Home/HomePage.tsx";
 import {
   coreAboutUsRoute,

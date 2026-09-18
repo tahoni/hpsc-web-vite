@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Venue } from "@/models/venues/Venue";
+import { Venue } from "@/model/venues/Venue";
 import { shootingRangeVenues } from "@/constants/about/venueConstants";
 
 /**
