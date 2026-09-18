@@ -68,6 +68,17 @@ notes.
   `src/common/routes/`) with an accurate note that `@routes` is simply redundant with `@common/routes`, and folded
   it into the path-alias table
 
+##### Routing & Sitemap
+
+- Corrected `BaseRoutes.ts`'s `coreContactUsRoute`/`coreEventsRoute`/`coreVenuesRoute`/`coreNewsRoute` `dateCreated`
+  values, re-derived from each feature's actual git history (rename-tracing `src/features/<Feature>/`'s files) rather
+  than the route's wiring date: Contact Us `2025-03-03` → `2024-12-29`, Events `2025-04-29` → `2024-12-30`, Shooting
+  Ranges `2025-01-03` → `2024-12-30`, News `2026-09-05` → `2024-12-30` (News, Events and Venues were originally
+  scaffolded together in one commit; News's old date only marked when Gap #2 wired it into `coreRoutes`)
+- Refreshed every route's `dateUpdated` to its feature's actual most recent commit and regenerated
+  `public/sitemap.xml` from the corrected metadata via `npm run sitemap`, which also fixed the `/venues` entry's
+  `<lastmod>` tag, previously missing entirely from the checked-in file
+
 ##### Styling
 
 - `src/assets/styles/_forms.scss` now `@use`s `@bootstrap/styles/index` under an explicit `bootstrap` namespace

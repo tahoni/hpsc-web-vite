@@ -13,7 +13,7 @@ export const coreHomeRoute: PageMapping = new PageMapping({
   name: "Home",
   path: "/",
   dateCreated: new Date("2024-12-14"),
-  dateUpdated: new Date("2024-12-16"),
+  dateUpdated: new Date("2026-09-08"),
   description:
     "Hartbeespoortdam Practical Shooting Club affiliated with the Northern Gauteng Practical Shooting Association (NGPSA), SAPSA and IPSC.",
 });
@@ -22,7 +22,7 @@ export const coreMembersRoute = new PageMapping({
   name: "Members",
   path: "/members",
   dateCreated: new Date("2025-01-03"),
-  dateUpdated: new Date("2025-01-04"),
+  dateUpdated: new Date("2026-09-08"),
   description:
     "Membership information and how to join the Hartbeespoortdam Practical Shooting Club.",
 });
@@ -31,7 +31,7 @@ export const coreLinksRoute = new PageMapping({
   name: "Links",
   path: "/links",
   dateCreated: new Date("2025-01-03"),
-  dateUpdated: new Date("2025-01-03"),
+  dateUpdated: new Date("2026-09-18"),
   description:
     "Links to affiliated shooting associations and related resources for the Hartbeespoortdam Practical Shooting Club.",
 });
@@ -40,7 +40,7 @@ export const coreHistoryRoute: PageMapping = new PageMapping({
   name: "History",
   path: "/history",
   dateCreated: new Date("2024-12-14"),
-  dateUpdated: new Date("2024-12-16"),
+  dateUpdated: new Date("2026-09-08"),
   description:
     "The history of the Hartbeespoortdam Practical Shooting Club, founded in 2003.",
 });
@@ -49,7 +49,7 @@ export const coreAboutUsRoute = new PageMapping({
   name: "About Us",
   path: "/about",
   dateCreated: new Date("2024-12-24"),
-  dateUpdated: new Date("2024-12-26"),
+  dateUpdated: new Date("2026-09-18"),
   description:
     "About the Hartbeespoortdam Practical Shooting Club and its practical shooting activities.",
 });
@@ -57,16 +57,16 @@ export const coreAboutUsRoute = new PageMapping({
 export const coreContactUsRoute = new PageMapping({
   name: "Contact Us",
   path: "/contact",
-  dateCreated: new Date("2025-03-03"),
-  dateUpdated: new Date("2025-12-26"),
+  dateCreated: new Date("2024-12-29"),
+  dateUpdated: new Date("2026-09-18"),
   description: "Contact details for the Hartbeespoortdam Practical Shooting Club.",
 });
 
 export const coreEventsRoute: PageMapping = new PageMapping({
   name: "Events",
   path: "/events",
-  dateCreated: new Date("2025-04-29"),
-  dateUpdated: new Date("2025-05-01"),
+  dateCreated: new Date("2024-12-30"),
+  dateUpdated: new Date("2026-09-18"),
   description:
     "Upcoming practical shooting events and competitions hosted by the Hartbeespoortdam Practical Shooting Club.",
 });
@@ -74,8 +74,8 @@ export const coreEventsRoute: PageMapping = new PageMapping({
 export const coreVenuesRoute = new PageMapping({
   name: "Shooting Ranges",
   path: "/venues",
-  dateCreated: new Date("2025-01-03"),
-  dateUpdated: new Date("2025-01-04"),
+  dateCreated: new Date("2024-12-30"),
+  dateUpdated: new Date("2026-09-18"),
   description:
     "Shooting ranges used by the Hartbeespoortdam Practical Shooting Club for practice and competitions.",
 });
@@ -83,8 +83,8 @@ export const coreVenuesRoute = new PageMapping({
 export const coreNewsRoute = new PageMapping({
   name: "News",
   path: "/news",
-  dateCreated: new Date("2026-09-05"),
-  dateUpdated: new Date("2026-09-05"),
+  dateCreated: new Date("2024-12-30"),
+  dateUpdated: new Date("2026-09-08"),
   description: "Latest news from the Hartbeespoortdam Practical Shooting Club.",
 });
 

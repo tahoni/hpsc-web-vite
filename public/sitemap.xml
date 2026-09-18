@@ -4,54 +4,55 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
         <loc>https://www.hpsc.co.za/</loc>
-        <lastmod>2024-12-16</lastmod>
+        <lastmod>2026-09-08</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://www.hpsc.co.za/members</loc>
-        <lastmod>2025-01-04</lastmod>
+        <lastmod>2026-09-08</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://www.hpsc.co.za/links</loc>
-        <lastmod>2025-01-03</lastmod>
+        <lastmod>2026-09-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://www.hpsc.co.za/history</loc>
-        <lastmod>2024-12-16</lastmod>
+        <lastmod>2026-09-08</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://www.hpsc.co.za/about</loc>
-        <lastmod>2024-12-26</lastmod>
+        <lastmod>2026-09-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://www.hpsc.co.za/contact</loc>
-        <lastmod>2025-12-26</lastmod>
+        <lastmod>2026-09-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://www.hpsc.co.za/events</loc>
-        <lastmod>2025-05-01</lastmod>
+        <lastmod>2026-09-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://www.hpsc.co.za/venues</loc>
+        <lastmod>2026-09-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://www.hpsc.co.za/news</loc>
-        <lastmod>2026-09-05</lastmod>
+        <lastmod>2026-09-08</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
