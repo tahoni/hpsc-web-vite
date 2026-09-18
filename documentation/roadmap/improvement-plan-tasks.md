@@ -179,6 +179,17 @@ Checklist, doesn't exist — ✅ Closed in v5.2.0** *(improvement-plan.md → Ga
 - [x] Update `CONTRIBUTING.md`'s "🧪 Testing" section to drop the "currently has no test files" claim — done in
   `5.2.0`
 
+**An unresolved `TODO: missing imports` comment in `_forms.scss` named unexplained styling work — ✅ Closed in
+v5.2.1** *(improvement-plan.md → Gap #14)*
+
+- [x] Determine what `src/assets/styles/_forms.scss`'s `TODO: missing imports` comment refers to — determined
+  neither `_forms.scss` nor any variable it uses needed `_colors.scss`'s tokens directly
+- [ ] _Add `@use "@styles/_colors.scss" as hpsc-colors;` and update the stylesheet's relevant variable references to
+  use it_ — not needed: the existing `@use`s already covered every variable the stylesheet references
+- [x] Remove the TODO, since the imports already in place turned out to be sufficient — done in `5.2.1`; the same
+  release also namespaced `_forms.scss`'s `@bootstrap/styles/index` import (`as bootstrap` instead of a wildcard
+  `as *`), a further tightening of the import clarity this gap's TODO had flagged as missing
+
 **`builders/RoutesSitemap.test.ts` fails outside a shell that already has `VITE_SITE_URL` set, and `build.yml`'s CI
 Test step never sets it — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #15)*
 
@@ -192,6 +203,14 @@ Test step never sets it — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap
 - [x] Re-run `npm run test:run` from a clean checkout with no ambient `VITE_SITE_URL` to confirm the fix — done in
   `5.2.0`: all 3 test files/14 tests pass
 
+**`CONTRIBUTING.md`'s "Architecture at a Glance" section described the pre-rename `src/shared/` structure — ✅ Closed
+in v5.2.1** *(improvement-plan.md → Gap #16)*
+
+- [x] Update `CONTRIBUTING.md`'s "🏛️ Architecture at a Glance" section (prose and diagram) to say `src/common/` and
+  "Common components / layouts", matching `AGENTS.md`'s Architecture Overview — done in `5.2.1`; a follow-up pass
+  also mirrored `AGENTS.md`'s new `BaseRoutes.ts`-`dateUpdated` Git Workflow rule into `CONTRIBUTING.md`, which had
+  been missing it
+
 ---
 
 ## 🟡 Partially Completed
@@ -201,20 +220,6 @@ Test step never sets it — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap
 ---
 
 ## ⚪ Open
-
-**An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work**
-*(improvement-plan.md → Gap #14)*
-
-- [ ] Determine what `src/assets/styles/_forms.scss`'s `TODO: missing imports` comment refers to
-- [ ] Most likely: add `@use "@styles/_colors.scss" as hpsc-colors;` and update the stylesheet's relevant variable
-  references to use it, matching the convention Gap #6's outcome established
-- [ ] If the imports already in place turn out to be sufficient, remove the TODO instead
-
-**`CONTRIBUTING.md`'s "Architecture at a Glance" section still describes the pre-rename `src/shared/` structure**
-*(improvement-plan.md → Gap #16)*
-
-- [ ] Update `CONTRIBUTING.md`'s "🏛️ Architecture at a Glance" section (prose and diagram) to say `src/common/` and
-  "Common components / layouts", matching `AGENTS.md`'s Architecture Overview
 
 **`EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything**
 *(improvement-plan.md → Gap #17)*

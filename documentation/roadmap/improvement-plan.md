@@ -58,7 +58,7 @@ audit — see their Evidence below.
 
 ### 📋 At a Glance
 
-- **✅ Completed (14):**
+- **✅ Completed (16):**
   - #1 No automatic lint/build/test gate on pull requests
   - #2 Two concrete route-metadata defects
   - #3 Zero test coverage despite a configured test runner
@@ -72,11 +72,11 @@ audit — see their Evidence below.
   - #11 258 pre-existing `tsdoc/syntax` lint warnings
   - #12 `/contact` and `/venues` were indexed and rewrite-whitelisted but never actually routed
   - #13 `CONTRIBUTING.md`'s CI/CD and Testing sections described a pre-Gap-#1/#3 state
+  - #14 An unresolved `TODO: missing imports` comment in `_forms.scss` named unexplained styling work
   - #15 `RoutesSitemap.test.ts` failed without `VITE_SITE_URL` set, and `build.yml`'s Test step never set it
+  - #16 `CONTRIBUTING.md`'s "Architecture at a Glance" section described the pre-rename `src/shared/` structure
 - **🟡 Partially Completed (0):** none currently.
-- **⚪ Open (3):**
-  - #14 An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
-  - #16 `CONTRIBUTING.md`'s "Architecture at a Glance" section still describes the pre-rename `src/shared/` structure
+- **⚪ Open (1):**
   - #17 `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything
 
 ### ✅ Completed
@@ -466,6 +466,34 @@ lint/build/test/audit gate instead of claiming no CI workflow exists, and its "�
 coverage exists and is growing instead of claiming no test files exist — both now consistent with the file's own
 Pull Request Checklist, which already described the CI gate correctly.
 
+#### 14. An unresolved `TODO: missing imports` comment in `_forms.scss` named unexplained styling work — ✅ Closed in
+v5.2.1
+
+**Evidence:** `../../src/assets/styles/_forms.scss:13` reads `/* TODO: missing imports */`, added on its own by the
+"Add TODO for missing imports in `_forms.scss`" commit on this release branch, with no accompanying code change or
+explanation of which imports it means. The stylesheet currently only `@use`s `@bootstrap/styles/index` (for
+Bootstrap's forwarded variables — `$danger`, `$focus-ring-color`, `$focus-ring-opacity`, `$white`) and `theme` (for
+two `hpsc-theme.$btn-info-*` tokens); it never `@use`s `../../src/assets/styles/_colors.scss` directly, despite that
+file's own header docblock (added closing Gap #6) documenting exactly that pattern — `@use "@styles/_colors.scss" as
+hpsc-colors;` — as the project's established convention for referencing the club's palette tokens.
+
+**Why it matters:** An unexplained TODO with no tracked follow-up risks silently rotting in the codebase — precisely
+the "stated-but-unbuilt goal" category this plan exists to catch, matching how Gaps #1–#13 originated. Left alone,
+this comment gives a future contributor no way to tell whether it's actionable, already resolved, or safe to delete.
+
+**Proposed improvement:** Determine what "missing imports" refers to — most likely a missing
+`@use "@styles/_colors.scss" as hpsc-colors;` for direct palette-token usage, matching the convention Gap #6's
+outcome established — and either add the import(s) and update the relevant variable references to use it, or remove
+the TODO if the imports already in place are sufficient.
+
+**Outcome:** In `5.2.1`, the TODO comment was removed: neither `_forms.scss` nor any variable it references needed
+`_colors.scss`'s tokens directly — every variable it uses already resolved through its existing `@use`s. In the same
+release, `_forms.scss` also switched its `@bootstrap/styles/index` import from a wildcard `as *` to an explicit
+`bootstrap` namespace (prefixing `$primary`/`$focus-ring-color`/`$focus-ring-opacity`/`$danger`/`$danger-bg-subtle`/
+`$white` accordingly), resolving the IDE's "resolved only by name without use of explicit imports" warnings on those
+variables — a further, unprompted tightening of exactly the import clarity this gap's TODO had originally flagged
+as missing. `npm run build` confirmed compiled CSS is unaffected by either change.
+
 #### 15. `builders/RoutesSitemap.test.ts` fails outside a shell that already has `VITE_SITE_URL` set, and `build.yml`'s
 CI "Test" step never sets it — ✅ Closed in v5.2.0
 
@@ -506,28 +534,8 @@ CI had actually been red.
 
 *No gaps are currently partially completed.*
 
-### ⚪ Open
-
-#### 14. An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
-
-**Evidence:** `../../src/assets/styles/_forms.scss:13` reads `/* TODO: missing imports */`, added on its own by the
-"Add TODO for missing imports in `_forms.scss`" commit on this release branch, with no accompanying code change or
-explanation of which imports it means. The stylesheet currently only `@use`s `@bootstrap/styles/index` (for
-Bootstrap's forwarded variables — `$danger`, `$focus-ring-color`, `$focus-ring-opacity`, `$white`) and `theme` (for
-two `hpsc-theme.$btn-info-*` tokens); it never `@use`s `../../src/assets/styles/_colors.scss` directly, despite that
-file's own header docblock (added closing Gap #6) documenting exactly that pattern — `@use "@styles/_colors.scss" as
-hpsc-colors;` — as the project's established convention for referencing the club's palette tokens.
-
-**Why it matters:** An unexplained TODO with no tracked follow-up risks silently rotting in the codebase — precisely
-the "stated-but-unbuilt goal" category this plan exists to catch, matching how Gaps #1–#13 originated. Left alone,
-this comment gives a future contributor no way to tell whether it's actionable, already resolved, or safe to delete.
-
-**Proposed improvement:** Determine what "missing imports" refers to — most likely a missing
-`@use "@styles/_colors.scss" as hpsc-colors;` for direct palette-token usage, matching the convention Gap #6's
-outcome established — and either add the import(s) and update the relevant variable references to use it, or remove
-the TODO if the imports already in place are sufficient.
-
-#### 16. `CONTRIBUTING.md`'s "Architecture at a Glance" section still describes the pre-rename `src/shared/` structure
+#### 16. `CONTRIBUTING.md`'s "Architecture at a Glance" section described the pre-rename `src/shared/` structure —
+✅ Closed in v5.2.1
 
 **Evidence:** The `src/models`/`src/shared` → `src/model`/`src/common` rename (with `Page` moved from
 `common/pages/` into `common/components/Page/`) updated `../../AGENTS.md` and `../../ARCHITECTURE.md` throughout, but
@@ -545,6 +553,16 @@ to catch.
 **Proposed improvement:** Update `../../CONTRIBUTING.md`'s "🏛️ Architecture at a Glance" section to say
 `src/common/` and "Common components / layouts", matching the wording `../../AGENTS.md`'s Architecture Overview now
 uses.
+
+**Outcome:** In `5.2.1`, `../../CONTRIBUTING.md`'s "🏛️ Architecture at a Glance" section now reads "common
+infrastructure centralised under `src/common/`" and diagrams "Common components / layouts", matching
+`../../AGENTS.md`'s Architecture Overview and the actual source tree. A follow-up pass, prompted by this gap's own
+closure, also found `../../AGENTS.md`'s Git Workflow Conventions had gained a new `BaseRoutes.ts`-`dateUpdated` rule
+that `../../CONTRIBUTING.md` hadn't yet mirrored; that was added to `../../CONTRIBUTING.md`'s Git Workflow bullets
+and Pull Request Checklist in the same release, matching how its `CHANGELOG.md` counterpart rule is already mirrored
+there.
+
+### ⚪ Open
 
 #### 17. `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything
 
@@ -575,12 +593,12 @@ stop describing it as a working dependency until it is.
 
 ## 🚀 Roadmap
 
-| Phase       | Focus                                                                                                                                           |
-|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Make Contact Us actually deliver e-mail, or stop documenting it as a working dependency (#17)                                                   |
-| **Next**    | Resolve or remove the `_forms.scss` `TODO: missing imports` comment (#14); fix `CONTRIBUTING.md`'s stale `src/shared/` architecture blurb (#16) |
-| **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                    |
-| **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented  |
+| Phase       | Focus                                                                                                                                          |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Now**     | Make Contact Us actually deliver e-mail, or stop documenting it as a working dependency (#17)                                                  |
+| **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
+| **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
+| **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
 
 ---
 
@@ -603,10 +621,10 @@ stop describing it as a working dependency until it is.
 - `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" and "🧪 Testing" sections describe the CI gate and initial
   test coverage `5.2.0` actually shipped, instead of the pre-Gap-#1/#3 state (#13) — ✅ Met in v5.2.0.
 - `_forms.scss`'s `TODO: missing imports` comment is either resolved (the missing `@use` added and referenced) or
-  removed as unnecessary, so it no longer names unexplained work (#14).
+  removed as unnecessary, so it no longer names unexplained work (#14) — ✅ Met in v5.2.1.
 - `../../CONTRIBUTING.md`'s "Architecture at a Glance" section describes `src/common/`, matching
   `../../AGENTS.md`/`../../ARCHITECTURE.md` and the actual source tree, instead of the pre-rename `src/shared/`
-  (#16).
+  (#16) — ✅ Met in v5.2.1.
 - Submitting the Contact Us form either genuinely delivers an e-mail via a real third-party service, or
   `../../AGENTS.md`'s Project Overview and `ContactUsForm.tsx`'s docblock stop describing e-mail delivery as a
   working dependency (#17).
