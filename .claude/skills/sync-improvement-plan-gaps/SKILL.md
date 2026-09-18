@@ -18,7 +18,9 @@ allowed-tools:
 # Sync Improvement Plan Gaps
 
 An optional base branch override may be passed as `args` (defaults to `develop`; use `main` instead when the current
-branch is a `hotfix/*` branch, per AGENTS.md's Git Workflow).
+branch is a `release/vX.Y.Z` or `hotfix/*` branch, per AGENTS.md's Git Workflow — a release branch's PR still targets
+`develop`, but diffing it against `develop` would only show its own release-prep commits, not everything the release
+actually ships).
 
 This skill is deliberately narrow: it only re-checks gaps `improvement-plan.md` **already tracks**, against what this
 branch actually changed. It never looks for brand-new gaps — that's `update-improvement-plan-gaps`' job, which audits
@@ -31,10 +33,11 @@ Before drafting, run these yourself and read their output:
 
 1. `git branch --show-current`
 2. `git branch --list develop main` (base branch candidates)
-3. Determine the merge base: `git merge-base HEAD <base>` where `<base>` is `args` if supplied, falling back to
-   `develop`, then `main`. If the current branch **is** `develop` or `main` (nothing to diff against itself), fall
-   back to the previous commit reachable from `HEAD` that looks like a release/merge boundary, or ask the user for a
-   comparison point rather than guessing.
+3. Determine the base branch: `args` if supplied; otherwise `main` when the current branch is `release/vX.Y.Z` or
+   `hotfix/*` (per AGENTS.md's Git Workflow), else `develop`. If the current branch **is** `develop` or `main` itself
+   (nothing to diff against itself), fall back to the previous commit reachable from `HEAD` that looks like a
+   release/merge boundary, or ask the user for a comparison point rather than guessing. Otherwise, determine the merge
+   base: `git merge-base HEAD <base>`.
 4. `git --no-pager log --oneline <merge-base>..HEAD` (commits on this branch not yet on the base branch)
 5. `git --no-pager diff <merge-base>..HEAD` (full diff of this branch against its base)
 6. `git status --short` (working tree status — uncommitted changes, if any)

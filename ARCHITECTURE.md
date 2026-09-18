@@ -33,7 +33,7 @@ The application is built using modern web technologies:
 
 ## 📁 Project Structure
 
-The project follows a modular structure, separating shared infrastructure from feature-specific logic.
+The project follows a modular structure, separating common infrastructure from feature-specific logic.
 
 ```text
 ├───.claude             # Claude Code configuration (custom skills)
@@ -44,16 +44,15 @@ The project follows a modular structure, separating shared infrastructure from f
 │   └───assets          # Externalised images (club, content, layout, logos)
 ├───src                 # Main source code
 │   ├───assets          # Internal assets (icons, global stylesheets)
+│   ├───common          # Reusable core infrastructure
+│   │   ├───components  # Common UI components (Captcha, Map, Page, Sidebar, etc.)
+│   │   ├───layouts     # Application layout components (Header, Footer, Body)
+│   │   └───routes      # Routing definitions and configuration
 │   ├───constants       # Global constants
 │   ├───enums           # Domain enums (e.g. email content type)
 │   ├───features        # Domain-specific features (Home, AboutUs, Events, etc.)
 │   ├───helpers         # Logic and routing helpers
-│   ├───models          # TypeScript interfaces and classes
-│   ├───shared          # Reusable core infrastructure
-│   │   ├───components  # Shared UI components (Captcha, Map, Sidebar, etc.)
-│   │   ├───layouts     # Application layout components (Header, Footer, Body)
-│   │   ├───pages       # Base Page wrapper components
-│   │   └───routes      # Routing definitions and configuration
+│   ├───model           # TypeScript interfaces and classes
 │   ├───utils           # Low-level utility functions
 │   ├───vendors         # Third-party library overrides (Bootstrap)
 │   └───main.tsx        # Application entry point

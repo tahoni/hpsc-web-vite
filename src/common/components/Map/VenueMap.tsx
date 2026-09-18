@@ -1,5 +1,5 @@
 import React, { CSSProperties, PropsWithChildren, ReactElement } from "react";
-import { VenueMapLatLngType } from "@/models/venues/VenueType";
+import { VenueMapLatLngType } from "@/model/venues/VenueType";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import { googleMapApiKey, googleMapDefaultTypeId, googleMapDefaultZoom } from "./MapConstants.ts";
 import { generateMapKey } from "@features/Venues/MapUtils.ts";
@@ -10,7 +10,7 @@ import { generateMapKey } from "@features/Venues/MapUtils.ts";
 export interface VenueMapProps {
   mapStyle: CSSProperties;
   mapId?: string;
-  center?: VenueMapLatLngType;
+  centre?: VenueMapLatLngType;
   zoom?: number;
   mapMode?: string;
 }
@@ -34,12 +34,12 @@ const VenueMap = React.memo(
       <div>
         <APIProvider apiKey={googleMapApiKey}>
           <Map
-            mapId={props.mapId ?? generateMapKey(props.center)}
+            mapId={props.mapId ?? generateMapKey(props.centre)}
             style={props.mapStyle}
             mapTypeId={props.mapMode?.toLowerCase() ?? googleMapDefaultTypeId}
             defaultCenter={{
-              lat: props.center?.lat ?? 0,
-              lng: props.center?.lng ?? 0,
+              lat: props.centre?.lat ?? 0,
+              lng: props.centre?.lng ?? 0,
             }}
             defaultZoom={props.zoom ?? googleMapDefaultZoom}
           >

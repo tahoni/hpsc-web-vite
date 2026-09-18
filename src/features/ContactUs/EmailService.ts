@@ -1,5 +1,5 @@
-import { EmailMessage } from "@models/email/EmailMessage.ts";
-import { Email } from "@/models/email/Email";
+import { EmailMessage } from "@model/email/EmailMessage.ts";
+import { Email } from "@/model/email/Email";
 import { contactUsEmail, noReplyEmail } from "@/constants/about/clubConstants";
 
 /**

@@ -3,7 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";
-import { VenueType } from "@/models/venues/VenueType";
+import { VenueType } from "@/model/venues/VenueType";
 import { SimpleVenueMap } from "@components/Map";
 import { copyrightYear } from "@/constants/commonConstants.ts";
 import {
@@ -33,7 +33,7 @@ export const FooterContent = React.memo((): ReactElement => {
             <SimpleVenueMap
               mapStyle={mapStyle}
               mapId={footerMapId}
-              center={footerMapPins[0].center ?? footerMapPins[0].latLng}
+              centre={footerMapPins[0].center ?? footerMapPins[0].latLng}
               venues={footerMapPins}
             />
           )}

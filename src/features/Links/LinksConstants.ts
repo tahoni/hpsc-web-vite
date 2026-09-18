@@ -2,7 +2,7 @@ import { defaultImageExtension, defaultImagePath, logoAlt } from "@/constants/co
 
 /**
  * @packageDocumentation
- * Constants related to external links and partner organizations.
+ * Constants related to external links and partner organisations.
  * Contains website URLs, logo paths, alternate text descriptions,
  * and other metadata for linked resources.
  */

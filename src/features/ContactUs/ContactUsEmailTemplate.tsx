@@ -1,7 +1,7 @@
 import {Heading, Html, Img, Section} from "@react-email/components";
 import {clubLogoAlt} from "@/constants/about/clubConstants";
 import {ReactElement} from "react";
-import {EmailMessage} from "@/models/email/EmailMessage.ts";
+import {EmailMessage} from "@/model/email/EmailMessage.ts";
 
 /**
  * Represents the properties required for the Contact Us email template.

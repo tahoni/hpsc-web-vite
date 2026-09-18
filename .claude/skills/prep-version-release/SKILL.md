@@ -45,6 +45,10 @@ Steps:
 
 1. **Confirm the diff against `main`** (gathered above) covers everything that changed for this release — re-run
    `git log main..HEAD` / `git diff --stat main...HEAD` yourself if the branch has moved on since this skill started.
+   While reviewing it, verify every `src/features/<Feature>/` change has a matching `dateUpdated` bump in
+   `src/common/routes/BaseRoutes.ts` (per AGENTS.md's Git Workflow Conventions — remember `coreHomeRoute`'s special
+   case: a `src/features/History/` change bumps it too, not just `coreHistoryRoute`'s); fix any missed and
+   regenerate `public/sitemap.xml` via `npm run sitemap` before continuing.
 2. **Run the `update-improvement-plan-gaps` skill, then the `sync-improvement-plan-gaps` skill, in that order.** The
    first does a full codebase sweep for brand-new gaps against `documentation/roadmap/improvement-plan.md`/
    `improvement-plan-tasks.md`; the second then checks whether this branch's own diff has closed or progressed any of
@@ -53,13 +57,14 @@ Steps:
    This satisfies AGENTS.md's Release Checklist step of checking the roadmap docs before starting version-specific
    work.
 3. **Bump `package.json`.** If its `version` field doesn't already equal `$VERSION`, update it now.
-4. **Run the `sync-unreleased-changes` skill before touching CHANGELOG.md.** Release branches are cut from `develop`
-   (per AGENTS.md's Branching Model), so invoke it with its default base (`develop`) — never skip this even if
-   `[Unreleased]` looks complete: it cross-checks every commit and any uncommitted diff against the actual
-   `[Unreleased]` entries, fills in anything missing, flags drifted entries and consolidates duplicate `##### <Area>`
-   sub-headers. The next step renames `[Unreleased]` wholesale, so it must be fully accurate first. If it flags any
-   entries as drifted, resolve those with the user before continuing — don't fold a flagged entry into the new version
-   section unresolved.
+4. **Run the `sync-unreleased-changes` skill before touching CHANGELOG.md.** On a `release/vX.Y.Z` branch it
+   auto-detects and diffs against `main` (per AGENTS.md's Git Workflow — the branch's PR still targets `develop`, but
+   `develop` alone would only show its own release-prep commits, not everything the release ships), so just invoke it
+   with no override. Never skip this even if `[Unreleased]` looks complete: it cross-checks every commit and any
+   uncommitted diff against the actual `[Unreleased]` entries, fills in anything missing, flags drifted entries and
+   consolidates duplicate `##### <Area>` sub-headers. The next step renames `[Unreleased]` wholesale, so it must be
+   fully accurate first. If it flags any entries as drifted, resolve those with the user before continuing — don't
+   fold a flagged entry into the new version section unresolved.
 5. **Promote `### 🧪 [Unreleased]` to a dated version entry.** Rename it `### 🧾 [$VERSION] - YYYY-MM-DD` (its
    entries now synced in the previous step), keeping only the categories that apply (`➕ Added`, `🔄 Changed`,
    `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security`) and their `##### <Area>` subheadings. Update the Table of

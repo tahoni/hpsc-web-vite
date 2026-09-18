@@ -17,7 +17,9 @@ allowed-tools:
 # Sync Unreleased Changes
 
 An optional base branch override may be passed as `args` (defaults to `develop`; use `main` instead when the current
-branch is a `hotfix/*` branch, per AGENTS.md's Git Workflow).
+branch is a `release/vX.Y.Z` or `hotfix/*` branch, per AGENTS.md's Git Workflow — a release branch's PR still targets
+`develop`, but diffing it against `develop` would only show its own release-prep commits, not everything the release
+actually ships).
 
 ## 🔍 Gather current state
 
@@ -25,8 +27,8 @@ Before drafting, run these yourself and read their output:
 
 1. `git branch --show-current`
 2. `git branch --list develop main` (base branch candidates)
-3. Determine the merge base: `git merge-base HEAD <base>` where `<base>` is `args` if supplied, falling back to
-   `develop`, then `main`
+3. Determine the base branch: `args` if supplied; otherwise `main` when the current branch is `release/vX.Y.Z` or
+   `hotfix/*`, else `develop`. Then determine the merge base: `git merge-base HEAD <base>`
 4. `git --no-pager log --oneline <merge-base>..HEAD` (commits on this branch not yet on the base branch)
 5. `git --no-pager diff <merge-base>..HEAD` (full diff of this branch against its base)
 6. `git status --short` (working tree status — uncommitted changes, if any)

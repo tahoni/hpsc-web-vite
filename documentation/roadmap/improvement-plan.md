@@ -52,11 +52,13 @@ Gaps are grouped by completion status — ✅ Completed, 🟡 Partially Complete
 across the whole document; a number is assigned once and never reused or resequenced, so it stays a gap's stable
 identifier even after it moves between sections as its status changes (e.g. Open → Partially Completed → Completed).
 Within each section, gaps stay in ascending number order. Gap #14 was newly identified after the `5.2.0` release
-branch was originally prepared — see its Evidence below.
+branch was originally prepared — see its Evidence below. Gaps #16 and #17 were identified after `5.2.0` shipped —
+#16 by the `src/models`/`src/shared` rename that followed it, #17 a pre-existing defect only now surfaced by this
+audit — see their Evidence below.
 
 ### 📋 At a Glance
 
-- **✅ Completed (14):**
+- **✅ Completed (16):**
   - #1 No automatic lint/build/test gate on pull requests
   - #2 Two concrete route-metadata defects
   - #3 Zero test coverage despite a configured test runner
@@ -70,10 +72,12 @@ branch was originally prepared — see its Evidence below.
   - #11 258 pre-existing `tsdoc/syntax` lint warnings
   - #12 `/contact` and `/venues` were indexed and rewrite-whitelisted but never actually routed
   - #13 `CONTRIBUTING.md`'s CI/CD and Testing sections described a pre-Gap-#1/#3 state
+  - #14 An unresolved `TODO: missing imports` comment in `_forms.scss` named unexplained styling work
   - #15 `RoutesSitemap.test.ts` failed without `VITE_SITE_URL` set, and `build.yml`'s Test step never set it
+  - #16 `CONTRIBUTING.md`'s "Architecture at a Glance" section described the pre-rename `src/shared/` structure
 - **🟡 Partially Completed (0):** none currently.
 - **⚪ Open (1):**
-  - #14 An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
+  - #17 `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything
 
 ### ✅ Completed
 
@@ -122,8 +126,8 @@ predates the Events route entirely.
 feature isn't ready to ship. Fix the inverted Contact Us dates. Regenerate `../../public/sitemap.xml` via
 `npm run sitemap` once both are fixed.
 
-**Outcome:** In `5.2.0`, `coreNewsRoute` (dated `2026-09-05`) was added to `../../src/shared/routes/BaseRoutes.ts`'s
-`coreRoutes` and wired all the way through: `../../src/shared/routes/RouteAliases.tsx` now `React.lazy`-loads
+**Outcome:** In `5.2.0`, `coreNewsRoute` (dated `2026-09-05`) was added to `../../src/common/routes/BaseRoutes.ts`'s
+`coreRoutes` and wired all the way through: `../../src/common/routes/RouteAliases.tsx` now `React.lazy`-loads
 `NewsPage` (matching every other feature page, instead of the static import it started with) and exports a `news`
 mapping, `../../src/helpers/routeHelpers.tsx`'s `routes` array includes `{ mapping: news }` so `/news` is actually
 reachable rather than merely defined, and `../../public/.htaccess`'s rewrite whitelist gained a `/news` condition so
@@ -167,7 +171,7 @@ Overview) — an unhandled render error is currently invisible to both the visit
 **Proposed improvement:** Add a top-level React error boundary around the route tree with a friendly fallback; evaluate
 lightweight client-side logging alongside it once the boundary exists.
 
-**Outcome:** In `5.2.0`, `../../src/shared/layouts/ErrorBoundary/ErrorBoundary.tsx` was added — a class component
+**Outcome:** In `5.2.0`, `../../src/common/layouts/ErrorBoundary/ErrorBoundary.tsx` was added — a class component
 (error boundaries can't yet be written as hooks) wrapping `../../src/App.tsx`'s `<Suspense>`/`<AppRoutes />` tree,
 rendering a friendly, dependency-free fallback (a reload button and a plain link home, deliberately not composed
 from anything that could itself be part of what broke) instead of a blank page. Verified with a unit test
@@ -198,8 +202,8 @@ native (mostly `"error"`) severity — the codebase was already clean against it
 [`../../documentation/recommendations/project-accessibility-checklist.md`](../../documentation/recommendations/project-accessibility-checklist.md),
 the manual WCAG AA baseline covering what static analysis can't (contrast, heading structure, focus order, link
 purpose), linked from `../../AGENTS.md` and `../../CONTRIBUTING.md`'s Pull Request Checklist. `PageMapping` gained an
-optional `description` field, populated for every route in `../../src/shared/routes/BaseRoutes.ts`;
-`../../src/shared/pages/Page.tsx` now sets `document.title`, `<meta name="description">` and
+optional `description` field, populated for every route in `../../src/common/routes/BaseRoutes.ts`;
+`../../src/common/components/Page/Page.tsx` now sets `document.title`, `<meta name="description">` and
 `<link rel="canonical">` per route instead of every page sharing `../../index.html`'s one static set of tags —
 verified with a unit test and, live, by checking four different routes in a running `npm run dev` session all
 resolved distinct title/description/canonical values. `../../public/robots.txt`/`../../public/sitemap.xml` were
@@ -373,7 +377,7 @@ regression is caught immediately rather than silently re-accumulating.
 (`../../src/vite-env.d.ts`, the memoised feature page/content components and other constants files), `@interface`/
 `@property` (`ContactUsSchema.ts`'s exported fields/widgets/schema constants, `ContactUsEmailTemplateProps` and
 `VenueMapProps`) and `@prop` (`ContactUsFormData.ts`) tags were all removed, and the non-standard `@return` tag was
-corrected to `@returns` in `../../src/models/email/EmailMessage.ts` and `../../src/App.tsx`. Most significantly for
+corrected to `@returns` in `../../src/model/email/EmailMessage.ts` and `../../src/App.tsx`. Most significantly for
 this gap's own Proposed improvement, the `{type}` annotation was stripped from every `@param`/`@returns` tag — the
 exact `@param {type} name` → `@param name` conversion this gap called for — across 23 files (the feature page
 components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`, `MapUtils.ts`, `VenuesContent.tsx`, and the
@@ -381,7 +385,7 @@ shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components); a `{@link R
 tag introduced mid-cleanup on two `@returns` lines was itself removed in the same pass rather than left behind.
 A final trio of stragglers was then also cleaned up: `../../src/features/Venues/MapUtils.ts`'s `@param [venue]`/
 `@param [center]` (JSDoc-style optional-name brackets) both became plain `@param venue`/`@param center`, and
-`../../src/shared/components/Video/YouTubeVideo.tsx`'s `@param props.url` (a dotted identifier TSDoc's parser
+`../../src/common/components/Video/YouTubeVideo.tsx`'s `@param props.url` (a dotted identifier TSDoc's parser
 rejects) and the stray `@*/` immediately below it (a corrupted closing-comment marker, not a real tag) were removed.
 `npm run lint` now reports **zero** `tsdoc/syntax` warnings, down from 258, and its summary line reads "26 problems
 (0 errors, 26 warnings)", down from 284 — the remaining 26 are pre-existing `no-unused-vars`/`react-refresh`
@@ -397,12 +401,12 @@ per Gap #1's CI gate, the PR check itself, instead of silently accumulating as a
 #### 12. `/contact` and `/venues` are indexed and rewrite-whitelisted but never actually reach the app's route table — ✅ Closed in v5.2.0
 
 **Evidence:** `../../src/helpers/routeHelpers.tsx`'s exported `routes` array — the sole array
-`../../src/shared/routes/AppRoutes.tsx` iterates to render `<Route>` elements, with no catch-all (`"*"`) route as a
+`../../src/common/routes/AppRoutes.tsx` iterates to render `<Route>` elements, with no catch-all (`"*"`) route as a
 fallback — has `{ mapping: contactUs }`/`{ path: "/contact_us", mapping: contactUs }` and `{ mapping: venues }`
 commented out; both predate this release branch (the `venues` line was already commented when `routeHelpers.tsx` was
 first added, at `6f37700`). `../../src/helpers/menuHelpers.tsx`'s `menuItems` array comments out the same two.
 Neither `ContactUsPage` nor `VenuesPage` is rendered anywhere else in `../../src` —
-`../../src/shared/layouts/Footer/FooterContent.tsx` embeds only a `SimpleVenueMap`, not the full `VenuesPage`, and
+`../../src/common/layouts/Footer/FooterContent.tsx` embeds only a `SimpleVenueMap`, not the full `VenuesPage`, and
 nothing renders `ContactUsPage`. Yet `../../public/sitemap.xml` — regenerated as part of Gap #2's `5.2.0` closure —
 lists both `https://www.hpsc.co.za/contact` and `https://www.hpsc.co.za/venues` as real, indexable URLs, and
 `../../public/.htaccess`'s rewrite whitelist (lines 17–19) treats `venues`, `contact`/`contact_us` and `news`
@@ -420,7 +424,7 @@ Gap #2 already fixed for `News` (a fully built `PageMapping`/`React.lazy` compon
 `/contact_us` alias) in `../../src/helpers/routeHelpers.tsx`'s `routes` array and `../../src/helpers/menuHelpers.tsx`'s
 `menuItems` array, matching how `news` was wired in Gap #2 — or, if either page is deliberately not ready to ship,
 remove it from `../../public/sitemap.xml`/`../../public/.htaccess`'s whitelist and
-`../../src/shared/routes/BaseRoutes.ts`'s `coreRoutes` instead, so the site stops advertising a page it doesn't serve.
+`../../src/common/routes/BaseRoutes.ts`'s `coreRoutes` instead, so the site stops advertising a page it doesn't serve.
 
 **Outcome:** In `5.2.0`, `{ mapping: contactUs }`/`{ path: "/contact_us", mapping: contactUs }` and
 `{ mapping: venues }` were uncommented in `../../src/helpers/routeHelpers.tsx`'s `routes` array, so both pages are
@@ -462,6 +466,34 @@ lint/build/test/audit gate instead of claiming no CI workflow exists, and its "�
 coverage exists and is growing instead of claiming no test files exist — both now consistent with the file's own
 Pull Request Checklist, which already described the CI gate correctly.
 
+#### 14. An unresolved `TODO: missing imports` comment in `_forms.scss` named unexplained styling work — ✅ Closed in
+v5.2.1
+
+**Evidence:** `../../src/assets/styles/_forms.scss:13` reads `/* TODO: missing imports */`, added on its own by the
+"Add TODO for missing imports in `_forms.scss`" commit on this release branch, with no accompanying code change or
+explanation of which imports it means. The stylesheet currently only `@use`s `@bootstrap/styles/index` (for
+Bootstrap's forwarded variables — `$danger`, `$focus-ring-color`, `$focus-ring-opacity`, `$white`) and `theme` (for
+two `hpsc-theme.$btn-info-*` tokens); it never `@use`s `../../src/assets/styles/_colors.scss` directly, despite that
+file's own header docblock (added closing Gap #6) documenting exactly that pattern — `@use "@styles/_colors.scss" as
+hpsc-colors;` — as the project's established convention for referencing the club's palette tokens.
+
+**Why it matters:** An unexplained TODO with no tracked follow-up risks silently rotting in the codebase — precisely
+the "stated-but-unbuilt goal" category this plan exists to catch, matching how Gaps #1–#13 originated. Left alone,
+this comment gives a future contributor no way to tell whether it's actionable, already resolved, or safe to delete.
+
+**Proposed improvement:** Determine what "missing imports" refers to — most likely a missing
+`@use "@styles/_colors.scss" as hpsc-colors;` for direct palette-token usage, matching the convention Gap #6's
+outcome established — and either add the import(s) and update the relevant variable references to use it, or remove
+the TODO if the imports already in place are sufficient.
+
+**Outcome:** In `5.2.1`, the TODO comment was removed: neither `_forms.scss` nor any variable it references needed
+`_colors.scss`'s tokens directly — every variable it uses already resolved through its existing `@use`s. In the same
+release, `_forms.scss` also switched its `@bootstrap/styles/index` import from a wildcard `as *` to an explicit
+`bootstrap` namespace (prefixing `$primary`/`$focus-ring-color`/`$focus-ring-opacity`/`$danger`/`$danger-bg-subtle`/
+`$white` accordingly), resolving the IDE's "resolved only by name without use of explicit imports" warnings on those
+variables — a further, unprompted tightening of exactly the import clarity this gap's TODO had originally flagged
+as missing. `npm run build` confirmed compiled CSS is unaffected by either change.
+
 #### 15. `builders/RoutesSitemap.test.ts` fails outside a shell that already has `VITE_SITE_URL` set, and `build.yml`'s
 CI "Test" step never sets it — ✅ Closed in v5.2.0
 
@@ -502,26 +534,60 @@ CI had actually been red.
 
 *No gaps are currently partially completed.*
 
+#### 16. `CONTRIBUTING.md`'s "Architecture at a Glance" section described the pre-rename `src/shared/` structure —
+✅ Closed in v5.2.1
+
+**Evidence:** The `src/models`/`src/shared` → `src/model`/`src/common` rename (with `Page` moved from
+`common/pages/` into `common/components/Page/`) updated `../../AGENTS.md` and `../../ARCHITECTURE.md` throughout, but
+missed `../../CONTRIBUTING.md`'s own "🏛️ Architecture at a Glance" section, which still reads "The application is
+organised by feature, with shared infrastructure centralised under `src/shared/`" and diagrams
+"Shared components / layouts" — a directory that no longer exists in `../../src`. A repo-wide grep for
+`src/shared`/`src/models`/`@shared`/`@models`/`@pages` across every evergreen doc (`README.md`, `UI.md`,
+`ARCHITECTURE.md`, `AGENTS.md`, `CLAUDE.md`) turned up no other survivors — `CONTRIBUTING.md` is the only one left.
+
+**Why it matters:** `../../CONTRIBUTING.md` is the first document a new contributor reads before opening a PR; this
+section now contradicts both `../../AGENTS.md`'s and `../../ARCHITECTURE.md`'s matching sections (already corrected
+by the same rename) and the actual source tree, exactly the doc-vs-doc/doc-vs-code drift category this plan exists
+to catch.
+
+**Proposed improvement:** Update `../../CONTRIBUTING.md`'s "🏛️ Architecture at a Glance" section to say
+`src/common/` and "Common components / layouts", matching the wording `../../AGENTS.md`'s Architecture Overview now
+uses.
+
+**Outcome:** In `5.2.1`, `../../CONTRIBUTING.md`'s "🏛️ Architecture at a Glance" section now reads "common
+infrastructure centralised under `src/common/`" and diagrams "Common components / layouts", matching
+`../../AGENTS.md`'s Architecture Overview and the actual source tree. A follow-up pass, prompted by this gap's own
+closure, also found `../../AGENTS.md`'s Git Workflow Conventions had gained a new `BaseRoutes.ts`-`dateUpdated` rule
+that `../../CONTRIBUTING.md` hadn't yet mirrored; that was added to `../../CONTRIBUTING.md`'s Git Workflow bullets
+and Pull Request Checklist in the same release, matching how its `CHANGELOG.md` counterpart rule is already mirrored
+there.
+
 ### ⚪ Open
 
-#### 14. An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
+#### 17. `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything
 
-**Evidence:** `../../src/assets/styles/_forms.scss:13` reads `/* TODO: missing imports */`, added on its own by the
-"Add TODO for missing imports in `_forms.scss`" commit on this release branch, with no accompanying code change or
-explanation of which imports it means. The stylesheet currently only `@use`s `@bootstrap/styles/index` (for
-Bootstrap's forwarded variables — `$danger`, `$focus-ring-color`, `$focus-ring-opacity`, `$white`) and `theme` (for
-two `hpsc-theme.$btn-info-*` tokens); it never `@use`s `../../src/assets/styles/_colors.scss` directly, despite that
-file's own header docblock (added closing Gap #6) documenting exactly that pattern — `@use "@styles/_colors.scss" as
-hpsc-colors;` — as the project's established convention for referencing the club's palette tokens.
+**Evidence:** `../../src/features/ContactUs/EmailService.ts:10-19`'s `sendEmail()` is annotated `// TODO: call
+back-end`; it constructs a `new Email({...})` instance and immediately discards it, unconditionally
+`return`ing `true` with no network call, no third-party SDK and no dependency capable of actually transmitting an
+email (`../../package.json` has `@react-email/components`/`react-email`, used only to render the HTML template
+`ContactUsEmailTemplate.tsx` — nothing that sends it). `../../src/features/ContactUs/ContactUsForm.tsx:206-217` awaits
+this stub and, on its hard-coded `true`, shows the visitor an "E-mail sent successfully" `Swal` confirmation and
+resets the form — indistinguishable, from the visitor's side, from a real send. `ContactUsForm.tsx`'s own docblock
+(lines 26-27, 39) already describes `EmailService` as handling "email generation and sending", matching the stub's
+apparent-but-false behaviour rather than flagging it as incomplete.
 
-**Why it matters:** An unexplained TODO with no tracked follow-up risks silently rotting in the codebase — precisely
-the "stated-but-unbuilt goal" category this plan exists to catch, matching how Gaps #1–#13 originated. Left alone,
-this comment gives a future contributor no way to tell whether it's actionable, already resolved, or safe to delete.
+**Why it matters:** `../../AGENTS.md`'s Project Overview states "contact-form email delivery... [is a] server-side
+dependenc[y]... handled by third-party services called directly from the client" — directly contradicted by the
+actual implementation, unlike reCAPTCHA (`../../src/common/components/Captcha/SimpleCaptcha.tsx`'s real
+`GoogleReCaptcha` integration), which genuinely is called directly from the client. Every real Contact Us submission
+today is silently dropped while the visitor is told it succeeded — the single form this content-driven,
+backend-less site relies on for visitor-to-club communication does not actually work.
 
-**Proposed improvement:** Determine what "missing imports" refers to — most likely a missing
-`@use "@styles/_colors.scss" as hpsc-colors;` for direct palette-token usage, matching the convention Gap #6's
-outcome established — and either add the import(s) and update the relevant variable references to use it, or remove
-the TODO if the imports already in place are sufficient.
+**Proposed improvement:** Either wire `sendEmail()` to a real third-party email-delivery service (matching the
+"called directly from the client" architecture `../../AGENTS.md` already documents — e.g. an EmailJS-style client SDK
+or a serverless email API) and surface delivery failures distinctly from validation failures, or, if that integration
+is deliberately not yet built, correct `../../AGENTS.md`'s Project Overview and `ContactUsForm.tsx`'s docblock to
+stop describing it as a working dependency until it is.
 
 ---
 
@@ -529,7 +595,7 @@ the TODO if the imports already in place are sufficient.
 
 | Phase       | Focus                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Resolve or remove the `_forms.scss` `TODO: missing imports` comment (#14)                                                                      |
+| **Now**     | Make Contact Us actually deliver e-mail, or stop documenting it as a working dependency (#17)                                                  |
 | **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
@@ -555,7 +621,13 @@ the TODO if the imports already in place are sufficient.
 - `../../CONTRIBUTING.md`'s "🔬 CI/CD & Quality Gates" and "🧪 Testing" sections describe the CI gate and initial
   test coverage `5.2.0` actually shipped, instead of the pre-Gap-#1/#3 state (#13) — ✅ Met in v5.2.0.
 - `_forms.scss`'s `TODO: missing imports` comment is either resolved (the missing `@use` added and referenced) or
-  removed as unnecessary, so it no longer names unexplained work (#14).
+  removed as unnecessary, so it no longer names unexplained work (#14) — ✅ Met in v5.2.1.
+- `../../CONTRIBUTING.md`'s "Architecture at a Glance" section describes `src/common/`, matching
+  `../../AGENTS.md`/`../../ARCHITECTURE.md` and the actual source tree, instead of the pre-rename `src/shared/`
+  (#16) — ✅ Met in v5.2.1.
+- Submitting the Contact Us form either genuinely delivers an e-mail via a real third-party service, or
+  `../../AGENTS.md`'s Project Overview and `ContactUsForm.tsx`'s docblock stop describing e-mail delivery as a
+  working dependency (#17).
 - `npm run test:run` passes from a clean checkout with no ambient `VITE_SITE_URL`, in CI and locally, so `build.yml`'s
   Test step is a genuine gate rather than a step that fails regardless of the diff under review
   (#15) — ✅ Met in v5.2.0.

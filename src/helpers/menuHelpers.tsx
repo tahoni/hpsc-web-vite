@@ -3,7 +3,7 @@
  * Defines the structure and content of the main navigation menu items.
  */
 
-import { PageMapping } from "@/models/pages/PageMapping.ts";
+import { PageMapping } from "@/model/pages/PageMapping.ts";
 import {
   aboutUs,
   events,
@@ -11,7 +11,7 @@ import {
   home,
   links,
   members,
-} from "@shared/routes/RouteAliases.tsx";
+} from "@common/routes/RouteAliases.tsx";
 
 /**
  * Represents an array of page mappings used to define navigation menu items.

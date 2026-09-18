@@ -1,4 +1,4 @@
-import { VenueMapLatLngType } from "@/models/venues/VenueType.ts";
+import { VenueMapLatLngType } from "@/model/venues/VenueType.ts";
 
 /**
  * Represents a venue with detailed location and administrative information.

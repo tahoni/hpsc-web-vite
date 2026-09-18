@@ -24,6 +24,25 @@ the legacy Version 3.x line that predates it.
 
 ## 📅 Historical Timeline
 
+### Version 5.2.1 (September 18, 2026)
+
+**Theme:** Directory Consistency & Roadmap Follow-Through
+
+**Key Focus:**
+
+- Renamed `src/models/` to `src/model/` and `src/shared/` to `src/common/` for consistent singular directory naming,
+  moving `Page` into `common/components/Page/` and removing the now-unused `@pages` alias
+- Closed the two gaps the rename left behind: `CONTRIBUTING.md`'s "Architecture at a Glance" section, missed by the
+  rename itself (#16), and `_forms.scss`'s unexplained `TODO: missing imports` comment (#14), whose existing imports
+  turned out to be sufficient
+- Re-derived `BaseRoutes.ts`'s route metadata from each feature's actual git history: corrected four routes'
+  `dateCreated` from wiring dates to genuine creation dates, refreshed every `dateUpdated`, and regenerated
+  `public/sitemap.xml`, fixing a `/venues` entry that was missing its `<lastmod>` tag entirely
+- Codified two new `AGENTS.md` Git Workflow Conventions this release's own prep work needed: a `release/vX.Y.Z`
+  branch must be diffed against `main`, not `develop`, to see everything it ships, and `BaseRoutes.ts`'s
+  `dateUpdated` must move with any `src/features/<Feature>/` change — both now enforced by this project's Claude
+  Code skills and mirrored into `CONTRIBUTING.md`
+
 ### Version 5.2.0 (September 13, 2026)
 
 **Theme:** Quality Gate Foundations: CI, Testing, Accessibility & SEO
