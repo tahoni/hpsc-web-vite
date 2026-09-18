@@ -12,6 +12,7 @@
 
 - **Directory rename:** `src/models` → `src/model`, `src/shared` → `src/common`, `Page` moved into
   `common/components/Page/`; `@model`/`@common` path aliases updated, `@pages` removed
+- **Components:** `VenueMapProps`'s `center` prop renamed to `centre`, updating every caller
 - **Documentation:** `CONTRIBUTING.md`'s Architecture at a Glance section corrected; two new Git Workflow
   Conventions documented in `AGENTS.md` and mirrored into `CONTRIBUTING.md` (release branches diff against `main`;
   `BaseRoutes.ts`'s `dateUpdated` moves with feature changes)

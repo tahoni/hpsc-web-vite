@@ -68,6 +68,9 @@ actually ships, and `BaseRoutes.ts`'s `dateUpdated` must move in the same change
 - Moved `Page` and its barrel `index.ts` from `common/pages/` to `common/components/Page/`, alongside the project's
   other single-component folders; removed the now-unused `@pages` alias and updated `RouteAliases.tsx` to import it
   via `@components/Page`
+- Renamed `VenueMapProps`'s `center` prop to `centre` (`VenueMap.tsx`), updating every caller
+  (`FooterContent.tsx`, `AboutUsContent.tsx`, `WorldShoot2025Content.tsx`) — British English spelling for a
+  component's public prop name; the underlying `Venue`/`venueConstants.ts` model field stays `center`, unchanged
 
 #### Documentation
 
@@ -126,8 +129,8 @@ actually ships, and `BaseRoutes.ts`'s `dateUpdated` must move in the same change
 
 ## 📊 Statistics
 
-- **Total Commits:** 10
-- **Files Changed:** 106 (+319 / −183 lines)
+- **Total Commits:** 15
+- **Files Changed:** 111 (+771 / −532 lines)
 
 ## 🧭 Design Notes
 
@@ -153,6 +156,8 @@ actually ships, and `BaseRoutes.ts`'s `dateUpdated` must move in the same change
   `<lastmod>` entry, including `/venues`
 - Manually confirmed the IDE's "resolved only by name" warnings on `_forms.scss` are cleared, and that
   `_forms.scss`'s compiled CSS is unaffected by both the TODO removal and the namespace change
+- Re-ran `npm run lint`/`npm run build` after the `VenueMapProps`'s `center`→`centre` rename to confirm every caller
+  was updated and the change compiles cleanly
 
 ## 🐛 Known Issues
 

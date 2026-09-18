@@ -49,12 +49,6 @@ notes.
 
 #### 🔄 Changed
 
-##### Components
-
-- Renamed `VenueMapProps`'s `center` prop to `centre` (`VenueMap.tsx`), updating every caller
-  (`FooterContent.tsx`, `AboutUsContent.tsx`, `WorldShoot2025Content.tsx`) — British English spelling for a
-  component's public prop name; the underlying `Venue`/`venueConstants.ts` model field stays `center`, unchanged
-
 #### 🐛 Fixed
 
 #### ⚠️ Deprecated
@@ -77,6 +71,9 @@ notes.
 - Moved `Page` and its barrel `index.ts` from `common/pages/` to `common/components/Page/`, alongside the project's
   other single-component folders; removed the now-unused `@pages` alias and updated `RouteAliases.tsx` to import it
   via `@components/Page`
+- Renamed `VenueMapProps`'s `center` prop to `centre` (`VenueMap.tsx`), updating every caller
+  (`FooterContent.tsx`, `AboutUsContent.tsx`, `WorldShoot2025Content.tsx`) — British English spelling for a
+  component's public prop name; the underlying `Venue`/`venueConstants.ts` model field stays `center`, unchanged
 
 ##### Documentation
 
