@@ -36,7 +36,7 @@ Before drafting, run these yourself and read their output:
 3. Determine the base branch: `args` if supplied; otherwise `main` when the current branch is `release/vX.Y.Z` or
    `hotfix/*` (per AGENTS.md's Git Workflow), else `develop`. If the current branch **is** `develop` or `main` itself
    (nothing to diff against itself), fall back to the previous commit reachable from `HEAD` that looks like a
-   release/merge boundary, or ask the user for a comparison point rather than guessing. Otherwise determine the merge
+   release/merge boundary, or ask the user for a comparison point rather than guessing. Otherwise, determine the merge
    base: `git merge-base HEAD <base>`.
 4. `git --no-pager log --oneline <merge-base>..HEAD` (commits on this branch not yet on the base branch)
 5. `git --no-pager diff <merge-base>..HEAD` (full diff of this branch against its base)
