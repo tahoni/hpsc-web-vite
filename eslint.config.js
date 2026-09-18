@@ -46,11 +46,22 @@ export default [
       ...jsxA11y.configs.recommended.rules,
       // Keep export stability for React Fast Refresh in dev
       "react-refresh/only-export-components": [
-        "warn",
+        "error",
         { allowConstantExport: true },
       ],
-      "no-unused-vars": "warn",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error",
       "tsdoc/syntax": "error",
+    },
+  },
+  {
+    // RouteAliases.tsx deliberately exports PageMapping data (not components) alongside
+    // React.lazy-loaded page components, per ARCHITECTURE.md's Data-Driven Routing design —
+    // Fast Refresh doesn't apply meaningfully to a routing-config file, so this is a permanent,
+    // by-design exception rather than lint debt to fix.
+    files: ["src/common/routes/RouteAliases.tsx"],
+    rules: {
+      "react-refresh/only-export-components": "off",
     },
   },
 ];

@@ -51,6 +51,19 @@ notes.
 
 #### 🐛 Fixed
 
+##### Build & Tooling
+
+- Fixed `eslint.config.js` using the base `no-unused-vars` rule instead of `@typescript-eslint/no-unused-vars`,
+  which doesn't understand TypeScript enum member usage or type-only function parameters — it was producing 18
+  false-positive warnings (`SanitizedWidgetTypes`, `ShootingRanges`, `EmailType`, `SitemapChangeFrequency`'s enum
+  members, `SimpleCaptchaProps`'s `token` parameter, `vite-env.d.ts`'s `ImportMeta` augmentation), all of which
+  disappear under the TS-aware rule; mirrored the same fix into `.eslintrc.cjs`
+- Escalated `@typescript-eslint/no-unused-vars` and `react-refresh/only-export-components` from `"warn"` to
+  `"error"` in `eslint.config.js`/`.eslintrc.cjs`, now that `npm run lint` reports zero warnings of either rule;
+  added a scoped `react-refresh/only-export-components: "off"` override for `RouteAliases.tsx`, which deliberately
+  exports `PageMapping` data alongside `React.lazy`-loaded components by design (`ARCHITECTURE.md`'s Data-Driven
+  Routing) rather than being lint debt
+
 #### ⚠️ Deprecated
 
 #### 🗑️ Removed
