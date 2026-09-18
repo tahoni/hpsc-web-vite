@@ -77,12 +77,12 @@ tests.
 
 ## 🏛️ Architecture at a Glance
 
-The application is organised by feature, with shared infrastructure centralised under `src/shared/` — see
+The application is organised by feature, with common infrastructure centralised under `src/common/` — see
 [`ARCHITECTURE.md`](ARCHITECTURE.md) for full detail:
 
 ```
 Route (React Router)
-    → Feature page → Feature content → Shared components / layouts
+    → Feature page → Feature content → Common components / layouts
 ```
 
 **Conventions enforced by review, not the compiler:**
