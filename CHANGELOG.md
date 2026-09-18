@@ -68,6 +68,13 @@ notes.
   `src/common/routes/`) with an accurate note that `@routes` is simply redundant with `@common/routes`, and folded
   it into the path-alias table
 
+##### Styling
+
+- `src/assets/styles/_forms.scss` now `@use`s `@bootstrap/styles/index` under an explicit `bootstrap` namespace
+  instead of a wildcard `as *`, and prefixes every Bootstrap variable reference (`$primary`, `$focus-ring-color`,
+  `$focus-ring-opacity`, `$danger`, `$danger-bg-subtle`, `$white`) with it, resolving the IDE's "resolved only by
+  name without use of explicit imports" warnings; compiled CSS is unchanged
+
 #### 🐛 Fixed
 
 #### ⚠️ Deprecated
