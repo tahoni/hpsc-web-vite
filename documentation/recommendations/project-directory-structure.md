@@ -46,10 +46,10 @@ means hunting across three top-level directories for its parts.
 Everything more than one feature depends on lives under `src/common/`, itself split by role rather than dumped into one
 flat `components/`:
 
-| Folder               | Role                                                                                                                                                    |
-|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `common/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata), `RouteAliases.tsx` (lazy component mapping), `AppRoutes.tsx` (renders `Routes`/`Route`)          |
-| `common/layouts/`    | Page chrome every route renders inside: `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints`                                                  |
+| Folder               | Role                                                                                                                                                            |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `common/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata), `RouteAliases.tsx` (lazy component mapping), `AppRoutes.tsx` (renders `Routes`/`Route`)                  |
+| `common/layouts/`    | Page chrome every route renders inside: `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints`                                                          |
 | `common/components/` | Reusable UI with no page-chrome role: `Captcha`, `Map`, `Page` (the base wrapper every feature page composes), `Sidebar`, `Section`, `Text`, `Video`, `Content` |
 
 The generic structure's `components/common/`, `components/layout/` and a separate top-level `pages/` map roughly onto
