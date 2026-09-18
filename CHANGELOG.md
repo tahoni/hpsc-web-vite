@@ -16,7 +16,8 @@ notes.
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.2.0](#-520---2026-09-13) ← Current
+- [🧾 Version 5.2.1](#-521---2026-09-18) ← Current
+- [🧾 Version 5.2.0](#-520---2026-09-13)
 - [🧾 Version 5.1.3](#-513---2026-09-05)
 - [🧾 Version 5.1.2](#-512---2026-09-04)
 - [🧾 Version 5.1.1](#-511---2026-09-04)
@@ -48,6 +49,20 @@ notes.
 
 #### 🔄 Changed
 
+#### 🐛 Fixed
+
+#### ⚠️ Deprecated
+
+#### 🗑️ Removed
+
+#### 🔐 Security
+
+---
+
+### 🧾 [5.2.1] - 2026-09-18
+
+#### 🔄 Changed
+
 ##### Components & Helpers
 
 - Renamed `src/models/` to `src/model/` and `src/shared/` to `src/common/` for consistent singular directory naming,
@@ -67,6 +82,18 @@ notes.
   pointing at a nonexistent `src/routes/` (it had already been fixed in code to resolve to the real
   `src/common/routes/`) with an accurate note that `@routes` is simply redundant with `@common/routes`, and folded
   it into the path-alias table
+- Corrected `CONTRIBUTING.md`'s "Architecture at a Glance" section, missed by the `src/models`/`src/shared` rename
+  above, which still described the old `src/shared/` structure and "Shared components / layouts"
+- Documented in `AGENTS.md`'s Git Workflow Conventions that a `release/vX.Y.Z` branch's diff must be taken against
+  `main`, not `develop`, to see everything it actually ships — its own PR still targets `develop`, but a diff
+  against `develop` only shows the branch's own release-prep commits; `sync-unreleased-changes` and
+  `sync-improvement-plan-gaps` now auto-detect a `release/vX.Y.Z`/`hotfix/*` branch and default to `main`, and
+  `prep-version-release`'s description of invoking `sync-unreleased-changes` was corrected to match
+- Documented in `AGENTS.md`'s Git Workflow Conventions, and mirrored into `CONTRIBUTING.md`'s Git Workflow bullets
+  and Pull Request Checklist, that `BaseRoutes.ts`'s matching `dateUpdated` must move in the same change as a
+  `src/features/<Feature>/` edit (it feeds `public/sitemap.xml`'s `<lastmod>`, including the `coreHomeRoute`/
+  `src/features/History/` special case); `generate-commit-message` now flags a needed bump and
+  `prep-version-release` verifies it while confirming the release branch's diff against `main`
 
 ##### Routing & Sitemap
 
@@ -81,6 +108,8 @@ notes.
 
 ##### Styling
 
+- Removed `_forms.scss`'s unexplained `/* TODO: missing imports */` comment — its existing `@use`s already covered
+  every variable the stylesheet references, so no import was actually missing
 - `src/assets/styles/_forms.scss` now `@use`s `@bootstrap/styles/index` under an explicit `bootstrap` namespace
   instead of a wildcard `as *`, and prefixes every Bootstrap variable reference (`$primary`, `$focus-ring-color`,
   `$focus-ring-opacity`, `$danger`, `$danger-bg-subtle`, `$white`) with it, resolving the IDE's "resolved only by
