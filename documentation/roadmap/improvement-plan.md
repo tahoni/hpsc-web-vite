@@ -52,7 +52,9 @@ Gaps are grouped by completion status — ✅ Completed, 🟡 Partially Complete
 across the whole document; a number is assigned once and never reused or resequenced, so it stays a gap's stable
 identifier even after it moves between sections as its status changes (e.g. Open → Partially Completed → Completed).
 Within each section, gaps stay in ascending number order. Gap #14 was newly identified after the `5.2.0` release
-branch was originally prepared — see its Evidence below.
+branch was originally prepared — see its Evidence below. Gaps #16 and #17 were identified after `5.2.0` shipped —
+#16 by the `src/models`/`src/shared` rename that followed it, #17 a pre-existing defect only now surfaced by this
+audit — see their Evidence below.
 
 ### 📋 At a Glance
 
@@ -72,8 +74,10 @@ branch was originally prepared — see its Evidence below.
   - #13 `CONTRIBUTING.md`'s CI/CD and Testing sections described a pre-Gap-#1/#3 state
   - #15 `RoutesSitemap.test.ts` failed without `VITE_SITE_URL` set, and `build.yml`'s Test step never set it
 - **🟡 Partially Completed (0):** none currently.
-- **⚪ Open (1):**
+- **⚪ Open (3):**
   - #14 An unresolved `TODO: missing imports` comment in `_forms.scss` names unexplained styling work
+  - #16 `CONTRIBUTING.md`'s "Architecture at a Glance" section still describes the pre-rename `src/shared/` structure
+  - #17 `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything
 
 ### ✅ Completed
 
@@ -523,16 +527,60 @@ this comment gives a future contributor no way to tell whether it's actionable, 
 outcome established — and either add the import(s) and update the relevant variable references to use it, or remove
 the TODO if the imports already in place are sufficient.
 
+#### 16. `CONTRIBUTING.md`'s "Architecture at a Glance" section still describes the pre-rename `src/shared/` structure
+
+**Evidence:** The `src/models`/`src/shared` → `src/model`/`src/common` rename (with `Page` moved from
+`common/pages/` into `common/components/Page/`) updated `../../AGENTS.md` and `../../ARCHITECTURE.md` throughout, but
+missed `../../CONTRIBUTING.md`'s own "🏛️ Architecture at a Glance" section, which still reads "The application is
+organised by feature, with shared infrastructure centralised under `src/shared/`" and diagrams
+"Shared components / layouts" — a directory that no longer exists in `../../src`. A repo-wide grep for
+`src/shared`/`src/models`/`@shared`/`@models`/`@pages` across every evergreen doc (`README.md`, `UI.md`,
+`ARCHITECTURE.md`, `AGENTS.md`, `CLAUDE.md`) turned up no other survivors — `CONTRIBUTING.md` is the only one left.
+
+**Why it matters:** `../../CONTRIBUTING.md` is the first document a new contributor reads before opening a PR; this
+section now contradicts both `../../AGENTS.md`'s and `../../ARCHITECTURE.md`'s matching sections (already corrected
+by the same rename) and the actual source tree, exactly the doc-vs-doc/doc-vs-code drift category this plan exists
+to catch.
+
+**Proposed improvement:** Update `../../CONTRIBUTING.md`'s "🏛️ Architecture at a Glance" section to say
+`src/common/` and "Common components / layouts", matching the wording `../../AGENTS.md`'s Architecture Overview now
+uses.
+
+#### 17. `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything
+
+**Evidence:** `../../src/features/ContactUs/EmailService.ts:10-19`'s `sendEmail()` is annotated `// TODO: call
+back-end`; it constructs a `new Email({...})` instance and immediately discards it, unconditionally
+`return`ing `true` with no network call, no third-party SDK and no dependency capable of actually transmitting an
+email (`../../package.json` has `@react-email/components`/`react-email`, used only to render the HTML template
+`ContactUsEmailTemplate.tsx` — nothing that sends it). `../../src/features/ContactUs/ContactUsForm.tsx:206-217` awaits
+this stub and, on its hard-coded `true`, shows the visitor an "E-mail sent successfully" `Swal` confirmation and
+resets the form — indistinguishable, from the visitor's side, from a real send. `ContactUsForm.tsx`'s own docblock
+(lines 26-27, 39) already describes `EmailService` as handling "email generation and sending", matching the stub's
+apparent-but-false behaviour rather than flagging it as incomplete.
+
+**Why it matters:** `../../AGENTS.md`'s Project Overview states "contact-form email delivery... [is a] server-side
+dependenc[y]... handled by third-party services called directly from the client" — directly contradicted by the
+actual implementation, unlike reCAPTCHA (`../../src/common/components/Captcha/SimpleCaptcha.tsx`'s real
+`GoogleReCaptcha` integration), which genuinely is called directly from the client. Every real Contact Us submission
+today is silently dropped while the visitor is told it succeeded — the single form this content-driven,
+backend-less site relies on for visitor-to-club communication does not actually work.
+
+**Proposed improvement:** Either wire `sendEmail()` to a real third-party email-delivery service (matching the
+"called directly from the client" architecture `../../AGENTS.md` already documents — e.g. an EmailJS-style client SDK
+or a serverless email API) and surface delivery failures distinctly from validation failures, or, if that integration
+is deliberately not yet built, correct `../../AGENTS.md`'s Project Overview and `ContactUsForm.tsx`'s docblock to
+stop describing it as a working dependency until it is.
+
 ---
 
 ## 🚀 Roadmap
 
-| Phase       | Focus                                                                                                                                          |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Now**     | Resolve or remove the `_forms.scss` `TODO: missing imports` comment (#14)                                                                      |
-| **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
-| **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
-| **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
+| Phase       | Focus                                                                                                                                           |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Now**     | Make Contact Us actually deliver e-mail, or stop documenting it as a working dependency (#17)                                                   |
+| **Next**    | Resolve or remove the `_forms.scss` `TODO: missing imports` comment (#14); fix `CONTRIBUTING.md`'s stale `src/shared/` architecture blurb (#16) |
+| **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                    |
+| **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented  |
 
 ---
 
@@ -556,6 +604,12 @@ the TODO if the imports already in place are sufficient.
   test coverage `5.2.0` actually shipped, instead of the pre-Gap-#1/#3 state (#13) — ✅ Met in v5.2.0.
 - `_forms.scss`'s `TODO: missing imports` comment is either resolved (the missing `@use` added and referenced) or
   removed as unnecessary, so it no longer names unexplained work (#14).
+- `../../CONTRIBUTING.md`'s "Architecture at a Glance" section describes `src/common/`, matching
+  `../../AGENTS.md`/`../../ARCHITECTURE.md` and the actual source tree, instead of the pre-rename `src/shared/`
+  (#16).
+- Submitting the Contact Us form either genuinely delivers an e-mail via a real third-party service, or
+  `../../AGENTS.md`'s Project Overview and `ContactUsForm.tsx`'s docblock stop describing e-mail delivery as a
+  working dependency (#17).
 - `npm run test:run` passes from a clean checkout with no ambient `VITE_SITE_URL`, in CI and locally, so `build.yml`'s
   Test step is a genuine gate rather than a step that fails regardless of the diff under review
   (#15) — ✅ Met in v5.2.0.
