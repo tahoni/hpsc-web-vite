@@ -34,6 +34,8 @@ Before drafting, run these yourself and read their output:
    ```
 5. Read `CHANGELOG.md`'s current `### 🧪 [Unreleased]` section.
 6. Read `AGENTS.md` in full for conventions.
+7. If the diff (steps 1–3) touches any file under `src/features/<Feature>/`, read
+   `src/common/routes/BaseRoutes.ts`'s current `dateUpdated` value for that route's `PageMapping`.
 
 ## 🚀 Instructions
 
@@ -88,6 +90,12 @@ CHANGELOG entry, flag it to the user and point them at the `sync-unreleased-chan
    AGENTS.md's Documentation Conventions.
 6. **Sanity-check against conventions**: no secrets or credentials referenced, no vague messages such as "fixed stuff"
    or "updates".
+7. **Flag a stale `BaseRoutes.ts` `dateUpdated`**: if step 7 above found the diff touches `src/features/<Feature>/`
+   and that route's `dateUpdated` isn't already bumped to today's date in the diff itself, call this out as a
+   required addition to the commit — per AGENTS.md's Git Workflow Conventions, `dateUpdated` feeds
+   `public/sitemap.xml`'s `<lastmod>` and must move in the same change. Remember `coreHomeRoute`'s special case:
+   a `src/features/History/` change (`HomePage.tsx` renders `HistoryContent` directly) bumps `coreHomeRoute`'s
+   `dateUpdated` too, not just `coreHistoryRoute`'s.
 
 ## 📤 Output
 
@@ -97,7 +105,9 @@ Do **not** run `git add` or `git commit` yourself — this skill only drafts, fo
 2. Any **CHANGELOG.md additions** in a separate fenced code block under the `### 🧪 [Unreleased]` section (the exact
    text to add, so the user can copy it directly into CHANGELOG.md — per AGENTS.md's rule, this update belongs in the
    same commit as the change it documents)
-3. If proposing multiple commits, output one message block and one commit command per commit, in the order they should
+3. Any **`BaseRoutes.ts` `dateUpdated` bump** needed per step 7 above — name the route, its current value and the
+   date to change it to, plus a reminder to regenerate `public/sitemap.xml` via `npm run sitemap` in the same commit
+4. If proposing multiple commits, output one message block and one commit command per commit, in the order they should
    be made, followed by a single consolidated CHANGELOG.md block with all entries
 
 Example output structure:

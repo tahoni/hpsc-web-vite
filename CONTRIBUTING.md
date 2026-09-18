@@ -177,6 +177,8 @@ rationale. In short:
   map marker not rendering on Safari"). This project does not use Conventional Commits prefixes (`feat:`, `fix:`, etc.).
 - Update `CHANGELOG.md` in the same change that makes the change, under `### 🧪 [Unreleased]`, in the matching category
   and `##### <Area>` sub-heading.
+- Update `BaseRoutes.ts`'s `dateUpdated` in the same change that touches a `src/features/<Feature>/` file, and
+  regenerate `public/sitemap.xml` (`npm run sitemap`).
 
 ---
 
@@ -206,6 +208,8 @@ Before opening a pull request, confirm:
   manual WCAG AA baseline (`eslint-plugin-jsx-a11y` only catches part of it).
 - [ ] A `CHANGELOG.md` entry has been added under `### 🧪 [Unreleased]`, in the correct Keep a Changelog category and
   `##### <Area>` sub-heading.
+- [ ] Changed a `src/features/<Feature>/` file? `BaseRoutes.ts`'s matching `dateUpdated` is bumped and
+  `public/sitemap.xml` is regenerated (`npm run sitemap`).
 - [ ] Any affected documentation (`README.md`, `ARCHITECTURE.md`, `UI.md`, `CLAUDE.md`, `AGENTS.md`) has been updated to
   match — see the Reverse sync rule in
   [`AGENTS.md`'s Evergreen Documentation section](AGENTS.md#-evergreen-documentation-readmemd--architecturemd).

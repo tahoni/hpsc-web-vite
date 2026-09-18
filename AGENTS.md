@@ -487,6 +487,13 @@ even then the same fix still lands on `develop` immediately afterwards (see Merg
   matching Keep a Changelog category (`➕ Added`, `🔄 Changed`, `🐛 Fixed`, `⚠️ Deprecated`, `🗑️ Removed`, `🔐 Security`)
   and, within it, the relevant `##### <Area>` sub-heading — as part of the change that makes it, not batched into a
   later, separate change.
+- **Update `BaseRoutes.ts`'s `dateUpdated` in the same change.** When a commit changes files under a
+  `src/features/<Feature>/` directory, bump that route's `PageMapping.dateUpdated` in
+  `src/common/routes/BaseRoutes.ts` to the change's date, and regenerate `public/sitemap.xml` via `npm run sitemap` —
+  `dateUpdated` feeds the sitemap's `<lastmod>` (`builders/RoutesSitemap.ts`), so a stale value misrepresents the
+  page's actual freshness to search engines. `coreHomeRoute` is the one exception to the direct folder mapping:
+  `HomePage.tsx` renders `HistoryContent` directly, so a `src/features/History/` change bumps `coreHomeRoute`'s
+  `dateUpdated` too, not just `coreHistoryRoute`'s.
 - Commit messages are plain, imperative-mood descriptions of the change (e.g. "Refactor email-related models: remove
   `EmailContent`, merge functionality into `EmailMessage`"); this repository does not use a Conventional Commits prefix
   (`feat:`, `fix:`, etc.).
