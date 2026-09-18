@@ -7,7 +7,7 @@
  * and UI elements.
  */
 
-import { PageMapping } from "@/models/pages/PageMapping.ts";
+import { PageMapping } from "@/model/pages/PageMapping.ts";
 
 export const coreHomeRoute: PageMapping = new PageMapping({
   name: "Home",

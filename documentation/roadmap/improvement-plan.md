@@ -122,8 +122,8 @@ predates the Events route entirely.
 feature isn't ready to ship. Fix the inverted Contact Us dates. Regenerate `../../public/sitemap.xml` via
 `npm run sitemap` once both are fixed.
 
-**Outcome:** In `5.2.0`, `coreNewsRoute` (dated `2026-09-05`) was added to `../../src/shared/routes/BaseRoutes.ts`'s
-`coreRoutes` and wired all the way through: `../../src/shared/routes/RouteAliases.tsx` now `React.lazy`-loads
+**Outcome:** In `5.2.0`, `coreNewsRoute` (dated `2026-09-05`) was added to `../../src/common/routes/BaseRoutes.ts`'s
+`coreRoutes` and wired all the way through: `../../src/common/routes/RouteAliases.tsx` now `React.lazy`-loads
 `NewsPage` (matching every other feature page, instead of the static import it started with) and exports a `news`
 mapping, `../../src/helpers/routeHelpers.tsx`'s `routes` array includes `{ mapping: news }` so `/news` is actually
 reachable rather than merely defined, and `../../public/.htaccess`'s rewrite whitelist gained a `/news` condition so
@@ -167,7 +167,7 @@ Overview) — an unhandled render error is currently invisible to both the visit
 **Proposed improvement:** Add a top-level React error boundary around the route tree with a friendly fallback; evaluate
 lightweight client-side logging alongside it once the boundary exists.
 
-**Outcome:** In `5.2.0`, `../../src/shared/layouts/ErrorBoundary/ErrorBoundary.tsx` was added — a class component
+**Outcome:** In `5.2.0`, `../../src/common/layouts/ErrorBoundary/ErrorBoundary.tsx` was added — a class component
 (error boundaries can't yet be written as hooks) wrapping `../../src/App.tsx`'s `<Suspense>`/`<AppRoutes />` tree,
 rendering a friendly, dependency-free fallback (a reload button and a plain link home, deliberately not composed
 from anything that could itself be part of what broke) instead of a blank page. Verified with a unit test
@@ -198,8 +198,8 @@ native (mostly `"error"`) severity — the codebase was already clean against it
 [`../../documentation/recommendations/project-accessibility-checklist.md`](../../documentation/recommendations/project-accessibility-checklist.md),
 the manual WCAG AA baseline covering what static analysis can't (contrast, heading structure, focus order, link
 purpose), linked from `../../AGENTS.md` and `../../CONTRIBUTING.md`'s Pull Request Checklist. `PageMapping` gained an
-optional `description` field, populated for every route in `../../src/shared/routes/BaseRoutes.ts`;
-`../../src/shared/pages/Page.tsx` now sets `document.title`, `<meta name="description">` and
+optional `description` field, populated for every route in `../../src/common/routes/BaseRoutes.ts`;
+`../../src/common/components/Page/Page.tsx` now sets `document.title`, `<meta name="description">` and
 `<link rel="canonical">` per route instead of every page sharing `../../index.html`'s one static set of tags —
 verified with a unit test and, live, by checking four different routes in a running `npm run dev` session all
 resolved distinct title/description/canonical values. `../../public/robots.txt`/`../../public/sitemap.xml` were
@@ -373,7 +373,7 @@ regression is caught immediately rather than silently re-accumulating.
 (`../../src/vite-env.d.ts`, the memoised feature page/content components and other constants files), `@interface`/
 `@property` (`ContactUsSchema.ts`'s exported fields/widgets/schema constants, `ContactUsEmailTemplateProps` and
 `VenueMapProps`) and `@prop` (`ContactUsFormData.ts`) tags were all removed, and the non-standard `@return` tag was
-corrected to `@returns` in `../../src/models/email/EmailMessage.ts` and `../../src/App.tsx`. Most significantly for
+corrected to `@returns` in `../../src/model/email/EmailMessage.ts` and `../../src/App.tsx`. Most significantly for
 this gap's own Proposed improvement, the `{type}` annotation was stripped from every `@param`/`@returns` tag — the
 exact `@param {type} name` → `@param name` conversion this gap called for — across 23 files (the feature page
 components, `ContactUsEmailTemplate.tsx`, `WorldShoot2025Content.tsx`, `MapUtils.ts`, `VenuesContent.tsx`, and the
@@ -381,7 +381,7 @@ shared `Content`/`Map`/`Sidebar`/`Text`/`Title`/`Video` components); a `{@link R
 tag introduced mid-cleanup on two `@returns` lines was itself removed in the same pass rather than left behind.
 A final trio of stragglers was then also cleaned up: `../../src/features/Venues/MapUtils.ts`'s `@param [venue]`/
 `@param [center]` (JSDoc-style optional-name brackets) both became plain `@param venue`/`@param center`, and
-`../../src/shared/components/Video/YouTubeVideo.tsx`'s `@param props.url` (a dotted identifier TSDoc's parser
+`../../src/common/components/Video/YouTubeVideo.tsx`'s `@param props.url` (a dotted identifier TSDoc's parser
 rejects) and the stray `@*/` immediately below it (a corrupted closing-comment marker, not a real tag) were removed.
 `npm run lint` now reports **zero** `tsdoc/syntax` warnings, down from 258, and its summary line reads "26 problems
 (0 errors, 26 warnings)", down from 284 — the remaining 26 are pre-existing `no-unused-vars`/`react-refresh`
@@ -397,12 +397,12 @@ per Gap #1's CI gate, the PR check itself, instead of silently accumulating as a
 #### 12. `/contact` and `/venues` are indexed and rewrite-whitelisted but never actually reach the app's route table — ✅ Closed in v5.2.0
 
 **Evidence:** `../../src/helpers/routeHelpers.tsx`'s exported `routes` array — the sole array
-`../../src/shared/routes/AppRoutes.tsx` iterates to render `<Route>` elements, with no catch-all (`"*"`) route as a
+`../../src/common/routes/AppRoutes.tsx` iterates to render `<Route>` elements, with no catch-all (`"*"`) route as a
 fallback — has `{ mapping: contactUs }`/`{ path: "/contact_us", mapping: contactUs }` and `{ mapping: venues }`
 commented out; both predate this release branch (the `venues` line was already commented when `routeHelpers.tsx` was
 first added, at `6f37700`). `../../src/helpers/menuHelpers.tsx`'s `menuItems` array comments out the same two.
 Neither `ContactUsPage` nor `VenuesPage` is rendered anywhere else in `../../src` —
-`../../src/shared/layouts/Footer/FooterContent.tsx` embeds only a `SimpleVenueMap`, not the full `VenuesPage`, and
+`../../src/common/layouts/Footer/FooterContent.tsx` embeds only a `SimpleVenueMap`, not the full `VenuesPage`, and
 nothing renders `ContactUsPage`. Yet `../../public/sitemap.xml` — regenerated as part of Gap #2's `5.2.0` closure —
 lists both `https://www.hpsc.co.za/contact` and `https://www.hpsc.co.za/venues` as real, indexable URLs, and
 `../../public/.htaccess`'s rewrite whitelist (lines 17–19) treats `venues`, `contact`/`contact_us` and `news`
@@ -420,7 +420,7 @@ Gap #2 already fixed for `News` (a fully built `PageMapping`/`React.lazy` compon
 `/contact_us` alias) in `../../src/helpers/routeHelpers.tsx`'s `routes` array and `../../src/helpers/menuHelpers.tsx`'s
 `menuItems` array, matching how `news` was wired in Gap #2 — or, if either page is deliberately not ready to ship,
 remove it from `../../public/sitemap.xml`/`../../public/.htaccess`'s whitelist and
-`../../src/shared/routes/BaseRoutes.ts`'s `coreRoutes` instead, so the site stops advertising a page it doesn't serve.
+`../../src/common/routes/BaseRoutes.ts`'s `coreRoutes` instead, so the site stops advertising a page it doesn't serve.
 
 **Outcome:** In `5.2.0`, `{ mapping: contactUs }`/`{ path: "/contact_us", mapping: contactUs }` and
 `{ mapping: venues }` were uncommented in `../../src/helpers/routeHelpers.tsx`'s `routes` array, so both pages are

@@ -62,9 +62,9 @@ Run through this list when adding or substantially changing a page, and periodic
 
 Closely related to accessibility and validated as part of the same pass (per the improvement plan's Gap #5):
 
-- [x] **Unique page titles/descriptions/canonical URLs** — `src/shared/pages/Page.tsx` sets `document.title`, the
+- [x] **Unique page titles/descriptions/canonical URLs** — `src/common/components/Page/Page.tsx` sets `document.title`, the
   `<meta name="description">` tag and the `<link rel="canonical">` tag per route (sourced from each route's
-  `PageMapping.description` in `src/shared/routes/BaseRoutes.ts`), instead of every route sharing `index.html`'s one
+  `PageMapping.description` in `src/common/routes/BaseRoutes.ts`), instead of every route sharing `index.html`'s one
   static set of tags.
 - [x] **`robots.txt`/`sitemap.xml`** — `public/robots.txt` allows all crawling and points at `sitemap.xml`;
   `public/sitemap.xml` is generated from the same route metadata via `npm run sitemap` (see `AGENTS.md`'s Build &

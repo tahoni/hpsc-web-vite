@@ -103,13 +103,13 @@ secret-free `.env.example` for the exact `VITE_`-prefixed variable names, as a c
 
 ## 🏛️ Architecture Overview
 
-The application is organised by feature, with shared infrastructure centralised under `src/shared/`:
+The application is organised by feature, with common infrastructure centralised under `src/common/`:
 
 ```
 Route (React Router)
     → Feature page   (src/features/<Feature>/<Feature>Page.tsx)
     → Feature content (…Content.tsx and .mdx for content-heavy pages)
-    → Shared components / layouts (src/shared/components/, src/shared/layouts/)
+    → Common components / layouts (src/common/components/, src/common/layouts/)
 ```
 
 See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the full architectural design; the summary below orients an agent
@@ -120,11 +120,10 @@ quickly.
 | Directory            | Role                                                                                                                                                                                                                                                                                    |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `features/`          | One folder per page/domain (`Home`, `AboutUs`, `ContactUs`, `Events`, `History`, `Links`, `Members`, `News`, `Venues`), each self-contained with a `…Page.tsx`, content component(s), optional `.mdx`, styles and a barrel `index.ts`                                                   |
-| `shared/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata as `PageMapping`s), `RouteAliases.tsx` (maps mappings to lazy-loaded components), `AppRoutes.tsx` (renders `Routes`/`Route` from the mappings)                                                                                     |
-| `shared/layouts/`    | `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints` — the page chrome every route renders inside                                                                                                                                                                             |
-| `shared/components/` | Reusable UI: `Captcha`, `Map`, `Sidebar`, `Section`, `Text`, `Title`, `Video`, `Content`                                                                                                                                                                                                |
-| `shared/pages/`      | `Page` — the base wrapper feature pages compose                                                                                                                                                                                                                                         |
-| `models/`            | TypeScript interfaces/classes grouped by domain: `email/`, `pages/`, `sitemap/`, `venues/`                                                                                                                                                                                              |
+| `common/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata as `PageMapping`s), `RouteAliases.tsx` (maps mappings to lazy-loaded components), `AppRoutes.tsx` (renders `Routes`/`Route` from the mappings)                                                                                     |
+| `common/layouts/`    | `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints` — the page chrome every route renders inside                                                                                                                                                                             |
+| `common/components/` | Reusable UI: `Captcha`, `Map`, `Page` (the base wrapper feature pages compose), `Sidebar`, `Section`, `Text`, `Title`, `Video`, `Content`                                                                                                                                               |
+| `model/`             | TypeScript interfaces/classes grouped by domain: `email/`, `pages/`, `sitemap/`, `venues/`                                                                                                                                                                                              |
 | `helpers/`           | Application-specific helpers with routing/UI context (`routeHelpers.tsx`, `menuHelpers.tsx`) — see [`documentation/recommendations/standard-utils-vs-helpers.md`](documentation/recommendations/standard-utils-vs-helpers.md) for the `utils/` vs `helpers/` split this project follows |
 | `utils/`             | Framework-agnostic pure functions (`htmlUtils.ts`)                                                                                                                                                                                                                                      |
 | `constants/`         | Grouped by domain (`about/`, `content/`, `images/`) plus `commonConstants.ts`                                                                                                                                                                                                           |

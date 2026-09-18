@@ -4,7 +4,7 @@
  */
 
 import { Navigate } from "react-router";
-import { PageAlias } from "@/models/pages/PageAlias.ts";
+import { PageAlias } from "@/model/pages/PageAlias.ts";
 import {
   aboutUs,
   contactUs,
@@ -15,7 +15,7 @@ import {
   members,
   news,
   venues,
-} from "@shared/routes/RouteAliases.tsx";
+} from "@common/routes/RouteAliases.tsx";
 
 /**
  * Represents an array of route configurations for the application.

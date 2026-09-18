@@ -40,15 +40,14 @@
       "@vendors/*": ["./src/vendors"],
       "@bootstrap/*": ["./src/vendors/bootstrap"],
       "@features/*": ["./src/features/*"],
-      "@shared/*": ["./src/shared/*"],
+      "@common/*": ["./src/common/*"],
       "@helpers/*": ["./src/helpers/*"],
       "@utils/*": ["./src/utils/*"],
-      "@models/*": ["./src/models/*"],
+      "@model/*": ["./src/model/*"],
       "@constants/*": ["./src/constants/*"],
-      "@pages/*": ["./src/shared/pages/*"],
-      "@routes/*": ["./src/shared/routes/*"],
-      "@components/*": ["./src/shared/components/*"],
-      "@layouts/*": ["./src/shared/layouts/*"]
+      "@routes/*": ["./src/common/routes/*"],
+      "@components/*": ["./src/common/components/*"],
+      "@layouts/*": ["./src/common/layouts/*"]
     }
   },
   "include": ["src", "builders"]

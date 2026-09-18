@@ -48,6 +48,26 @@ notes.
 
 #### 🔄 Changed
 
+##### Components & Helpers
+
+- Renamed `src/models/` to `src/model/` and `src/shared/` to `src/common/` for consistent singular directory naming,
+  updating the `@model`/`@common` path aliases (`vite.config.ts`/`tsconfig.app.json`) and every dependent import
+  across `src/` and `builders/`
+- Moved `Page` and its barrel `index.ts` from `common/pages/` to `common/components/Page/`, alongside the project's
+  other single-component folders; removed the now-unused `@pages` alias and updated `RouteAliases.tsx` to import it
+  via `@components/Page`
+
+##### Documentation
+
+- Updated `AGENTS.md`, `ARCHITECTURE.md`, `documentation/roadmap/improvement-plan.md`,
+  `documentation/roadmap/improvement-plan-tasks.md`, `documentation/recommendations/project-directory-structure.md`
+  and `documentation/recommendations/project-accessibility-checklist.md` to match the `model`/`common` directory
+  renames and `Page`'s new location
+- Replaced `project-directory-structure.md`'s stale "Known inconsistency" callout describing a `@routes` alias
+  pointing at a nonexistent `src/routes/` (it had already been fixed in code to resolve to the real
+  `src/common/routes/`) with an accurate note that `@routes` is simply redundant with `@common/routes`, and folded
+  it into the path-alias table
+
 #### 🐛 Fixed
 
 #### ⚠️ Deprecated

@@ -10,9 +10,9 @@ import { Readable } from "stream";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { SitemapStream, streamToPromise } from "sitemap";
-import { SitemapMapping } from "@/models/sitemap/SitemapMappings";
+import { SitemapMapping } from "@/model/sitemap/SitemapMappings";
 import { baseUrl } from "@/constants/commonConstants.ts";
-import { coreRoutes } from "@shared/routes/BaseRoutes";
+import { coreRoutes } from "@common/routes/BaseRoutes";
 
 const stripExtension = (filePath: string): string =>
   filePath.replace(/\.[tj]sx?$/, "");

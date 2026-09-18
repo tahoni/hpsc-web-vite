@@ -1,4 +1,4 @@
-import { Venue } from "@/models/venues/Venue.ts";
+import { Venue } from "@/model/venues/Venue.ts";
 
 /**
  * Represents a geographic location using latitude and longitude coordinates.

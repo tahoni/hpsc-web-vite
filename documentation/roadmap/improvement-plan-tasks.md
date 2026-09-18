@@ -59,7 +59,7 @@ evidence and reasoning there; within each section, gaps stay in ascending number
 **No error boundary or production error handling — ✅ Closed in v5.2.0** *(improvement-plan.md → Gap #4)*
 
 - [x] Add a top-level React error boundary component around the route tree, with a friendly fallback UI — added in
-  `5.2.0`: `src/shared/layouts/ErrorBoundary/ErrorBoundary.tsx`, wrapping `App.tsx`'s `<Suspense>`/`<AppRoutes />`
+  `5.2.0`: `src/common/layouts/ErrorBoundary/ErrorBoundary.tsx`, wrapping `App.tsx`'s `<Suspense>`/`<AppRoutes />`
   tree; verified with a unit test and, live, in a running `npm run dev` session
 - [x] Evaluate lightweight client-side logging (console suppression in prod, optional remote logging); enable hidden
   sourcemaps if adopted — evaluated in `5.2.0`: `componentDidCatch` logs via `console.error` unconditionally;

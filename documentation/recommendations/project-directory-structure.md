@@ -3,9 +3,9 @@
 ## Table of Contents
 
 - [🗂️ `src/features/<Feature>/`: One Folder per Page/Domain](#-srcfeaturesfeature-one-folder-per-pagedomain)
-- [🧵 `src/shared/`: Cross-Feature Infrastructure](#-srcshared-cross-feature-infrastructure)
+- [🧵 `src/common/`: Cross-Feature Infrastructure](#-srccommon-cross-feature-infrastructure)
 - [🧱 Component/Layout Folder Shape](#-componentlayout-folder-shape)
-- [🗂️ `src/models/`, `src/constants/`, `src/enums/`: Grouped by Domain](#-srcmodels-srcconstants-srcenums-grouped-by-domain)
+- [🗂️ `src/model/`, `src/constants/`, `src/enums/`: Grouped by Domain](#-srcmodel-srcconstants-srcenums-grouped-by-domain)
 - [⚖️ `src/helpers/` vs `src/utils/`: The Split Is Actually Enforced Here](#-srchelpers-vs-srcutils-the-split-is-actually-enforced-here)
 - [📦 `src/vendors/<library>/`: Overrides, Not Forks](#-srcvendorslibrary-overrides-not-forks)
 - [🔧 `builders/`: Build-Time Scripts, Outside `src/`](#-builders-build-time-scripts-outside-src)
@@ -17,7 +17,7 @@
 [`standard-directory-structure.md`](standard-directory-structure.md) describes a generic React/Vite layout — a flat
 `components/`, `pages/`, `hooks/`, `services/`, `types/`, `store/` split. This project doesn't follow that shape. It
 organises by **feature** for anything page-shaped, and by **domain** for anything data-shaped, with cross-feature
-infrastructure consolidated under one `shared/` root. This document records the actual structure and the reasoning
+infrastructure consolidated under one `common/` root. This document records the actual structure and the reasoning
 behind it, so new folders get added consistently rather than drifting toward the generic shape.
 
 ---
@@ -41,22 +41,22 @@ means hunting across three top-level directories for its parts.
 
 ---
 
-## 🧵 `src/shared/`: Cross-Feature Infrastructure
+## 🧵 `src/common/`: Cross-Feature Infrastructure
 
-Everything more than one feature depends on lives under `src/shared/`, itself split by role rather than dumped into one
+Everything more than one feature depends on lives under `src/common/`, itself split by role rather than dumped into one
 flat `components/`:
 
-| Folder               | Role                                                                                                                                           |
-|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| `shared/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata), `RouteAliases.tsx` (lazy component mapping), `AppRoutes.tsx` (renders `Routes`/`Route`) |
-| `shared/layouts/`    | Page chrome every route renders inside: `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints`                                         |
-| `shared/components/` | Reusable UI with no page-chrome role: `Captcha`, `Map`, `Sidebar`, `Section`, `Text`, `Video`, `Content`                                       |
-| `shared/pages/`      | `Page` — the base wrapper every feature page composes                                                                                          |
+| Folder               | Role                                                                                                                                                    |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `common/routes/`     | Data-driven routing: `BaseRoutes.ts` (route metadata), `RouteAliases.tsx` (lazy component mapping), `AppRoutes.tsx` (renders `Routes`/`Route`)          |
+| `common/layouts/`    | Page chrome every route renders inside: `Layout`, `Header`, `Body`, `Footer`, `Content`, `Breakpoints`                                                  |
+| `common/components/` | Reusable UI with no page-chrome role: `Captcha`, `Map`, `Page` (the base wrapper every feature page composes), `Sidebar`, `Section`, `Text`, `Video`, `Content` |
 
 The generic structure's `components/common/`, `components/layout/` and a separate top-level `pages/` map roughly onto
-`shared/components/`, `shared/layouts/` and `shared/pages/` — but nested under one `shared/` root instead of living at
-`src/`'s top level. This way `src/` itself only ever contains folders that are either a feature or explicitly shared,
-never a third, ambiguous category.
+`common/components/` and `common/layouts/` — but nested under one `common/` root instead of living at `src/`'s top
+level, with the generic `pages/` wrapper folded in as `common/components/Page/`, a component like any other. This way
+`src/` itself only ever contains folders that are either a feature or explicitly shared, never a third, ambiguous
+category.
 
 ---
 
@@ -74,18 +74,18 @@ Header/
 └── index.ts                # Barrel export
 ```
 
-This applies uniformly across `features/`, `shared/components/` and `shared/layouts/` — there's no separate naming rule
+This applies uniformly across `features/`, `common/components/` and `common/layouts/` — there's no separate naming rule
 per directory.
 
 ---
 
-## 🗂️ `src/models/`, `src/constants/`, `src/enums/`: Grouped by Domain
+## 🗂️ `src/model/`, `src/constants/`, `src/enums/`: Grouped by Domain
 
 The generic structure puts all interfaces in one flat `types/`. This project groups each of these three folders by
 domain once there's more than one related file, rather than by structural kind alone:
 
 ```text
-src/models/
+src/model/
 ├── email/      (Email, EmailAttachment, EmailMessage)
 ├── pages/      (PageAlias, PageMapping)
 ├── sitemap/    (SitemapChangeFrequency, SitemapMappings)
@@ -152,23 +152,22 @@ client build.
 Every folder decision above has a matching alias, configured in both `vite.config.ts` (runtime resolution) and
 `tsconfig.app.json` (type-checking):
 
-| Alias                               | Resolves to                              |
-|-------------------------------------|------------------------------------------|
-| `@`                                 | `src/`                                   |
-| `@assets`, `@images`, `@styles`     | `src/assets/*`                           |
-| `@vendors`, `@bootstrap`            | `src/vendors/*`                          |
-| `@features`                         | `src/features/`                          |
-| `@shared`                           | `src/shared/`                            |
-| `@helpers`                          | `src/helpers/`                           |
-| `@utils`                            | `src/utils/`                             |
-| `@models`                           | `src/models/`                            |
-| `@constants`                        | `src/constants/`                         |
-| `@pages`, `@components`, `@layouts` | `src/shared/{pages,components,layouts}/` |
+| Alias                                | Resolves to                               |
+|--------------------------------------|-------------------------------------------|
+| `@`                                  | `src/`                                    |
+| `@assets`, `@images`, `@styles`      | `src/assets/*`                            |
+| `@vendors`, `@bootstrap`             | `src/vendors/*`                           |
+| `@features`                          | `src/features/`                           |
+| `@common`                            | `src/common/`                             |
+| `@helpers`                           | `src/helpers/`                            |
+| `@utils`                             | `src/utils/`                              |
+| `@model`                             | `src/model/`                              |
+| `@constants`                         | `src/constants/`                          |
+| `@components`, `@layouts`, `@routes` | `src/common/{components,layouts,routes}/` |
 
-**Known inconsistency:** both config files also define a `@routes` alias pointing at `src/routes/` — a directory that
-doesn't exist. Routing actually lives at `src/shared/routes/`, reached via `@shared/routes`. It's already flagged with a
-`TODO: remove` comment in both `vite.config.ts` and `tsconfig.app.json` — don't copy it as a precedent when adding a new
-alias; treat `@shared/routes` as the real one.
+**Redundant alias:** both config files also define a standalone `@routes` alias pointing at `src/common/routes/` —
+correct, but unused; every actual import reaches routing via `@common/routes` instead. Treat `@common/routes` as the
+real one and don't add new call sites for the bare `@routes` alias.
 
 ---
 
@@ -176,11 +175,11 @@ alias; treat `@shared/routes` as the real one.
 
 - Organise anything page-shaped as a self-contained `src/features/<Feature>/` folder (page + content + `.mdx`), not
   split across separate `pages/`/`components/`/`services/` trees.
-- Put cross-feature infrastructure under `src/shared/`, split by role (`routes/`, `layouts/`, `components/`, `pages/`) —
-  never directly at `src/`'s top level.
+- Put cross-feature infrastructure under `src/common/`, split by role (`routes/`, `layouts/`, `components/`) — never
+  directly at `src/`'s top level.
 - Give every non-trivial component/layout its own PascalCase folder, per [`standard-component-naming.md`](standard-component-naming.md), 
   regardless of which directory it lives in.
-- Group `models/`, `constants/` and `enums/` by domain once a domain has more than one related file; leave single-file,
+- Group `model/`, `constants/` and `enums/` by domain once a domain has more than one related file; leave single-file,
   cross-domain content (like `commonConstants.ts`) flat.
 - Keep `helpers/` and `utils/` genuinely separate, per [`standard-utils-vs-helpers.md`](standard-utils-vs-helpers.md) —
   `.tsx`/React-context code goes in `helpers/`, framework-agnostic pure functions in `utils/`.

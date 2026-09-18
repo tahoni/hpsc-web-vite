@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { generateRoutesSitemap } from "./RoutesSitemap";
-import { coreRoutes } from "@shared/routes/BaseRoutes";
+import { coreRoutes } from "@common/routes/BaseRoutes";
 
 describe("generateRoutesSitemap", () => {
   it("returns a well-formed XML sitemap", async () => {
