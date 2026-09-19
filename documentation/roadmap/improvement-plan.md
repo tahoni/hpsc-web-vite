@@ -54,11 +54,12 @@ identifier even after it moves between sections as its status changes (e.g. Open
 Within each section, gaps stay in ascending number order. Gap #14 was newly identified after the `5.2.0` release
 branch was originally prepared — see its Evidence below. Gaps #16 and #17 were identified after `5.2.0` shipped —
 #16 by the `src/models`/`src/shared` rename that followed it, #17 a pre-existing defect only now surfaced by this
-audit — see their Evidence below.
+audit — see their Evidence below. Gap #18 was identified and closed within the same `5.2.2` release that introduced
+it, surfaced by this audit — see its Evidence below.
 
 ### 📋 At a Glance
 
-- **✅ Completed (16):**
+- **✅ Completed (17):**
   - #1 No automatic lint/build/test gate on pull requests
   - #2 Two concrete route-metadata defects
   - #3 Zero test coverage despite a configured test runner
@@ -75,6 +76,7 @@ audit — see their Evidence below.
   - #14 An unresolved `TODO: missing imports` comment in `_forms.scss` named unexplained styling work
   - #15 `RoutesSitemap.test.ts` failed without `VITE_SITE_URL` set, and `build.yml`'s Test step never set it
   - #16 `CONTRIBUTING.md`'s "Architecture at a Glance" section described the pre-rename `src/shared/` structure
+  - #18 `CONTRIBUTING.md`'s Pull Request Checklist understated the zero-warnings lint bar `AGENTS.md` now documents
 - **🟡 Partially Completed (0):** none currently.
 - **⚪ Open (1):**
   - #17 `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything
@@ -562,6 +564,29 @@ that `../../CONTRIBUTING.md` hadn't yet mirrored; that was added to `../../CONTR
 and Pull Request Checklist in the same release, matching how its `CHANGELOG.md` counterpart rule is already mirrored
 there.
 
+#### 18. `CONTRIBUTING.md`'s Pull Request Checklist understated the zero-warnings lint bar `AGENTS.md` now documents
+— ✅ Closed in v5.2.2
+
+**Evidence:** `../../CONTRIBUTING.md`'s Pull Request Checklist read "`npm run lint` passes with no errors", while
+`../../AGENTS.md`'s Code Quality & CI section — updated in this same `5.2.2` release, when
+`@typescript-eslint/no-unused-vars` and `react-refresh/only-export-components` were escalated from `"warn"` to
+`"error"` in `../../eslint.config.js`/`../../.eslintrc.cjs` — now states "`npm run lint` must report zero warnings,
+not just zero errors." A check of `../../eslint.config.js` confirms no rule remains at `"warn"` severity, so
+`AGENTS.md`'s stronger bar is now accurate; `CONTRIBUTING.md`'s checklist, unchanged since before this release, no
+longer matched it.
+
+**Why it matters:** `../../CONTRIBUTING.md` is the first document a new contributor reads before opening a PR, and
+its Pull Request Checklist is the actual self-check gate contributors follow — a PR could pass that checklist's
+"no errors" bar while genuinely violating the stricter "zero warnings" standard `../../AGENTS.md` documents,
+exactly the doc-vs-doc drift category this plan exists to catch.
+
+**Proposed improvement:** Update `../../CONTRIBUTING.md`'s Pull Request Checklist to say "`npm run lint` passes
+with zero warnings, not just zero errors", matching `../../AGENTS.md`'s Code Quality & CI wording.
+
+**Outcome:** In `5.2.2`, `../../CONTRIBUTING.md`'s Pull Request Checklist now reads "`npm run lint` passes with
+zero warnings, not just zero errors", matching `../../AGENTS.md`'s Code Quality & CI section word-for-word on the
+bar.
+
 ### ⚪ Open
 
 #### 17. `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything
@@ -625,6 +650,8 @@ stop describing it as a working dependency until it is.
 - `../../CONTRIBUTING.md`'s "Architecture at a Glance" section describes `src/common/`, matching
   `../../AGENTS.md`/`../../ARCHITECTURE.md` and the actual source tree, instead of the pre-rename `src/shared/`
   (#16) — ✅ Met in v5.2.1.
+- `../../CONTRIBUTING.md`'s Pull Request Checklist states the same "zero warnings, not just zero errors" lint bar as
+  `../../AGENTS.md`'s Code Quality & CI section (#18) — ✅ Met in v5.2.2.
 - Submitting the Contact Us form either genuinely delivers an e-mail via a real third-party service, or
   `../../AGENTS.md`'s Project Overview and `ContactUsForm.tsx`'s docblock stop describing e-mail delivery as a
   working dependency (#17).
