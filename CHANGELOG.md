@@ -16,7 +16,8 @@ notes.
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.2.1](#-521---2026-09-18) ← Current
+- [🧾 Version 5.2.2](#-522---2026-09-19) ← Current
+- [🧾 Version 5.2.1](#-521---2026-09-18)
 - [🧾 Version 5.2.0](#-520---2026-09-13)
 - [🧾 Version 5.1.3](#-513---2026-09-05)
 - [🧾 Version 5.1.2](#-512---2026-09-04)
@@ -56,6 +57,31 @@ notes.
 #### 🗑️ Removed
 
 #### 🔐 Security
+
+---
+
+### 🧾 [5.2.2] - 2026-09-19
+
+#### 🐛 Fixed
+
+##### Build & Tooling
+
+- Fixed `eslint.config.js` using the base `no-unused-vars` rule instead of `@typescript-eslint/no-unused-vars`,
+  which doesn't understand TypeScript enum member usage or type-only function parameters — it was producing 18
+  false-positive warnings (`SanitizedWidgetTypes`, `ShootingRanges`, `EmailType`, `SitemapChangeFrequency`'s enum
+  members, `SimpleCaptchaProps`'s `token` parameter, `vite-env.d.ts`'s `ImportMeta` augmentation), all of which
+  disappear under the TS-aware rule; mirrored the same fix into `.eslintrc.cjs`
+- Escalated `@typescript-eslint/no-unused-vars` and `react-refresh/only-export-components` from `"warn"` to
+  `"error"` in `eslint.config.js`/`.eslintrc.cjs`, now that `npm run lint` reports zero warnings of either rule;
+  added a scoped `react-refresh/only-export-components: "off"` override for `RouteAliases.tsx`, which deliberately
+  exports `PageMapping` data alongside `React.lazy`-loaded components by design (`ARCHITECTURE.md`'s Data-Driven
+  Routing) rather than being lint debt
+
+##### Documentation
+
+- Corrected `CONTRIBUTING.md`'s Pull Request Checklist, which said `npm run lint` must pass "with no errors" —
+  it must report zero warnings too, per `AGENTS.md`'s Code Quality & CI section, now genuinely true with every
+  rule at `"error"` severity
 
 ---
 
