@@ -16,7 +16,8 @@ notes.
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.2.1](#-521---2026-09-18) ← Current
+- [🧾 Version 5.2.2](#-522---2026-09-19) ← Current
+- [🧾 Version 5.2.1](#-521---2026-09-18)
 - [🧾 Version 5.2.0](#-520---2026-09-13)
 - [🧾 Version 5.1.3](#-513---2026-09-05)
 - [🧾 Version 5.1.2](#-512---2026-09-04)
@@ -51,6 +52,18 @@ notes.
 
 #### 🐛 Fixed
 
+#### ⚠️ Deprecated
+
+#### 🗑️ Removed
+
+#### 🔐 Security
+
+---
+
+### 🧾 [5.2.2] - 2026-09-19
+
+#### 🐛 Fixed
+
 ##### Build & Tooling
 
 - Fixed `eslint.config.js` using the base `no-unused-vars` rule instead of `@typescript-eslint/no-unused-vars`,
@@ -64,11 +77,11 @@ notes.
   exports `PageMapping` data alongside `React.lazy`-loaded components by design (`ARCHITECTURE.md`'s Data-Driven
   Routing) rather than being lint debt
 
-#### ⚠️ Deprecated
+##### Documentation
 
-#### 🗑️ Removed
-
-#### 🔐 Security
+- Corrected `CONTRIBUTING.md`'s Pull Request Checklist, which said `npm run lint` must pass "with no errors" —
+  it must report zero warnings too, per `AGENTS.md`'s Code Quality & CI section, now genuinely true with every
+  rule at `"error"` severity
 
 ---
 

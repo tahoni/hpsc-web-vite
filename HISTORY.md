@@ -24,6 +24,21 @@ the legacy Version 3.x line that predates it.
 
 ## 📅 Historical Timeline
 
+### Version 5.2.2 (September 19, 2026)
+
+**Theme:** Zero-Tolerance Lint Enforcement
+
+**Key Focus:**
+
+- Fixed `eslint.config.js` using the base `no-unused-vars` rule instead of `@typescript-eslint/no-unused-vars`,
+  which doesn't understand TypeScript enum member usage or type-only function parameters — it was producing 18
+  false-positive warnings; mirrored the fix into `.eslintrc.cjs`
+- Escalated `@typescript-eslint/no-unused-vars` and `react-refresh/only-export-components` from `"warn"` to
+  `"error"`, now that `npm run lint` reports zero warnings of either rule, with a scoped override for
+  `RouteAliases.tsx`'s deliberate data-driven-routing exports
+- Closed Gap #18, found within the same release: `CONTRIBUTING.md`'s Pull Request Checklist understated the
+  zero-warnings lint bar `AGENTS.md` already documented
+
 ### Version 5.2.1 (September 18, 2026)
 
 **Theme:** Directory Consistency & Roadmap Follow-Through
