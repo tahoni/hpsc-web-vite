@@ -1,6 +1,6 @@
 # Roadmap Task List
 
-A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s seventeen gaps, grouped by
+A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s eighteen gaps, grouped by
 that document's completion status — ✅ Completed, 🟡 Partially Completed, ⚪ Open — matching its own
 "🔍 Gaps & Improvement Opportunities" grouping. Each block names its originating gap number for traceability back
 to the evidence and reasoning there; within each section, gaps stay in ascending number order.
@@ -210,6 +210,12 @@ in v5.2.1** *(improvement-plan.md → Gap #16)*
   "Common components / layouts", matching `AGENTS.md`'s Architecture Overview — done in `5.2.1`; a follow-up pass
   also mirrored `AGENTS.md`'s new `BaseRoutes.ts`-`dateUpdated` Git Workflow rule into `CONTRIBUTING.md`, which had
   been missing it
+
+**`CONTRIBUTING.md`'s Pull Request Checklist understated the zero-warnings lint bar `AGENTS.md` now documents —
+✅ Closed in v5.2.2** *(improvement-plan.md → Gap #18)*
+
+- [x] Update `CONTRIBUTING.md`'s Pull Request Checklist to say "`npm run lint` passes with zero warnings, not just
+  zero errors", matching `AGENTS.md`'s Code Quality & CI wording — done in `5.2.2`
 
 ---
 

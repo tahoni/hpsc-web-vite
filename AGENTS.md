@@ -153,8 +153,13 @@ Header/
 ## 🔬 Code Quality & CI
 
 - **CodeQL**: security analysis, runs on push/PR to `main` and weekly. Config: `.github/workflows/codeql.yml`.
-- **ESLint**: flat config (`eslint.config.js`) — TypeScript, React Hooks and `react-refresh` rules. `.eslintrc.cjs` is
-  a legacy mirror kept for tooling that hasn't migrated to flat config; keep the two in sync when changing lint rules.
+- **ESLint**: flat config (`eslint.config.js`) — TypeScript, React Hooks and `react-refresh` rules, all at `"error"`
+  severity; `npm run lint` must report zero warnings, not just zero errors. `.eslintrc.cjs` is a legacy mirror kept
+  for tooling that hasn't migrated to flat config; keep the two in sync when changing lint rules. Use
+  `@typescript-eslint/no-unused-vars`, not the base `no-unused-vars` — the base rule doesn't understand TypeScript
+  enum member usage or type-only parameters and produces false positives. `RouteAliases.tsx` is the one file with a
+  `react-refresh/only-export-components` override (`"off"`): it deliberately exports `PageMapping` data alongside
+  `React.lazy`-loaded components, per the Data-Driven Routing design in `ARCHITECTURE.md`.
 - **Build**: `.github/workflows/build.yml` runs `npm run lint`, `npm run build` and `npm run test:run` on push/PR to
   `main` and `develop`, gating merges on all three passing.
 - **Dependency audit**: the same workflow also runs `npm audit`, advisory-only (`continue-on-error: true` — it
