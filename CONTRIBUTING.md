@@ -199,7 +199,7 @@ in an issue, issue comment, or pull request review/review comment triggers
 
 Before opening a pull request, confirm:
 
-- [ ] `npm run lint` passes with no errors (also runs automatically in CI — see
+- [ ] `npm run lint` passes with zero warnings, not just zero errors (also runs automatically in CI — see
   [`AGENTS.md`'s Code Quality & CI section](AGENTS.md#-code-quality--ci)).
 - [ ] `npm run build` succeeds (also runs automatically in CI).
 - [ ] `npm test` passes (also runs automatically in CI), and any new logic has co-located tests where applicable.
