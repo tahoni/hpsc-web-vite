@@ -48,9 +48,21 @@ notes.
 
 #### ➕ Added
 
+##### Build & Tooling
+
+- Added `public/404.html`, a self-contained "Page not found" page (inline styles, `noindex`, link back to the home
+  page) that Vite copies to the site root, and pointed `public/.htaccess` at it with `ErrorDocument 404 /404.html` so
+  unknown paths return a real 404 status instead of the server's default error page
+
 #### 🔄 Changed
 
 #### 🐛 Fixed
+
+##### Build & Tooling
+
+- Fixed the HTTP-to-HTTPS rule in `public/.htaccess`, which had no flags and so sent a temporary 302 redirect, by
+  adding `[R=301,L]` so the move to HTTPS is permanent and rule processing stops once the redirect fires; also removed
+  the stray trailing space after `%{HTTPS} off`
 
 #### ⚠️ Deprecated
 

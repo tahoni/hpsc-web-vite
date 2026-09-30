@@ -2,8 +2,8 @@ RewriteEngine On
 
 RewriteBase /
 
-RewriteCond %{HTTPS} off 
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI}
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 RewriteRule (.+\.(jpg|jpeg|png|gif|bmp|ico))$ - [L]
 RewriteRule index\.html$ - [L]
@@ -19,3 +19,5 @@ RewriteCond %{REQUEST_URI} ^\/((contact)|(contact_us))\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/(news)\/?$ [OR]
 RewriteCond %{REQUEST_URI} ^\/((about)|(about_us))\/?$
 RewriteRule . index.html [L]
+
+ErrorDocument 404 /404.html
