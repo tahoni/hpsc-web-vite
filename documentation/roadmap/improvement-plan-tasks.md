@@ -217,6 +217,17 @@ in v5.2.1** *(improvement-plan.md → Gap #16)*
 - [x] Update `CONTRIBUTING.md`'s Pull Request Checklist to say "`npm run lint` passes with zero warnings, not just
   zero errors", matching `AGENTS.md`'s Code Quality & CI wording — done in `5.2.2`
 
+**No minimum Node.js version is declared or documented, though `jsdom` 31 and `sitemap` 10 now require `>=22.22` —
+✅ Closed in v5.2.3** *(improvement-plan.md → Gap #19)*
+
+- [x] Declare the minimum Node.js version in `package.json`'s `engines.node` (and optionally commit an `.nvmrc`) —
+  done in `5.2.3`: `engines.node` is `^22.22.2 || ^24.15.0 || >=26`, and `.nvmrc` pins `22.22.2`
+- [x] Point `build.yml`'s `node-version` at that single source (e.g. `node-version-file: .nvmrc`) instead of the
+  floating `22` — done in `5.2.3`
+- [x] State the minimum version once in `CONTRIBUTING.md`'s prerequisites and `README.md`'s installation section —
+  done in `5.2.3`; both now point to `engines.node`/`.nvmrc` instead of repeating the range, keeping `README.md`
+  evergreen
+
 ---
 
 ## 🟡 Partially Completed
@@ -235,14 +246,6 @@ in v5.2.1** *(improvement-plan.md → Gap #16)*
 - [ ] Surface a delivery failure to the visitor distinctly from a validation failure once a real send exists
 - [ ] If real delivery is deliberately deferred instead, correct `AGENTS.md`'s Project Overview and
   `ContactUsForm.tsx`'s docblock to stop describing e-mail delivery as a working dependency
-
-**No minimum Node.js version is declared or documented, though `jsdom` 31 and `sitemap` 10 now require `>=22.22`**
-*(improvement-plan.md → Gap #19)*
-
-- [ ] Declare the minimum Node.js version in `package.json`'s `engines.node` (and optionally commit an `.nvmrc`)
-- [ ] Point `build.yml`'s `node-version` at that single source (e.g. `node-version-file: .nvmrc`) instead of the
-  floating `22`
-- [ ] State the minimum version once in `CONTRIBUTING.md`'s prerequisites and `README.md`'s installation section
 
 ---
 

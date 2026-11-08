@@ -56,11 +56,12 @@ branch was originally prepared — see its Evidence below. Gaps #16 and #17 were
 #16 by the `src/models`/`src/shared` rename that followed it, #17 a pre-existing defect only now surfaced by this
 audit — see their Evidence below. Gap #18 was identified and closed within the same `5.2.2` release that introduced
 it, surfaced by this audit — see its Evidence below. Gap #19 was surfaced by the `5.2.3` dependency upgrades, which
-introduced the first hard Node.js version floor — see its Evidence below.
+introduced the first hard Node.js version floor, and was identified and closed within that same release — see its
+Evidence below.
 
 ### 📋 At a Glance
 
-- **✅ Completed (17):**
+- **✅ Completed (18):**
   - #1 No automatic lint/build/test gate on pull requests
   - #2 Two concrete route-metadata defects
   - #3 Zero test coverage despite a configured test runner
@@ -78,10 +79,10 @@ introduced the first hard Node.js version floor — see its Evidence below.
   - #15 `RoutesSitemap.test.ts` failed without `VITE_SITE_URL` set, and `build.yml`'s Test step never set it
   - #16 `CONTRIBUTING.md`'s "Architecture at a Glance" section described the pre-rename `src/shared/` structure
   - #18 `CONTRIBUTING.md`'s Pull Request Checklist understated the zero-warnings lint bar `AGENTS.md` now documents
+  - #19 No minimum Node.js version was declared or documented, though `jsdom` 31 and `sitemap` 10 now require `>=22.22`
 - **🟡 Partially Completed (0):** none currently.
-- **⚪ Open (2):**
+- **⚪ Open (1):**
   - #17 `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything
-  - #19 No minimum Node.js version is declared or documented, though `jsdom` 31 and `sitemap` 10 now require `>=22.22`
 
 ### ✅ Completed
 
@@ -534,10 +535,6 @@ repository variable being wired into `build.yml`'s "Test" step. Re-ran `npm run 
 unset from the shell: all 3 test files/14 tests now pass, confirming the fix without needing to determine whether
 CI had actually been red.
 
-### 🟡 Partially Completed
-
-*No gaps are currently partially completed.*
-
 #### 16. `CONTRIBUTING.md`'s "Architecture at a Glance" section described the pre-rename `src/shared/` structure —
 ✅ Closed in v5.2.1
 
@@ -589,6 +586,38 @@ with zero warnings, not just zero errors", matching `../../AGENTS.md`'s Code Qua
 zero warnings, not just zero errors", matching `../../AGENTS.md`'s Code Quality & CI section word-for-word on the
 bar.
 
+#### 19. No minimum Node.js version is declared or documented, though `jsdom` 31 and `sitemap` 10 now require `>=22.22` — ✅ Closed in v5.2.3
+
+**Evidence:** `../../package.json` has no `engines` field, and the repository has no `.nvmrc`, `.node-version` or
+`.tool-versions` file. `../../CONTRIBUTING.md` (line 32) and `../../README.md` (line 53) both tell a new contributor
+only to "download [Node.js] from nodejs.org" — no version. `../../.github/workflows/build.yml` pins `node-version: 22`
+(a floating major, resolving to whatever 22.x `actions/setup-node` serves). Meanwhile `5.2.3` upgraded `jsdom` to 31
+(`engines.node`: `^22.22.2 || ^24.15.0 || >=26`) and `sitemap` to 10 (`engines.node`: `>=22.22.1`), so an older 22.x —
+or any earlier LTS a contributor happens to have installed — now fails `npm install`/`npm test`/`npm run sitemap` with
+an engines or runtime error that nothing in the repository explains.
+
+**Why it matters:** The Node floor is now a real, enforced requirement, but it lives only in two transitive
+`engines` fields and in CI's floating `22`. A contributor on an older Node gets an opaque failure, and CI could drift
+below the floor on a stale runner image without the repository ever stating what the intended minimum is.
+
+**Proposed improvement:** Declare the floor in `../../package.json`'s `engines.node` (and optionally commit an
+`.nvmrc`), point `build.yml`'s `node-version` at that single source (e.g. `node-version-file: .nvmrc`), and state the
+minimum version once in `../../CONTRIBUTING.md`'s prerequisites and `../../README.md`'s installation section.
+
+**Outcome:** In `5.2.3`, `../../package.json` gained an `engines.node` field (`^22.22.2 || ^24.15.0 || >=26`, the
+intersection of `jsdom` 31's and `sitemap` 10's requirements) and a new `../../.nvmrc` pins the minimum supported
+release (`22.22.2`). `../../.github/workflows/build.yml`'s `actions/setup-node` step now reads
+`node-version-file: .nvmrc` instead of the floating `22`, so CI exercises the lowest supported Node rather than
+whatever 22.x the runner serves. `../../CONTRIBUTING.md`'s Prerequisites and `../../README.md`'s Prerequisites now
+point to `engines.node` and `.nvmrc` as the single source of truth instead of repeating the version range, keeping
+`../../README.md` free of a number that would drift (`../../AGENTS.md`'s Evergreen Documentation rule). The same pass
+moved Gaps #16 and #18, both already closed but left below the "🟡 Partially Completed" placeholder, up into the
+"✅ Completed" section where they belong.
+
+### 🟡 Partially Completed
+
+*No gaps are currently partially completed.*
+
 ### ⚪ Open
 
 #### 17. `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without sending anything
@@ -616,24 +645,6 @@ or a serverless email API) and surface delivery failures distinctly from validat
 is deliberately not yet built, correct `../../AGENTS.md`'s Project Overview and `ContactUsForm.tsx`'s docblock to
 stop describing it as a working dependency until it is.
 
-#### 19. No minimum Node.js version is declared or documented, though `jsdom` 31 and `sitemap` 10 now require `>=22.22`
-
-**Evidence:** `../../package.json` has no `engines` field, and the repository has no `.nvmrc`, `.node-version` or
-`.tool-versions` file. `../../CONTRIBUTING.md` (line 32) and `../../README.md` (line 53) both tell a new contributor
-only to "download [Node.js] from nodejs.org" — no version. `../../.github/workflows/build.yml` pins `node-version: 22`
-(a floating major, resolving to whatever 22.x `actions/setup-node` serves). Meanwhile `5.2.3` upgraded `jsdom` to 31
-(`engines.node`: `^22.22.2 || ^24.15.0 || >=26`) and `sitemap` to 10 (`engines.node`: `>=22.22.1`), so an older 22.x —
-or any earlier LTS a contributor happens to have installed — now fails `npm install`/`npm test`/`npm run sitemap` with
-an engines or runtime error that nothing in the repository explains.
-
-**Why it matters:** The Node floor is now a real, enforced requirement, but it lives only in two transitive
-`engines` fields and in CI's floating `22`. A contributor on an older Node gets an opaque failure, and CI could drift
-below the floor on a stale runner image without the repository ever stating what the intended minimum is.
-
-**Proposed improvement:** Declare the floor in `../../package.json`'s `engines.node` (and optionally commit an
-`.nvmrc`), point `build.yml`'s `node-version` at that single source (e.g. `node-version-file: .nvmrc`), and state the
-minimum version once in `../../CONTRIBUTING.md`'s prerequisites and `../../README.md`'s installation section.
-
 ---
 
 ## 🚀 Roadmap
@@ -641,7 +652,7 @@ minimum version once in `../../CONTRIBUTING.md`'s prerequisites and `../../READM
 | Phase       | Focus                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Now**     | Make Contact Us actually deliver e-mail, or stop documenting it as a working dependency (#17)                                                  |
-| **Next**    | Declare and document the minimum Node.js version (`engines`, `.nvmrc`, CI, docs) so the new floor is explicit (#19)                            |
+| **Next**    | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Later**   | Nothing currently queued — see Success Criteria for what's still outstanding                                                                   |
 | **Ongoing** | Dependency-audit discipline (#8, closed in `5.2.0`) — actually run at each release per the Release Checklist's new step 2, not just documented |
 
@@ -676,7 +687,7 @@ minimum version once in `../../CONTRIBUTING.md`'s prerequisites and `../../READM
   `../../AGENTS.md`'s Project Overview and `ContactUsForm.tsx`'s docblock stop describing e-mail delivery as a
   working dependency (#17).
 - The minimum Node.js version is declared in `../../package.json`'s `engines` (and/or `.nvmrc`), `build.yml` reads it
-  from that single source, and `../../CONTRIBUTING.md`/`../../README.md` state it (#19).
+  from that single source, and `../../CONTRIBUTING.md`/`../../README.md` state it (#19) — ✅ Met in v5.2.3.
 - `npm run test:run` passes from a clean checkout with no ambient `VITE_SITE_URL`, in CI and locally, so `build.yml`'s
   Test step is a genuine gate rather than a step that fails regardless of the diff under review
   (#15) — ✅ Met in v5.2.0.
