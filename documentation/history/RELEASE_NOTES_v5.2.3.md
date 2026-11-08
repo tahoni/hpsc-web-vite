@@ -113,8 +113,8 @@ to the newest version its declared range allows, five dependencies take a major 
 
 ## 📊 Statistics
 
-- **Total Commits:** 6 (plus this release's own prep changes, committed separately)
-- **Files Changed:** 3 (+962 / −1,502 lines, almost all of it `package-lock.json`)
+- **Total Commits:** 8 (plus this release's own prep changes, committed separately)
+- **Files Changed:** 7 (+1,010 / −1,507 lines, almost all of it `package-lock.json`)
 
 ## 🧭 Design Notes
 
