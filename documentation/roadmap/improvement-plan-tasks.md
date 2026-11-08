@@ -1,6 +1,6 @@
 # Roadmap Task List
 
-A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s eighteen gaps, grouped by
+A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s nineteen gaps, grouped by
 that document's completion status — ✅ Completed, 🟡 Partially Completed, ⚪ Open — matching its own
 "🔍 Gaps & Improvement Opportunities" grouping. Each block names its originating gap number for traceability back
 to the evidence and reasoning there; within each section, gaps stay in ascending number order.
@@ -235,6 +235,14 @@ in v5.2.1** *(improvement-plan.md → Gap #16)*
 - [ ] Surface a delivery failure to the visitor distinctly from a validation failure once a real send exists
 - [ ] If real delivery is deliberately deferred instead, correct `AGENTS.md`'s Project Overview and
   `ContactUsForm.tsx`'s docblock to stop describing e-mail delivery as a working dependency
+
+**No minimum Node.js version is declared or documented, though `jsdom` 31 and `sitemap` 10 now require `>=22.22`**
+*(improvement-plan.md → Gap #19)*
+
+- [ ] Declare the minimum Node.js version in `package.json`'s `engines.node` (and optionally commit an `.nvmrc`)
+- [ ] Point `build.yml`'s `node-version` at that single source (e.g. `node-version-file: .nvmrc`) instead of the
+  floating `22`
+- [ ] State the minimum version once in `CONTRIBUTING.md`'s prerequisites and `README.md`'s installation section
 
 ---
 
