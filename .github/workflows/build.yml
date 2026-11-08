@@ -33,9 +33,19 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # Inlined into the bundle at build time (the venue map and Contact Us captcha need them)
+          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
+          VITE_RECAPTCHA_V2_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_V2_SITE_KEY }}
+          # Not sensitive; configured as a repository variable (Settings > Actions > Variables), not a secret
+          VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
 
       - name: Test
         run: npm run test:run
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
+          VITE_RECAPTCHA_V2_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_V2_SITE_KEY }}
+          VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
 
       - name: Audit dependencies (advisory only)
         run: npm audit
