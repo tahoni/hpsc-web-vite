@@ -50,11 +50,23 @@ notes.
 
 #### 🔄 Changed
 
+##### Dependencies
+
+- Updated dependencies to the latest versions allowed by their existing semver ranges, including `react`/`react-dom`
+  (`~19.2.9`), `react-router` (`^8.5.1`), `react-email` (`^6.11.8`), `vite` (`^8.3.6`), `@vitejs/plugin-react`
+  (`^6.2.1`), `sass`, `@rjsf/*`, `@fullcalendar/*` and `@vis.gl/react-google-maps`; major releases (`eslint` 10,
+  `typescript` 7, `vitest` 5, `jsdom` 31, `sitemap` 10, `@fullcalendar/*` 7) were deliberately left out
+
 #### 🐛 Fixed
 
 #### ⚠️ Deprecated
 
 #### 🗑️ Removed
+
+##### Dependencies
+
+- Removed the unused `@rollup/plugin-babel` dev dependency, whose `@babel/core@^7` peer conflicted with the Babel 8
+  optional peer pulled in by `@vitejs/plugin-react@6.2.1`
 
 #### 🔐 Security
 
