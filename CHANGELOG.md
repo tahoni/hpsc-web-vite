@@ -52,13 +52,14 @@ notes.
 
 ##### Dependencies
 
-- Updated dependencies to the latest versions allowed by their existing semver ranges, including `react`/`react-dom`
-  (`~19.2.9`), `react-router` (`^8.5.1`), `react-email` (`^6.11.8`), `vite` (`^8.3.6`), `@vitejs/plugin-react`
-  (`^6.2.1`), `sass`, `@rjsf/*`, `@fullcalendar/*` and `@vis.gl/react-google-maps`; major releases (`eslint` 10,
+- Updated dependencies to the latest versions allowed by their existing semver ranges, including `react-router`
+  (`^8.5.1`), `react-email` (`^6.11.8`), `vite` (`^8.3.6`), `@vitejs/plugin-react` (`^6.2.1`), `sass`, `@rjsf/*`, `@fullcalendar/*` and `@vis.gl/react-google-maps`; major releases (`eslint` 10,
   `typescript` 7, `@fullcalendar/*` 7) were deliberately left out
 - Upgraded `vitest` to `^5.1.0` (major); the existing test suite passes unchanged
 - Upgraded `jsdom` to `^31.0.0` and `sitemap` to `^10.0.0` (both major); `jsdom` 31 requires Node `^22.22.2 || ^24.15.0`
   and `sitemap` 10 requires Node `>=22.22.1`, which the CI `node-version: 22` and local Node 24 satisfy
+- Upgraded `react`/`react-dom` to `^19.3.1` and `@types/react`/`@types/react-dom` to `^19.3.0`, loosening the previous
+  `~19.2.x` tilde pins to caret ranges so future 19.x minors install without a manual range change
 
 #### 🐛 Fixed
 
