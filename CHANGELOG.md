@@ -16,7 +16,8 @@ notes.
 ### Table of Contents
 
 - [🧪 Unreleased](#-unreleased)
-- [🧾 Version 5.2.2](#-522---2026-09-19) ← Current
+- [🧾 Version 5.2.3](#-523---2026-11-08) ← Current
+- [🧾 Version 5.2.2](#-522---2026-09-19)
 - [🧾 Version 5.2.1](#-521---2026-09-18)
 - [🧾 Version 5.2.0](#-520---2026-09-13)
 - [🧾 Version 5.1.3](#-513---2026-09-05)
@@ -57,6 +58,65 @@ notes.
 #### 🗑️ Removed
 
 #### 🔐 Security
+
+---
+
+### 🧾 [5.2.3] - 2026-11-08
+
+#### ➕ Added
+
+##### Build & Tooling
+
+- Added an `engines.node` field (`^22.22.2 || ^24.15.0 || >=26`, the intersection of `jsdom` 31's and `sitemap` 10's
+  requirements) to `package.json` and a `.nvmrc` pinning the minimum supported release (`22.22.2`), so the Node floor
+  is stated in the repository instead of only in two transitive dependencies' `engines` fields
+
+#### 🔄 Changed
+
+##### Build & Tooling
+
+- Changed `.github/workflows/build.yml`'s `actions/setup-node` step from the floating `node-version: 22` to
+  `node-version-file: .nvmrc`, so CI exercises the lowest supported Node release from a single source of truth
+
+##### Dependencies
+
+- Updated dependencies to the latest versions allowed by their existing semver ranges, including `react-router`
+  (`^8.5.1`), `react-email` (`^6.11.8`), `vite` (`^8.3.6`), `@vitejs/plugin-react` (`^6.2.1`), `sass`, `@rjsf/*`,
+  `@fullcalendar/*` and `@vis.gl/react-google-maps`; major releases (`eslint` 10, `typescript` 7, `@fullcalendar/*` 7)
+  were deliberately left out, as their peer dependencies (`eslint-plugin-react`, `eslint-plugin-jsx-a11y`,
+  `typescript-eslint`, `typedoc`, `@fullcalendar/daygrid`/`list`) don't yet support them
+- Upgraded `vitest` to `^5.1.0` (major); the existing test suite passes unchanged
+- Upgraded `jsdom` to `^31.0.0` and `sitemap` to `^10.0.0` (both major); `jsdom` 31 requires Node `^22.22.2 || ^24.15.0`
+  and `sitemap` 10 requires Node `>=22.22.1`, which the new `engines.node` field and `.nvmrc` now declare
+- Upgraded `react`/`react-dom` to `^19.3.1` and `@types/react`/`@types/react-dom` to `^19.3.0`, loosening the previous
+  `~19.2.x` tilde pins to caret ranges so future 19.x minors install without a manual range change
+
+##### Documentation
+
+- Updated `CONTRIBUTING.md`'s and `README.md`'s Prerequisites to point to `package.json`'s `engines.node` and `.nvmrc`
+  as the single source for the required Node.js version, rather than the unversioned "download from nodejs.org"
+- Recorded and closed Gap #19 (no minimum Node.js version declared or documented, though `jsdom` 31 and `sitemap` 10
+  now require `>=22.22`) in `documentation/roadmap/improvement-plan.md` and `improvement-plan-tasks.md`, and moved
+  Gaps #16 and #18, already closed but left below the "🟡 Partially Completed" placeholder, into "✅ Completed"
+
+#### 🗑️ Removed
+
+##### Dependencies
+
+- Removed the unused `@rollup/plugin-babel` dev dependency, whose `@babel/core@^7` peer conflicted with the Babel 8
+  optional peer pulled in by `@vitejs/plugin-react@6.2.1`
+
+#### 🔐 Security
+
+##### Dependencies
+
+- Added `overrides` in `package.json` forcing `glob` to `^14.0.4` and `minimatch` to `^11.0.5` (scoped to `typedoc` and
+  `@typescript-eslint/typescript-estree`) to resolve the moderate `glob` (GHSA-3g3m-2fjr-6pw4) and `minimatch`
+  (GHSA-g3hv-75wg-m249) advisories, avoiding the `typedoc`/`@tahoni/tahoni-lib-react` downgrades that
+  `npm audit fix --force` proposed
+- Added an `overrides` entry forcing `@react-email/render` to `^2.2.0` (otherwise pinned to 2.0.6 by
+  `@react-email/components`), which moves to `html-to-text` 10 and `deepmerge-ts`, resolving the `deepmerge`
+  prototype-poisoning advisory (GHSA-gcqx-w48m-w2h4); `npm audit` now reports no vulnerabilities
 
 ---
 
