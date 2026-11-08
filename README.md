@@ -50,7 +50,8 @@ React Router is used for page routing.
 
 ### 📋 Prerequisites
 
-- **Node.js**: Download from [nodejs.org](https://nodejs.org/)
+- **Node.js**: A version satisfying `package.json`'s `engines.node` range (`.nvmrc` pins the minimum supported
+  release). Download from [nodejs.org](https://nodejs.org/)
 - **NPM registry access**: A read-only npm token for the `@tahoni` GitHub Packages scope, set in the `NPM_TOKEN_READ`
   environment variable (see [⚙️ Environment Variables](#-environment-variables))
 
