@@ -31,12 +31,25 @@ to the newest version its declared range allows, five dependencies take a major 
 
 ### 📚 Roadmap Follow-Through
 
-- Recorded Gap #19: no minimum Node.js version is declared or documented, though `jsdom` 31 and `sitemap` 10 now
-  require it
+- Closed Gap #19, found within the same release: `jsdom` 31 and `sitemap` 10 introduced a Node.js floor that nothing in
+  the repository stated; it is now declared in `package.json`'s `engines`, pinned in `.nvmrc` and read by CI
 
 ## 📦 What's New
 
+### ➕ Added
+
+#### Build & Tooling
+
+- Added an `engines.node` field (`^22.22.2 || ^24.15.0 || >=26`, the intersection of `jsdom` 31's and `sitemap` 10's
+  requirements) to `package.json` and a `.nvmrc` pinning the minimum supported release (`22.22.2`), so the Node floor
+  is stated in the repository instead of only in two transitive dependencies' `engines` fields
+
 ### 🔄 Changed
+
+#### Build & Tooling
+
+- Changed `.github/workflows/build.yml`'s `actions/setup-node` step from the floating `node-version: 22` to
+  `node-version-file: .nvmrc`, so CI exercises the lowest supported Node release from a single source of truth
 
 #### Dependencies
 
@@ -45,7 +58,7 @@ to the newest version its declared range allows, five dependencies take a major 
   `@fullcalendar/*` and `@vis.gl/react-google-maps`
 - Upgraded `vitest` to `^5.1.0`; the existing test suite passes unchanged
 - Upgraded `jsdom` to `^31.0.0` and `sitemap` to `^10.0.0`; `jsdom` 31 requires Node `^22.22.2 || ^24.15.0` and
-  `sitemap` 10 requires Node `>=22.22.1`, which the CI `node-version: 22` and local Node 24 satisfy
+  `sitemap` 10 requires Node `>=22.22.1`, which the new `engines.node` field and `.nvmrc` now declare
 - Upgraded `react`/`react-dom` to `^19.3.1` and `@types/react`/`@types/react-dom` to `^19.3.0`, loosening the previous
   `~19.2.x` tilde pins to caret ranges so future 19.x minors install without a manual range change
 - Deliberately left major releases (`eslint` 10, `typescript` 7, `@fullcalendar/*` 7) out, as their peer dependencies
@@ -54,7 +67,11 @@ to the newest version its declared range allows, five dependencies take a major 
 
 #### Documentation
 
-- Recorded Gap #19 in `documentation/roadmap/improvement-plan.md` and `improvement-plan-tasks.md`
+- Updated `CONTRIBUTING.md`'s and `README.md`'s Prerequisites to point to `package.json`'s `engines.node` and `.nvmrc`
+  as the single source for the required Node.js version, rather than the unversioned "download from nodejs.org"
+- Recorded and closed Gap #19 in `documentation/roadmap/improvement-plan.md` and `improvement-plan-tasks.md`, and
+  moved Gaps #16 and #18, already closed but left below the "🟡 Partially Completed" placeholder, into
+  "✅ Completed"
 
 ### 🗑️ Removed
 
@@ -81,14 +98,16 @@ to the newest version its declared range allows, five dependencies take a major 
 
 - **No new environment variables and no application behaviour changes** — this release only updates dependencies.
 - **Build agents need Node.js `^22.22.2`, `^24.15.0` or `>=26`**, as enforced by `jsdom` 31 (`sitemap` 10 needs
-  `>=22.22.1`). `build.yml`'s floating `node-version: 22` normally satisfies this, but a stale or pinned older 22.x
-  runner will fail `npm ci`/`npm test`/`npm run sitemap`.
+  `>=22.22.1`). `package.json` now declares this in `engines.node`, and `build.yml` reads `.nvmrc` (`22.22.2`) rather
+  than the floating `node-version: 22`; any other build agent on an older Node will fail
+  `npm ci`/`npm test`/`npm run sitemap`.
 
 ### For Developers
 
 - **Run `npm install` after pulling** — `package-lock.json` changed substantially (React 19.3, `vitest` 5, `jsdom` 31,
   `sitemap` 10, the three `overrides`).
-- **Upgrade local Node.js to `^22.22.2` or `^24.15.0`** if you're on an older version.
+- **Upgrade local Node.js to `^22.22.2`, `^24.15.0` or newer** if you're on an older version; `nvm use` picks up the
+  new `.nvmrc`.
 - **React is no longer tilde-pinned**, so `npm update` may pick up later 19.x minors; `typescript` (`~6.0.3`) and
   `eslint` (`^9`) deliberately stay put until their ecosystem peers catch up.
 
@@ -118,8 +137,6 @@ to the newest version its declared range allows, five dependencies take a major 
 
 ## 🐛 Known Issues
 
-- No minimum Node.js version is declared in `package.json`'s `engines` or documented in `CONTRIBUTING.md`/`README.md`,
-  though `jsdom` 31 and `sitemap` 10 now require `>=22.22` (tracked as Gap #19)
 - `EmailService.sendEmail()` is a `TODO: call back-end` stub that always reports success without actually sending
   an e-mail — every real Contact Us submission is silently dropped while the visitor is told it succeeded (tracked
   as Gap #17)
@@ -129,8 +146,6 @@ to the newest version its declared range allows, five dependencies take a major 
 
 ## 🔮 Future Enhancements
 
-- Declare and document the minimum Node.js version — `engines`, an `.nvmrc`, `build.yml` reading from it, and the
-  setup docs (Gap #19)
 - Wire `EmailService.sendEmail()` to a real third-party e-mail-delivery service, or correct `AGENTS.md`/
   `ContactUsForm.tsx`'s docblock to stop describing it as a working dependency (Gap #17)
 - Revisit `typescript` 7, `eslint` 10 and `@fullcalendar/*` 7 once `typescript-eslint`, `typedoc`,
@@ -145,7 +160,8 @@ Leoni Lubbinge
 ## 📝 Notes
 
 This is a routine maintenance patch release with no application changes: it brings the dependency tree current,
-clears every open `npm audit` finding and records the one new roadmap gap the upgrades revealed. `Gap #17` (the
+clears every open `npm audit` finding and closes the one new roadmap gap the upgrades revealed (Gap #19, the missing
+Node.js version floor) within the same release. `Gap #17` (the
 `EmailService` stub) remains this project's most significant open gap and the clear starting point for the next
 release.
 

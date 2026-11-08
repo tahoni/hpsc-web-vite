@@ -63,7 +63,20 @@ notes.
 
 ### 🧾 [5.2.3] - 2026-11-08
 
+#### ➕ Added
+
+##### Build & Tooling
+
+- Added an `engines.node` field (`^22.22.2 || ^24.15.0 || >=26`, the intersection of `jsdom` 31's and `sitemap` 10's
+  requirements) to `package.json` and a `.nvmrc` pinning the minimum supported release (`22.22.2`), so the Node floor
+  is stated in the repository instead of only in two transitive dependencies' `engines` fields
+
 #### 🔄 Changed
+
+##### Build & Tooling
+
+- Changed `.github/workflows/build.yml`'s `actions/setup-node` step from the floating `node-version: 22` to
+  `node-version-file: .nvmrc`, so CI exercises the lowest supported Node release from a single source of truth
 
 ##### Dependencies
 
@@ -74,14 +87,17 @@ notes.
   `typescript-eslint`, `typedoc`, `@fullcalendar/daygrid`/`list`) don't yet support them
 - Upgraded `vitest` to `^5.1.0` (major); the existing test suite passes unchanged
 - Upgraded `jsdom` to `^31.0.0` and `sitemap` to `^10.0.0` (both major); `jsdom` 31 requires Node `^22.22.2 || ^24.15.0`
-  and `sitemap` 10 requires Node `>=22.22.1`, which the CI `node-version: 22` and local Node 24 satisfy
+  and `sitemap` 10 requires Node `>=22.22.1`, which the new `engines.node` field and `.nvmrc` now declare
 - Upgraded `react`/`react-dom` to `^19.3.1` and `@types/react`/`@types/react-dom` to `^19.3.0`, loosening the previous
   `~19.2.x` tilde pins to caret ranges so future 19.x minors install without a manual range change
 
 ##### Documentation
 
-- Recorded Gap #19 (no minimum Node.js version declared or documented, though `jsdom` 31 and `sitemap` 10 now require
-  `>=22.22`) in `documentation/roadmap/improvement-plan.md` and `improvement-plan-tasks.md`
+- Updated `CONTRIBUTING.md`'s and `README.md`'s Prerequisites to point to `package.json`'s `engines.node` and `.nvmrc`
+  as the single source for the required Node.js version, rather than the unversioned "download from nodejs.org"
+- Recorded and closed Gap #19 (no minimum Node.js version declared or documented, though `jsdom` 31 and `sitemap` 10
+  now require `>=22.22`) in `documentation/roadmap/improvement-plan.md` and `improvement-plan-tasks.md`, and moved
+  Gaps #16 and #18, already closed but left below the "🟡 Partially Completed" placeholder, into "✅ Completed"
 
 #### 🗑️ Removed
 

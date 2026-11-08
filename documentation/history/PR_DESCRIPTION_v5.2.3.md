@@ -4,8 +4,8 @@
   and `@vitejs/plugin-react` 6.2, plus in-range updates across the rest
 - Clears all 15 `npm audit` findings (4 low, 11 moderate) with scoped `overrides` instead of `npm audit fix --force`,
   which would have downgraded `typedoc` and `@tahoni/tahoni-lib-react`
-- Records Gap #19, found within the same release: `jsdom` 31 and `sitemap` 10 now require Node `>=22.22`, which
-  `package.json`, CI and the setup docs don't yet state
+- Closes Gap #19, found within the same release: `jsdom` 31 and `sitemap` 10 now require Node `>=22.22`, so the floor
+  is declared in `package.json`'s `engines`, pinned in a new `.nvmrc` and read by `build.yml`
 
 ## 📦 Key Changes
 
@@ -16,7 +16,10 @@
 - **Security:** `overrides` for `glob` (`^14.0.4`), `minimatch` (`^11.0.5`, scoped to `typedoc` and
   `@typescript-eslint/typescript-estree`) and `@react-email/render` (`^2.2.0`); `npm audit` now reports 0
   vulnerabilities
-- **Documentation:** Gap #19 added to `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md`
+- **Build & Tooling:** `engines.node` and `.nvmrc` added; `build.yml` now uses `node-version-file: .nvmrc` instead of
+  the floating `node-version: 22`, so CI tests the lowest supported Node
+- **Documentation:** `CONTRIBUTING.md`/`README.md` Prerequisites point to `engines.node`/`.nvmrc`; Gap #19 recorded and
+  closed in `documentation/roadmap/improvement-plan.md`/`improvement-plan-tasks.md`
 
 ## 🧪 Test Plan
 
@@ -25,7 +28,7 @@
 - [x] `npm test` — 3 test files, 14 tests, all passing (on `vitest` 5.1.0 and `jsdom` 31.0.0)
 - [x] `npm audit` — 0 vulnerabilities, down from 15
 - [x] `npm run sitemap` — still generates valid `public/sitemap.xml` under `sitemap` 10
-- [ ] CI's `node-version: 22` resolves to a release satisfying `jsdom` 31's `^22.22.2` floor (confirm on the PR run)
+- [ ] CI's `build.yml` run succeeds on Node `22.22.2` via `node-version-file: .nvmrc` (confirm on the PR run)
 
 ## 🔗 Related Documentation
 

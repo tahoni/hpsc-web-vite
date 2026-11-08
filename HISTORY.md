@@ -38,8 +38,10 @@ the legacy Version 3.x line that predates it.
   `@rollup/plugin-babel` whose Babel 7 peer blocked `@vitejs/plugin-react` 6.2.1
 - Deliberately left `typescript` 7, `eslint` 10 and `@fullcalendar/*` 7 unadopted, because `typescript-eslint`,
   `typedoc`, `eslint-plugin-react`, `eslint-plugin-jsx-a11y` and `@fullcalendar/daygrid`/`list` don't yet support them
-- Recorded Gap #19, surfaced by the upgrades: `jsdom` 31 and `sitemap` 10 introduced a hard Node.js floor
-  (`>=22.22`) that `package.json`, CI and the setup docs don't yet state
+- Closed Gap #19, surfaced by the upgrades within the same release: `jsdom` 31 and `sitemap` 10 introduced a hard
+  Node.js floor (`>=22.22`) that nothing in the repository stated, so it is now declared in `package.json`'s
+  `engines.node`, pinned in a new `.nvmrc` and read by `build.yml` (replacing the floating `node-version: 22`), with
+  `CONTRIBUTING.md` and `README.md` pointing to both
 
 ### Version 5.2.2 (September 19, 2026)
 
