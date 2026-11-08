@@ -70,6 +70,14 @@ notes.
 
 #### 🔐 Security
 
+##### Dependencies
+
+- Added `overrides` in `package.json` forcing `glob` to `^14.0.4` and `minimatch` to `^11.0.5` (scoped to `typedoc` and
+  `@typescript-eslint/typescript-estree`) to resolve the moderate `glob` (GHSA-3g3m-2fjr-6pw4) and `minimatch`
+  (GHSA-g3hv-75wg-m249) advisories, avoiding the `typedoc`/`@tahoni/tahoni-lib-react` downgrades that
+  `npm audit fix --force` proposed
+- `deepmerge` (GHSA-gcqx-w48m-w2h4, reached via `@react-email/components`) remains open, as no patched release exists
+
 ---
 
 ### 🧾 [5.2.2] - 2026-09-19
