@@ -29,7 +29,8 @@ drift there first, then update whichever file had fallen out of sync.
 
 ## 📋 Prerequisites
 
-- **Node.js** — download from [nodejs.org](https://nodejs.org/)
+- **Node.js** — a version satisfying `package.json`'s `engines.node` range; `.nvmrc` pins the minimum supported
+  release, which CI also uses, so `nvm use` selects it. Download from [nodejs.org](https://nodejs.org/)
 - **NPM registry access** — a read-only npm token for the `@tahoni` GitHub Packages scope, set in the
   `NPM_TOKEN_READ` environment variable (see
   [`AGENTS.md`'s Environment Variables table](AGENTS.md#-environment-variables)). `.env.local` also holds optional

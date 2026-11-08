@@ -24,6 +24,25 @@ the legacy Version 3.x line that predates it.
 
 ## 📅 Historical Timeline
 
+### Version 5.2.3 (November 8, 2026)
+
+**Theme:** Dependency Currency & Zero Known Vulnerabilities
+
+**Key Focus:**
+
+- Brought the dependency tree current without peer-dependency conflicts: every package moved to the newest version its
+  declared range allows, with `vitest` 5, `jsdom` 31, `sitemap` 10, React 19.3 (loosening the `~19.2.x` tilde pins to
+  caret ranges) and `@vitejs/plugin-react` 6.2 adopted as the larger steps
+- Cleared all 15 `npm audit` findings with scoped `overrides` (`glob`, `minimatch`, `@react-email/render`) instead of
+  `npm audit fix --force`, which would have downgraded `typedoc` and `@tahoni/tahoni-lib-react`; removed the unused
+  `@rollup/plugin-babel` whose Babel 7 peer blocked `@vitejs/plugin-react` 6.2.1
+- Deliberately left `typescript` 7, `eslint` 10 and `@fullcalendar/*` 7 unadopted, because `typescript-eslint`,
+  `typedoc`, `eslint-plugin-react`, `eslint-plugin-jsx-a11y` and `@fullcalendar/daygrid`/`list` don't yet support them
+- Closed Gap #19, surfaced by the upgrades within the same release: `jsdom` 31 and `sitemap` 10 introduced a hard
+  Node.js floor (`>=22.22`) that nothing in the repository stated, so it is now declared in `package.json`'s
+  `engines.node`, pinned in a new `.nvmrc` and read by `build.yml` (replacing the floating `node-version: 22`), with
+  `CONTRIBUTING.md` and `README.md` pointing to both
+
 ### Version 5.2.2 (September 19, 2026)
 
 **Theme:** Zero-Tolerance Lint Enforcement

@@ -1,6 +1,6 @@
 # Roadmap Task List
 
-A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s eighteen gaps, grouped by
+A concrete, checkbox-level breakdown of [`improvement-plan.md`](improvement-plan.md)'s nineteen gaps, grouped by
 that document's completion status — ✅ Completed, 🟡 Partially Completed, ⚪ Open — matching its own
 "🔍 Gaps & Improvement Opportunities" grouping. Each block names its originating gap number for traceability back
 to the evidence and reasoning there; within each section, gaps stay in ascending number order.
@@ -216,6 +216,17 @@ in v5.2.1** *(improvement-plan.md → Gap #16)*
 
 - [x] Update `CONTRIBUTING.md`'s Pull Request Checklist to say "`npm run lint` passes with zero warnings, not just
   zero errors", matching `AGENTS.md`'s Code Quality & CI wording — done in `5.2.2`
+
+**No minimum Node.js version is declared or documented, though `jsdom` 31 and `sitemap` 10 now require `>=22.22` —
+✅ Closed in v5.2.3** *(improvement-plan.md → Gap #19)*
+
+- [x] Declare the minimum Node.js version in `package.json`'s `engines.node` (and optionally commit an `.nvmrc`) —
+  done in `5.2.3`: `engines.node` is `^22.22.2 || ^24.15.0 || >=26`, and `.nvmrc` pins `22.22.2`
+- [x] Point `build.yml`'s `node-version` at that single source (e.g. `node-version-file: .nvmrc`) instead of the
+  floating `22` — done in `5.2.3`
+- [x] State the minimum version once in `CONTRIBUTING.md`'s prerequisites and `README.md`'s installation section —
+  done in `5.2.3`; both now point to `engines.node`/`.nvmrc` instead of repeating the range, keeping `README.md`
+  evergreen
 
 ---
 
