@@ -77,7 +77,9 @@ notes.
   `@typescript-eslint/typescript-estree`) to resolve the moderate `glob` (GHSA-3g3m-2fjr-6pw4) and `minimatch`
   (GHSA-g3hv-75wg-m249) advisories, avoiding the `typedoc`/`@tahoni/tahoni-lib-react` downgrades that
   `npm audit fix --force` proposed
-- `deepmerge` (GHSA-gcqx-w48m-w2h4, reached via `@react-email/components`) remains open, as no patched release exists
+- Added an `overrides` entry forcing `@react-email/render` to `^2.2.0` (otherwise pinned to 2.0.6 by
+  `@react-email/components`), which moves to `html-to-text` 10 and `deepmerge-ts`, resolving the `deepmerge`
+  prototype-poisoning advisory (GHSA-gcqx-w48m-w2h4); `npm audit` now reports no vulnerabilities
 
 ---
 

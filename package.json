@@ -80,6 +80,7 @@
     },
     "@typescript-eslint/typescript-estree": {
       "minimatch": "^11.0.5"
-    }
+    },
+    "@react-email/render": "^2.2.0"
   }
 }
